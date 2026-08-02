@@ -25,5 +25,8 @@ async function render() {
 test("root route directs visitors to the KOA website", async () => {
   const response = await render();
   assert.equal(response.status, 307);
-  assert.equal(response.headers.get("location"), "/koa/index.html");
+  assert.equal(
+    response.headers.get("location"),
+    "http://localhost/koa/index.html",
+  );
 });
