@@ -1,0 +1,6 @@
+const root=document.documentElement,body=document.body,stage=document.querySelector('.scroll-story'),frame=document.querySelector('[data-frame]'),menu=document.querySelector('.menu');
+const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+function tick(){if(stage){const max=stage.offsetHeight-innerHeight,p=clamp(-stage.getBoundingClientRect().top/max),f=Math.round(p*1200);root.style.setProperty('--p',p);root.style.setProperty('--frame',f);if(frame)frame.textContent=String(f).padStart(4,'0');document.querySelectorAll('.beat').forEach((el,i)=>{const start=i*.2,end=start+.25,local=clamp((p-start)/(end-start));el.style.setProperty('--local',local);el.classList.toggle('active',local>.05&&local<.98||i===4&&local>.05)});document.querySelectorAll('.chapters li').forEach((el,i)=>el.classList.toggle('active',p>=.16+i*.2&&p<.36+i*.2));}requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+menu?.addEventListener('click',()=>{const open=body.classList.toggle('nav-open');menu.setAttribute('aria-expanded',String(open))});
+const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('visible',e.isIntersecting)),{threshold:.15});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
