@@ -1,0 +1,178 @@
+/* V4.7 — continuous hero-to-banner logo handoff and dark-surface contrast. */
+
+/* Keep the original center colors while making the detailed black linework read
+   clearly against navy. The pseudo layer turns only the outer annulus light. */
+.identity-mark,
+.brand--logo-handoff {
+  isolation: isolate;
+}
+
+.identity-mark img,
+.brand--logo-handoff img {
+  filter:
+    drop-shadow(0 0 1px #000)
+    drop-shadow(0 0 1.5px #000)
+    drop-shadow(0 2px 3px rgba(0, 0, 0, 0.88));
+}
+
+.identity-mark::after,
+.brand--logo-handoff::after {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  background: url("assets/koa-logo.png") center / contain no-repeat;
+  content: "";
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 0 1px #000)
+    drop-shadow(0 0 2px #000);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle, transparent 0 43%, #000 54% 100%);
+  mask-image: radial-gradient(circle, transparent 0 43%, #000 54% 100%);
+}
+
+.identity-mark::after {
+  inset: 0;
+}
+
+.brand--logo-handoff {
+  position: relative;
+}
+
+.brand--logo-handoff::after {
+  top: 50%;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  transform: translateY(-50%);
+}
+
+/* The full-screen mark visually becomes the mark in the glass banner. */
+.site-header .brand--logo-handoff img,
+.site-header .brand--logo-handoff::after,
+.site-header .brand--logo-handoff span {
+  opacity: 0;
+  transform-origin: left center;
+  animation: koa-banner-brand-arrival linear both;
+  animation-timeline: scroll(root block);
+  animation-range: 0vh 100vh;
+}
+
+.site-header .brand--logo-handoff::after {
+  transform: translateY(-50%) scale(0.72);
+  animation-name: koa-banner-ring-arrival;
+}
+
+@keyframes koa-banner-brand-arrival {
+  0%, 46% { opacity: 0; transform: scale(0.72); }
+  72%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes koa-banner-ring-arrival {
+  0%, 46% { opacity: 0; transform: translateY(-50%) scale(0.72); }
+  72%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+/* Make the hero mark's departure feel like a handoff instead of a disappearance. */
+@keyframes koa-logo-handoff {
+  0%, 4% {
+    top: 50%;
+    left: 50%;
+    width: min(78vw, 760px);
+    padding: 0;
+    border-color: transparent;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    backdrop-filter: blur(0) saturate(100%);
+  }
+  9%, 14% {
+    top: 48%;
+    left: 70%;
+    width: clamp(300px, 34vw, 520px);
+    padding: clamp(0.7rem, 1.4vw, 1.2rem);
+    border-color: rgba(243, 240, 232, 0.22);
+    border-radius: 2rem;
+    background: linear-gradient(145deg, rgba(243, 240, 232, 0.11), rgba(8, 30, 53, 0.42));
+    box-shadow: 0 30px 90px rgba(0, 4, 14, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.13);
+    opacity: 0.84;
+    transform: translate(-50%, -50%) scale(0.98);
+    backdrop-filter: blur(22px) saturate(135%);
+  }
+  20%, 100% {
+    top: calc(var(--header-height) / 2);
+    left: calc(var(--gutter) + 22px);
+    width: 44px;
+    padding: 0;
+    border-color: transparent;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+    backdrop-filter: blur(0) saturate(100%);
+  }
+}
+
+@media (max-width: 760px) {
+  .brand--logo-handoff::after {
+    width: 38px;
+    height: 38px;
+  }
+
+  @keyframes koa-logo-handoff {
+    0%, 5% {
+      top: 45%;
+      left: 50%;
+      width: min(88vw, 520px);
+      padding: 0;
+      border-color: transparent;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: none;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      backdrop-filter: none;
+    }
+    12%, 15% {
+      top: 38%;
+      left: 50%;
+      width: min(58vw, 300px);
+      padding: 0.5rem;
+      border-color: rgba(243, 240, 232, 0.18);
+      border-radius: 1.35rem;
+      background: rgba(8, 30, 53, 0.34);
+      box-shadow: 0 20px 60px rgba(0, 4, 14, 0.42);
+      opacity: 0.82;
+      transform: translate(-50%, -50%) scale(0.96);
+      backdrop-filter: blur(18px) saturate(125%);
+    }
+    21%, 100% {
+      top: calc(var(--header-height) / 2);
+      left: calc(0.75rem + 19px);
+      width: 38px;
+      padding: 0;
+      border-color: transparent;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: none;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.88);
+      backdrop-filter: none;
+    }
+  }
+}
+
+html[data-motion="reduced"] .site-header .brand--logo-handoff img,
+html[data-motion="reduced"] .site-header .brand--logo-handoff::after,
+html[data-motion="reduced"] .site-header .brand--logo-handoff span {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+html[data-motion="reduced"] .site-header .brand--logo-handoff::after {
+  transform: translateY(-50%);
+}
