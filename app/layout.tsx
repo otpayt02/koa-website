@@ -9,6 +9,21 @@ export const metadata: Metadata = {
     icon: "/koa/assets/koa-logo.png",
     shortcut: "/koa/assets/koa-logo.png",
   },
+  openGraph: {
+    title: "Karen Organization of America",
+    description: "Many places. One community.",
+    images: [
+      "https://karen-organization-of-america.oliverp789.chatgpt.site/og-cinematic.png",
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Karen Organization of America",
+    description: "Many places. One community.",
+    images: [
+      "https://karen-organization-of-america.oliverp789.chatgpt.site/og-cinematic.png",
+    ],
+  },
 };
 
 export default function RootLayout({
