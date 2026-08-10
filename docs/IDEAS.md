@@ -1,8 +1,29 @@
 # IDEAS.md — Unapproved, In-Progress & Unfinished Features
 
 **Owner:** Oliver P (IT Manager / Web Lead)
-**Last Updated:** 2026-08-09
+**Last Updated:** 2026-08-09 (v4)
 **Purpose:** This file contains every idea, feature, or proposal that has NOT yet been agreed upon as part of the final website. Nothing in this file is committed to the build. Ideas move from here to `docs/SPEC.md` only when Oliver approves them.
+
+---
+
+## What Changed in v4
+
+The following ideas were PROMOTED to `docs/SPEC.md` (now committed):
+- ✅ Community-moderated Karen dictionary → SPEC §5
+- ✅ Community audio uploads for STT/TTS training → SPEC §6
+- ✅ Karen LLM development → SPEC §6
+- ✅ Synonyms, antonyms, multiple translations → SPEC §5
+- ✅ Approved translator/interpreter directory → SPEC §7
+- ✅ Court interpretation partnership → SPEC §7
+- ✅ Community feature requests, service suggestions, collaboration requests → SPEC §8
+- ✅ Donations and contributions → SPEC §8
+- ✅ Recursive AI training loop (now part of dictionary + audio pipeline) → SPEC §6
+
+Still in IDEAS.md (not yet approved):
+- Karen music section
+- Podcast
+- Karen AI education portal (standalone)
+- Karen language keyboard (standalone)
 
 ---
 
@@ -24,31 +45,6 @@
 
 ---
 
-## Karen Language & Translation
-
-### Recursive AI Training Loop
-- **Proposed by:** Oliver P
-- **Date:** 2026-08-09
-- **Status:** 💡 Proposed
-- **Description:** Translations and community uploads generate synthetic side-by-side training data, which feeds back into the model to improve over time. Upload → translate → review → train → improve → repeat.
-- **Notes:** Needs answers on model choice, training infrastructure, and quality measurement before approval.
-
-### Community-Run Lexicon
-- **Proposed by:** Oliver P
-- **Date:** 2026-08-09
-- **Status:** 💡 Proposed
-- **Description:** Moderated, community-driven dictionary with contributor roles (Contributor, Reviewer, Moderator, Admin), review queues, version history, and gamification (badges, leaderboard).
-- **Notes:** Needs moderator identification and onboarding flow before approval.
-
-### Karen AI Language Agents
-- **Proposed by:** Oliver P
-- **Date:** 2026-08-09
-- **Status:** 💡 Proposed
-- **Description:** Embed Karen-language AI agents on the site for conversational translation, learning, and assistance.
-- **Notes:** Dependent on recursive training loop being functional.
-
----
-
 ## Karen Culture & Community
 
 ### Karen Music Section
@@ -65,13 +61,6 @@
 - **Description:** Episode list, player, show notes, subscribe button. Placeholder page until launch.
 - **Notes:** Needs host, format, and launch date.
 
-### Development Opportunities Board
-- **Proposed by:** Oliver P
-- **Date:** 2026-08-09
-- **Status:** 💡 Proposed
-- **Description:** Job board, grants, scholarships, internships, and training programs for the Karen community. Community-submitted (moderated).
-- **Notes:** Needs sourcing strategy and moderation plan.
-
 ---
 
 ## AI Education & Services
@@ -81,32 +70,18 @@
 - **Date:** 2026-08-09
 - **Status:** 💡 Proposed
 - **Description:** Free courses in Karen: What-is-AI, prompt engineering, AI safety. Serves as a funnel into KOA's services (helping underserved communities access AI tools, training, devices).
-- **Notes:** Needs curriculum writer and service-tier definition.
-
-### Scrape Project Integration
-- **Proposed by:** Oliver P
-- **Date:** 2026-08-09
-- **Status:** 💡 Proposed
-- **Description:** Wire a scrape project via `/api/webhooks/scraper` to ingest Karen-language content into the lexicon and training pipeline. Log every ingestion with source URL, timestamp, and content hash.
-- **Notes:** Needs legal/ethical review of scraping targets.
+- **Notes:** Needs curriculum writer and service-tier definition. Could be integrated into the translation/interpretation services page instead of a standalone portal.
 
 ---
 
-## Team Collaboration & Workflow
-
-### Team Workspace for Content Proposals
-- **Proposed by:** Oliver P
-- **Date:** 2026-08-09
-- **Status:** 💡 Proposed
-- **Description:** A free, shared interface where team members can propose content changes, submit ideas, respond to Oliver's questions, and message Oliver — all tracked and transparent.
-- **Notes:** See `docs/TEAM-WORKSPACE.md` for options analysis. Recommended: GitHub Issues + Projects (free, already connected).
+## Input & Accessibility
 
 ### Karen Language Keyboard
 - **Proposed by:** Oliver P
 - **Date:** 2026-08-09
 - **Status:** 💡 Proposed
 - **Description:** A Karen-language keyboard input method for the site, so community members can type in S'gaw Karen without needing a system-level keyboard.
-- **Notes:** Needs research into existing Karen keyboard layouts and web-based input methods.
+- **Notes:** Needs research into existing Karen keyboard layouts and web-based input methods. Could be integrated into the contribute/dictionary pages.
 
 ---
 
@@ -149,6 +124,9 @@
 
 ## Changelog for This File
 
-### 2026-08-09
+### 2026-08-09 (v4)
+- Promoted to SPEC: community dictionary, audio uploads, Karen LLM, synonyms/antonyms, interpreter directory, court interpretation, feature requests, service suggestions, collaboration requests, donations, recursive AI training loop.
+- Remaining: Karen music, podcast, AI education portal, Karen keyboard.
+
+### 2026-08-09 (v3)
 - Created `IDEAS.md` with all unapproved features separated from `docs/SPEC.md`.
-- Initial ideas: recursive AI training loop, community lexicon, Karen AI agents, Karen music, podcast, development opportunities, AI education portal, scrape project, team workspace, Karen keyboard, leadership bios, program details, community stories.
