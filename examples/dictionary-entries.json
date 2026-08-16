@@ -1,0 +1,14 @@
+[
+  {
+    "word": "မဲ",
+    "partOfSpeech": "noun",
+    "category": "family",
+    "source": "community",
+    "status": "pending",
+    "translations": [
+      { "language": "en", "text": "mother", "context": "general", "status": "pending" },
+      { "language": "en", "text": "mom", "context": "informal", "status": "pending" }
+    ],
+    "note": "Illustrative unverified data from SPEC v4. A Karen reviewer must validate spelling and meaning before publication."
+  }
+]

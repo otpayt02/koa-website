@@ -5,6 +5,34 @@ Each entry includes: date, what changed, why, and who.
 
 ---
 
+## 2026-08-10 (v4 implementation)
+
+### QA and decision traceability
+
+- `docs/answers.md` — added conservative answers to all 50 §14 questions, each marked unconfirmed and production-gated where authority or evidence is missing; enables prototype implementation without inventing KOA policy.
+- `docs/answers-needed.md` — reduced the open questions to a production-readiness frontier and evidence checklist; makes source permissions, approved professionals, court contacts, donations, legal terms, and operational ownership explicit blockers rather than hidden assumptions.
+- `docs/decisions/0005-assumption-gated-v4-implementation.md` — recorded the decision to implement all committed v4 surfaces while external, rights-sensitive, professional, and financial integrations fail closed pending approval.
+- `docs/conversations/2026-08-10-implementation-v4.md` — logged Oliver's full-build instruction, materials reviewed, implementation interpretation, QA approach, and unresolved decisions for traceability.
+- `docs/history/v1-design-qa.md` — copied the superseded root `design-qa.md` into the specified history location without deleting the source artifact.
+- `tests/v4-contract.test.mjs` — added serverless Node contracts for all 14 bilingual pages, locale catalog parity, 12 API routes and handler exports, exclusion of standalone IDEAS routes, accessibility/SEO signals, and v4 schema/migration structure.
+- `tests/rendered-bilingual.test.mjs` — added build-artifact HTML checks for English and Karen home pages without a development server; stale or absent builds are skipped with an actionable reason.
+- `docs/CHANGELOG.md` — added this per-file implementation and verification record as required by SPEC §19.
+
+### Product and platform implementation
+
+- `app/[lang]/` — implemented the 14 committed bilingual pages plus the shared language shell, metadata, structured data, and safe admin surface.
+- `app/api/` — added dictionary, contribution, audio, translation, interpreter, collaboration, contact, donation, logging, and training endpoints with validation and request IDs.
+- `components/`, `messages/`, `app/globals.css` — added the reusable accessible UI system, English/S'gaw Karen catalogs, forms, review states, audio controls, and responsive visual language.
+- `db/`, `drizzle/`, `lib/`, `worker/` — added the D1 schema and migration, audit/moderation/rate-limit helpers, R2 media handling, structured logging, and honest training export/feedback worker hooks.
+- `app/sitemap.ts`, `app/robots.ts`, `proxy.ts` — added technical SEO, language alternates, crawler boundaries, and request observability for the Next 16 runtime.
+- `.openai/hosting.json` — declared the DB and media bindings required by the committed persistence features.
+- `package.json`, `.gitignore` — expanded the test command to cover all Node contracts and ignored TypeScript build metadata.
+
+### Scope boundary
+
+- Standalone Karen music, podcast, AI education portal, and Karen keyboard routes remain excluded because they are still unapproved in `docs/IDEAS.md`.
+- Dictionary scraping, external model training, real interpreter/court service publication, donation processing/tax receipts, and unverified content publication remain production-gated until `docs/answers-needed.md` is resolved.
+
 ## 2026-08-09 (v4)
 
 ### Added
