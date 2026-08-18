@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
+import { CinematicHome } from "@/components/CinematicHome";
 import { dictionaryEntries } from "@/components/data";
 import { DictionaryEntry } from "@/components/DictionaryEntry";
-import { getMessages, isLang, pageLabels } from "@/components/i18n";
+import { getMessages, isLang } from "@/components/i18n";
 import { Section } from "@/components/Section";
 
 export const metadata: Metadata = { title: "Home", description: "A national home for Karen communities to connect, contribute, and lead." };
@@ -16,17 +17,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const m = getMessages(lang);
   return (
     <>
-      <section className="home-hero">
-        <div className="home-hero__media"><img src="/koa/assets/hero-community-mobile-enhanced.png" alt="Karen community members gathered together" /></div>
-        <div className="home-hero__veil" />
-        <div className="home-hero__content container">
-          <p className="eyebrow">Karen Organization of America · Since 2018</p>
-          <h1>{pageLabels.home[lang]}</h1>
-          <p className="lede">{lang === "karen" ? "ကညီပှၤတဝၢတဖၣ်လၢကီၢ်အမဲရကၤဒီဘ့ၣ် ဆဲးကျိးလိာ်သး၊ ဟ့ၣ်ခီဟ့ၣ်နီၤတၢ်သ့ၣ်ညါ၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါ။" : "Connect with services, protect our language, share community knowledge, and help shape a thriving future for Karen people across the United States."}</p>
-          <div className="button-row"><Button href={`/${lang}/community`}>{m.explore} {m.community}</Button><Button href={`/${lang}/dictionary`} variant="secondary">{m.searchDictionary}</Button></div>
-        </div>
-        <div className="hero-stat"><strong>20</strong><span>states represented at KOA&apos;s founding</span><strong>50+</strong><span>community leaders gathered</span></div>
-      </section>
+      <CinematicHome lang={lang} messages={m} />
 
       <Section eyebrow="Our purpose · ပတၢ်ပညိၣ်" title={lang === "karen" ? "မၤဂၢၢ်မၤကျၢၤတၢ်ဃူတၢ်ဖိး။ ဒီသဒၢတၢ်ခွဲးတၢ်ယာ်။" : "Strengthen unity. Protect rights. Build belonging."} intro={lang === "karen" ? "KOA ဆဲးကျိးပှၤတဝၢ၊ ကတိၤခဲပှၤတဖၣ်အဂီၢ်၊ ဒီးဟ့ၣ်တၢ်သ့တၢ်ဘၣ်လၢကတီခိၣ်ရိၣ်မဲ။" : "KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead."}>
         <div className="feature-grid feature-grid--3">
