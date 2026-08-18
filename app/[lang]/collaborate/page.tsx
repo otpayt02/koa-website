@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DonationForm } from "@/components/DonationForm";
 import { FeatureRequestForm } from "@/components/FeatureRequestForm";
 import { Card } from "@/components/Card";
-import { isLang, pageLabels } from "@/components/i18n";
+import { isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { getPublishedMessages, getTranslator } from "@/lib/content";

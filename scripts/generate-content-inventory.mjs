@@ -28,10 +28,14 @@ const definitions = [];
 const bindings = [];
 const seenDefinitionKeys = new Set(manual.map((entry) => entry.key));
 const occurrences = new Map();
+const definitionOccurrences = new Map();
 
 for (const candidate of candidates) {
   const manualEntry = manual.find((entry) => (entry.route === candidate.route || entry.route === "*") && entry.en === candidate.en);
-  const key = manualEntry?.key ?? generatedKey(candidate);
+  const definitionOccurrenceKey = `${candidate.file}|${candidate.kind}|${candidate.attribute ?? ""}|${candidate.en}`;
+  const definitionOccurrence = definitionOccurrences.get(definitionOccurrenceKey) ?? 0;
+  definitionOccurrences.set(definitionOccurrenceKey, definitionOccurrence + 1);
+  const key = manualEntry?.key ?? generatedKey(candidate, definitionOccurrence);
   if (!manualEntry && !seenDefinitionKeys.has(key)) {
     definitions.push({
       key,
@@ -140,10 +144,10 @@ function isContent(text, node) {
   return true;
 }
 
-function generatedKey(candidate) {
+function generatedKey(candidate, occurrence) {
   const route = candidate.route === "/" ? "home" : candidate.route.replaceAll(/[\[\]\/]+/g, ".").replace(/^\.|\.$/g, "");
   const semantic = candidate.en.toLocaleLowerCase().replaceAll(/[^a-z0-9]+/g, " ").trim().split(" ").slice(0, 6).map((word, index) => index ? word[0].toUpperCase() + word.slice(1) : word).join("") || "content";
-  const hash = crypto.createHash("sha1").update(`${candidate.file}|${candidate.kind}|${candidate.attribute ?? ""}|${candidate.position}|${candidate.en}`).digest("hex").slice(0, 8);
+  const hash = crypto.createHash("sha1").update(`${candidate.file}|${candidate.kind}|${candidate.attribute ?? ""}|${occurrence}|${candidate.en}`).digest("hex").slice(0, 8);
   return `auto.${route}.${semantic}.${hash}`;
 }
 
