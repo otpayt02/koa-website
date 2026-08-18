@@ -83,12 +83,13 @@ export function TranslationStudio({ lang }: { lang: Lang }) {
     }));
   }, [data, drafts, lang]);
 
-  function updatePreview() {
-    previewRef.current?.contentWindow?.postMessage({ type: "koa-translation-preview", values: previewValues }, window.location.origin);
-  }
-
   useEffect(() => {
-    const timer = window.setTimeout(updatePreview, 0);
+    const timer = window.setTimeout(() => {
+      previewRef.current?.contentWindow?.postMessage(
+        { type: "koa-translation-preview", values: previewValues },
+        window.location.origin,
+      );
+    }, 0);
     return () => window.clearTimeout(timer);
   }, [previewValues, route]);
 
