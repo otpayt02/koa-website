@@ -69,3 +69,18 @@ html[data-motion=reduced] .logo-stack{opacity:1}
 @media(max-width:759px){.scene-copy .story-line:not(.secondary){-webkit-mask-image:linear-gradient(90deg,#000 0,#000 89%,transparent);mask-image:linear-gradient(90deg,#000 0,#000 89%,transparent)}.story-line.secondary{-webkit-mask-image:linear-gradient(90deg,#000 0,#000 95%,transparent);mask-image:linear-gradient(90deg,#000 0,#000 95%,transparent)}.contact-card{min-height:220px}}
 @media(prefers-reduced-motion:reduce){.scene{filter:none;transform:none}.scene-media img{transform:none}.contact-card::before{display:none}}
 html[data-motion=reduced] .scene{filter:none;transform:none}html[data-motion=reduced] .scene-media img{transform:none}html[data-motion=reduced] .contact-card::before{display:none}
+
+/* Primary cinematic mode and separate bilingual preview entry point. */
+.language-mode{display:grid;align-content:center;min-height:42px;padding:0 .7rem;border:1px solid rgba(255,255,255,.18);border-radius:8px;color:var(--cream);line-height:1.05;text-align:right;transition:border-color .35s,background-color .35s,color .35s}.language-mode span{font-size:.68rem;font-weight:800;letter-spacing:.08em}.language-mode small{margin-top:.22rem;color:var(--muted);font-size:.5rem;letter-spacing:.09em;text-transform:uppercase}.language-mode:hover,.language-mode:focus-visible{border-color:var(--gold);background:rgba(242,200,90,.1);color:var(--gold-soft)}
+
+/* Production-kit review register. */
+.review-list{border-top:1px solid var(--line)}.review-row{display:grid;gap:.7rem;padding:2rem 0;border-bottom:1px solid var(--line)}.review-row>span{color:var(--gold);font-size:.61rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.review-row h3{margin:0;font:400 clamp(2rem,6vw,4.8rem)/.94 var(--serif);letter-spacing:-.045em}.review-row p{max-width:44rem;margin:0;color:var(--muted);font-size:.82rem}.review-row p strong{display:block;margin-bottom:.22rem;color:var(--cream);font-size:.61rem;letter-spacing:.12em;text-transform:uppercase}
+
+/* Gentle editorial reveals below the scroll film. */
+.cinematic-reveal{opacity:0;transform:translate3d(0,24px,0);transition:opacity .78s cubic-bezier(.16,1,.3,1),transform .92s cubic-bezier(.16,1,.3,1)}.cinematic-reveal.is-visible{opacity:1;transform:none}.fact.cinematic-reveal:nth-child(2),.link-card.cinematic-reveal:nth-child(2),.review-row.cinematic-reveal:nth-child(2){transition-delay:.08s}.fact.cinematic-reveal:nth-child(3),.link-card.cinematic-reveal:nth-child(3),.review-row.cinematic-reveal:nth-child(3){transition-delay:.16s}
+
+@media(min-width:760px){.review-row{grid-template-columns:minmax(130px,.35fr) minmax(260px,.9fr) 1fr 1fr;gap:clamp(1.5rem,3vw,4rem);align-items:start;padding:2.5rem 0}.review-row h3{font-size:clamp(2.2rem,4vw,4.5rem)}.review-row p{padding-top:.35rem}}
+@media(min-width:760px) and (max-width:1120px){.language-mode small{display:none}.language-mode{padding-inline:.55rem}.header{grid-template-columns:minmax(180px,1fr) auto minmax(250px,1fr)}.nav{gap:1rem}}
+@media(max-width:759px){.language-mode small{display:none}.language-mode{min-width:68px;padding-inline:.45rem}.language-mode span{font-size:.61rem}}
+@media(prefers-reduced-motion:reduce){.cinematic-reveal{opacity:1;transform:none;transition:none}}
+html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:none}
