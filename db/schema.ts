@@ -186,6 +186,41 @@ export const contentTranslations = sqliteTable("content_translations", {
   updatedAt: updatedAt(),
 }, (table) => [uniqueIndex("content_translation_unique").on(table.contentKey, table.language)]);
 
+export const contentTranslationRevisions = sqliteTable("content_translation_revisions", {
+  id: text("id").primaryKey(),
+  contentKey: text("content_key").notNull(),
+  language: text("language", { enum: ["en", "karen"] }).notNull(),
+  value: text("value").notNull(),
+  version: integer("version").notNull(),
+  baseRevisionId: text("base_revision_id"),
+  authorId: text("author_id").notNull().references(() => users.id),
+  imported: integer("imported", { mode: "boolean" }).notNull().default(false),
+  createdAt: createdAt(),
+}, (table) => [
+  uniqueIndex("content_revision_version_unique").on(table.contentKey, table.language, table.version),
+  index("content_revision_key_idx").on(table.contentKey),
+  index("content_revision_author_idx").on(table.authorId),
+]);
+
+export const translationPublicationBatches = sqliteTable("translation_publication_batches", {
+  id: text("id").primaryKey(),
+  publishedBy: text("published_by").notNull().references(() => users.id),
+  entryCount: integer("entry_count").notNull(),
+  createdAt: createdAt(),
+}, (table) => [index("translation_publication_actor_idx").on(table.publishedBy)]);
+
+export const contentTranslationPublications = sqliteTable("content_translation_publications", {
+  contentKey: text("content_key").primaryKey(),
+  englishRevisionId: text("english_revision_id").notNull().references(() => contentTranslationRevisions.id),
+  karenRevisionId: text("karen_revision_id").notNull().references(() => contentTranslationRevisions.id),
+  publicationBatchId: text("publication_batch_id").notNull().references(() => translationPublicationBatches.id),
+  publishedBy: text("published_by").notNull().references(() => users.id),
+  publishedAt: integer("published_at", { mode: "timestamp_ms" }).notNull(),
+}, (table) => [
+  index("content_publication_batch_idx").on(table.publicationBatchId),
+  index("content_publication_actor_idx").on(table.publishedBy),
+]);
+
 export const featureRequests = sqliteTable("feature_requests", {
   id: text("id").primaryKey(),
   submitterId: text("submitter_id").references(() => users.id),
