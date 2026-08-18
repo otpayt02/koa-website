@@ -24,9 +24,9 @@ function Test-SafeNewPath {
     'tsconfig.json', 'next.config.ts', 'vite.config.ts', 'wrangler.jsonc',
     'drizzle.config.ts', 'middleware.ts', 'proxy.ts'
   )
-  $isAllowed = ($allowedRoots -contains $normalized) -or ($allowedPrefixes | Where-Object { $normalized.StartsWith($_) })
+  $isAllowed = (($allowedRoots -contains $normalized) -or ($allowedPrefixes | Where-Object { $normalized.StartsWith($_) }))
   $isSensitive = $normalized -match '(^|/)\.env|(^|/)(secret|credential|token|password|private)(s|/|\.)|\.(pem|key|pfx|p12)$'
-  return $isAllowed -and -not $isSensitive
+  return ($isAllowed -and (-not $isSensitive))
 }
 
 $mutex = New-Object System.Threading.Mutex($false, 'KOA-GitHub-Auto-Sync')
@@ -39,7 +39,7 @@ try {
     throw "Refusing to sync because origin is not the KOA GitHub repository: $origin"
   }
 
-  if (Test-Path '.git\MERGE_HEAD' -or Test-Path '.git\rebase-merge' -or Test-Path '.git\rebase-apply') {
+  if ((Test-Path '.git\MERGE_HEAD') -or (Test-Path '.git\rebase-merge') -or (Test-Path '.git\rebase-apply')) {
     throw 'A merge or rebase needs manual resolution before automatic sync can continue.'
   }
 
