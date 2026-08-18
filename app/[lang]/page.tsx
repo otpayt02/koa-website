@@ -7,6 +7,7 @@ import { dictionaryEntries } from "@/components/data";
 import { DictionaryEntry } from "@/components/DictionaryEntry";
 import { getMessages, isLang } from "@/components/i18n";
 import { Section } from "@/components/Section";
+import { getTranslator } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Home", description: "A national home for Karen communities to connect, contribute, and lead." };
 
@@ -15,11 +16,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   if (!isLang(value)) return null;
   const lang = value;
   const m = getMessages(lang);
+  const t = await getTranslator(lang);
   return (
     <>
-      <CinematicHome lang={lang} messages={m} />
+      <CinematicHome lang={lang} messages={m} copy={{ ariaLabel: t("home.film.ariaLabel"), established: t("home.film.established"), title: t("home.film.title"), intro: t("home.film.intro") }} />
 
-      <Section eyebrow="Our purpose · ပတၢ်ပညိၣ်" title={lang === "karen" ? "မၤဂၢၢ်မၤကျၢၤတၢ်ဃူတၢ်ဖိး။ ဒီသဒၢတၢ်ခွဲးတၢ်ယာ်။" : "Strengthen unity. Protect rights. Build belonging."} intro={lang === "karen" ? "KOA ဆဲးကျိးပှၤတဝၢ၊ ကတိၤခဲပှၤတဖၣ်အဂီၢ်၊ ဒီးဟ့ၣ်တၢ်သ့တၢ်ဘၣ်လၢကတီခိၣ်ရိၣ်မဲ။" : "KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead."}>
+      <Section eyebrow={t("home.purpose.eyebrow")} title={t("home.purpose.title")} intro={t("home.purpose.intro")}>
         <div className="feature-grid feature-grid--3">
           <Card><span className="card-number">01</span><h3>Civic education</h3><p>Understand public systems, grow youth leadership, and turn community priorities into action.</p><Link className="text-link" href={`/${lang}/services`}>Explore programs</Link></Card>
           <Card><span className="card-number">02</span><h3>Language access</h3><p>Find community-reviewed words and request trusted Karen translation or interpretation.</p><Link className="text-link" href={`/${lang}/translation`}>Find language support</Link></Card>
@@ -27,14 +29,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </Section>
 
-      <section className="image-story"><div className="image-story__media"><img src="/koa/assets/fb-capitol-group-mobile-enhanced.png" alt="Karen advocates visiting the United States Capitol" /></div><div className="image-story__copy"><p className="eyebrow">Community-led advocacy</p><h2>Knowledge becomes a voice in the room.</h2><p>KOA helps Karen leaders and young people understand public systems, speak to decision-makers, and bring what they learn home.</p><Button href={`/${lang}/services`} variant="secondary">See the work</Button></div></section>
+      <section className="image-story"><div className="image-story__media"><img src="/koa/assets/fb-capitol-group-mobile-enhanced.png" alt="Karen advocates visiting the United States Capitol" /></div><div className="image-story__copy"><p className="eyebrow">Community-led advocacy</p><h2>{t("home.advocacy.title")}</h2><p>{t("home.advocacy.copy")}</p><Button href={`/${lang}/services`} variant="secondary">See the work</Button></div></section>
 
-      <Section tone="cream" eyebrow="Living language · ကညီကျိာ်" title="Words carried forward, together." intro="Every published entry preserves who contributed, who reviewed it, and how the language is used.">
+      <Section tone="cream" eyebrow="Living language · ကညီကျိာ်" title={t("home.language.title")} intro={t("home.language.copy")}>
         <div className="dictionary-grid">{dictionaryEntries.slice(0, 3).map((entry) => <DictionaryEntry key={entry.id} entry={entry} lang={lang} compact />)}</div>
         <div className="section-action"><Button href={`/${lang}/dictionary`}>{m.explore} {m.dictionary}</Button><Button href={`/${lang}/contribute`} variant="quiet">Share a word or recording</Button></div>
       </Section>
 
-      <Section tone="ink" eyebrow="This month" title="A community in motion." intro="Ways to learn, connect, and take part—wherever you live.">
+      <Section tone="ink" eyebrow="This month" title={t("home.events.title")} intro={t("home.events.copy")}>
         <div className="event-list"><article><time dateTime="2026-08-22"><strong>22</strong>Aug</time><div><p className="eyebrow">Online · National</p><h3>Language contributor orientation</h3><p>Learn how community definitions and recordings move through review.</p></div><Link className="text-link" href={`/${lang}/contribute`}>Join orientation</Link></article><article><time dateTime="2026-09-05"><strong>05</strong>Sep</time><div><p className="eyebrow">Omaha, Nebraska</p><h3>Youth civic leadership workshop</h3><p>A practical day of public-system learning and community action.</p></div><Link className="text-link" href={`/${lang}/community`}>Event details</Link></article></div>
       </Section>
     </>

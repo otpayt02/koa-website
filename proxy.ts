@@ -2,7 +2,12 @@ import { NextResponse, type NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
   const started = Date.now();
-  const response = NextResponse.next();
+  const requestHeaders = new Headers(request.headers);
+  const language = request.nextUrl.pathname === "/karen" || request.nextUrl.pathname.startsWith("/karen/")
+    ? "ksw"
+    : "en";
+  requestHeaders.set("x-koa-document-language", language);
+  const response = NextResponse.next({ request: { headers: requestHeaders } });
   const requestId = request.headers.get("x-request-id") ?? crypto.randomUUID();
   response.headers.set("x-request-id", requestId);
   console.log(JSON.stringify({

@@ -6,7 +6,7 @@ import type { Lang, Messages } from "./i18n";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 
-export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messages }) {
+export function CinematicHome({ lang, messages, copy }: { lang: Lang; messages: Messages; copy: { ariaLabel: string; established: string; title: string; intro: string } }) {
   const filmRef = useRef<HTMLElement>(null);
   const [motionReduced, setMotionReduced] = useState(false);
 
@@ -52,7 +52,7 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
       ref={filmRef}
       className="cinematic-film"
       data-motion={motionReduced ? "reduced" : "full"}
-      aria-label="Karen Organization of America story"
+      aria-label={copy.ariaLabel}
       onPointerMove={(event) => {
         const bounds = event.currentTarget.getBoundingClientRect();
         event.currentTarget.style.setProperty("--pointer-x", `${((event.clientX - bounds.left) / bounds.width - 0.5).toFixed(3)}`);
@@ -69,9 +69,9 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
             <img src="/koa/assets/koa-seal-white-lettering-v2.png" alt="" />
           </div>
           <div className="cinematic-film__copy">
-            <p className="cinematic-film__kicker">Established 2018 · Omaha, Nebraska</p>
-            <h1>{lang === "karen" ? "ကညီပှၤတဝၢလၢ အမဲရကၤ" : "Many places. One community."}</h1>
-            <p>{lang === "karen" ? "ဆဲးကျိးလိာ်သး၊ ဒီသဒၢကညီကျိာ်၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါဃုာ်ဒီးလိာ်သး။" : "A national home for Karen people to connect, protect language, and lead the future together."}</p>
+            <p className="cinematic-film__kicker">{copy.established}</p>
+            <h1>{copy.title}</h1>
+            <p>{copy.intro}</p>
             <div className="cinematic-film__actions">
               <Link className="cinematic-film__button" href={`/${lang}/community`}>{messages.explore} {messages.community}</Link>
               <Link className="cinematic-film__button cinematic-film__button--ghost" href={`/${lang}/dictionary`}>{messages.searchDictionary}</Link>

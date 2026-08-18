@@ -7,8 +7,10 @@ import type { Lang, Messages } from "./i18n";
 
 export function LanguageToggle({ lang, messages }: { lang: Lang; messages: Messages }) {
   const pathname = usePathname();
-  const nextLang = lang === "en" ? "karen" : "en";
-  const nextPath = pathname.replace(/^\/(en|karen)(?=\/|$)/, `/${nextLang}`);
+
+  function pathFor(target: Lang) {
+    return pathname.replace(/^\/(en|karen)(?=\/|$)/, `/${target}`) || `/${target}`;
+  }
 
   useEffect(() => {
     localStorage.setItem("koa-language", lang);
@@ -17,9 +19,9 @@ export function LanguageToggle({ lang, messages }: { lang: Lang; messages: Messa
   }, [lang]);
 
   return (
-    <Link className="language-toggle" href={nextPath || `/${nextLang}`} hrefLang={nextLang === "karen" ? "ksw" : "en"} aria-label={`${messages.language}: ${nextLang === "en" ? messages.english : messages.karen}`}>
-      <span aria-hidden="true">{lang === "en" ? "EN" : "ကညီ"}</span>
-      <span>{nextLang === "en" ? messages.english : messages.karen}</span>
-    </Link>
+    <nav className="language-toggle" aria-label={messages.language}>
+      <Link href={pathFor("en")} hrefLang="en" lang="en" aria-current={lang === "en" ? "true" : undefined}>English</Link>
+      <Link href={pathFor("karen")} hrefLang="ksw" lang="ksw" aria-current={lang === "karen" ? "true" : undefined}>ကညီကျိာ် <small lang="en">BETA</small></Link>
+    </nav>
   );
 }

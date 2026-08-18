@@ -41,6 +41,7 @@ img { display: block; max-width: 100%; }
 .language-toggle { display: inline-flex; gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: #fff; }
 .language-toggle a, .language-toggle button { border: 0; border-radius: 999px; padding: 6px 9px; background: transparent; color: var(--ink-soft); cursor: pointer; font-size: .72rem; font-weight: 800; }
 .language-toggle a[aria-current="true"], .language-toggle button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.language-toggle small { margin-left: 4px; border-radius: 999px; padding: 2px 4px; background: var(--gold); color: var(--ink); font-size: .48rem; letter-spacing: .06em; vertical-align: middle; }
 .menu-button { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); padding: 8px 11px; background: transparent; color: var(--ink); cursor: pointer; font-size: .78rem; font-weight: 800; }
 .menu-lines, .menu-lines::before, .menu-lines::after { display: block; width: 16px; height: 2px; background: currentColor; content: ""; }
 .menu-lines { position: relative; }
