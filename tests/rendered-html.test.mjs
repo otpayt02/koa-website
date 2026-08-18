@@ -22,7 +22,7 @@ async function render() {
   );
 }
 
-test("root route directs visitors to the bilingual KOA shell", async (t) => {
+test("root route directs visitors to the primary cinematic KOA site", async (t) => {
   let response;
   try {
     response = await render();
@@ -36,6 +36,6 @@ test("root route directs visitors to the bilingual KOA shell", async (t) => {
   assert.equal(response.status, 307);
   assert.equal(
     response.headers.get("location"),
-    "http://localhost/en",
+    "http://localhost/koa/",
   );
 });
