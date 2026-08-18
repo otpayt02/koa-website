@@ -5,9 +5,9 @@ import { Card } from "@/components/Card";
 import { CinematicHome } from "@/components/CinematicHome";
 import { dictionaryEntries } from "@/components/data";
 import { DictionaryEntry } from "@/components/DictionaryEntry";
-import { getMessages, isLang } from "@/components/i18n";
+import { isLang } from "@/components/i18n";
 import { Section } from "@/components/Section";
-import { getTranslator } from "@/lib/content";
+import { getPublishedMessages, getTranslator } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Home", description: "A national home for Karen communities to connect, contribute, and lead." };
 
@@ -15,7 +15,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const { lang: value } = await params;
   if (!isLang(value)) return null;
   const lang = value;
-  const m = getMessages(lang);
+  const m = await getPublishedMessages(lang);
   const t = await getTranslator(lang);
   return (
     <>

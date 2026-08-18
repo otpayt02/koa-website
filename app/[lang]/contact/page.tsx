@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { AsyncForm } from "@/components/FormStatus";
 import { Input, Select, Textarea } from "@/components/Input";
 import { Card } from "@/components/Card";
-import { getMessages, isLang } from "@/components/i18n";
+import { isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { getTranslator } from "@/lib/content";
+import { getPublishedMessages, getTranslator } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Contact KOA",
@@ -16,7 +16,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const { lang: value } = await params;
   if (!isLang(value)) return null;
   const lang = value;
-  const messages = getMessages(lang);
+  const messages = await getPublishedMessages(lang);
   const t = await getTranslator(lang);
   return (
     <>
