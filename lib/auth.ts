@@ -28,8 +28,9 @@ export async function optionalUser(request: Request): Promise<ApiUser | null> {
   const [existing] = await db.select().from(users).where(eq(users.externalAuthId, externalAuthId)).limit(1);
   if (existing) {
     if (existing.status !== "active") throw new ApiError(403, "This account is not active");
-    if (existing.email !== email || existing.displayName !== displayName) {
-      const [updated] = await db.update(users).set({ email, displayName, updatedAt: new Date() }).where(eq(users.id, existing.id)).returning();
+    const bootstrapAdmin = isBootstrapAdmin(externalAuthId, email);
+    if (existing.email !== email || existing.displayName !== displayName || (bootstrapAdmin && existing.role !== "admin")) {
+      const [updated] = await db.update(users).set({ email, displayName, role: bootstrapAdmin ? "admin" : existing.role, updatedAt: new Date() }).where(eq(users.id, existing.id)).returning();
       return updated;
     }
     return existing;
