@@ -1,0 +1,5624 @@
+{
+  "version": 1,
+  "definitions": [
+    {
+      "key": "auto.about.ourStory.cac2bbc3",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Our story",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.june132018.fcc68d25",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "June 13, 2018",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.aSharedConversation.e61cd650",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "A shared conversation",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.kousaAndKaoLeadersBeganDiscussing.6203bef9",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "KOUSA and KAO leaders began discussing deeper collaboration and national unity.",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.august82018.1d808bea",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "August 8, 2018",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.leadersGatheredInOmaha.614b2a51",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "Leaders gathered in Omaha",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.moreThanFiftyLeadersRepresentingTwenty.be3b4c54",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "More than fifty leaders representing twenty states met to build a common direction.",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.today.2a7dd84c",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Today",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.oneCommunityManyPlaces.acca939c",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "One community, many places",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.koaConnectsLocalStrengthToNational.0c16cb0e",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "KOA connects local strength to national advocacy, language access, and collective care.",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.visionAndMission.c8faab2f",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Vision and mission",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.vision.6314b955",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Vision",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.thrivingKarenCommunities.f92c722c",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "Thriving Karen communities",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.unitedAndEmpoweredInTheUnited.8a4a8abd",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "United and empowered in the United States, with the confidence and resources to shape their own future and advocate for justice in Burma.",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.mission.a0217f02",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Mission",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.rightsWellBeingAndUnity.ebdeda3f",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "Rights, well-being, and unity",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.advocateForKarenPeopleCreatePathways.087ae0c1",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "Advocate for Karen people, create pathways for learning and leadership, strengthen community ties, and stand in solidarity where help is needed.",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.leadership.bb44be18",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Leadership",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.op.c19055b4",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "OP",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.oliverP.c68c981e",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "Oliver P.",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.itManagerWebLead.68e36c27",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "IT Manager & Web Lead",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.digitalStewardshipNational.044f51f6",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Digital stewardship · National",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.koa.3a9379c5",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "KOA",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.executiveLeadership.b051c53a",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "Executive leadership",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.namesAndBiographiesInCommunityReview.8128766a",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "Names and biographies in community review",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.publicationApprovalPending.a0e4f966",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Publication approval pending",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.communityNetwork.cc696f58",
+      "route": "//about",
+      "section": "//about",
+      "type": "heading",
+      "en": "Community network",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.foundingCommunitiesAcrossTheUnitedStates.3d3f4d24",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "Founding communities across the United States",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.relationshipsBeingReconfirmed.8caa3873",
+      "route": "//about",
+      "section": "//about",
+      "type": "label",
+      "en": "Relationships being reconfirmed",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.annualReporting.55b93cd6",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "Annual reporting",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.koaSFirstPublicDigitalAnnual.124e1dc6",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "KOA's first public digital annual report will bring program outcomes, partnerships, and financial stewardship into one accessible view.",
+      "karen": ""
+    },
+    {
+      "key": "auto.about.seePublicDecisions.121689f4",
+      "route": "//about",
+      "section": "//about",
+      "type": "paragraph",
+      "en": "See public decisions",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.publicDecisions.6b8b974c",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "label",
+      "en": "Public decisions · တၢ်ဆီတလဲစရီ",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.aShortPublicRecordOfWhat.92759427",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "paragraph",
+      "en": "A short, public record of what changed, why it changed, and how community feedback shaped the work.",
+      "karen": "KOA အတၢ်မၤလၢအိၣ်ဖျါ ဒီးတၢ်ဆၢတဲာ်တဖၣ်။"
+    },
+    {
+      "key": "auto.changelog.aFoundationForSharedStewardship.80ef72ff",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "tooltip",
+      "en": "A foundation for shared stewardship.",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.v4August2026.9b639dd9",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "paragraph",
+      "en": "v4 · August 2026",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.languageAndAccessBecameCore.6411cd6c",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "heading",
+      "en": "Language and access became core",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.communityDictionaryReviewAudioContributionsTranslation.24b9dd43",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "paragraph",
+      "en": "Community dictionary review, audio contributions, translation and interpretation services, and collaboration requests moved into the committed build.",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.v3EarlierWork.9440b5fe",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "paragraph",
+      "en": "v3 · Earlier work",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.publicShellAndCommunityStory.f8db780b",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "heading",
+      "en": "Public shell and community story",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.bilingualNavigationKoaHistoryProgramsCommunity.97ac87db",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "paragraph",
+      "en": "Bilingual navigation, KOA history, programs, community gatherings, and a visual system established the starting point.",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.howToParticipate.acb11270",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "label",
+      "en": "How to participate",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.changesAreOpenToConversation.a4f62025",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "tooltip",
+      "en": "Changes are open to conversation.",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.ifSomethingFeelsMissingProposeA.c07e2df8",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "paragraph",
+      "en": "If something feels missing, propose a feature, service, or partnership on the community board. Decisions are reviewed with the people who will use them.",
+      "karen": ""
+    },
+    {
+      "key": "auto.changelog.bringAnIdea.719cb726",
+      "route": "//changelog",
+      "section": "//changelog",
+      "type": "action",
+      "en": "Bring an idea",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.communityContributions.c3c69e48",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "label",
+      "en": "Community contributions · ပှၤတဝၢအတၢ်ဟ့ၣ်လီၤ",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.theBestNextStepOftenComes.1ac981b9",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "The best next step often comes from someone living the need. Tell us what to improve, what to provide, or who to build with.",
+      "karen": "နတၢ်ထံၣ်၊ နတၢ်သ့တၢ်ဘၣ် ဒီးနတၢ်ဟ့ၣ်မၤစၢၤ မၤဂ့ၤထီၣ် KOA အတၢ်မၤ။"
+    },
+    {
+      "key": "auto.collaborate.oneFormThreePathways.fa2edc90",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "label",
+      "en": "One form, three pathways",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.putAUsefulIdeaInMotion.52956f1a",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "tooltip",
+      "en": "Put a useful idea in motion.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.chooseAWebsiteFeatureCommunityService.e2daf75f",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "Choose a website feature, community service, or partnership. Submissions are acknowledged, moderated, and tracked on the community board.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.waysToCollaborate.152726f8",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "label",
+      "en": "Ways to collaborate",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.bringTheResourceYouAlreadyHave.c855baa7",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "tooltip",
+      "en": "Bring the resource you already have.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.koaWelcomesPeopleAndOrganizationsWho.5f742324",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "KOA welcomes people and organizations who can make language access, youth leadership, and community care stronger.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.shareExpertise.9a99b2ed",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "heading",
+      "en": "Share expertise",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.offerAWorkshopReviewADictionary.82f01196",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "Offer a workshop, review a dictionary entry, or support a community training.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.offerYourTime.0e31f4c7",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "action",
+      "en": "Offer your time",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.partnerWithKoa.8bf87c02",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "heading",
+      "en": "Partner with KOA",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.librariesSchoolsCourtsAndNonprofitsCan.9d58f25b",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "Libraries, schools, courts, and nonprofits can propose a focused collaboration.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.talkWithTheTeam.b8f7e773",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "action",
+      "en": "Talk with the team",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.supportTheWork.d8b19787",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "heading",
+      "en": "Support the work",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.giftsHelpSustainLanguageAccessCommunity.687b10ca",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "Gifts help sustain language access, community gatherings, and public learning.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.giveWithPurpose.e7ac9253",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "action",
+      "en": "Give with purpose",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.donations.d5be6ac6",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "Donations",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.keepCommunityKnowledgeMoving.b9b52b58",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "heading",
+      "en": "Keep community knowledge moving.",
+      "karen": ""
+    },
+    {
+      "key": "auto.collaborate.donationsSupportThePeopleToolsAnd.79389ebe",
+      "route": "//collaborate",
+      "section": "//collaborate",
+      "type": "paragraph",
+      "en": "Donations support the people, tools, and review time behind KOA's public work. A receipt is sent by email; tax deductibility is confirmed with your receipt.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.communityBoard.31e53843",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "label",
+      "en": "Community board · ပှၤတဝၢတၢ်တဲသကိး",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.seeWhatNeighborsAreProposingWhat.06ff6ae2",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "paragraph",
+      "en": "See what neighbors are proposing, what moderators are reviewing, and what the community has already moved forward.",
+      "karen": "တၢ်ထံၣ်တဖၣ် ဘၣ်တၢ်ဖှိၣ်ထီၣ် ဒီးကွၢ်သမံသမိးလၢတၢ်ဖျါအပူၤ။"
+    },
+    {
+      "key": "auto.community.board.shareAnIdea.01009425",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "paragraph",
+      "en": "Share an idea",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.openConversation.96a4137b",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "label",
+      "en": "Open conversation",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.ideasWithAVisiblePathForward.ad6053bf",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "tooltip",
+      "en": "Ideas with a visible path forward.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.discussionStaysConstructiveAttributedAndModerated.15a8872c",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "paragraph",
+      "en": "Discussion stays constructive, attributed, and moderated. Share a new request through the collaboration form.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.replies.3d03c1f0",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "label",
+      "en": "replies",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.participate.ebb0ab77",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "label",
+      "en": "Participate",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.yourLivedExperienceIsUsefulData.50df0f2c",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "tooltip",
+      "en": "Your lived experience is useful data.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.submitARequest.20e513dc",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "paragraph",
+      "en": "Submit a request",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.board.contactKoa.483ae26a",
+      "route": "//community/board",
+      "section": "//community/board",
+      "type": "paragraph",
+      "en": "Contact KOA",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.upcoming.eb5c2547",
+      "route": "//community",
+      "section": "//community",
+      "type": "label",
+      "en": "Upcoming",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.languageContributorOrientation.4023303c",
+      "route": "//community",
+      "section": "//community",
+      "type": "heading",
+      "en": "Language contributor orientation",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.aWelcomingIntroductionToDictionaryEntries.5d425a0b",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "A welcoming introduction to dictionary entries, recordings, consent, and community review.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.reserveAPlace.0bfdb691",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Reserve a place",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.youthCivicLeadershipWorkshop.c039f537",
+      "route": "//community",
+      "section": "//community",
+      "type": "heading",
+      "en": "Youth civic leadership workshop",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.publicSystemsAdvocacyPracticeAndA.a2debc3a",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Public systems, advocacy practice, and a plan for local action.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.askAboutRegistration.6dc59d03",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Ask about registration",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.communityCultureSportDay.5d3ad5d2",
+      "route": "//community",
+      "section": "//community",
+      "type": "heading",
+      "en": "Community culture & sport day",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.anIntergenerationalDayOfConnectionFood.4cbecbda",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "An intergenerational day of connection, food, play, and cultural learning.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.volunteer.8e0adc1c",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Volunteer",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.youthLeadership.6bd16c41",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Youth leadership",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.workshopsAndNationalLearningVisitsHelp.cba37c67",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Workshops and national learning visits help emerging leaders understand public systems and advocate for their communities.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.cultureBelonging.809f0df4",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Culture & belonging",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.gatheringsCreateSpaceToSpeakKaren.26654b42",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Gatherings create space to speak Karen, share traditions, build relationships, and welcome people home.",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.communityBoard.dbd3d7c7",
+      "route": "//community",
+      "section": "//community",
+      "type": "label",
+      "en": "Community board",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.replies.50b93da8",
+      "route": "//community",
+      "section": "//community",
+      "type": "label",
+      "en": "replies",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.openTheCommunityBoard.c8e5d743",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Open the community board",
+      "karen": ""
+    },
+    {
+      "key": "auto.community.shareANewIdea.a35cd5ba",
+      "route": "//community",
+      "section": "//community",
+      "type": "paragraph",
+      "en": "Share a new idea",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.startHere.a18a7c21",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "label",
+      "en": "Start here",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.thankYouYourMessageIsWith.aa2bd887",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Thank you. Your message is with the KOA team and we will follow up soon.",
+      "karen": "တၢ်ဘျုး။ ပကဆဲးကျိးနၤကဒီး။"
+    },
+    {
+      "key": "auto.contact.programsOrServices.8fa8df54",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "label",
+      "en": "Programs or services",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.translationOrInterpretation.2bbdbcec",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "label",
+      "en": "Translation or interpretation",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.partnershipOrCollaboration.69697780",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "label",
+      "en": "Partnership or collaboration",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.mediaOrGeneralQuestion.2ddd5b71",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "label",
+      "en": "Media or general question",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.nationalCoordination.07a5b5d9",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "National coordination",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.acrossTheUnitedStates.8b6f50e4",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "heading",
+      "en": "Across the United States",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.koaWorksThroughCommunityLeadersAnd.855309d8",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "KOA works through community leaders and partner organizations in the places Karen families call home.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.email.8a74356c",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Email",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.languageAccess.237a1af7",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Language access",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.karenEnglishBurmeseByReferral.7fa26ba4",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Karen · English · Burmese by referral",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.responseTime.d6927f14",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Response time",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.usuallyWithin3BusinessDays.33cc18e8",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Usually within 3 business days",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.followTheWork.da8fee12",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Follow the work",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.stayConnected.1be32774",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "heading",
+      "en": "Stay connected",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.followPublicUpdatesEventsAndCommunity.bc73ced8",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "paragraph",
+      "en": "Follow public updates, events, and community decisions on Facebook.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contact.koaOnFacebook.9229ee87",
+      "route": "//contact",
+      "section": "//contact",
+      "type": "action",
+      "en": "KOA on Facebook",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.communityLanguageWork.32c0bd55",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "label",
+      "en": "Community language work · တၢ်မၤသကိးကျိာ်",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.addAWordABetterContext.c44d4640",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Add a word, a better context, or your voice. Every contribution is reviewed before it becomes part of the public dictionary.",
+      "karen": "ဟ့ၣ်လီၤတၢ်ကတိၤ၊ တၢ်ပာ်ဖျါ၊ တၢ်သူအီၤ ဒီးနကလုၢ်ဆူလံာ်ခီယ့ၣ်။"
+    },
+    {
+      "key": "auto.contribute.1AddLanguageKnowledge.c1dcc822",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "label",
+      "en": "1 · Add language knowledge",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.giveReviewersEnoughContextToCare.6bad6093",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "tooltip",
+      "en": "Give reviewers enough context to care for the word.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.useTheSideBySideFields.bb844c5f",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Use the side-by-side fields to share what you know. A reviewer may follow up before publication, and your name stays attached to the entry history.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.2RecordAVoice.7726ad01",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "label",
+      "en": "2 · Record a voice",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.pronunciationIsKnowledgeToo.c94cb4d6",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "tooltip",
+      "en": "Pronunciation is knowledge, too.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.recordAQuietNaturalKarenWord.33420551",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Record a quiet, natural Karen word or sentence. Audio is held for moderation and may support future speech-to-text and text-to-speech training only with your consent.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.consentReview.1713be30",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Consent & review",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.yourRecordingRemainsYours.ac89c285",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "heading",
+      "en": "Your recording remains yours.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.koaAsksForPermissionBeforeUsing.961fe91d",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "KOA asks for permission before using a recording in a training set. Reviewers check the transcript, dialect label, and rights confirmation before it is published.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.recordInAQuietPlace.5cb4ee4e",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Record in a quiet place",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.sayTheWordOnceThenIn.69c12385",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Say the word once, then in a sentence",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.keepPersonalInformationOutOfRecordings.c88b7b7e",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Keep personal information out of recordings",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.afterYouSubmit.e2f014f7",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "label",
+      "en": "After you submit",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.aClearReviewPath.a2d3114e",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "tooltip",
+      "en": "A clear review path.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.submissionsEnterAQueueForLanguage.6c744126",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Submissions enter a queue for language, context, and rights review. Approved entries show their contributor and version history publicly.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.01Submitted.8a1a620a",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "label",
+      "en": "01 · Submitted",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.weReceiveYourContribution.91d4b2bd",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "heading",
+      "en": "We receive your contribution",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.youReceiveAConfirmationAndThe.1990579c",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "You receive a confirmation and the item is marked pending.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.02Reviewed.3d3b449b",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "label",
+      "en": "02 · Reviewed",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.communityReviewersCheckContext.ac6e5612",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "heading",
+      "en": "Community reviewers check context",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.reviewersMayAskAFollowUp.ad7fe475",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Reviewers may ask a follow-up or suggest a regional note.",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.03Published.e3de4021",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "label",
+      "en": "03 · Published",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.theCommunityCanFindAndHear.d9d6439e",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "heading",
+      "en": "The community can find and hear it",
+      "karen": ""
+    },
+    {
+      "key": "auto.contribute.approvedWordsAppearInSearchWith.818fb2fd",
+      "route": "//contribute",
+      "section": "//contribute",
+      "type": "paragraph",
+      "en": "Approved words appear in search with attribution and provenance.",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.searchListenContribute.bb502c40",
+      "route": "//dictionary",
+      "section": "//dictionary",
+      "type": "label",
+      "en": "Search, listen, contribute",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.dictionaryEntry.dc0d777b",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "label",
+      "en": "Dictionary entry · လံာ်ခီယ့ၣ်",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.meaningUse.ccc47dd3",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "label",
+      "en": "Meaning & use",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.example.aea1289e",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Example · တၢ်သူအီၤ",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.provenance.d5f34111",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Provenance · တၢ်မၤလီၤတံၢ်",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.category.1ccd886f",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Category",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.contributor.7802028a",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Contributor",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.published.7e74c3e4",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Published",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.version.7aea8803",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Version",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.relatedLanguage.3128b071",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "label",
+      "en": "Related language",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.wordsInConversation.8409702c",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "tooltip",
+      "en": "Words in conversation",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.synonyms.77a58554",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "heading",
+      "en": "Synonyms",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.antonyms.dd79400e",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "heading",
+      "en": "Antonyms",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.editHistory.16f71252",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "label",
+      "en": "Edit history",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.aVisiblePathFromContributionTo.29b2c728",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "tooltip",
+      "en": "A visible path from contribution to publication.",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.communityReviewCompleted.445484ff",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "heading",
+      "en": "Community review completed",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.version.7bae985a",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Version",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.isPublishedAfterLanguageAndContext.a8c0cc47",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "is published after language and context review.",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.earlierVersions.747401ec",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "label",
+      "en": "Earlier versions",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.contributorEditsRemainAttributed.b224b3f6",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "heading",
+      "en": "Contributor edits remain attributed",
+      "karen": ""
+    },
+    {
+      "key": "auto.dictionary.id.futureCorrectionsAndRegionalNotesWill.614bdeae",
+      "route": "//dictionary/[id]",
+      "section": "//dictionary/[id]",
+      "type": "paragraph",
+      "en": "Future corrections and regional notes will appear here with their reviewer and reason for change.",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.civicEducation.3c5e2744",
+      "route": "/",
+      "section": "Home",
+      "type": "heading",
+      "en": "Civic education",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.understandPublicSystemsGrowYouthLeadership.005d9388",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Understand public systems, grow youth leadership, and turn community priorities into action.",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.explorePrograms.0d92db2f",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Explore programs",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.languageAccess.3f989ad1",
+      "route": "/",
+      "section": "Home",
+      "type": "heading",
+      "en": "Language access",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.findCommunityReviewedWordsAndRequest.747f8d23",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Find community-reviewed words and request trusted Karen translation or interpretation.",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.findLanguageSupport.b7dbafd9",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Find language support",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.communityCare.a5535b86",
+      "route": "/",
+      "section": "Home",
+      "type": "heading",
+      "en": "Community care",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.shareIdeasVolunteerPartnerOrGive.f5169756",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Share ideas, volunteer, partner, or give so resources move where they matter most.",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.takePart.ff497474",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Take part",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.communityLedAdvocacy.e3dfa22d",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Community-led advocacy",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.seeTheWork.b2fa984e",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "See the work",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.livingLanguage.46eaf334",
+      "route": "/",
+      "section": "Home",
+      "type": "label",
+      "en": "Living language · ကညီကျိာ်",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.shareAWordOrRecording.4d5117c0",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Share a word or recording",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.thisMonth.68b2aa3b",
+      "route": "/",
+      "section": "Home",
+      "type": "label",
+      "en": "This month",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.onlineNational.ea7887ef",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Online · National",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.languageContributorOrientation.723dc676",
+      "route": "/",
+      "section": "Home",
+      "type": "heading",
+      "en": "Language contributor orientation",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.learnHowCommunityDefinitionsAndRecordings.b7561c67",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Learn how community definitions and recordings move through review.",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.joinOrientation.15468c1e",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Join orientation",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.omahaNebraska.9caac654",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Omaha, Nebraska",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.youthCivicLeadershipWorkshop.2ac189aa",
+      "route": "/",
+      "section": "Home",
+      "type": "heading",
+      "en": "Youth civic leadership workshop",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.aPracticalDayOfPublicSystem.529d33ae",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "A practical day of public-system learning and community action.",
+      "karen": ""
+    },
+    {
+      "key": "auto.home.eventDetails.654efad7",
+      "route": "/",
+      "section": "Home",
+      "type": "paragraph",
+      "en": "Event details",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.howKoaHelps.8b5f44ff",
+      "route": "//services",
+      "section": "//services",
+      "type": "label",
+      "en": "How KOA helps",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.civicLeadership.0a567a6f",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Civic leadership",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.understandTheSystemBringKnowledgeHome.86544b9e",
+      "route": "//services",
+      "section": "//services",
+      "type": "heading",
+      "en": "Understand the system. Bring knowledge home.",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.fromAdvocacy101ToNationalLearning.b59eff1e",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "From Advocacy 101 to national learning visits, KOA creates practical ways for Karen people to participate in public life with confidence.",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.youthLeadershipDevelopment.a53fb97e",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Youth leadership development",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.publicPolicyAndSystemsLearning.9b99ce9f",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Public policy and systems learning",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.communityLedAdvocacyPlanning.9daa1bc3",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Community-led advocacy planning",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.localActionAndNationalConnection.a667f9a9",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Local action and national connection",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.askAboutAProgram.bf6629f4",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Ask about a program",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.programAccess.93ae1d28",
+      "route": "//services",
+      "section": "//services",
+      "type": "label",
+      "en": "Program access",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.talkWithKoa.f152d931",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Talk with KOA",
+      "karen": ""
+    },
+    {
+      "key": "auto.services.requestAnInterpreter.3b7d9fdf",
+      "route": "//services",
+      "section": "//services",
+      "type": "paragraph",
+      "en": "Request an interpreter",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.services.6e17f2e1",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Services",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.approvedDirectory.e045c9e0",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Approved directory",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.meetInterpretersTheCommunityCanVerify.768aa399",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "tooltip",
+      "en": "Meet interpreters the community can verify.",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.profilesShowCredentialsServiceAreasAvailability.db462798",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "paragraph",
+      "en": "Profiles show credentials, service areas, availability, and moderated community ratings. Select a profile to review details before requesting a service.",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.requestLanguageSupport.114b3061",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Request language support",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.yourRequestIsInTheCoordination.5d5337d3",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "paragraph",
+      "en": "Your request is in the coordination queue. We will follow up with next steps.",
+      "karen": "နတၢ်ဃုထၢအိၣ်လၢတၢ်ကွၢ်သမံသမိးအပူၤလံ။"
+    },
+    {
+      "key": "auto.translation.yourName.6ed07c3f",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Your name",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.emailOrPhone.3357ca1d",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Email or phone",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.serviceNeeded.0ae5c165",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Service needed",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.documentTranslation.8b029689",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Document translation",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.medicalInterpretation.8d8c29c5",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Medical interpretation",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.legalOrCourtInterpretation.28d327d9",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Legal or court interpretation",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.communitySchoolOrOther.1c094ede",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Community, school, or other",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.languageDirection.c2b8d683",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Language direction",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.karenEnglish.e0b23f8d",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Karen ↔ English",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.karenBurmese.0f280f92",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Karen ↔ Burmese",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.preferredDate.63e2a30f",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Preferred date",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.locationOrVideo.875f6a18",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Location or video",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.cityVenueOrVideo.e7a02f94",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "City, venue, or video",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.whatShouldWeKnow.5b2c5f51",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "What should we know?",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.shareTimingAndAccessibilityNeedsNot.b934dd69",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "paragraph",
+      "en": "Share timing and accessibility needs, not confidential case details.",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.courtPartnership.9628d6e1",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "label",
+      "en": "Court partnership",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.closingTheInterpreterGapTogether.78837637",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "tooltip",
+      "en": "Closing the interpreter gap together.",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.koaIsDevelopingRelationshipsWithCourts.ab0018e4",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "paragraph",
+      "en": "KOA is developing relationships with courts and legal partners so Karen speakers can understand proceedings and exercise their rights. If your court or organization wants to partner, use the collaboration form.",
+      "karen": ""
+    },
+    {
+      "key": "auto.translation.startAPartnershipConversation.5c9ffe6a",
+      "route": "//translation",
+      "section": "//translation",
+      "type": "action",
+      "en": "Start a partnership conversation",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.communityProfile.62a2938a",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "label",
+      "en": "Community profile · ပှၤတဝၢအမံၤ",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.requestLanguageSupport.06198c7d",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Request language support",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.atAGlance.24297f2b",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "label",
+      "en": "At a glance",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.trustIsBuiltInPublic.2bbc6f37",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "tooltip",
+      "en": "Trust is built in public.",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.availability.e9e90e3d",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Availability",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.scheduleIsConfirmedWhenARequest.15262ca0",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Schedule is confirmed when a request is received.",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.communityRating.6e6a0b14",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Community rating",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.moderatedReviews.c79f26da",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "moderated reviews",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.contributions.5f321524",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "label",
+      "en": "Contributions",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.languageWorkConnectedToThisProfile.e1f8967a",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "tooltip",
+      "en": "Language work connected to this profile.",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.contributionsAreShownOnlyAfterCommunity.acef82a7",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Contributions are shown only after community review and remain linked to their version history.",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.viewDictionaryEntry.697c1c66",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "View dictionary entry",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.noDictionaryContributionsPublishedYet.e04e2d93",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "heading",
+      "en": "No dictionary contributions published yet.",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.profileActivityWillAppearHereAs.7ed8603e",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Profile activity will appear here as approved work is connected.",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.languagesCredentials.8f30f560",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "label",
+      "en": "Languages & credentials",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.communityReviewedExperience.b663c62d",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "tooltip",
+      "en": "Community-reviewed experience.",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.languages.ad251c22",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Languages",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.credentials.fe09ba9e",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Credentials",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.serviceArea.84a04cb9",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Service area",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.profileStatus.ce0bfb90",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Profile status",
+      "karen": ""
+    },
+    {
+      "key": "auto.u.username.verifiedByKoa.cadc528d",
+      "route": "//u/[username]",
+      "section": "//u/[username]",
+      "type": "paragraph",
+      "en": "Verified by KOA",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.karenAudioRecorder.c8d81b11",
+      "route": "*",
+      "section": "AudioRecorder",
+      "type": "tooltip",
+      "en": "Karen audio recorder",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.recordAKarenWordOrSentence.a32b6372",
+      "route": "*",
+      "section": "AudioRecorder",
+      "type": "paragraph",
+      "en": "Record a Karen word or sentence in a quiet place.",
+      "karen": "တဲဖျါထီၣ်ကညီကျိာ်တဖျၢၣ် မ့တမ့ၢ် တကျိာ်။"
+    },
+    {
+      "key": "auto.*.chapter02CivicVoice.663ff9bd",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Chapter 02 · Civic voice",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.knowledgeBecomesAVoiceInThe.bc89009b",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "heading",
+      "en": "Knowledge becomes a voice in the room.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.communityExperienceBelongsInThePlaces.999e4015",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Community experience belongs in the places where decisions are made.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.exploreCommunityPrograms.3b228816",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Explore community programs",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.chapter03LivingLanguage.29a7c4ff",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Chapter 03 · Living language",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.everyWordIsAWayHome.e78d4f26",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "heading",
+      "en": "Every word is a way home.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.shareADefinitionARecordingOr.61df9010",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Share a definition, a recording, or a memory that helps Karen language travel forward.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.contributeToTheLivingDictionary.51ab043c",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Contribute to the living dictionary",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.film.0483c807",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Film ·",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.frames.5fb86c01",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "frames",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.storyChapters.c0ae512e",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "tooltip",
+      "en": "Story chapters",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.scrollToEnter.6a63dfe0",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "Scroll to enter",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.definition.cd14a2bf",
+      "route": "*",
+      "section": "ContributionForm",
+      "type": "label",
+      "en": "Definition",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.translationVariant.73bb5da7",
+      "route": "*",
+      "section": "ContributionForm",
+      "type": "label",
+      "en": "Translation variant",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.exampleSentence.56b99d9e",
+      "route": "*",
+      "section": "ContributionForm",
+      "type": "label",
+      "en": "Example sentence",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.correction.f0480bbe",
+      "route": "*",
+      "section": "ContributionForm",
+      "type": "label",
+      "en": "Correction",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.notSure.6278843b",
+      "route": "*",
+      "section": "ContributionForm",
+      "type": "label",
+      "en": "Not sure",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.tellReviewersWhenAndHowThis.5e36af06",
+      "route": "*",
+      "section": "ContributionForm",
+      "type": "paragraph",
+      "en": "Tell reviewers when and how this term is used.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.iCreatedThisContributionOrHave.4edca75f",
+      "route": "*",
+      "section": "ContributionForm",
+      "type": "label",
+      "en": "I created this contribution or have permission to share it under KOA's community language license.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.tryCommunityOr.05a772d9",
+      "route": "*",
+      "section": "DictionarySearch",
+      "type": "label",
+      "en": "Try “community” or ကညီ",
+      "karen": "ကညီ မ့တမ့ၢ် English"
+    },
+    {
+      "key": "auto.*.filterByCategory.320c969f",
+      "route": "*",
+      "section": "DictionarySearch",
+      "type": "tooltip",
+      "en": "Filter by category",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.approvedSGawKarenRecords.177f9836",
+      "route": "*",
+      "section": "DictionarySearch",
+      "type": "label",
+      "en": "Approved S'gaw Karen records",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.noMatchingEntryYet.6afe3446",
+      "route": "*",
+      "section": "DictionarySearch",
+      "type": "heading",
+      "en": "No matching entry yet.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.tryAnotherSpellingOrShareThe.f2bc2f5c",
+      "route": "*",
+      "section": "DictionarySearch",
+      "type": "paragraph",
+      "en": "Try another spelling, or share the word with community reviewers.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.suggestThisWord.f59ec998",
+      "route": "*",
+      "section": "DictionarySearch",
+      "type": "action",
+      "en": "Suggest this word",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.sustainTheWork.2a08bcc7",
+      "route": "*",
+      "section": "DonationForm",
+      "type": "paragraph",
+      "en": "Sustain the work",
+      "karen": "မၤစၢၤတၢ်မၤ"
+    },
+    {
+      "key": "auto.*.yourGiftStaysWithCommunity.0c923285",
+      "route": "*",
+      "section": "DonationForm",
+      "type": "heading",
+      "en": "Your gift stays with community.",
+      "karen": "နတၢ်ဟ့ၣ်မၤစၢၤပှၤတဝၢ။"
+    },
+    {
+      "key": "auto.*.donationAmount.02e1fafb",
+      "route": "*",
+      "section": "DonationForm",
+      "type": "tooltip",
+      "en": "Donation amount",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.amountUsd.18f5a4aa",
+      "route": "*",
+      "section": "DonationForm",
+      "type": "label",
+      "en": "Amount (USD)",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.emailForReceipt.7cd0b370",
+      "route": "*",
+      "section": "DonationForm",
+      "type": "label",
+      "en": "Email for receipt",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.secureProcessingIsCompletedByKoa.1acb424a",
+      "route": "*",
+      "section": "DonationForm",
+      "type": "label",
+      "en": "Secure processing is completed by KOA's payment provider. Tax receipt eligibility is confirmed with your receipt.",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.websiteFeature.3062eedf",
+      "route": "*",
+      "section": "FeatureRequestForm",
+      "type": "label",
+      "en": "Website feature",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.communityService.1e2da218",
+      "route": "*",
+      "section": "FeatureRequestForm",
+      "type": "label",
+      "en": "Community service",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.partnershipOrCollaboration.b6cfe79e",
+      "route": "*",
+      "section": "FeatureRequestForm",
+      "type": "label",
+      "en": "Partnership or collaboration",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.footerNavigation.10181ae7",
+      "route": "*",
+      "section": "Footer",
+      "type": "tooltip",
+      "en": "Footer navigation",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.koa.28621cd5",
+      "route": "*",
+      "section": "Footer",
+      "type": "paragraph",
+      "en": "KOA ·",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.facebook.0cc38657",
+      "route": "*",
+      "section": "Footer",
+      "type": "action",
+      "en": "Facebook",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.koa.f3a8a6c4",
+      "route": "*",
+      "section": "Header",
+      "type": "label",
+      "en": "KOA",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.primaryNavigation.1797e8cc",
+      "route": "*",
+      "section": "Header",
+      "type": "tooltip",
+      "en": "Primary navigation",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.koa.fd56ac1d",
+      "route": "*",
+      "section": "Header",
+      "type": "paragraph",
+      "en": "KOA",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.credentials.1f5d28b4",
+      "route": "*",
+      "section": "InterpreterCard",
+      "type": "paragraph",
+      "en": "Credentials",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.serviceArea.2e667ef3",
+      "route": "*",
+      "section": "InterpreterCard",
+      "type": "paragraph",
+      "en": "Service area",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.availability.68b31794",
+      "route": "*",
+      "section": "InterpreterCard",
+      "type": "paragraph",
+      "en": "Availability",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.communityRating.6538033a",
+      "route": "*",
+      "section": "InterpreterCard",
+      "type": "paragraph",
+      "en": "Community rating",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.moderatedReviews.c4ea02d9",
+      "route": "*",
+      "section": "InterpreterCard",
+      "type": "paragraph",
+      "en": "moderated reviews",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.en.75c057b9",
+      "route": "*",
+      "section": "LanguageToggle",
+      "type": "paragraph",
+      "en": "en",
+      "karen": "ksw"
+    },
+    {
+      "key": "auto.*.beta.c2394714",
+      "route": "*",
+      "section": "LanguageToggle",
+      "type": "label",
+      "en": "BETA",
+      "karen": ""
+    }
+  ],
+  "bindings": [
+    {
+      "key": "auto.about.ourStory.cac2bbc3",
+      "route": "//about",
+      "kind": "text",
+      "en": "Our story",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.june132018.fcc68d25",
+      "route": "//about",
+      "kind": "text",
+      "en": "June 13, 2018",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.aSharedConversation.e61cd650",
+      "route": "//about",
+      "kind": "text",
+      "en": "A shared conversation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.kousaAndKaoLeadersBeganDiscussing.6203bef9",
+      "route": "//about",
+      "kind": "text",
+      "en": "KOUSA and KAO leaders began discussing deeper collaboration and national unity.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.august82018.1d808bea",
+      "route": "//about",
+      "kind": "text",
+      "en": "August 8, 2018",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.leadersGatheredInOmaha.614b2a51",
+      "route": "//about",
+      "kind": "text",
+      "en": "Leaders gathered in Omaha",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.moreThanFiftyLeadersRepresentingTwenty.be3b4c54",
+      "route": "//about",
+      "kind": "text",
+      "en": "More than fifty leaders representing twenty states met to build a common direction.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.today.2a7dd84c",
+      "route": "//about",
+      "kind": "text",
+      "en": "Today",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.oneCommunityManyPlaces.acca939c",
+      "route": "//about",
+      "kind": "text",
+      "en": "One community, many places",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.koaConnectsLocalStrengthToNational.0c16cb0e",
+      "route": "//about",
+      "kind": "text",
+      "en": "KOA connects local strength to national advocacy, language access, and collective care.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.visionAndMission.c8faab2f",
+      "route": "//about",
+      "kind": "text",
+      "en": "Vision and mission",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.vision.6314b955",
+      "route": "//about",
+      "kind": "text",
+      "en": "Vision",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.thrivingKarenCommunities.f92c722c",
+      "route": "//about",
+      "kind": "text",
+      "en": "Thriving Karen communities",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.unitedAndEmpoweredInTheUnited.8a4a8abd",
+      "route": "//about",
+      "kind": "text",
+      "en": "United and empowered in the United States, with the confidence and resources to shape their own future and advocate for justice in Burma.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.mission.a0217f02",
+      "route": "//about",
+      "kind": "text",
+      "en": "Mission",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.rightsWellBeingAndUnity.ebdeda3f",
+      "route": "//about",
+      "kind": "text",
+      "en": "Rights, well-being, and unity",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.advocateForKarenPeopleCreatePathways.087ae0c1",
+      "route": "//about",
+      "kind": "text",
+      "en": "Advocate for Karen people, create pathways for learning and leadership, strengthen community ties, and stand in solidarity where help is needed.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.leadership.bb44be18",
+      "route": "//about",
+      "kind": "text",
+      "en": "Leadership",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.op.c19055b4",
+      "route": "//about",
+      "kind": "text",
+      "en": "OP",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.oliverP.c68c981e",
+      "route": "//about",
+      "kind": "text",
+      "en": "Oliver P.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.itManagerWebLead.68e36c27",
+      "route": "//about",
+      "kind": "text",
+      "en": "IT Manager & Web Lead",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.digitalStewardshipNational.044f51f6",
+      "route": "//about",
+      "kind": "text",
+      "en": "Digital stewardship · National",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.koa.3a9379c5",
+      "route": "//about",
+      "kind": "text",
+      "en": "KOA",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.executiveLeadership.b051c53a",
+      "route": "//about",
+      "kind": "text",
+      "en": "Executive leadership",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.namesAndBiographiesInCommunityReview.8128766a",
+      "route": "//about",
+      "kind": "text",
+      "en": "Names and biographies in community review",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.publicationApprovalPending.a0e4f966",
+      "route": "//about",
+      "kind": "text",
+      "en": "Publication approval pending",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.communityNetwork.cc696f58",
+      "route": "//about",
+      "kind": "text",
+      "en": "Community network",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.foundingCommunitiesAcrossTheUnitedStates.3d3f4d24",
+      "route": "//about",
+      "kind": "text",
+      "en": "Founding communities across the United States",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.relationshipsBeingReconfirmed.8caa3873",
+      "route": "//about",
+      "kind": "text",
+      "en": "Relationships being reconfirmed",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.annualReporting.55b93cd6",
+      "route": "//about",
+      "kind": "text",
+      "en": "Annual reporting",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.koaSFirstPublicDigitalAnnual.124e1dc6",
+      "route": "//about",
+      "kind": "text",
+      "en": "KOA's first public digital annual report will bring program outcomes, partnerships, and financial stewardship into one accessible view.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.about.seePublicDecisions.121689f4",
+      "route": "//about",
+      "kind": "text",
+      "en": "See public decisions",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.publicDecisions.6b8b974c",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "Public decisions · တၢ်ဆီတလဲစရီ",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.aShortPublicRecordOfWhat.92759427",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "A short, public record of what changed, why it changed, and how community feedback shaped the work.",
+      "karen": "KOA အတၢ်မၤလၢအိၣ်ဖျါ ဒီးတၢ်ဆၢတဲာ်တဖၣ်။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.aFoundationForSharedStewardship.80ef72ff",
+      "route": "//changelog",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "A foundation for shared stewardship.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.v4August2026.9b639dd9",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "v4 · August 2026",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.languageAndAccessBecameCore.6411cd6c",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "Language and access became core",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.communityDictionaryReviewAudioContributionsTranslation.24b9dd43",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "Community dictionary review, audio contributions, translation and interpretation services, and collaboration requests moved into the committed build.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.v3EarlierWork.9440b5fe",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "v3 · Earlier work",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.publicShellAndCommunityStory.f8db780b",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "Public shell and community story",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.bilingualNavigationKoaHistoryProgramsCommunity.97ac87db",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "Bilingual navigation, KOA history, programs, community gatherings, and a visual system established the starting point.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.howToParticipate.acb11270",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "How to participate",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.changesAreOpenToConversation.a4f62025",
+      "route": "//changelog",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Changes are open to conversation.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.ifSomethingFeelsMissingProposeA.c07e2df8",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "If something feels missing, propose a feature, service, or partnership on the community board. Decisions are reviewed with the people who will use them.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.changelog.bringAnIdea.719cb726",
+      "route": "//changelog",
+      "kind": "text",
+      "en": "Bring an idea",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.communityContributions.c3c69e48",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Community contributions · ပှၤတဝၢအတၢ်ဟ့ၣ်လီၤ",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.theBestNextStepOftenComes.1ac981b9",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "The best next step often comes from someone living the need. Tell us what to improve, what to provide, or who to build with.",
+      "karen": "နတၢ်ထံၣ်၊ နတၢ်သ့တၢ်ဘၣ် ဒီးနတၢ်ဟ့ၣ်မၤစၢၤ မၤဂ့ၤထီၣ် KOA အတၢ်မၤ။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.oneFormThreePathways.fa2edc90",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "One form, three pathways",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.putAUsefulIdeaInMotion.52956f1a",
+      "route": "//collaborate",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Put a useful idea in motion.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.chooseAWebsiteFeatureCommunityService.e2daf75f",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Choose a website feature, community service, or partnership. Submissions are acknowledged, moderated, and tracked on the community board.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.waysToCollaborate.152726f8",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Ways to collaborate",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.bringTheResourceYouAlreadyHave.c855baa7",
+      "route": "//collaborate",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Bring the resource you already have.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.koaWelcomesPeopleAndOrganizationsWho.5f742324",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "KOA welcomes people and organizations who can make language access, youth leadership, and community care stronger.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.shareExpertise.9a99b2ed",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Share expertise",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.offerAWorkshopReviewADictionary.82f01196",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Offer a workshop, review a dictionary entry, or support a community training.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.offerYourTime.0e31f4c7",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Offer your time",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.partnerWithKoa.8bf87c02",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Partner with KOA",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.librariesSchoolsCourtsAndNonprofitsCan.9d58f25b",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Libraries, schools, courts, and nonprofits can propose a focused collaboration.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.talkWithTheTeam.b8f7e773",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Talk with the team",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.supportTheWork.d8b19787",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Support the work",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.giftsHelpSustainLanguageAccessCommunity.687b10ca",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Gifts help sustain language access, community gatherings, and public learning.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.giveWithPurpose.e7ac9253",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Give with purpose",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.donations.d5be6ac6",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Donations",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.keepCommunityKnowledgeMoving.b9b52b58",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Keep community knowledge moving.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.collaborate.donationsSupportThePeopleToolsAnd.79389ebe",
+      "route": "//collaborate",
+      "kind": "text",
+      "en": "Donations support the people, tools, and review time behind KOA's public work. A receipt is sent by email; tax deductibility is confirmed with your receipt.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.communityBoard.31e53843",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "Community board · ပှၤတဝၢတၢ်တဲသကိး",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.seeWhatNeighborsAreProposingWhat.06ff6ae2",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "See what neighbors are proposing, what moderators are reviewing, and what the community has already moved forward.",
+      "karen": "တၢ်ထံၣ်တဖၣ် ဘၣ်တၢ်ဖှိၣ်ထီၣ် ဒီးကွၢ်သမံသမိးလၢတၢ်ဖျါအပူၤ။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.shareAnIdea.01009425",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "Share an idea",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.openConversation.96a4137b",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "Open conversation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.ideasWithAVisiblePathForward.ad6053bf",
+      "route": "//community/board",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Ideas with a visible path forward.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.discussionStaysConstructiveAttributedAndModerated.15a8872c",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "Discussion stays constructive, attributed, and moderated. Share a new request through the collaboration form.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.replies.3d03c1f0",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "replies",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.participate.ebb0ab77",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "Participate",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.yourLivedExperienceIsUsefulData.50df0f2c",
+      "route": "//community/board",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Your lived experience is useful data.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.submitARequest.20e513dc",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "Submit a request",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.board.contactKoa.483ae26a",
+      "route": "//community/board",
+      "kind": "text",
+      "en": "Contact KOA",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.upcoming.eb5c2547",
+      "route": "//community",
+      "kind": "text",
+      "en": "Upcoming",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.languageContributorOrientation.4023303c",
+      "route": "//community",
+      "kind": "text",
+      "en": "Language contributor orientation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.aWelcomingIntroductionToDictionaryEntries.5d425a0b",
+      "route": "//community",
+      "kind": "text",
+      "en": "A welcoming introduction to dictionary entries, recordings, consent, and community review.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.reserveAPlace.0bfdb691",
+      "route": "//community",
+      "kind": "text",
+      "en": "Reserve a place",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.youthCivicLeadershipWorkshop.c039f537",
+      "route": "//community",
+      "kind": "text",
+      "en": "Youth civic leadership workshop",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.publicSystemsAdvocacyPracticeAndA.a2debc3a",
+      "route": "//community",
+      "kind": "text",
+      "en": "Public systems, advocacy practice, and a plan for local action.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.askAboutRegistration.6dc59d03",
+      "route": "//community",
+      "kind": "text",
+      "en": "Ask about registration",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.communityCultureSportDay.5d3ad5d2",
+      "route": "//community",
+      "kind": "text",
+      "en": "Community culture & sport day",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.anIntergenerationalDayOfConnectionFood.4cbecbda",
+      "route": "//community",
+      "kind": "text",
+      "en": "An intergenerational day of connection, food, play, and cultural learning.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.volunteer.8e0adc1c",
+      "route": "//community",
+      "kind": "text",
+      "en": "Volunteer",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.youthLeadership.6bd16c41",
+      "route": "//community",
+      "kind": "text",
+      "en": "Youth leadership",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.workshopsAndNationalLearningVisitsHelp.cba37c67",
+      "route": "//community",
+      "kind": "text",
+      "en": "Workshops and national learning visits help emerging leaders understand public systems and advocate for their communities.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.cultureBelonging.809f0df4",
+      "route": "//community",
+      "kind": "text",
+      "en": "Culture & belonging",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.gatheringsCreateSpaceToSpeakKaren.26654b42",
+      "route": "//community",
+      "kind": "text",
+      "en": "Gatherings create space to speak Karen, share traditions, build relationships, and welcome people home.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.communityBoard.dbd3d7c7",
+      "route": "//community",
+      "kind": "text",
+      "en": "Community board",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.replies.50b93da8",
+      "route": "//community",
+      "kind": "text",
+      "en": "replies",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.openTheCommunityBoard.c8e5d743",
+      "route": "//community",
+      "kind": "text",
+      "en": "Open the community board",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.community.shareANewIdea.a35cd5ba",
+      "route": "//community",
+      "kind": "text",
+      "en": "Share a new idea",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.startHere.a18a7c21",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Start here",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.thankYouYourMessageIsWith.aa2bd887",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Thank you. Your message is with the KOA team and we will follow up soon.",
+      "karen": "တၢ်ဘျုး။ ပကဆဲးကျိးနၤကဒီး။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.programsOrServices.8fa8df54",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Programs or services",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.translationOrInterpretation.2bbdbcec",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Translation or interpretation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.partnershipOrCollaboration.69697780",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Partnership or collaboration",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.mediaOrGeneralQuestion.2ddd5b71",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Media or general question",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.nationalCoordination.07a5b5d9",
+      "route": "//contact",
+      "kind": "text",
+      "en": "National coordination",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.acrossTheUnitedStates.8b6f50e4",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Across the United States",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.koaWorksThroughCommunityLeadersAnd.855309d8",
+      "route": "//contact",
+      "kind": "text",
+      "en": "KOA works through community leaders and partner organizations in the places Karen families call home.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.email.8a74356c",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Email",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.languageAccess.237a1af7",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Language access",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.karenEnglishBurmeseByReferral.7fa26ba4",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Karen · English · Burmese by referral",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.responseTime.d6927f14",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Response time",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.usuallyWithin3BusinessDays.33cc18e8",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Usually within 3 business days",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.followTheWork.da8fee12",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Follow the work",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.stayConnected.1be32774",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Stay connected",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.followPublicUpdatesEventsAndCommunity.bc73ced8",
+      "route": "//contact",
+      "kind": "text",
+      "en": "Follow public updates, events, and community decisions on Facebook.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contact.koaOnFacebook.9229ee87",
+      "route": "//contact",
+      "kind": "text",
+      "en": "KOA on Facebook",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.communityLanguageWork.32c0bd55",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Community language work · တၢ်မၤသကိးကျိာ်",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.addAWordABetterContext.c44d4640",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Add a word, a better context, or your voice. Every contribution is reviewed before it becomes part of the public dictionary.",
+      "karen": "ဟ့ၣ်လီၤတၢ်ကတိၤ၊ တၢ်ပာ်ဖျါ၊ တၢ်သူအီၤ ဒီးနကလုၢ်ဆူလံာ်ခီယ့ၣ်။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.1AddLanguageKnowledge.c1dcc822",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "1 · Add language knowledge",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.giveReviewersEnoughContextToCare.6bad6093",
+      "route": "//contribute",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Give reviewers enough context to care for the word.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.useTheSideBySideFields.bb844c5f",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Use the side-by-side fields to share what you know. A reviewer may follow up before publication, and your name stays attached to the entry history.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.2RecordAVoice.7726ad01",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "2 · Record a voice",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.pronunciationIsKnowledgeToo.c94cb4d6",
+      "route": "//contribute",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Pronunciation is knowledge, too.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.recordAQuietNaturalKarenWord.33420551",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Record a quiet, natural Karen word or sentence. Audio is held for moderation and may support future speech-to-text and text-to-speech training only with your consent.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.consentReview.1713be30",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Consent & review",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.yourRecordingRemainsYours.ac89c285",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Your recording remains yours.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.koaAsksForPermissionBeforeUsing.961fe91d",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "KOA asks for permission before using a recording in a training set. Reviewers check the transcript, dialect label, and rights confirmation before it is published.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.recordInAQuietPlace.5cb4ee4e",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Record in a quiet place",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.sayTheWordOnceThenIn.69c12385",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Say the word once, then in a sentence",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.keepPersonalInformationOutOfRecordings.c88b7b7e",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Keep personal information out of recordings",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.afterYouSubmit.e2f014f7",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "After you submit",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.aClearReviewPath.a2d3114e",
+      "route": "//contribute",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "A clear review path.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.submissionsEnterAQueueForLanguage.6c744126",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Submissions enter a queue for language, context, and rights review. Approved entries show their contributor and version history publicly.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.01Submitted.8a1a620a",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "01 · Submitted",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.weReceiveYourContribution.91d4b2bd",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "We receive your contribution",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.youReceiveAConfirmationAndThe.1990579c",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "You receive a confirmation and the item is marked pending.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.02Reviewed.3d3b449b",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "02 · Reviewed",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.communityReviewersCheckContext.ac6e5612",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Community reviewers check context",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.reviewersMayAskAFollowUp.ad7fe475",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Reviewers may ask a follow-up or suggest a regional note.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.03Published.e3de4021",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "03 · Published",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.theCommunityCanFindAndHear.d9d6439e",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "The community can find and hear it",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.contribute.approvedWordsAppearInSearchWith.818fb2fd",
+      "route": "//contribute",
+      "kind": "text",
+      "en": "Approved words appear in search with attribution and provenance.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.searchListenContribute.bb502c40",
+      "route": "//dictionary",
+      "kind": "text",
+      "en": "Search, listen, contribute",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.dictionaryEntry.dc0d777b",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Dictionary entry · လံာ်ခီယ့ၣ်",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.meaningUse.ccc47dd3",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Meaning & use",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.example.aea1289e",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Example · တၢ်သူအီၤ",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.provenance.d5f34111",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Provenance · တၢ်မၤလီၤတံၢ်",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.category.1ccd886f",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Category",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.contributor.7802028a",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Contributor",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.published.7e74c3e4",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Published",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.version.7aea8803",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Version",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.relatedLanguage.3128b071",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Related language",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.wordsInConversation.8409702c",
+      "route": "//dictionary/[id]",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Words in conversation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.synonyms.77a58554",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Synonyms",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.antonyms.dd79400e",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Antonyms",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.editHistory.16f71252",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Edit history",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.aVisiblePathFromContributionTo.29b2c728",
+      "route": "//dictionary/[id]",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "A visible path from contribution to publication.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.communityReviewCompleted.445484ff",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Community review completed",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.version.7bae985a",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Version",
+      "karen": "",
+      "occurrence": {
+        "en": 1,
+        "karen": 1
+      }
+    },
+    {
+      "key": "auto.dictionary.id.isPublishedAfterLanguageAndContext.a8c0cc47",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "is published after language and context review.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.earlierVersions.747401ec",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Earlier versions",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.contributorEditsRemainAttributed.b224b3f6",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Contributor edits remain attributed",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.dictionary.id.futureCorrectionsAndRegionalNotesWill.614bdeae",
+      "route": "//dictionary/[id]",
+      "kind": "text",
+      "en": "Future corrections and regional notes will appear here with their reviewer and reason for change.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.civicEducation.3c5e2744",
+      "route": "/",
+      "kind": "text",
+      "en": "Civic education",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.understandPublicSystemsGrowYouthLeadership.005d9388",
+      "route": "/",
+      "kind": "text",
+      "en": "Understand public systems, grow youth leadership, and turn community priorities into action.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.explorePrograms.0d92db2f",
+      "route": "/",
+      "kind": "text",
+      "en": "Explore programs",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.languageAccess.3f989ad1",
+      "route": "/",
+      "kind": "text",
+      "en": "Language access",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.findCommunityReviewedWordsAndRequest.747f8d23",
+      "route": "/",
+      "kind": "text",
+      "en": "Find community-reviewed words and request trusted Karen translation or interpretation.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.findLanguageSupport.b7dbafd9",
+      "route": "/",
+      "kind": "text",
+      "en": "Find language support",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.communityCare.a5535b86",
+      "route": "/",
+      "kind": "text",
+      "en": "Community care",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.shareIdeasVolunteerPartnerOrGive.f5169756",
+      "route": "/",
+      "kind": "text",
+      "en": "Share ideas, volunteer, partner, or give so resources move where they matter most.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.takePart.ff497474",
+      "route": "/",
+      "kind": "text",
+      "en": "Take part",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.communityLedAdvocacy.e3dfa22d",
+      "route": "/",
+      "kind": "text",
+      "en": "Community-led advocacy",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.seeTheWork.b2fa984e",
+      "route": "/",
+      "kind": "text",
+      "en": "See the work",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.livingLanguage.46eaf334",
+      "route": "/",
+      "kind": "text",
+      "en": "Living language · ကညီကျိာ်",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.shareAWordOrRecording.4d5117c0",
+      "route": "/",
+      "kind": "text",
+      "en": "Share a word or recording",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.thisMonth.68b2aa3b",
+      "route": "/",
+      "kind": "text",
+      "en": "This month",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.onlineNational.ea7887ef",
+      "route": "/",
+      "kind": "text",
+      "en": "Online · National",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.languageContributorOrientation.723dc676",
+      "route": "/",
+      "kind": "text",
+      "en": "Language contributor orientation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.learnHowCommunityDefinitionsAndRecordings.b7561c67",
+      "route": "/",
+      "kind": "text",
+      "en": "Learn how community definitions and recordings move through review.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.joinOrientation.15468c1e",
+      "route": "/",
+      "kind": "text",
+      "en": "Join orientation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.omahaNebraska.9caac654",
+      "route": "/",
+      "kind": "text",
+      "en": "Omaha, Nebraska",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.youthCivicLeadershipWorkshop.2ac189aa",
+      "route": "/",
+      "kind": "text",
+      "en": "Youth civic leadership workshop",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.aPracticalDayOfPublicSystem.529d33ae",
+      "route": "/",
+      "kind": "text",
+      "en": "A practical day of public-system learning and community action.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.home.eventDetails.654efad7",
+      "route": "/",
+      "kind": "text",
+      "en": "Event details",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.howKoaHelps.8b5f44ff",
+      "route": "//services",
+      "kind": "text",
+      "en": "How KOA helps",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.civicLeadership.0a567a6f",
+      "route": "//services",
+      "kind": "text",
+      "en": "Civic leadership",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.understandTheSystemBringKnowledgeHome.86544b9e",
+      "route": "//services",
+      "kind": "text",
+      "en": "Understand the system. Bring knowledge home.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.fromAdvocacy101ToNationalLearning.b59eff1e",
+      "route": "//services",
+      "kind": "text",
+      "en": "From Advocacy 101 to national learning visits, KOA creates practical ways for Karen people to participate in public life with confidence.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.youthLeadershipDevelopment.a53fb97e",
+      "route": "//services",
+      "kind": "text",
+      "en": "Youth leadership development",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.publicPolicyAndSystemsLearning.9b99ce9f",
+      "route": "//services",
+      "kind": "text",
+      "en": "Public policy and systems learning",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.communityLedAdvocacyPlanning.9daa1bc3",
+      "route": "//services",
+      "kind": "text",
+      "en": "Community-led advocacy planning",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.localActionAndNationalConnection.a667f9a9",
+      "route": "//services",
+      "kind": "text",
+      "en": "Local action and national connection",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.askAboutAProgram.bf6629f4",
+      "route": "//services",
+      "kind": "text",
+      "en": "Ask about a program",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.programAccess.93ae1d28",
+      "route": "//services",
+      "kind": "text",
+      "en": "Program access",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.talkWithKoa.f152d931",
+      "route": "//services",
+      "kind": "text",
+      "en": "Talk with KOA",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.services.requestAnInterpreter.3b7d9fdf",
+      "route": "//services",
+      "kind": "text",
+      "en": "Request an interpreter",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.services.6e17f2e1",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Services",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.approvedDirectory.e045c9e0",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Approved directory",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.meetInterpretersTheCommunityCanVerify.768aa399",
+      "route": "//translation",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Meet interpreters the community can verify.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.profilesShowCredentialsServiceAreasAvailability.db462798",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Profiles show credentials, service areas, availability, and moderated community ratings. Select a profile to review details before requesting a service.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.requestLanguageSupport.114b3061",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Request language support",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.yourRequestIsInTheCoordination.5d5337d3",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Your request is in the coordination queue. We will follow up with next steps.",
+      "karen": "နတၢ်ဃုထၢအိၣ်လၢတၢ်ကွၢ်သမံသမိးအပူၤလံ။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.yourName.6ed07c3f",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Your name",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.emailOrPhone.3357ca1d",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Email or phone",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.serviceNeeded.0ae5c165",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Service needed",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.documentTranslation.8b029689",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Document translation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.medicalInterpretation.8d8c29c5",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Medical interpretation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.legalOrCourtInterpretation.28d327d9",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Legal or court interpretation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.communitySchoolOrOther.1c094ede",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Community, school, or other",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.languageDirection.c2b8d683",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Language direction",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.karenEnglish.e0b23f8d",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Karen ↔ English",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.karenBurmese.0f280f92",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Karen ↔ Burmese",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.preferredDate.63e2a30f",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Preferred date",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.locationOrVideo.875f6a18",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Location or video",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.cityVenueOrVideo.e7a02f94",
+      "route": "//translation",
+      "kind": "attribute",
+      "attribute": "placeholder",
+      "en": "City, venue, or video",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.whatShouldWeKnow.5b2c5f51",
+      "route": "//translation",
+      "kind": "text",
+      "en": "What should we know?",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.shareTimingAndAccessibilityNeedsNot.b934dd69",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Share timing and accessibility needs, not confidential case details.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.courtPartnership.9628d6e1",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Court partnership",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.closingTheInterpreterGapTogether.78837637",
+      "route": "//translation",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Closing the interpreter gap together.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.koaIsDevelopingRelationshipsWithCourts.ab0018e4",
+      "route": "//translation",
+      "kind": "text",
+      "en": "KOA is developing relationships with courts and legal partners so Karen speakers can understand proceedings and exercise their rights. If your court or organization wants to partner, use the collaboration form.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.translation.startAPartnershipConversation.5c9ffe6a",
+      "route": "//translation",
+      "kind": "text",
+      "en": "Start a partnership conversation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.communityProfile.62a2938a",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Community profile · ပှၤတဝၢအမံၤ",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.status.koaApproved",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "KOA approved",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.requestLanguageSupport.06198c7d",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Request language support",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.atAGlance.24297f2b",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "At a glance",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.trustIsBuiltInPublic.2bbc6f37",
+      "route": "//u/[username]",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Trust is built in public.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.availability.e9e90e3d",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Availability",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.scheduleIsConfirmedWhenARequest.15262ca0",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Schedule is confirmed when a request is received.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.communityRating.6e6a0b14",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Community rating",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.moderatedReviews.c79f26da",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "moderated reviews",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.contributions.5f321524",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Contributions",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.languageWorkConnectedToThisProfile.e1f8967a",
+      "route": "//u/[username]",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Language work connected to this profile.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.contributionsAreShownOnlyAfterCommunity.acef82a7",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Contributions are shown only after community review and remain linked to their version history.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.viewDictionaryEntry.697c1c66",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "View dictionary entry",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.noDictionaryContributionsPublishedYet.e04e2d93",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "No dictionary contributions published yet.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.profileActivityWillAppearHereAs.7ed8603e",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Profile activity will appear here as approved work is connected.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.languagesCredentials.8f30f560",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Languages & credentials",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.communityReviewedExperience.b663c62d",
+      "route": "//u/[username]",
+      "kind": "attribute",
+      "attribute": "title",
+      "en": "Community-reviewed experience.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.languages.ad251c22",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Languages",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.credentials.fe09ba9e",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Credentials",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.serviceArea.84a04cb9",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Service area",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.profileStatus.ce0bfb90",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Profile status",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.u.username.verifiedByKoa.cadc528d",
+      "route": "//u/[username]",
+      "kind": "text",
+      "en": "Verified by KOA",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.audio.start",
+      "route": "*",
+      "kind": "text",
+      "en": "Start recording",
+      "karen": "စးထီၣ်ဖီၣ်ကလုၢ်",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.audio.stop",
+      "route": "*",
+      "kind": "text",
+      "en": "Stop recording",
+      "karen": "ပတုာ်",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.audio.upload",
+      "route": "*",
+      "kind": "text",
+      "en": "Upload recording",
+      "karen": "ဆှၢလီၤကလုၢ်",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.audio.review",
+      "route": "*",
+      "kind": "text",
+      "en": "Review your recording",
+      "karen": "ကွၢ်ကဒါနကလုၢ်",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.karenAudioRecorder.c8d81b11",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Karen audio recorder",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.recordAKarenWordOrSentence.a32b6372",
+      "route": "*",
+      "kind": "text",
+      "en": "Record a Karen word or sentence in a quiet place.",
+      "karen": "တဲဖျါထီၣ်ကညီကျိာ်တဖျၢၣ် မ့တမ့ၢ် တကျိာ်။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.chapter02CivicVoice.663ff9bd",
+      "route": "*",
+      "kind": "text",
+      "en": "Chapter 02 · Civic voice",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.knowledgeBecomesAVoiceInThe.bc89009b",
+      "route": "*",
+      "kind": "text",
+      "en": "Knowledge becomes a voice in the room.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.communityExperienceBelongsInThePlaces.999e4015",
+      "route": "*",
+      "kind": "text",
+      "en": "Community experience belongs in the places where decisions are made.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.exploreCommunityPrograms.3b228816",
+      "route": "*",
+      "kind": "text",
+      "en": "Explore community programs",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.chapter03LivingLanguage.29a7c4ff",
+      "route": "*",
+      "kind": "text",
+      "en": "Chapter 03 · Living language",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.everyWordIsAWayHome.e78d4f26",
+      "route": "*",
+      "kind": "text",
+      "en": "Every word is a way home.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.shareADefinitionARecordingOr.61df9010",
+      "route": "*",
+      "kind": "text",
+      "en": "Share a definition, a recording, or a memory that helps Karen language travel forward.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.contributeToTheLivingDictionary.51ab043c",
+      "route": "*",
+      "kind": "text",
+      "en": "Contribute to the living dictionary",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.film.0483c807",
+      "route": "*",
+      "kind": "text",
+      "en": "Film ·",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.frames.5fb86c01",
+      "route": "*",
+      "kind": "text",
+      "en": "frames",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.storyChapters.c0ae512e",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Story chapters",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.scrollToEnter.6a63dfe0",
+      "route": "*",
+      "kind": "text",
+      "en": "Scroll to enter",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.definition.cd14a2bf",
+      "route": "*",
+      "kind": "text",
+      "en": "Definition",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.translationVariant.73bb5da7",
+      "route": "*",
+      "kind": "text",
+      "en": "Translation variant",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.exampleSentence.56b99d9e",
+      "route": "*",
+      "kind": "text",
+      "en": "Example sentence",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.correction.f0480bbe",
+      "route": "*",
+      "kind": "text",
+      "en": "Correction",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shell.karen",
+      "route": "*",
+      "kind": "text",
+      "en": "S'gaw Karen",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.notSure.6278843b",
+      "route": "*",
+      "kind": "text",
+      "en": "Not sure",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.tellReviewersWhenAndHowThis.5e36af06",
+      "route": "*",
+      "kind": "text",
+      "en": "Tell reviewers when and how this term is used.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.iCreatedThisContributionOrHave.4edca75f",
+      "route": "*",
+      "kind": "text",
+      "en": "I created this contribution or have permission to share it under KOA's community language license.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.status.communityReviewed",
+      "route": "*",
+      "kind": "text",
+      "en": "Community reviewed",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.action.viewFullEntry",
+      "route": "*",
+      "kind": "text",
+      "en": "View full entry",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.tryCommunityOr.05a772d9",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "placeholder",
+      "en": "Try “community” or ကညီ",
+      "karen": "ကညီ မ့တမ့ၢ် English",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.filterByCategory.320c969f",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Filter by category",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.approvedSGawKarenRecords.177f9836",
+      "route": "*",
+      "kind": "text",
+      "en": "Approved S'gaw Karen records",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.noMatchingEntryYet.6afe3446",
+      "route": "*",
+      "kind": "text",
+      "en": "No matching entry yet.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.tryAnotherSpellingOrShareThe.f2bc2f5c",
+      "route": "*",
+      "kind": "text",
+      "en": "Try another spelling, or share the word with community reviewers.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.suggestThisWord.f59ec998",
+      "route": "*",
+      "kind": "text",
+      "en": "Suggest this word",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.sustainTheWork.2a08bcc7",
+      "route": "*",
+      "kind": "text",
+      "en": "Sustain the work",
+      "karen": "မၤစၢၤတၢ်မၤ",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.yourGiftStaysWithCommunity.0c923285",
+      "route": "*",
+      "kind": "text",
+      "en": "Your gift stays with community.",
+      "karen": "နတၢ်ဟ့ၣ်မၤစၢၤပှၤတဝၢ။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.donationAmount.02e1fafb",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Donation amount",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.amountUsd.18f5a4aa",
+      "route": "*",
+      "kind": "text",
+      "en": "Amount (USD)",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.emailForReceipt.7cd0b370",
+      "route": "*",
+      "kind": "text",
+      "en": "Email for receipt",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.secureProcessingIsCompletedByKoa.1acb424a",
+      "route": "*",
+      "kind": "text",
+      "en": "Secure processing is completed by KOA's payment provider. Tax receipt eligibility is confirmed with your receipt.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.websiteFeature.3062eedf",
+      "route": "*",
+      "kind": "text",
+      "en": "Website feature",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.communityService.1e2da218",
+      "route": "*",
+      "kind": "text",
+      "en": "Community service",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.partnershipOrCollaboration.b6cfe79e",
+      "route": "*",
+      "kind": "text",
+      "en": "Partnership or collaboration",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.footerNavigation.10181ae7",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Footer navigation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.koa.28621cd5",
+      "route": "*",
+      "kind": "text",
+      "en": "KOA ·",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.facebook.0cc38657",
+      "route": "*",
+      "kind": "text",
+      "en": "Facebook",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.koa.f3a8a6c4",
+      "route": "*",
+      "kind": "text",
+      "en": "KOA",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.primaryNavigation.1797e8cc",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Primary navigation",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.koa.fd56ac1d",
+      "route": "*",
+      "kind": "text",
+      "en": "KOA",
+      "karen": "",
+      "occurrence": {
+        "en": 1,
+        "karen": 1
+      }
+    },
+    {
+      "key": "shared.status.koaApproved",
+      "route": "*",
+      "kind": "text",
+      "en": "KOA approved",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.credentials.1f5d28b4",
+      "route": "*",
+      "kind": "text",
+      "en": "Credentials",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.serviceArea.2e667ef3",
+      "route": "*",
+      "kind": "text",
+      "en": "Service area",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.availability.68b31794",
+      "route": "*",
+      "kind": "text",
+      "en": "Availability",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.communityRating.6538033a",
+      "route": "*",
+      "kind": "text",
+      "en": "Community rating",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.moderatedReviews.c4ea02d9",
+      "route": "*",
+      "kind": "text",
+      "en": "moderated reviews",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shared.action.viewProfile",
+      "route": "*",
+      "kind": "text",
+      "en": "View profile and request service",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.en.75c057b9",
+      "route": "*",
+      "kind": "text",
+      "en": "en",
+      "karen": "ksw",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shell.english",
+      "route": "*",
+      "kind": "text",
+      "en": "English",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.beta.c2394714",
+      "route": "*",
+      "kind": "text",
+      "en": "BETA",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    }
+  ]
+}
