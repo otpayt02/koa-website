@@ -1,4 +1,4 @@
-import { handleApi, jsonOk, readJson } from "@/lib/api";
+import { ApiError, handleApi, jsonOk, readJson } from "@/lib/api";
 import { requireAnyRole } from "@/lib/auth";
 import {
   backupExport,
@@ -43,8 +43,8 @@ export async function POST(request: Request) {
   return handleApi(request, async () => {
     const user = await requireAnyRole(request, ["admin"]);
     const body = await readJson(request, 128_000);
-    if (body.action !== "publish") throw new TypeError("Unsupported translation action");
-    if (!Array.isArray(body.entries)) throw new TypeError("entries must be an array");
+    if (body.action !== "publish") throw new ApiError(400, "Unsupported translation action");
+    if (!Array.isArray(body.entries)) throw new ApiError(400, "entries must be an array");
     const entries = body.entries.map(parsePublishEntry);
     return jsonOk(await publishEntries(request, user, entries));
   });
@@ -52,14 +52,14 @@ export async function POST(request: Request) {
 
 function parseSave(body: Record<string, unknown>): SaveDraftInput {
   if (typeof body.key !== "string" || typeof body.en !== "string" || typeof body.karen !== "string") {
-    throw new TypeError("key, en, and karen are required text fields");
+    throw new ApiError(400, "key, en, and karen are required text fields");
   }
   if (!body.expected || typeof body.expected !== "object" || Array.isArray(body.expected)) {
-    throw new TypeError("expected revision identifiers are required");
+    throw new ApiError(400, "expected revision identifiers are required");
   }
   const expected = body.expected as Record<string, unknown>;
   if (!nullableString(expected.en) || !nullableString(expected.karen)) {
-    throw new TypeError("expected revision identifiers must be text or null");
+    throw new ApiError(400, "expected revision identifiers must be text or null");
   }
   return {
     key: body.key,
@@ -71,10 +71,10 @@ function parseSave(body: Record<string, unknown>): SaveDraftInput {
 }
 
 function parsePublishEntry(value: unknown): PublishEntryInput {
-  if (!value || typeof value !== "object" || Array.isArray(value)) throw new TypeError("Each publication entry must be an object");
+  if (!value || typeof value !== "object" || Array.isArray(value)) throw new ApiError(400, "Each publication entry must be an object");
   const entry = value as Record<string, unknown>;
   if (typeof entry.key !== "string" || typeof entry.enRevisionId !== "string" || typeof entry.karenRevisionId !== "string") {
-    throw new TypeError("Each publication entry needs key, enRevisionId, and karenRevisionId");
+    throw new ApiError(400, "Each publication entry needs key, enRevisionId, and karenRevisionId");
   }
   return { key: entry.key, enRevisionId: entry.enRevisionId, karenRevisionId: entry.karenRevisionId };
 }
