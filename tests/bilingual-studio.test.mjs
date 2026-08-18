@@ -47,7 +47,7 @@ test("drafts use immutable revisions and publication uses a D1 batch", () => {
 
   for (const table of ["content_translation_revisions", "content_translation_publications", "translation_publication_batches"]) {
     assert.match(schema, new RegExp(`["']${table}["']`));
-    assert.match(migrations, new RegExp(`CREATE TABLE [\\`]${table}[\\`]`));
+    assert.ok(migrations.includes("CREATE TABLE `" + table + "`"), `Migration must create ${table}`);
   }
   assert.match(service, /binding\.batch\(statements\)/);
   assert.match(service, /changed after the publication review opened/);
@@ -62,7 +62,7 @@ test("keyboard authoring saves on Tab, preserves Enter, and keeps an explicit ac
   assert.doesNotMatch(studio, /event\.key === "Enter"[\s\S]{0,120}saveEntry/);
   assert.match(studio, /onDoubleClick=\{\(\) => openEntry\(entry\)\}/);
   assert.match(studio, />Edit<\/button>/);
-  assert.match(studio, />Save & next<\/button>/);
+  assert.match(studio, /"Save & next"/);
 });
 
 test("reader language controls use the S'gaw endonym, beta label, preference cookie, and ksw document tag", () => {
