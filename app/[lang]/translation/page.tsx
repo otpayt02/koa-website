@@ -3,7 +3,7 @@ import { AsyncForm } from "@/components/FormStatus";
 import { Input, Select, Textarea } from "@/components/Input";
 import { InterpreterCard } from "@/components/InterpreterCard";
 import { interpreters } from "@/components/data";
-import { getMessages, isLang, pageLabels } from "@/components/i18n";
+import { getMessages, isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { getTranslator } from "@/lib/content";

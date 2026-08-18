@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AsyncForm } from "@/components/FormStatus";
 import { Input, Select, Textarea } from "@/components/Input";
 import { Card } from "@/components/Card";
-import { getMessages, isLang, pageLabels } from "@/components/i18n";
+import { getMessages, isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { getTranslator } from "@/lib/content";

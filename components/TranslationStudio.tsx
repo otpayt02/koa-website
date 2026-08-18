@@ -48,7 +48,10 @@ export function TranslationStudio({ lang }: { lang: Lang }) {
     }
   }
 
-  useEffect(() => { void load(); }, []);
+  useEffect(() => {
+    const timer = window.setTimeout(() => { void load(); }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const routes = useMemo(() => {
     if (!data) return [];
@@ -224,7 +227,6 @@ export function TranslationStudio({ lang }: { lang: Lang }) {
       if (!entry) continue;
       const saved = await saveEntry(entry, 0, true, { en: change.en, karen: change.karen });
       if (!saved) return;
-      data.entries = data.entries.map((item) => item.key === saved.key ? saved : item);
     }
     setImportChanges([]);
     setNotice("Imported differences saved as unverified drafts.");

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AudioRecorder } from "@/components/AudioRecorder";
 import { ContributionForm } from "@/components/ContributionForm";
-import { getMessages, isLang, pageLabels } from "@/components/i18n";
+import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { Card } from "@/components/Card";

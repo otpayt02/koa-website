@@ -2,7 +2,7 @@ import { AsyncForm } from "./FormStatus";
 import { Input, Select, Textarea } from "./Input";
 import type { Lang, Messages } from "./i18n";
 
-export function FeatureRequestForm({ lang, messages, copy }: { lang: Lang; messages: Messages; copy: Record<"eyebrow" | "title" | "type" | "shortTitle" | "description" | "impact" | "email", string> }) {
+export function FeatureRequestForm({ messages, copy }: { lang: Lang; messages: Messages; copy: Record<"eyebrow" | "title" | "type" | "shortTitle" | "description" | "impact" | "email", string> }) {
   return (
     <AsyncForm endpoint="/api/collaborate" messages={messages}>
       <div className="form-intro"><p className="eyebrow">{copy.eyebrow}</p><h2>{copy.title}</h2></div>

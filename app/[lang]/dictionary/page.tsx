@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { DictionarySearch } from "@/components/DictionarySearch";
-import { getMessages, isLang, pageLabels } from "@/components/i18n";
+import { getMessages, isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { getTranslator } from "@/lib/content";

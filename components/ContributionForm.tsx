@@ -2,7 +2,7 @@ import { AsyncForm } from "./FormStatus";
 import { Input, Select, Textarea } from "./Input";
 import type { Lang, Messages } from "./i18n";
 
-export function ContributionForm({ lang, messages, copy }: { lang: Lang; messages: Messages; copy: Record<"eyebrow" | "title" | "word" | "translation" | "type" | "dialect" | "definition", string> }) {
+export function ContributionForm({ messages, copy }: { lang: Lang; messages: Messages; copy: Record<"eyebrow" | "title" | "word" | "translation" | "type" | "dialect" | "definition", string> }) {
   return (
     <AsyncForm endpoint="/api/contribute" messages={messages}>
       <div className="form-intro"><p className="eyebrow">{copy.eyebrow}</p><h2>{copy.title}</h2></div>
