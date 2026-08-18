@@ -32,6 +32,7 @@ export function TranslationStudio({ lang }: { lang: Lang }) {
   const [showPublish, setShowPublish] = useState(false);
   const [importChanges, setImportChanges] = useState<ImportChange[]>([]);
   const cardRefs = useRef(new Map<string, HTMLElement>());
+  const previewRef = useRef<HTMLIFrameElement>(null);
 
   async function load() {
     setLoading(true);
@@ -73,6 +74,23 @@ export function TranslationStudio({ lang }: { lang: Lang }) {
     if (!data?.entries.length) return 0;
     return Math.round((data.entries.filter((entry) => entry.karenState.value.trim()).length / data.entries.length) * 100);
   }, [data]);
+
+  const previewValues = useMemo(() => {
+    if (!data) return {};
+    return Object.fromEntries(data.entries.map((entry) => {
+      const values = drafts[entry.key] ?? { en: entry.enState.value, karen: entry.karenState.value };
+      return [entry.key, lang === "karen" ? values.karen || values.en : values.en];
+    }));
+  }, [data, drafts, lang]);
+
+  function updatePreview() {
+    previewRef.current?.contentWindow?.postMessage({ type: "koa-translation-preview", values: previewValues }, window.location.origin);
+  }
+
+  useEffect(() => {
+    const timer = window.setTimeout(updatePreview, 0);
+    return () => window.clearTimeout(timer);
+  }, [previewValues, route]);
 
   function openEntry(entry: StudioEntry) {
     setDrafts((current) => ({
@@ -295,9 +313,9 @@ export function TranslationStudio({ lang }: { lang: Lang }) {
           })}
         </section>
 
-        <aside className="studio-preview" aria-label="Published page preview">
-          <div><p className="eyebrow">Published preview</p><a href={`/${lang}${route === "*" || route === "/" ? "" : route}`} target="_blank" rel="noreferrer">Open in a new tab</a></div>
-          <iframe title="Published website preview" src={`/${lang}${route === "*" || route === "/" ? "" : route}`} />
+        <aside className="studio-preview" aria-label="Live draft page preview">
+          <div><p className="eyebrow">Live draft preview</p><a href={`/${lang}${route === "*" || route === "/" ? "" : route}`} target="_blank" rel="noreferrer">Open published page</a></div>
+          <iframe ref={previewRef} title="Live draft website preview" src={`/${lang}${route === "*" || route === "/" ? "" : route}`} onLoad={updatePreview} />
         </aside>
       </div>
 

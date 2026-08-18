@@ -55,8 +55,19 @@ for (const candidate of candidates) {
   bindings.push({ key, route: candidate.route, kind: candidate.kind, ...(candidate.attribute ? { attribute: candidate.attribute } : {}), en: candidate.en, karen: candidate.karen, occurrence });
 }
 
-fs.writeFileSync(outputPath, `${JSON.stringify({ version: 1, definitions, bindings }, null, 2)}\n`, "utf8");
-console.log(`Generated ${definitions.length} additional definitions and ${bindings.length} DOM bindings.`);
+const serialized = `${JSON.stringify({ version: 1, definitions, bindings }, null, 2)}\n`;
+if (process.argv.includes("--check")) {
+  const current = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, "utf8") : "";
+  if (current !== serialized) {
+    console.error("The bilingual content inventory is stale. Run npm run content:generate.");
+    process.exitCode = 1;
+  } else {
+    console.log(`Bilingual content inventory is current (${definitions.length} generated definitions, ${bindings.length} bindings).`);
+  }
+} else {
+  fs.writeFileSync(outputPath, serialized, "utf8");
+  console.log(`Generated ${definitions.length} additional definitions and ${bindings.length} DOM bindings.`);
+}
 
 function readManualDefinitions() {
   const source = fs.readFileSync(catalogPath, "utf8");

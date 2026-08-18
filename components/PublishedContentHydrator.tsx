@@ -10,12 +10,12 @@ export function PublishedContentHydrator({ lang, published }: { lang: Lang; publ
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!Object.keys(published).length) return;
     const route = pathname.replace(/^\/(en|karen)(?=\/|$)/, "") || "/";
-    const bindings = generatedContentBindings.filter((binding) => routeMatches(binding.route, route) && published[binding.key]);
+    const bindings = generatedContentBindings.filter((binding) => routeMatches(binding.route, route));
     if (!bindings.length) return;
 
     let applying = false;
+    let activeValues = published;
     const apply = () => {
       if (applying) return;
       applying = true;
@@ -24,10 +24,14 @@ export function PublishedContentHydrator({ lang, published }: { lang: Lang; publ
         const textNodes = collectTextNodes(root);
         for (const binding of bindings) {
           const base = lang === "karen" ? binding.karen || binding.en : binding.en;
-          const replacement = published[binding.key];
+          const replacement = activeValues[binding.key];
           if (!replacement || replacement === base) continue;
           if (binding.kind === "text") {
-            const matches = textNodes.filter((node) => normalize(node.textContent) === base);
+            const currentPublished = published[binding.key];
+            const matches = textNodes.filter((node) => {
+              const value = normalize(node.textContent);
+              return value === base || Boolean(currentPublished && value === currentPublished);
+            });
             const target = matches[binding.occurrence[lang]];
             if (target) target.textContent = preserveOuterWhitespace(target.textContent ?? "", replacement);
           } else if (binding.attribute) {
@@ -40,10 +44,22 @@ export function PublishedContentHydrator({ lang, published }: { lang: Lang; publ
       }
     };
 
+    const receivePreview = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin || event.source !== window.parent) return;
+      const message = event.data as { type?: string; values?: Record<string, string> };
+      if (message?.type !== "koa-translation-preview" || !message.values) return;
+      activeValues = { ...published, ...message.values };
+      apply();
+    };
+
     apply();
     const observer = new MutationObserver(() => window.requestAnimationFrame(apply));
     observer.observe(document.body, { childList: true, subtree: true });
-    return () => observer.disconnect();
+    window.addEventListener("message", receivePreview);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("message", receivePreview);
+    };
   }, [lang, pathname, published]);
 
   return null;

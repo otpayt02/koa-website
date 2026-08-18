@@ -9,9 +9,11 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "vinext start",
-    "test": "npm run build && node --test tests/*.test.mjs",
+    "test": "npm run content:check && npm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "content:generate": "node scripts/generate-content-inventory.mjs",
+    "content:check": "node scripts/generate-content-inventory.mjs --check"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
