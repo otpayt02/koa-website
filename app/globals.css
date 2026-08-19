@@ -347,6 +347,19 @@ img { display: block; max-width: 100%; }
   border-radius: 50%;
   box-shadow: 0 0 58px rgba(255,255,255,.18), 0 0 160px rgba(237,48,56,.25);
 }
+.cinematic-film__outer-light {
+  z-index: 2;
+  filter: brightness(0) invert(1);
+  opacity: .82;
+  -webkit-mask-image: radial-gradient(circle, transparent 0 64%, #000 68% 100%);
+  mask-image: radial-gradient(circle, transparent 0 64%, #000 68% 100%);
+  /* Halo rotation tied to scroll via --film-progress */
+  transform: rotate(calc(var(--film-progress) * 1turn - 18deg)) scale(calc(.9 + var(--film-progress) * .12));
+  transform-origin: center;
+  animation: koa-pulse 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes koa-pulse { 0%, 100% { opacity: .78 } 50% { opacity: .92 } }
 .cinematic-film__copy {
   position: relative;
   z-index: 3;

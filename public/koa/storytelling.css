@@ -30,10 +30,7 @@
 
 *{box-sizing:border-box}
 html{
-  scroll-behavior:smooth;
   background:var(--navy);
-  /* Smooth scroll sync for halo */
-  scroll-behavior:auto;
 }
 body{
   margin:0;
@@ -42,7 +39,6 @@ body{
   color:var(--cream);
   font-family:var(--sans);
   line-height:1.55;
-  /* Smoother font rendering */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
@@ -55,6 +51,28 @@ button{color:inherit}
 .skip{position:fixed;z-index:100;top:-6rem;left:1rem;padding:.8rem 1rem;background:var(--cream);color:var(--navy);border-radius:6px;transition:top .3s cubic-bezier(.16,1,.3,1)}
 .skip:focus{top:1rem}
 :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+/* ===== MOBILE PREVIEW BAR ===== */
+.preview-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  min-height:36px;
+  padding:6px var(--gutter);
+  background:rgba(3,16,28,.98);
+  color:var(--cream);
+  font-size:.58rem;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  border-bottom:1px solid var(--line);
+  z-index:70;
+}
+.preview-bar a{color:var(--gold-soft);text-decoration:underline;transition:color .3s}
+.preview-bar a:hover{color:var(--cream)}
+.preview-bar__label{font-size:.5rem;color:var(--muted);margin-left:auto}
+@media(min-width:760px){.preview-bar{display:none}}
 
 /* ===== HEADER ===== */
 .header{
@@ -238,9 +256,13 @@ button{color:inherit}
   top:0;
   height:100svh;
   overflow:hidden;
-  /* Radial gradient base - will be enhanced by cursor */
+  /* Vortex field background - DRIVEN BY SCROLL via --logo-finesse */
   background:
-    radial-gradient(ellipse at calc(50% + var(--pointer-x)*18%) calc(50% + var(--pointer-y)*18%), rgba(34,36,95,.35) 0%, transparent 55%),
+    /* Cursor-driven radial glow */
+    radial-gradient(ellipse at calc(50% + var(--pointer-x)*20%) calc(50% + var(--pointer-y)*20%), rgba(34,36,95,.28) 0%, transparent 50%),
+    /* Scroll-driven vortex halo - rotation/scale tied to --logo-finesse */
+    radial-gradient(ellipse at 50% 50%, rgba(34,36,95,calc(.18 + var(--logo-finesse)*.22)) 0%, transparent 60%),
+    /* Base radial gradient */
     radial-gradient(circle at 72% 36%, #153a57 0%, #061522 42%, #03101c 100%);
   transition:background .8s cubic-bezier(.16,1,.3,1);
   will-change:background;
@@ -253,7 +275,7 @@ button{color:inherit}
   pointer-events:none;
   background:
     linear-gradient(180deg,rgba(3,16,28,.18),transparent 22%,transparent 78%,rgba(3,16,28,.58)),
-    radial-gradient(ellipse at 78% 18%, rgba(242,200,90,.08), transparent 35%);
+    radial-gradient(ellipse at 78% 18%, rgba(242,200,90,.06), transparent 35%);
 }
 .film-progress{
   position:absolute;
@@ -337,9 +359,7 @@ button{color:inherit}
   visibility:hidden;
   opacity:0;
   pointer-events:none;
-  /* Iris wipe using clip-path circle */
   clip-path:circle(var(--swallow-radius,120%) at var(--focus-x,50%) var(--focus-y,50%));
-  /* Subtle scale and rotation during transition */
   transform:scale(var(--scene-scale,1)) rotate(0deg);
   transform-origin:center;
   will-change:opacity,clip-path,transform,filter;
@@ -359,7 +379,6 @@ button{color:inherit}
   height:100%;
   object-fit:cover;
   object-position:var(--position,50% 50%);
-  /* Slower, more deliberate Ken Burns */
   filter:saturate(.96) contrast(1.045);
   transform:scale(calc(1.115 - var(--local)*.055 + var(--momentum)*.015)) translate3d(calc((.5 - var(--local))*2.2%),calc((.5 - var(--local))*2.8%),0);
   transform-origin:var(--position,50% 50%);
@@ -371,15 +390,13 @@ button{color:inherit}
   z-index:10;
   inset:0;
   content:'';
-  /* Subtle vignette - NO heavy navy overlay over faces */
   background:
     linear-gradient(0deg,rgba(8,13,45,.94) 0%,rgba(16,23,67,.38) 38%,rgba(16,23,67,.04) 72%),
     linear-gradient(90deg,rgba(8,13,45,.52),transparent 62%),
-    radial-gradient(ellipse at 78% 18%, rgba(242,200,90,.1), transparent 32%);
+    radial-gradient(ellipse at 78% 18%, rgba(242,200,90,.08), transparent 32%);
   pointer-events:none;
 }
 
-/* Scene type positioning */
 .scene--split{--focus-x:74%;--focus-y:45%}
 .scene--portrait{--focus-x:66%;--focus-y:44%}
 .scene--ribbon{--focus-x:72%;--focus-y:50%}
@@ -409,10 +426,9 @@ button{color:inherit}
   background:
     radial-gradient(circle at 70% 45%,transparent,rgba(8,13,45,.55) 72%),
     linear-gradient(90deg,rgba(8,13,45,.88),rgba(8,13,45,.08));
-
 }
 
-/* ===== LOGO SCENE - HALO SCROLL SYNC ===== */
+/* ===== LOGO SCENE - koa-logo.png with HALO RING ===== */
 .logo-scene{
   display:grid;
   place-items:center;
@@ -423,101 +439,6 @@ button{color:inherit}
   transform:none;
   isolation:isolate;
 }
-.logo-scene::before{
-  position:absolute;
-  z-index:0;
-  inset:-40%;
-  content:'';
-  opacity:.85;
-  mix-blend-mode:screen;
-  background:
-    conic-gradient(from 0deg at 50% 50%,
-      transparent 0% 10%,
-      rgba(255,255,255,.1) 14%,
-      transparent 22% 30%,
-      rgba(237,48,56,.35) 38%,
-      transparent 46% 56%,
-      rgba(227,180,92,.3) 64%,
-      transparent 73% 84%,
-      rgba(64,92,186,.55) 92%,
-      transparent
-    );
-  -webkit-mask:radial-gradient(ellipse at center,transparent 0 18%,#000 36% 70%,transparent 88%);
-  mask:radial-gradient(ellipse at center,transparent 0 18%,#000 36% 70%,transparent 88%);
-  filter:blur(22px) saturate(1.3);
-  /* Halo rotation tied to scroll via --logo-finesse */
-  transform:rotate(calc(var(--logo-finesse)*1turn - 18deg)) scale(calc(.9 + var(--logo-finesse)*.12));
-  transform-origin:center;
-  animation:koa-vortex-base 68s linear infinite;
-  will-change:transform;
-  transition:transform .02s linear;
-}
-@keyframes koa-vortex-base{to{transform:rotate(1turn)}}
-
-.logo-scene::after{
-  position:absolute;
-  z-index:2;
-  inset:0;
-  content:'';
-  pointer-events:none;
-  background:radial-gradient(ellipse at 50% 44%, transparent 0 20%, rgba(8,13,45,.22) 52%, rgba(8,13,45,.92) 100%);
-}
-
-/* Vortex field for richer halo */
-.vortex-field{
-  position:absolute;
-  z-index:1;
-  inset:-38%;
-  overflow:hidden;
-  pointer-events:none;
-  opacity:.92;
-  mix-blend-mode:screen;
-  transform:translateZ(0);
-}
-.vortex-field::before,
-.vortex-field::after{
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  content:'';
-  pointer-events:none;
-  transform-origin:center;
-}
-.vortex-field::before{
-  background:
-    conic-gradient(from 12deg,
-      transparent 0 10%,
-      rgba(255,255,255,.11) 14%,
-      transparent 22% 32%,
-      rgba(237,48,56,.38) 40%,
-      transparent 50% 60%,
-      rgba(227,180,92,.34) 68%,
-      transparent 78% 88%,
-      rgba(64,92,186,.58) 94%,
-      transparent
-    );
-  -webkit-mask:radial-gradient(ellipse at center,transparent 0 20%,#000 38% 68%,transparent 88%);
-  mask:radial-gradient(ellipse at center,transparent 0 20%,#000 38% 68%,transparent 88%);
-  filter:blur(22px) saturate(1.35);
-  animation:koa-vortex-spin 72s linear infinite;
-}
-.vortex-field::after{
-  inset:14%;
-  background:repeating-conic-gradient(from -24deg,
-    rgba(255,255,255,.1) 0 1.8deg,
-    transparent 1.8deg 15deg,
-    rgba(237,48,56,.18) 15deg 18deg,
-    transparent 18deg 30deg
-  );
-  -webkit-mask:radial-gradient(ellipse at center,transparent 0 28%,#000 42% 64%,transparent 84%);
-  mask:radial-gradient(ellipse at center,transparent 0 28%,#000 42% 64%,transparent 84%);
-  filter:blur(10px);
-  opacity:.72;
-  animation:koa-vortex-counter 52s linear infinite;
-}
-@keyframes koa-vortex-spin{to{transform:rotate(1turn) scale(1.06)}}
-@keyframes koa-vortex-counter{to{transform:rotate(-1turn) scale(.93)}}
-
 .seal-orbit{
   position:relative;
   width:min(92vw,680px);
@@ -551,7 +472,11 @@ button{color:inherit}
   opacity:.82;
   -webkit-mask-image:radial-gradient(circle,transparent 0 64%,#000 68% 100%);
   mask-image:radial-gradient(circle,transparent 0 64%,#000 68% 100%);
+  /* Halo rotation tied to scroll via --logo-finesse */
+  transform:rotate(calc(var(--logo-finesse)*1turn - 18deg)) scale(calc(.9 + var(--logo-finesse)*.12));
+  transform-origin:center;
   animation:koa-pulse 4.8s ease-in-out infinite;
+  will-change:transform;
 }
 @keyframes koa-pulse{0%,100%{opacity:.78}50%{opacity:.92}}
 
@@ -572,7 +497,7 @@ button{color:inherit}
   transform:scale(calc(.22 + var(--torch,0)*2.6));
   transform-origin:center;
   transition:opacity .02s linear,transform .02s linear;
-  animation:koa-torch-flicker 3.2s ease-in-out infinite;
+  animation:koa-torch-flicker 3.6s ease-in-out infinite;
 }
 @keyframes koa-torch-flicker{0%,100%{opacity:var(--torch,0);transform:scale(calc(.22 + var(--torch,0)*2.6))}50%{opacity:calc(var(--torch,0)*.9);transform:scale(calc(.22 + var(--torch,0)*2.55))}}
 .torch-flare::after{
@@ -619,6 +544,50 @@ button{color:inherit}
   font-style:normal;
 }
 
+/* ===== VORTEX FIELD - SCROLL-DRIVEN HALO IN FILM-STAGE ===== */
+/* This replaces the standalone vortex-field - now driven by --logo-finesse in film-stage background */
+.film-stage::before{
+  position:absolute;
+  z-index:1;
+  inset:-40%;
+  content:'';
+  opacity:calc(.5 + var(--logo-finesse)*.35);
+  mix-blend-mode:screen;
+  background:
+    conic-gradient(from 0deg at 50% 50%,
+      transparent 0% 10%,
+      rgba(255,255,255,.1) 14%,
+      transparent 22% 30%,
+      rgba(237,48,56,.35) 38%,
+      transparent 46% 56%,
+      rgba(227,180,92,.3) 64%,
+      transparent 73% 84%,
+      rgba(64,92,186,.55) 92%,
+      transparent
+    );
+  -webkit-mask:radial-gradient(ellipse at center,transparent 0 18%,#000 36% 70%,transparent 88%);
+  mask:radial-gradient(ellipse at center,transparent 0 18%,#000 36% 70%,transparent 88%);
+  filter:blur(22px) saturate(1.3);
+  /* HALO ROTATION TIED TO SCROLL via --logo-finesse */
+  transform:rotate(calc(var(--logo-finesse)*1turn - 18deg)) scale(calc(.9 + var(--logo-finesse)*.12));
+  transform-origin:center;
+  animation:koa-vortex-base 120s linear infinite; /* SLOWER */
+  will-change:transform;
+  transition:transform .02s linear, opacity .4s;
+}
+@keyframes koa-vortex-base{to{transform:rotate(1turn)}}
+
+.film-stage::after{
+  position:absolute;
+  z-index:25;
+  inset:0;
+  content:'';
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(3,16,28,.18),transparent 22%,transparent 78%,rgba(3,16,28,.58)),
+    radial-gradient(ellipse at 78% 18%, rgba(242,200,90,.06), transparent 35%);
+}
+
 /* ===== SCENE COPY - GLASSMORPHISM REPOSITIONED ===== */
 .scene-copy{
   position:absolute;
@@ -657,7 +626,6 @@ button{color:inherit}
   line-height:1.65;
 }
 .story-line{
-  /* Slower, more deliberate text reveals */
   transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);
 }
 .story-line.secondary{
@@ -668,7 +636,6 @@ button{color:inherit}
   padding:1.1rem 1.2rem;
   border:0;
   border-radius:0;
-  /* Ultra-transparent glass panel - doesn't cover faces */
   background:linear-gradient(90deg,rgba(8,13,45,.92) 0%,rgba(34,36,95,.72) 52%,rgba(185,22,43,.42) 82%,transparent);
   box-shadow:0 -28px 100px rgba(2,4,20,.32);
   backdrop-filter:blur(18px) saturate(1.15);
@@ -800,7 +767,7 @@ button{color:inherit}
   transition:color .4s,transform .5s cubic-bezier(.16,1,.3,1);
 }
 .link-card:hover span:last-child,
-.link-card:focus-visible span:last-child{
+.link-card:focus-visible span:last_child{
   color:var(--red);
   transform:translate3d(6px,-4px,0);
 }
@@ -1085,7 +1052,7 @@ footer>a:last-child:hover{color:var(--cream)}
     max-width:66vw;
   }
   .scene-copy h2{font-size:clamp(4.5rem,7.5vw,8.8rem)}
-  .scene-copy>p:last-child{font-size:1.12rem}
+  .scene-copy>p:last_child{font-size:1.12rem}
   .story-line.secondary{
     right:var(--gutter);
     bottom:16%;
@@ -1139,7 +1106,6 @@ footer>a:last-child:hover{color:var(--cream)}
   .scene-media img{transform:none!important}
   .seal-orbit{transform:none!important}
   .logo-stack{opacity:1!important}
-  .vortex-field{opacity:.5}
 }
 html[data-motion=reduced] *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 html[data-motion=reduced] .film{height:auto}
@@ -1175,10 +1141,9 @@ html[data-motion=reduced] .scene-media img,html[data-motion=reduced] .seal-orbit
 }
 
 /* ===== SLOWER PACING - CINEMATIC TIMING ===== */
-/* Slower animation durations for more cinematic feel */
-.logo-scene::before{animation-duration:68s}
-.vortex-field::before{animation-duration:72s}
-.vortex-field::after{animation-duration:52s}
+.logo-scene::before{animation-duration:120s}
+.vortex-field::before{animation-duration:120s}
+.vortex-field::after{animation-duration:80s}
 .torch-flare{animation-duration:3.6s}
 .story-line{transition-duration:.65s}
 .header,.nav,.search-button,.motion-button,.menu,.language-toggle{transition-duration:.55s}
@@ -1210,7 +1175,7 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
   color:var(--cream);
   line-height:1.05;
   text-align:right;
-  transition:border-color .4s,background-color .4s,color .4s;
+  transition:border-color .4s,background-color .4s,color .4s.
 }
 .language-mode span{
   font-size:.65rem;
@@ -1228,7 +1193,7 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
 .language-mode:focus-visible{
   border-color:var(--gold);
   background:rgba(242,200,90,.12);
-  color:var(--gold-soft);
+  color:var(--gold-soft).
 }
 @media(max-width:759px){
   .language-mode small{display:none}
@@ -1269,7 +1234,7 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
   color:var(--cream);
   font-size:.58rem;
   letter-spacing:.13em;
-  text-transform:uppercase;
+  text-transform:uppercase.
 }
 @media(min-width:760px){
   .review-row{
@@ -1323,13 +1288,13 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
   background:linear-gradient(90deg,var(--gold),var(--red),var(--gold-soft));
   transform:scaleX(.25);
   transform-origin:left;
-  transition:transform .8s cubic-bezier(.16,1,.3,1);
+  transition:transform .8s cubic-bezier(.16,1,.3,1).
 }
 .contact-card:hover,
 .contact-card:focus-visible{
   background:#fff8e0;
   box-shadow:0 28px 80px rgba(169,111,0,.22),0 14px 40px rgba(237,48,56,.12);
-  transform:translateY(-6px);
+  transform:translateY(-6px).
 }
 .contact-card:hover::before,
 .contact-card:focus-visible::before{transform:translate3d(115%,0,0)}
@@ -1343,19 +1308,19 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
   bottom:1.3rem;
   color:var(--yellow-ink);
   font:400 2.2rem/1 var(--serif);
-  transition:color .4s,transform .55s cubic-bezier(.16,1,.3,1);
+  transition:color .4s,transform .55s cubic-bezier(.16,1,.3,1).
 }
 .contact-card:hover .contact-arrow,
 .contact-card:focus-visible .contact-arrow{
   color:var(--red);
-  transform:translate3d(8px,-6px,0);
+  transform:translate3d(8px,-6px,0).
 }
 
 /* ===== CURSOR MICRO-INTERACTION HELPERS ===== */
 .header a,.dialog-close,.search-results a,.chapter-dots li,.resource-list li,.contact-card{
   position:relative;
   overflow:hidden;
-  transform:translateZ(0);
+  transform:translateZ(0).
 }
 .header a::before,.dialog-close::before,.search-results a::before,.chapter-dots li::before,.resource-list li::before,.contact-card::before{
   position:absolute;
@@ -1364,10 +1329,10 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
   width:30%;
   content:'';
   opacity:0;
-  pointer-events:none;
+  pointer-events:none.
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);
-  transform:skewX(-20deg);
-  transition:left .7s cubic-bezier(.16,.8,.25,1),opacity .2s;
+  transform:skewX(-20deg).
+  transition:left .7s cubic-bezier(.16,.8,.25,1),opacity .2s.
 }
 .header a:hover::before,.header a:focus-visible::before,
 .dialog-close:hover::before,.dialog-close:focus-visible::before,
@@ -1376,7 +1341,7 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
 .resource-list li:hover::before,
 .contact-card:hover::before,.contact-card:focus-visible::before{
   left:130%;
-  opacity:.8;
+  opacity:.8.
 }
 
 /* ===== REDUCED MOTION FULL DISABLE ===== */
@@ -1384,7 +1349,7 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
   .scene{filter:none;transform:none;clip-path:none!important}
   .scene-media img{transform:none!important}
   .logo-stack{opacity:1!important}
-  .vortex-field{opacity:.45;animation:none!important}
+  .film-stage::before{animation:none!important;opacity:.45}
   .torch-flare{animation:none!important}
   .contact-card::before{display:none}
   .contact-card:hover{transform:none;box-shadow:none}
@@ -1396,7 +1361,7 @@ html[data-motion=reduced] .scene{position:relative;visibility:visible;min-height
 html[data-motion=reduced] .film-progress,html[data-motion=reduced] .film-meta,html[data-motion=reduced] .film-label,html[data-motion=reduced] .chapter-dots{display:none}
 html[data-motion=reduced] .story-line{opacity:1!important;transform:none!important}
 html[data-motion=reduced] .scene-media img,html[data-motion=reduced] .seal-orbit,html[data-motion=reduced] .logo-stack{transform:none!important}
-html[data-motion=reduced] .vortex-field{animation:none!important;opacity:.45}
+html[data-motion=reduced] .film-stage::before{animation:none!important;opacity:.45}
 html[data-motion=reduced] .torch-flare{animation:none!important}
 html[data-motion=reduced] .contact-card::before{display:none}
 html[data-motion=reduced] .contact-card:hover{transform:none;box-shadow:none}

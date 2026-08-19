@@ -1,34 +1,20 @@
 const root=document.documentElement,body=document.body,header=document.querySelector('[data-header]');
 const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
 
-/* Smoothstep for more natural easing */
 const smoothstep=value=>{const t=clamp(value);return t*t*(3-2*t)};
-/* Smootherstep for even more cinematic feel */
 const smootherstep=value=>{const t=clamp(value);return t*t*t*(t*(t*6-15)+10)};
 
-/* Slower cinematic pacing constants */
-const openingHold=.05;       /* Hold first scene slightly longer */
+const openingHold=.05;
 const cinematicProgress=raw=>clamp((raw-openingHold)/(1-openingHold));
 const rawProgress=progress=>openingHold+clamp(progress)*(1-openingHold);
 
 let targetProgress=0,visualProgress=0,momentum=0,animationFrame=0,lastTarget=0,lastFrameTime=0;
 
-/* Cursor tracking for micro-interactions */
-let cursorX=.5,cursorY=.5;
-function updateCursorPosition(x,y){
-  const clampedX=clamp((x/window.innerWidth-.5)*1.2,-.5,.5);
-  const clampedY=clamp((y/window.innerHeight-.5)*1.2,-.5,.5);
-  cursorX+= (clampedX-cursorX)*0.08;
-  cursorY+= (clampedY-cursorY)*0.08;
-  root.style.setProperty('--pointer-x',cursorX.toFixed(4));
-  root.style.setProperty('--pointer-y',cursorY.toFixed(4));
-}
-addEventListener('pointermove',e=>updateCursorPosition(e.clientX,e.clientY),{passive:true});
-
 const film=document.querySelector('[data-film]');
 const scenes=[...document.querySelectorAll('[data-scene]')];
 const frame=document.querySelector('[data-frame]');
 const dots=[...document.querySelectorAll('.chapter-dots li')];
+const filmStage=document.querySelector('.film-stage');
 
 function readFilmProgress(){
   if(!film)return 0;
@@ -53,7 +39,6 @@ function renderFilm(raw){
     const easedLocal=smoothstep(local);
     const resolved=smoothstep((sceneProgress+(index===0?.1:.18))/(index===0?.45:.52));
 
-    /* Fade in/out curves - slower, more graceful */
     const fadeIn=index===0?1:smoothstep((sceneProgress+(index===1?.28:.36))/(index===1?.52:.6));
     const fadeOut=index===scenes.length-1?1:1-smoothstep((sceneProgress-(index===0?.75:.7))/(index===0?.45:.5));
     const opacity=fadeIn*fadeOut;
@@ -65,16 +50,14 @@ function renderFilm(raw){
     scene.style.opacity=String(opacity);
     scene.classList.toggle('active',opacity>.006);
 
-    /* Logo scene specific - HALO DIRECTLY TIED TO SCROLL */
     if(scene.classList.contains('logo-scene')){
       const reveal=clamp((local-.06)/.94);
       const finesse=1-Math.pow(1-reveal,2.5);
-      /* This drives the halo rotation and scale in CSS */
       scene.style.setProperty('--logo-finesse',finesse.toFixed(5));
       scene.style.setProperty('--torch',smoothstep((local-.58)/.35).toFixed(5));
+      scene.style.setProperty('--local',easedLocal.toFixed(5));
     }
 
-    /* Beat text reveals - slower, more deliberate */
     scene.querySelectorAll('[data-beat]').forEach((line,lineIndex)=>{
       const beat=smoothstep((local-lineIndex*.24)/.48);
       const fade=lineIndex===0?1-smoothstep((local-.78)/.18):1;
@@ -88,17 +71,14 @@ function renderFilm(raw){
   header?.classList.toggle('scrolled',scrollY>28);
 }
 
-/* Physics-based smooth animation loop */
 function animateFilm(time){
   const distance=targetProgress-visualProgress;
   const elapsed=lastFrameTime?Math.min(100,time-lastFrameTime):16.7;
   lastFrameTime=time;
 
-  /* Momentum calculation for organic feel */
   momentum=momentum*.82+(targetProgress-lastTarget)*.18;
   lastTarget=targetProgress;
 
-  /* Adaptive response - faster when far, slower when close */
   const response=Math.abs(distance)>.07?130:180;
   const alpha=1-Math.exp(-elapsed/response);
 
@@ -124,15 +104,12 @@ function requestFilm(){
   }
 }
 
-/* Pre-decode images for smoother first paint */
 document.querySelectorAll('.scene-media img,.logo-original').forEach(image=>image.decode?.().catch(()=>{}));
-
 targetProgress=visualProgress=readFilmProgress();
 renderFilm(visualProgress);
 addEventListener('scroll',requestFilm,{passive:true});
 addEventListener('resize',requestFilm);
 
-/* ===== CHAPTER NAVIGATION ===== */
 function filmScrollTarget(progress){
   const max=Math.max(1,film.offsetHeight-innerHeight);
   return film.offsetTop+clamp(progress)*max;
@@ -167,7 +144,6 @@ dots.forEach((dot,index)=>{
   });
 });
 
-/* ===== MOBILE MENU ===== */
 const menu=document.querySelector('[data-menu]'),nav=document.querySelector('[data-nav]');
 menu?.addEventListener('click',()=>{
   const open=body.classList.toggle('nav-open');
@@ -180,7 +156,6 @@ nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   if(menu)menu.textContent='Menu';
 }));
 
-/* ===== DIALOGS ===== */
 const dialogs=[...document.querySelectorAll('dialog')];
 function openDialog(dialog){
   dialog?.showModal();
@@ -193,7 +168,6 @@ function closeDialog(dialog){
 document.querySelectorAll('[data-dialog-close]').forEach(button=>button.addEventListener('click',()=>closeDialog(button.closest('dialog'))));
 dialogs.forEach(dialog=>dialog.addEventListener('close',()=>body.classList.remove('dialog-open')));
 
-/* ===== SEARCH ===== */
 const searchDialog=document.querySelector('[data-search-dialog]'),searchInput=document.querySelector('[data-search-input]'),searchResults=document.querySelector('[data-search-results]');
 const index=[['Home','The 2,400-frame national story','index.html'],['About KOA','History, vision, mission, and coalition','about.html'],['Programs','Civic education, community engagement, and humanitarian assistance','programs.html'],['Stories','Advocacy, culture, sport, and solidarity','stories.html'],['Contact','Email, Messenger, Facebook, and collaboration','contact.html']];
 function renderSearch(){
@@ -228,7 +202,6 @@ addEventListener('keydown',event=>{
   if(event.key==='Escape'&&body.classList.contains('nav-open'))menu?.click();
 });
 
-/* ===== MOTION TOGGLE ===== */
 const motionButton=document.querySelector('[data-motion]');
 function setMotion(reduced){
   root.dataset.motion=reduced?'reduced':'full';
@@ -239,7 +212,6 @@ function setMotion(reduced){
 setMotion(localStorage.getItem('koa-motion')==='reduced'||matchMedia('(prefers-reduced-motion: reduce)').matches);
 motionButton?.addEventListener('click',()=>setMotion(root.dataset.motion!=='reduced'));
 
-/* ===== DICTIONARY ===== */
 const dictionaryInput=document.querySelector('[data-dictionary-input]');
 const dictionaryCards=[...document.querySelectorAll('[data-dictionary-term]')];
 dictionaryInput?.addEventListener('input',()=>{
@@ -249,7 +221,6 @@ dictionaryInput?.addEventListener('input',()=>{
   });
 });
 
-/* ===== TABS ===== */
 const tabButtons=[...document.querySelectorAll('[data-tab]')],tabPanels=[...document.querySelectorAll('[data-panel]')];
 function selectTab(index){
   tabButtons.forEach((item,i)=>{
@@ -272,10 +243,8 @@ tabButtons.forEach((button,index)=>{
   });
 });
 
-/* ===== LANGUAGE DIALOG ===== */
 document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>openDialog(document.querySelector('[data-language-dialog]'))));
 
-/* ===== SCROLL REVEALS ===== */
 const revealTargets=[...document.querySelectorAll('.content-intro,.fact,.link-card,.photo-note,.contact-card,.review-row')];
 revealTargets.forEach(target=>target.classList.add('cinematic-reveal'));
 let revealFrame=0;
@@ -303,3 +272,17 @@ if('IntersectionObserver'in window){
 }else{
   revealTargets.forEach(target=>target.classList.add('is-visible'));
 }
+
+/* Cursor tracking for film-stage halo shift */
+let cursorX=0,cursorY=0;
+function updateCursorVars(x,y){
+  const clampedX=clamp((x/innerWidth-.5)*1.2,-.5,.5);
+  const clampedY=clamp((y/innerHeight-.5)*1.2,-.5,.5);
+  cursorX+= (clampedX-cursorX)*0.06;
+  cursorY+= (clampedY-cursorY)*0.06;
+  if(filmStage){
+    filmStage.style.setProperty('--pointer-x',cursorX.toFixed(4));
+    filmStage.style.setProperty('--pointer-y',cursorY.toFixed(4));
+  }
+}
+addEventListener('pointermove',e=>updateCursorVars(e.clientX,e.clientY),{passive:true});

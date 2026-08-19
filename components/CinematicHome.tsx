@@ -101,27 +101,35 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
         <div className="cinematic-film__grain" aria-hidden="true" />
 
         {/* Scene 1: Seal / National home */}
-        <article className="cinematic-film__scene cinematic-film__scene--seal">
-          <div className="cinematic-film__seal-wrap" aria-hidden="true">
-            <div className="cinematic-film__seal-halo" />
-            <img
-              src="/koa/assets/koa-seal-white-lettering-v2.png"
-              alt=""
-              width="1024"
-              height="1024"
-              fetchPriority="high"
-            />
-          </div>
-          <div className="cinematic-film__copy">
-            <p className="cinematic-film__kicker">{messages.founded}</p>
-            <h1>{lang === "karen" ? "ကညီပှၤတဝၢလၢ အမဲရကၤ" : "Many places. One community."}</h1>
-            <p>{lang === "karen" ? "ဆဲးကျိးလိာ်သး၊ ဒီသဒၢကညီကျိာ်၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါဃုာ်ဒီးလိာ်သး။" : "A national home for Karen people to connect, protect language, and lead the future together."}</p>
-            <div className="cinematic-film__actions">
-              <Link className="cinematic-film__button" href={`/${lang}/community`}>{messages.explore} {messages.community}</Link>
-              <Link className="cinematic-film__button cinematic-film__button--ghost" href={`/${lang}/dictionary`}>{messages.searchDictionary}</Link>
-            </div>
-          </div>
-        </article>
+                <article className="cinematic-film__scene cinematic-film__scene--seal">
+                  <div className="cinematic-film__seal-wrap" aria-hidden="true">
+                    <div className="cinematic-film__seal-halo" />
+                    <img
+                      src="/koa/assets/koa-logo.png"
+                      alt=""
+                      width="1024"
+                      height="1024"
+                      fetchPriority="high"
+                    />
+                    <img
+                      src="/koa/assets/koa-logo.png"
+                      alt=""
+                      aria-hidden="true"
+                      className="cinematic-film__outer-light"
+                      width="1024"
+                      height="1024"
+                    />
+                  </div>
+                  <div className="cinematic-film__copy">
+                    <p className="cinematic-film__kicker">{messages.founded}</p>
+                    <h1>{lang === "karen" ? "ကညီပှၤတဝၢလၢ အမဲရကၤ" : "Many places. One community."}</h1>
+                    <p>{lang === "karen" ? "ဆဲးကျိးလိာ်သး၊ ဒီသဒၢကညီကျိာ်၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါဃုာ်ဒီးလိာ်သး။" : "A national home for Karen people to connect, protect language, and lead the future together."}</p>
+                    <div className="cinematic-film__actions">
+                      <Link className="cinematic-film__button" href={`/${lang}/community`}>{messages.explore} {messages.community}</Link>
+                      <Link className="cinematic-film__button cinematic-film__button--ghost" href={`/${lang}/dictionary`}>{messages.searchDictionary}</Link>
+                    </div>
+                  </div>
+                </article>
 
         {/* Scene 2: Civic voice */}
         <article className="cinematic-film__scene cinematic-film__scene--voice">
