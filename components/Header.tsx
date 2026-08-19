@@ -25,14 +25,21 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
   return (
     <header className="site-header">
       <Link className="brand" href={`/${lang}`} aria-label={`${messages.siteName} — ${messages.home}`}>
-        {/* Existing KOA asset; intentionally left unmodified. */}
         <img src="/koa/assets/koa-logo.png" alt="" width="52" height="52" />
         <span><strong>KOA</strong><small>{messages.siteName}</small></span>
       </Link>
       <div className="header-actions">
-        <Link className="experience-switch" href="/koa/">Cinematic site</Link>
+        <Link className="experience-switch" href="/koa/">
+          <span>↗</span> Cinematic site
+        </Link>
         <LanguageToggle lang={lang} messages={messages} />
-        <button className="menu-button" type="button" aria-expanded={open} aria-controls="site-navigation" onClick={() => setOpen((value) => !value)}>
+        <button
+          className="menu-button"
+          type="button"
+          aria-expanded={open}
+          aria-controls="site-navigation"
+          onClick={() => setOpen((value) => !value)}
+        >
           <span className="menu-lines" aria-hidden="true" />
           <span>{open ? messages.close : messages.menu}</span>
         </button>
