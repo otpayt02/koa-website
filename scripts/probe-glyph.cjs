@@ -112,7 +112,10 @@ async function main() {
     const d = sx.getImageData(0, 0, cv.width, cv.height).data;
     let nonzero = 0;
     for (let i = 3; i < d.length; i += 16) if (d[i] > 4) nonzero++;
-    return { nonzeroSamples: nonzero, frame: (document.querySelector("[data-frame]") || {}).textContent };
+    const bodyTint = getComputedStyle(document.body).getPropertyValue("--chapter-tint").trim();
+    const stage = document.querySelector(".film-stage");
+    const after = stage ? getComputedStyle(stage, "::after").backgroundImage : "";
+    return { nonzeroSamples: nonzero, frame: (document.querySelector("[data-frame]") || {}).textContent, bodyTint, gradeHasTint: after.indexOf("rgba(") === 0 };
   })()`);
   console.log("mid-film canvas:", JSON.stringify(probe2));
 
@@ -143,6 +146,7 @@ async function main() {
     && wm.present && wm.color && /255\s*,\s*255\s*,\s*255/.test(wm.color)
     && lb.present && veil.present && veil.clear
     && probe2.nonzeroSamples > 20
+    && probe2.bodyTint && probe2.bodyTint !== "255,255,255"   // chapter temperature changed
     && probe3.canvas && probe3.nonzeroSamples > 20 && probe3.h1;
   console.log(ok ? "GLYPH PROBE: PASS" : "GLYPH PROBE: FAIL");
   process.exit(ok ? 0 : 1);

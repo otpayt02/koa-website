@@ -419,6 +419,25 @@ h1 em, h2 em, h3 em {
   overflow: hidden;
 }
 
+/* THE CONTINUOUS TAKE — the film's light is graded per chapter.
+   --chapter-tint is set by JS on every scene change; the grade layer
+   cross-fades like a colorist pulling a fader. */
+.film-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 90% at 50% 42%,
+    rgba(var(--chapter-tint, 255,255,255), 0.075) 0%,
+    rgba(var(--chapter-tint, 255,255,255), 0.03) 46%,
+    transparent 74%
+  );
+  transition: background 1.4s ease;
+  mix-blend-mode: screen;
+}
+
 .film-progress {
   position: absolute;
   inset: 0 0 auto 0;
@@ -482,9 +501,22 @@ h1 em, h2 em, h3 em {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s;
+  /* THE RACK FOCUS — scenes never cut; they pull focus. The outgoing scene
+     blurs into the dark while the incoming one resolves out of blur. */
+  filter: blur(16px) saturate(0.82);
+  transform: scale(1.035);
+  transition:
+    opacity 1.15s var(--ease),
+    visibility 1.15s,
+    filter 1.15s var(--ease),
+    transform 1.15s var(--ease);
 }
-.scene.active { opacity: 1; visibility: visible; }
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  filter: blur(0px) saturate(1);
+  transform: scale(1);
+}
 
 .scene-media {
   position: absolute;
@@ -1374,6 +1406,12 @@ footer {
     transform: none !important;
     transition: none !important;
   }
+  /* rack focus becomes a plain fade — no blur/scale choreography */
+  .scene {
+    filter: none !important;
+    transform: none !important;
+    transition: opacity 0.25s ease, visibility 0.25s;
+  }
   .scene.active .scene-media img { animation: none; }
   .scroll-cue i, .pill--gold .pulse { animation: none; }
   .split-media img, .story-card .story-media img { transition: none; }
@@ -1386,6 +1424,11 @@ body[data-motion="off"] [data-reveal="lines"] .line-mask > span {
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
+}
+body[data-motion="off"] .scene {
+  filter: none !important;
+  transform: none !important;
+  transition: opacity 0.25s ease, visibility 0.25s;
 }
 body[data-motion="off"] .scene.active .scene-media img { animation: none; }
 

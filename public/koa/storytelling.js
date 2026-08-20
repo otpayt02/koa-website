@@ -35,8 +35,11 @@
     var particles = [];
     var targets = null;            // current formation points (or null)
     var formationWord = null;
+    var formationMode = null;      // "word" | "loom" | null
+    var tintColor = null;          // rgb string for chapter temperature
     var fontsReady = false;
     var pendingWord = null;
+    var pendingLoom = false;
     var raf = null;
     var active = false;            // motion allowed + initialized
     var staticDrawn = false;
@@ -46,23 +49,27 @@
     function glyphs() { return GLYPH_SET; }
 
     function makeParticles() {
-      var n = window.innerWidth < 720 ? 46 : 92;
+      var n = window.innerWidth < 720 ? 46 : 96;
       particles = [];
       var set = glyphs();
       for (var i = 0; i < n; i++) {
+        var z = Math.random(); // volumetric depth: 0 = far, 1 = near
         particles.push({
           ch: set.charAt(Math.floor(Math.random() * set.length)),
           x: Math.random() * W,
           y: Math.random() * H,
+          z: z,
           vx: (Math.random() - 0.5) * 0.18,
           vy: (Math.random() - 0.5) * 0.14,
-          size: 12 + Math.random() * 15,
+          vz: (Math.random() - 0.5) * 0.0016,
+          size: 11 + Math.random() * 13,
           baseAlpha: 0.05 + Math.random() * 0.10,
           alpha: 0,
           phase: Math.random() * Math.PI * 2,
           speed: 0.5 + Math.random() * 1.2,
-          depth: 0.4 + Math.random() * 0.6,
+          depth: 0.4 + z * 0.6,
           tx: 0, ty: 0, hasTarget: false,
+          wx: 0, wy: 0, hasWay: false,   // loom thread waypoint (curved flight)
           k: 0.045 + Math.random() * 0.05   // spring stiffness
         });
       }
@@ -77,7 +84,10 @@
       canvas.style.width = W + "px";
       canvas.style.height = H + "px";
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      if (targets) form(formationWord, true);
+      if (targets) {
+        if (formationMode === "loom") formLoom(formationWord, true);
+        else form(formationWord, true);
+      }
     }
 
     function init() {
@@ -110,7 +120,11 @@
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(function () {
           fontsReady = true;
-          if (pendingWord) { var w = pendingWord; pendingWord = null; form(w); }
+          if (pendingWord) {
+            var w = pendingWord, loom = pendingLoom;
+            pendingWord = null; pendingLoom = false;
+            if (loom) formLoom(w); else form(w);
+          }
         });
       } else { fontsReady = true; }
     }
@@ -156,44 +170,130 @@
       return pts.slice(0, particles.length);
     }
 
+    /* Sample a diamond LOOM — the Karen weaving motif. Nested diamond
+       lattice + weft threads that frame the chapter numeral like a stage. */
+    function sampleLoom(cx, cy, r) {
+      var pts = [];
+      var push = function (x, y) { pts.push([x, y]); };
+      // two nested diamond frames (classic Karen cloth: diamond in diamond)
+      var rings = [1, 0.74];
+      for (var q = 0; q < rings.length; q++) {
+        var rr = r * rings[q];
+        var corners = [[cx, cy - rr], [cx + rr, cy], [cx, cy + rr], [cx - rr, cy]];
+        for (var s = 0; s < 4; s++) {
+          var a = corners[s], b = corners[(s + 1) % 4];
+          var seg = q === 0 ? 16 : 11;
+          for (var i = 1; i < seg; i++) {
+            var t = i / seg;
+            push(a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t);
+          }
+        }
+      }
+      // weft threads: faint horizontal passes across the inner diamond
+      var inner = r * 0.52;
+      for (var row = -2; row <= 2; row++) {
+        var yy = cy + (inner * row) / 3;
+        var half = inner * (1 - Math.abs(row) / 3);
+        for (var c = -3; c <= 3; c++) push(cx + (half * c) / 3, yy);
+      }
+      // four corner accents just outside the frame
+      var out = r * 1.13;
+      push(cx, cy - out); push(cx + out, cy); push(cx, cy + out); push(cx - out, cy);
+      return pts;
+    }
+
+    function assignTargets(pts, loomPts) {
+      // shuffle both pools; interleave loom (60%) + word (40%)
+      var shuffle = function (arr) {
+        for (var j = arr.length - 1; j > 0; j--) {
+          var k = Math.floor(Math.random() * (j + 1));
+          var t = arr[j]; arr[j] = arr[k]; arr[k] = t;
+        }
+        return arr;
+      };
+      shuffle(pts); shuffle(loomPts);
+      var n = particles.length;
+      var nLoom = loomPts.length ? Math.round(n * 0.58) : 0;
+      nLoom = Math.min(nLoom, loomPts.length);
+      var nWord = Math.min(pts.length, n - nLoom);
+      targets = pts.slice(0, nWord).concat(loomPts.slice(0, nLoom));
+      for (var i = 0; i < n; i++) {
+        var p = particles[i];
+        p.hasWay = false;
+        if (i < nWord) {
+          p.tx = pts[i][0]; p.ty = pts[i][1]; p.hasTarget = true;
+        } else if (i < nWord + nLoom) {
+          var lp = loomPts[i - nWord];
+          p.tx = lp[0]; p.ty = lp[1]; p.hasTarget = true;
+          // curved thread flight: waypoint on an arc between here and target
+          var mx = (p.x + lp[0]) / 2, my = (p.y + lp[1]) / 2;
+          var dx = lp[0] - p.x, dy = lp[1] - p.y;
+          var len = Math.sqrt(dx * dx + dy * dy) || 1;
+          var side = (i % 2 === 0) ? 1 : -1;
+          p.wx = mx + (-dy / len) * len * 0.28 * side;
+          p.wy = my + (dx / len) * len * 0.28 * side;
+          p.hasWay = true;
+        } else { p.hasTarget = false; }
+      }
+    }
+
     function form(word, silent) {
       if (!canvas) init();
       if (!fontsReady) { pendingWord = word; return; }
-      formationWord = word;
+      formationWord = word; formationMode = "word";
       var isHome = !!document.querySelector("[data-film]");
       var cx = W / 2;
       var cy = isHome ? H * 0.40 : H * 0.30;
       var tw = Math.min(W * 0.74, 880);
       var pts = sampleWord(word, cx, cy, tw);
       if (!pts.length) { targets = null; return; }
-      targets = pts;
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        if (i < pts.length) {
-          p.tx = pts[i][0]; p.ty = pts[i][1]; p.hasTarget = true;
-        } else { p.hasTarget = false; }
-      }
+      assignTargets(pts, []);
+      if (!motionOn) { drawStatic(); return; }
+      if (!silent && !raf && active) raf = requestAnimationFrame(frame);
+    }
+
+    /* THE LOOM — word at the heart, woven diamond lattice framing it. */
+    function formLoom(word, silent) {
+      if (!canvas) init();
+      if (!fontsReady) { pendingWord = word; pendingLoom = true; return; }
+      formationWord = word; formationMode = "loom";
+      var cx = W / 2;
+      var cy = H * 0.42;
+      var tw = Math.min(W * 0.5, 460);
+      var pts = sampleWord(word, cx, cy, tw);
+      var r = Math.min(W, H) * 0.36;
+      if (window.innerWidth < 720) r = Math.min(W, H) * 0.42;
+      var loomPts = sampleLoom(cx, cy, r);
+      if (!pts.length) { form(word, silent); return; }
+      assignTargets(pts, loomPts);
       if (!motionOn) { drawStatic(); return; }
       if (!silent && !raf && active) raf = requestAnimationFrame(frame);
     }
 
     function release() {
-      targets = null; formationWord = null;
-      for (var i = 0; i < particles.length; i++) particles[i].hasTarget = false;
+      targets = null; formationWord = null; formationMode = null;
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].hasTarget = false;
+        particles[i].hasWay = false;
+      }
       if (!motionOn) drawStatic();
     }
+
+    function tint(rgb) { tintColor = rgb; }
 
     function drawGlyph(p, now, streak) {
       var flicker = 0.72 + 0.28 * Math.sin(now * 0.0011 * p.speed + p.phase);
       var a = p.alpha * flicker;
       if (a < 0.004) return;
-      var px = p.x + pointerX * 16 * p.depth;
-      var py = p.y + pointerY * 10 * p.depth;
+      var px = p.x + pointerX * 22 * p.depth;
+      var py = p.y + pointerY * 14 * p.depth;
       if (streak > 3) {
         ctx.globalAlpha = a * 0.3;
         ctx.fillText(p.ch, px, py - streak * 1.4);
       }
       ctx.globalAlpha = a;
+      if (tintColor && p.hasTarget) ctx.fillStyle = tintColor;
+      else ctx.fillStyle = "#fff";
       ctx.fillText(p.ch, px, py);
     }
 
@@ -207,6 +307,14 @@
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
         if (p.hasTarget) {
+          if (p.hasWay) {
+            // thread flight: pulled toward the arc waypoint first, then target
+            var dw = Math.abs(p.wx - p.x) + Math.abs(p.wy - p.y);
+            if (dw > 26) {
+              p.x += (p.wx - p.x) * (p.k * 1.6);
+              p.y += (p.wy - p.y) * (p.k * 1.6);
+            } else { p.hasWay = false; }
+          }
           p.x += (p.tx - p.x) * p.k;
           p.y += (p.ty - p.y) * p.k;
           var d = Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y);
@@ -214,14 +322,19 @@
           p.alpha += ((settled ? 0.62 : 0.30) - p.alpha) * 0.06;
         } else {
           p.x += p.vx; p.y += p.vy;
+          // volumetric drift: particles slowly breathe through depth
+          p.z += p.vz;
+          if (p.z < 0.05 || p.z > 1) p.vz = -p.vz;
           if (p.x < -30) p.x = W + 20; if (p.x > W + 30) p.x = -20;
           if (p.y < -30) p.y = H + 20; if (p.y > H + 30) p.y = -20;
           p.alpha += (p.baseAlpha - p.alpha) * 0.04;
         }
-        ctx.font = p.size + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+        var zs = 0.72 + p.z * 0.55; // depth scale: far glyphs small, near glyphs big
+        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
         drawGlyph(p, now, streak);
       }
       ctx.globalAlpha = 1;
+      ctx.fillStyle = "#fff";
       scrollVel *= 0.9;
       raf = requestAnimationFrame(frame);
     }
@@ -236,10 +349,12 @@
         var p = particles[i];
         if (p.hasTarget) { p.x = p.tx; p.y = p.ty; p.alpha = 0.55; }
         else { p.alpha = p.baseAlpha; }
-        ctx.font = p.size + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+        var zs = 0.72 + p.z * 0.55;
+        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
         drawGlyph(p, now, 0);
       }
       ctx.globalAlpha = 1;
+      ctx.fillStyle = "#fff";
       staticDrawn = true;
     }
 
@@ -257,9 +372,12 @@
     return {
       init: init,
       form: form,
+      formLoom: formLoom,
       release: release,
+      tint: tint,
       setActive: setActive,
       isFormed: function () { return !!targets; },
+      mode: function () { return formationMode; },
       word: function () { return formationWord; },
       numerals: MYAN
     };
@@ -393,13 +511,22 @@
       var wordmark = film.querySelector("[data-wordmark]");
       var ticking = false;
 
+      /* chapter color temperature — the film's light changes with the hour */
+      var TEMPS = [null, "255,196,140", "238,240,235", "168,196,255", "150,232,222", "255,178,120"];
+
       function onSceneChange(idx, scene) {
         dots.forEach(function (d, i) { d.classList.toggle("is-active", i === idx); });
+        /* the chapter's light */
+        var t = TEMPS[idx] || null;
+        film.style.setProperty("--chapter-tint", t || "255,255,255");
+        document.body.style.setProperty("--chapter-tint", t || "255,255,255");
+        GlyphStage.tint(t ? "rgb(" + t + ")" : null);
         if (idx === 0) {
           GlyphStage.form("KOA");
         } else {
           var num = scene && scene.dataset.glyphNum ? scene.dataset.glyphNum : MYAN[idx];
-          GlyphStage.form(num);
+          /* THE LOOM — glyphs weave the Karen diamond frame around the chapter */
+          GlyphStage.formLoom(num);
         }
       }
 
