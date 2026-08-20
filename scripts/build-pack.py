@@ -3,7 +3,7 @@
 import re, os, shutil, base64, datetime, json
 
 BASE = r"C:\Users\olive\Projects\koa-website\public\koa"
-OUT = r"C:\Users\olive\index.html"
+OUT = r"C:\Users\olive\Projects\koa-website\dist\koa.html"
 
 PAGES = {
     "/":              ("index.html",        "KOA — Karen Organization of America"),
@@ -213,7 +213,9 @@ assert "IMG:assets" not in text
 assert text.count("</head>") == 1 and text.count("<style>") == 1
 assert "--ink-950" in text and "window.__koaInit" in text
 
-shutil.copy(OUT, OUT + ".bak")
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
+if os.path.exists(OUT):
+    shutil.copy(OUT, OUT + ".bak")
 with open(OUT, "w", encoding="utf-8") as f:
     f.write(text)
 print("wrote", OUT, len(text)/1024/1024, "MB")
