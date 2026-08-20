@@ -156,6 +156,56 @@ nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   if(menu)menu.textContent='Menu';
 }));
 
+/* ===== NAV DROPDOWN KEYBOARD NAVIGATION ===== */
+document.querySelectorAll('.nav-dropdown').forEach(dropdown=>{
+  const trigger=dropdown.querySelector('.nav-dropdown__trigger');
+  const menu=dropdown.querySelector('.nav-dropdown__menu');
+  if(!trigger||!menu)return;
+
+  trigger.addEventListener('click',()=>{
+    const expanded=trigger.getAttribute('aria-expanded')==='true';
+    trigger.setAttribute('aria-expanded',String(!expanded));
+  });
+
+  trigger.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){
+      event.preventDefault();
+      const expanded=trigger.getAttribute('aria-expanded')==='true';
+      trigger.setAttribute('aria-expanded',String(!expanded));
+    }else if(event.key==='Escape'){
+      trigger.setAttribute('aria-expanded','false');
+      trigger.focus();
+    }else if(event.key==='ArrowDown'){
+      event.preventDefault();
+      const firstItem=menu.querySelector('a[role="menuitem"]');
+      if(firstItem)firstItem.focus();
+    }
+  });
+
+  menu.querySelectorAll('a[role="menuitem"]').forEach((item,index,items)=>{
+    item.addEventListener('keydown',event=>{
+      if(event.key==='ArrowDown'){
+        event.preventDefault();
+        const next=items[index+1]||items[0];
+        next.focus();
+      }else if(event.key==='ArrowUp'){
+        event.preventDefault();
+        const prev=items[index-1]||items[items.length-1];
+        prev.focus();
+      }else if(event.key==='Escape'||event.key==='Tab'){
+        trigger.setAttribute('aria-expanded','false');
+        trigger.focus();
+      }
+    });
+  });
+
+  dropdown.addEventListener('focusout',event=>{
+    if(!dropdown.contains(event.relatedTarget)){
+      trigger.setAttribute('aria-expanded','false');
+    }
+  });
+});
+
 const dialogs=[...document.querySelectorAll('dialog')];
 function openDialog(dialog){
   dialog?.showModal();
