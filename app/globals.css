@@ -876,6 +876,13 @@ img { display: block; max-width: 100%; }
   .site-footer { grid-template-columns: 1fr 1fr; }
   .footer-meta { grid-column: 1 / -1; }
   .nav-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Dropdowns stack on mobile */
+  .nav-dropdown__trigger { width: 100%; justify-content: space-between; }
+  .nav-dropdown__menu { position: static; opacity: 1; visibility: visible; transform: none; background: transparent; border: 0; padding: 0; margin: .2rem 0 .6rem; box-shadow: none; }
+  .nav-dropdown__menu a { padding: .4rem .8rem; background: rgba(255,255,255,.05); border-radius: 6px; }
+  .nav-dropdown__menu a:hover { background: rgba(242,200,90,.12); }
+  .nav-dropdown__menu hr { display: none; }
+  .nav-dropdown__section { padding-left: .8rem; }
 }
 
 @media (max-width: 620px) {
