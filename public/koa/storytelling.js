@@ -1,338 +1,508 @@
-const root=document.documentElement,body=document.body,header=document.querySelector('[data-header]');
-const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+/* ==========================================================================
+   KOA — storytelling.js · "Living Alphabet" edition
+   -------------------------------------------------------------------------
+   One-time chrome bindings: header, motion toggle, mobile menu, year,
+   and the GlyphStage (the site-wide canvas of Karen + Latin glyphs).
 
-const smoothstep=value=>{const t=clamp(value);return t*t*(3-2*t)};
-const smootherstep=value=>{const t=clamp(value);return t*t*t*(t*(t*6-15)+10)};
+   init(): content-scoped setup (reveals, film, counters, forms), exposed
+   as window.__koaInit so the packed hash-router build can re-run it after
+   every route injection.
 
-const openingHold=.05;
-const cinematicProgress=raw=>clamp((raw-openingHold)/(1-openingHold));
-const rawProgress=progress=>openingHold+clamp(progress)*(1-openingHold);
+   Motion ships ON unless prefers-reduced-motion, honors the Motion toggle.
+   ========================================================================== */
+(function () {
+  "use strict";
 
-let targetProgress=0,visualProgress=0,momentum=0,animationFrame=0,lastTarget=0,lastFrameTime=0;
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var motionOn = !prefersReduced;
+  document.body.dataset.motion = motionOn ? "on" : "off";
 
-const film=document.querySelector('[data-film]');
-const scenes=[...document.querySelectorAll('[data-scene]')];
-const frame=document.querySelector('[data-frame]');
-const dots=[...document.querySelectorAll('.chapter-dots li')];
-const filmStage=document.querySelector('.film-stage');
+  /* ======================================================================
+     GLYPH STAGE — the living alphabet.
+     A fixed canvas of Latin + S'gaw Karen (Myanmar-script) glyphs.
+     Modes:
+       drift  — slow ambient dust with pointer parallax + scroll streaks
+       form(w)— glyphs fly into pixel-sampled targets that spell a word
+     The home film drives formations per chapter; interior pages form
+     their door number in the page hero; the white KOA wordmark releases
+     its letters into the field on the first scroll.
+     ====================================================================== */
+  var MYAN = ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
+  var GLYPH_SET = "KOAKAREካ".slice(0, 3) + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
 
-function readFilmProgress(){
-  if(!film)return 0;
-  const max=Math.max(1,film.offsetHeight-innerHeight);
-  return clamp((scrollY-film.offsetTop)/max);
-}
+  var GlyphStage = (function () {
+    var canvas, ctx, W = 0, H = 0, DPR = 1;
+    var particles = [];
+    var targets = null;            // current formation points (or null)
+    var formationWord = null;
+    var fontsReady = false;
+    var pendingWord = null;
+    var raf = null;
+    var active = false;            // motion allowed + initialized
+    var staticDrawn = false;
+    var pointerX = 0, pointerY = 0;
+    var scrollVel = 0, lastScrollY = window.scrollY, lastScrollT = performance.now();
 
-function renderFilm(raw){
-  if(!film||!scenes.length)return;
-  const progress=cinematicProgress(raw);
-  const total=Number(film.dataset.total||2400);
-  const span=1/scenes.length;
+    function glyphs() { return GLYPH_SET; }
 
-  root.style.setProperty('--progress',progress.toFixed(5));
-  root.style.setProperty('--momentum',String(clamp(Math.abs(momentum)*16,0,.35)));
-
-  if(frame)frame.textContent=String(Math.round(progress*total)).padStart(4,'0');
-
-  scenes.forEach((scene,index)=>{
-    const sceneProgress=(progress-index*span)/span;
-    const local=clamp(sceneProgress);
-    const easedLocal=smoothstep(local);
-    const resolved=smoothstep((sceneProgress+(index===0?.1:.18))/(index===0?.45:.52));
-
-    const fadeIn=index===0?1:smoothstep((sceneProgress+(index===1?.28:.36))/(index===1?.52:.6));
-    const fadeOut=index===scenes.length-1?1:1-smoothstep((sceneProgress-(index===0?.75:.7))/(index===0?.45:.5));
-    const opacity=fadeIn*fadeOut;
-
-    scene.style.setProperty('--local',easedLocal.toFixed(5));
-    scene.style.setProperty('--resolved',resolved.toFixed(5));
-    scene.style.setProperty('--scene-scale',String(.986+resolved*.014));
-    scene.style.setProperty('--soft-blur',`${((1-resolved)*2+Math.abs(momentum)*3.5).toFixed(2)}px`);
-    scene.style.opacity=String(opacity);
-    scene.classList.toggle('active',opacity>.006);
-
-    if(scene.classList.contains('logo-scene')){
-      const reveal=clamp((local-.06)/.94);
-      const finesse=1-Math.pow(1-reveal,2.5);
-      scene.style.setProperty('--logo-finesse',finesse.toFixed(5));
-      scene.style.setProperty('--torch',smoothstep((local-.58)/.35).toFixed(5));
-      scene.style.setProperty('--local',easedLocal.toFixed(5));
+    function makeParticles() {
+      var n = window.innerWidth < 720 ? 46 : 92;
+      particles = [];
+      var set = glyphs();
+      for (var i = 0; i < n; i++) {
+        particles.push({
+          ch: set.charAt(Math.floor(Math.random() * set.length)),
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.14,
+          size: 12 + Math.random() * 15,
+          baseAlpha: 0.05 + Math.random() * 0.10,
+          alpha: 0,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.5 + Math.random() * 1.2,
+          depth: 0.4 + Math.random() * 0.6,
+          tx: 0, ty: 0, hasTarget: false,
+          k: 0.045 + Math.random() * 0.05   // spring stiffness
+        });
+      }
     }
 
-    scene.querySelectorAll('[data-beat]').forEach((line,lineIndex)=>{
-      const beat=smoothstep((local-lineIndex*.24)/.48);
-      const fade=lineIndex===0?1-smoothstep((local-.78)/.18):1;
-      line.style.opacity=String(beat*fade);
-      line.style.transform=`translate3d(0,${(1-beat)*42}px,0) scale(${.978+beat*.022})`;
+    function resize() {
+      if (!canvas) return;
+      W = window.innerWidth; H = window.innerHeight;
+      DPR = Math.min(window.devicePixelRatio || 1, 1.75);
+      canvas.width = Math.round(W * DPR);
+      canvas.height = Math.round(H * DPR);
+      canvas.style.width = W + "px";
+      canvas.style.height = H + "px";
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      if (targets) form(formationWord, true);
+    }
+
+    function init() {
+      if (canvas) return;
+      canvas = document.createElement("canvas");
+      canvas.className = "glyph-stage";
+      canvas.setAttribute("aria-hidden", "true");
+      document.body.appendChild(canvas);
+      ctx = canvas.getContext("2d");
+      resize();
+      makeParticles();
+      window.addEventListener("resize", function () {
+        if (raf) cancelAnimationFrame(raf);
+        resize();
+        if (active && motionOn) { raf = requestAnimationFrame(frame); }
+        else { drawStatic(); }
+      });
+      window.addEventListener("pointermove", function (e) {
+        pointerX = (e.clientX / W - 0.5) * 2;
+        pointerY = (e.clientY / H - 0.5) * 2;
+      }, { passive: true });
+      window.addEventListener("scroll", function () {
+        var now = performance.now();
+        var dt = Math.max(16, now - lastScrollT);
+        var inst = ((window.scrollY - lastScrollY) / dt) * 16;
+        scrollVel = scrollVel * 0.78 + inst * 0.22;
+        lastScrollY = window.scrollY; lastScrollT = now;
+      }, { passive: true });
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+          fontsReady = true;
+          if (pendingWord) { var w = pendingWord; pendingWord = null; form(w); }
+        });
+      } else { fontsReady = true; }
+    }
+
+    /* Sample a word into target points via an offscreen canvas. */
+    function sampleWord(word, cx, cy, targetW) {
+      var off = document.createElement("canvas");
+      var octx = off.getContext("2d");
+      var fs = 260;
+      var font = "600 " + fs + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+      octx.font = font;
+      var wpx = Math.max(40, octx.measureText(word).width);
+      off.width = Math.ceil(wpx) + 60;
+      off.height = Math.ceil(fs * 1.7);
+      octx.font = font;
+      octx.fillStyle = "#fff";
+      octx.textAlign = "center";
+      octx.textBaseline = "middle";
+      octx.fillText(word, off.width / 2, off.height / 2);
+      var data;
+      try { data = octx.getImageData(0, 0, off.width, off.height).data; }
+      catch (e) { return []; }
+      var pts = [];
+      var step = 5;
+      for (var y = 0; y < off.height; y += step) {
+        for (var x = 0; x < off.width; x += step) {
+          if (data[(y * off.width + x) * 4 + 3] > 120) pts.push([x, y]);
+        }
+      }
+      if (!pts.length) return [];
+      var scale = Math.min(targetW / off.width, (H * 0.34) / off.height);
+      var ox = cx - (off.width * scale) / 2;
+      var oy = cy - (off.height * scale) / 2;
+      for (var i = 0; i < pts.length; i++) {
+        pts[i][0] = ox + pts[i][0] * scale;
+        pts[i][1] = oy + pts[i][1] * scale;
+      }
+      // shuffle + cap to particle count
+      for (var j = pts.length - 1; j > 0; j--) {
+        var k = Math.floor(Math.random() * (j + 1));
+        var t = pts[j]; pts[j] = pts[k]; pts[k] = t;
+      }
+      return pts.slice(0, particles.length);
+    }
+
+    function form(word, silent) {
+      if (!canvas) init();
+      if (!fontsReady) { pendingWord = word; return; }
+      formationWord = word;
+      var isHome = !!document.querySelector("[data-film]");
+      var cx = W / 2;
+      var cy = isHome ? H * 0.40 : H * 0.30;
+      var tw = Math.min(W * 0.74, 880);
+      var pts = sampleWord(word, cx, cy, tw);
+      if (!pts.length) { targets = null; return; }
+      targets = pts;
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (i < pts.length) {
+          p.tx = pts[i][0]; p.ty = pts[i][1]; p.hasTarget = true;
+        } else { p.hasTarget = false; }
+      }
+      if (!motionOn) { drawStatic(); return; }
+      if (!silent && !raf && active) raf = requestAnimationFrame(frame);
+    }
+
+    function release() {
+      targets = null; formationWord = null;
+      for (var i = 0; i < particles.length; i++) particles[i].hasTarget = false;
+      if (!motionOn) drawStatic();
+    }
+
+    function drawGlyph(p, now, streak) {
+      var flicker = 0.72 + 0.28 * Math.sin(now * 0.0011 * p.speed + p.phase);
+      var a = p.alpha * flicker;
+      if (a < 0.004) return;
+      var px = p.x + pointerX * 16 * p.depth;
+      var py = p.y + pointerY * 10 * p.depth;
+      if (streak > 3) {
+        ctx.globalAlpha = a * 0.3;
+        ctx.fillText(p.ch, px, py - streak * 1.4);
+      }
+      ctx.globalAlpha = a;
+      ctx.fillText(p.ch, px, py);
+    }
+
+    function frame(now) {
+      raf = null;
+      if (!active) return;
+      ctx.clearRect(0, 0, W, H);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      var streak = Math.abs(scrollVel);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (p.hasTarget) {
+          p.x += (p.tx - p.x) * p.k;
+          p.y += (p.ty - p.y) * p.k;
+          var d = Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y);
+          var settled = d < 30;
+          p.alpha += ((settled ? 0.62 : 0.30) - p.alpha) * 0.06;
+        } else {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -30) p.x = W + 20; if (p.x > W + 30) p.x = -20;
+          if (p.y < -30) p.y = H + 20; if (p.y > H + 30) p.y = -20;
+          p.alpha += (p.baseAlpha - p.alpha) * 0.04;
+        }
+        ctx.font = p.size + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+        drawGlyph(p, now, streak);
+      }
+      ctx.globalAlpha = 1;
+      scrollVel *= 0.9;
+      raf = requestAnimationFrame(frame);
+    }
+
+    function drawStatic() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, W, H);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      var now = performance.now();
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (p.hasTarget) { p.x = p.tx; p.y = p.ty; p.alpha = 0.55; }
+        else { p.alpha = p.baseAlpha; }
+        ctx.font = p.size + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+        drawGlyph(p, now, 0);
+      }
+      ctx.globalAlpha = 1;
+      staticDrawn = true;
+    }
+
+    function setActive(on) {
+      active = on;
+      if (!canvas) return;
+      if (on) {
+        if (!raf) raf = requestAnimationFrame(frame);
+      } else {
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+        drawStatic();
+      }
+    }
+
+    return {
+      init: init,
+      form: form,
+      release: release,
+      setActive: setActive,
+      isFormed: function () { return !!targets; },
+      word: function () { return formationWord; },
+      numerals: MYAN
+    };
+  })();
+
+  /* ---- Motion toggle — one-time chrome binding ---------------------------- */
+  var motionBtn = document.querySelector("button[data-motion]");
+  function syncMotionBtn() {
+    if (!motionBtn) return;
+    motionBtn.textContent = motionOn ? "Motion on" : "Motion off";
+  }
+  syncMotionBtn();
+  if (motionBtn) {
+    motionBtn.addEventListener("click", function () {
+      motionOn = !motionOn;
+      document.body.dataset.motion = motionOn ? "on" : "off";
+      syncMotionBtn();
+      GlyphStage.setActive(motionOn);
+    });
+  }
+
+  /* ---- Header scroll state — one-time chrome binding ---------------------- */
+  var header = document.querySelector("[data-header]");
+  function onHeaderScroll() {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+  }
+  window.addEventListener("scroll", onHeaderScroll, { passive: true });
+  onHeaderScroll();
+
+  /* ---- Mobile menu — one-time chrome binding ------------------------------- */
+  var menuBtn = document.querySelector("[data-menu]");
+  var panel = document.querySelector("[data-mobile-panel]");
+  if (menuBtn && panel) {
+    menuBtn.addEventListener("click", function () {
+      var open = panel.classList.toggle("is-open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
+    });
+    panel.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        panel.classList.remove("is-open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
+  /* ---- Footer year — one-time chrome binding -------------------------------- */
+  var yr = document.querySelector("[data-year]");
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ---- GlyphStage + veil boot (chrome, once) -------------------------------- */
+  GlyphStage.init();
+  GlyphStage.setActive(motionOn);
+  // Dev mode (no hash router): clear the intro veil ourselves.
+  if (location.hash.indexOf("#/") !== 0 && !window.__koaRouter) {
+    var v0 = document.querySelector(".veil");
+    if (v0) {
+      setTimeout(function () { v0.classList.add("is-clear"); }, 260);
+    }
+  }
+
+  /* ================= content-scoped init (re-runnable) ==================== */
+  var filmScrollHandler = null;
+  var filmResizeHandler = null;
+  var lastSceneIdx = -1;
+
+  function init() {
+    var root = document.getElementById("main") || document;
+    var film = root.querySelector("[data-film]");
+
+    /* drop the previous page's film listeners, if any (home revisits) */
+    if (filmScrollHandler) {
+      window.removeEventListener("scroll", filmScrollHandler);
+      window.removeEventListener("resize", filmResizeHandler);
+      filmScrollHandler = filmResizeHandler = null;
+    }
+    document.body.classList.toggle("is-filming", !!film);
+    lastSceneIdx = -1;
+
+    /* ---- GlyphStage: formation for this page ------------------------------- */
+    var glyphHolder = root.querySelector("[data-glyph-word]");
+    if (film) {
+      // home: the film drives formations (see onSceneChange); start on KOA
+      GlyphStage.form("KOA");
+    } else if (glyphHolder && glyphHolder.dataset.glyphWord) {
+      var w = glyphHolder.dataset.glyphWord;
+      GlyphStage.release();
+      setTimeout(function () {
+        // only if we're still on a page that wants this word
+        var still = document.querySelector("[data-glyph-word]");
+        if (still && still.dataset.glyphWord === w) GlyphStage.form(w);
+      }, 380);
+    } else {
+      GlyphStage.release();
+    }
+
+    /* ---- Scroll reveals ---------------------------------------------------- */
+    var revealEls = root.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window && motionOn) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+    }
+
+    /* ---- Stagger data-reveal children -------------------------------------- */
+    root.querySelectorAll("[data-reveal-stagger]").forEach(function (group) {
+      Array.prototype.forEach.call(group.children, function (child, i) {
+        child.setAttribute("data-reveal", "");
+        child.setAttribute("data-reveal-delay", String(i % 4));
+      });
     });
 
-    dots[index]?.classList.toggle('active',opacity>.42&&local<.97);
-  });
+    /* ---- Home film ----------------------------------------------------------- */
+    if (film) {
+      var scenes = Array.prototype.slice.call(film.querySelectorAll("[data-scene]"));
+      var dots = Array.prototype.slice.call(film.querySelectorAll(".chapter-dots li"));
+      var bar = film.querySelector(".film-progress i");
+      var frameEl = film.querySelector("[data-frame]");
+      var total = parseInt(film.dataset.total || "2400", 10);
+      var cue = film.querySelector(".scroll-cue");
+      var wordmark = film.querySelector("[data-wordmark]");
+      var ticking = false;
 
-  header?.classList.toggle('scrolled',scrollY>28);
-}
+      function onSceneChange(idx, scene) {
+        dots.forEach(function (d, i) { d.classList.toggle("is-active", i === idx); });
+        if (idx === 0) {
+          GlyphStage.form("KOA");
+        } else {
+          var num = scene && scene.dataset.glyphNum ? scene.dataset.glyphNum : MYAN[idx];
+          GlyphStage.form(num);
+        }
+      }
 
-function animateFilm(time){
-  const distance=targetProgress-visualProgress;
-  const elapsed=lastFrameTime?Math.min(100,time-lastFrameTime):16.7;
-  lastFrameTime=time;
+      function updateFilm() {
+        ticking = false;
+        var h = film.offsetHeight - window.innerHeight;
+        var scrolled = Math.min(Math.max(window.scrollY - (film.offsetTop || 0), 0), h);
+        var p = h > 0 ? scrolled / h : 0;
 
-  momentum=momentum*.82+(targetProgress-lastTarget)*.18;
-  lastTarget=targetProgress;
+        if (bar) bar.style.width = (p * 100).toFixed(2) + "%";
+        if (frameEl) frameEl.textContent = String(Math.round(p * total)).padStart(4, "0");
 
-  const response=Math.abs(distance)>.07?130:180;
-  const alpha=1-Math.exp(-elapsed/response);
+        var idx = Math.min(scenes.length - 1, Math.floor(p * scenes.length));
+        scenes.forEach(function (s, i) { s.classList.toggle("active", i === idx); });
+        if (idx !== lastSceneIdx) { lastSceneIdx = idx; onSceneChange(idx, scenes[idx]); }
+        if (cue) cue.classList.toggle("is-hidden", p > 0.02);
 
-  visualProgress+=distance*alpha;
-  renderFilm(visualProgress);
+        /* wordmark release: the white KOA letters dissolve into the field */
+        if (wordmark) {
+          var rel = Math.min(1, Math.max(0, (p - 0.045) / 0.085));
+          wordmark.style.setProperty("--release", rel.toFixed(3));
+        }
+      }
 
-  if(Math.abs(distance)>.00008||Math.abs(momentum)>.00006){
-    animationFrame=requestAnimationFrame(animateFilm);
-  }else{
-    visualProgress=targetProgress;
-    momentum=0;
-    lastFrameTime=0;
-    renderFilm(visualProgress);
-    animationFrame=0;
-  }
-}
-
-function requestFilm(){
-  targetProgress=readFilmProgress();
-  if(!animationFrame){
-    lastFrameTime=0;
-    animationFrame=requestAnimationFrame(animateFilm);
-  }
-}
-
-document.querySelectorAll('.scene-media img,.logo-original').forEach(image=>image.decode?.().catch(()=>{}));
-targetProgress=visualProgress=readFilmProgress();
-renderFilm(visualProgress);
-addEventListener('scroll',requestFilm,{passive:true});
-addEventListener('resize',requestFilm);
-
-function filmScrollTarget(progress){
-  const max=Math.max(1,film.offsetHeight-innerHeight);
-  return film.offsetTop+clamp(progress)*max;
-}
-
-function settleFilm(){
-  if(!film||root.dataset.motion==='reduced'||!scenes.length)return;
-  const max=Math.max(1,film.offsetHeight-innerHeight);
-  const progress=cinematicProgress(clamp((scrollY-film.offsetTop)/max));
-  const span=1/scenes.length;
-  const targets=scenes.slice(0,-1).map((_,index)=>(index+.79)*span);
-  const nearest=targets.reduce((best,target)=>Math.abs(target-progress)<Math.abs(best-progress)?target:best,targets[0]??progress);
-  const distance=Math.abs(nearest-progress);
-  document.querySelector('.film-meta')?.classList.toggle('magnet',distance<span*.07);
-  if(distance>span*.006&&distance<span*.07){
-    scrollTo({top:filmScrollTarget(rawProgress(nearest)),behavior:'smooth'});
-  }
-}
-addEventListener('scrollend',settleFilm);
-
-dots.forEach((dot,index)=>{
-  dot.tabIndex=0;
-  dot.setAttribute('role','button');
-  dot.setAttribute('aria-label',`Go to animated chapter ${index+1}`);
-  const go=()=>scrollTo({top:filmScrollTarget(rawProgress((index+.02)/scenes.length)),behavior:'smooth'});
-  dot.addEventListener('click',go);
-  dot.addEventListener('keydown',event=>{
-    if(event.key==='Enter'||event.key===' '){
-      event.preventDefault();
-      go();
+      filmScrollHandler = function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateFilm); }
+      };
+      filmResizeHandler = updateFilm;
+      window.addEventListener("scroll", filmScrollHandler, { passive: true });
+      window.addEventListener("resize", filmResizeHandler);
+      updateFilm();
     }
-  });
-});
 
-const menu=document.querySelector('[data-menu]'),nav=document.querySelector('[data-nav]');
-menu?.addEventListener('click',()=>{
-  const open=body.classList.toggle('nav-open');
-  menu.setAttribute('aria-expanded',String(open));
-  menu.textContent=open?'Close':'Menu';
-});
-nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  body.classList.remove('nav-open');
-  menu?.setAttribute('aria-expanded','false');
-  if(menu)menu.textContent='Menu';
-}));
-
-/* ===== NAV DROPDOWN KEYBOARD NAVIGATION ===== */
-document.querySelectorAll('.nav-dropdown').forEach(dropdown=>{
-  const trigger=dropdown.querySelector('.nav-dropdown__trigger');
-  const menu=dropdown.querySelector('.nav-dropdown__menu');
-  if(!trigger||!menu)return;
-
-  trigger.addEventListener('click',()=>{
-    const expanded=trigger.getAttribute('aria-expanded')==='true';
-    trigger.setAttribute('aria-expanded',String(!expanded));
-  });
-
-  trigger.addEventListener('keydown',event=>{
-    if(event.key==='Enter'||event.key===' '){
-      event.preventDefault();
-      const expanded=trigger.getAttribute('aria-expanded')==='true';
-      trigger.setAttribute('aria-expanded',String(!expanded));
-    }else if(event.key==='Escape'){
-      trigger.setAttribute('aria-expanded','false');
-      trigger.focus();
-    }else if(event.key==='ArrowDown'){
-      event.preventDefault();
-      const firstItem=menu.querySelector('a[role="menuitem"]');
-      if(firstItem)firstItem.focus();
-    }
-  });
-
-  menu.querySelectorAll('a[role="menuitem"]').forEach((item,index,items)=>{
-    item.addEventListener('keydown',event=>{
-      if(event.key==='ArrowDown'){
-        event.preventDefault();
-        const next=items[index+1]||items[0];
-        next.focus();
-      }else if(event.key==='ArrowUp'){
-        event.preventDefault();
-        const prev=items[index-1]||items[items.length-1];
-        prev.focus();
-      }else if(event.key==='Escape'||event.key==='Tab'){
-        trigger.setAttribute('aria-expanded','false');
-        trigger.focus();
+    /* ---- Stat counters --------------------------------------------------------
+       The final value lives in the HTML, so the numbers are correct with no JS,
+       reduced motion, or before any scroll. We only *animate* (from 0) when the
+       element starts below the fold and motion is on. */
+    var counters = root.querySelectorAll("[data-count]");
+    var finalOf = function (el) {
+      return el.dataset.count + (el.dataset.suffix || "");
+    };
+    counters.forEach(function (el) {
+      if (!motionOn || prefersReduced) { el.textContent = finalOf(el); return; }
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) {
+        el.textContent = finalOf(el); // already on screen: no point counting up
+        return;
+      }
+      el.textContent = "0" + (el.dataset.suffix || "");
+      var done = false;
+      var run = function () {
+        if (done) return;
+        done = true;
+        var end = parseInt(el.dataset.count, 10);
+        var suffix = el.dataset.suffix || "";
+        var t0 = null, dur = 1400;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(end * eased) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      };
+      if ("IntersectionObserver" in window) {
+        var cio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { cio.unobserve(e.target); run(); }
+          });
+        }, { threshold: 0.5 });
+        cio.observe(el);
+      } else {
+        run();
       }
     });
-  });
 
-  dropdown.addEventListener('focusout',event=>{
-    if(!dropdown.contains(event.relatedTarget)){
-      trigger.setAttribute('aria-expanded','false');
-    }
-  });
-});
+    /* ---- Waitlist / newsletter form -------------------------------------------- */
+    var waitlistForms = root.querySelectorAll("[data-waitlist-form]");
+    waitlistForms.forEach(function (form) {
+      var wrap = form.closest("[data-waitlist]") || form.parentElement;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var input = form.querySelector("input[type=email]");
+        var email = input && input.value ? input.value.trim() : "";
+        if (!email) return;
 
-const dialogs=[...document.querySelectorAll('dialog')];
-function openDialog(dialog){
-  dialog?.showModal();
-  body.classList.add('dialog-open');
-}
-function closeDialog(dialog){
-  dialog?.close();
-  body.classList.remove('dialog-open');
-}
-document.querySelectorAll('[data-dialog-close]').forEach(button=>button.addEventListener('click',()=>closeDialog(button.closest('dialog'))));
-dialogs.forEach(dialog=>dialog.addEventListener('close',()=>body.classList.remove('dialog-open')));
+        // Works today with zero backend: opens a pre-filled email to the KOA
+        // team so the signup is real from day one. Swap for an endpoint later.
+        var subject = encodeURIComponent("KOA early access — " + (form.dataset.tag || "newsletter"));
+        var body = encodeURIComponent(
+          "Name: " + (form.dataset.name || "") + "\n" +
+          "Email: " + email + "\n" +
+          "I'd like early access to the beta and to help build the Karen AI with the community."
+        );
+        window.location.href = "mailto:karenorgamerica@gmail.com?subject=" + subject + "&body=" + body;
 
-const searchDialog=document.querySelector('[data-search-dialog]'),searchInput=document.querySelector('[data-search-input]'),searchResults=document.querySelector('[data-search-results]');
-const index=[['Home','The 2,400-frame national story','index.html'],['About KOA','History, vision, mission, and coalition','about.html'],['Programs','Civic education, community engagement, and humanitarian assistance','programs.html'],['Stories','Advocacy, culture, sport, and solidarity','stories.html'],['Contact','Email, Messenger, Facebook, and collaboration','contact.html']];
-function renderSearch(){
-  if(!searchResults)return;
-  const q=(searchInput?.value||'').trim().toLowerCase();
-  searchResults.replaceChildren();
-  index.filter(item=>!q||item.join(' ').toLowerCase().includes(q)).forEach(item=>{
-    const link=document.createElement('a');
-    link.href=item[2];
-    const strong=document.createElement('strong');
-    strong.textContent=item[0];
-    const span=document.createElement('span');
-    span.textContent=item[1];
-    link.append(strong,span);
-    searchResults.append(link);
-  });
-}
-document.querySelectorAll('[data-search-open]').forEach(button=>button.addEventListener('click',()=>{
-  openDialog(searchDialog);
-  renderSearch();
-  requestAnimationFrame(()=>searchInput?.focus());
-}));
-searchInput?.addEventListener('input',renderSearch);
-addEventListener('keydown',event=>{
-  const typing=event.target instanceof HTMLInputElement||event.target instanceof HTMLTextAreaElement;
-  if(event.key==='/'&&!typing&&!document.querySelector('dialog[open]')){
-    event.preventDefault();
-    openDialog(searchDialog);
-    renderSearch();
-    requestAnimationFrame(()=>searchInput?.focus());
-  }
-  if(event.key==='Escape'&&body.classList.contains('nav-open'))menu?.click();
-});
-
-const motionButton=document.querySelector('[data-motion]');
-function setMotion(reduced){
-  root.dataset.motion=reduced?'reduced':'full';
-  motionButton?.setAttribute('aria-pressed',String(reduced));
-  if(motionButton)motionButton.textContent=reduced?'Motion off':'Motion on';
-  localStorage.setItem('koa-motion',reduced?'reduced':'full');
-}
-setMotion(localStorage.getItem('koa-motion')==='reduced'||matchMedia('(prefers-reduced-motion: reduce)').matches);
-motionButton?.addEventListener('click',()=>setMotion(root.dataset.motion!=='reduced'));
-
-const dictionaryInput=document.querySelector('[data-dictionary-input]');
-const dictionaryCards=[...document.querySelectorAll('[data-dictionary-term]')];
-dictionaryInput?.addEventListener('input',()=>{
-  const query=dictionaryInput.value.trim().toLowerCase();
-  dictionaryCards.forEach(card=>{
-    card.hidden=Boolean(query&&!card.dataset.dictionaryTerm.toLowerCase().includes(query));
-  });
-});
-
-const tabButtons=[...document.querySelectorAll('[data-tab]')],tabPanels=[...document.querySelectorAll('[data-panel]')];
-function selectTab(index){
-  tabButtons.forEach((item,i)=>{
-    const selected=i===index;
-    item.setAttribute('aria-selected',String(selected));
-    item.tabIndex=selected?0:-1;
-  });
-  tabPanels.forEach((panel,i)=>panel.hidden=i!==index);
-}
-tabButtons.forEach((button,index)=>{
-  button.addEventListener('click',()=>selectTab(index));
-  button.addEventListener('keydown',event=>{
-    const next=event.key==='ArrowRight'||event.key==='ArrowDown'?index+1:event.key==='ArrowLeft'||event.key==='ArrowUp'?index-1:null;
-    if(next!==null){
-      event.preventDefault();
-      const resolved=(next+tabButtons.length)%tabButtons.length;
-      selectTab(resolved);
-      tabButtons[resolved].focus();
-    }
-  });
-});
-
-document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>openDialog(document.querySelector('[data-language-dialog]'))));
-
-const revealTargets=[...document.querySelectorAll('.content-intro,.fact,.link-card,.photo-note,.contact-card,.review-row')];
-revealTargets.forEach(target=>target.classList.add('cinematic-reveal'));
-let revealFrame=0;
-function revealVisible(){
-  revealFrame=0;
-  revealTargets.forEach(target=>{
-    const bounds=target.getBoundingClientRect();
-    if(bounds.top<innerHeight*1.02&&bounds.bottom>0)target.classList.add('is-visible');
-  });
-}
-if('IntersectionObserver'in window){
-  const revealObserver=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
+        form.classList.add("is-sent");
+        if (wrap) wrap.classList.add("is-done");
+      });
     });
-  },{rootMargin:'0px 0px -5% 0px',threshold:.03});
-  revealTargets.forEach(target=>revealObserver.observe(target));
-  addEventListener('scroll',()=>{
-    if(!revealFrame)revealFrame=requestAnimationFrame(revealVisible);
-  },{passive:true});
-  revealVisible();
-}else{
-  revealTargets.forEach(target=>target.classList.add('is-visible'));
-}
-
-/* Cursor tracking for film-stage halo shift */
-let cursorX=0,cursorY=0;
-function updateCursorVars(x,y){
-  const clampedX=clamp((x/innerWidth-.5)*1.2,-.5,.5);
-  const clampedY=clamp((y/innerHeight-.5)*1.2,-.5,.5);
-  cursorX+= (clampedX-cursorX)*0.06;
-  cursorY+= (clampedY-cursorY)*0.06;
-  if(filmStage){
-    filmStage.style.setProperty('--pointer-x',cursorX.toFixed(4));
-    filmStage.style.setProperty('--pointer-y',cursorY.toFixed(4));
   }
-}
-addEventListener('pointermove',e=>updateCursorVars(e.clientX,e.clientY),{passive:true});
+
+  window.__koaInit = init;
+  init();
+})();

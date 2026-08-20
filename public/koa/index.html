@@ -1,114 +1,347 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Karen Organization of America — a national home for Karen communities."><meta name="theme-color" content="#101743"><meta property="og:title" content="Karen Organization of America"><meta property="og:description" content="Many places. One community."><meta property="og:type" content="website"><meta property="og:image" content="https://karen-organization-of-america.oliverp789.chatgpt.site/og-cinematic.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://karen-organization-of-america.oliverp789.chatgpt.site/og-cinematic.png"><title>Karen Organization of America</title><link rel="icon" href="assets/koa-logo.png"><link rel="preload" as="image" href="assets/koa-seal-white-lettering-v2.png" fetchpriority="high"><link rel="preload" as="image" href="assets/fb-community-group-mobile-enhanced.png" fetchpriority="high"><link rel="stylesheet" href="storytelling.css"><script src="storytelling.js" defer></script></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Karen Organization of America — a home for the S'gaw Karen people in America, and the beginning of something monumental.">
+<meta name="theme-color" content="#05090e">
+<title>KOA — Karen Organization of America</title>
+<link rel="icon" href="assets/koa-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="storytelling.css">
+<script src="storytelling.js" defer></script>
+</head>
 <body>
-<!-- Mobile preview bar -->
-<div class="preview-bar"><a href="/en" aria-label="Open bilingual preview mode">↗ Bilingual preview · EN · ကညီ</a><span class="preview-bar__label">Mobile preview</span></div>
-
 <a class="skip" href="#main">Skip to main content</a>
+
 <header class="header" data-header>
-  <a class="brand" href="index.html" aria-label="KOA home">
+  <a class="brand" href="index.html">
     <img src="assets/koa-logo.png" alt="">
     <span><strong>KOA</strong><small>Karen Organization of America</small></span>
   </a>
-  <nav class="nav" data-nav aria-label="Main navigation">
+  <nav class="nav" aria-label="Primary">
     <a aria-current="page" href="index.html">Home</a>
-    
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__trigger" aria-haspopup="true" aria-expanded="false">Language + AI</button>
-      <div class="nav-dropdown__menu" role="menu">
-        <span class="nav-dropdown__section">Tools</span>
-        <a href="mango.html" role="menuitem">S'gaw Mango</a>
-        <a href="translate.html" role="menuitem">Translate</a>
-        <a href="tutor.html" role="menuitem">Tutor</a>
-        <a href="dictionary.html" role="menuitem">Dictionary</a>
-        <hr>
-        <span class="nav-dropdown__section">Advanced</span>
-        <a href="ocr.html" role="menuitem">OCR</a>
-        <a href="vision.html" role="menuitem">Vision</a>
-        <a href="corpus.html" role="menuitem">Corpus Discovery</a>
-      </div>
-    </div>
-    
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__trigger" aria-haspopup="true" aria-expanded="false">Community Knowledge</button>
-      <div class="nav-dropdown__menu" role="menu">
-        <a href="contributions.html" role="menuitem">Contributions</a>
-        <a href="voices.html" role="menuitem">Voices</a>
-        <a href="translation.html" role="menuitem">Translation</a>
-        <a href="verification.html" role="menuitem">Verification</a>
-        <a href="provenance.html" role="menuitem">Provenance</a>
-      </div>
-    </div>
-    
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__trigger" aria-haspopup="true" aria-expanded="false">National Community</button>
-      <div class="nav-dropdown__menu" role="menu">
-        <a href="churches.html" role="menuitem">Churches</a>
-        <a href="businesses.html" role="menuitem">Businesses</a>
-        <a href="restaurants.html" role="menuitem">Restaurants</a>
-        <a href="organizations.html" role="menuitem">Organizations</a>
-        <a href="resources.html" role="menuitem">Resources</a>
-      </div>
-    </div>
-    
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__trigger" aria-haspopup="true" aria-expanded="false">Culture</button>
-      <div class="nav-dropdown__menu" role="menu">
-        <a href="podcast.html" role="menuitem">Podcast</a>
-        <a href="music.html" role="menuitem">Music</a>
-        <a href="recipes.html" role="menuitem">Recipes</a>
-        <a href="stories.html" role="menuitem">Stories</a>
-      </div>
-    </div>
-    
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__trigger" aria-haspopup="true" aria-expanded="false">Events</button>
-      <div class="nav-dropdown__menu" role="menu">
-        <a href="sepak-takraw.html" role="menuitem">Sepak Takraw</a>
-        <a href="soccer.html" role="menuitem">Soccer</a>
-        <a href="volleyball.html" role="menuitem">Volleyball</a>
-        <a href="community-events.html" role="menuitem">Community Events</a>
-      </div>
-    </div>
-    
-    <div class="nav-dropdown">
-      <button class="nav-dropdown__trigger" aria-haspopup="true" aria-expanded="false">History + Resources</button>
-      <div class="nav-dropdown__menu" role="menu">
-        <a href="karen-history.html" role="menuitem">Karen History</a>
-        <a href="koa-history.html" role="menuitem">KOA History</a>
-        <a href="advocacy.html" role="menuitem">Advocacy</a>
-        <a href="news.html" role="menuitem">News</a>
-        <a href="practical-resources.html" role="menuitem">Practical Resources</a>
-      </div>
-    </div>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="stories.html">Stories</a>
+    <a href="music.html">Music</a>
+    <a href="coming-soon.html">Coming Soon</a>
+    <a href="contact.html">Contact</a>
   </nav>
   <div class="header-tools">
-    <a class="language-mode" href="/en" aria-label="Open bilingual preview mode"><span>EN · ကညီ</span><small>Bilingual preview</small></a>
-    <button class="search-button" type="button" aria-label="Search" data-search-open><span aria-hidden="true"></span></button>
-    <button class="motion-button" type="button" aria-pressed="false" data-motion>Motion on</button>
-    <button class="menu" type="button" aria-expanded="false" data-menu>Menu</button>
+    <a class="pill pill--gold" href="#waitlist"><span class="pulse"></span>Join the early access</a>
+    <button class="motion-button" data-motion>Motion on</button>
+    <button class="menu" data-menu aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
 </header>
+
+<div class="mobile-panel" id="mobile-panel" data-mobile-panel>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="programs.html">Programs</a>
+  <a href="stories.html">Stories</a>
+  <a href="music.html">Music</a>
+  <a href="coming-soon.html">Coming Soon</a>
+  <a href="contact.html">Contact</a>
+  <a href="#waitlist" class="pill pill--gold">Join the early access</a>
+</div>
+
 <main id="main">
-  <section class="film" data-film data-total="2400" aria-label="KOA opening scroll story">
+
+  <!-- ============================ THE FILM ============================ -->
+  <section class="film" data-film data-total="3600" aria-label="KOA cinematic introduction">
     <div class="film-stage">
-      <div class="film-progress" aria-hidden="true"><i></i></div><div class="film-label">KOA scroll film · five chapters</div><div class="film-meta"><span>FRAME</span><b data-frame>0000</b><span>/ 2400</span></div><ol class="chapter-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
-      <article class="scene logo-scene active" data-scene>
-        <div class="seal-orbit"><div class="logo-stack"><img class="logo-original" src="assets/koa-logo.png" alt="Karen Organization of America logo" width="512" height="512" fetchpriority="high"><img class="logo-outer-light" src="assets/koa-logo.png" alt="" aria-hidden="true" width="512" height="512"><span class="torch-flare" aria-hidden="true"></span></div><div class="seal-center"><p data-beat>Established 2018 · Omaha, Nebraska</p><h1 data-beat>Many places.<br><em>One community.</em></h1></div></div>
+      <div class="film-letterbox" aria-hidden="true"><i class="lb lb--top"></i><i class="lb lb--bottom"></i></div>
+      <div class="film-progress" aria-hidden="true"><i></i></div>
+      <div class="film-label" aria-hidden="true">KOA · a homecoming in six frames</div>
+      <div class="film-meta" aria-hidden="true"><span>FRAME</span><b data-frame>0000</b><span>/ 3600</span></div>
+      <ol class="chapter-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+
+      <!-- Scene 1 · The name, in white letters -->
+      <article class="scene scene--wordmark active" data-scene>
+        <div class="scene-copy scene-copy--wordmark">
+          <div class="wordmark" data-wordmark aria-label="KOA">
+            <span style="--i:0">K</span><span style="--i:1">O</span><span style="--i:2">A</span>
+          </div>
+          <p class="scene-kicker scene-kicker--center" data-beat>Karen Organization of America</p>
+          <p class="scene-sub scene-sub--center" data-beat>A cinematic scroll through one people's homecoming — and the house being built for its language.</p>
+        </div>
       </article>
-      <article class="scene scene--portrait" data-scene><div class="scene-media" style="--position:50% 68%"><img src="assets/fb-community-group-mobile-enhanced.png" alt="Karen students, families, and community leaders gathered outdoors" fetchpriority="high" decoding="async"></div><span class="scene-credit">Karen community gathering</span><div class="scene-copy"><div class="story-line" data-beat><p class="scene-kicker">01 · A national home</p><h2>Belonging begins by being <em>seen.</em></h2></div></div><div class="story-line secondary" data-beat><strong>Across the United States</strong><p>KOA connects communities, leaders, families, and young people around a shared future.</p></div></article>
-      <article class="scene scene--ribbon" data-scene><div class="scene-media" style="--position:50% 58%"><img src="assets/history-founding-mobile-enhanced.png" alt="Karen leaders at a founding-era gathering"></div><span class="scene-credit">Founding history · 2018</span><div class="scene-copy"><div class="story-line" data-beat><p class="scene-kicker">02 · One national body</p><h2>Twenty states found a <em>shared voice.</em></h2><p>More than fifty leaders met in Omaha and formed the Karen Organization of America.</p></div></div><div class="story-line secondary" data-beat><strong>June to August 2018</strong><p>Collaboration became an organization built to advocate, educate, unite, and stand in solidarity.</p></div></article>
-      <article class="scene" data-scene><div class="scene-media" style="--position:50% 72%"><img src="assets/fb-capitol-group-mobile-enhanced.png" alt="Karen advocates shown from roughly the waist up at the United States Capitol"></div><span class="scene-credit">Civic education · Washington, D.C.</span><div class="scene-copy"><div class="story-line" data-beat><p class="scene-kicker">03 · Public leadership</p><h2>Turn voices into <em>momentum.</em></h2><p>Advocacy training, youth leadership, public-system learning, and local action prepare people to participate with confidence.</p></div></div><div class="story-line secondary" data-beat><strong>One civic image</strong><p>This is the only Capitol setting in the home story; every chapter shifts to a different place and purpose.</p></div></article>
-      <article class="scene scene--generated" data-scene><div class="scene-media" style="--position:50% 70%"><img src="assets/fb-outdoor-gathering-mobile-enhanced.png" alt="A large Karen community gathering outdoors"></div><span class="scene-credit">National community gathering</span><div class="scene-copy"><div class="story-line" data-beat><p class="scene-kicker">04 · The work continues</p><h2>Culture, care, and courage—<em>connected.</em></h2><p>KOA’s programs move between public voice, community belonging, and practical support.</p></div></div><div class="story-line secondary" data-beat><strong>Continue the story</strong><p>Explore the concrete programs, community moments, and ways to take part below.</p><a class="action" href="programs.html">See our programs <span>↗</span></a></div></article>
+      <!-- Scene 2 · Who -->
+      <article class="scene scene--hero" data-scene data-glyph-num="၁">
+        <div class="scene-media" style="--position:50% 40%">
+          <img src="assets/koa-community-care-ai.jpg" alt="An elder woman in traditional dress is steadied by a younger family member at a community food distribution at dusk">
+        </div>
+        <div class="scene-copy">
+          <p class="scene-script karen-script" data-beat lang="khw">ဒလ်စာလိက် ဒလ်သိုဟ် ဒလ်သၞာန်</p>
+          <div data-beat>
+            <p class="scene-kicker">S'gaw Karen · since before borders</p>
+            <h2>The people are<br>the <em>story.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat>A thousand years of song, scripture, and survival — carried now into America, into a new century, into a home of their own making.</p>
+        </div>
+        <span class="scene-credit">Community care, at dusk</span>
+      </article>
+
+      <!-- Scene 3 · What KOA is -->
+      <article class="scene" data-scene data-glyph-num="၂">
+        <div class="scene-media" style="--position:50% 60%">
+          <img src="assets/fb-outdoor-gathering.jpg" alt="A large outdoor Karen community gathering">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">03 · The organization</p>
+            <h2>One roof.<br>Every <em>need.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat>KOA works where the community stands — education, health, language, faith, and the everyday. A nonprofit built by Karen hands, for Karen people, across the United States.</p>
+        </div>
+        <span class="scene-credit">Community scale</span>
+      </article>
+
+      <!-- Scene 4 · Life here -->
+      <article class="scene" data-scene data-glyph-num="၃">
+        <div class="scene-media" style="--position:50% 35%">
+          <img src="assets/koa-sepak-takraw-tournament-ai.jpg" alt="A sepak takraw player frozen mid-air over the net at a floodlit night tournament, crowd behind">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">04 · Life in the open</p>
+            <h2>Tournaments,<br>tables &amp; <em>songs.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat>Sepak takraw under floodlights. Sunday tables full. Music that only this people knows how to feel. A culture isn't preserved in a museum — it's lived on a schedule.</p>
+        </div>
+        <span class="scene-credit">Night match, community courts</span>
+      </article>
+
+      <!-- Scene 5 · The future -->
+      <article class="scene" data-scene data-glyph-num="၄">
+        <div class="scene-media" style="--position:50% 50%">
+          <img src="assets/koa-national-community-ai.jpg" alt="Karen community members gathered together at an outdoor gathering">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">05 · The future, in our hands</p>
+            <h2>We're teaching<br>a machine to <em>Speak.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat>A Karen AI — built with the community, for the language itself. Coming soon. The people who help build it will be written into its name.</p>
+        </div>
+        <span class="scene-credit">The next generation, gathered</span>
+      </article>
+
+      <!-- Scene 6 · Invitation -->
+      <article class="scene" data-scene data-glyph-num="၅">
+        <div class="scene-media" style="--position:50% 45%">
+          <img src="assets/koa-community-care-ai.jpg" alt="A community handout at dusk, warm light under the eaves">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">06 · An invitation</p>
+            <h2>Come in.<br>Stay a <em>while.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat>Volunteer, contribute your voice and words, or simply follow along. The next chapter is being written now — and there's a seat with your name on it.</p>
+          <div class="btn-row" data-beat style="margin-top:2rem">
+            <a class="btn btn--solid" href="#waitlist">Join the early access</a>
+            <a class="btn btn--ghost" href="about.html">Read the story</a>
+          </div>
+        </div>
+        <span class="scene-credit">Doors open at dusk</span>
+      </article>
+
+      <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
     </div>
   </section>
 
-  <section class="content" aria-labelledby="work-title"><div class="content-intro"><p class="eyebrow">What KOA does</p><h2 id="work-title">Three ways we serve.</h2><p>Concrete work shaped with Karen communities: learn public systems, strengthen relationships, and move practical care where it is needed.</p></div><div class="fact-grid"><article class="fact"><b>01</b><h3>Civic education</h3><p>Advocacy 101, Washington learning visits, local action, and an annual Youth Leadership Conference.</p></article><article class="fact"><b>02</b><h3>Community engagement</h3><p>Visits, workshops, sport, art, and cultural events that sustain belonging across generations.</p></article><article class="fact"><b>03</b><h3>Humanitarian assistance</h3><p>Food, water, shelter, education, and vocational training for displaced families.</p></article></div></section>
-  <section class="content content--navy" aria-labelledby="path-title"><div class="content-intro"><p class="eyebrow">Choose a path</p><h2 id="path-title">The story keeps moving.</h2><p>Each page is its own 2,400-frame chapter with a distinct set of places, ideas, and photographs.</p></div><div class="link-grid"><a class="link-card" href="about.html"><span><small>History and purpose</small><h3>About KOA</h3><p>How one national body came together.</p></span><span>↗</span></a><a class="link-card" href="stories.html"><span><small>People and place</small><h3>Community stories</h3><p>Advocacy, culture, play, and solidarity.</p></span><span>↗</span></a><a class="link-card" href="contact.html"><span><small>Take part</small><h3>Connect with KOA</h3><p>Email, message, follow, or collaborate.</p></span><span>↗</span></a></div></section>
-  <section class="content" aria-labelledby="future-title"><div class="content-intro"><p class="eyebrow">Stay involved</p><h2 id="future-title">Follow the work and take part.</h2><p>KOA connects people through public events, community leadership, and updates from programs across the country.</p></div><div class="fact-grid"><article class="fact"><b>01</b><h3>Community events</h3><p>Follow KOA for gatherings, workshops, conferences, and cultural events.</p></article><article class="fact"><b>02</b><h3>Community leadership</h3><p>Connect with leaders and organizations serving Karen communities across the United States.</p></article><article class="fact"><b>03</b><h3>Program updates</h3><p>See advocacy, youth, cultural, and humanitarian work as it develops.</p></article></div></section>
-  <section class="content content--navy review-register" aria-labelledby="review-title"><div class="content-intro"><p class="eyebrow">KOA at a glance</p><h2 id="review-title">A national organization built through community leadership.</h2><p>KOA connects founding history, public advocacy, cultural life, and practical support.</p></div><div class="review-list"><article class="review-row"><span>01 · Founded</span><h3>2018</h3><p><strong>Omaha, Nebraska</strong> KOA was formally established after a national gathering.</p><p>Its purpose is rooted in collaboration and unity.</p></article><article class="review-row"><span>02 · Founding reach</span><h3>Twenty states</h3><p><strong>More than fifty leaders</strong> took part in the founding gathering.</p><p>Communities joined around a shared national voice.</p></article><article class="review-row"><span>03 · Programs</span><h3>Three areas</h3><p><strong>Civic education</strong> builds knowledge and public leadership.</p><p>Community engagement and humanitarian assistance extend the work.</p></article><article class="review-row"><span>04 · Community</span><h3>All generations</h3><p><strong>Youth, families, and elders</strong> take part in cultural and public life.</p><p>Language, arts, sports, and gathering strengthen belonging.</p></article><article class="review-row"><span>05 · Coalition</span><h3>Eleven organizations</h3><p><strong>Across the United States</strong> community organizations shaped KOA’s founding network.</p><p>Each brings local knowledge to national connection.</p></article><article class="review-row"><span>06 · Connection</span><h3>One public channel</h3><p><strong>KOA on Facebook</strong> shares photographs, gatherings, and program updates.</p><p>Visitors can also connect by email or Messenger.</p></article></div></section>
+  <!-- ============================ INTERLUDE ============================ -->
+  <section class="interlude">
+    <blockquote data-reveal="lines">
+      <span class="line-mask"><span>A language is a house.</span></span>
+      <span class="line-mask"><span>When it leaves a mouth for the last time,</span></span>
+      <span class="line-mask"><span><em>someone goes home to nothing.</em></span></span>
+    </blockquote>
+    <cite data-reveal>Why this work matters</cite>
+  </section>
+
+  <!-- ============================ MISSION SPLIT ============================ -->
+  <section class="section" aria-labelledby="mission-title">
+    <div class="container split">
+      <div class="split-media" data-reveal>
+        <img src="assets/koa-national-community-ai.jpg" alt="Karen community members gathered together" loading="lazy">
+        <figcaption>KOA community, United States</figcaption>
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow" data-reveal>The organization</p>
+        <h2 id="mission-title" data-reveal>Not a monument.<br>A <em>living thing.</em></h2>
+        <p class="lede" data-reveal>The Karen Organization of America exists so that the S'gaw Karen people in America have a home — a place for the language, the food, the faith, the games, the news, and the future.</p>
+        <ul data-reveal>
+          <li>Language kept alive — and taught, by the people, with new tools no one has built before</li>
+          <li>Community services across the United States, run at the human scale</li>
+          <li>A national registry of Karen churches, businesses, and resources — so you're never alone, ever</li>
+          <li>Music, events, and a story told the way it deserves to be told</li>
+        </ul>
+        <div class="btn-row mt-3" data-reveal>
+          <a class="btn" href="about.html">About KOA</a>
+          <a class="btn btn--ghost" href="programs.html">What we do</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STATS ============================ -->
+  <section class="section section--tight" aria-label="KOA by the numbers">
+    <div class="container">
+      <div class="stats" data-reveal-stagger>
+        <div class="stat"><b data-count="1000" data-suffix="+">1000+</b><span>Years of S'gaw Karen</span></div>
+        <div class="stat"><b data-count="3">3</b><span>Languages side by side<br>(Karen · Thai · Burmese)</span></div>
+        <div class="stat"><b data-count="15" data-suffix="B">15B</b><span>Parameters planned<br>for the Karen AI</span></div>
+        <div class="stat"><b>∞</b><span>Seats at the table</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT WE DO ============================ -->
+  <section class="section" aria-labelledby="do-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Where to start</p>
+        <h2 id="do-title">One organization.<br>Seven <em>doors.</em></h2>
+        <p class="lede">Every door leads somewhere real. Some are open now — others are being built, and the community is invited to build them.</p>
+      </div>
+      <div class="grid-4" data-reveal-stagger>
+        <a class="card" href="about.html">
+          <span class="num">01</span>
+          <h3>About</h3>
+          <p>The story of the Karen people and the mission behind KOA.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="programs.html">
+          <span class="num">02</span>
+          <h3>Programs</h3>
+          <p>Education, language, health, and community services across the U.S.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="stories.html">
+          <span class="num">03</span>
+          <h3>Stories</h3>
+          <p>Voices from the community — the news hub, told in the first person.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="music.html">
+          <span class="num">04</span>
+          <h3>Music</h3>
+          <p>Karen music, front to back — featuring thra eh keh lah.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="coming-soon.html">
+          <span class="num">05</span>
+          <h3>Coming Soon</h3>
+          <p>The Karen AI, the national registry, events &amp; recipes. Nobody knows it yet.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="programs.html#events">
+          <span class="num">06</span>
+          <h3>Events</h3>
+          <p>Sepak takraw, volleyball, soccer — and the table where everyone cooks.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="contact.html">
+          <span class="num">07</span>
+          <h3>Contact</h3>
+          <p>Reach the people making it. The doors are open.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+          <span class="num">↔</span>
+          <h3>Coming in <em>English · Karen · ไทย · မြန်မာ</em></h3>
+          <p>The bilingual edition is on its way. Leave your email and be first through the door.</p>
+          <a class="btn btn--ghost" href="#waitlist" style="margin-top:1rem;align-self:start">Get notified</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ COMING SOON TEASER ============================ -->
+  <section class="section" aria-labelledby="teaser-title" style="background:var(--ink-900);border-block:1px solid var(--line)">
+    <div class="container split split--reversed split--wide">
+      <div class="split-media" data-reveal>
+        <img src="assets/koa-sepak-takraw-tournament-ai.jpg" alt="A sepak takraw player mid-air at a floodlit night tournament" loading="lazy">
+        <figcaption>Night match — the events to come</figcaption>
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow" data-reveal>Whispered, not announced</p>
+        <h2 id="teaser-title" data-reveal>There's a lot more<br>coming <em>soon.</em></h2>
+        <p class="lede" data-reveal>A Karen AI that teaches the language. A national registry of churches and businesses. Tournaments and recipes the community votes on. A podcast. We're building it quietly — and we want you inside the walls before the doors open.</p>
+        <div class="btn-row mt-2" data-reveal>
+          <a class="btn" href="coming-soon.html">See what's coming</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WAITLIST ============================ -->
+  <section class="waitlist" id="waitlist" data-waitlist aria-labelledby="waitlist-title">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <p class="eyebrow">Early access</p>
+        <h2 id="waitlist-title">Be first through<br>the <em>door.</em></h2>
+        <p class="lede" style="margin-inline:auto">The beta of the Karen AI, the newsletter, the community invites — and the chance to help train it with your voice, your words, and your translations. One email. No noise.</p>
+      </div>
+      <form class="waitlist-form" data-waitlist-form data-tag="early access" data-reveal>
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+        <button class="btn btn--solid" type="submit">Join the list</button>
+      </form>
+      <p class="waitlist-success" role="status">You're on the list. The door's opening soon — we'll write.</p>
+      <p class="waitlist-note" data-reveal>One email when there's something real to say. Unsubscribe any time.</p>
+    </div>
+  </section>
+
 </main>
-<footer><a class="brand" href="index.html"><img src="assets/koa-logo.png" alt=""><span><strong>KOA</strong><small>Karen Organization of America</small></span></a><p>Working with Karen communities across the United States.</p><nav aria-label="Footer navigation"><a href="about.html">About</a><a href="programs.html">Programs</a><a href="stories.html">Stories</a><a href="contact.html">Contact</a></nav><a href="https://www.facebook.com/koamerica" target="_blank" rel="noreferrer">Facebook ↗</a></footer>
-<dialog class="dialog" data-search-dialog><button class="dialog-close" data-dialog-close aria-label="Close search">×</button><p class="eyebrow">Search KOA</p><h2>What are you looking for?</h2><input type="search" autocomplete="off" placeholder="Programs, history, stories, contact…" data-search-input><div class="search-results" data-search-results></div></dialog>
-</body></html>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img src="assets/koa-logo.png" alt="">
+          <span><strong>KOA</strong><small>Karen Organization of America</small></span>
+        </a>
+        <p>Working with Karen communities across the United States — and building the home the language deserves.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="music.html">Music</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Building</h4>
+        <ul>
+          <li><a href="coming-soon.html">Coming Soon</a></li>
+          <li><a href="coming-soon.html#mango">S'gaw-Mango</a></li>
+          <li><a href="#waitlist">Early access</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/koamerica" target="_blank" rel="noreferrer">Facebook — KOA</a></li>
+          <li><a href="https://m.me/koamerica" target="_blank" rel="noreferrer">Messenger</a></li>
+          <li><a href="mailto:karenorgamerica@gmail.com">karenorgamerica@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> Karen Organization of America. Built by the community, for the community.</span>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Return home ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
