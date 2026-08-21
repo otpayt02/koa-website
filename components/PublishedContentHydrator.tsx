@@ -35,8 +35,9 @@ export function PublishedContentHydrator({ lang, published }: { lang: Lang; publ
             const target = matches[binding.occurrence[lang]];
             if (target) target.textContent = preserveOuterWhitespace(target.textContent ?? "", replacement);
           } else if (binding.attribute) {
-            const matches = Array.from(root.querySelectorAll<HTMLElement>(`[${binding.attribute}]`)).filter((element) => normalize(element.getAttribute(binding.attribute)) === base);
-            matches[binding.occurrence[lang]]?.setAttribute(binding.attribute, replacement);
+            const attribute = binding.attribute;
+            const matches = Array.from(root.querySelectorAll<HTMLElement>(`[${attribute}]`)).filter((element) => normalize(element.getAttribute(attribute)) === base);
+            matches[binding.occurrence[lang]]?.setAttribute(attribute, replacement);
           }
         }
       } finally {

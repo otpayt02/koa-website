@@ -93,6 +93,13 @@ export function TranslationStudio({ lang }: { lang: Lang }) {
     return () => window.clearTimeout(timer);
   }, [previewValues, route]);
 
+  const updatePreview = () => {
+    previewRef.current?.contentWindow?.postMessage(
+      { type: "koa-translation-preview", values: previewValues },
+      window.location.origin,
+    );
+  };
+
   function openEntry(entry: StudioEntry) {
     setDrafts((current) => ({
       ...current,

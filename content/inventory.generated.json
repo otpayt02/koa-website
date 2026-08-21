@@ -1930,6 +1930,14 @@
       "karen": "တဲဖျါထီၣ်ကညီကျိာ်တဖျၢၣ် မ့တမ့ၢ် တကျိာ်။"
     },
     {
+      "key": "auto.*.aNationalHomeForKarenPeople.194d4cd2",
+      "route": "*",
+      "section": "CinematicHome",
+      "type": "paragraph",
+      "en": "A national home for Karen people to connect, protect language, and lead the future together.",
+      "karen": "ဆဲးကျိးလိာ်သး၊ ဒီသဒၢကညီကျိာ်၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါဃုာ်ဒီးလိာ်သး။"
+    },
+    {
       "key": "auto.*.chapter02CivicVoice.663ff9bd",
       "route": "*",
       "section": "CinematicHome",
@@ -5026,6 +5034,28 @@
       "kind": "text",
       "en": "Record a Karen word or sentence in a quiet place.",
       "karen": "တဲဖျါထီၣ်ကညီကျိာ်တဖျၢၣ် မ့တမ့ၢ် တကျိာ်။",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "shell.tagline",
+      "route": "*",
+      "kind": "text",
+      "en": "Many places. One community.",
+      "karen": "ကညီပှၤတဝၢလၢ အမဲရကၤ",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.aNationalHomeForKarenPeople.194d4cd2",
+      "route": "*",
+      "kind": "text",
+      "en": "A national home for Karen people to connect, protect language, and lead the future together.",
+      "karen": "ဆဲးကျိးလိာ်သး၊ ဒီသဒၢကညီကျိာ်၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါဃုာ်ဒီးလိာ်သး။",
       "occurrence": {
         "en": 0,
         "karen": 0

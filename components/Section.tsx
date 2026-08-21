@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export function Section({ eyebrow, title, intro, children, tone = "plain", id }: { eyebrow?: string; title?: string; intro?: string; children: ReactNode; tone?: "plain" | "ink" | "cream"; id?: string }) {
+export function Section({ eyebrow, title, intro, children, tone = "plain", id }: { eyebrow?: string; title?: string; intro?: string; children?: ReactNode; tone?: "plain" | "ink" | "cream"; id?: string }) {
   return (
     <section className={`section section--${tone}`} id={id}>
       <div className="container">
