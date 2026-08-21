@@ -59,11 +59,11 @@ async function main() {
     cdp.on((m) => { if (m.method === "Page.loadEventFired" && !done) { done = true; res(); } });
     setTimeout(() => { if (!done) { done = true; res(); } }, 8000);
   });
-  await sleep(2500); // let the glyph canvas drift + wordmark animation settle
+  await sleep(2500); // let the glyph canvas drift + arrival formation settle
 
   const ev = async (expr) => (await cdp.send("Runtime.evaluate", { expression: expr, returnByValue: true })).result.value;
 
-  // 1. glyph canvas exists with drawn pixels
+  // 1. glyph canvas exists with drawn pixels (arrival KOA forms from glyphs)
   const probe = await ev(`(() => {
     const cv = document.querySelector("canvas.glyph-stage");
     if (!cv) return { canvas: false };
@@ -76,14 +76,19 @@ async function main() {
   })()`);
   console.log("glyph canvas:", JSON.stringify(probe));
 
-  // 2. wordmark present + white
-  const wm = await ev(`(() => {
-    const w = document.querySelector(".wordmark");
-    if (!w) return { present: false };
-    const cs = getComputedStyle(w.querySelector("span") || w);
-    return { present: true, color: cs.color, fontSize: cs.fontSize, opacity: cs.opacity };
+  // 2. arrival: halo rings + seal present (the KOA itself is the canvas animation)
+  const arrival = await ev(`(() => {
+    const a = document.querySelector("[data-arrival]");
+    if (!a) return { present: false };
+    const rings = a.querySelectorAll(".halo-ring").length;
+    const seal = a.querySelector(".halo-seal");
+    return {
+      present: true, rings,
+      sealLoaded: !!(seal && seal.complete && seal.naturalWidth > 0),
+      h1: (a.querySelector("h1") || {}).textContent ? a.querySelector("h1").textContent.trim().slice(0, 40) : null
+    };
   })()`);
-  console.log("wordmark:", JSON.stringify(wm));
+  console.log("arrival:", JSON.stringify(arrival));
 
   // 3. letterbox bars
   const lb = await ev(`(() => {
@@ -102,8 +107,8 @@ async function main() {
   })()`);
   console.log("veil:", JSON.stringify(veil));
 
-  // 5. scroll mid-film, re-probe canvas (formation should have changed pixel count)
-  await ev("window.scrollTo(0, document.querySelector('.film').offsetHeight * 0.35);");
+  // 5. scroll mid-film (past the 220vh arrival runway), re-probe canvas
+  await ev(`window.scrollTo(0, (document.querySelector('.film').offsetTop || 0) + (document.querySelector('.film').offsetHeight - window.innerHeight) * 0.35);`);
   await sleep(1800);
   const probe2 = await ev(`(() => {
     const cv = document.querySelector("canvas.glyph-stage");
@@ -119,10 +124,10 @@ async function main() {
   })()`);
   console.log("mid-film canvas:", JSON.stringify(probe2));
 
-  // 6. navigate to about — interior glyph formation
+  // 6. navigate to contact — partner wall renders 3 filled slots
   await ev("window.scrollTo(0,0);");
   await sleep(400);
-  await ev("location.hash = '#/about';");
+  await ev("location.hash = '#/contact';");
   await sleep(2200);
   const probe3 = await ev(`(() => {
     const cv = document.querySelector("canvas.glyph-stage");
@@ -132,10 +137,11 @@ async function main() {
     const d = sx.getImageData(0, 0, cv.width, cv.height).data;
     let nonzero = 0;
     for (let i = 3; i < d.length; i += 16) if (d[i] > 4) nonzero++;
-    const title = document.querySelector(".page-hero h1");
-    return { canvas: true, nonzeroSamples: nonzero, h1: title ? title.textContent.trim().slice(0, 60) : null };
+    const slots = Array.from(document.querySelectorAll(".partner-slot"));
+    const filled = slots.filter((sl) => sl.querySelector(".partner-mark")).length;
+    return { canvas: true, nonzeroSamples: nonzero, partnerSlots: slots.length, partnerFilled: filled };
   })()`);
-  console.log("about-page canvas:", JSON.stringify(probe3));
+  console.log("contact-page:", JSON.stringify(probe3));
 
   ws.close();
   chrome.kill();
@@ -143,11 +149,12 @@ async function main() {
   try { fs.rmSync(PROFILE, { recursive: true, force: true }); } catch (e) { console.log("note: profile cleanup deferred:", e.code); }
 
   const ok = probe.canvas && probe.nonzeroSamples > 20
-    && wm.present && wm.color && /255\s*,\s*255\s*,\s*255/.test(wm.color)
+    && arrival.present && arrival.rings === 3 && arrival.sealLoaded && arrival.h1
     && lb.present && veil.present && veil.clear
     && probe2.nonzeroSamples > 20
     && probe2.bodyTint && probe2.bodyTint !== "255,255,255"   // chapter temperature changed
-    && probe3.canvas && probe3.nonzeroSamples > 20 && probe3.h1;
+    && probe3.canvas && probe3.nonzeroSamples > 20
+    && probe3.partnerSlots === 3 && probe3.partnerFilled === 3;
   console.log(ok ? "GLYPH PROBE: PASS" : "GLYPH PROBE: FAIL");
   process.exit(ok ? 0 : 1);
 }

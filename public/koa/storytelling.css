@@ -1569,8 +1569,356 @@ body[data-motion="off"] .scene .scene-media img { filter: none; }
 body[data-motion="off"] .scene.active .scene-media img { animation: none; filter: none; transform: scale(1.02); }
 body[data-motion="off"] .glyph-stage { display: block; }
 
-/* Small screens: the wordmark still opens the film */
+/* Small screens: the film keeps its pace */
 @media (max-width: 640px) {
   .film { height: 500vh; }
-  .wordmark span { font-size: clamp(4.25rem, 24vw, 7rem); }
+}
+
+/* ==========================================================================
+   THE ARRIVAL — pass 3
+   --------------------------------------------------------------------------
+   The seal lands first: halo rings spiraling around the logo, front and
+   center. Its KOA is the animation — the glyph canvas assembles the letters
+   from hundreds of Karen glyphs, answers the cursor, rises on scroll, then
+   disperses into the binary rain while the film begins. Every chapter after
+   enters by its own door: rack focus, curtain wipe, iris, rise, parting
+   veil. Chapter numerals live in the background. The partner wall shows
+   three large marks at a time, rotating honestly (announcements pending).
+   ========================================================================== */
+
+/* Red accent — from the flag, used with restraint ------------------------- */
+:root {
+  --red: #d84a4d;
+  --red-deep: #a93a3f;
+}
+
+/* 1 · The arrival prologue -------------------------------------------------- */
+.arrival {
+  position: relative;
+  height: 220vh;            /* runway for assemble → hold → rise → disperse */
+  background: radial-gradient(120% 90% at 50% 12%, var(--ink-800) 0%, var(--ink-950) 62%);
+}
+.arrival-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* The seal with its halo + spiral, exactly as the original ---------------- */
+.halo {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 42%;                 /* the same line the glyph-KOA anchors to */
+  width: min(34vmin, 340px);
+  height: min(34vmin, 340px);
+  transform: translate(-50%, -50%);
+  transition: opacity 1.15s var(--ease), transform 1.15s var(--ease), filter 1.15s var(--ease);
+}
+.halo-seal {
+  position: absolute;
+  inset: 12%;
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 42px rgba(226, 180, 91, 0.22));
+}
+.halo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  will-change: transform;
+}
+.halo-ring--1 {
+  inset: 0;
+  border-top-color: rgba(226, 180, 91, 0.85);
+  border-right-color: rgba(226, 180, 91, 0.18);
+  animation: halo-spin 9s linear infinite;
+}
+.halo-ring--2 {
+  inset: -7%;
+  border-bottom-color: rgba(216, 74, 77, 0.55);
+  border-left-color: rgba(216, 74, 77, 0.08);
+  animation: halo-spin 15s linear infinite reverse;
+}
+.halo-ring--3 {
+  inset: -15%;
+  border-top-color: rgba(236, 228, 210, 0.28);
+  border-left-color: rgba(236, 228, 210, 0.04);
+  animation: halo-spin 23s linear infinite;
+}
+.halo-spiral {
+  position: absolute;
+  inset: -26%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    transparent 0deg, rgba(226, 180, 91, 0.13) 42deg,
+    transparent 96deg, rgba(236, 228, 210, 0.05) 198deg,
+    transparent 258deg, rgba(216, 74, 77, 0.09) 312deg, transparent 360deg);
+  -webkit-mask: radial-gradient(closest-side, transparent 55%, #000 56%);
+  mask: radial-gradient(closest-side, transparent 55%, #000 56%);
+  animation: halo-spin 34s linear infinite;
+}
+@keyframes halo-spin { to { transform: rotate(360deg); } }
+
+/* The copy that lands with the arrival ------------------------------------ */
+.arrival .eyebrow { color: var(--gold-bright); }
+.arrival h1 {
+  font-size: clamp(3.25rem, 9vw, 7.25rem);
+  margin-top: var(--s-2);
+}
+.arrival-copy {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 68%;
+  transform: translateX(-50%);
+  width: min(92vw, 900px);
+  text-align: center;
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+}
+[data-arrival-beat] {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(8px);
+  transition: opacity 1.15s var(--ease), transform 1.15s var(--ease), filter 1.15s var(--ease);
+}
+.arrival.is-assembly [data-arrival-beat] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.arrival.is-assembly .arrival-mission { transition-delay: 0.25s; }
+.arrival.is-risen .arrival-copy {
+  opacity: 0;
+  transform: translate(-50%, -12px);
+  filter: blur(6px);
+}
+
+/* The mission tells itself once the KOA has risen ------------------------- */
+.arrival-mission {
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  top: 46vh;
+  transform: translateX(-50%);
+  width: min(92vw, 66ch);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  line-height: 1.72;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+.arrival.is-risen .arrival-mission {
+  opacity: calc(0.92 - var(--rise, 0));
+  transform: translate(-50%, calc(var(--rise, 0) * -8vh));
+}
+
+/* 2 · Chapter numerals live in the background ------------------------------ */
+.chapter-bg-num {
+  position: absolute;
+  z-index: 1;
+  bottom: -5vh;
+  right: -1vw;
+  font-family: var(--font-script);
+  font-size: clamp(14rem, 34vw, 30rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(226, 180, 91, 0.15);
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 1.3s var(--ease);
+}
+.scene .chapter-bg-num {
+  bottom: -7vh;
+  right: 3vw;
+  -webkit-text-stroke-color: rgba(226, 180, 91, 0.09);
+}
+.scene--iris .chapter-bg-num { right: auto; left: 3vw; bottom: -4vh; }
+.scene--rise .chapter-bg-num { bottom: -10vh; right: 50%; transform: translateX(50%); }
+.chapter-bg-num--prologue {
+  top: 6vh;
+  bottom: auto;
+  right: 50%;
+  transform: translateX(50%);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: clamp(6rem, 16vw, 13rem);
+  -webkit-text-stroke-color: rgba(236, 228, 210, 0.05);
+}
+
+/* 3 · Five doors — one per chapter ----------------------------------------
+   01 rack focus (the base), 02 curtain wipe, 03 iris, 04 rise, 05 veil.   */
+.scene--wipe .scene-media {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s var(--ease) 0.12s;
+}
+.scene--wipe.active .scene-media { clip-path: inset(0 0 0 0); }
+.scene--wipe .scene-media::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 3px;
+  background: linear-gradient(rgba(226, 180, 91, 0.95), rgba(226, 180, 91, 0.15));
+  box-shadow: 0 0 28px rgba(226, 180, 91, 0.5);
+  opacity: 0;
+  transition: transform 1.2s var(--ease) 0.12s, opacity 0.25s;
+}
+.scene--wipe.active .scene-media::before {
+  opacity: 1;
+  transform: translateX(calc(100vw - 3px));
+}
+
+.scene--iris .scene-media {
+  -webkit-mask: radial-gradient(circle at 50% 46%, #000 var(--iris-r, 0%), transparent calc(var(--iris-r, 0%) + 18%));
+  mask: radial-gradient(circle at 50% 46%, #000 var(--iris-r, 0%), transparent calc(var(--iris-r, 0%) + 18%));
+}
+.scene--iris.active .scene-media { animation: iris-open 1.5s var(--ease) forwards; }
+@keyframes iris-open { from { --iris-r: 0%; } to { --iris-r: 140%; } }
+@property --iris-r {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.scene--rise {
+  transform: translateY(7vh) scale(1.02);
+  filter: blur(10px) saturate(0.85);
+}
+.scene--rise.active {
+  transform: none;
+  filter: none;
+}
+
+.scene--veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--ink-950) 44%, rgba(5, 9, 14, 0.4) 50%, var(--ink-950) 56%);
+  opacity: 1;
+  transform: scaleX(1);
+  transform-origin: center;
+  transition: opacity 1.25s var(--ease) 0.2s, transform 1.25s var(--ease) 0.2s;
+}
+.scene--veil.active::after {
+  opacity: 0;
+  transform: scaleX(2.8);
+}
+
+/* 4 · The partner wall (contact) -------------------------------------------
+   Three large marks across the screen; one changes at a time. Honest by
+   design: announcement-pending seals until real partners are named.        */
+.partner-wall {
+  padding-block: var(--s-6);
+  background: var(--ink-950);
+}
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.6vw, 2.4rem);
+}
+.partner-slot {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  min-height: clamp(280px, 38vh, 420px);
+  padding: var(--s-4) var(--s-3);
+  border: 1px solid var(--line-soft);
+  background: linear-gradient(180deg, rgba(236, 228, 210, 0.028), rgba(236, 228, 210, 0.008));
+  transition: opacity 0.52s var(--ease), transform 0.52s var(--ease), filter 0.52s var(--ease), border-color 0.4s;
+}
+.partner-slot:hover { border-color: rgba(226, 180, 91, 0.35); }
+.partner-slot.is-swapping {
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  filter: blur(6px);
+}
+.partner-mark {
+  font-family: var(--font-script);
+  font-size: clamp(5rem, 11vw, 9.5rem);
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 0 44px rgba(226, 180, 91, 0.28);
+}
+.partner-slot:nth-child(2) .partner-mark {
+  color: var(--red);
+  text-shadow: 0 0 44px rgba(216, 74, 77, 0.3);
+}
+.partner-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  letter-spacing: 0.02em;
+}
+.partner-role {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.partner-note {
+  margin-top: var(--s-3);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+
+/* 5 · Word assembly --------------------------------------------------------
+   assembleEl wraps each word in .aw with inline opacity 0→1; this adds the
+   rise-and-settle micro-motion so words land instead of switch on.         */
+.aw {
+  display: inline;
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease), filter 0.55s var(--ease);
+  transform: translateY(0.45em);
+  filter: blur(4px);
+}
+.aw[style*="opacity: 1"],
+.aw[style*="opacity:1"] {
+  transform: none;
+  filter: none;
+}
+
+/* 6 · Arrival × reduced motion / motion off -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .halo-ring, .halo-spiral { animation: none; }
+  [data-arrival-beat] { opacity: 1; transform: none; filter: none; transition: none; }
+  .arrival-mission { opacity: 0.92; }
+  .scene--wipe .scene-media { clip-path: none; transition: none; }
+  .scene--wipe .scene-media::before { display: none; }
+  .scene--iris .scene-media { -webkit-mask: none; mask: none; }
+  .scene--iris.active .scene-media { animation: none; }
+  .scene--rise { transform: none; filter: none; }
+  .scene--veil::after { display: none; }
+  .partner-slot { transition: opacity 0.25s; }
+  .aw { transform: none; filter: none; transition: none; }
+}
+body[data-motion="off"] .halo-ring,
+body[data-motion="off"] .halo-spiral { animation: none; }
+body[data-motion="off"] [data-arrival-beat] { opacity: 1; transform: none; filter: none; transition: none; }
+body[data-motion="off"] .arrival-mission { opacity: 0.92; }
+body[data-motion="off"] .scene--wipe .scene-media { clip-path: none; transition: none; }
+body[data-motion="off"] .scene--wipe .scene-media::before { display: none; }
+body[data-motion="off"] .scene--iris .scene-media { -webkit-mask: none; mask: none; }
+body[data-motion="off"] .scene--iris.active .scene-media { animation: none; }
+body[data-motion="off"] .scene--rise { transform: none; filter: none; }
+body[data-motion="off"] .scene--veil::after { display: none; }
+body[data-motion="off"] .partner-slot { transition: opacity 0.25s; }
+body[data-motion="off"] .aw { transform: none; filter: none; transition: none; }
+
+@media (max-width: 900px) {
+  .partner-grid { grid-template-columns: 1fr; }
+  .partner-slot { min-height: 220px; }
+  .chapter-bg-num { font-size: clamp(9rem, 42vw, 16rem); }
+}
+@media (max-width: 640px) {
+  .arrival { height: 200vh; }
+  .arrival h1 { font-size: clamp(2.5rem, 11vw, 3.5rem); }
+  .arrival-mission { font-size: var(--fs-md); top: 44vh; }
 }

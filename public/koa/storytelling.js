@@ -1,14 +1,25 @@
 /* ==========================================================================
-   KOA — storytelling.js · "Living Alphabet" edition
+   KOA — Karen Organization of America · storytelling engine (The Arrival)
    -------------------------------------------------------------------------
-   One-time chrome bindings: header, motion toggle, mobile menu, year,
-   and the GlyphStage (the site-wide canvas of Karen + Latin glyphs).
+   One engine, three layers:
 
-   init(): content-scoped setup (reveals, film, counters, forms), exposed
-   as window.__koaInit so the packed hash-router build can re-run it after
-   every route injection.
+   1. GlyphStage — a fixed, volumetric canvas of Latin + S'gaw Karen glyphs.
+      Modes:
+        drift     — ambient dust with pointer parallax + scroll streaks
+        arrival   — the KOA wordmark built FROM glyphs: cursor-reactive,
+                    rises on scroll, disperses, hands off to the film
+        word/loom — pixel-sampled words + the Karen diamond-weave frame
+      Plus the RAIN: intermittent vertical glyph columns that spawn at
+      random places, live briefly, and leave at random times.
 
-   Motion ships ON unless prefers-reduced-motion, honors the Motion toggle.
+   2. The Arrival — the prologue scroll stage (seal → glyph-KOA → rise →
+      mission, told word by word) that hands its glyphs to chapter 01.
+
+   3. Word assembly — paragraphs that solidify one randomly-ordered word
+      at a time, because the words are the product.
+
+   Motion is a garnish, never the meal. prefers-reduced-motion and the
+   manual Motion toggle are honored everywhere.
    ========================================================================== */
 (function () {
   "use strict";
@@ -17,39 +28,45 @@
   var motionOn = !prefersReduced;
   document.body.dataset.motion = motionOn ? "on" : "off";
 
-  /* ======================================================================
-     GLYPH STAGE — the living alphabet.
-     A fixed canvas of Latin + S'gaw Karen (Myanmar-script) glyphs.
-     Modes:
-       drift  — slow ambient dust with pointer parallax + scroll streaks
-       form(w)— glyphs fly into pixel-sampled targets that spell a word
-     The home film drives formations per chapter; interior pages form
-     their door number in the page hero; the white KOA wordmark releases
-     its letters into the field on the first scroll.
-     ====================================================================== */
   var MYAN = ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
-  var GLYPH_SET = "KOAKAREካ".slice(0, 3) + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
+  var GLYPH_SET = "KOAKAREက" + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
 
+  /* ======================================================================
+     GLYPH STAGE
+     ====================================================================== */
   var GlyphStage = (function () {
     var canvas, ctx, W = 0, H = 0, DPR = 1;
     var particles = [];
-    var targets = null;            // current formation points (or null)
+    var targets = null;            // current formation points (word/loom)
     var formationWord = null;
-    var formationMode = null;      // "word" | "loom" | null
+    var formationMode = null;      // "word" | "loom" | "arrival" | null
     var tintColor = null;          // rgb string for chapter temperature
     var fontsReady = false;
     var pendingWord = null;
     var pendingLoom = false;
+    var pendingArrival = false;
     var raf = null;
     var active = false;            // motion allowed + initialized
     var staticDrawn = false;
     var pointerX = 0, pointerY = 0;
     var scrollVel = 0, lastScrollY = window.scrollY, lastScrollT = performance.now();
 
+    /* arrival state ------------------------------------------------------ */
+    var arrivalAnchorY = 0.5;      // fraction of H where the KOA sits
+    var arrivalScale = 1;
+    var arrivalScatter = 0;        // 0 = locked, 1 = fully dispersed
+    var arrivalCursor = true;      // pointer repels the formed glyphs
+
+    /* rain state ---------------------------------------------------------- */
+    var rainOn = false;
+    var rainBoost = 0;             // 0..1, driven by scroll + arrival phase
+    var rainCols = [];
+    var RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
+
     function glyphs() { return GLYPH_SET; }
 
     function makeParticles() {
-      var n = window.innerWidth < 720 ? 46 : 96;
+      var n = window.innerWidth < 720 ? 60 : 150;
       particles = [];
       var set = glyphs();
       for (var i = 0; i < n; i++) {
@@ -70,24 +87,23 @@
           depth: 0.4 + z * 0.6,
           tx: 0, ty: 0, hasTarget: false,
           wx: 0, wy: 0, hasWay: false,   // loom thread waypoint (curved flight)
+          bx: 0, by: 0, hasBase: false,  // arrival base offsets (centered)
+          sx: 0, sy: 0, sf: 0,           // arrival scatter destination + factor
           k: 0.045 + Math.random() * 0.05   // spring stiffness
         });
       }
     }
 
     function resize() {
+      DPR = Math.min(2, window.devicePixelRatio || 1);
+      W = window.innerWidth;
+      H = window.innerHeight;
       if (!canvas) return;
-      W = window.innerWidth; H = window.innerHeight;
-      DPR = Math.min(window.devicePixelRatio || 1, 1.75);
       canvas.width = Math.round(W * DPR);
       canvas.height = Math.round(H * DPR);
       canvas.style.width = W + "px";
       canvas.style.height = H + "px";
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      if (targets) {
-        if (formationMode === "loom") formLoom(formationWord, true);
-        else form(formationWord, true);
-      }
     }
 
     function init() {
@@ -102,6 +118,11 @@
       window.addEventListener("resize", function () {
         if (raf) cancelAnimationFrame(raf);
         resize();
+        RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
+        /* re-form whatever is on stage at the new size */
+        if (formationMode === "arrival") formArrival(true);
+        else if (formationMode === "loom") formLoom(formationWord, true);
+        else if (formationMode === "word") form(formationWord, true);
         if (active && motionOn) { raf = requestAnimationFrame(frame); }
         else { drawStatic(); }
       });
@@ -120,6 +141,7 @@
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(function () {
           fontsReady = true;
+          if (pendingArrival) { pendingArrival = false; formArrival(); return; }
           if (pendingWord) {
             var w = pendingWord, loom = pendingLoom;
             pendingWord = null; pendingLoom = false;
@@ -129,12 +151,13 @@
       } else { fontsReady = true; }
     }
 
-    /* Sample a word into target points via an offscreen canvas. */
-    function sampleWord(word, cx, cy, targetW) {
+    /* Sample a word into target points via an offscreen canvas.
+       Returns points centered on (cx, cy), scaled to targetW. */
+    function samplePoints(word, cx, cy, targetW, step, maxH) {
       var off = document.createElement("canvas");
       var octx = off.getContext("2d");
       var fs = 260;
-      var font = "600 " + fs + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+      var font = "600 " + fs + "px 'Noto Sans Myanmar','Space Grotesk',serif";
       octx.font = font;
       var wpx = Math.max(40, octx.measureText(word).width);
       off.width = Math.ceil(wpx) + 60;
@@ -148,20 +171,24 @@
       try { data = octx.getImageData(0, 0, off.width, off.height).data; }
       catch (e) { return []; }
       var pts = [];
-      var step = 5;
       for (var y = 0; y < off.height; y += step) {
         for (var x = 0; x < off.width; x += step) {
           if (data[(y * off.width + x) * 4 + 3] > 120) pts.push([x, y]);
         }
       }
       if (!pts.length) return [];
-      var scale = Math.min(targetW / off.width, (H * 0.34) / off.height);
+      var scale = Math.min(targetW / off.width, (maxH || H * 0.34) / off.height);
       var ox = cx - (off.width * scale) / 2;
       var oy = cy - (off.height * scale) / 2;
       for (var i = 0; i < pts.length; i++) {
         pts[i][0] = ox + pts[i][0] * scale;
         pts[i][1] = oy + pts[i][1] * scale;
       }
+      return pts;
+    }
+
+    function sampleWord(word, cx, cy, targetW) {
+      var pts = samplePoints(word, cx, cy, targetW, 5);
       // shuffle + cap to particle count
       for (var j = pts.length - 1; j > 0; j--) {
         var k = Math.floor(Math.random() * (j + 1));
@@ -219,7 +246,7 @@
       targets = pts.slice(0, nWord).concat(loomPts.slice(0, nLoom));
       for (var i = 0; i < n; i++) {
         var p = particles[i];
-        p.hasWay = false;
+        p.hasWay = false; p.hasBase = false;
         if (i < nWord) {
           p.tx = pts[i][0]; p.ty = pts[i][1]; p.hasTarget = true;
         } else if (i < nWord + nLoom) {
@@ -270,17 +297,127 @@
       if (!silent && !raf && active) raf = requestAnimationFrame(frame);
     }
 
+    /* THE ARRIVAL — the KOA wordmark built from glyphs, centered and level.
+       Targets are stored as offsets from center so the whole formation can
+       rise, grow, and disperse every frame without re-sampling. */
+    function formArrival(silent) {
+      if (!canvas) init();
+      if (!fontsReady) { pendingArrival = true; return; }
+      formationWord = "KOA"; formationMode = "arrival";
+      var tw = Math.min(W * 0.82, 1000);
+      var pts = samplePoints("KOA", 0, 0, tw, 4, H * 0.4);
+      if (!pts.length) { targets = null; return; }
+      // center offsets
+      var cx0 = 0, cy0 = 0;
+      for (var i = 0; i < pts.length; i++) { cx0 += pts[i][0]; cy0 += pts[i][1]; }
+      cx0 /= pts.length; cy0 /= pts.length;
+      for (i = 0; i < pts.length; i++) { pts[i][0] -= cx0; pts[i][1] -= cy0; }
+      // shuffle
+      for (var j = pts.length - 1; j > 0; j--) {
+        var k = Math.floor(Math.random() * (j + 1));
+        var t = pts[j]; pts[j] = pts[k]; pts[k] = t;
+      }
+      targets = pts.slice(0, particles.length);
+      var n = Math.min(targets.length, particles.length);
+      for (i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.hasWay = false;
+        if (i < n) {
+          p.bx = pts[i][0]; p.by = pts[i][1]; p.hasBase = true; p.hasTarget = true;
+          // scatter destination: somewhere out toward the edges
+          var ang = Math.random() * Math.PI * 2;
+          var rad = Math.max(W, H) * (0.55 + Math.random() * 0.5);
+          p.sx = W / 2 + Math.cos(ang) * rad;
+          p.sy = H * arrivalAnchorY + Math.sin(ang) * rad * 0.7;
+          p.sf = 0.55 + Math.random() * 0.75;
+          // begin at the seal's heart: the KOA rises off the logo itself
+          if (!silent) {
+            var d = Math.hypot(p.x - W / 2, p.y - H * 0.5);
+            if (d > Math.min(W, H) * 0.34) {
+              p.x = W / 2 + (Math.random() - 0.5) * 90;
+              p.y = H * 0.5 + (Math.random() - 0.5) * 90;
+              p.alpha = 0;
+            }
+          }
+        } else { p.hasBase = false; p.hasTarget = false; }
+      }
+      if (!motionOn) { drawStatic(); return; }
+      if (!silent && !raf && active) raf = requestAnimationFrame(frame);
+    }
+
+    /* live transform of the arrival formation (called from scroll) */
+    function arrivalTransform(anchorY, scale, scatter, cursor) {
+      arrivalAnchorY = anchorY;
+      arrivalScale = scale;
+      arrivalScatter = scatter;
+      arrivalCursor = cursor !== false;
+      if (!motionOn) drawStatic();
+    }
+
     function release() {
       targets = null; formationWord = null; formationMode = null;
+      arrivalScatter = 0;
       for (var i = 0; i < particles.length; i++) {
         particles[i].hasTarget = false;
         particles[i].hasWay = false;
+        particles[i].hasBase = false;
       }
       if (!motionOn) drawStatic();
     }
 
     function tint(rgb) { tintColor = rgb; }
 
+    /* ---- the rain ------------------------------------------------------- */
+    function setRain(on) { rainOn = on; if (!on) rainCols = []; }
+    function boostRain(v) { rainBoost = Math.max(rainBoost * 0.94, v); }
+
+    function spawnRainColumn(now) {
+      var set = glyphs();
+      var size = 10 + Math.random() * 13;               // different sizes
+      var len = 4 + Math.floor(Math.random() * 11);      // different lengths
+      var chars = [];
+      for (var i = 0; i < len; i++) chars.push(set.charAt(Math.floor(Math.random() * set.length)));
+      rainCols.push({
+        x: Math.random() * W,
+        y: H * (0.05 + Math.random() * 0.55),
+        size: size,
+        chars: chars,
+        vy: 0.14 + Math.random() * 0.4,
+        born: now,
+        life: 1400 + Math.random() * 2800,               // leaves at random times
+        maxAlpha: 0.07 + Math.random() * 0.09
+      });
+    }
+
+    function updateRain(now) {
+      if (!rainOn) return;
+      // intermittent spawning: base chance + scroll boost
+      var chance = 0.010 + Math.min(0.10, Math.abs(scrollVel) * 0.012) + rainBoost * 0.05;
+      if (rainCols.length < RAIN_MAX && Math.random() < chance) spawnRainColumn(now);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (var i = rainCols.length - 1; i >= 0; i--) {
+        var c = rainCols[i];
+        var age = now - c.born;
+        if (age > c.life) { rainCols.splice(i, 1); continue; }
+        // envelope: quick fade in, hold, fade out
+        var env = age < 380 ? age / 380
+          : age > c.life - 620 ? Math.max(0, (c.life - age) / 620)
+          : 1;
+        c.y += c.vy * (1 + Math.abs(scrollVel) * 0.06);
+        ctx.font = c.size + "px 'Noto Sans Myanmar','Space Grotesk',serif";
+        ctx.fillStyle = tintColor || "#fff";
+        for (var j = 0; j < c.chars.length; j++) {
+          var a = c.maxAlpha * env * (1 - j / (c.chars.length + 2));
+          if (a < 0.004) continue;
+          ctx.globalAlpha = a;
+          ctx.fillText(c.chars[j], c.x, c.y + j * c.size * 1.22);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    /* ---- drawing -------------------------------------------------------- */
     function drawGlyph(p, now, streak) {
       var flicker = 0.72 + 0.28 * Math.sin(now * 0.0011 * p.speed + p.phase);
       var a = p.alpha * flicker;
@@ -304,9 +441,38 @@
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       var streak = Math.abs(scrollVel);
+
+      updateRain(now);
+
+      var mpx = W / 2 + pointerX * (W / 2);
+      var mpy = H / 2 + pointerY * (H / 2);
+      var ay = H * arrivalAnchorY;
+
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
-        if (p.hasTarget) {
+        if (formationMode === "arrival" && p.hasBase) {
+          /* the KOA lives here: anchored, scalable, dispersible */
+          var tx = W / 2 + p.bx * arrivalScale;
+          var ty = ay + p.by * arrivalScale;
+          if (arrivalScatter > 0.001) {
+            tx += (p.sx - tx) * arrivalScatter * p.sf;
+            ty += (p.sy - ty) * arrivalScatter * p.sf;
+          }
+          p.x += (tx - p.x) * (p.k * 1.5);
+          p.y += (ty - p.y) * (p.k * 1.5);
+          /* cursor-reactive: the formed glyphs shy away from the hand */
+          if (arrivalCursor && arrivalScatter < 0.4) {
+            var dx = p.x - mpx, dy = p.y - mpy;
+            var d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 130 && d > 0.001) {
+              var f = (1 - d / 130) * 8.5;
+              p.x += (dx / d) * f;
+              p.y += (dy / d) * f;
+            }
+          }
+          var dd = Math.abs(tx - p.x) + Math.abs(ty - p.y);
+          p.alpha += ((dd < 30 ? 0.66 : 0.30) - p.alpha) * 0.06;
+        } else if (p.hasTarget) {
           if (p.hasWay) {
             // thread flight: pulled toward the arc waypoint first, then target
             var dw = Math.abs(p.wx - p.x) + Math.abs(p.wy - p.y);
@@ -317,8 +483,8 @@
           }
           p.x += (p.tx - p.x) * p.k;
           p.y += (p.ty - p.y) * p.k;
-          var d = Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y);
-          var settled = d < 30;
+          var d2 = Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y);
+          var settled = d2 < 30;
           p.alpha += ((settled ? 0.62 : 0.30) - p.alpha) * 0.06;
         } else {
           p.x += p.vx; p.y += p.vy;
@@ -330,12 +496,13 @@
           p.alpha += (p.baseAlpha - p.alpha) * 0.04;
         }
         var zs = 0.72 + p.z * 0.55; // depth scale: far glyphs small, near glyphs big
-        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Space Grotesk',serif";
         drawGlyph(p, now, streak);
       }
       ctx.globalAlpha = 1;
       ctx.fillStyle = "#fff";
       scrollVel *= 0.9;
+      rainBoost *= 0.97;
       raf = requestAnimationFrame(frame);
     }
 
@@ -345,12 +512,17 @@
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       var now = performance.now();
+      var ay = H * arrivalAnchorY;
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
-        if (p.hasTarget) { p.x = p.tx; p.y = p.ty; p.alpha = 0.55; }
+        if (formationMode === "arrival" && p.hasBase) {
+          p.x = W / 2 + p.bx * arrivalScale;
+          p.y = ay + p.by * arrivalScale;
+          p.alpha = 0.58;
+        } else if (p.hasTarget) { p.x = p.tx; p.y = p.ty; p.alpha = 0.55; }
         else { p.alpha = p.baseAlpha; }
         var zs = 0.72 + p.z * 0.55;
-        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Cormorant Garamond',serif";
+        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Space Grotesk',serif";
         drawGlyph(p, now, 0);
       }
       ctx.globalAlpha = 1;
@@ -373,8 +545,12 @@
       init: init,
       form: form,
       formLoom: formLoom,
+      formArrival: formArrival,
+      arrivalTransform: arrivalTransform,
       release: release,
       tint: tint,
+      setRain: setRain,
+      boostRain: boostRain,
       setActive: setActive,
       isFormed: function () { return !!targets; },
       mode: function () { return formationMode; },
@@ -382,6 +558,38 @@
       numerals: MYAN
     };
   })();
+
+  /* ======================================================================
+     WORD ASSEMBLY — paragraphs solidify one randomly-ordered word at a time.
+     The text is already in the HTML; we only wrap + reveal when motion is on.
+     ====================================================================== */
+  function assembleEl(el) {
+    if (!el || el.dataset.assembled) return;
+    el.dataset.assembled = "1";
+    if (!motionOn || prefersReduced) return; // text stays visible as-is
+    var words = el.textContent.trim().split(/\s+/);
+    if (words.length < 3) return;
+    el.textContent = "";
+    var spans = [];
+    for (var i = 0; i < words.length; i++) {
+      var s = document.createElement("span");
+      s.className = "aw";
+      s.textContent = words[i] + (i < words.length - 1 ? " " : "");
+      s.style.opacity = "0";
+      el.appendChild(s);
+      spans.push(s);
+    }
+    var order = spans.map(function (_, idx) { return idx; });
+    for (var j = order.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1));
+      var t = order[j]; order[j] = order[k]; order[k] = t;
+    }
+    var n = 0;
+    var iv = setInterval(function () {
+      if (n >= order.length) { clearInterval(iv); return; }
+      spans[order[n++]].style.opacity = "1";
+    }, 34);
+  }
 
   /* ---- Motion toggle — one-time chrome binding ---------------------------- */
   var motionBtn = document.querySelector("button[data-motion]");
@@ -442,28 +650,33 @@
   }
 
   /* ================= content-scoped init (re-runnable) ==================== */
-  var filmScrollHandler = null;
-  var filmResizeHandler = null;
+  var homeScrollHandler = null;
+  var homeResizeHandler = null;
+  var partnerTimer = null;
   var lastSceneIdx = -1;
 
   function init() {
     var root = document.getElementById("main") || document;
     var film = root.querySelector("[data-film]");
+    var arrivalEl = root.querySelector("[data-arrival]");
 
-    /* drop the previous page's film listeners, if any (home revisits) */
-    if (filmScrollHandler) {
-      window.removeEventListener("scroll", filmScrollHandler);
-      window.removeEventListener("resize", filmResizeHandler);
-      filmScrollHandler = filmResizeHandler = null;
+    /* drop the previous page's home listeners + timers */
+    if (homeScrollHandler) {
+      window.removeEventListener("scroll", homeScrollHandler);
+      window.removeEventListener("resize", homeResizeHandler);
+      homeScrollHandler = homeResizeHandler = null;
     }
+    if (partnerTimer) { clearInterval(partnerTimer); partnerTimer = null; }
     document.body.classList.toggle("is-filming", !!film);
     lastSceneIdx = -1;
 
     /* ---- GlyphStage: formation for this page ------------------------------- */
     var glyphHolder = root.querySelector("[data-glyph-word]");
+    GlyphStage.setRain(!!film);
     if (film) {
-      // home: the film drives formations (see onSceneChange); start on KOA
-      GlyphStage.form("KOA");
+      // home: the arrival + film drive formations (see updateHome); start assembled
+      GlyphStage.formArrival();
+      GlyphStage.arrivalTransform(0.42, 1, 0, true);
     } else if (glyphHolder && glyphHolder.dataset.glyphWord) {
       var w = glyphHolder.dataset.glyphWord;
       GlyphStage.release();
@@ -500,16 +713,30 @@
       });
     });
 
-    /* ---- Home film ----------------------------------------------------------- */
-    if (film) {
+    /* ---- Word assembly: standalone elements assemble on sight --------------
+       Film scenes + the arrival mission are driven by their own choreography
+       and marked data-assemble="late" so this observer skips them. */
+    var freeAssemble = root.querySelectorAll('[data-assemble]:not([data-assemble="late"])');
+    if ("IntersectionObserver" in window && motionOn && !prefersReduced) {
+      var aio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { assembleEl(e.target); aio.unobserve(e.target); }
+        });
+      }, { threshold: 0.4 });
+      freeAssemble.forEach(function (el) { aio.observe(el); });
+    }
+
+    /* ---- Home: THE ARRIVAL + the film, one continuous scroll --------------- */
+    if (film && arrivalEl) {
       var scenes = Array.prototype.slice.call(film.querySelectorAll("[data-scene]"));
       var dots = Array.prototype.slice.call(film.querySelectorAll(".chapter-dots li"));
       var bar = film.querySelector(".film-progress i");
       var frameEl = film.querySelector("[data-frame]");
-      var total = parseInt(film.dataset.total || "2400", 10);
-      var cue = film.querySelector(".scroll-cue");
-      var wordmark = film.querySelector("[data-wordmark]");
+      var total = parseInt(film.dataset.total || "3000", 10);
+      var cue = root.querySelector(".scroll-cue");
+      var mission = arrivalEl.querySelector('[data-assemble="late"]');
       var ticking = false;
+      var control = "arrival"; // who owns the glyph stage right now
 
       /* chapter color temperature — the film's light changes with the hour */
       var TEMPS = [null, "255,196,140", "238,240,235", "168,196,255", "150,232,222", "255,178,120"];
@@ -517,47 +744,128 @@
       function onSceneChange(idx, scene) {
         dots.forEach(function (d, i) { d.classList.toggle("is-active", i === idx); });
         /* the chapter's light */
-        var t = TEMPS[idx] || null;
+        var t = TEMPS[idx + 1] || null;
         film.style.setProperty("--chapter-tint", t || "255,255,255");
         document.body.style.setProperty("--chapter-tint", t || "255,255,255");
         GlyphStage.tint(t ? "rgb(" + t + ")" : null);
-        if (idx === 0) {
-          GlyphStage.form("KOA");
-        } else {
-          var num = scene && scene.dataset.glyphNum ? scene.dataset.glyphNum : MYAN[idx];
-          /* THE LOOM — glyphs weave the Karen diamond frame around the chapter */
-          GlyphStage.formLoom(num);
+        /* the KOA's glyphs dissolve into this chapter's woven numeral */
+        var num = scene && scene.dataset.glyphNum ? scene.dataset.glyphNum : MYAN[idx];
+        GlyphStage.formLoom(num);
+        /* and the chapter's words solidify */
+        if (scene) {
+          var late = scene.querySelector('[data-assemble="late"]');
+          if (late) setTimeout(function () { assembleEl(late); }, 420);
         }
       }
 
-      function updateFilm() {
+      function updateHome() {
         ticking = false;
-        var h = film.offsetHeight - window.innerHeight;
-        var scrolled = Math.min(Math.max(window.scrollY - (film.offsetTop || 0), 0), h);
-        var p = h > 0 ? scrolled / h : 0;
 
-        if (bar) bar.style.width = (p * 100).toFixed(2) + "%";
-        if (frameEl) frameEl.textContent = String(Math.round(p * total)).padStart(4, "0");
+        /* ---- arrival progress ------------------------------------------ */
+        var ah = arrivalEl.offsetHeight - window.innerHeight;
+        var aScrolled = Math.min(Math.max(window.scrollY - (arrivalEl.offsetTop || 0), 0), ah);
+        var pa = ah > 0 ? aScrolled / ah : 0;
 
-        var idx = Math.min(scenes.length - 1, Math.floor(p * scenes.length));
-        scenes.forEach(function (s, i) { s.classList.toggle("active", i === idx); });
-        if (idx !== lastSceneIdx) { lastSceneIdx = idx; onSceneChange(idx, scenes[idx]); }
-        if (cue) cue.classList.toggle("is-hidden", p > 0.02);
+        /* ---- film progress ---------------------------------------------- */
+        var fh = film.offsetHeight - window.innerHeight;
+        var fScrolled = Math.min(Math.max(window.scrollY - (film.offsetTop || 0), 0), fh);
+        var pf = fh > 0 ? fScrolled / fh : 0;
+        var filmLive = window.scrollY + window.innerHeight > film.offsetTop + 40 && pf > 0.004;
 
-        /* wordmark release: the white KOA letters dissolve into the field */
-        if (wordmark) {
-          var rel = Math.min(1, Math.max(0, (p - 0.045) / 0.085));
-          wordmark.style.setProperty("--release", rel.toFixed(3));
+        if (bar) bar.style.width = (pf * 100).toFixed(2) + "%";
+        if (frameEl) frameEl.textContent = String(Math.round(pf * total)).padStart(4, "0");
+
+        var idx = Math.min(scenes.length - 1, Math.floor(pf * scenes.length));
+        if (filmLive) {
+          scenes.forEach(function (s, i) { s.classList.toggle("active", i === idx); });
+        } else {
+          scenes.forEach(function (s) { s.classList.remove("active"); });
+        }
+        if (cue) cue.classList.toggle("is-hidden", pa > 0.03);
+
+        /* ---- arrival phase states (CSS hooks) --------------------------- */
+        arrivalEl.classList.toggle("is-assembly", pa > 0.16);
+        arrivalEl.classList.toggle("is-risen", pa > 0.46);
+        arrivalEl.classList.toggle("is-scattering", pa > 0.72);
+
+        /* ---- who owns the glyphs ---------------------------------------- */
+        if (filmLive) {
+          if (control !== "film") {
+            control = "film";
+            lastSceneIdx = -1; // force formation handoff on entry
+          }
+          if (idx !== lastSceneIdx) { lastSceneIdx = idx; onSceneChange(idx, scenes[idx]); }
+        } else {
+          if (control !== "arrival") {
+            control = "arrival";
+            if (GlyphStage.mode() !== "arrival") GlyphStage.formArrival();
+            GlyphStage.tint(null);
+            film.style.setProperty("--chapter-tint", "255,255,255");
+            document.body.style.setProperty("--chapter-tint", "255,255,255");
+          }
+          /* the choreography: assemble → hold → rise → disperse */
+          var assembleP = Math.min(1, Math.max(0, (pa - 0.10) / 0.22));
+          var riseP = Math.min(1, Math.max(0, (pa - 0.46) / 0.30));
+          var scatterP = Math.min(1, Math.max(0, (pa - 0.74) / 0.24));
+          var ease = function (x) { return x * x * (3 - 2 * x); };
+          var anchorY = 0.42 - ease(riseP) * 0.24;         // seal line → top third
+          var scale = 1 + ease(riseP) * 0.16;               // grows a little
+          var scatter = ease(scatterP);
+          GlyphStage.arrivalTransform(anchorY, scale, scatter, assembleP > 0.5 && scatter < 0.3);
+          GlyphStage.boostRain(scatterP * 0.9 + Math.min(1, Math.abs(window.scrollY - (lastScrollForRain || 0)) / 240) * 0.4);
+          lastScrollForRain = window.scrollY;
+          /* the mission tells itself once the KOA has risen */
+          if (pa > 0.5 && mission) assembleEl(mission);
         }
       }
+      var lastScrollForRain = 0;
 
-      filmScrollHandler = function () {
-        if (!ticking) { ticking = true; requestAnimationFrame(updateFilm); }
+      homeScrollHandler = function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateHome); }
       };
-      filmResizeHandler = updateFilm;
-      window.addEventListener("scroll", filmScrollHandler, { passive: true });
-      window.addEventListener("resize", filmResizeHandler);
-      updateFilm();
+      homeResizeHandler = updateHome;
+      window.addEventListener("scroll", homeScrollHandler, { passive: true });
+      window.addEventListener("resize", homeResizeHandler);
+      updateHome();
+    }
+
+    /* ---- Partner wall (contact) --------------------------------------------
+       Three large marks across the screen; one changes at a random interval.
+       Real partner logos slot into POOL as {name, role, logo:"assets/…png"}
+       the moment a partnership is confirmed — until then the wall honestly
+       shows announcement-pending seals, never invented organizations. */
+    var partnerStage = root.querySelector("[data-partners]");
+    if (partnerStage) {
+      var POOL = [
+        { mark: "၁", name: "Partner announcement", role: "pending · slot one" },
+        { mark: "၂", name: "Partner announcement", role: "pending · slot two" },
+        { mark: "၃", name: "Partner announcement", role: "pending · slot three" },
+        { mark: "၄", name: "Partner announcement", role: "pending · slot four" },
+        { mark: "၅", name: "Partner announcement", role: "pending · slot five" }
+      ];
+      var slots = Array.prototype.slice.call(partnerStage.querySelectorAll(".partner-slot"));
+      var renderSlot = function (slot, item) {
+        slot.dataset.mark = item.mark;
+        slot.innerHTML =
+          '<span class="partner-mark" aria-hidden="true">' + item.mark + '</span>' +
+          '<span class="partner-name">' + item.name + '</span>' +
+          '<span class="partner-role">' + item.role + '</span>';
+      };
+      var pickDifferent = function (currentMark) {
+        var options = POOL.filter(function (p) { return p.mark !== currentMark; });
+        return options[Math.floor(Math.random() * options.length)];
+      };
+      slots.forEach(function (slot, i) { renderSlot(slot, POOL[i % POOL.length]); });
+      if (motionOn && !prefersReduced && slots.length > 1) {
+        partnerTimer = setInterval(function () {
+          var slot = slots[Math.floor(Math.random() * slots.length)];
+          slot.classList.add("is-swapping");
+          setTimeout(function () {
+            renderSlot(slot, pickDifferent(slot.dataset.mark));
+            slot.classList.remove("is-swapping");
+          }, 520);
+        }, 4200);
+      }
     }
 
     /* ---- Stat counters --------------------------------------------------------
@@ -613,7 +921,6 @@
         var input = form.querySelector("input[type=email]");
         var email = input && input.value ? input.value.trim() : "";
         if (!email) return;
-
         // Works today with zero backend: opens a pre-filled email to the KOA
         // team so the signup is real from day one. Swap for an endpoint later.
         var subject = encodeURIComponent("KOA early access — " + (form.dataset.tag || "newsletter"));
@@ -623,7 +930,6 @@
           "I'd like early access to the beta and to help build the Karen AI with the community."
         );
         window.location.href = "mailto:karenorgamerica@gmail.com?subject=" + subject + "&body=" + body;
-
         form.classList.add("is-sent");
         if (wrap) wrap.classList.add("is-done");
       });

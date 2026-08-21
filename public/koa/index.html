@@ -50,27 +50,43 @@
 
 <main id="main">
 
+  <!-- ============================ THE ARRIVAL ============================
+       The first thing you see: the seal, haloed and spiraling. Its KOA is
+       the animation — assembled from glyphs, cursor-responsive, rising on
+       scroll, then dispersing into the film. -->
+  <section class="arrival" data-arrival aria-label="KOA — the arrival">
+    <div class="arrival-stage">
+      <span class="chapter-bg-num chapter-bg-num--prologue" aria-hidden="true">KOA</span>
+      <div class="halo" aria-hidden="true">
+        <i class="halo-ring halo-ring--1"></i>
+        <i class="halo-ring halo-ring--2"></i>
+        <i class="halo-ring halo-ring--3"></i>
+        <i class="halo-spiral"></i>
+        <img src="assets/koa-logo.png" alt="" class="halo-seal">
+      </div>
+      <div class="arrival-copy">
+        <p class="eyebrow" data-arrival-beat>Karen Organization of America</p>
+        <h1 data-arrival-beat>One people.<br>One <em>home.</em></h1>
+      </div>
+      <div class="arrival-mission" data-arrival-beat>
+        <p data-assemble="late">KOA exists so the Karen people in America have one national home — the elders who carried the language across an ocean, the parents keeping it alive at kitchen tables, the kids hearing it for the first time in a new country; the churches and the businesses, the musicians and the athletes, the cooks and the quiet keepers of every old song. One roof for the language, the food, the faith, the games, the news — and the future.</p>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+    </div>
+  </section>
+
   <!-- ============================ THE FILM ============================ -->
-  <section class="film" data-film data-total="3600" aria-label="KOA cinematic introduction">
+  <section class="film" data-film data-total="3000" aria-label="KOA cinematic introduction">
     <div class="film-stage">
       <div class="film-letterbox" aria-hidden="true"><i class="lb lb--top"></i><i class="lb lb--bottom"></i></div>
       <div class="film-progress" aria-hidden="true"><i></i></div>
-      <div class="film-label" aria-hidden="true">KOA · a homecoming in six frames</div>
-      <div class="film-meta" aria-hidden="true"><span>FRAME</span><b data-frame>0000</b><span>/ 3600</span></div>
-      <ol class="chapter-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+      <div class="film-label" aria-hidden="true">KOA · a homecoming in five chapters</div>
+      <div class="film-meta" aria-hidden="true"><span>FRAME</span><b data-frame>0000</b><span>/ 3000</span></div>
+      <ol class="chapter-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
 
-      <!-- Scene 1 · The name, in white letters -->
-      <article class="scene scene--wordmark active" data-scene>
-        <div class="scene-copy scene-copy--wordmark">
-          <div class="wordmark" data-wordmark aria-label="KOA">
-            <span style="--i:0">K</span><span style="--i:1">O</span><span style="--i:2">A</span>
-          </div>
-          <p class="scene-kicker scene-kicker--center" data-beat>Karen Organization of America</p>
-          <p class="scene-sub scene-sub--center" data-beat>A film in six frames — one people's homecoming, and the house being built for its language.</p>
-        </div>
-      </article>
-      <!-- Scene 2 · Who -->
-      <article class="scene scene--hero" data-scene data-glyph-num="၁">
+      <!-- Chapter 01 · rack focus -->
+      <article class="scene scene--rack active" data-scene data-glyph-num="၁">
+        <span class="chapter-bg-num" aria-hidden="true">၁</span>
         <div class="scene-media" style="--position:50% 40%">
           <img src="assets/koa-community-care-ai.jpg" alt="An elder woman in traditional dress is steadied by a younger family member at a community food distribution at dusk">
         </div>
@@ -80,13 +96,14 @@
             <p class="scene-kicker">01 · Since before borders</p>
             <h2>The people are<br>the <em>story.</em></h2>
           </div>
-          <p class="scene-sub" data-beat>A thousand years of song, scripture, and survival — carried now into America, into a new century, into a home of their own making.</p>
+          <p class="scene-sub" data-beat data-assemble="late">A thousand years of song, scripture, and survival — carried now into America, into a new century, into a home of their own making.</p>
         </div>
         <span class="scene-credit">Community care, at dusk</span>
       </article>
 
-      <!-- Scene 3 · What KOA is -->
-      <article class="scene" data-scene data-glyph-num="၂">
+      <!-- Chapter 02 · curtain wipe -->
+      <article class="scene scene--wipe" data-scene data-glyph-num="၂">
+        <span class="chapter-bg-num" aria-hidden="true">၂</span>
         <div class="scene-media" style="--position:50% 60%">
           <img src="assets/fb-outdoor-gathering.jpg" alt="A large outdoor Karen community gathering">
         </div>
@@ -95,13 +112,14 @@
             <p class="scene-kicker">02 · The organization</p>
             <h2>One roof.<br>Every <em>need.</em></h2>
           </div>
-          <p class="scene-sub" data-beat>KOA works where the community stands — education, health, language, faith, and the everyday. A nonprofit built by Karen hands, for Karen people, across the United States.</p>
+          <p class="scene-sub" data-beat data-assemble="late">KOA works where the community stands — education, health, language, faith, and the everyday. A nonprofit built by Karen hands, for Karen people, across the United States.</p>
         </div>
         <span class="scene-credit">Community scale</span>
       </article>
 
-      <!-- Scene 4 · Life here -->
-      <article class="scene" data-scene data-glyph-num="၃">
+      <!-- Chapter 03 · iris -->
+      <article class="scene scene--iris" data-scene data-glyph-num="၃">
+        <span class="chapter-bg-num" aria-hidden="true">၃</span>
         <div class="scene-media" style="--position:50% 35%">
           <img src="assets/koa-sepak-takraw-tournament-ai.jpg" alt="A sepak takraw player frozen mid-air over the net at a floodlit night tournament, crowd behind">
         </div>
@@ -110,13 +128,14 @@
             <p class="scene-kicker">03 · Life in the open</p>
             <h2>Tournaments,<br>tables &amp; <em>songs.</em></h2>
           </div>
-          <p class="scene-sub" data-beat>Sepak takraw under floodlights. Sunday tables full. Music that only this people knows how to feel. A culture isn't preserved in a museum — it's lived on a schedule.</p>
+          <p class="scene-sub" data-beat data-assemble="late">Sepak takraw under floodlights. Sunday tables full. Music that only this people knows how to feel. A culture isn't preserved in a museum — it's lived on a schedule.</p>
         </div>
         <span class="scene-credit">Night match, community courts</span>
       </article>
 
-      <!-- Scene 5 · The future -->
-      <article class="scene" data-scene data-glyph-num="၄">
+      <!-- Chapter 04 · rise -->
+      <article class="scene scene--rise" data-scene data-glyph-num="၄">
+        <span class="chapter-bg-num" aria-hidden="true">၄</span>
         <div class="scene-media" style="--position:50% 50%">
           <img src="assets/koa-national-community-ai.jpg" alt="Karen community members gathered together at an outdoor gathering">
         </div>
@@ -125,13 +144,14 @@
             <p class="scene-kicker">04 · The future, in our hands</p>
             <h2>We'll teach a<br>machine to <em>speak.</em></h2>
           </div>
-          <p class="scene-sub" data-beat>A Karen AI — built with the community, for the language itself. Coming soon. The people who help build it will be written into its name.</p>
+          <p class="scene-sub" data-beat data-assemble="late">A Karen AI — built with the community, for the language itself. Coming soon. The people who help build it will be written into its name.</p>
         </div>
         <span class="scene-credit">The next generation, gathered</span>
       </article>
 
-      <!-- Scene 6 · Invitation -->
-      <article class="scene" data-scene data-glyph-num="၅">
+      <!-- Chapter 05 · parting veil -->
+      <article class="scene scene--veil" data-scene data-glyph-num="၅">
+        <span class="chapter-bg-num" aria-hidden="true">၅</span>
         <div class="scene-media" style="--position:50% 45%">
           <img src="assets/koa-community-care-ai.jpg" alt="A community handout at dusk, warm light under the eaves">
         </div>
@@ -140,7 +160,7 @@
             <p class="scene-kicker">05 · An invitation</p>
             <h2>Come in.<br>Stay a <em>while.</em></h2>
           </div>
-          <p class="scene-sub" data-beat>Volunteer, contribute your voice and words, or simply follow along. The next chapter is being written now — and there's a seat with your name on it.</p>
+          <p class="scene-sub" data-beat data-assemble="late">Volunteer, contribute your voice and words, or simply follow along. The next chapter is being written now — and there's a seat with your name on it.</p>
           <div class="btn-row" data-beat style="margin-top:2rem">
             <a class="btn btn--solid" href="#waitlist">Reserve a seat</a>
             <a class="btn btn--ghost" href="about.html">Read the story</a>
@@ -148,8 +168,6 @@
         </div>
         <span class="scene-credit">Doors open at dusk</span>
       </article>
-
-      <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
     </div>
   </section>
 
