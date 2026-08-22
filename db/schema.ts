@@ -13,6 +13,13 @@ export const users = sqliteTable("users", {
   role: text("role", { enum: ["public", "contributor", "reviewer", "approved_translator", "moderator", "admin"] }).notNull().default("contributor"),
   status: text("status", { enum: ["active", "suspended", "deleted"] }).notNull().default("active"),
   languages: text("languages", { mode: "json" }).$type<string[]>().notNull().default(sql`'[]'`),
+  // Dialect profile (verifier onboarding): where they grew up and where they
+  // learned Karen — pronunciation varies by region and refugee camp.
+  grewUpCountry: text("grew_up_country"),
+  grewUpRegion: text("grew_up_region"),
+  learnedKarenPlaceType: text("learned_karen_place_type", { enum: ["camp", "city", "state", "province", "other"] }),
+  learnedKarenPlace: text("learned_karen_place"),
+  dialectSelfNamed: text("dialect_self_named"),
   createdAt: createdAt(),
   updatedAt: updatedAt(),
 });
@@ -326,5 +333,170 @@ export const moderationFlags = sqliteTable("moderation_flags", {
   createdAt: createdAt(),
   updatedAt: updatedAt(),
 }, (table) => [index("moderation_flag_status_idx").on(table.status)]);
+
+// ── Grammar rules as community content ───────────────────────────────────────
+// Rules are retrievable "rule cards": title, explanation, linked example
+// sentences. Community-submissible; nothing is canonical until approved.
+export const grammarRules = sqliteTable("grammar_rules", {
+  id: text("id").primaryKey(),
+  titleKaren: text("title_karen"),
+  titleEn: text("title_en").notNull(),
+  summary: text("summary"),
+  explanation: text("explanation").notNull(),
+  scope: text("scope", { enum: ["phonology", "tone", "syllable", "word_order", "particles", "negation", "questions", "verbs", "nouns", "numerals", "discourse", "other"] }),
+  source: text("source", { enum: ["community", "grammar_book", "scraped"] }).notNull().default("community"),
+  provenanceUrl: text("provenance_url"),
+  provenancePage: text("provenance_page"),
+  status: text("status", { enum: ["pending", "changes_requested", "approved", "rejected", "archived"] }).notNull().default("pending"),
+  contributorId: text("contributor_id").references(() => users.id),
+  reviewerId: text("reviewer_id").references(() => users.id),
+  reviewNote: text("review_note"),
+  reviewedAt: integer("reviewed_at", { mode: "timestamp_ms" }),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  index("grammar_rule_status_idx").on(table.status),
+  index("grammar_rule_scope_idx").on(table.scope),
+]);
+
+// Example sentences attached to a grammar rule (either inline or linked to a
+// dictionary example).
+export const grammarRuleExamples = sqliteTable("grammar_rule_examples", {
+  id: text("id").primaryKey(),
+  ruleId: text("rule_id").notNull().references(() => grammarRules.id, { onDelete: "cascade" }),
+  dictionaryExampleId: text("dictionary_example_id").references(() => dictionaryExamples.id, { onDelete: "set null" }),
+  karen: text("karen"),
+  english: text("english"),
+  note: text("note"),
+  contributorId: text("contributor_id").references(() => users.id),
+  status: text("status", { enum: ["pending", "approved", "rejected"] }).notNull().default("pending"),
+  createdAt: createdAt(),
+}, (table) => [index("grammar_rule_example_rule_idx").on(table.ruleId)]);
+
+// Span-level grammar annotations on Karen text — powers the sentence highlight
+// tool: hover a highlighted span to see the governing grammar rule.
+// `entity`/`entityId` optionally anchor the annotated text (e.g.
+// "dictionary_example"); karenText is always stored inline so annotations
+// survive regardless of what they annotate.
+export const grammarAnnotations = sqliteTable("grammar_annotations", {
+  id: text("id").primaryKey(),
+  karenText: text("karen_text").notNull(),
+  startOffset: integer("start_offset").notNull(),
+  endOffset: integer("end_offset").notNull(),
+  ruleId: text("rule_id").references(() => grammarRules.id, { onDelete: "set null" }),
+  confidence: real("confidence"),
+  source: text("source", { enum: ["agent", "member"] }).notNull().default("member"),
+  entity: text("entity"),
+  entityId: text("entity_id"),
+  contributorId: text("contributor_id").references(() => users.id),
+  status: text("status", { enum: ["pending", "approved", "rejected"] }).notNull().default("pending"),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  index("grammar_annotation_rule_idx").on(table.ruleId),
+  index("grammar_annotation_entity_idx").on(table.entity, table.entityId),
+  index("grammar_annotation_status_idx").on(table.status),
+]);
+
+// ── Requests board: words/sentences that have no translation yet ─────────────
+// The open → claimed → fulfilled flywheel. Community upvotes surface priority.
+export const lexiconRequests = sqliteTable("lexicon_requests", {
+  id: text("id").primaryKey(),
+  term: text("term").notNull(),
+  normalizedTerm: text("normalized_term").notNull(),
+  detectedLanguage: text("detected_language", { enum: ["karen", "en", "my", "th", "unknown"] }).notNull().default("unknown"),
+  context: text("context"),
+  requesterId: text("requester_id").references(() => users.id),
+  requesterName: text("requester_name"),
+  status: text("status", { enum: ["open", "claimed", "fulfilled", "dismissed"] }).notNull().default("open"),
+  claimedById: text("claimed_by_id").references(() => users.id),
+  fulfilledEntryId: text("fulfilled_entry_id").references(() => dictionaryEntries.id, { onDelete: "set null" }),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  index("lexicon_request_status_idx").on(table.status),
+  index("lexicon_request_term_idx").on(table.normalizedTerm),
+]);
+
+// One upvote per user per entity (request, entry, translation, rule...).
+export const votes = sqliteTable("votes", {
+  id: text("id").primaryKey(),
+  entity: text("entity").notNull(),
+  entityId: text("entity_id").notNull(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  createdAt: createdAt(),
+}, (table) => [
+  uniqueIndex("vote_unique").on(table.entity, table.entityId, table.userId),
+  index("vote_entity_idx").on(table.entity, table.entityId),
+]);
+
+// ── Agent fallback log ───────────────────────────────────────────────────────
+// Every time the chatbot cannot produce Karen and pivots to en/my/th, it logs
+// here → the audit/training-focus queue.
+export const fallbackLogs = sqliteTable("fallback_logs", {
+  id: text("id").primaryKey(),
+  sessionId: text("session_id"),
+  userId: text("user_id").references(() => users.id),
+  karenInput: text("karen_input").notNull(),
+  pivotLanguage: text("pivot_language", { enum: ["en", "my", "th"] }).notNull(),
+  pivotOutput: text("pivot_output").notNull(),
+  reason: text("reason", { enum: ["unknown_word", "unknown_grammar", "low_confidence", "model_refusal", "other"] }).notNull(),
+  status: text("status", { enum: ["new", "reviewed", "resolved", "dismissed"] }).notNull().default("new"),
+  reviewerId: text("reviewer_id").references(() => users.id),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  index("fallback_log_status_idx").on(table.status),
+  index("fallback_log_session_idx").on(table.sessionId),
+]);
+
+// ── Web findings: the "Karen Google" crawler queue ───────────────────────────
+// Crawler discovers Karen text across the web → lands here with provenance.
+// Members turn findings into side-by-side translations; verifiers approve.
+// The crawler NEVER writes canonical dictionary data directly.
+export const webFindings = sqliteTable("web_findings", {
+  id: text("id").primaryKey(),
+  url: text("url").notNull(),
+  contentHash: text("content_hash").notNull().unique(),
+  title: text("title"),
+  karenText: text("karen_text").notNull(),
+  snippet: text("snippet"),
+  detectedBy: text("detected_by"),
+  status: text("status", { enum: ["new", "translating", "fulfilled", "duplicate", "dismissed"] }).notNull().default("new"),
+  linkedEntryId: text("linked_entry_id").references(() => dictionaryEntries.id, { onDelete: "set null" }),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  index("web_finding_status_idx").on(table.status),
+  index("web_finding_url_idx").on(table.url),
+]);
+
+// ── Verifier applications ────────────────────────────────────────────────────
+// Applying to become a community verifier requires a dialect profile: where
+// you grew up and where you learned Karen (camp, city, state, province).
+// Pronunciation varies by region and camp, so every approval carries this
+// demographic context. On approval the user is promoted to `reviewer` and the
+// dialect fields are copied onto their user record.
+export const verifierApplications = sqliteTable("verifier_applications", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").references(() => users.id),
+  displayName: text("display_name").notNull(),
+  email: text("email").notNull(),
+  grewUpCountry: text("grew_up_country").notNull(),
+  grewUpRegion: text("grew_up_region").notNull(),
+  learnedKarenPlaceType: text("learned_karen_place_type", { enum: ["camp", "city", "state", "province", "other"] }).notNull(),
+  learnedKarenPlace: text("learned_karen_place").notNull(),
+  dialectSelfNamed: text("dialect_self_named"),
+  motivation: text("motivation"),
+  status: text("status", { enum: ["pending", "approved", "rejected"] }).notNull().default("pending"),
+  reviewerId: text("reviewer_id").references(() => users.id),
+  reviewNote: text("review_note"),
+  reviewedAt: integer("reviewed_at", { mode: "timestamp_ms" }),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  index("verifier_application_status_idx").on(table.status),
+  uniqueIndex("verifier_application_user_unique").on(table.userId),
+]);
 
 export type UserRole = typeof users.$inferSelect.role;

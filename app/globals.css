@@ -734,6 +734,9 @@ img { display: block; max-width: 100%; }
 .audio-player { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--line); background: #fff; border-radius: 10px; }
 .audio-player audio { width: 100%; }
 .empty-state { padding: 36px; border: 1px dashed var(--line); color: var(--ink-soft); text-align: center; border-radius: 12px; }
+.request-word-form { display: flex; gap: 10px; justify-content: center; align-items: center; margin-top: 16px; flex-wrap: wrap; }
+.request-word-form input { padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+.request-word-thanks { margin-top: 14px; font-weight: 600; color: var(--ink); }
 
 .page-hero__content { position: relative; z-index: 1; }
 .page-hero__media { overflow: hidden; border-radius: 16px; }
@@ -1016,3 +1019,21 @@ img { display: block; max-width: 100%; }
   --blue: #d84a4d;   /* was branch action-blue; now KOA cinematic red */
   --navy: #061522;   /* KOA cinematic navy */
 }
+
+/* Grammar explorer */
+.grammar-list { display: grid; gap: 14px; }
+.grammar-card-toggle { display: flex; justify-content: space-between; gap: 16px; width: 100%; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; align-items: flex-start; }
+.grammar-card-toggle__meta { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+.grammar-card-body { border-top: 1px solid var(--line); margin-top: 14px; padding-top: 14px; }
+.grammar-examples { display: grid; gap: 12px; margin-top: 8px; }
+.grammar-examples > div { padding: 12px 14px; background: var(--surface, rgba(0,0,0,.03)); border-radius: 10px; }
+
+/* Sentence highlight tool */
+.highlight-tool { display: grid; gap: 18px; }
+.highlight-render { font-size: 1.4rem; line-height: 2.1; padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface, rgba(0,0,0,.02)); }
+.highlight-span { border-bottom: 3px solid var(--gold, #f4ca63); cursor: pointer; padding: 2px 1px; border-radius: 3px; transition: background .15s ease; }
+.highlight-span:hover, .highlight-span[data-active], .highlight-span:focus-visible { background: rgba(244,202,99,.35); outline: none; }
+.rule-popover { border-left: 3px solid var(--gold, #f4ca63); padding: 12px 16px; background: var(--surface, rgba(0,0,0,.03)); border-radius: 0 10px 10px 0; }
+.rule-popover h4 { margin: 4px 0; }
+.highlight-attach { border: 1px dashed var(--line); border-radius: 12px; padding: 16px 18px; display: grid; gap: 10px; }
+.highlight-attach .dictionary-word { margin: 6px 0 10px; }

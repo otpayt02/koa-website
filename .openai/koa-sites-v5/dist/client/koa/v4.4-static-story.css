@@ -1,0 +1,496 @@
+/*
+  V4.4: static story panels.
+  This layer intentionally overrides V4.3's root-scroll timeline while keeping
+  the existing menu, controls, tabs, language mode, and review boundary intact.
+*/
+
+html {
+  scroll-behavior: auto;
+}
+
+html[data-motion="reveals"] .static-story,
+html[data-motion="reveals"] .static-story * {
+  animation-timeline: auto !important;
+}
+
+.static-story {
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+  padding: clamp(1.5rem, 4vw, 4rem) 0 clamp(3rem, 7vw, 7rem);
+  background:
+    linear-gradient(180deg, rgba(6, 24, 44, 0.96), rgba(6, 24, 44, 0.99)),
+    var(--navy-950);
+}
+
+.static-story .cinema-stage {
+  position: relative;
+  display: grid;
+  height: auto !important;
+  overflow: visible !important;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  max-width: var(--content);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
+
+.static-story .cinema-base,
+.static-story .scene-shade,
+.static-story .cinema-meta,
+.static-story .cinema-progress,
+.static-story .cinema-markers {
+  display: none;
+}
+
+.static-story .scene {
+  position: relative;
+  inset: auto;
+  display: grid;
+  min-height: 0;
+  overflow: hidden;
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+}
+
+.static-story .scene--identity {
+  grid-template-columns: minmax(0, 1.05fr) minmax(21rem, 0.95fr);
+  align-items: center;
+  min-height: min(44rem, 76svh);
+  padding: clamp(1.5rem, 5vw, 5rem);
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(90deg, rgba(6, 24, 44, 0.98) 0%, rgba(6, 24, 44, 0.82) 50%, rgba(6, 24, 44, 0.42) 100%),
+    radial-gradient(circle at 80% 55%, rgba(208, 71, 75, 0.12), transparent 30%),
+    var(--navy-900);
+}
+
+.static-story .identity-mark {
+  position: static;
+  grid-column: 2;
+  grid-row: 1;
+  width: min(100%, 28rem);
+  margin: 0 auto;
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+}
+
+.static-story .identity-mark::after {
+  display: none;
+}
+
+.static-story .scene-copy--hero {
+  position: static;
+  grid-column: 1;
+  grid-row: 1;
+  width: auto;
+  max-width: 44rem;
+  padding: 0;
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+}
+
+.static-story .scene-copy--hero h1 {
+  max-width: 10ch;
+  margin: 0.7rem 0 1.1rem;
+  font-size: clamp(3.2rem, 7.8vw, 7.4rem);
+  line-height: 0.92;
+}
+
+.static-story .scene-copy--hero p:not(.eyebrow) {
+  max-width: 37rem;
+  font-size: clamp(1rem, 1.55vw, 1.32rem);
+  line-height: 1.6;
+}
+
+.static-story .story-panel {
+  grid-template-columns: minmax(0, 1.05fr) minmax(21rem, 0.95fr);
+  align-items: stretch;
+  min-height: clamp(28rem, 55vw, 42rem);
+  border: 1px solid var(--border);
+  background: var(--navy-900);
+}
+
+.static-story .story-panel--community .scene-visual,
+.static-story .story-panel--network .scene-visual {
+  order: 2;
+}
+
+.static-story .story-panel--community .scene-copy,
+.static-story .story-panel--network .scene-copy {
+  order: 1;
+}
+
+.static-story .scene-visual {
+  position: static;
+  display: block;
+  min-height: 100%;
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+  background-size: cover;
+  background-position: var(--scene-position, center);
+}
+
+.static-story .scene-copy--wipe {
+  position: static;
+  display: grid;
+  align-content: center;
+  min-height: 100%;
+  margin: 0;
+  padding: clamp(2rem, 6vw, 6rem);
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+  background:
+    linear-gradient(135deg, rgba(6, 24, 44, 0.98), rgba(9, 33, 57, 0.94)),
+    var(--navy-900);
+}
+
+.static-story .scene-copy--wipe h2 {
+  max-width: 11ch;
+  margin: 0.8rem 0 0;
+  font-size: clamp(2.55rem, 5.4vw, 5.6rem);
+  line-height: 0.95;
+}
+
+.static-story .scene-copy--wipe p:not(.scene-number) {
+  max-width: 38rem;
+  margin: 1.25rem 0 0;
+  color: var(--porcelain-dim);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.static-story .scene-copy--final .action-button {
+  justify-self: start;
+  margin-top: 1.6rem;
+}
+
+.static-story .cinema-chapters {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: var(--border);
+  list-style: none;
+}
+
+.static-story .cinema-chapters li {
+  min-width: 0;
+  padding: 1rem 1.15rem;
+  color: var(--porcelain-dim);
+  background: var(--navy-850);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+}
+
+.static-story .cinema-chapters li span {
+  color: var(--gold);
+}
+
+/* Progressive reveal: panel, then heading, then explanation, then action. */
+.static-story .story-panel.reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  clip-path: inset(0 0 14% 0);
+  transition:
+    opacity 420ms ease-out,
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 620ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.static-story .story-panel.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0);
+}
+
+.reveal-sequence .reveal-step,
+.story-panel .reveal-step,
+.scene--identity .reveal-step {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 360ms ease-out,
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-panel.is-visible .reveal-step--heading,
+.scene--identity.is-visible .reveal-step--heading {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0);
+}
+
+.story-panel.is-visible .reveal-step--body,
+.scene--identity.is-visible .reveal-step--body {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0);
+  transition-delay: 150ms;
+}
+
+.scene--identity .button-row {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 320ms ease-out 280ms, transform 380ms cubic-bezier(0.16, 1, 0.3, 1) 280ms;
+}
+
+.scene--identity.is-visible .button-row {
+  opacity: 1;
+  transform: none;
+}
+
+.program-shell.is-visible .program-tabs button {
+  animation: tab-sweep 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.program-shell.is-visible .program-tabs button:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.program-shell.is-visible .program-tabs button:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+@keyframes tab-sweep {
+  from {
+    opacity: 0;
+    transform: translateY(0.9rem);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+  }
+}
+
+/* Footer: identity, find, connect, and clear prototype boundary. */
+.site-footer {
+  display: grid;
+  grid-template-columns: minmax(17rem, 1.25fr) minmax(10rem, 0.65fr) minmax(19rem, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: none;
+  margin: 0;
+  padding: clamp(2.5rem, 6vw, 5rem) max(1.25rem, calc((100vw - var(--content)) / 2));
+  border-top: 1px solid var(--border);
+  background:
+    linear-gradient(120deg, rgba(210, 71, 75, 0.08), transparent 40%),
+    #041426;
+}
+
+.site-footer > div {
+  min-width: 0;
+}
+
+.footer-brand {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-brand img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.site-footer .footer-name {
+  margin: 0;
+  color: var(--porcelain);
+  font-family: var(--display);
+  font-size: 1.45rem;
+  line-height: 1.05;
+}
+
+.site-footer .footer-brand p:not(.footer-name) {
+  margin: 0.55rem 0 0;
+  color: var(--porcelain-dim);
+  line-height: 1.55;
+}
+
+.footer-label {
+  margin: 0 0 0.85rem;
+  color: var(--gold);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-footer nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.site-footer nav a {
+  width: fit-content;
+  color: var(--porcelain);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer nav a:hover {
+  color: var(--gold);
+}
+
+.social-links--footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+
+.social-links--footer .social-link {
+  min-height: 58px;
+  padding: 0.65rem 0.8rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--porcelain-dim);
+  font-size: 0.78rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom p:last-child {
+  text-align: right;
+}
+
+.footer-bottom a {
+  color: var(--porcelain);
+  font-weight: 800;
+}
+
+/* iPhone 17 Pro-style preview target: 402 x 874 CSS pixels. */
+.preview-dialog {
+  width: min(31rem, calc(100vw - 1rem));
+  max-height: calc(100dvh - 1rem);
+  overflow: auto;
+}
+
+.phone-shell {
+  width: min(402px, 100%);
+  height: 874px;
+}
+
+@media (max-width: 780px) {
+  .static-story {
+    padding-top: 0.75rem;
+  }
+
+  .static-story .cinema-stage {
+    gap: 0.85rem;
+    padding: 0 0.75rem;
+  }
+
+  .static-story .scene--identity,
+  .static-story .story-panel {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .static-story .scene--identity {
+    padding: 1.5rem;
+  }
+
+  .static-story .identity-mark,
+  .static-story .scene-copy--hero {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .static-story .identity-mark {
+    width: min(12rem, 46vw);
+    order: -1;
+    margin: 0 0 1rem;
+  }
+
+  .static-story .scene-copy--hero h1 {
+    font-size: clamp(3rem, 14vw, 5.5rem);
+  }
+
+  .static-story .scene-visual {
+    min-height: min(72vw, 26rem);
+    order: 0 !important;
+  }
+
+  .static-story .scene-copy--wipe {
+    min-height: 0;
+    padding: 2rem 1.5rem 2.4rem;
+    order: 1 !important;
+  }
+
+  .static-story .scene-copy--wipe h2 {
+    max-width: 12ch;
+    font-size: clamp(2.7rem, 12vw, 4.6rem);
+  }
+
+  .static-story .cinema-chapters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .footer-bottom {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .footer-bottom p:last-child {
+    text-align: left;
+  }
+}
+
+html[data-motion="reduced"] .static-story .scene,
+html[data-motion="reduced"] .static-story .story-panel {
+  display: grid !important;
+}
+
+html[data-motion="reduced"] .static-story .story-panel.reveal {
+  opacity: 1;
+  clip-path: none;
+  transform: none;
+  transition: none;
+}
+
+html[data-motion="reduced"] .static-story .reveal-step,
+html[data-motion="reduced"] .static-story .button-row,
+html[data-motion="reduced"] .program-shell .program-tabs button {
+  opacity: 1;
+  clip-path: none;
+  transform: none;
+  animation: none;
+  transition: none;
+}

@@ -10,6 +10,7 @@ const navItems = [
   ["services", "services"],
   ["community", "community"],
   ["dictionary", "dictionary"],
+  ["grammar", "grammar"],
   ["translation", "translation"],
   ["contribute", "contribute"],
   ["contact", "contact"]
@@ -48,7 +49,7 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
               <span>{String(index + 2).padStart(2, "0")}</span>{messages[key]}
             </Link>
           ))}
-          <Link href={`/${lang}/collaborate`}><span>09</span>{messages.collaborate}</Link>
+          <Link href={`/${lang}/collaborate`}><span>{String(navItems.length + 2).padStart(2, "0")}</span>{messages.collaborate}</Link>
         </div>
       </nav>
     </header>
