@@ -1,22 +1,29 @@
 /* ==========================================================================
-   KOA — Karen Organization of America · storytelling engine (The Arrival)
+   KOA — Karen Organization of America · storytelling engine (Signature Motion)
    -------------------------------------------------------------------------
-   One engine, three layers:
+   One engine, four layers:
 
    1. GlyphStage — a fixed, volumetric canvas of Latin + S'gaw Karen glyphs.
       Modes:
+        field     — wandering background field, denser & subtler, occluded by
+                    foreground DOM elements (only visible between elements)
         drift     — ambient dust with pointer parallax + scroll streaks
         arrival   — the KOA wordmark built FROM glyphs: cursor-reactive,
                     rises on scroll, disperses, hands off to the film
         word/loom — pixel-sampled words + the Karen diamond-weave frame
+        syllable  — C(C)V+T syllable assembly cinematic (chaos → structure)
       Plus the RAIN: intermittent vertical glyph columns that spawn at
       random places, live briefly, and leave at random times.
 
-   2. The Arrival — the prologue scroll stage (seal → glyph-KOA → rise →
-      mission, told word by word) that hands its glyphs to chapter 01.
+   2. The Arrival — the prologue scroll stage (seal with sunshine halo →
+      seal grows → KOA levels → K/A glyphs → O converges from offscreen)
+      scroll velocity drives the barely-visible rays.
 
    3. Word assembly — paragraphs that solidify one randomly-ordered word
-      at a time, because the words are the product.
+      at a time; parallax drift with fade boundaries at top/bottom.
+
+   4. Chapter numerals — Burmese numerals in background, flashing to Arabic
+      intermittently.
 
    Motion is a garnish, never the meal. prefers-reduced-motion and the
    manual Motion toggle are honored everywhere.
@@ -29,82 +36,124 @@
   document.body.dataset.motion = motionOn ? "on" : "off";
 
   var MYAN = ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
+  var ARABIC = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var GLYPH_SET = "KOAKAREက" + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
+  var GLYPH_SET_DENSE = "ကခ�ဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ" +
+    "က ခ ဂ ဃ င စ ဆ ဇ ည တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ အ" +
+    "၁ ၂ ၃ ၄ ၅ ၆ ၇ ၈ ၉ KOA KOA";
 
   /* ======================================================================
      GLYPH STAGE
      ====================================================================== */
   var GlyphStage = (function () {
     var canvas, ctx, W = 0, H = 0, DPR = 1;
-    var particles = [];
-    var targets = null;            // current formation points (word/loom)
-    var formationWord = null;
-    var formationMode = null;      // "word" | "loom" | "arrival" | null
-    var tintColor = null;          // rgb string for chapter temperature
+    var particles = [], targets = null, formationWord = null, formationMode = null;
+    var tintColor = null;
     var fontsReady = false;
     var pendingWord = null;
     var pendingLoom = false;
     var pendingArrival = false;
     var raf = null;
-    var active = false;            // motion allowed + initialized
+    var active = false;
     var staticDrawn = false;
     var pointerX = 0, pointerY = 0;
     var scrollVel = 0, lastScrollY = window.scrollY, lastScrollT = performance.now();
 
     /* arrival state ------------------------------------------------------ */
-    var arrivalAnchorY = 0.5;      // fraction of H where the KOA sits
+    var arrivalAnchorY = 0.5;
     var arrivalScale = 1;
-    var arrivalScatter = 0;        // 0 = locked, 1 = fully dispersed
-    var arrivalCursor = true;      // pointer repels the formed glyphs
+    var arrivalScatter = 0;
+    var arrivalCursor = true;
+    var arrivalPhase = "seal"; // "seal" | "grow" | "level" | "K_A" | "O_converge" | "risen" | "dispersing" | "done"
+    var arrivalProgress = 0;   // 0..1 within current phase
+    var sealGrowth = 1;        // 1 = normal size, grows to ~3 during "grow"
+    var O_convergeP = 0;       // 0..1 for O converging from off-screen
+    var rayIntensity = 0;      // 0..1, driven by scroll velocity
 
     /* rain state ---------------------------------------------------------- */
     var rainOn = false;
-    var rainBoost = 0;             // 0..1, driven by scroll + arrival phase
+    var rainBoost = 0;
     var rainCols = [];
     var RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
 
+    /* background field (always on, occluded by foreground) ---------------- */
+    var bgField = { 
+      on: true, 
+      particles: [], 
+      density: 0.45, 
+      wanderStrength: 0.006,
+      maxAlpha: 0.06 
+    };
+    var occlusionRects = [];
+
     function glyphs() { return GLYPH_SET; }
+    function glyphsDense() { return GLYPH_SET_DENSE; }
 
     function makeParticles() {
-      var n = window.innerWidth < 720 ? 60 : 150;
-      particles = [];
-      var set = glyphs();
-      for (var i = 0; i < n; i++) {
-        var z = Math.random(); // volumetric depth: 0 = far, 1 = near
-        particles.push({
-          ch: set.charAt(Math.floor(Math.random() * set.length)),
-          x: Math.random() * W,
-          y: Math.random() * H,
-          z: z,
-          vx: (Math.random() - 0.5) * 0.18,
-          vy: (Math.random() - 0.5) * 0.14,
-          vz: (Math.random() - 0.5) * 0.0016,
-          size: 11 + Math.random() * 13,
-          baseAlpha: 0.05 + Math.random() * 0.10,
-          alpha: 0,
-          phase: Math.random() * Math.PI * 2,
-          speed: 0.5 + Math.random() * 1.2,
-          depth: 0.4 + z * 0.6,
-          tx: 0, ty: 0, hasTarget: false,
-          wx: 0, wy: 0, hasWay: false,   // loom thread waypoint (curved flight)
-          bx: 0, by: 0, hasBase: false,  // arrival base offsets (centered)
-          sx: 0, sy: 0, sf: 0,           // arrival scatter destination + factor
-          k: 0.045 + Math.random() * 0.05   // spring stiffness
-        });
-      }
-    }
+          var n = window.innerWidth < 720 ? 60 : 150;
+          particles = [];
+          var set = glyphs();
+          for (var i = 0; i < n; i++) {
+            var z = Math.random(); // volumetric depth: 0 = far, 1 = near
+            particles.push({
+              ch: set.charAt(Math.floor(Math.random() * set.length)),
+              x: Math.random() * W,
+              y: Math.random() * H,
+              z: z,
+              vx: (Math.random() - 0.5) * 0.18,
+              vy: (Math.random() - 0.5) * 0.14,
+              vz: (Math.random() - 0.5) * 0.0016,
+              size: 11 + Math.random() * 13,
+              baseAlpha: 0.05 + Math.random() * 0.10,
+              alpha: 0,
+              phase: Math.random() * Math.PI * 2,
+              speed: 0.5 + Math.random() * 1.2,
+              depth: 0.4 + z * 0.6,
+              tx: 0, ty: 0, hasTarget: false,
+              wx: 0, wy: 0, hasWay: false,   // loom thread waypoint (curved flight)
+              bx: 0, by: 0, hasBase: false,  // arrival base offsets (centered)
+              sx: 0, sy: 0, sf: 0,           // arrival scatter destination + factor
+              k: 0.045 + Math.random() * 0.05   // spring stiffness
+            });
+          }
+
+          /* background field particles — denser, subtler, occluded by DOM */
+          if (bgField.on) {
+            var bn = Math.floor((W * H / 15000) * bgField.density);
+            bn = Math.min(Math.max(bn, 80), 400);
+            bgField.particles = [];
+            var denseSet = glyphsDense();
+            for (i = 0; i < bn; i++) {
+              bgField.particles.push({
+                ch: denseSet.charAt(Math.floor(Math.random() * denseSet.length)),
+                x: Math.random() * W,
+                y: Math.random() * H,
+                vx: (Math.random() - 0.5) * 0.03,
+                vy: (Math.random() - 0.5) * 0.02,
+                size: 6 + Math.random() * 8,
+                alpha: Math.random() * bgField.maxAlpha,
+                phase: Math.random() * Math.PI * 2,
+                speed: 0.2 + Math.random() * 0.4,
+                wanderX: Math.random() * 1000,
+                wanderY: Math.random() * 1000
+              });
+            }
+          }
+        }
 
     function resize() {
-      DPR = Math.min(2, window.devicePixelRatio || 1);
-      W = window.innerWidth;
-      H = window.innerHeight;
-      if (!canvas) return;
-      canvas.width = Math.round(W * DPR);
-      canvas.height = Math.round(H * DPR);
-      canvas.style.width = W + "px";
-      canvas.style.height = H + "px";
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    }
+          DPR = Math.min(2, window.devicePixelRatio || 1);
+          W = window.innerWidth;
+          H = window.innerHeight;
+          if (!canvas) return;
+          canvas.width = Math.round(W * DPR);
+          canvas.height = Math.round(H * DPR);
+          canvas.style.width = W + "px";
+          canvas.style.height = H + "px";
+          ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+          /* rebuild background field on resize */
+          if (bgField.on) makeParticles();
+        }
 
     function init() {
       if (canvas) return;
@@ -415,9 +464,63 @@
         }
       }
       ctx.globalAlpha = 1;
-    }
+          }
 
-    /* ---- drawing -------------------------------------------------------- */
+          /* ---- occlusion map for background field ------------------------------- */
+          function buildOcclusionMap() {
+            occlusionRects = [];
+            var occluders = document.querySelectorAll("[data-glyph-occlude], header, footer, .scene-copy, .scene-media, .split-copy, .split-media, .interlude, .waitlist, .section-head, .stats, .grid-4, .card, .btn-row, .film-label, .film-progress, .film-meta, .chapter-dots");
+            for (var i = 0; i < occluders.length; i++) {
+              var el = occluders[i];
+              var r = el.getBoundingClientRect();
+              occlusionRects.push({
+                x: r.left - 8,
+                y: r.top - 8,
+                w: r.width + 16,
+                h: r.height + 16
+              });
+            }
+          }
+
+          function isOccluded(x, y) {
+            for (var i = 0; i < occlusionRects.length; i++) {
+              var r = occlusionRects[i];
+              if (x > r.x && x < r.x + r.w && y > r.y && y < r.y + r.h) return true;
+            }
+            return false;
+          }
+
+          /* ---- draw background field (occluded by foreground) ------------------- */
+          function drawBackgroundField(now) {
+            var set = glyphsDense();
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            for (var i = 0; i < bgField.particles.length; i++) {
+              var p = bgField.particles[i];
+              p.wanderX += 0.01;
+              p.wanderY += 0.008;
+              var wx = Math.sin(p.wanderX) * bgField.wanderStrength * 40;
+              var wy = Math.cos(p.wanderY) * bgField.wanderStrength * 30;
+              var px = p.x + wx;
+              var py = p.y + wy;
+              if (px < -20) px = W + 20;
+              if (px > W + 20) px = -20;
+              if (py < -20) py = H + 20;
+              if (py > H + 20) py = -20;
+              p.x = px; p.y = py;
+              if (isOccluded(px, py)) continue;
+              var flicker = 0.6 + 0.4 * Math.sin(now * 0.0007 * p.speed + p.phase);
+              var a = p.alpha * flicker;
+              if (a < 0.004) continue;
+              ctx.globalAlpha = a;
+              ctx.font = p.size + "px 'Noto Sans Myanmar','Space Grotesk',serif";
+              ctx.fillStyle = tintColor || "#fff";
+              ctx.fillText(p.ch, px, py);
+            }
+            ctx.globalAlpha = 1;
+          }
+
+          /* ---- drawing -------------------------------------------------------- */
     function drawGlyph(p, now, streak) {
       var flicker = 0.72 + 0.28 * Math.sin(now * 0.0011 * p.speed + p.phase);
       var a = p.alpha * flicker;
@@ -435,18 +538,24 @@
     }
 
     function frame(now) {
-      raf = null;
-      if (!active) return;
-      ctx.clearRect(0, 0, W, H);
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      var streak = Math.abs(scrollVel);
+          raf = null;
+          if (!active) return;
+          ctx.clearRect(0, 0, W, H);
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          var streak = Math.abs(scrollVel);
 
-      updateRain(now);
+          /* build occlusion map from DOM elements with data-glyph-occlude */
+          buildOcclusionMap();
 
-      var mpx = W / 2 + pointerX * (W / 2);
-      var mpy = H / 2 + pointerY * (H / 2);
-      var ay = H * arrivalAnchorY;
+          /* --- draw background field (occluded by foreground elements) -------- */
+          if (bgField.on) drawBackgroundField(now);
+
+          updateRain(now);
+
+          var mpx = W / 2 + pointerX * (W / 2);
+          var mpy = H / 2 + pointerY * (H / 2);
+          var ay = H * arrivalAnchorY;
 
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
