@@ -76,6 +76,10 @@ export function CinematicHome({ lang, messages, copy }: { lang: Lang; messages: 
   const sceneRefs = useRef<Array<HTMLElement>>([]);
   const lastBurstRef = useRef(0);
 
+  const registerScene = useCallback((el: HTMLElement | null, index: number) => {
+    if (el) sceneRefs.current[index] = el;
+  }, []);
+
   // Scroll velocity tracking
   useEffect(() => {
     let ticking = false;
