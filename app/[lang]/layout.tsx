@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { PremiumHeaderWrapper } from "@/components/PremiumHeaderWrapper";
 import { PublishedContentHydrator } from "@/components/PublishedContentHydrator";
 import { isLang } from "@/components/i18n";
 import { getPublishedMessages, loadPublishedContent } from "@/lib/content";
@@ -15,6 +15,7 @@ export default async function LanguageLayout({ children, params }: Readonly<{ ch
   const { lang: value } = await params;
   if (!isLang(value)) notFound();
   const [messages, published] = await Promise.all([getPublishedMessages(value), loadPublishedContent(value)]);
+
   return (
     <>
       <script
@@ -30,7 +31,7 @@ export default async function LanguageLayout({ children, params }: Readonly<{ ch
         }}
       />
       <a className="skip-link" href="#main-content">{messages.skip}</a>
-      <Header lang={value} messages={messages} />
+      <PremiumHeaderWrapper lang={value} messages={messages} />
       <main id="main-content">{children}</main>
       <Footer lang={value} messages={messages} />
       <PublishedContentHydrator lang={value} published={published} />

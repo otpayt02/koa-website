@@ -1,6 +1,20 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { Inter } from "next/font/google";
+import { Noto_Sans_Myanmar } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const notoSansMyanmar = Noto_Sans_Myanmar({
+  subsets: ["myanmar"],
+  display: "swap",
+  variable: "--font-noto-myanmar",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://karen-organization-of-america.oliverp789.chatgpt.site"),
@@ -41,8 +55,8 @@ export default async function RootLayout({
 }>) {
   const language = (await headers()).get("x-koa-document-language") === "ksw" ? "ksw" : "en";
   return (
-    <html lang={language} suppressHydrationWarning>
-      <body>{children}</body>
+    <html lang={language} suppressHydrationWarning className={`${inter.variable} ${notoSansMyanmar.variable}`}>
+      <body className={`${inter.className} ${notoSansMyanmar.className}`}>{children}</body>
     </html>
   );
 }
