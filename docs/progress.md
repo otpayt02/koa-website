@@ -61,6 +61,7 @@
 - Verified: static site 10/10 contracts; bilingual site 4/4 contracts; bilingual TypeScript and targeted changed-component ESLint pass.
 - Limitation: fresh bilingual browser navigation was blocked by a continuous HMR loop from three pre-existing vinext dev watchers sharing the same generated workspace. Those processes were preserved; the stale running route was not used as current visual proof.
 - Evidence: `output/playwright/phase5-main-final.png`, `phase5-main-nav-hover.png`, and `phase5-main-mobile-motion-off-final.png`.
+- Published to repository history: main Phase 5 implementation `89e78e2` and bilingual stabilization `5d5bcfe` were pushed to their respective remote branches; this remains a source push, not a public deployment.
 
 ## Next milestone
 
