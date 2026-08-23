@@ -12,6 +12,9 @@
 
 # testing
 /coverage
+/.playwright-cli/
+/output/playwright/*
+!/output/playwright/README.md
 
 # next.js
 /.next/
