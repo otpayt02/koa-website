@@ -9,6 +9,7 @@ import { KOALogoIntro } from "./KOALogoIntro";
 import { LoomWeave } from "./LoomWeave";
 import { ParallaxTextReveal } from "./ParallaxTextReveal";
 import { SunshineRays } from "./SunshineRays";
+import { KarenAsciiArt } from "./KarenAsciiArt";
 
 const clamp = (value: number, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 const smoothstep = (value: number) => { const t = clamp(value); return t * t * (3 - 2 * t); };
@@ -432,13 +433,40 @@ export function CinematicHome({ lang, messages, copy }: { lang: Lang; messages: 
         isReducedMotion={motionReduced}
       />
       <SunshineRays
-        canvasRef={sunshineCanvasRef}
-        scrollVelocity={scrollVelocity}
-        isReducedMotion={motionReduced}
-        opacity={0.02}
-        color="#E8C85A"
-        rayCount={7}
-      />
-    </>
-  );
-}
+              canvasRef={sunshineCanvasRef}
+              scrollVelocity={scrollVelocity}
+              isReducedMotion={motionReduced}
+              opacity={0.02}
+              color="#E8C85A"
+              rayCount={7}
+            />
+
+            {/* Karen ASCII Art - Ambient artistic element */}
+            <div
+              className="karen-ascii-ambient"
+              style={{
+                position: "fixed",
+                bottom: "40px",
+                right: "40px",
+                zIndex: 5,
+                pointerEvents: "none",
+                opacity: 0.15,
+                transition: "opacity 0.6s ease",
+              }}
+              aria-hidden="true"
+            >
+              <KarenAsciiArt
+                src="https://picsum.photos/seed/koa-ambient/300/300"
+                resolution={60}
+                density={0.4}
+                color="var(--accent-secondary)"
+                animationStyle="wave"
+                animationDuration={8}
+                animateOnView={false}
+                fontSize={4}
+                lineHeight={1.0}
+              />
+            </div>
+          </>
+        );
+      }
