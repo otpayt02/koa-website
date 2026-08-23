@@ -44,6 +44,7 @@
 - Verified: disclosure interaction produced `false, true, false`; desktop and 390px mobile reported zero horizontal overflow and the browser console reported zero errors or warnings.
 - Verified: reduced-motion browser evidence has zero runtime exceptions and zero horizontal overflow.
 - Evidence: `output/playwright/phase4-nav-*.png`, `phase4-commitment-*.png`, and `phase4-reduced-runtime-evidence.json`.
+- Published to repository history: Phase 1–4 implementation commit `76fc7ab` pushed to `origin/main`; this is a source push, not a public website deployment.
 
 ## Blockers
 

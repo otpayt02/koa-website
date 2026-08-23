@@ -38,7 +38,7 @@
 | KOA-P4-03 | Complete Phase 4 with original premium motion UI that supports the KOA mission and belonging | Phase 4 | verified | reported with evidence | `data-commitment-loom`, truthful status rail, single-open standards | Desktop/mobile screenshots and disclosure interaction | One signature block was chosen so motion serves clarity instead of competing for attention |
 | KOA-P4-04 | Clearly convey that KOA's work is serious while separating mission, work in development, and invitations from delivered programs | Phase 4 | verified | reported with evidence | Commitment Loom copy and status labels | Rendered content review | Uses `Declared`, `In development`, and `Invitation open`; no unfinished work is described as delivered |
 | KOA-P4-05 | Create a reusable in-house skill for premium motion components rather than depending on paid blocks | Phase 4 | verified | reported with evidence | `skills/mission-led-motion-ui/` | Skill Creator `quick_validate.py` | Valid project skill with proprietary-copy, truth-state, accessibility, and reduced-motion boundaries |
-| KOA-P4-06 | Commit and push after Phase 4 is complete | Phase 4 | in progress | acknowledged | Current `main` branch | Commit hash and `git push` output | Authorized only after final tests and diff review |
+| KOA-P4-06 | Commit and push after Phase 4 is complete | Phase 4 | verified | reported with evidence | `main` at `76fc7ab` | `git push origin main` | Pushed only after the final tests, rendered QA, skill validation, and staged-diff review |
 
 ## Deferred by project
 
