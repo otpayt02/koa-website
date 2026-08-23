@@ -113,8 +113,8 @@ export function KOALogoIntro({
   isReducedMotion?: boolean;
   lang?: "en" | "karen";
 }) {
-  const [phase, setPhase] = useState(0);
-  const [phaseProgress, setPhaseProgress] = useState(0);
+  const [phase, setPhase] = useState(isReducedMotion ? PHASES.length - 1 : 0);
+  const [phaseProgress, setPhaseProgress] = useState(isReducedMotion ? 1 : 0);
   const particlesRef = useRef<GlyphParticle[]>([]);
   const orbitTextsRef = useRef<OrbitingText[]>([]);
   const animationRef = useRef<number | null>(null);
@@ -384,8 +384,6 @@ export function KOALogoIntro({
   // Main animation loop
   useEffect(() => {
     if (isReducedMotion) {
-      setPhase(PHASES.length - 1);
-      setPhaseProgress(1);
       onComplete?.();
       return;
     }

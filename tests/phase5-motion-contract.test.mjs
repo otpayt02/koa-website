@@ -22,7 +22,7 @@ test("bilingual cinematic uses normalized delayed progress instead of raw wheel 
   assert.match(cinematic, /advanceNormalizedProgress/);
   assert.match(cinematic, /targetProgressRef/);
   assert.match(cinematic, /chapterHoldUntilRef/);
-  assert.match(css, /height:\s*580vh/);
+  assert.match(css, /height:\s*1000vh/);
 });
 
 test("bilingual background has cursor-revealed, life-cycled Karen glyphs", () => {

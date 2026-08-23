@@ -45,8 +45,12 @@ function ditherThreshold(x: number, y: number) {
 
 // Seeded random for consistent glyph patterns
 function seeded(index: number, salt: number) {
-  const value = Math.sin(index * 91.733 + salt * 37.119) * 43758.5453;
-  return value - Math.floor(value);
+  // Integer hashing is exactly reproducible in SSR and the browser. A sine
+  // hash differs at floating-point tail precision across runtimes and causes
+  // React to reject the otherwise-identical corona styles during hydration.
+  let value = Math.imul(index + 1, 374761393) ^ Math.imul(salt + 1, 668265263);
+  value = Math.imul(value ^ (value >>> 13), 1274126177);
+  return ((value ^ (value >>> 16)) >>> 0) / 4294967296;
 }
 
 // ============================================================================
@@ -230,13 +234,13 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
   const chapterHoldUntilRef = useRef(0);
   const heldBoundaryRef = useRef(-1);
   const currentChapterRef = useRef(0);
-  const formationTriggers = useRef<FormationTrigger[]>([
+  const [formationTriggers] = useState<FormationTrigger[]>(() => [
     { id: "seal", text: lang === "karen" ? "ကွၢ်ဃု" : "KOA", x: 0, y: 0, size: 48, progress: 0 },
     { id: "chapter1", text: "၁", x: 0, y: 0, size: 120, progress: 0 },
     { id: "chapter2", text: "၂", x: 0, y: 0, size: 120, progress: 0 },
     { id: "chapter3", text: "၃", x: 0, y: 0, size: 120, progress: 0 },
     { id: "chapter4", text: "၄", x: 0, y: 0, size: 120, progress: 0 },
-  ]).current;
+  ]);
 
   // Reduced motion
   useEffect(() => {
@@ -383,8 +387,7 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
         canvasRef={glyphCanvasRef}
         isReducedMotion={motionReduced}
         formationTriggers={formationTriggers}
-        chapterNumber={currentChapterRef.current}
-        showChapterNumber={true}
+        showChapterNumber={false}
         occlusionElements={[]}
         lang={lang}
       />
@@ -501,7 +504,7 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
             <div className="cinematic-film__copy cinematic-film__copy--panel">
               <p className="cinematic-film__kicker">Chapter 04 · Community</p>
               <h2>Culture, care, and courage—connected.</h2>
-              <p>KOA's programs move between public voice, community belonging, and practical support.</p>
+              <p>KOA&apos;s programs move between public voice, community belonging, and practical support.</p>
               <Link className="cinematic-film__text-link" href={`/${lang}/programs`}>Explore our programs <span>→</span></Link>
             </div>
           </article>

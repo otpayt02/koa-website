@@ -101,8 +101,8 @@ export function PremiumHeader({
   lang,
   messages,
 }: {
-  lang: "en" | "karen";
-  messages: any;
+  lang: Lang;
+  messages: Messages;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [compact, setCompact] = useState(false);

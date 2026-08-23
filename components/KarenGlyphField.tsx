@@ -124,7 +124,7 @@ export function KarenGlyphField({
   const animationRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number>(0);
   const formationsRef = useRef<Map<string, FormationTarget>>(new Map());
-  const directionAngleRef = useRef<number>(Math.random() * Math.PI * 2);
+  const directionAngleRef = useRef<number>(0);
   const lastDirectionChangeRef = useRef<number>(0);
   const canvasSizeRef = useRef({ width: 0, height: 0 });
   const occlusionPathsRef = useRef<Path2D[]>([]);
