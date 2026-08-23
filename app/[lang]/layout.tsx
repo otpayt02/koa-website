@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { PremiumHeader } from "@/components/PremiumHeader";
 import { getMessages, isLang } from "@/components/i18n";
 
 const supportedLanguages = ["en", "karen"] as const;
@@ -32,7 +32,7 @@ export default async function LanguageLayout({ children, params }: Readonly<{ ch
         <span>Bilingual preview mode · Community review in progress</span>
         <a href="/koa/">Return to cinematic site</a>
       </aside>
-      <Header lang={value} messages={messages} />
+      <PremiumHeader lang={value} messages={messages} />
       <main id="main-content">{children}</main>
       <Footer lang={value} messages={messages} />
     </>
