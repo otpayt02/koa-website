@@ -108,3 +108,32 @@ test("phase 4 commitment loom is truthful, interactive, and reduced-motion safe"
     "staggered children must be registered before reveal targets are collected",
   );
 });
+
+test("phase 5 renders a boundaryless bilingual living corona", () => {
+  assert.match(html, /data-glyph-corona/);
+  assert.match(html, /data-corona-rays/);
+  assert.match(html, /seal-orbit-type__karen/);
+  assert.match(html, /[\u1000-\u109f]/u);
+  assert.match(js, /buildCoronaGlyphRays/);
+  assert.match(css, /\.halo-glyph-rays/);
+  assert.match(css, /radial-gradient[\s\S]*transparent/);
+  assert.doesNotMatch(css, /\.halo-ring--1[\s\S]{0,180}border-top-color/);
+});
+
+test("phase 5 living-water field supports dither reveal and life-cycled schools", () => {
+  assert.match(js, /cursorReveal/);
+  assert.match(js, /ditherThreshold/);
+  assert.match(js, /lifePhase/);
+  assert.match(js, /schoolSpeed/);
+  assert.match(js, /respawnAmbientGlyph/);
+  assert.match(js, /isOccluded/);
+});
+
+test("phase 5 normalizes cinematic progress and gives chapter convergences a hold", () => {
+  assert.match(js, /MAX_PROGRESS_PER_SECOND/);
+  assert.match(js, /advanceNormalizedProgress/);
+  assert.match(js, /CHAPTER_HOLD_MS/);
+  assert.match(js, /chapterHoldUntil/);
+  assert.match(js, /GlyphStage\.formLoom\(num, false, anchor\)/);
+  assert.match(css, /\.film\s*\{\s*height:\s*1800vh/);
+});

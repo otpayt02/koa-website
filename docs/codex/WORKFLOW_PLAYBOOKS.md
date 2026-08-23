@@ -27,3 +27,16 @@
 - Verification: disclosure ARIA state, focus visibility, no console errors, no horizontal overflow, reduced motion, and a named screenshot of the selected state.
 - Rollback: remove the isolated block markup/styles/initializer and preserve the surrounding content section.
 - Privacy, cost, and approval: no proprietary source or paid dependency; public claims and cultural translations remain human-review gated.
+
+## Shared cinematic algorithm release
+
+- Trigger: one KOA motion idea must remain recognizable across the static and bilingual implementations.
+- Outcome: both routes share an experience contract without forcing identical frameworks or markup.
+- Inputs: motion constant, foreground/occlusion rule, reduced-motion state, bilingual content boundary, route-specific navigation, and proof viewport.
+- Steps: encode the behavior in each native runtime; add route-level contracts; type-check React; run targeted lint; render each route from a fresh process; reject stale routes as evidence; stage only intentional source/tests/docs.
+- Tools and owner: native canvas/CSS/JavaScript, React/TypeScript, Node contracts, Playwright, and Git; the implementation owner records any process-level limitation.
+- Bottleneck: several vinext dev processes can share generated folders, create HMR feedback loops, and make an old page look current.
+- Optimized version: record server PID and port at startup, use one dev watcher per checkout, verify the response title/source signature, then close only the process started for QA.
+- Verification: contracts pass in both repos, TypeScript passes, changed-component lint has zero errors, current route has no runtime/hydration errors, and responsive proof is named by route/state.
+- Rollback: revert the route-specific adapter while preserving the shared behavior contract and unrelated working-tree changes.
+- Privacy, cost, and approval: local proof only; no deployment, publishing, or cultural translation approval is implied.

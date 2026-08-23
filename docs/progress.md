@@ -51,7 +51,18 @@
 - Prompt Refinery's external Gemini call returned HTTP 429 because its prepaid credits are depleted. The original request was preserved and normalized locally.
 - `npm.cmd run build` is environment-blocked because `node_modules/.bin/vinext.cmd` is absent. No package installation was performed without approval.
 
+## Phase 5 — Living corona and bilingual parity
+
+- Complete: replaced the tight halo with a sparse boundaryless corona of tiny Karen glyph rays and a clockwise English/Karen type orbit.
+- Complete: added life-cycled glyph schools, cursor-revealed Karen dither, smooth randomized course changes, and foreground-safe layering.
+- Complete: slowed and normalized cinematic transport, added chapter holds, and connected Burmese chapter convergence/dispersal to visual progress.
+- Complete: repaired motion-off so the formation canvas cannot freeze as distracting K/A particle piles; desktop and 390px rendered states are clean.
+- Complete: integrated the same system into the bilingual React source, mounted both previously disconnected canvases, restored the single responsive header, removed SSR seed drift, and removed vinext-local font URLs from source.
+- Verified: static site 10/10 contracts; bilingual site 4/4 contracts; bilingual TypeScript and targeted changed-component ESLint pass.
+- Limitation: fresh bilingual browser navigation was blocked by a continuous HMR loop from three pre-existing vinext dev watchers sharing the same generated workspace. Those processes were preserved; the stale running route was not used as current visual proof.
+- Evidence: `output/playwright/phase5-main-final.png`, `phase5-main-nav-hover.png`, and `phase5-main-mobile-motion-off-final.png`.
+
 ## Next milestone
 
-- Human review of local cinematic pacing, mission copy, and cultural details before any publication or deployment.
-- Restore the optional vinext dependency environment when a production build—not the verified static KOA route—is the next requested artifact.
+- Human review of Phase 5 pacing and cultural details before any public deployment.
+- Re-run bilingual rendered QA from one clean vinext process after the older watchers are stopped.

@@ -83,3 +83,20 @@
 
 - Chosen: preserve existing bilingual typography while keeping new Phase 4 mission copy in verified English until KOA/community translation review.
 - Why: a visually convincing but unverified S'gaw Karen phrase would weaken the trust the new block is designed to establish.
+
+## 2026-08-23 — Make the halo a corona, not a ring
+
+- Chosen: place tiny Karen glyphs at real viewport-unit orbital distances behind a soft radial mask, with white English/Karen type on two readable clockwise arcs.
+- Considered: a visible circumference, a dense particle ring, or generic CSS light beams.
+- Why: the seal reads as the source of quiet sunlight while the glyphs stay atmospheric and the outer edge never becomes a hard graphic boundary.
+
+## 2026-08-23 — Normalize visual transport, not the user's physical scroll
+
+- Chosen: keep native wheel, touch, keyboard, and scrollbar behavior while replaying normalized targets after a three-second buffer with a fixed maximum visual-progress rate and chapter holds.
+- Why: visitors receive the same readable cinematic pacing without accessibility-hostile wheel interception.
+
+## 2026-08-23 — Share algorithms, preserve each site's information architecture
+
+- Chosen: use the same living-field, corona, chapter, and motion principles in the static and bilingual sites while keeping one established header implementation in each.
+- Considered: rendering two competing bilingual headers or cloning the static markup into React.
+- Why: parity comes from a shared experience contract, not duplicated structure; navigation remains maintainable and semantically native to each site.

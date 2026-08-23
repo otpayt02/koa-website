@@ -56,6 +56,26 @@
   }
   var seededRandom = createSeededRandom(0x004b4f41);
 
+  function buildCoronaGlyphRays() {
+    var holder = document.querySelector("[data-corona-rays]");
+    if (!holder || holder.childElementCount) return;
+    var set = "ကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇၈၉";
+    var count = window.innerWidth < 720 ? 54 : 92;
+    for (var i = 0; i < count; i++) {
+      var ray = document.createElement("i");
+      ray.textContent = set.charAt(Math.floor(seededRandom() * set.length));
+      ray.style.setProperty("--ray-angle", (i / count * 360 + seededRandom() * 4 - 2).toFixed(2) + "deg");
+      // Viewport units keep every ray at a real orbital distance. Percentage
+      // transforms are relative to the tiny glyph itself and collapse into a
+      // bright cluster around the seal.
+      ray.style.setProperty("--ray-radius", (21 + seededRandom() * 19).toFixed(2) + "vmin");
+      ray.style.setProperty("--ray-size", (5 + seededRandom() * 7).toFixed(2) + "px");
+      ray.style.setProperty("--ray-alpha", (0.018 + seededRandom() * 0.045).toFixed(4));
+      ray.style.setProperty("--ray-delay", (-seededRandom() * 38).toFixed(2) + "s");
+      holder.appendChild(ray);
+    }
+  }
+
   var MotionMath = {
     clamp01: function (value) { return Math.min(1, Math.max(0, value)); },
     lerp: function (from, to, amount) { return from + (to - from) * amount; },
@@ -102,6 +122,7 @@
     var active = false;
     var staticDrawn = false;
     var pointerX = 0, pointerY = 0;
+    var pointerClientX = -9999, pointerClientY = -9999, pointerActive = false;
     var scrollVel = 0, lastScrollY = window.scrollY, lastScrollT = performance.now();
     var lastFrameT = performance.now();
 
@@ -110,6 +131,7 @@
     var arrivalScale = 1;
     var arrivalScatter = 0;
     var arrivalCursor = true;
+    var arrivalFormationAlpha = 0;
     var arrivalPhase = "seal"; // "seal" | "grow" | "level" | "K_A" | "O_converge" | "risen" | "dispersing" | "done"
     var arrivalProgress = 0;   // 0..1 within current phase
     var sealGrowth = 1;        // 1 = normal size, grows to ~3 during "grow"
@@ -128,7 +150,7 @@
       particles: [],
       density: 0.92,
       wanderStrength: 0.0045,
-      maxAlpha: 0.035
+      maxAlpha: 0.03
     };
     var occlusionRects = [];
     var lastOcclusionBuild = 0;
@@ -177,13 +199,16 @@
                 ch: denseSet.charAt(Math.floor(seededRandom() * denseSet.length)),
                 x: seededRandom() * W,
                 y: seededRandom() * H,
-                vx: (seededRandom() - 0.5) * 0.03,
-                vy: (seededRandom() - 0.5) * 0.02,
-                targetVx: (seededRandom() - 0.5) * 0.035,
-                targetVy: (seededRandom() - 0.5) * 0.026,
-                turnAt: performance.now() + 2200 + seededRandom() * 5200,
-                size: 5 + seededRandom() * 7,
-                alpha: seededRandom() * bgField.maxAlpha,
+                 schoolSpeed: seededRandom() < 0.22 ? 1.75 : 0.62,
+                 vx: (seededRandom() - 0.5) * 0.03,
+                 vy: (seededRandom() - 0.5) * 0.02,
+                 targetVx: (seededRandom() - 0.5) * 0.035,
+                 targetVy: (seededRandom() - 0.5) * 0.026,
+                 turnAt: performance.now() + 2200 + seededRandom() * 5200,
+                 size: 5 + seededRandom() * 7,
+                 alpha: seededRandom() * bgField.maxAlpha,
+                 lifePhase: seededRandom(),
+                 lifeMs: 9000 + seededRandom() * 17000,
                 phase: seededRandom() * Math.PI * 2,
                 speed: 0.2 + seededRandom() * 0.4,
                 wanderX: seededRandom() * 1000,
@@ -213,6 +238,7 @@
       canvas.className = "glyph-stage";
       canvas.setAttribute("aria-hidden", "true");
       document.body.appendChild(canvas);
+      buildCoronaGlyphRays();
       ctx = canvas.getContext("2d");
       resize();
       makeParticles();
@@ -230,6 +256,12 @@
       window.addEventListener("pointermove", function (e) {
         pointerX = (e.clientX / W - 0.5) * 2;
         pointerY = (e.clientY / H - 0.5) * 2;
+        pointerClientX = e.clientX;
+        pointerClientY = e.clientY;
+        pointerActive = true;
+      }, { passive: true });
+      document.documentElement.addEventListener("pointerleave", function () {
+        pointerActive = false;
       }, { passive: true });
       window.addEventListener("scroll", function () {
         var now = performance.now();
@@ -504,11 +536,12 @@
     }
 
     /* live transform of the arrival formation (called from scroll) */
-    function arrivalTransform(anchorY, scale, scatter, cursor) {
+    function arrivalTransform(anchorY, scale, scatter, cursor, visibility) {
       arrivalAnchorY = anchorY;
       arrivalScale = scale;
       arrivalScatter = scatter;
       arrivalCursor = cursor !== false;
+      arrivalFormationAlpha = visibility == null ? 1 : MotionMath.clamp01(visibility);
       if (!motionOn) drawStatic();
     }
 
@@ -608,20 +641,49 @@
           /* ---- draw background field (occluded by foreground) ------------------- */
           function smoothDirectionRetarget(p, now) {
             if (now >= p.turnAt) {
-              p.targetVx = (seededRandom() - 0.5) * 0.04;
-              p.targetVy = (seededRandom() - 0.5) * 0.03;
+              p.targetVx = (seededRandom() - 0.5) * 0.04 * p.schoolSpeed;
+              p.targetVy = (seededRandom() - 0.5) * 0.03 * p.schoolSpeed;
               p.turnAt = now + 2600 + seededRandom() * 5600;
             }
             p.vx = MotionMath.lerp(p.vx, p.targetVx, 0.012);
             p.vy = MotionMath.lerp(p.vy, p.targetVy, 0.012);
           }
 
-          function drawBackgroundField(now) {
+          function ditherThreshold(x, y) {
+            var gx = Math.floor(x / 7);
+            var gy = Math.floor(y / 7);
+            return ((gx * 17 + gy * 31 + (gx ^ gy) * 7) % 97) / 97;
+          }
+
+          function cursorReveal(x, y) {
+            if (!pointerActive) return 0;
+            var dx = x - pointerClientX;
+            var dy = y - pointerClientY;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+            var falloff = MotionMath.clamp01(1 - distance / Math.min(260, Math.max(150, W * 0.18)));
+            return falloff * falloff;
+          }
+
+          function respawnAmbientGlyph(p) {
+            var denseSet = glyphsDense();
+            p.ch = denseSet.charAt(Math.floor(seededRandom() * denseSet.length));
+            p.x = seededRandom() * W;
+            p.y = seededRandom() * H;
+            p.lifePhase = 0;
+            p.lifeMs = 9000 + seededRandom() * 17000;
+            p.schoolSpeed = seededRandom() < 0.22 ? 1.75 : 0.62;
+            p.targetVx = (seededRandom() - 0.5) * 0.035 * p.schoolSpeed;
+            p.targetVy = (seededRandom() - 0.5) * 0.026 * p.schoolSpeed;
+          }
+
+          function drawBackgroundField(now, frameDelta) {
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             for (var i = 0; i < bgField.particles.length; i++) {
-              var p = bgField.particles[i];
-              smoothDirectionRetarget(p, now);
+               var p = bgField.particles[i];
+               p.lifePhase += frameDelta / p.lifeMs;
+               if (p.lifePhase >= 1) respawnAmbientGlyph(p);
+               smoothDirectionRetarget(p, now);
               p.wanderX += 0.01;
               p.wanderY += 0.008;
               p.x += p.vx;
@@ -635,8 +697,12 @@
               var px = p.x + wx;
               var py = p.y + wy;
               if (isOccluded(px, py)) continue;
-              var flicker = 0.6 + 0.4 * Math.sin(now * 0.0007 * p.speed + p.phase);
-              var a = p.alpha * flicker;
+               var flicker = 0.72 + 0.28 * Math.sin(now * 0.0007 * p.speed + p.phase);
+               var lifeEnvelope = Math.min(1, p.lifePhase / 0.16, (1 - p.lifePhase) / 0.22);
+               var reveal = cursorReveal(px, py);
+               var dither = ditherThreshold(px, py);
+               var revealedAlpha = reveal > dither * 0.78 ? reveal * 0.105 : 0;
+               var a = Math.max(p.alpha * flicker, revealedAlpha) * Math.max(0, lifeEnvelope);
               if (a < 0.004) continue;
               ctx.globalAlpha = a;
               ctx.font = p.size + "px 'Noto Sans Myanmar','Space Grotesk',serif";
@@ -683,7 +749,7 @@
           buildOcclusionMap(now);
 
           /* --- draw background field (occluded by foreground elements) -------- */
-          if (bgField.on) drawBackgroundField(now);
+           if (bgField.on) drawBackgroundField(now, frameDelta);
 
           updateRain(now);
 
@@ -697,7 +763,7 @@
           /* the KOA lives here: anchored, scalable, dispersible */
           var tx = W / 2 + p.bx * arrivalScale;
           var ty = ay + p.by * arrivalScale;
-          var arrivalAlpha = 0.66;
+          var arrivalAlpha = 0.66 * arrivalFormationAlpha;
           var spring = p.k * 1.5;
           if (p.arrivalRole === "O") {
             var oEase = MotionMath.easeInOutQuint(O_convergeP);
@@ -723,7 +789,7 @@
             }
           }
           var dd = Math.abs(tx - p.x) + Math.abs(ty - p.y);
-          var movingAlpha = p.arrivalRole === "O" ? arrivalAlpha * 0.52 : 0.30;
+          var movingAlpha = p.arrivalRole === "O" ? arrivalAlpha * 0.52 : 0.30 * arrivalFormationAlpha;
           p.alpha += ((dd < 30 ? arrivalAlpha : movingAlpha) - p.alpha) * 0.06;
         } else if (p.hasTarget) {
           if (p.hasWay) {
@@ -1029,6 +1095,37 @@
       var bufferedArrival = 0;
       var bufferedFilm = 0;
       var bufferedScrollQueue = [{ at: performance.now() - SCROLL_LAG_MS, arrival: 0, film: 0 }];
+      var MAX_PROGRESS_PER_SECOND = 0.032;
+      var ARRIVAL_PROGRESS_PER_SECOND = 0.04;
+      var CHAPTER_HOLD_MS = 1800;
+      var chapterHoldUntil = 0;
+      var heldChapterBoundary = -1;
+      var lastTimelineFrame = performance.now();
+
+      function advanceNormalizedProgress(current, target, maximumPerSecond, deltaMs) {
+        var maximumStep = maximumPerSecond * Math.min(64, Math.max(1, deltaMs)) / 1000;
+        var distance = target - current;
+        if (Math.abs(distance) <= maximumStep) return target;
+        return current + Math.sign(distance) * maximumStep;
+      }
+
+      function advanceFilmWithChapterHold(current, target, now, deltaMs) {
+        if (now < chapterHoldUntil) return current;
+        var next = advanceNormalizedProgress(current, target, MAX_PROGRESS_PER_SECOND, deltaMs);
+        if (target <= current) {
+          heldChapterBoundary = -1;
+          return next;
+        }
+        var currentChapter = Math.min(scenes.length - 1, Math.floor(current * scenes.length));
+        var nextChapter = Math.min(scenes.length - 1, Math.floor(next * scenes.length));
+        if (nextChapter > currentChapter && heldChapterBoundary !== nextChapter) {
+          heldChapterBoundary = nextChapter;
+          chapterHoldUntil = now + CHAPTER_HOLD_MS;
+          return Math.max(current, nextChapter / scenes.length - 0.0002);
+        }
+        if (nextChapter >= heldChapterBoundary) heldChapterBoundary = -1;
+        return next;
+      }
 
       function measureScrollTargets() {
         var arrivalRunway = Math.max(1, arrivalEl.offsetHeight - window.innerHeight);
@@ -1097,10 +1194,10 @@
         chapterTransitionNum.classList.remove("is-arabic-flash");
         chapterTransitionFlashTimer = setTimeout(function () {
           flashArabicNumeral(chapterTransitionNum);
-        }, 230);
+        }, 520);
         chapterTransitionHideTimer = setTimeout(function () {
           chapterTransition.classList.remove("is-visible");
-        }, 720);
+        }, 2200);
       }
 
       function updateReadingCorridor(scene, progress) {
@@ -1188,6 +1285,8 @@
         /* Scroll is replayed three seconds late, then eased again. The delay
            gives each visual state time to be read before the next one moves. */
         var now = performance.now();
+        var timelineDelta = now - lastTimelineFrame;
+        lastTimelineFrame = now;
         var directTargets = measureScrollTargets();
         var bufferedTargets = readBufferedScrollTarget(now, directTargets);
         var targetArrival = bufferedTargets.arrival;
@@ -1197,8 +1296,18 @@
           smoothedFilm = targetFilm;
           timelineReady = true;
         } else {
-          smoothedArrival = MotionMath.lerp(smoothedArrival, targetArrival, 0.028);
-          smoothedFilm = MotionMath.lerp(smoothedFilm, targetFilm, 0.024);
+          smoothedArrival = advanceNormalizedProgress(
+            smoothedArrival,
+            targetArrival,
+            ARRIVAL_PROGRESS_PER_SECOND,
+            timelineDelta
+          );
+          smoothedFilm = advanceFilmWithChapterHold(
+            smoothedFilm,
+            targetFilm,
+            now,
+            timelineDelta
+          );
         }
         var pa = smoothedArrival;
         var pf = smoothedFilm;
@@ -1256,7 +1365,7 @@
           var scale = 1 + riseEase * 0.10;
           var scatter = MotionMath.easeInOutQuint(scatterP);
           GlyphStage.setArrivalOProgress(oProgress);
-          GlyphStage.arrivalTransform(anchorY, scale, scatter, assembleP > 0.5 && scatter < 0.3);
+          GlyphStage.arrivalTransform(anchorY, scale, scatter, assembleP > 0.5 && scatter < 0.3, assembleP);
           GlyphStage.boostRain(scatterP * 0.9 + Math.min(1, Math.abs(window.scrollY - (lastScrollForRain || 0)) / 240) * 0.4);
           lastScrollForRain = window.scrollY;
           arrivalEl.style.setProperty("--rise", riseEase.toFixed(4));

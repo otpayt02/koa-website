@@ -502,7 +502,7 @@ h1 em, h2 em, h3 em {
   opacity: 0;
   visibility: hidden;
   transform: scale(1.025);
-  transition: opacity 0.48s var(--ease-cinematic), transform 0.72s var(--ease-cinematic), visibility 0.72s;
+  transition: opacity 1.05s var(--ease-cinematic), transform 1.8s var(--ease-cinematic), visibility 1.8s;
 }
 .chapter-transition.is-visible {
   opacity: 0.96;
@@ -1720,7 +1720,10 @@ body[data-motion="off"] .wordmark { animation: none; opacity: 1; }
 body[data-motion="off"] .wordmark span { transform: none; filter: none; opacity: 1; }
 body[data-motion="off"] .scene .scene-media img { filter: none; }
 body[data-motion="off"] .scene.active .scene-media img { animation: none; filter: none; transform: scale(1.02); }
-body[data-motion="off"] .glyph-stage { display: block; }
+body[data-motion="off"] .glyph-stage {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
 
 /* Small screens: the film keeps its pace */
 @media (max-width: 640px) {
@@ -1779,18 +1782,18 @@ body[data-motion="off"] .glyph-stage { display: block; }
 .halo-sunshine {
   position: absolute;
   z-index: -1;
-  inset: -72%;
-  border-radius: 50%;
+  inset: -96%;
   background: repeating-conic-gradient(
     from calc(-14deg + var(--ray-shift)),
-    rgba(255, 222, 153, 0.12) 0deg,
-    rgba(255, 222, 153, 0.018) 1.4deg,
-    transparent 4deg,
-    transparent 13deg
+    rgba(242, 234, 217, 0.07) 0deg,
+    rgba(196, 59, 77, 0.04) 1.2deg,
+    transparent 4.4deg,
+    transparent 15deg
   );
-  -webkit-mask: radial-gradient(circle, transparent 0 31%, rgba(0,0,0,0.72) 48%, transparent 76%);
-  mask: radial-gradient(circle, transparent 0 31%, rgba(0,0,0,0.72) 48%, transparent 76%);
-  opacity: calc(0.012 + var(--ray-intensity) * 0.06);
+  -webkit-mask: radial-gradient(circle, transparent 0 22%, rgba(0,0,0,0.88) 39%, rgba(0,0,0,0.36) 62%, transparent 82%);
+  mask: radial-gradient(circle, transparent 0 22%, rgba(0,0,0,0.88) 39%, rgba(0,0,0,0.36) 62%, transparent 82%);
+  filter: blur(8px);
+  opacity: calc(0.02 + var(--ray-intensity) * 0.055);
   transform: rotate(var(--ray-shift)) scale(1.015);
   transition: opacity 0.18s linear, transform 0.34s var(--ease-cinematic);
 }
@@ -1825,27 +1828,26 @@ body[data-motion="off"] .glyph-stage { display: block; }
 }
 .halo-ring {
   position: absolute;
-  border-radius: 50%;
-  border: 1px solid transparent;
+  border: 0;
+  background: conic-gradient(from 20deg, transparent, rgba(242,234,217,.055), transparent 18%, rgba(196,59,77,.04), transparent 43%, rgba(212,162,78,.035), transparent 70%);
+  -webkit-mask: radial-gradient(circle, transparent 0 56%, rgba(0,0,0,.7) 66%, transparent 84%);
+  mask: radial-gradient(circle, transparent 0 56%, rgba(0,0,0,.7) 66%, transparent 84%);
+  filter: blur(7px);
   will-change: transform;
 }
 .halo-ring--1 {
-  inset: 0;
-  border-top-color: rgba(226, 180, 91, 0.85);
-  border-right-color: rgba(226, 180, 91, 0.18);
-  animation: halo-spin 36s linear infinite;
+  inset: -10%;
+  animation: halo-spin 72s linear infinite;
 }
 .halo-ring--2 {
-  inset: -7%;
-  border-bottom-color: rgba(216, 74, 77, 0.55);
-  border-left-color: rgba(216, 74, 77, 0.08);
-  animation: halo-spin 52s linear infinite reverse;
+  inset: -25%;
+  opacity: .72;
+  animation: halo-spin 104s linear infinite reverse;
 }
 .halo-ring--3 {
-  inset: -15%;
-  border-top-color: rgba(236, 228, 210, 0.28);
-  border-left-color: rgba(236, 228, 210, 0.04);
-  animation: halo-spin 68s linear infinite;
+  inset: -42%;
+  opacity: .5;
+  animation: halo-spin 136s linear infinite;
 }
 .halo-spiral {
   position: absolute;
@@ -1855,9 +1857,10 @@ body[data-motion="off"] .glyph-stage { display: block; }
     transparent 0deg, rgba(226, 180, 91, 0.13) 42deg,
     transparent 96deg, rgba(236, 228, 210, 0.05) 198deg,
     transparent 258deg, rgba(216, 74, 77, 0.09) 312deg, transparent 360deg);
-  -webkit-mask: radial-gradient(closest-side, transparent 55%, #000 56%);
-  mask: radial-gradient(closest-side, transparent 55%, #000 56%);
-  animation: halo-spin 92s linear infinite;
+  -webkit-mask: radial-gradient(circle, transparent 0 44%, rgba(0,0,0,.86) 55%, rgba(0,0,0,.25) 73%, transparent 91%);
+  mask: radial-gradient(circle, transparent 0 44%, rgba(0,0,0,.86) 55%, rgba(0,0,0,.25) 73%, transparent 91%);
+  filter: blur(5px);
+  animation: halo-spin 148s linear infinite;
 }
 @keyframes halo-spin { to { transform: rotate(360deg); } }
 
@@ -1871,7 +1874,7 @@ body[data-motion="off"] .glyph-stage { display: block; }
   transform: rotate(var(--seal-orbit, 0deg));
   transform-origin: center;
   opacity: var(--seal-orbit-opacity, 0.92);
-  filter: drop-shadow(0 0 18px rgba(184, 51, 70, 0.18));
+  filter: drop-shadow(0 0 16px rgba(242, 234, 217, 0.1));
   transition: opacity 1.6s var(--ease-cinematic);
   will-change: transform, opacity;
 }
@@ -1884,8 +1887,31 @@ body[data-motion="off"] .glyph-stage { display: block; }
   text-transform: uppercase;
 }
 .seal-orbit-type__primary { fill: rgba(242, 234, 217, 0.86); }
-.seal-orbit-type__secondary { fill: rgba(223, 91, 104, 0.82); }
+.seal-orbit-type__secondary { fill: rgba(242, 234, 217, 0.82); }
+.seal-orbit-type__karen { font-family: var(--font-script); font-size: 18px; letter-spacing: 0.08em; }
 .arrival.is-logo-flight .seal-orbit-type { opacity: 0; }
+
+.halo-glyph-rays {
+  position: absolute;
+  inset: -72%;
+  pointer-events: none;
+  animation: corona-rays-orbit 168s linear infinite;
+  -webkit-mask: radial-gradient(circle, transparent 0 25%, #000 42%, rgba(0,0,0,.7) 69%, transparent 89%);
+  mask: radial-gradient(circle, transparent 0 25%, #000 42%, rgba(0,0,0,.7) 69%, transparent 89%);
+}
+.halo-glyph-rays i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font: 500 var(--ray-size) / 1 var(--font-script);
+  opacity: var(--ray-alpha);
+  transform: rotate(var(--ray-angle)) translateY(calc(var(--ray-radius) * -1)) rotate(calc(var(--ray-angle) * -1));
+  transform-origin: center;
+  animation: corona-ray-breathe 19s var(--ease-cinematic) var(--ray-delay) infinite alternate;
+}
+@keyframes corona-rays-orbit { to { transform: rotate(1turn); } }
+@keyframes corona-ray-breathe { to { opacity: calc(var(--ray-alpha) * 1.8); filter: blur(.15px); } }
 
 /* The copy that lands with the arrival ------------------------------------ */
 .arrival .eyebrow { color: var(--gold-bright); }
@@ -2190,7 +2216,7 @@ body[data-motion="off"] .chapter-bg-num::after { opacity: 0.18; transform: trans
 /* ==========================================================================
    PHASE 3 · LIVING SEAL / WOVEN BANNER
    ========================================================================== */
-.film { height: 900vh; }
+.film { height: 1800vh; }
 
 .nav {
   gap: 0.15rem;
@@ -2267,7 +2293,7 @@ body[data-motion="off"] .chapter-bg-num::after { opacity: 0.18; transform: trans
 }
 
 @media (max-width: 640px) {
-  .film { height: 720vh; }
+  .film { height: 1440vh; }
   .header::before { opacity: 0.75; }
   .brand-mark-slot, .brand img { width: 48px; height: 48px; }
   .brand-mark-slot { flex-basis: 48px; }
@@ -2280,6 +2306,7 @@ body[data-motion="off"] .chapter-bg-num::after { opacity: 0.18; transform: trans
   .halo { width: min(52vmin, 460px); height: min(52vmin, 460px); top: 34%; transform: translate(-50%, -50%) scale(1); }
   .arrival-copy { top: 62%; }
   .seal-orbit-type { transform: none; transition: none; }
+  .halo-glyph-rays, .halo-glyph-rays i { animation: none; }
   .scene--crowd.active .scene-media img { animation: none; transform: scale(1.015); }
   .card, .card::before { transition: none; }
   .card:hover, .card:focus-within { transform: none; }
@@ -2287,6 +2314,8 @@ body[data-motion="off"] .chapter-bg-num::after { opacity: 0.18; transform: trans
 body[data-motion="off"] .halo { width: min(52vmin, 460px); height: min(52vmin, 460px); top: 34%; transform: translate(-50%, -50%) scale(1); }
 body[data-motion="off"] .arrival-copy { top: 62%; }
 body[data-motion="off"] .seal-orbit-type { transform: none; transition: none; }
+body[data-motion="off"] .halo-glyph-rays,
+body[data-motion="off"] .halo-glyph-rays i { animation: none; }
 body[data-motion="off"] .scene--crowd.active .scene-media img { animation: none; transform: scale(1.015); }
 
 /* ==========================================================================
