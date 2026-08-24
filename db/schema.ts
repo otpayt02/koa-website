@@ -1,5 +1,8 @@
 import { sql } from "drizzle-orm";
-import { index, integer, real, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { type AnySQLiteColumn, index, integer, real, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
+
+export const contentLocales = ["en", "th", "my", "ksw"] as const;
+export const proposalStatuses = ["draft", "pending_review", "approved", "rejected", "superseded"] as const;
 
 const createdAt = () => integer("created_at", { mode: "timestamp_ms" }).notNull().default(sql`(unixepoch() * 1000)`);
 const updatedAt = () => integer("updated_at", { mode: "timestamp_ms" }).notNull().default(sql`(unixepoch() * 1000)`);
@@ -174,10 +177,49 @@ export const translationRequests = sqliteTable("translation_requests", {
   updatedAt: updatedAt(),
 }, (table) => [index("translation_request_status_idx").on(table.status), index("translation_request_court_idx").on(table.isCourtRequest)]);
 
+export const contentUnits = sqliteTable("content_units", {
+  id: text("id").primaryKey(),
+  route: text("route").notNull(),
+  section: text("section").notNull(),
+  frame: text("frame").notNull(),
+  sourceRevision: integer("source_revision").notNull().default(1),
+  sourceText: text("source_text").notNull(),
+  sourceProvenance: text("source_provenance", { mode: "json" }).$type<Record<string, unknown>>().notNull(),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  uniqueIndex("content_unit_revision_unique").on(table.route, table.section, table.frame, table.sourceRevision),
+]);
+
+export const translationProposals = sqliteTable("translation_proposals", {
+  id: text("id").primaryKey(),
+  contentUnitId: text("content_unit_id").notNull().references(() => contentUnits.id, { onDelete: "cascade" }),
+  sourceRevision: integer("source_revision").notNull(),
+  locale: text("locale", { enum: contentLocales }).notNull(),
+  value: text("value").notNull(),
+  provider: text("provider"),
+  modelVersion: text("model_version"),
+  confidence: real("confidence"),
+  status: text("status", { enum: proposalStatuses }).notNull().default("draft"),
+  reviewerId: text("reviewer_id").references(() => users.id),
+  reviewNote: text("review_note"),
+  reviewedAt: integer("reviewed_at", { mode: "timestamp_ms" }),
+  supersedesProposalId: text("supersedes_proposal_id").references(
+    (): AnySQLiteColumn => translationProposals.id,
+    { onDelete: "set null" },
+  ),
+  createdAt: createdAt(),
+  updatedAt: updatedAt(),
+}, (table) => [
+  index("translation_proposal_unit_revision_idx").on(table.contentUnitId, table.sourceRevision),
+  index("translation_proposal_status_locale_idx").on(table.status, table.locale),
+]);
+
+// Only approved translation proposals may sync into contentTranslations.
 export const contentTranslations = sqliteTable("content_translations", {
   id: text("id").primaryKey(),
   contentKey: text("content_key").notNull(),
-  language: text("language", { enum: ["en", "karen"] }).notNull(),
+  language: text("language", { enum: contentLocales }).notNull(),
   value: text("value").notNull(),
   status: text("status", { enum: ["draft", "pending", "approved", "rejected"] }).notNull().default("draft"),
   translatorId: text("translator_id").references(() => users.id),
