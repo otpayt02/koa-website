@@ -7,6 +7,7 @@ const read = (path) => {
   return existsSync(url) ? readFileSync(url, "utf8") : "";
 };
 const cinematic = read("components/CinematicHome.tsx");
+const livingGlyphField = read("components/cinematic/LivingGlyphField.tsx");
 const sealAssembly = read("components/cinematic/SealAssembly.tsx");
 const header = read("components/Header.tsx");
 const css = read("app/globals.css");
@@ -26,15 +27,22 @@ test("bilingual cinematic uses normalized delayed progress instead of raw wheel 
   assert.match(cinematic, /advanceNormalizedProgress/);
   assert.match(cinematic, /targetProgressRef/);
   assert.match(cinematic, /chapterHoldUntilRef/);
-  assert.match(css, /height:\s*1000vh/);
+  assert.match(css, /\.cinematic-film\s*\{[\s\S]*?height:\s*1800vh/);
+  assert.match(css, /@media\s*\(max-width:\s*720px\)[\s\S]*?\.cinematic-film\s*\{[\s\S]*?height:\s*1440vh/);
+  assert.match(cinematic, /data-cinematic-phase=/);
 });
 
 test("bilingual background has cursor-revealed, life-cycled Karen glyphs", () => {
   assert.match(cinematic, /LivingGlyphField/);
-  assert.match(cinematic, /lifePhase/);
-  assert.match(cinematic, /ditherThreshold/);
-  assert.match(cinematic, /schoolSpeed/);
+  assert.match(livingGlyphField, /lifePhase/);
+  assert.match(livingGlyphField, /ditherThreshold/);
+  assert.match(livingGlyphField, /advanceParticle/);
+  assert.match(livingGlyphField, /phase/);
+  assert.match(livingGlyphField, /chapter/);
+  assert.match(livingGlyphField, /reducedMotion/);
+  assert.match(livingGlyphField, /occlusionRects/);
   assert.match(css, /\.cinematic-film__glyph-field/);
+  assert.match(css, /\.cinematic-film\[data-motion="reduced"\][\s\S]*?\.cinematic-film__glyph-field[\s\S]*?display:\s*none/);
 });
 
 test("bilingual header breathes and expands labels without replacing menu behavior", () => {

@@ -382,10 +382,16 @@ img { display: block; max-width: 100%; }
   --pointer-y: 0;
   --momentum: 0;
   position: relative;
-  height: 1000vh; /* Extended for slower scroll */
+  height: 1800vh;
   overflow: clip;
   background: var(--bg-primary);
   color: var(--fg-primary);
+}
+
+@media (max-width: 720px) {
+  .cinematic-film {
+    height: 1440vh;
+  }
 }
 
 .cinematic-film__sticky {
@@ -494,6 +500,44 @@ img { display: block; max-width: 100%; }
 
 .cinematic-film__glyph-field--dither { opacity: .42; }
 .cinematic-film__glyph-field--living { opacity: .76; }
+
+.cinematic-film[data-motion="reduced"] {
+  height: auto;
+  overflow: visible;
+}
+
+.cinematic-film[data-motion="reduced"] .cinematic-film__sticky {
+  position: relative;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+.cinematic-film[data-motion="reduced"] .cinematic-film__glyph-field,
+.cinematic-film[data-motion="reduced"] .cinematic-film__vortex,
+.cinematic-film[data-motion="reduced"] .cinematic-film__grain {
+  display: none;
+}
+
+.cinematic-film[data-motion="reduced"] .cinematic-film__scene {
+  position: relative;
+  inset: auto;
+  min-height: 100svh;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.cinematic-film[data-motion="reduced"] .cinematic-film__controls {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  bottom: auto;
+}
+
+.cinematic-film[data-motion="reduced"] .cinematic-film__scroll-cue {
+  display: none;
+}
 
 .cinematic-film__scene {
   position: absolute;
@@ -1400,6 +1444,32 @@ footer nav a:hover { color: var(--accent-secondary); }
   .cinematic-film__vortex::after,
   .cinematic-seal__annulus {
     transform: none !important;
+  }
+  .cinematic-film {
+    height: auto;
+    overflow: visible;
+  }
+  .cinematic-film__sticky {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+  .cinematic-film__glyph-field,
+  .cinematic-film__vortex,
+  .cinematic-film__grain {
+    display: none !important;
+  }
+  .cinematic-film__scene {
+    position: relative;
+    inset: auto;
+    min-height: 100svh;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto;
+  }
+  .cinematic-film__scroll-cue {
+    display: none;
   }
 }
 
