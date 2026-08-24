@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { CinematicFrame, FrameManifestLoadResult } from "@/lib/cinema/frame-manifest";
+import { partners, publicPartners } from "@/content/partners";
 
 type ReviewTab = "static" | "motion" | "content";
 type MotionSetting = "on" | "off";
@@ -30,6 +31,7 @@ export function DesignStudio({ lang, manifest }: { lang: string; manifest: Frame
   const selectedFrame = frames.find((frame) => frame.id === selectedFrameId) ?? frames[0];
   const viewport = viewports.find((candidate) => candidate.id === viewportId) ?? viewports[0];
   const previewUrl = useMemo(() => `/${lang}?koa-preview=1&motion=${motion}`, [lang, motion]);
+  const draftPartners = partners.filter((partner) => !publicPartners.includes(partner));
 
   if (!manifest.ok) {
     return (
@@ -76,6 +78,30 @@ export function DesignStudio({ lang, manifest }: { lang: string; manifest: Frame
         </ControlGroup>
         <p className="design-studio__preview-source"><span>Preview source</span><code>{previewUrl}</code></p>
       </div>
+
+      <section className="design-studio__partner-review" aria-labelledby="design-studio-partner-title">
+        <header>
+          <div><span>Draft / empty state</span><h3 id="design-studio-partner-title">Partner review</h3></div>
+          <strong>{publicPartners.length} public · {draftPartners.length} draft</strong>
+        </header>
+        {partners.length === 0 ? (
+          <div className="design-studio__partner-empty">
+            <p>No partner records are ready for public display.</p>
+            <p>Add a draft only after a verified relationship source and approved logo-use permission can be recorded.</p>
+          </div>
+        ) : (
+          <ul>
+            {draftPartners.map((partner) => (
+              <li key={partner.id}>
+                <strong>{partner.name}</strong>
+                <span>Relationship: {partner.relationshipStatus}</span>
+                <span>Logo permission: {partner.logoPermission}</span>
+                <span>Review: {partner.reviewStatus}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       <div className="design-studio__workspace">
         <aside className="design-studio__frame-rail" aria-label="Chronological frame rail">

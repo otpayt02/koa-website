@@ -11,6 +11,7 @@ import {
   type OcclusionRect,
 } from "./cinematic/LivingGlyphField";
 import { SealAssembly } from "./cinematic/SealAssembly";
+import { PartnerMarquee } from "./cinematic/PartnerMarquee";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 const clampSigned = (value: number) => Math.min(0.5, Math.max(-0.5, value));
@@ -381,6 +382,8 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
           <p className="cinematic-film__scroll-cue">Scroll to enter <span>↓</span></p>
         </div>
       </section>
+
+      <PartnerMarquee motionReduced={motionReduced} />
 
       {/* Initialize canvas effects */}
       <KOALogoIntro
