@@ -264,7 +264,11 @@ Strength measures authority and reliability. Consideration measures how strongly
 
 Each verified phase adds `docs/cinematic/versions/vNNNN-<short-sha>.md` and a matching machine-readable manifest. Every frame records route, locale, entry condition, viewport visibility, foreground copy, background art, static features, motion features, tunables, exit condition, evidence, provenance, approval status, and the reason it exists. Page-specific design, spec, and ideas live under `docs/pages/<route>/`.
 
-The companion `UNDERSTANDING.md` explains why every important file exists, what it contains, and what breaks if it is absent. Planned skills—`koa-mobile-preview`, `koa-translation-mapper`, `koa-frame-story-spec`, and `repo-understanding-sync`—will update these records only after they are implemented and validated.
+The companion [`UNDERSTANDING.md`](../UNDERSTANDING.md) explains why every top-level first-party path exists, who owns and consumes it, what breaks if it is absent, how it is verified, and which approval/privacy boundary applies. Its marked repository registry is generated; human context outside the markers is preserved.
+
+The validated project skills [`koa-mobile-preview`](../skills/koa-mobile-preview/SKILL.md), [`koa-translation-mapper`](../skills/koa-translation-mapper/SKILL.md), [`koa-frame-story-spec`](../skills/koa-frame-story-spec/SKILL.md), and [`repo-understanding-sync`](../skills/repo-understanding-sync/SKILL.md) provide narrow, approval-aware workflows for mobile proof, independent translation proposals, frame snapshots, and repository understanding sync.
+
+The home route keeps separate [design](pages/home/design.md), [spec](pages/home/spec.md), and [ideas](pages/home/ideas.md) records. The deterministic Phase 7 record is available as [Markdown](cinematic/versions/v0007-phase7.md) and [JSON](cinematic/versions/v0007-phase7.json).
 
 ## PowerShell viewing contract
 

@@ -7,6 +7,9 @@ The current phase is local-only. It is not an official publication or deployment
 ## Start here
 
 - [Cinematic cookbook](docs/KOA-CINEMATIC-COOKBOOK.md) — choreography, motion parameters, failure history, weighted references, and media.
+- [Repository understanding](UNDERSTANDING.md) — curated ownership, consumers, removal impact, verification, and approval boundaries for top-level paths.
+- [Home design](docs/pages/home/design.md), [spec](docs/pages/home/spec.md), and [ideas](docs/pages/home/ideas.md) — route-specific intent, contract, and explicitly deferred possibilities.
+- [Phase 7 frame story](docs/cinematic/versions/v0007-phase7.md) — deterministic human-readable snapshot of the canonical frame manifest.
 - [Canonical one-app design](docs/superpowers/specs/2026-08-24-koa-canonical-one-app-consolidation-design.md) — approved architecture and acceptance criteria.
 - [Request adherence ledger](docs/codex/REQUEST_ADHERENCE_LEDGER.md) — implemented, verified, deferred, and blocked requirements.
 - [Progress](docs/progress.md) and [decisions](docs/decisions.md) — phase history and rationale.
@@ -56,6 +59,17 @@ npm.cmd run dev
 npm.cmd test
 npm.cmd run build
 ```
+
+Regenerate durable repository and frame documentation with:
+
+```powershell
+node scripts/update-understanding.mjs
+node scripts/snapshot-cinematic-spec.mjs --version v0007-phase7 --commit c827016 --evidence-dir output/playwright
+node scripts/update-understanding.mjs --check
+node scripts/snapshot-cinematic-spec.mjs --version v0007-phase7 --commit c827016 --evidence-dir output/playwright --finalize
+```
+
+`--finalize` is a read-only cleanliness gate: it rejects a missing or stale generated snapshot instead of rewriting it.
 
 ## Key media
 
