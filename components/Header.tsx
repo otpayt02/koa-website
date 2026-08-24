@@ -78,16 +78,24 @@ const navCategories = [
 export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle("nav-open", open);
     return () => document.body.classList.remove("nav-open");
   }, [open]);
 
+  useEffect(() => {
+    const update = () => setCompact(window.scrollY > window.innerHeight * 0.18);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
   const closeDropdown = () => setOpenDropdown(null);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${compact ? " is-compact" : ""}`} data-breathing-header>
       <Link className="brand" href={`/${lang}`} aria-label={`${messages.siteName} — ${messages.home}`}>
         <img src="/koa/assets/koa-logo.png" alt="" width="52" height="52" />
         <span><strong>KOA</strong><small>{messages.siteName}</small></span>
@@ -129,11 +137,14 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
                   }
                 }}
               >
-                {category.label}
+                <span>{category.label}</span>
+                <small className="nav-dropdown__detail" aria-hidden="true">
+                  {category.items.flatMap((item) => "label" in item ? [item.label] : []).slice(0, 2).join(" · ")}
+                </small>
               </button>
               <div className="nav-dropdown__menu" role="menu">
                 {category.items.map((item, itemIndex) => (
-                  item.isDivider ? (
+                  "isDivider" in item ? (
                     <hr key={`divider-${catIndex}-${itemIndex}`} />
                   ) : (
                     <Link

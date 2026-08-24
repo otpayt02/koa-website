@@ -1,29 +1,22 @@
 /* ==========================================================================
-   KOA — Karen Organization of America · storytelling engine (Signature Motion)
+   KOA — Karen Organization of America · storytelling engine (The Arrival)
    -------------------------------------------------------------------------
-   One engine, four layers:
+   One engine, three layers:
 
    1. GlyphStage — a fixed, volumetric canvas of Latin + S'gaw Karen glyphs.
       Modes:
-        field     — wandering background field, denser & subtler, occluded by
-                    foreground DOM elements (only visible between elements)
         drift     — ambient dust with pointer parallax + scroll streaks
         arrival   — the KOA wordmark built FROM glyphs: cursor-reactive,
                     rises on scroll, disperses, hands off to the film
         word/loom — pixel-sampled words + the Karen diamond-weave frame
-        syllable  — C(C)V+T syllable assembly cinematic (chaos → structure)
       Plus the RAIN: intermittent vertical glyph columns that spawn at
       random places, live briefly, and leave at random times.
 
-   2. The Arrival — the prologue scroll stage (seal with sunshine halo →
-      seal grows → KOA levels → K/A glyphs → O converges from offscreen)
-      scroll velocity drives the barely-visible rays.
+   2. The Arrival — the prologue scroll stage (seal → glyph-KOA → rise →
+      mission, told word by word) that hands its glyphs to chapter 01.
 
    3. Word assembly — paragraphs that solidify one randomly-ordered word
-      at a time; parallax drift with fade boundaries at top/bottom.
-
-   4. Chapter numerals — Burmese numerals in background, flashing to Arabic
-      intermittently.
+      at a time, because the words are the product.
 
    Motion is a garnish, never the meal. prefers-reduced-motion and the
    manual Motion toggle are honored everywhere.
@@ -37,7 +30,6 @@
   document.body.dataset.motionPreference = prefersReduced ? "reduce" : "no-preference";
 
   var MYAN = ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
-  var ARABIC = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var GLYPH_SET = "KOAKAREက" + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
   var GLYPH_SET_DENSE = "ကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ" +
     "က ခ ဂ ဃ င စ ဆ ဇ ည တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ အ" +
@@ -119,7 +111,7 @@
     var pendingAnchor = null;
     var pendingArrival = false;
     var raf = null;
-    var active = false;
+    var active = false;            // motion allowed + initialized
     var staticDrawn = false;
     var pointerX = 0, pointerY = 0;
     var pointerClientX = -9999, pointerClientY = -9999, pointerActive = false;
@@ -127,7 +119,7 @@
     var lastFrameT = performance.now();
 
     /* arrival state ------------------------------------------------------ */
-    var arrivalAnchorY = 0.5;
+    var arrivalAnchorY = 0.5;      // fraction of H where the KOA sits
     var arrivalScale = 1;
     var arrivalScatter = 0;
     var arrivalCursor = true;
@@ -140,7 +132,7 @@
 
     /* rain state ---------------------------------------------------------- */
     var rainOn = false;
-    var rainBoost = 0;
+    var rainBoost = 0;             // 0..1, driven by scroll + arrival phase
     var rainCols = [];
     var RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
 
@@ -156,7 +148,6 @@
     var lastOcclusionBuild = 0;
 
     function glyphs() { return GLYPH_SET; }
-    function glyphsDense() { return GLYPH_SET_DENSE; }
 
     function makeParticles() {
           var n = window.innerWidth < 720 ? 150 : 280;
@@ -219,18 +210,16 @@
         }
 
     function resize() {
-          DPR = Math.min(2, window.devicePixelRatio || 1);
-          W = window.innerWidth;
-          H = window.innerHeight;
-          if (!canvas) return;
-          canvas.width = Math.round(W * DPR);
-          canvas.height = Math.round(H * DPR);
-          canvas.style.width = W + "px";
-          canvas.style.height = H + "px";
-          ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-          /* rebuild background field on resize */
-          if (bgField.on) makeParticles();
-        }
+      DPR = Math.min(2, window.devicePixelRatio || 1);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      if (!canvas) return;
+      canvas.width = Math.round(W * DPR);
+      canvas.height = Math.round(H * DPR);
+      canvas.style.width = W + "px";
+      canvas.style.height = H + "px";
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
 
     function init() {
       if (canvas) return;
@@ -712,7 +701,7 @@
             ctx.globalAlpha = 1;
           }
 
-          /* ---- drawing -------------------------------------------------------- */
+    /* ---- drawing -------------------------------------------------------- */
     function drawGlyph(p, now, streak) {
       var flicker = 0.72 + 0.28 * Math.sin(now * 0.0011 * p.speed + p.phase);
       var a = p.alpha * flicker;
@@ -751,11 +740,11 @@
           /* --- draw background field (occluded by foreground elements) -------- */
            if (bgField.on) drawBackgroundField(now, frameDelta);
 
-          updateRain(now);
+      updateRain(now);
 
-          var mpx = W / 2 + pointerX * (W / 2);
-          var mpy = H / 2 + pointerY * (H / 2);
-          var ay = H * arrivalAnchorY;
+      var mpx = W / 2 + pointerX * (W / 2);
+      var mpy = H / 2 + pointerY * (H / 2);
+      var ay = H * arrivalAnchorY;
 
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
@@ -1550,4 +1539,155 @@
 
   window.__koaInit = init;
   init();
+})();
+
+/* ==========================================================================
+   V5 ENHANCEMENTS — Moving glyphs, chapter flash, dispersion, parallax
+   ========================================================================== */
+(function() {
+  "use strict";
+  
+  /* ---- Chapter number flash effect (Burmese ↔ Arabic) ------------------- */
+  var chapterContainers = document.querySelectorAll('.chapter-flash-container');
+  chapterContainers.forEach(function(container) {
+    var arabicEl = container.querySelector('.chapter-flash-arabic');
+    if (arabicEl && window.matchMedia("(prefers-reduced-motion: reduce)").matches === false) {
+      // Random intermittent flashes
+      setInterval(function() {
+        if (Math.random() > 0.7) {
+          arabicEl.style.animationDuration = (2 + Math.random() * 3) + 's';
+        }
+      }, 4000);
+    }
+  });
+  
+  /* ---- Scroll speed detection for halo rays ----------------------------- */
+  var lastScrollY = window.scrollY;
+  var scrollSpeed = 0;
+  var isScrolling = false;
+  var scrollTimeout;
+  
+  window.addEventListener('scroll', function() {
+    var currentY = window.scrollY;
+    scrollSpeed = Math.abs(currentY - lastScrollY);
+    lastScrollY = currentY;
+    
+    if (scrollSpeed > 2) {
+      document.body.classList.add('is-scrolling');
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        document.body.classList.remove('is-scrolling');
+      }, 150);
+    }
+  }, { passive: true });
+  
+  /* ---- Parallax word effect on scroll ----------------------------------- */
+  var parallaxWords = document.querySelectorAll('.parallax-word, .scene-copy h2, .scene-copy p');
+  var scrollDirection = 'down';
+  var lastScrollDir = 'down';
+  
+  window.addEventListener('scroll', function() {
+    var currentY = window.scrollY;
+    scrollDirection = currentY > lastScrollY ? 'down' : 'up';
+    
+    if (scrollDirection !== lastScrollDir) {
+      document.body.classList.remove('scroll-up', 'scroll-down');
+      document.body.classList.add('scroll-' + scrollDirection);
+      lastScrollDir = scrollDirection;
+      
+      setTimeout(function() {
+        document.body.classList.remove('scroll-up', 'scroll-down');
+      }, 300);
+    }
+  }, { passive: true });
+  
+  /* ---- Enhanced crowd image with flag overlay --------------------------- */
+  var crowdImages = document.querySelectorAll('.enhanced-crowd-img, .scene-media img');
+  crowdImages.forEach(function(img) {
+    if (!img.parentElement.querySelector('.flag-overlay')) {
+      var overlay = document.createElement('div');
+      overlay.className = 'flag-overlay';
+      img.parentElement.appendChild(overlay);
+    }
+  });
+  
+  /* ---- Interactive tabs initialization ---------------------------------- */
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var parent = btn.closest('.interactive-tabs');
+      if (parent) {
+        parent.querySelectorAll('.tab-btn').forEach(function(b) {
+          b.classList.remove('is-active');
+        });
+        btn.classList.add('is-active');
+      }
+    });
+  });
+  
+  /* ---- Sparkle and float particle generators ---------------------------- */
+  function createSparkle(container) {
+    var sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.top = Math.random() * 100 + '%';
+    sparkle.style.animationDelay = Math.random() * 2 + 's';
+    container.appendChild(sparkle);
+    
+    setTimeout(function() {
+      sparkle.remove();
+    }, 3000);
+  }
+  
+  function createFloatParticle(container) {
+    var particle = document.createElement('div');
+    particle.className = 'float-particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 3 + 's';
+    container.appendChild(particle);
+  }
+  
+  // Add subtle particles to arrival section
+  var arrivalSection = document.querySelector('.arrival');
+  if (arrivalSection && window.matchMedia("(prefers-reduced-motion: reduce)").matches === false) {
+    for (var i = 0; i < 8; i++) {
+      createFloatParticle(arrivalSection);
+    }
+    
+    // Occasional sparkles
+    setInterval(function() {
+      if (Math.random() > 0.7) {
+        createSparkle(arrivalSection);
+      }
+    }, 2000);
+  }
+  
+  /* ---- Content detection for glyph dispersion --------------------------- */
+  function checkContentVisibility() {
+    var mainContent = document.getElementById('main');
+    if (mainContent) {
+      var hasVisibleContent = Array.from(mainContent.querySelectorAll('section')).some(function(section) {
+        var rect = section.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > 0;
+      });
+      
+      document.body.classList.toggle('has-content', hasVisibleContent);
+    }
+  }
+  
+  window.addEventListener('scroll', checkContentVisibility, { passive: true });
+  window.addEventListener('resize', checkContentVisibility);
+  checkContentVisibility();
+  
+  /* ---- Glyph formation sequence for KOA letters ------------------------- */
+  var koaLetters = document.querySelectorAll('.koa-letter-form');
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches === false) {
+    koaLetters.forEach(function(letter, index) {
+      setTimeout(function() {
+        letter.classList.add('is-formed');
+      }, index * 400);
+    });
+  }
+  
 })();
