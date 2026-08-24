@@ -135,3 +135,10 @@
 - Chosen: English is the source; Thai, Burmese, and S'gaw Karen proposals are generated independently and retain provider, confidence, provenance, and review status.
 - Rejected: a chained English-to-Thai-to-Burmese-to-Karen pivot.
 - Why: independent proposals prevent compounded errors and preserve a defensible source relationship. S'gaw Karen pairs do not become approved training data without human review.
+
+## 2026-08-24 — Pair Base UI with Motion at the interface boundary
+
+- Chosen: pin MIT-licensed `@base-ui/react` 1.7.0 for accessible headless controls and `motion` 13.1.1 for deliberate React interaction animation.
+- Considered: Astryx beta, Radix Primitives, and a styled shadcn/Magic UI layer.
+- Why: Base UI preserves the established KOA CSS and subject-specific visual language while Motion adds opt-in gestures, sequencing, and reduced-motion-aware transitions without forcing a whole-app theme migration.
+- Boundary: use these packages incrementally for admin and general interface controls. The existing seeded cinematic canvas, seal choreography, and persistent glyph engine remain first-party and must not gain a second animation runtime.

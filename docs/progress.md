@@ -76,6 +76,13 @@
 - Documented: one-paste temporary static preview and planned permanent `scripts/run-koa.ps1` command.
 - Recovered: C: now has about 12.2 GB free, removing the prior documentation blocker.
 - Approved: the written specification was accepted on 2026-08-24; the task-by-task implementation plan is `docs/plans/2026-08-24-koa-canonical-one-app-phase-7.md`.
+- Implemented and verified: Task 1 restored the locked vinext 0.0.50 environment; the focused environment test, TypeScript, and production build pass in commit `8bc67f4`.
+- Partially implemented: Task 2's one-command runner is committed at `baa27a7`; review found wrapper-PID and stale-state ownership defects before the task advanced.
+- Deferred verification: the preserved direct-vinext repair passes source contracts and stale-state refusal, but owned-runtime shutdown is not verified. A bounded repository diagnostic ran once on port 65241 and timed out before `/en` readiness, so it did not reach Windows termination; evidence is `output/runtime/task2-stop-diagnostic.json`. Cleanup succeeded and PID 14356 was untouched.
+- Implemented: Tasks 3–7 added four canonical locale routes, server-side admin guards, revisioned translation provenance, the Language Studio, and the frame-aware Design Studio.
+- Implemented and focused-review clean: Task 8 replaces the duplicate orbit copy with the exact supplied seal split into stationary core and rotating annulus in commit `b1f9f47`; focused contracts pass 8/8 and TypeScript passes. Runtime visual proof remains assigned to Task 12.
+- Installed: the open-source interface foundation pins `@base-ui/react` 1.7.0 and `motion` 13.1.1 in commit `a5d3ac3`; package resolution and TypeScript pass. These packages are restricted to incremental interface use and do not replace the first-party cinematic runtime.
+- Current focus: Task 9 persistent glyph paths and 1800vh pacing. Task 2 remains deferred verification and does not block implementation under the user's explicit override.
 
 ## Phase 6 — Cursor matrix, interaction material, and runtime repair
 
