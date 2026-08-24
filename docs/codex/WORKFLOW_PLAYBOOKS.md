@@ -40,3 +40,16 @@
 - Verification: contracts pass in both repos, TypeScript passes, changed-component lint has zero errors, current route has no runtime/hydration errors, and responsive proof is named by route/state.
 - Rollback: revert the route-specific adapter while preserving the shared behavior contract and unrelated working-tree changes.
 - Privacy, cost, and approval: local proof only; no deployment, publishing, or cultural translation approval is implied.
+
+## Cursor-matrix and mobile-chrome QA
+
+- Trigger: a change to the living glyph field, foreground occlusion, premium hover material, mobile film chrome, or Motion-off canvas behavior.
+- Outcome: supporting visual states are measured independently of the narrow K–seal–A flight window.
+- Inputs: static KOA URL, 1440x900 and 390x844 viewports, pointer background point, foreground sample, Motion toggle, and source contract.
+- Steps: run `node scripts\verify-phase6-cinema.cjs http://127.0.0.1:8123/index.html --supporting-only`; inspect the JSON; inspect the cursor, glimmer, mobile film, and Motion-off images; run the cinematic source contract separately.
+- Tools and owner: local Python HTTP server, Chrome DevTools Protocol, Node source tests, and visual inspection; implementation owner records blocked choreography observations separately.
+- Bottleneck: a fixed sleep can miss the three-second target buffer or a brief flight class, and a screenshot alone cannot prove foreground canvas transparency.
+- Optimized version: wait for authored support conditions, sample canvas alpha before/after pointer reveal, sample the header occluder, and record computed mobile rectangles.
+- Verification: 18 desktop viewport heights, positive cursor alpha delta, zero foreground alpha, glimmer visible, mobile label below/above counter without overlap, zero overflow, settled Motion-off canvas, and empty runtime problem lists.
+- Rollback: revert the isolated matrix/glimmer/mobile CSS and keep prior Phase 5 artifacts intact.
+- Privacy, cost, and approval: local pointer coordinates are transient; screenshots contain only the local KOA page; no deployment or paid call.

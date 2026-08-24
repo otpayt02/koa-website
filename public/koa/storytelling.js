@@ -30,10 +30,15 @@
   document.body.dataset.motionPreference = prefersReduced ? "reduce" : "no-preference";
 
   var MYAN = ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
+  var ARABIC = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
   var GLYPH_SET = "KOAKAREက" + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
   var GLYPH_SET_DENSE = "ကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ" +
     "က ခ ဂ ဃ င စ ဆ ဇ ည တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ အ" +
     "၁ ၂ ၃ ၄ ၅ ၆ ၇ ၈ ၉ KOA KOA";
+  var SGAW_KAREN_CURSOR_GLYPHS = [
+    "K", "O", "A", "က", "ညီ", "ပှၤ", "တဝၢ", "လၢ", "အ", "မဲ", "ရ", "ကၤ",
+    "တၢ်", "ဃူ", "ဖိး", "ဘၣ်", "ထွဲ"
+  ];
 
   /* A single deterministic source keeps the living glyph field repeatable.
      The seed spells KOA in hex and makes visual QA comparable between runs. */
@@ -148,6 +153,7 @@
     var lastOcclusionBuild = 0;
 
     function glyphs() { return GLYPH_SET; }
+    function glyphsDense() { return GLYPH_SET_DENSE; }
 
     function makeParticles() {
           var n = window.innerWidth < 720 ? 150 : 280;
@@ -653,6 +659,49 @@
             return falloff * falloff;
           }
 
+          function cursorMatrixGlyph(gridX, gridY, timeStep) {
+            var hash = Math.abs(gridX * 31 + gridY * 17 + timeStep * 7);
+            return SGAW_KAREN_CURSOR_GLYPHS[hash % SGAW_KAREN_CURSOR_GLYPHS.length];
+          }
+
+          function drawCursorGlyphMatrix(now) {
+            if (!pointerActive || !motionOn || prefersReduced) return;
+            var radius = Math.min(176, Math.max(132, W * 0.135));
+            var spacing = W < 720 ? 30 : 34;
+            var startX = Math.floor((pointerClientX - radius) / spacing) * spacing;
+            var endX = pointerClientX + radius;
+            var startY = Math.floor((pointerClientY - radius) / spacing) * spacing;
+            var endY = pointerClientY + radius;
+            var timeStep = Math.floor(now / 3200);
+            var driftX = Math.sin(now * 0.00031) * 4.2;
+            var driftY = Math.cos(now * 0.00027) * 3.6;
+
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            for (var y = startY; y <= endY; y += spacing) {
+              for (var x = startX; x <= endX; x += spacing) {
+                var gridX = Math.round(x / spacing);
+                var gridY = Math.round(y / spacing);
+                var px = x + driftX + Math.sin(now * 0.00048 + gridY) * 2.4;
+                var py = y + driftY + Math.cos(now * 0.00041 + gridX) * 2.2;
+                var dx = px - pointerClientX;
+                var dy = py - pointerClientY;
+                var reveal = MotionMath.clamp01(1 - Math.sqrt(dx * dx + dy * dy) / radius);
+                if (reveal < 0.12 + ditherThreshold(px, py) * 0.24) continue;
+                if (isOccluded(px, py)) continue;
+
+                var pulse = 0.64 + Math.sin(now * 0.00072 + gridX * 0.8 + gridY * 0.53) * 0.26;
+                var alpha = reveal * reveal * Math.max(0.03, pulse * 0.135);
+                var paletteIndex = Math.abs(gridX + gridY * 3) % 17;
+                ctx.globalAlpha = alpha;
+                ctx.font = (10 + (paletteIndex % 4)) + "px 'Noto Serif Myanmar','Noto Sans Myanmar',serif";
+                ctx.fillStyle = paletteIndex === 0 ? "#df5b68" : paletteIndex === 7 ? "#d4a24e" : "#f2ead9";
+                ctx.fillText(cursorMatrixGlyph(gridX, gridY, timeStep), px, py);
+              }
+            }
+            ctx.globalAlpha = 1;
+          }
+
           function respawnAmbientGlyph(p) {
             var denseSet = glyphsDense();
             p.ch = denseSet.charAt(Math.floor(seededRandom() * denseSet.length));
@@ -739,6 +788,7 @@
 
           /* --- draw background field (occluded by foreground elements) -------- */
            if (bgField.on) drawBackgroundField(now, frameDelta);
+          drawCursorGlyphMatrix(now);
 
       updateRain(now);
 
@@ -988,6 +1038,10 @@
     var root = document.getElementById("main") || document;
     var film = root.querySelector("[data-film]");
     var arrivalEl = root.querySelector("[data-arrival]");
+
+    document.querySelectorAll(".nav a, .pill, .btn, .card, .commitment-trigger").forEach(function (element) {
+      element.classList.add("premium-glimmer");
+    });
 
     /* drop the previous page's home listeners + timers */
     if (homeScrollHandler) {

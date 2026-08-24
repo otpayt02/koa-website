@@ -67,3 +67,16 @@
 
 - Human review of Phase 5 pacing and cultural details before any public deployment.
 - Re-run bilingual rendered QA from one clean vinext process after the older watchers are stopped.
+
+## Phase 6 — Cursor matrix, interaction material, and runtime repair
+
+- Complete: added a pointer-local matrix limited to reviewed S'gaw Karen identity clusters plus K/O/A; it drifts, dithers, and shares the existing foreground occlusion map.
+- Complete: added one 2.35-second red/paper/gold glimmer language to navigation, pills, buttons, cards, and commitment triggers with hover/focus parity and Motion-off/reduced-motion guards.
+- Complete: repaired the confirmed 390x844 collision between the film label and frame counter by stacking the chrome with an 18px measured gap.
+- Complete: recorded the full choreography, tunable parameters, later-page patterns, fillable section card, SEO rules, accessibility, and approval gates in `docs/KOA-CINEMATIC-COOKBOOK.md`.
+- Verified: 20 tests pass with one build-dependent rendered bilingual skip; JavaScript syntax and diff checks pass.
+- Verified: desktop film resolves to 18 viewport heights (`1800vh`); cursor sample increases from alpha sum `0` to `650`; header occlusion remains `0`; glimmer opacity reaches `0.72`; desktop/mobile overflow is `0`; Motion off settles canvas opacity to `0`; browser error and warning lists are empty.
+- Evidence: `output/playwright/phase6-runtime-evidence.json`, `phase6-cursor-matrix.jpg`, `phase6-nav-glimmer.jpg`, `phase6-mobile-film.jpg`, and `phase6-mobile-motion-off.jpg`.
+- Limitation: the new condition-based headless verifier timed out twice on the brief seal-flight class window. The K–seal–A source contract remains green and the implementation was not changed, but this run does not claim a fresh runtime observation of that narrow state.
+- Blocked: `npx shadcn@latest add @magicui/glyph-matrix` first failed npm dependency resolution and the installer-recommended retry then failed with `ENOSPC`; the partial configuration was removed and disposable npm extraction caches were cleaned.
+- Blocked: `npm.cmd run build` cannot start because the local `vinext` binary is absent.

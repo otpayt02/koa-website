@@ -69,6 +69,7 @@
   --ease-flight: cubic-bezier(0.76, 0, 0.24, 1);
   --ray-intensity: 0;
   --ray-shift: 0deg;
+  --glimmer-duration: 2.35s;
   --dur: 0.7s;
   --radius: 2px;
 }
@@ -2618,3 +2619,65 @@ body[data-motion="off"] .commitment-item,
 body[data-motion="off"] .commitment-item::before,
 body[data-motion="off"] .commitment-trigger > i,
 body[data-motion="off"] .commitment-panel { animation: none; transition: none; }
+
+/* Phase 6 · one shared, slow material glimmer for interactive surfaces. */
+.premium-glimmer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.premium-glimmer::after,
+.nav a.premium-glimmer::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: -35% -26%;
+  display: block;
+  pointer-events: none;
+  background: linear-gradient(
+    104deg,
+    transparent 35%,
+    rgba(223, 91, 104, 0.025) 43%,
+    rgba(242, 234, 217, 0.17) 49%,
+    rgba(232, 189, 111, 0.09) 53%,
+    transparent 62%
+  );
+  opacity: 0;
+  transform: translateX(-118%) skewX(-10deg);
+  transition:
+    transform var(--glimmer-duration) var(--ease-breath),
+    opacity 0.75s ease;
+}
+.premium-glimmer:hover::after,
+.premium-glimmer:focus-visible::after,
+.premium-glimmer:focus-within::after,
+.nav a.premium-glimmer:hover::after,
+.nav a.premium-glimmer:focus-visible::after {
+  opacity: 0.72;
+  transform: translateX(118%) skewX(-10deg);
+}
+
+@media (max-width: 640px) {
+  .film-label {
+    top: calc(var(--header-h) + 0.9rem);
+    right: 1rem;
+    left: 1rem;
+    max-width: calc(100vw - 2rem);
+    font-size: 0.58rem;
+    line-height: 1.3;
+    letter-spacing: 0.15em;
+  }
+  .film-meta {
+    top: calc(var(--header-h) + 2.75rem);
+    right: 1rem;
+    left: 1rem;
+    justify-content: flex-end;
+    font-size: 0.56rem;
+    letter-spacing: 0.13em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-glimmer::after { display: none; }
+}
+body[data-motion="off"] .premium-glimmer::after { display: none; }
