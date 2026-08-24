@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import type { Lang } from "./i18n";
 
 /**
  * Karen Glyph Field v2 - "The Living Loom" (Enhanced Deluxe)
@@ -118,7 +119,7 @@ export function KarenGlyphField({
   chapterNumber?: number;
   showChapterNumber?: boolean;
   occlusionElements?: Array<{ x: number; y: number; width: number; height: number }>;
-  lang?: "en" | "karen";
+  lang?: Lang;
 }) {
   const particlesRef = useRef<GlyphParticle[]>([]);
   const animationRef = useRef<number | null>(null);
@@ -715,7 +716,7 @@ export function KarenGlyphField({
             ctx.translate(p.x, p.y);
             ctx.rotate(p.rotation);
             ctx.globalAlpha = p.opacity;
-            ctx.font = `${p.size}px ${lang === "karen" ? "'Noto Sans Myanmar'" : "'Libre Caslon Display'"}, sans-serif`;
+            ctx.font = `${p.size}px ${lang === "ksw" ? "'Noto Sans Myanmar'" : "'Libre Caslon Display'"}, sans-serif`;
             ctx.fillStyle = p.state === "formed" ? "#f8f3e8" : "#e8c85a";
             ctx.fillText(p.char, 0, 0);
             ctx.restore();

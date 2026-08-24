@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import type { Lang } from "./i18n";
 
 /**
  * KOA Logo Intro Sequence - "The Beacon" (Enhanced Deluxe Version)
@@ -111,7 +112,7 @@ export function KOALogoIntro({
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
   onComplete?: () => void;
   isReducedMotion?: boolean;
-  lang?: "en" | "karen";
+  lang?: Lang;
 }) {
   const [phase, setPhase] = useState(isReducedMotion ? PHASES.length - 1 : 0);
   const [phaseProgress, setPhaseProgress] = useState(isReducedMotion ? 1 : 0);
@@ -169,7 +170,8 @@ export function KOALogoIntro({
     }));
 
     // Initialize orbiting texts
-    const texts = ORBIT_TEXTS[lang];
+    const orbitLanguage = lang === "ksw" ? "karen" : "en";
+    const texts = ORBIT_TEXTS[orbitLanguage];
     orbitTextsRef.current = texts.map((text, idx) => ({
       text,
       radius: 180 + idx * 40,
@@ -178,7 +180,7 @@ export function KOALogoIntro({
       opacity: 0,
       color: idx % 2 === 0 ? "rgba(248, 243, 232, 0.15)" : "rgba(212, 168, 67, 0.12)",
       fontSize: 11 + idx * 1.5,
-      lang,
+      lang: orbitLanguage,
     }));
 
     return () => {

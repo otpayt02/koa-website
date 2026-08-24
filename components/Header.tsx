@@ -101,9 +101,6 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
         <span><strong>KOA</strong><small>{messages.siteName}</small></span>
       </Link>
       <div className="header-actions">
-        <Link className="experience-switch" href="/koa/">
-          <span>↗</span> Cinematic site
-        </Link>
         <LanguageToggle lang={lang} messages={messages} />
         <button
           className="menu-button"

@@ -19,7 +19,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <>
       <CinematicHome lang={lang} messages={m} />
 
-      <Section eyebrow="Our purpose · ပတၢ်ပညိၣ်" title={lang === "karen" ? "မၤဂၢၢ်မၤကျၢၤတၢ်ဃူတၢ်ဖိး။ ဒီသဒၢတၢ်ခွဲးတၢ်ယာ်။" : "Strengthen unity. Protect rights. Build belonging."} intro={lang === "karen" ? "KOA ဆဲးကျိးပှၤတဝၢ၊ ကတိၤခဲပှၤတဖၣ်အဂီၢ်၊ ဒီးဟ့ၣ်တၢ်သ့တၢ်ဘၣ်လၢကတီခိၣ်ရိၣ်မဲ။" : "KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead."}>
+      <Section eyebrow="Our purpose · ပတၢ်ပညိၣ်" title={lang === "ksw" ? "မၤဂၢၢ်မၤကျၢၤတၢ်ဃူတၢ်ဖိး။ ဒီသဒၢတၢ်ခွဲးတၢ်ယာ်။" : "Strengthen unity. Protect rights. Build belonging."} intro={lang === "ksw" ? "KOA ဆဲးကျိးပှၤတဝၢ၊ ကတိၤခဲပှၤတဖၣ်အဂီၢ်၊ ဒီးဟ့ၣ်တၢ်သ့တၢ်ဘၣ်လၢကတီခိၣ်ရိၣ်မဲ။" : "KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead."}>
         <div className="feature-grid feature-grid--3">
           <Card><span className="card-number">01</span><h3>Civic education</h3><p>Understand public systems, grow youth leadership, and turn community priorities into action.</p><Link className="text-link" href={`/${lang}/services`}>Explore programs</Link></Card>
           <Card><span className="card-number">02</span><h3>Language access</h3><p>Find community-reviewed words and request trusted Karen translation or interpretation.</p><Link className="text-link" href={`/${lang}/translation`}>Find language support</Link></Card>

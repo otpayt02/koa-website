@@ -235,7 +235,7 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
   const heldBoundaryRef = useRef(-1);
   const currentChapterRef = useRef(0);
   const [formationTriggers] = useState<FormationTrigger[]>(() => [
-    { id: "seal", text: lang === "karen" ? "ကွၢ်ဃု" : "KOA", x: 0, y: 0, size: 48, progress: 0 },
+    { id: "seal", text: lang === "ksw" ? "ကွၢ်ဃု" : "KOA", x: 0, y: 0, size: 48, progress: 0 },
     { id: "chapter1", text: "၁", x: 0, y: 0, size: 120, progress: 0 },
     { id: "chapter2", text: "၂", x: 0, y: 0, size: 120, progress: 0 },
     { id: "chapter3", text: "၃", x: 0, y: 0, size: 120, progress: 0 },
@@ -464,8 +464,8 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
             </div>
             <div className="cinematic-film__copy">
               <p className="cinematic-film__kicker">{messages.founded}</p>
-              <h1>{lang === "karen" ? "ကညီပှၤတဝၢလၢ အမဲရကၤ" : "Many places. One community."}</h1>
-              <p>{lang === "karen" ? "ဆဲးကျိးလိာ်သး၊ ဒီသဒၢကညီကျိာ်၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါဃုာ်ဒီးလိာ်သး။" : "A national home for Karen people to connect, protect language, and lead the future together."}</p>
+              <h1>{lang === "ksw" ? "ကညီပှၤတဝၢလၢ အမဲရကၤ" : "Many places. One community."}</h1>
+              <p>{lang === "ksw" ? "ဆဲးကျိးလိာ်သး၊ ဒီသဒၢကညီကျိာ်၊ ဒီးတီခိၣ်ရိၣ်မဲခါဆူညါဃုာ်ဒီးလိာ်သး။" : "A national home for Karen people to connect, protect language, and lead the future together."}</p>
               <div className="cinematic-film__actions">
                 <Link className="cinematic-film__button" href={`/${lang}/community`}>{messages.explore} {messages.community}</Link>
                 <Link className="cinematic-film__button cinematic-film__button--ghost" href={`/${lang}/dictionary`}>{messages.searchDictionary}</Link>

@@ -189,11 +189,11 @@ export function PremiumHeader({
 
   // Language switch
   const switchLanguage = () => {
-    const newLang = lang === "en" ? "karen" : "en";
+    const newLang = lang === "en" ? "ksw" : "en";
     window.location.href = window.location.pathname.replace(`/${lang}/`, `/${newLang}/`);
   };
 
-  const getTabLabel = (tab: NavTab) => tab.label[lang];
+  const getTabLabel = (tab: NavTab) => lang === "ksw" ? tab.label.karen : tab.label.en;
 
   return (
     <>
@@ -248,7 +248,7 @@ export function PremiumHeader({
               </text>
             </svg>
             <span className="premium-header__wordmark">
-              {lang === "karen" ? "ကွၢ်ဃု အဖွဲ့အစည်း အမေရိကန်" : "Karen Organization of America"}
+              {lang === "ksw" ? "ကွၢ်ဃု အဖွဲ့အစည်း အမေရိကန်" : "Karen Organization of America"}
             </span>
           </Link>
 
@@ -317,7 +317,7 @@ export function PremiumHeader({
                             style={{ transitionDelay: `${idx * 30}ms` }}
                           >
                             <span className="premium-header__dropdown-icon" aria-hidden="true">▸</span>
-                            <span>{child.label[lang]}</span>
+                            <span>{lang === "ksw" ? child.label.karen : child.label.en}</span>
                           </Link>
                         ))}
                       </div>
@@ -353,8 +353,8 @@ export function PremiumHeader({
                 <span className="premium-header__lang-bar" aria-hidden="true" />
               </button>
               <button
-                className={`premium-header__lang-btn ${lang === "karen" ? "active" : ""}`}
-                aria-pressed={lang === "karen"}
+                className={`premium-header__lang-btn ${lang === "ksw" ? "active" : ""}`}
+                aria-pressed={lang === "ksw"}
                 aria-label="S'gaw Karen"
                 onClick={switchLanguage}
               >
@@ -410,7 +410,7 @@ export function PremiumHeader({
               <span>English</span>
             </button>
             <button
-              className={`premium-header__mobile-lang-btn ${lang === "karen" ? "active" : ""}`}
+              className={`premium-header__mobile-lang-btn ${lang === "ksw" ? "active" : ""}`}
               onClick={switchLanguage}
             >
               <span className="premium-header__lang-flag">🇲🇲</span>
@@ -438,7 +438,7 @@ export function PremiumHeader({
                         className="premium-header__mobile-child-link"
                         onClick={() => setMobileOpen(false)}
                       >
-                        {child.label[lang]}
+                        {lang === "ksw" ? child.label.karen : child.label.en}
                       </Link>
                     ))}
                   </div>

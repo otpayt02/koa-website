@@ -51,7 +51,7 @@ function keyPaths(value, prefix = "") {
   );
 }
 
-test("all 14 committed pages live under the bilingual route segment", () => {
+test("all 14 committed pages live under the shared locale route segment", () => {
   const committedPageFiles = [
     "app/[lang]/page.tsx",
     "app/[lang]/about/page.tsx",
@@ -78,8 +78,8 @@ test("all 14 committed pages live under the bilingual route segment", () => {
 
   assertFile("app/[lang]/layout.tsx");
   const languageLayout = read("app", "[lang]", "layout.tsx");
-  assert.match(languageLayout, /\ben\b/);
-  assert.match(languageLayout, /\bkaren\b/);
+  assert.match(languageLayout, /import\s*\{[^}]*languages[^}]*\}\s*from\s*["']@\/components\/i18n["']/s);
+  assert.match(languageLayout, /languages\.map/);
 });
 
 test("English and Karen message catalogs expose the same translated keys", () => {

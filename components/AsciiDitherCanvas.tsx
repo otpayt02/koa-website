@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import type { Lang } from "./i18n";
 
 /**
  * ASCII Dithering Canvas - "The Static Veil"
@@ -64,7 +65,7 @@ export function AsciiDitherCanvas({
   cursorReveal?: boolean;
   revealRadius?: number;
   density?: number;
-  lang?: "en" | "karen";
+  lang?: Lang;
   onRevealArea?: (x: number, y: number, radius: number) => void;
 }) {
   const gridRef = useRef<DitherCell[][]>([]);
