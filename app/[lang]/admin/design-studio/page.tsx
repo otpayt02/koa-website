@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import rawFrameManifest from "@/content/cinematic-frame-manifest.json";
+import { DesignStudio } from "@/components/admin/DesignStudio";
 import { isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
-import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
+import { loadFrameManifest } from "@/lib/cinema/frame-manifest";
 import { requirePageAdmin } from "@/lib/page-auth";
 
 export const metadata: Metadata = {
@@ -16,15 +18,14 @@ export default async function DesignStudioPage({ params }: { params: Promise<{ l
   if (!isLang(value)) return null;
   const lang = value;
   await requirePageAdmin(`/${lang}/admin/design-studio`);
+  const manifest = loadFrameManifest(rawFrameManifest);
 
   return (
     <>
       <PageHero eyebrow="Admin authoring" title="Design Studio" description="A protected shell for chronological frame review and mobile presentation checks." compact>
         <StatusPill tone="gold">Admin only</StatusPill>
       </PageHero>
-      <Section eyebrow="Review boundary" title="Frame controls arrive in the next slice." intro="The studio will expose the authored cinematic sequence without creating a second public runtime or bypassing review gates.">
-        <div className="button-row"><a className="button button--secondary" href={`/${lang}/admin`}>Back to dashboard</a></div>
-      </Section>
+      <DesignStudio lang={lang} manifest={manifest} />
     </>
   );
 }
