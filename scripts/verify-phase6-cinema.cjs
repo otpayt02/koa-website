@@ -222,6 +222,14 @@ async function main() {
   })()`);
   await cdp.screenshot("phase6-nav-glimmer");
 
+  await cdp.evaluate("scrollBy(0, 12); window.dispatchEvent(new Event('scroll'))");
+  await cdp.waitFor("Number(getComputedStyle(document.documentElement).getPropertyValue('--ray-intensity')) > 0", "halo reacts to scroll", 8000);
+  evidence.halo = await cdp.evaluate(`(() => ({
+    intensity: Number(getComputedStyle(document.documentElement).getPropertyValue('--ray-intensity')),
+    shift: getComputedStyle(document.documentElement).getPropertyValue('--ray-shift').trim(),
+    renderedOpacity: Number(getComputedStyle(document.querySelector('.halo-sunshine')).opacity),
+  }))()`);
+
   if (!SUPPORTING_ONLY) {
     await scrollArrival(cdp, 0.65);
     await cdp.waitFor("document.querySelector('.arrival.is-logo-flight') && document.querySelector('.logo-flight.is-active')", "seal flight", 36000);
@@ -305,6 +313,7 @@ async function main() {
     cursorRevealIncreasesPixels: evidence.cursorMatrix.alphaRatio > 1.05,
     foregroundOccludesCanvas: evidence.glimmer.canvasInHeader.alphaSum === 0,
     glimmerVisible: evidence.glimmer.classApplied && evidence.glimmer.opacity > 0.1,
+    haloRemainsSubtle: evidence.halo.intensity > 0 && evidence.halo.renderedOpacity <= 0.08,
     choreographyPreserved: SUPPORTING_ONLY ? null : evidence.sealFlight.active && evidence.glyphO.brandFilled && evidence.glyphO.active,
     chapterTransitionReached: SUPPORTING_ONLY ? null : evidence.chapter.numeral === "၂" && evidence.chapter.corridorOpacity > 0.5,
     mobileChromeSeparated: evidence.mobile.chromeSeparated,
