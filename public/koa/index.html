@@ -9,26 +9,28 @@
 <link rel="icon" href="assets/koa-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600&family=Noto+Serif+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="storytelling.css">
 <script src="storytelling.js" defer></script>
 </head>
-<body>
+<body class="home-cinema">
 <a class="skip" href="#main">Skip to main content</a>
 
-<header class="header" data-header>
+<header class="header" data-header data-premium-banner data-glyph-occlude>
   <a class="brand" href="index.html">
-    <img src="assets/koa-logo.png" alt="">
-    <span><strong>KOA</strong><small>Karen Organization of America</small></span>
+    <span class="brand-mark-slot" aria-hidden="true">
+      <img src="assets/koa-logo.png" alt="" data-brand-mark>
+    </span>
+    <span class="brand-type"><strong>KOA</strong><small>Karen Organization of America</small></span>
   </a>
-  <nav class="nav" aria-label="Primary">
-    <a aria-current="page" href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="programs.html">Programs</a>
-    <a href="stories.html">Stories</a>
-    <a href="music.html">Music</a>
-    <a href="coming-soon.html">Coming Soon</a>
-    <a href="contact.html">Contact</a>
+  <nav class="nav" aria-label="Primary" data-breathing-nav>
+    <a aria-current="page" href="index.html"><span class="nav-label">Home</span><span class="nav-detail">Start here</span></a>
+    <a href="about.html"><span class="nav-label">About</span><span class="nav-detail">Our story</span></a>
+    <a href="programs.html"><span class="nav-label">Programs</span><span class="nav-detail">What we do</span></a>
+    <a href="stories.html"><span class="nav-label">Stories</span><span class="nav-detail">Community voices</span></a>
+    <a href="music.html"><span class="nav-label">Music</span><span class="nav-detail">Karen sound</span></a>
+    <a href="coming-soon.html"><span class="nav-label">Coming Soon</span><span class="nav-detail">What is building</span></a>
+    <a href="contact.html"><span class="nav-label">Contact</span><span class="nav-detail">Reach KOA</span></a>
   </nav>
   <div class="header-tools">
     <a class="pill pill--gold" href="#waitlist"><span class="pulse"></span>Join the early access</a>
@@ -36,6 +38,8 @@
     <button class="menu" data-menu aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
 </header>
+
+<img class="logo-flight" src="assets/koa-logo.png" alt="" aria-hidden="true" data-logo-flight>
 
 <div class="mobile-panel" id="mobile-panel" data-mobile-panel>
   <a href="index.html">Home</a>
@@ -56,24 +60,30 @@
        scroll, then dispersing into the film. -->
   <section class="arrival" data-arrival aria-label="KOA — the arrival">
     <div class="arrival-stage">
-      <!-- Chapter number flash: Burmese ↔ Arabic -->
-      <div class="chapter-flash-container">
-        <span class="chapter-bg-num chapter-bg-num--prologue" aria-hidden="true">KOA</span>
-        <span class="chapter-flash-arabic" aria-hidden="true">0</span>
-      </div>
-      <div class="halo" aria-hidden="true">
-        <i class="halo-rays"></i>
+      <template data-wordmark-reference>KOA</template>
+      <div class="halo" aria-hidden="true" data-glyph-corona data-glyph-occlude>
+        <i class="halo-sunshine"></i>
         <i class="halo-ring halo-ring--1"></i>
         <i class="halo-ring halo-ring--2"></i>
         <i class="halo-ring halo-ring--3"></i>
         <i class="halo-spiral"></i>
-        <img src="assets/koa-logo.png" alt="" class="halo-seal">
+        <span class="halo-glyph-rays" data-corona-rays></span>
+        <svg class="seal-orbit-type" data-seal-orbit viewBox="0 0 500 500" aria-hidden="true">
+          <defs>
+            <path id="seal-orbit-top" d="M 58 250 A 192 192 0 0 1 442 250"></path>
+            <path id="seal-orbit-bottom" d="M 58 250 A 192 192 0 0 0 442 250"></path>
+          </defs>
+          <text class="seal-orbit-type__primary"><textPath href="#seal-orbit-top" startOffset="50%" text-anchor="middle">KAREN ORGANIZATION OF AMERICA</textPath></text>
+          <text class="seal-orbit-type__secondary seal-orbit-type__karen" lang="kar"><textPath href="#seal-orbit-bottom" startOffset="50%" text-anchor="middle">ကညီပှၤတဝၢလၢ အမဲရကၤ · တၢ်ဃူတၢ်ဖိး · တၢ်ဘၣ်ထွဲ</textPath></text>
+        </svg>
+        <img src="assets/koa-logo.png" alt="" class="halo-seal" data-hero-seal>
       </div>
-      <div class="arrival-copy">
+      <span class="glyph-o-stage" data-glyph-o-stage aria-hidden="true"></span>
+      <div class="arrival-copy" data-glyph-occlude>
         <p class="eyebrow" data-arrival-beat>Karen Organization of America</p>
         <h1 data-arrival-beat>One people.<br>One <em>home.</em></h1>
       </div>
-      <div class="arrival-mission" data-arrival-beat>
+      <div class="arrival-mission" data-arrival-beat data-glyph-occlude>
         <p data-assemble="late">KOA exists so the Karen people in America have one national home — the elders who carried the language across an ocean, the parents keeping it alive at kitchen tables, the kids hearing it for the first time in a new country; the churches and the businesses, the musicians and the athletes, the cooks and the quiet keepers of every old song. One roof for the language, the food, the faith, the games, the news — and the future.</p>
       </div>
       <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
@@ -83,22 +93,24 @@
   <!-- ============================ THE FILM ============================ -->
   <section class="film" data-film data-total="3000" aria-label="KOA cinematic introduction">
     <div class="film-stage">
+      <div class="chapter-transition" data-chapter-transition aria-hidden="true">
+        <span class="chapter-transition__num" data-transition-num data-arabic="1">၁</span>
+      </div>
       <div class="film-letterbox" aria-hidden="true"><i class="lb lb--top"></i><i class="lb lb--bottom"></i></div>
       <div class="film-progress" aria-hidden="true"><i></i></div>
       <div class="film-label" aria-hidden="true">KOA · a homecoming in five chapters</div>
       <div class="film-meta" aria-hidden="true"><span>FRAME</span><b data-frame>0000</b><span>/ 3000</span></div>
-      <ol class="chapter-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
+      <ol class="chapter-dots" aria-hidden="true">
+        <li><span>၁</span></li><li><span>၂</span></li><li><span>၃</span></li><li><span>၄</span></li><li><span>၅</span></li>
+      </ol>
 
       <!-- Chapter 01 · rack focus -->
-      <article class="scene scene--rack active" data-scene data-glyph-num="၁">
-        <div class="chapter-flash-container">
-          <span class="chapter-bg-num" aria-hidden="true">၁</span>
-          <span class="chapter-flash-arabic" aria-hidden="true">1</span>
+      <article class="scene scene--rack scene--crowd active" data-scene data-glyph-num="၁" data-glyph-anchor="ne">
+        <span class="chapter-bg-num" data-arabic="1" aria-hidden="true">၁</span>
+        <div class="scene-media" data-glyph-occlude style="--position:50% 68%">
+          <img src="assets/fb-outdoor-gathering.jpg" alt="A large outdoor Karen community gathering across a flag-lined field">
         </div>
-        <div class="scene-media" style="--position:50% 40%">
-          <img src="assets/koa-community-care-ai.jpg" alt="An elder woman in traditional dress is steadied by a younger family member at a community food distribution at dusk">
-        </div>
-        <div class="scene-copy">
+        <div class="scene-copy reading-corridor" data-reading-corridor data-glyph-occlude>
           <p class="scene-script karen-script" data-beat lang="khw">ဒလ်စာလိက် ဒလ်သိုဟ် ဒလ်သၞာန်</p>
           <div data-beat>
             <p class="scene-kicker">01 · Since before borders</p>
@@ -106,38 +118,32 @@
           </div>
           <p class="scene-sub" data-beat data-assemble="late">A thousand years of song, scripture, and survival — carried now into America, into a new century, into a home of their own making.</p>
         </div>
-        <span class="scene-credit">Community care, at dusk</span>
+        <span class="scene-credit">Karen community, gathered in the open</span>
       </article>
 
       <!-- Chapter 02 · curtain wipe -->
-      <article class="scene scene--wipe" data-scene data-glyph-num="၂">
-        <div class="chapter-flash-container">
-          <span class="chapter-bg-num" aria-hidden="true">၂</span>
-          <span class="chapter-flash-arabic" aria-hidden="true">2</span>
+      <article class="scene scene--wipe" data-scene data-glyph-num="၂" data-glyph-anchor="se">
+        <span class="chapter-bg-num" data-arabic="2" aria-hidden="true">၂</span>
+        <div class="scene-media" data-glyph-occlude style="--position:50% 40%">
+          <img src="assets/koa-community-care-ai.jpg" alt="An elder woman in traditional dress is steadied by a younger family member at a community food distribution at dusk">
         </div>
-        <div class="scene-media" style="--position:50% 60%">
-          <img src="assets/fb-outdoor-gathering.jpg" alt="A large outdoor Karen community gathering">
-        </div>
-        <div class="scene-copy">
+        <div class="scene-copy reading-corridor" data-reading-corridor data-glyph-occlude>
           <div data-beat>
             <p class="scene-kicker">02 · The organization</p>
             <h2>One roof.<br>Every <em>need.</em></h2>
           </div>
           <p class="scene-sub" data-beat data-assemble="late">KOA works where the community stands — education, health, language, faith, and the everyday. A nonprofit built by Karen hands, for Karen people, across the United States.</p>
         </div>
-        <span class="scene-credit">Community scale</span>
+        <span class="scene-credit">Community care, at dusk</span>
       </article>
 
       <!-- Chapter 03 · iris -->
-      <article class="scene scene--iris" data-scene data-glyph-num="၃">
-        <div class="chapter-flash-container">
-          <span class="chapter-bg-num" aria-hidden="true">၃</span>
-          <span class="chapter-flash-arabic" aria-hidden="true">3</span>
-        </div>
-        <div class="scene-media" style="--position:50% 35%">
+      <article class="scene scene--iris" data-scene data-glyph-num="၃" data-glyph-anchor="nw">
+        <span class="chapter-bg-num" data-arabic="3" aria-hidden="true">၃</span>
+        <div class="scene-media" data-glyph-occlude style="--position:50% 35%">
           <img src="assets/koa-sepak-takraw-tournament-ai.jpg" alt="A sepak takraw player frozen mid-air over the net at a floodlit night tournament, crowd behind">
         </div>
-        <div class="scene-copy">
+        <div class="scene-copy reading-corridor" data-reading-corridor data-glyph-occlude>
           <div data-beat>
             <p class="scene-kicker">03 · Life in the open</p>
             <h2>Tournaments,<br>tables &amp; <em>songs.</em></h2>
@@ -148,15 +154,12 @@
       </article>
 
       <!-- Chapter 04 · rise -->
-      <article class="scene scene--rise" data-scene data-glyph-num="၄">
-        <div class="chapter-flash-container">
-          <span class="chapter-bg-num" aria-hidden="true">၄</span>
-          <span class="chapter-flash-arabic" aria-hidden="true">4</span>
-        </div>
-        <div class="scene-media" style="--position:50% 50%">
+      <article class="scene scene--rise" data-scene data-glyph-num="၄" data-glyph-anchor="sw">
+        <span class="chapter-bg-num" data-arabic="4" aria-hidden="true">၄</span>
+        <div class="scene-media" data-glyph-occlude style="--position:50% 50%">
           <img src="assets/koa-national-community-ai.jpg" alt="Karen community members gathered together at an outdoor gathering">
         </div>
-        <div class="scene-copy">
+        <div class="scene-copy reading-corridor" data-reading-corridor data-glyph-occlude>
           <div data-beat>
             <p class="scene-kicker">04 · The future, in our hands</p>
             <h2>We'll teach a<br>machine to <em>speak.</em></h2>
@@ -167,15 +170,12 @@
       </article>
 
       <!-- Chapter 05 · parting veil -->
-      <article class="scene scene--veil" data-scene data-glyph-num="၅">
-        <div class="chapter-flash-container">
-          <span class="chapter-bg-num" aria-hidden="true">၅</span>
-          <span class="chapter-flash-arabic" aria-hidden="true">5</span>
-        </div>
-        <div class="scene-media" style="--position:50% 45%">
+      <article class="scene scene--veil" data-scene data-glyph-num="၅" data-glyph-anchor="ne">
+        <span class="chapter-bg-num" data-arabic="5" aria-hidden="true">၅</span>
+        <div class="scene-media" data-glyph-occlude style="--position:50% 45%">
           <img src="assets/koa-community-care-ai.jpg" alt="A community handout at dusk, warm light under the eaves">
         </div>
-        <div class="scene-copy">
+        <div class="scene-copy reading-corridor" data-reading-corridor data-glyph-occlude>
           <div data-beat>
             <p class="scene-kicker">05 · An invitation</p>
             <h2>Come in.<br>Stay a <em>while.</em></h2>
@@ -222,6 +222,58 @@
           <a class="btn" href="about.html">About KOA</a>
           <a class="btn btn--ghost" href="programs.html">What we do</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ COMMITMENT LOOM ============================ -->
+  <section class="commitment-loom section" data-commitment-loom data-glyph-occlude aria-labelledby="commitment-title">
+    <div class="commitment-loom__light" aria-hidden="true"></div>
+    <div class="container commitment-loom__frame">
+      <div class="commitment-loom__intro" data-reveal>
+        <p class="eyebrow">What seriousness looks like</p>
+        <h2 id="commitment-title">A promise should<br>leave a <em>pattern.</em></h2>
+        <p class="lede">KOA's mission is larger than a launch. These are the standards the work should be judged by as each part is built.</p>
+        <div class="commitment-status" aria-label="Current mission status">
+          <span><i aria-hidden="true"></i><b>Mission</b><small>Declared</small></span>
+          <span><i aria-hidden="true"></i><b>Tools</b><small>In development</small></span>
+          <span><i aria-hidden="true"></i><b>Community voice</b><small>Invitation open</small></span>
+        </div>
+      </div>
+
+      <div class="commitment-list" data-reveal-stagger>
+        <article class="commitment-item is-open">
+          <button type="button" class="commitment-trigger" data-commitment-trigger aria-expanded="true" aria-controls="commitment-panel-listen">
+            <span class="commitment-index">I</span>
+            <span><small>Founding standard</small><strong>Listen before building.</strong></span>
+            <i aria-hidden="true"></i>
+          </button>
+          <div class="commitment-panel" id="commitment-panel-listen" data-commitment-panel aria-hidden="false">
+            <div><p>Elders, families, young people, churches, artists, organizers, and local leaders should shape what KOA makes. Community knowledge is not decoration; it is the starting material.</p></div>
+          </div>
+        </article>
+
+        <article class="commitment-item">
+          <button type="button" class="commitment-trigger" data-commitment-trigger aria-expanded="false" aria-controls="commitment-panel-truth">
+            <span class="commitment-index">II</span>
+            <span><small>Public standard</small><strong>Say what is ready.</strong></span>
+            <i aria-hidden="true"></i>
+          </button>
+          <div class="commitment-panel" id="commitment-panel-truth" data-commitment-panel aria-hidden="true">
+            <div><p>What exists, what is in development, and what remains an idea should always be named plainly. Trust grows when ambition and evidence are visible side by side.</p></div>
+          </div>
+        </article>
+
+        <article class="commitment-item">
+          <button type="button" class="commitment-trigger" data-commitment-trigger aria-expanded="false" aria-controls="commitment-panel-return">
+            <span class="commitment-index">III</span>
+            <span><small>Long-term standard</small><strong>Return with proof.</strong></span>
+            <i aria-hidden="true"></i>
+          </button>
+          <div class="commitment-panel" id="commitment-panel-return" data-commitment-panel aria-hidden="true">
+            <div><p>The work should come back to the community as useful tools, visible milestones, open invitations to participate, and clear ways to correct the course.</p></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>

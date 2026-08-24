@@ -25,37 +25,110 @@
   "use strict";
 
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var motionOn = !prefersReduced;
-  document.body.dataset.motion = motionOn ? "on" : "off";
+  var motionOn = true;
+  document.body.dataset.motion = "on";
+  document.body.dataset.motionPreference = prefersReduced ? "reduce" : "no-preference";
 
   var MYAN = ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
   var GLYPH_SET = "KOAKAREက" + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
+  var GLYPH_SET_DENSE = "ကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ" +
+    "က ခ ဂ ဃ င စ ဆ ဇ ည တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ အ" +
+    "၁ ၂ ၃ ၄ ၅ ၆ ၇ ၈ ၉ KOA KOA";
+
+  /* A single deterministic source keeps the living glyph field repeatable.
+     The seed spells KOA in hex and makes visual QA comparable between runs. */
+  function createSeededRandom(seed) {
+    return function () {
+      seed |= 0;
+      seed = seed + 0x6D2B79F5 | 0;
+      var value = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      value = value + Math.imul(value ^ value >>> 7, 61 | value) ^ value;
+      return ((value ^ value >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  var seededRandom = createSeededRandom(0x004b4f41);
+
+  function buildCoronaGlyphRays() {
+    var holder = document.querySelector("[data-corona-rays]");
+    if (!holder || holder.childElementCount) return;
+    var set = "ကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇၈၉";
+    var count = window.innerWidth < 720 ? 54 : 92;
+    for (var i = 0; i < count; i++) {
+      var ray = document.createElement("i");
+      ray.textContent = set.charAt(Math.floor(seededRandom() * set.length));
+      ray.style.setProperty("--ray-angle", (i / count * 360 + seededRandom() * 4 - 2).toFixed(2) + "deg");
+      // Viewport units keep every ray at a real orbital distance. Percentage
+      // transforms are relative to the tiny glyph itself and collapse into a
+      // bright cluster around the seal.
+      ray.style.setProperty("--ray-radius", (21 + seededRandom() * 19).toFixed(2) + "vmin");
+      ray.style.setProperty("--ray-size", (5 + seededRandom() * 7).toFixed(2) + "px");
+      ray.style.setProperty("--ray-alpha", (0.018 + seededRandom() * 0.045).toFixed(4));
+      ray.style.setProperty("--ray-delay", (-seededRandom() * 38).toFixed(2) + "s");
+      holder.appendChild(ray);
+    }
+  }
+
+  var MotionMath = {
+    clamp01: function (value) { return Math.min(1, Math.max(0, value)); },
+    lerp: function (from, to, amount) { return from + (to - from) * amount; },
+    map01: function (value, from, to) {
+      return MotionMath.clamp01((value - from) / Math.max(0.0001, to - from));
+    },
+    easeInOutQuint: function (value) {
+      return value < 0.5
+        ? 16 * value * value * value * value * value
+        : 1 - Math.pow(-2 * value + 2, 5) / 2;
+    },
+    easeOutExpo: function (value) {
+      return value >= 1 ? 1 : 1 - Math.pow(2, -10 * value);
+    },
+    easeInOutSine: function (value) {
+      return -(Math.cos(Math.PI * MotionMath.clamp01(value)) - 1) / 2;
+    },
+    easeWithHold: function (value, enterEnd, exitStart) {
+      var progress = MotionMath.clamp01(value);
+      if (progress < enterEnd) {
+        return MotionMath.easeOutExpo(progress / Math.max(0.0001, enterEnd)) * 0.5;
+      }
+      if (progress <= exitStart) return 0.5;
+      return 0.5 + MotionMath.easeInOutQuint(
+        (progress - exitStart) / Math.max(0.0001, 1 - exitStart)
+      ) * 0.5;
+    }
+  };
 
   /* ======================================================================
      GLYPH STAGE
      ====================================================================== */
   var GlyphStage = (function () {
     var canvas, ctx, W = 0, H = 0, DPR = 1;
-    var particles = [];
-    var targets = null;            // current formation points (word/loom)
-    var formationWord = null;
-    var formationMode = null;      // "word" | "loom" | "arrival" | null
-    var tintColor = null;          // rgb string for chapter temperature
+    var particles = [], targets = null, formationWord = null, formationMode = null;
+    var formationAnchor = "center";
+    var tintColor = null;
     var fontsReady = false;
     var pendingWord = null;
     var pendingLoom = false;
+    var pendingAnchor = null;
     var pendingArrival = false;
     var raf = null;
     var active = false;            // motion allowed + initialized
     var staticDrawn = false;
     var pointerX = 0, pointerY = 0;
+    var pointerClientX = -9999, pointerClientY = -9999, pointerActive = false;
     var scrollVel = 0, lastScrollY = window.scrollY, lastScrollT = performance.now();
+    var lastFrameT = performance.now();
 
     /* arrival state ------------------------------------------------------ */
     var arrivalAnchorY = 0.5;      // fraction of H where the KOA sits
     var arrivalScale = 1;
-    var arrivalScatter = 0;        // 0 = locked, 1 = fully dispersed
-    var arrivalCursor = true;      // pointer repels the formed glyphs
+    var arrivalScatter = 0;
+    var arrivalCursor = true;
+    var arrivalFormationAlpha = 0;
+    var arrivalPhase = "seal"; // "seal" | "grow" | "level" | "K_A" | "O_converge" | "risen" | "dispersing" | "done"
+    var arrivalProgress = 0;   // 0..1 within current phase
+    var sealGrowth = 1;        // 1 = normal size, grows to ~3 during "grow"
+    var O_convergeP = 0;       // 0..1 for O converging from off-screen
+    var rayIntensity = 0;      // 0..1, driven by scroll velocity
 
     /* rain state ---------------------------------------------------------- */
     var rainOn = false;
@@ -63,36 +136,78 @@
     var rainCols = [];
     var RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
 
+    /* background field (always on, occluded by foreground) ---------------- */
+    var bgField = {
+      on: true,
+      particles: [],
+      density: 0.92,
+      wanderStrength: 0.0045,
+      maxAlpha: 0.03
+    };
+    var occlusionRects = [];
+    var lastOcclusionBuild = 0;
+
     function glyphs() { return GLYPH_SET; }
 
     function makeParticles() {
-      var n = window.innerWidth < 720 ? 60 : 150;
-      particles = [];
-      var set = glyphs();
-      for (var i = 0; i < n; i++) {
-        var z = Math.random(); // volumetric depth: 0 = far, 1 = near
-        particles.push({
-          ch: set.charAt(Math.floor(Math.random() * set.length)),
-          x: Math.random() * W,
-          y: Math.random() * H,
-          z: z,
-          vx: (Math.random() - 0.5) * 0.18,
-          vy: (Math.random() - 0.5) * 0.14,
-          vz: (Math.random() - 0.5) * 0.0016,
-          size: 11 + Math.random() * 13,
-          baseAlpha: 0.05 + Math.random() * 0.10,
-          alpha: 0,
-          phase: Math.random() * Math.PI * 2,
-          speed: 0.5 + Math.random() * 1.2,
-          depth: 0.4 + z * 0.6,
-          tx: 0, ty: 0, hasTarget: false,
-          wx: 0, wy: 0, hasWay: false,   // loom thread waypoint (curved flight)
-          bx: 0, by: 0, hasBase: false,  // arrival base offsets (centered)
-          sx: 0, sy: 0, sf: 0,           // arrival scatter destination + factor
-          k: 0.045 + Math.random() * 0.05   // spring stiffness
-        });
-      }
-    }
+          var n = window.innerWidth < 720 ? 150 : 280;
+          particles = [];
+          var set = glyphs();
+          for (var i = 0; i < n; i++) {
+            var z = seededRandom(); // volumetric depth: 0 = far, 1 = near
+            particles.push({
+              ch: set.charAt(Math.floor(seededRandom() * set.length)),
+              x: seededRandom() * W,
+              y: seededRandom() * H,
+              z: z,
+              vx: (seededRandom() - 0.5) * 0.18,
+              vy: (seededRandom() - 0.5) * 0.14,
+              vz: (seededRandom() - 0.5) * 0.0016,
+              size: (W < 720 ? 12 : 14) + seededRandom() * (W < 720 ? 15 : 17),
+              baseAlpha: 0.05 + seededRandom() * 0.10,
+              alpha: 0,
+              phase: seededRandom() * Math.PI * 2,
+              speed: 0.5 + seededRandom() * 1.2,
+              depth: 0.4 + z * 0.6,
+              tx: 0, ty: 0, hasTarget: false,
+              wx: 0, wy: 0, hasWay: false,   // loom thread waypoint (curved flight)
+              bx: 0, by: 0, hasBase: false,  // arrival base offsets (centered)
+              sx: 0, sy: 0, sf: 0,           // arrival scatter destination + factor
+              ox: 0, oy: 0,                  // off-screen origin for the delayed O
+              arrivalRole: null,
+              k: 0.045 + seededRandom() * 0.05   // spring stiffness
+            });
+          }
+
+          /* background field particles — denser, subtler, occluded by DOM */
+          if (bgField.on) {
+            var bn = Math.floor((W * H / 9000) * bgField.density);
+            bn = Math.min(Math.max(bn, 120), 480);
+            bgField.particles = [];
+            var denseSet = glyphsDense();
+            for (i = 0; i < bn; i++) {
+              bgField.particles.push({
+                ch: denseSet.charAt(Math.floor(seededRandom() * denseSet.length)),
+                x: seededRandom() * W,
+                y: seededRandom() * H,
+                 schoolSpeed: seededRandom() < 0.22 ? 1.75 : 0.62,
+                 vx: (seededRandom() - 0.5) * 0.03,
+                 vy: (seededRandom() - 0.5) * 0.02,
+                 targetVx: (seededRandom() - 0.5) * 0.035,
+                 targetVy: (seededRandom() - 0.5) * 0.026,
+                 turnAt: performance.now() + 2200 + seededRandom() * 5200,
+                 size: 5 + seededRandom() * 7,
+                 alpha: seededRandom() * bgField.maxAlpha,
+                 lifePhase: seededRandom(),
+                 lifeMs: 9000 + seededRandom() * 17000,
+                phase: seededRandom() * Math.PI * 2,
+                speed: 0.2 + seededRandom() * 0.4,
+                wanderX: seededRandom() * 1000,
+                wanderY: seededRandom() * 1000
+              });
+            }
+          }
+        }
 
     function resize() {
       DPR = Math.min(2, window.devicePixelRatio || 1);
@@ -112,6 +227,7 @@
       canvas.className = "glyph-stage";
       canvas.setAttribute("aria-hidden", "true");
       document.body.appendChild(canvas);
+      buildCoronaGlyphRays();
       ctx = canvas.getContext("2d");
       resize();
       makeParticles();
@@ -121,7 +237,7 @@
         RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
         /* re-form whatever is on stage at the new size */
         if (formationMode === "arrival") formArrival(true);
-        else if (formationMode === "loom") formLoom(formationWord, true);
+        else if (formationMode === "loom") formLoom(formationWord, true, formationAnchor);
         else if (formationMode === "word") form(formationWord, true);
         if (active && motionOn) { raf = requestAnimationFrame(frame); }
         else { drawStatic(); }
@@ -129,6 +245,12 @@
       window.addEventListener("pointermove", function (e) {
         pointerX = (e.clientX / W - 0.5) * 2;
         pointerY = (e.clientY / H - 0.5) * 2;
+        pointerClientX = e.clientX;
+        pointerClientY = e.clientY;
+        pointerActive = true;
+      }, { passive: true });
+      document.documentElement.addEventListener("pointerleave", function () {
+        pointerActive = false;
       }, { passive: true });
       window.addEventListener("scroll", function () {
         var now = performance.now();
@@ -143,9 +265,9 @@
           fontsReady = true;
           if (pendingArrival) { pendingArrival = false; formArrival(); return; }
           if (pendingWord) {
-            var w = pendingWord, loom = pendingLoom;
-            pendingWord = null; pendingLoom = false;
-            if (loom) formLoom(w); else form(w);
+            var w = pendingWord, loom = pendingLoom, anchor = pendingAnchor;
+            pendingWord = null; pendingLoom = false; pendingAnchor = null;
+            if (loom) formLoom(w, false, anchor); else form(w);
           }
         });
       } else { fontsReady = true; }
@@ -191,10 +313,26 @@
       var pts = samplePoints(word, cx, cy, targetW, 5);
       // shuffle + cap to particle count
       for (var j = pts.length - 1; j > 0; j--) {
-        var k = Math.floor(Math.random() * (j + 1));
+        var k = Math.floor(seededRandom() * (j + 1));
         var t = pts[j]; pts[j] = pts[k]; pts[k] = t;
       }
       return pts.slice(0, particles.length);
+    }
+
+    function defaultCornerFor(word) {
+      var corners = ["ne", "se", "nw", "sw"];
+      var index = Math.max(0, MYAN.indexOf(word));
+      return corners[index % corners.length];
+    }
+
+    function cornerPoint(anchor) {
+      var mobile = W < 720;
+      var xInset = mobile ? W * 0.22 : Math.min(W * 0.16, 230);
+      var yInset = mobile ? H * 0.23 : Math.min(H * 0.23, 210);
+      return {
+        x: anchor.indexOf("w") > -1 ? xInset : W - xInset,
+        y: anchor.indexOf("n") > -1 ? yInset : H - yInset
+      };
     }
 
     /* Sample a diamond LOOM — the Karen weaving motif. Nested diamond
@@ -233,7 +371,7 @@
       // shuffle both pools; interleave loom (60%) + word (40%)
       var shuffle = function (arr) {
         for (var j = arr.length - 1; j > 0; j--) {
-          var k = Math.floor(Math.random() * (j + 1));
+          var k = Math.floor(seededRandom() * (j + 1));
           var t = arr[j]; arr[j] = arr[k]; arr[k] = t;
         }
         return arr;
@@ -269,9 +407,14 @@
       if (!fontsReady) { pendingWord = word; return; }
       formationWord = word; formationMode = "word";
       var isHome = !!document.querySelector("[data-film]");
-      var cx = W / 2;
-      var cy = isHome ? H * 0.40 : H * 0.30;
-      var tw = Math.min(W * 0.74, 880);
+      var holder = document.querySelector("[data-glyph-word]");
+      var anchor = holder && holder.dataset.glyphAnchor
+        ? holder.dataset.glyphAnchor
+        : defaultCornerFor(word);
+      var point = isHome ? { x: W / 2, y: H * 0.40 } : cornerPoint(anchor);
+      var cx = point.x;
+      var cy = point.y;
+      var tw = isHome ? Math.min(W * 0.74, 880) : Math.min(W * 0.22, 230);
       var pts = sampleWord(word, cx, cy, tw);
       if (!pts.length) { targets = null; return; }
       assignTargets(pts, []);
@@ -280,16 +423,22 @@
     }
 
     /* THE LOOM — word at the heart, woven diamond lattice framing it. */
-    function formLoom(word, silent) {
+    function formLoom(word, silent, anchor) {
       if (!canvas) init();
-      if (!fontsReady) { pendingWord = word; pendingLoom = true; return; }
+      if (!fontsReady) {
+        pendingWord = word;
+        pendingLoom = true;
+        pendingAnchor = anchor || defaultCornerFor(word);
+        return;
+      }
       formationWord = word; formationMode = "loom";
-      var cx = W / 2;
-      var cy = H * 0.42;
-      var tw = Math.min(W * 0.5, 460);
+      formationAnchor = anchor || defaultCornerFor(word);
+      var point = cornerPoint(formationAnchor);
+      var cx = point.x;
+      var cy = point.y;
+      var tw = Math.min(W * 0.2, 210);
       var pts = sampleWord(word, cx, cy, tw);
-      var r = Math.min(W, H) * 0.36;
-      if (window.innerWidth < 720) r = Math.min(W, H) * 0.42;
+      var r = Math.min(W, H) * (window.innerWidth < 720 ? 0.17 : 0.20);
       var loomPts = sampleLoom(cx, cy, r);
       if (!pts.length) { form(word, silent); return; }
       assignTargets(pts, loomPts);
@@ -297,60 +446,91 @@
       if (!silent && !raf && active) raf = requestAnimationFrame(frame);
     }
 
-    /* THE ARRIVAL — the KOA wordmark built from glyphs, centered and level.
-       Targets are stored as offsets from center so the whole formation can
-       rise, grow, and disperse every frame without re-sampling. */
+    /* THE ARRIVAL — K and A resolve around the seal first. The O owns its
+       own target pool and stays beyond the viewport until the seal completes
+       its flight into the header. */
     function formArrival(silent) {
       if (!canvas) init();
       if (!fontsReady) { pendingArrival = true; return; }
       formationWord = "KOA"; formationMode = "arrival";
-      var tw = Math.min(W * 0.82, 1000);
-      var pts = samplePoints("KOA", 0, 0, tw, 4, H * 0.4);
-      if (!pts.length) { targets = null; return; }
-      // center offsets
-      var cx0 = 0, cy0 = 0;
-      for (var i = 0; i < pts.length; i++) { cx0 += pts[i][0]; cy0 += pts[i][1]; }
-      cx0 /= pts.length; cy0 /= pts.length;
-      for (i = 0; i < pts.length; i++) { pts[i][0] -= cx0; pts[i][1] -= cy0; }
-      // shuffle
-      for (var j = pts.length - 1; j > 0; j--) {
-        var k = Math.floor(Math.random() * (j + 1));
-        var t = pts[j]; pts[j] = pts[k]; pts[k] = t;
+      formationAnchor = "center";
+      var letterWidth = Math.min(W * 0.30, 360);
+      var letterOffset = Math.min(W * 0.22, 300);
+      var kaPoints = samplePoints("K", -letterOffset, 0, letterWidth, 4, H * 0.4)
+        .concat(samplePoints("A", letterOffset, 0, letterWidth, 4, H * 0.4));
+      var oPoints = samplePoints("O", 0, 0, letterWidth, 4, H * 0.4);
+      if (!kaPoints.length || !oPoints.length) { targets = null; return; }
+
+      for (var j = kaPoints.length - 1; j > 0; j--) {
+        var k = Math.floor(seededRandom() * (j + 1));
+        var t = kaPoints[j]; kaPoints[j] = kaPoints[k]; kaPoints[k] = t;
       }
-      targets = pts.slice(0, particles.length);
+      for (j = oPoints.length - 1; j > 0; j--) {
+        k = Math.floor(seededRandom() * (j + 1));
+        t = oPoints[j]; oPoints[j] = oPoints[k]; oPoints[k] = t;
+      }
+
+      var oCount = Math.min(oPoints.length, Math.round(particles.length * 0.34));
+      var kaCount = Math.min(kaPoints.length, particles.length - oCount);
+      targets = kaPoints.slice(0, kaCount).concat(oPoints.slice(0, oCount));
       var n = Math.min(targets.length, particles.length);
-      for (i = 0; i < particles.length; i++) {
+      for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
         p.hasWay = false;
         if (i < n) {
-          p.bx = pts[i][0]; p.by = pts[i][1]; p.hasBase = true; p.hasTarget = true;
+          var point = targets[i];
+          p.bx = point[0]; p.by = point[1]; p.hasBase = true; p.hasTarget = true;
+          p.arrivalRole = i < kaCount ? "KA" : "O";
           // scatter destination: somewhere out toward the edges
-          var ang = Math.random() * Math.PI * 2;
-          var rad = Math.max(W, H) * (0.55 + Math.random() * 0.5);
+          var ang = seededRandom() * Math.PI * 2;
+          var rad = Math.max(W, H) * (0.55 + seededRandom() * 0.5);
           p.sx = W / 2 + Math.cos(ang) * rad;
           p.sy = H * arrivalAnchorY + Math.sin(ang) * rad * 0.7;
-          p.sf = 0.55 + Math.random() * 0.75;
+          p.sf = 0.55 + seededRandom() * 0.75;
+
+          if (p.arrivalRole === "O") {
+            var edge = (i - kaCount) % 4;
+            var margin = 50 + seededRandom() * 90;
+            p.ox = edge === 0 ? -margin : edge === 1 ? W + margin : seededRandom() * W;
+            p.oy = edge === 2 ? -margin : edge === 3 ? H + margin : seededRandom() * H;
+            if (!silent || O_convergeP < 0.02) {
+              p.x = p.ox;
+              p.y = p.oy;
+              p.alpha = 0;
+            }
+            continue;
+          }
+
           // begin at the seal's heart: the KOA rises off the logo itself
           if (!silent) {
             var d = Math.hypot(p.x - W / 2, p.y - H * 0.5);
             if (d > Math.min(W, H) * 0.34) {
-              p.x = W / 2 + (Math.random() - 0.5) * 90;
-              p.y = H * 0.5 + (Math.random() - 0.5) * 90;
+              p.x = W / 2 + (seededRandom() - 0.5) * 90;
+              p.y = H * 0.5 + (seededRandom() - 0.5) * 90;
               p.alpha = 0;
             }
           }
-        } else { p.hasBase = false; p.hasTarget = false; }
+        } else { p.hasBase = false; p.hasTarget = false; p.arrivalRole = null; }
       }
       if (!motionOn) { drawStatic(); return; }
       if (!silent && !raf && active) raf = requestAnimationFrame(frame);
     }
 
+    function setArrivalOProgress(value) {
+      O_convergeP = MotionMath.clamp01(value);
+      arrivalPhase = O_convergeP <= 0.001 ? "K_A"
+        : O_convergeP >= 0.999 ? "risen"
+        : "O_converge";
+      if (!motionOn) drawStatic();
+    }
+
     /* live transform of the arrival formation (called from scroll) */
-    function arrivalTransform(anchorY, scale, scatter, cursor) {
+    function arrivalTransform(anchorY, scale, scatter, cursor, visibility) {
       arrivalAnchorY = anchorY;
       arrivalScale = scale;
       arrivalScatter = scatter;
       arrivalCursor = cursor !== false;
+      arrivalFormationAlpha = visibility == null ? 1 : MotionMath.clamp01(visibility);
       if (!motionOn) drawStatic();
     }
 
@@ -373,19 +553,19 @@
 
     function spawnRainColumn(now) {
       var set = glyphs();
-      var size = 10 + Math.random() * 13;               // different sizes
-      var len = 4 + Math.floor(Math.random() * 11);      // different lengths
+      var size = 10 + seededRandom() * 13;               // different sizes
+      var len = 4 + Math.floor(seededRandom() * 11);      // different lengths
       var chars = [];
-      for (var i = 0; i < len; i++) chars.push(set.charAt(Math.floor(Math.random() * set.length)));
+      for (var i = 0; i < len; i++) chars.push(set.charAt(Math.floor(seededRandom() * set.length)));
       rainCols.push({
-        x: Math.random() * W,
-        y: H * (0.05 + Math.random() * 0.55),
+        x: seededRandom() * W,
+        y: H * (0.05 + seededRandom() * 0.55),
         size: size,
         chars: chars,
-        vy: 0.14 + Math.random() * 0.4,
+        vy: 0.14 + seededRandom() * 0.4,
         born: now,
-        life: 1400 + Math.random() * 2800,               // leaves at random times
-        maxAlpha: 0.07 + Math.random() * 0.09
+        life: 1400 + seededRandom() * 2800,               // leaves at seeded times
+        maxAlpha: 0.07 + seededRandom() * 0.09
       });
     }
 
@@ -393,7 +573,7 @@
       if (!rainOn) return;
       // intermittent spawning: base chance + scroll boost
       var chance = 0.010 + Math.min(0.10, Math.abs(scrollVel) * 0.012) + rainBoost * 0.05;
-      if (rainCols.length < RAIN_MAX && Math.random() < chance) spawnRainColumn(now);
+      if (rainCols.length < RAIN_MAX && seededRandom() < chance) spawnRainColumn(now);
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       for (var i = rainCols.length - 1; i >= 0; i--) {
@@ -415,7 +595,111 @@
         }
       }
       ctx.globalAlpha = 1;
-    }
+          }
+
+          /* ---- occlusion map for background field ------------------------------- */
+          function buildOcclusionMap(now) {
+            if (now - lastOcclusionBuild < 80) return;
+            lastOcclusionBuild = now;
+            occlusionRects = [];
+            var occluders = document.querySelectorAll("[data-glyph-occlude], header, footer, main a, main button, main input, .scene-credit, .split-copy, .split-media, .interlude, .waitlist, .section-head, .stats, .grid-4, .card, .film-label, .film-progress, .film-meta, .chapter-dots");
+            for (var i = 0; i < occluders.length; i++) {
+              var el = occluders[i];
+              var style = window.getComputedStyle(el);
+              if (style.display === "none" || style.visibility === "hidden" || parseFloat(style.opacity || "1") < 0.04) continue;
+              var r = el.getBoundingClientRect();
+              if (r.width < 1 || r.height < 1 || r.bottom < 0 || r.top > H || r.right < 0 || r.left > W) continue;
+              var pad = el.matches(".scene-copy, .arrival-copy, .arrival-mission") ? 24 : 14;
+              occlusionRects.push({
+                x: r.left - pad,
+                y: r.top - pad,
+                w: r.width + pad * 2,
+                h: r.height + pad * 2
+              });
+            }
+          }
+
+          function isOccluded(x, y) {
+            for (var i = 0; i < occlusionRects.length; i++) {
+              var r = occlusionRects[i];
+              if (x > r.x && x < r.x + r.w && y > r.y && y < r.y + r.h) return true;
+            }
+            return false;
+          }
+
+          /* ---- draw background field (occluded by foreground) ------------------- */
+          function smoothDirectionRetarget(p, now) {
+            if (now >= p.turnAt) {
+              p.targetVx = (seededRandom() - 0.5) * 0.04 * p.schoolSpeed;
+              p.targetVy = (seededRandom() - 0.5) * 0.03 * p.schoolSpeed;
+              p.turnAt = now + 2600 + seededRandom() * 5600;
+            }
+            p.vx = MotionMath.lerp(p.vx, p.targetVx, 0.012);
+            p.vy = MotionMath.lerp(p.vy, p.targetVy, 0.012);
+          }
+
+          function ditherThreshold(x, y) {
+            var gx = Math.floor(x / 7);
+            var gy = Math.floor(y / 7);
+            return ((gx * 17 + gy * 31 + (gx ^ gy) * 7) % 97) / 97;
+          }
+
+          function cursorReveal(x, y) {
+            if (!pointerActive) return 0;
+            var dx = x - pointerClientX;
+            var dy = y - pointerClientY;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+            var falloff = MotionMath.clamp01(1 - distance / Math.min(260, Math.max(150, W * 0.18)));
+            return falloff * falloff;
+          }
+
+          function respawnAmbientGlyph(p) {
+            var denseSet = glyphsDense();
+            p.ch = denseSet.charAt(Math.floor(seededRandom() * denseSet.length));
+            p.x = seededRandom() * W;
+            p.y = seededRandom() * H;
+            p.lifePhase = 0;
+            p.lifeMs = 9000 + seededRandom() * 17000;
+            p.schoolSpeed = seededRandom() < 0.22 ? 1.75 : 0.62;
+            p.targetVx = (seededRandom() - 0.5) * 0.035 * p.schoolSpeed;
+            p.targetVy = (seededRandom() - 0.5) * 0.026 * p.schoolSpeed;
+          }
+
+          function drawBackgroundField(now, frameDelta) {
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            for (var i = 0; i < bgField.particles.length; i++) {
+               var p = bgField.particles[i];
+               p.lifePhase += frameDelta / p.lifeMs;
+               if (p.lifePhase >= 1) respawnAmbientGlyph(p);
+               smoothDirectionRetarget(p, now);
+              p.wanderX += 0.01;
+              p.wanderY += 0.008;
+              p.x += p.vx;
+              p.y += p.vy;
+              if (p.x < -20) p.x = W + 20;
+              if (p.x > W + 20) p.x = -20;
+              if (p.y < -20) p.y = H + 20;
+              if (p.y > H + 20) p.y = -20;
+              var wx = Math.sin(p.wanderX) * bgField.wanderStrength * 1100;
+              var wy = Math.cos(p.wanderY) * bgField.wanderStrength * 800;
+              var px = p.x + wx;
+              var py = p.y + wy;
+              if (isOccluded(px, py)) continue;
+               var flicker = 0.72 + 0.28 * Math.sin(now * 0.0007 * p.speed + p.phase);
+               var lifeEnvelope = Math.min(1, p.lifePhase / 0.16, (1 - p.lifePhase) / 0.22);
+               var reveal = cursorReveal(px, py);
+               var dither = ditherThreshold(px, py);
+               var revealedAlpha = reveal > dither * 0.78 ? reveal * 0.105 : 0;
+               var a = Math.max(p.alpha * flicker, revealedAlpha) * Math.max(0, lifeEnvelope);
+              if (a < 0.004) continue;
+              ctx.globalAlpha = a;
+              ctx.font = p.size + "px 'Noto Sans Myanmar','Space Grotesk',serif";
+              ctx.fillStyle = tintColor || "#fff";
+              ctx.fillText(p.ch, px, py);
+            }
+            ctx.globalAlpha = 1;
+          }
 
     /* ---- drawing -------------------------------------------------------- */
     function drawGlyph(p, now, streak) {
@@ -424,6 +708,7 @@
       if (a < 0.004) return;
       var px = p.x + pointerX * 22 * p.depth;
       var py = p.y + pointerY * 14 * p.depth;
+      if (isOccluded(px, py)) return;
       if (streak > 3) {
         ctx.globalAlpha = a * 0.3;
         ctx.fillText(p.ch, px, py - streak * 1.4);
@@ -435,12 +720,25 @@
     }
 
     function frame(now) {
-      raf = null;
-      if (!active) return;
-      ctx.clearRect(0, 0, W, H);
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      var streak = Math.abs(scrollVel);
+          raf = null;
+          if (!active) return;
+          var frameDelta = Math.min(48, Math.max(1, now - lastFrameT));
+          lastFrameT = now;
+          ctx.clearRect(0, 0, W, H);
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          var streak = Math.abs(scrollVel);
+
+          var rayTarget = MotionMath.clamp01(Math.abs(scrollVel) / 9);
+          rayIntensity = MotionMath.lerp(rayIntensity, rayTarget, 0.055 * (frameDelta / 16));
+          document.documentElement.style.setProperty("--ray-intensity", rayIntensity.toFixed(4));
+          document.documentElement.style.setProperty("--ray-shift", (scrollVel * 0.55).toFixed(3) + "deg");
+
+          /* build occlusion map from DOM elements with data-glyph-occlude */
+          buildOcclusionMap(now);
+
+          /* --- draw background field (occluded by foreground elements) -------- */
+           if (bgField.on) drawBackgroundField(now, frameDelta);
 
       updateRain(now);
 
@@ -454,14 +752,23 @@
           /* the KOA lives here: anchored, scalable, dispersible */
           var tx = W / 2 + p.bx * arrivalScale;
           var ty = ay + p.by * arrivalScale;
+          var arrivalAlpha = 0.66 * arrivalFormationAlpha;
+          var spring = p.k * 1.5;
+          if (p.arrivalRole === "O") {
+            var oEase = MotionMath.easeInOutQuint(O_convergeP);
+            tx = MotionMath.lerp(p.ox, tx, oEase);
+            ty = MotionMath.lerp(p.oy, ty, oEase);
+            arrivalAlpha = 0.68 * MotionMath.easeInOutSine(O_convergeP);
+            spring = p.k * (0.72 + oEase * 1.75);
+          }
           if (arrivalScatter > 0.001) {
             tx += (p.sx - tx) * arrivalScatter * p.sf;
             ty += (p.sy - ty) * arrivalScatter * p.sf;
           }
-          p.x += (tx - p.x) * (p.k * 1.5);
-          p.y += (ty - p.y) * (p.k * 1.5);
+          p.x += (tx - p.x) * spring;
+          p.y += (ty - p.y) * spring;
           /* cursor-reactive: the formed glyphs shy away from the hand */
-          if (arrivalCursor && arrivalScatter < 0.4) {
+          if (arrivalCursor && arrivalScatter < 0.4 && (p.arrivalRole !== "O" || O_convergeP > 0.8)) {
             var dx = p.x - mpx, dy = p.y - mpy;
             var d = Math.sqrt(dx * dx + dy * dy);
             if (d < 130 && d > 0.001) {
@@ -471,7 +778,8 @@
             }
           }
           var dd = Math.abs(tx - p.x) + Math.abs(ty - p.y);
-          p.alpha += ((dd < 30 ? 0.66 : 0.30) - p.alpha) * 0.06;
+          var movingAlpha = p.arrivalRole === "O" ? arrivalAlpha * 0.52 : 0.30 * arrivalFormationAlpha;
+          p.alpha += ((dd < 30 ? arrivalAlpha : movingAlpha) - p.alpha) * 0.06;
         } else if (p.hasTarget) {
           if (p.hasWay) {
             // thread flight: pulled toward the arc waypoint first, then target
@@ -485,7 +793,8 @@
           p.y += (p.ty - p.y) * p.k;
           var d2 = Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y);
           var settled = d2 < 30;
-          p.alpha += ((settled ? 0.62 : 0.30) - p.alpha) * 0.06;
+          var settledAlpha = formationMode === "loom" ? 0.34 : 0.62;
+          p.alpha += ((settled ? settledAlpha : 0.24) - p.alpha) * 0.06;
         } else {
           p.x += p.vx; p.y += p.vy;
           // volumetric drift: particles slowly breathe through depth
@@ -518,6 +827,11 @@
         if (formationMode === "arrival" && p.hasBase) {
           p.x = W / 2 + p.bx * arrivalScale;
           p.y = ay + p.by * arrivalScale;
+          if (p.arrivalRole === "O" && motionOn && !prefersReduced) {
+            var staticO = MotionMath.easeInOutQuint(O_convergeP);
+            p.x = MotionMath.lerp(p.ox, p.x, staticO);
+            p.y = MotionMath.lerp(p.oy, p.y, staticO);
+          }
           p.alpha = 0.58;
         } else if (p.hasTarget) { p.x = p.tx; p.y = p.ty; p.alpha = 0.55; }
         else { p.alpha = p.baseAlpha; }
@@ -546,6 +860,7 @@
       form: form,
       formLoom: formLoom,
       formArrival: formArrival,
+      setArrivalOProgress: setArrivalOProgress,
       arrivalTransform: arrivalTransform,
       release: release,
       tint: tint,
@@ -581,7 +896,7 @@
     }
     var order = spans.map(function (_, idx) { return idx; });
     for (var j = order.length - 1; j > 0; j--) {
-      var k = Math.floor(Math.random() * (j + 1));
+      var k = Math.floor(seededRandom() * (j + 1));
       var t = order[j]; order[j] = order[k]; order[k] = t;
     }
     var n = 0;
@@ -596,6 +911,18 @@
   function syncMotionBtn() {
     if (!motionBtn) return;
     motionBtn.textContent = motionOn ? "Motion on" : "Motion off";
+    motionBtn.setAttribute("aria-pressed", motionOn ? "true" : "false");
+  }
+  function settleMotionContent() {
+    document.querySelectorAll("[data-reveal]").forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+    document.querySelectorAll(".aw").forEach(function (word) {
+      word.style.opacity = "1";
+    });
+    document.querySelectorAll("[data-count]").forEach(function (counter) {
+      counter.textContent = counter.dataset.count + (counter.dataset.suffix || "");
+    });
   }
   syncMotionBtn();
   if (motionBtn) {
@@ -604,6 +931,8 @@
       document.body.dataset.motion = motionOn ? "on" : "off";
       syncMotionBtn();
       GlyphStage.setActive(motionOn);
+      if (!motionOn) settleMotionContent();
+      window.dispatchEvent(new Event("scroll"));
     });
   }
 
@@ -689,6 +1018,16 @@
       GlyphStage.release();
     }
 
+    /* ---- Stagger data-reveal children --------------------------------------
+       Mark children before collecting observer targets; otherwise the newly
+       marked elements never enter the reveal observer. */
+    root.querySelectorAll("[data-reveal-stagger]").forEach(function (group) {
+      Array.prototype.forEach.call(group.children, function (child, i) {
+        child.setAttribute("data-reveal", "");
+        child.setAttribute("data-reveal-delay", String(i % 4));
+      });
+    });
+
     /* ---- Scroll reveals ---------------------------------------------------- */
     var revealEls = root.querySelectorAll("[data-reveal]");
     if ("IntersectionObserver" in window && motionOn) {
@@ -704,14 +1043,6 @@
     } else {
       revealEls.forEach(function (el) { el.classList.add("is-visible"); });
     }
-
-    /* ---- Stagger data-reveal children -------------------------------------- */
-    root.querySelectorAll("[data-reveal-stagger]").forEach(function (group) {
-      Array.prototype.forEach.call(group.children, function (child, i) {
-        child.setAttribute("data-reveal", "");
-        child.setAttribute("data-reveal-delay", String(i % 4));
-      });
-    });
 
     /* ---- Word assembly: standalone elements assemble on sight --------------
        Film scenes + the arrival mission are driven by their own choreography
@@ -735,11 +1066,147 @@
       var total = parseInt(film.dataset.total || "3000", 10);
       var cue = root.querySelector(".scroll-cue");
       var mission = arrivalEl.querySelector('[data-assemble="late"]');
+      var heroSeal = arrivalEl.querySelector("[data-hero-seal]");
+      var logoFlight = document.querySelector("[data-logo-flight]");
+      var brand = document.querySelector(".brand");
+      var brandMark = document.querySelector("[data-brand-mark]");
+      var chapterTransition = film.querySelector("[data-chapter-transition]");
+      var chapterTransitionNum = chapterTransition && chapterTransition.querySelector("[data-transition-num]");
+      var chapterTransitionFlashTimer = null;
+      var chapterTransitionHideTimer = null;
+      var numeralPulseTimer = null;
       var ticking = false;
       var control = "arrival"; // who owns the glyph stage right now
+      var smoothedArrival = 0;
+      var smoothedFilm = 0;
+      var timelineReady = false;
+      var SCROLL_LAG_MS = 3000;
+      var bufferedArrival = 0;
+      var bufferedFilm = 0;
+      var bufferedScrollQueue = [{ at: performance.now() - SCROLL_LAG_MS, arrival: 0, film: 0 }];
+      var MAX_PROGRESS_PER_SECOND = 0.032;
+      var ARRIVAL_PROGRESS_PER_SECOND = 0.04;
+      var CHAPTER_HOLD_MS = 1800;
+      var chapterHoldUntil = 0;
+      var heldChapterBoundary = -1;
+      var lastTimelineFrame = performance.now();
+
+      function advanceNormalizedProgress(current, target, maximumPerSecond, deltaMs) {
+        var maximumStep = maximumPerSecond * Math.min(64, Math.max(1, deltaMs)) / 1000;
+        var distance = target - current;
+        if (Math.abs(distance) <= maximumStep) return target;
+        return current + Math.sign(distance) * maximumStep;
+      }
+
+      function advanceFilmWithChapterHold(current, target, now, deltaMs) {
+        if (now < chapterHoldUntil) return current;
+        var next = advanceNormalizedProgress(current, target, MAX_PROGRESS_PER_SECOND, deltaMs);
+        if (target <= current) {
+          heldChapterBoundary = -1;
+          return next;
+        }
+        var currentChapter = Math.min(scenes.length - 1, Math.floor(current * scenes.length));
+        var nextChapter = Math.min(scenes.length - 1, Math.floor(next * scenes.length));
+        if (nextChapter > currentChapter && heldChapterBoundary !== nextChapter) {
+          heldChapterBoundary = nextChapter;
+          chapterHoldUntil = now + CHAPTER_HOLD_MS;
+          return Math.max(current, nextChapter / scenes.length - 0.0002);
+        }
+        if (nextChapter >= heldChapterBoundary) heldChapterBoundary = -1;
+        return next;
+      }
+
+      function measureScrollTargets() {
+        var arrivalRunway = Math.max(1, arrivalEl.offsetHeight - window.innerHeight);
+        var filmRunway = Math.max(1, film.offsetHeight - window.innerHeight);
+        return {
+          arrival: MotionMath.clamp01((window.scrollY - (arrivalEl.offsetTop || 0)) / arrivalRunway),
+          film: MotionMath.clamp01((window.scrollY - (film.offsetTop || 0)) / filmRunway)
+        };
+      }
+
+      function queueScrollTarget(at) {
+        var measured = measureScrollTargets();
+        var previous = bufferedScrollQueue[bufferedScrollQueue.length - 1];
+        if (previous && Math.abs(previous.arrival - measured.arrival) < 0.0001
+          && Math.abs(previous.film - measured.film) < 0.0001) return;
+        bufferedScrollQueue.push({ at: at, arrival: measured.arrival, film: measured.film });
+        if (bufferedScrollQueue.length > 240) bufferedScrollQueue.splice(0, bufferedScrollQueue.length - 240);
+      }
+
+      function readBufferedScrollTarget(now, direct) {
+        if (!motionOn || prefersReduced) {
+          bufferedScrollQueue.length = 0;
+          bufferedArrival = direct.arrival;
+          bufferedFilm = direct.film;
+          return direct;
+        }
+        var cutoff = now - SCROLL_LAG_MS;
+        while (bufferedScrollQueue.length && bufferedScrollQueue[0].at <= cutoff) {
+          var matured = bufferedScrollQueue.shift();
+          bufferedArrival = matured.arrival;
+          bufferedFilm = matured.film;
+        }
+        return { arrival: bufferedArrival, film: bufferedFilm };
+      }
 
       /* chapter color temperature — the film's light changes with the hour */
       var TEMPS = [null, "255,196,140", "238,240,235", "168,196,255", "150,232,222", "255,178,120"];
+
+      function flashArabicNumeral(element) {
+        if (!element || !motionOn || prefersReduced) return;
+        element.classList.add("is-arabic-flash");
+        setTimeout(function () { element.classList.remove("is-arabic-flash"); }, 96);
+      }
+
+      function scheduleNumeralPulse(scene, idx) {
+        if (numeralPulseTimer) clearTimeout(numeralPulseTimer);
+        var numeral = scene && scene.querySelector(".chapter-bg-num");
+        var schedule = function () {
+          numeralPulseTimer = setTimeout(function () {
+            if (scene && scene.classList.contains("active")) {
+              flashArabicNumeral(numeral);
+              schedule();
+            }
+          }, 4200 + seededRandom() * 2600 + idx * 120);
+        };
+        schedule();
+      }
+
+      function playChapterTransition(idx, scene) {
+        if (!chapterTransition || !chapterTransitionNum || !scene || !motionOn || prefersReduced) return;
+        if (chapterTransitionFlashTimer) clearTimeout(chapterTransitionFlashTimer);
+        if (chapterTransitionHideTimer) clearTimeout(chapterTransitionHideTimer);
+        chapterTransitionNum.textContent = scene.dataset.glyphNum || MYAN[idx];
+        chapterTransitionNum.dataset.arabic = ARABIC[idx] || String(idx + 1);
+        chapterTransition.classList.add("is-visible");
+        chapterTransitionNum.classList.remove("is-arabic-flash");
+        chapterTransitionFlashTimer = setTimeout(function () {
+          flashArabicNumeral(chapterTransitionNum);
+        }, 520);
+        chapterTransitionHideTimer = setTimeout(function () {
+          chapterTransition.classList.remove("is-visible");
+        }, 2200);
+      }
+
+      function updateReadingCorridor(scene, progress) {
+        if (!scene) return;
+        var corridor = scene.querySelector("[data-reading-corridor]");
+        if (!corridor) return;
+        if (!motionOn || prefersReduced) {
+          corridor.style.removeProperty("--corridor-y");
+          corridor.style.removeProperty("--corridor-opacity");
+          corridor.style.removeProperty("--corridor-blur");
+          return;
+        }
+        var held = MotionMath.easeWithHold(progress, 0.18, 0.82);
+        var enter = MotionMath.easeInOutSine(MotionMath.map01(progress, 0.015, 0.18));
+        var exit = 1 - MotionMath.easeInOutSine(MotionMath.map01(progress, 0.84, 0.995));
+        var opacity = Math.min(enter, exit);
+        corridor.style.setProperty("--corridor-y", MotionMath.lerp(6.5, -6.5, held).toFixed(3) + "vh");
+        corridor.style.setProperty("--corridor-opacity", opacity.toFixed(4));
+        corridor.style.setProperty("--corridor-blur", ((1 - opacity) * 5).toFixed(3) + "px");
+      }
 
       function onSceneChange(idx, scene) {
         dots.forEach(function (d, i) { d.classList.toggle("is-active", i === idx); });
@@ -750,7 +1217,10 @@
         GlyphStage.tint(t ? "rgb(" + t + ")" : null);
         /* the KOA's glyphs dissolve into this chapter's woven numeral */
         var num = scene && scene.dataset.glyphNum ? scene.dataset.glyphNum : MYAN[idx];
-        GlyphStage.formLoom(num);
+        var anchor = scene && scene.dataset.glyphAnchor ? scene.dataset.glyphAnchor : null;
+        GlyphStage.formLoom(num, false, anchor);
+        playChapterTransition(idx, scene);
+        scheduleNumeralPulse(scene, idx);
         /* and the chapter's words solidify */
         if (scene) {
           var late = scene.querySelector('[data-assemble="late"]');
@@ -758,35 +1228,106 @@
         }
       }
 
+      function updateLogoFlight(progress) {
+        if (!heroSeal || !logoFlight || !brand || !brandMark) return;
+
+        if (!motionOn || prefersReduced) {
+          brand.classList.add("is-filled");
+          logoFlight.classList.remove("is-active");
+          heroSeal.style.opacity = "1";
+          arrivalEl.classList.remove("is-logo-flight");
+          GlyphStage.setArrivalOProgress(1);
+          return;
+        }
+
+        var wordmarkReady = arrivalEl.classList.contains("is-wordmark-ready");
+        var flightProgress = wordmarkReady ? MotionMath.map01(progress, 0.58, 0.72) : 0;
+        if (flightProgress <= 0.001) {
+          brand.classList.remove("is-filled");
+          logoFlight.classList.remove("is-active");
+          heroSeal.style.opacity = "1";
+          arrivalEl.classList.remove("is-logo-flight");
+          return;
+        }
+
+        var source = heroSeal.getBoundingClientRect();
+        var target = brandMark.getBoundingClientRect();
+        var eased = MotionMath.easeInOutQuint(flightProgress);
+        var arc = Math.sin(Math.PI * flightProgress) * Math.min(72, window.innerHeight * 0.08);
+        var targetScale = target.width / Math.max(1, source.width);
+        var x = MotionMath.lerp(source.left, target.left, eased);
+        var y = MotionMath.lerp(source.top, target.top, eased) - arc;
+        var scale = MotionMath.lerp(1, targetScale, MotionMath.easeOutExpo(flightProgress));
+
+        logoFlight.style.width = source.width + "px";
+        logoFlight.style.height = source.height + "px";
+        logoFlight.style.transform = "translate3d(" + x + "px," + y + "px,0) scale(" + scale + ")";
+        logoFlight.classList.toggle("is-active", flightProgress < 0.985);
+        heroSeal.style.opacity = String(Math.max(0, 1 - flightProgress * 4));
+        brand.classList.toggle("is-filled", flightProgress >= 0.94);
+        arrivalEl.classList.toggle("is-logo-flight", flightProgress > 0.04);
+      }
+
       function updateHome() {
         ticking = false;
 
-        /* ---- arrival progress ------------------------------------------ */
-        var ah = arrivalEl.offsetHeight - window.innerHeight;
-        var aScrolled = Math.min(Math.max(window.scrollY - (arrivalEl.offsetTop || 0), 0), ah);
-        var pa = ah > 0 ? aScrolled / ah : 0;
-
-        /* ---- film progress ---------------------------------------------- */
-        var fh = film.offsetHeight - window.innerHeight;
-        var fScrolled = Math.min(Math.max(window.scrollY - (film.offsetTop || 0), 0), fh);
-        var pf = fh > 0 ? fScrolled / fh : 0;
-        var filmLive = window.scrollY + window.innerHeight > film.offsetTop + 40 && pf > 0.004;
+        /* Scroll is replayed three seconds late, then eased again. The delay
+           gives each visual state time to be read before the next one moves. */
+        var now = performance.now();
+        var timelineDelta = now - lastTimelineFrame;
+        lastTimelineFrame = now;
+        var directTargets = measureScrollTargets();
+        var bufferedTargets = readBufferedScrollTarget(now, directTargets);
+        var targetArrival = bufferedTargets.arrival;
+        var targetFilm = bufferedTargets.film;
+        if (!timelineReady || !motionOn || prefersReduced) {
+          smoothedArrival = targetArrival;
+          smoothedFilm = targetFilm;
+          timelineReady = true;
+        } else {
+          smoothedArrival = advanceNormalizedProgress(
+            smoothedArrival,
+            targetArrival,
+            ARRIVAL_PROGRESS_PER_SECOND,
+            timelineDelta
+          );
+          smoothedFilm = advanceFilmWithChapterHold(
+            smoothedFilm,
+            targetFilm,
+            now,
+            timelineDelta
+          );
+        }
+        var pa = smoothedArrival;
+        var pf = smoothedFilm;
+        var filmLive = window.scrollY + window.innerHeight > film.offsetTop + 40 && targetFilm > 0.004;
 
         if (bar) bar.style.width = (pf * 100).toFixed(2) + "%";
         if (frameEl) frameEl.textContent = String(Math.round(pf * total)).padStart(4, "0");
 
         var idx = Math.min(scenes.length - 1, Math.floor(pf * scenes.length));
+        var sceneProgress = MotionMath.clamp01(pf * scenes.length - idx);
         if (filmLive) {
           scenes.forEach(function (s, i) { s.classList.toggle("active", i === idx); });
+          updateReadingCorridor(scenes[idx], sceneProgress);
         } else {
           scenes.forEach(function (s) { s.classList.remove("active"); });
         }
         if (cue) cue.classList.toggle("is-hidden", pa > 0.03);
 
         /* ---- arrival phase states (CSS hooks) --------------------------- */
-        arrivalEl.classList.toggle("is-assembly", pa > 0.16);
-        arrivalEl.classList.toggle("is-risen", pa > 0.46);
-        arrivalEl.classList.toggle("is-scattering", pa > 0.72);
+        arrivalEl.classList.toggle("is-assembly", pa > 0.46);
+        arrivalEl.classList.toggle("is-glyph-o", pa > 0.73);
+        arrivalEl.classList.toggle("is-risen", pa > 0.86);
+        arrivalEl.classList.toggle("is-mission", pa > 0.88);
+        arrivalEl.classList.toggle("is-scattering", pa > 0.975);
+        if (header) header.classList.toggle("is-cinematic-complete", pa >= 0.965 || filmLive);
+        var sealMigration = MotionMath.easeInOutQuint(MotionMath.map01(pa, 0.03, 0.58));
+        arrivalEl.style.setProperty("--seal-scale", MotionMath.lerp(1, 0.43, sealMigration).toFixed(4));
+        arrivalEl.style.setProperty("--seal-y", MotionMath.lerp(50, 42, sealMigration).toFixed(3) + "%");
+        arrivalEl.style.setProperty("--seal-orbit", (MotionMath.easeInOutSine(MotionMath.map01(pa, 0, 0.72)) * 68).toFixed(3) + "deg");
+        arrivalEl.style.setProperty("--seal-orbit-opacity", (1 - MotionMath.easeInOutSine(MotionMath.map01(pa, 0.56, 0.7))).toFixed(4));
+        updateLogoFlight(pa);
 
         /* ---- who owns the glyphs ---------------------------------------- */
         if (filmLive) {
@@ -804,29 +1345,89 @@
             document.body.style.setProperty("--chapter-tint", "255,255,255");
           }
           /* the choreography: assemble → hold → rise → disperse */
-          var assembleP = Math.min(1, Math.max(0, (pa - 0.10) / 0.22));
-          var riseP = Math.min(1, Math.max(0, (pa - 0.46) / 0.30));
-          var scatterP = Math.min(1, Math.max(0, (pa - 0.74) / 0.24));
-          var ease = function (x) { return x * x * (3 - 2 * x); };
-          var anchorY = 0.42 - ease(riseP) * 0.24;         // seal line → top third
-          var scale = 1 + ease(riseP) * 0.16;               // grows a little
-          var scatter = ease(scatterP);
-          GlyphStage.arrivalTransform(anchorY, scale, scatter, assembleP > 0.5 && scatter < 0.3);
+          var assembleP = MotionMath.map01(pa, 0.06, 0.42);
+          var oProgress = (!motionOn || prefersReduced) ? 1 : MotionMath.map01(pa, 0.73, 0.86);
+          var riseP = MotionMath.map01(pa, 0.86, 0.965);
+          var scatterP = MotionMath.map01(pa, 0.975, 1);
+          var riseEase = MotionMath.easeInOutQuint(riseP);
+          var anchorY = 0.42 - riseEase * 0.18;              // complete KOA holds level before it rises
+          var scale = 1 + riseEase * 0.10;
+          var scatter = MotionMath.easeInOutQuint(scatterP);
+          GlyphStage.setArrivalOProgress(oProgress);
+          GlyphStage.arrivalTransform(anchorY, scale, scatter, assembleP > 0.5 && scatter < 0.3, assembleP);
           GlyphStage.boostRain(scatterP * 0.9 + Math.min(1, Math.abs(window.scrollY - (lastScrollForRain || 0)) / 240) * 0.4);
           lastScrollForRain = window.scrollY;
+          arrivalEl.style.setProperty("--rise", riseEase.toFixed(4));
           /* the mission tells itself once the KOA has risen */
-          if (pa > 0.5 && mission) assembleEl(mission);
+          if (pa > 0.88 && mission) assembleEl(mission);
+        }
+
+        var settling = Math.abs(targetArrival - smoothedArrival) > 0.00025
+          || Math.abs(targetFilm - smoothedFilm) > 0.00025
+          || bufferedScrollQueue.length > 0;
+        if (motionOn && !prefersReduced && settling && !ticking) {
+          ticking = true;
+          requestAnimationFrame(updateHome);
         }
       }
       var lastScrollForRain = 0;
 
       homeScrollHandler = function () {
+        queueScrollTarget(performance.now());
         if (!ticking) { ticking = true; requestAnimationFrame(updateHome); }
       };
-      homeResizeHandler = updateHome;
+      homeResizeHandler = function () {
+        bufferedScrollQueue.length = 0;
+        queueScrollTarget(performance.now() - SCROLL_LAG_MS);
+        updateHome();
+      };
       window.addEventListener("scroll", homeScrollHandler, { passive: true });
       window.addEventListener("resize", homeResizeHandler);
+      setTimeout(function () {
+        arrivalEl.classList.add("is-wordmark-ready");
+        homeScrollHandler();
+      }, 1800);
       updateHome();
+    }
+
+    /* ---- Commitment loom -------------------------------------------------
+       The summary of every standard is always visible. The optional detail
+       opens one at a time so the block stays readable instead of turning into
+       three competing motion panels. */
+    var commitmentLoom = root.querySelector("[data-commitment-loom]");
+    if (commitmentLoom && commitmentLoom.dataset.commitmentBound !== "true") {
+      commitmentLoom.dataset.commitmentBound = "true";
+      var commitmentTriggers = Array.prototype.slice.call(commitmentLoom.querySelectorAll("[data-commitment-trigger]"));
+
+      function setCommitmentOpen(activeTrigger) {
+        commitmentTriggers.forEach(function (trigger) {
+          var item = trigger.closest(".commitment-item");
+          var panelId = trigger.getAttribute("aria-controls");
+          var panel = panelId ? document.getElementById(panelId) : null;
+          var shouldOpen = trigger === activeTrigger;
+          trigger.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+          if (item) item.classList.toggle("is-open", shouldOpen);
+          if (panel) panel.setAttribute("aria-hidden", shouldOpen ? "false" : "true");
+        });
+      }
+
+      commitmentTriggers.forEach(function (trigger) {
+        trigger.addEventListener("click", function () {
+          var isOpen = trigger.getAttribute("aria-expanded") === "true";
+          if (!isOpen) setCommitmentOpen(trigger);
+        });
+      });
+
+      commitmentLoom.addEventListener("pointermove", function (event) {
+        if (!motionOn || prefersReduced || document.body.dataset.motion === "off") return;
+        var rect = commitmentLoom.getBoundingClientRect();
+        commitmentLoom.style.setProperty("--loom-x", ((event.clientX - rect.left) / Math.max(1, rect.width) * 100).toFixed(2) + "%");
+        commitmentLoom.style.setProperty("--loom-y", ((event.clientY - rect.top) / Math.max(1, rect.height) * 100).toFixed(2) + "%");
+      }, { passive: true });
+      commitmentLoom.addEventListener("pointerleave", function () {
+        commitmentLoom.style.setProperty("--loom-x", "50%");
+        commitmentLoom.style.setProperty("--loom-y", "50%");
+      });
     }
 
     /* ---- Partner wall (contact) --------------------------------------------
@@ -853,12 +1454,12 @@
       };
       var pickDifferent = function (currentMark) {
         var options = POOL.filter(function (p) { return p.mark !== currentMark; });
-        return options[Math.floor(Math.random() * options.length)];
+        return options[Math.floor(seededRandom() * options.length)];
       };
       slots.forEach(function (slot, i) { renderSlot(slot, POOL[i % POOL.length]); });
       if (motionOn && !prefersReduced && slots.length > 1) {
         partnerTimer = setInterval(function () {
-          var slot = slots[Math.floor(Math.random() * slots.length)];
+          var slot = slots[Math.floor(seededRandom() * slots.length)];
           slot.classList.add("is-swapping");
           setTimeout(function () {
             renderSlot(slot, pickDifferent(slot.dataset.mark));
