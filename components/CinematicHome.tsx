@@ -6,6 +6,7 @@ import type { Lang, Messages } from "./i18n";
 import { KOALogoIntro } from "./KOALogoIntro";
 import { KarenGlyphField } from "./KarenGlyphField";
 import { AsciiDitherCanvas } from "./AsciiDitherCanvas";
+import { SealAssembly } from "./cinematic/SealAssembly";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 const clampSigned = (value: number) => Math.min(0.5, Math.max(-0.5, value));
@@ -437,30 +438,13 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
 
           {/* Scene 1: Seal / National home */}
           <article className="cinematic-film__scene cinematic-film__scene--seal">
-            <div className="cinematic-film__seal-wrap" aria-hidden="true">
-              <div className="cinematic-film__seal-halo" />
-              <span className="cinematic-film__glyph-rays">
+            <div className="cinematic-film__seal-wrap">
+              <span className="cinematic-film__seal-name">Karen Organization of America</span>
+              <div className="cinematic-film__seal-halo" aria-hidden="true" />
+              <span className="cinematic-film__glyph-rays" aria-hidden="true">
                 {coronaRays.map((ray, index) => <i key={index} style={ray.style}>{ray.char}</i>)}
               </span>
-              <div className="cinematic-film__orbit">
-                <svg viewBox="0 0 500 500">
-                  <defs>
-                    <path id="bilingual-orbit-top" d="M 58 250 A 192 192 0 0 1 442 250" />
-                    <path id="bilingual-orbit-bottom" d="M 58 250 A 192 192 0 0 0 442 250" />
-                  </defs>
-                  <text>
-                    <textPath href="#bilingual-orbit-top" startOffset="50%" textAnchor="middle">
-                      KAREN ORGANIZATION OF AMERICA
-                    </textPath>
-                  </text>
-                  <text className="cinematic-film__orbit-karen" lang="kar">
-                    <textPath href="#bilingual-orbit-bottom" startOffset="50%" textAnchor="middle">
-                      ကညီပှၤတဝၢလၢ အမဲရကၤ · တၢ်ဃူတၢ်ဖိး · တၢ်ဘၣ်ထွဲ
-                    </textPath>
-                  </text>
-                </svg>
-              </div>
-              <img src="/koa/assets/koa-logo.png" alt="" width="1024" height="1024" fetchPriority="high" />
+              <SealAssembly rotation={360} />
             </div>
             <div className="cinematic-film__copy">
               <p className="cinematic-film__kicker">{messages.founded}</p>

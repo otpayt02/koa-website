@@ -1,19 +1,23 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
-const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
+const read = (path) => {
+  const url = new URL(`../${path}`, import.meta.url);
+  return existsSync(url) ? readFileSync(url, "utf8") : "";
+};
 const cinematic = read("components/CinematicHome.tsx");
+const sealAssembly = read("components/cinematic/SealAssembly.tsx");
 const header = read("components/Header.tsx");
 const css = read("app/globals.css");
 
 test("bilingual hero shares the boundaryless Karen glyph corona", () => {
   assert.match(cinematic, /cinematic-film__glyph-rays/);
-  assert.match(cinematic, /cinematic-film__orbit/);
-  assert.match(cinematic, /lang="kar"/);
+  assert.match(cinematic, /SealAssembly/);
+  assert.match(sealAssembly, /koa-seal-white-lettering-v2\.png/);
   assert.match(cinematic, /[\u1000-\u109f]/u);
   assert.match(css, /\.cinematic-film__glyph-rays/);
-  assert.match(css, /\.cinematic-film__orbit/);
+  assert.match(css, /\.cinematic-seal__annulus/);
 });
 
 test("bilingual cinematic uses normalized delayed progress instead of raw wheel distance", () => {
