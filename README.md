@@ -1,100 +1,82 @@
-# vinext-starter
+# Karen Organization of America cinematic website
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+This repository is the canonical React App Router application for the Karen Organization of America (KOA) website. It combines the public mission experience, slow cinematic storytelling, multilingual content, and protected administration in one codebase.
 
-## Prerequisites
+The current phase is local-only. It is not an official publication or deployment. Translations, organization relationships, photographs, cultural copy, and donation behavior remain review-gated.
 
-- Node.js `>=22.13.0`
+## Start here
 
-## Quick Start
+- [Cinematic cookbook](docs/KOA-CINEMATIC-COOKBOOK.md) — choreography, motion parameters, failure history, weighted references, and media.
+- [Canonical one-app design](docs/superpowers/specs/2026-08-24-koa-canonical-one-app-consolidation-design.md) — approved architecture and acceptance criteria.
+- [Request adherence ledger](docs/codex/REQUEST_ADHERENCE_LEDGER.md) — implemented, verified, deferred, and blocked requirements.
+- [Progress](docs/progress.md) and [decisions](docs/decisions.md) — phase history and rationale.
 
-```bash
-npm install
-npm run dev
-npm run build
+## Canonical application
+
+- `app/[lang]` — public React routes and language pivots.
+- `app/[lang]/admin` — authenticated administration.
+- [`components/CinematicHome.tsx`](components/CinematicHome.tsx) — current React home-film composition.
+- [`components/i18n.ts`](components/i18n.ts) and [`messages/`](messages) — current locale loader and catalogs.
+- [`db/schema.ts`](db/schema.ts) — content, translation, dictionary, and review data.
+- [`public/koa`](public/koa) — temporary read-only static visual reference; it is not a second product.
+- [`scripts/`](scripts) and [`tests/`](tests) — verification and the planned one-command local runner.
+
+The separate `koa-website-bilingual` worktree is historical. Its feature commit is already merged into `main`; it will be removed only after generated artifacts are reviewed and the React application has fresh parity proof.
+
+## View the current static reference
+
+The permanent React launcher is part of the next implementation phase. Until then, paste this once into PowerShell to open the temporary static film reference. Closing the PowerShell session does not automatically stop the hidden process; use the printed stop command.
+
+```powershell
+Set-Location 'C:\Users\olive\Projects\koa-website'; $global:KoaPreviewProcess = Start-Process -FilePath 'python' -ArgumentList '-m','http.server','8123','--bind','127.0.0.1','--directory','public\koa' -WorkingDirectory (Get-Location) -WindowStyle Hidden -PassThru; Start-Sleep -Seconds 1; Start-Process 'http://127.0.0.1:8123/index.html'; Write-Host "KOA reference: http://127.0.0.1:8123/index.html`nStop with: Stop-Process -Id $($global:KoaPreviewProcess.Id)"
 ```
 
-This starter does not use `wrangler.jsonc`.
+## Permanent canonical command
 
-## Included Shape
+After `scripts/run-koa.ps1` is implemented and verified, the React application will always start with this one paste:
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
-
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+```powershell
+Set-Location 'C:\Users\olive\Projects\koa-website'; powershell -NoProfile -ExecutionPolicy Bypass -File '.\scripts\run-koa.ps1'
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+The runner will verify dependencies, start exactly one vinext process, wait for readiness, open the English route, and print the exact stop command. It will never deploy.
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+## Development commands
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+```powershell
+Set-Location 'C:\Users\olive\Projects\koa-website'
+npm.cmd ci
+npm.cmd run dev
+npm.cmd test
+npm.cmd run build
+```
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+## Key media
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+![Exact KOA seal with embedded white circumference lettering](public/koa/assets/koa-seal-white-lettering-v2.png)
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+- [Exact rotating-annulus seal source](public/koa/assets/koa-seal-white-lettering-v2.png)
+- [Capitol community group](public/koa/assets/fb-capitol-group-mobile-enhanced.png)
+- [Community group](public/koa/assets/fb-community-group-mobile-enhanced.png)
+- [Capitol flags](public/koa/assets/fb-capitol-flags-mobile-enhanced.png)
+- [Outdoor gathering](public/koa/assets/fb-outdoor-gathering-mobile-enhanced.png)
+- [Phase 6 cursor-matrix proof](output/playwright/phase6-cursor-matrix.jpg)
+- [Phase 6 navigation-glimmer proof](output/playwright/phase6-nav-glimmer.jpg)
+- [Phase 6 mobile-film proof](output/playwright/phase6-mobile-film.jpg)
+- [Phase 6 mobile Motion-off proof](output/playwright/phase6-mobile-motion-off.jpg)
+- [Phase 6 runtime evidence](output/playwright/phase6-runtime-evidence.json)
 
-## Useful Commands
+The Facebook-derived files are local draft references. Original files, provenance, subject consent, and reuse rights must be documented before public use.
 
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+## Design principles
 
-## Learn More
+- One cinematic message per viewport, with long reading holds and breathing room.
+- Preserve the K–seal–A choreography and exact seal identity.
+- Keep glyphs behind foreground content and sparse enough to remain atmospheric.
+- Use Hermes blue fields, red interaction, and restrained gold ceremony.
+- Maintain complete, readable mobile and Motion-off compositions.
+- Treat English as source content; keep Thai, Burmese, and S'gaw Karen proposals traceable and reviewable.
 
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+## Approval boundaries
+
+Local source changes and tests are allowed. Deployment, public publication, remote branch deletion, donation processing, claims of official partnership, and unreviewed translation publication require separate approval.

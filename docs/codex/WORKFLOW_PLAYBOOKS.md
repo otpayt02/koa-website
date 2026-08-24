@@ -53,3 +53,16 @@
 - Verification: 18 desktop viewport heights, positive cursor alpha delta, zero foreground alpha, glimmer visible, mobile label below/above counter without overlap, zero overflow, settled Motion-off canvas, and empty runtime problem lists.
 - Rollback: revert the isolated matrix/glimmer/mobile CSS and keep prior Phase 5 artifacts intact.
 - Privacy, cost, and approval: local pointer coordinates are transient; screenshots contain only the local KOA page; no deployment or paid call.
+
+## Canonical one-app vinext handoff
+
+- Trigger: starting, repairing, or visually verifying the KOA React application after dependency, worktree, or watcher changes.
+- Outcome: one known vinext process serves the canonical `koa-website` checkout and opens the correct current route.
+- Inputs: canonical repository path, package lock, minimum free-disk threshold, desired port, expected source signature, and stop authority for the process started by this workflow.
+- Steps: verify at least 2 GB free; verify or restore locked dependencies; reject a missing `node_modules\.bin\vinext.cmd`; start one process and record its PID; wait for HTTP readiness; confirm the expected route/source signature; open the browser; print the exact stop command.
+- Tools and owner: `scripts/run-koa.ps1`, npm, vinext, PowerShell readiness polling, and browser QA; the implementation owner records PID, URL, and verification output.
+- Bottleneck: stale watchers and shared generated folders previously caused HMR loops and made old browser output look current.
+- Optimized version: the runner owns one PID and port, refuses to silently reuse an unidentified server, and never starts the historical bilingual worktree.
+- Verification: English route responds, canonical signature matches, console is clean, desktop/mobile/Motion-off smoke states render, and stopping the recorded PID releases the port.
+- Rollback: stop only the runner-owned PID and restore only runner/config changes; preserve generated proof and unrelated user work.
+- Privacy, cost, and approval: local-only; no credentials, public deployment, remote branch deletion, or external publication.

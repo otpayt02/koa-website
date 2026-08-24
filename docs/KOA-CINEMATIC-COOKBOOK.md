@@ -158,3 +158,114 @@ Copy this block for every new section before implementation.
 ## Phase boundary
 
 This cookbook does not authorize implementation of every later-page pattern in one pass. Finish and verify one bounded page or component family, then update the section card, proof, adherence ledger, progress, and decisions. Commit and push source only after that phase is verified. Deployment and official publication remain a separate explicit approval.
+
+## Phase 7 canonical one-app rule
+
+The React App Router in `C:\Users\olive\Projects\koa-website` on `main` is the sole canonical KOA runtime. The historical bilingual feature commit is already merged. Its worktree will be retired only after generated artifacts are reviewed. `public/koa` remains a temporary read-only browser/reference film until React parity is verified; do not implement new product features twice.
+
+Approved design: [KOA canonical one-app consolidation](superpowers/specs/2026-08-24-koa-canonical-one-app-consolidation-design.md).
+
+### Exact seal and orbit contract
+
+![Exact seal source with its original English and Karen circumference lettering](../public/koa/assets/koa-seal-white-lettering-v2.png)
+
+- The source is [`koa-seal-white-lettering-v2.png`](../public/koa/assets/koa-seal-white-lettering-v2.png).
+- The white English and Karen text embedded around the Statue of Liberty is part of the logo.
+- Render the inner seal stationary and rotate only an annular crop of the same file.
+- The annular crop and core always share center, scale, translation, and proportional radius.
+- Remove added SVG orbit words. Never add a second circumference outside the supplied lettering.
+
+### Persistent glyph-path contract
+
+- Give every glyph particle a stable ID and page-lifetime path state.
+- Formation and dispersion retarget paths; they do not destroy particles when a brief class or scroll window ends.
+- Keep the invisible symbol anchor stable while particles breathe around it.
+- Reduce speed with distance from the anchor so outer dispersion slows instead of vanishing.
+- Keep numeral and K/A formations sparse, translucent, and legible rather than solid.
+- Continue measuring visible foreground rectangles and suppress all matrix and ambient glyph drawing inside them.
+
+### Partner and Karen-organization cinema
+
+- Two rows travel slowly in opposite directions on a time-based loop; they are not scroll-linked.
+- Pause each row on hover and keyboard focus.
+- Motion off and reduced motion show a quiet wrapped grid.
+- Records require organization name, relationship status, logo source, permission status, URL, and reviewer.
+- Draft or unverified relationships stay inside admin preview and cannot be described publicly as partners.
+
+### Mobile-first authoring preview
+
+The protected Design Studio includes a `390×844` phone preview of the real canonical route. It is recursion-safe, keyboard accessible, and compares mobile, desktop, and Motion-off states. This is an authoring feature under `/[lang]/admin/design-studio`, not a public phone decoration.
+
+### Language Studio
+
+English is the default source. Thai (`th`), Burmese (`my`), and S'gaw Karen (`ksw`) are parallel locale proposals derived independently from English. S'gaw Karen proposals are always review-gated. Store provider/model, confidence, provenance, source revision, review status, reviewer, and supersession history. Never call unreviewed proposals training data.
+
+## Failed, blocked, and superseded idea register
+
+| Attempt | What happened | What the canonical app does |
+|---|---|---|
+| Magic UI glyph-matrix installer | npm dependency resolution failed; the bounded retry hit `ENOSPC` | Keep one first-party seeded canvas until a component proves materially better |
+| Narrow seal-flight headless probe | Two condition-based attempts timed out | Add durable phase telemetry and stable browser milestones |
+| Multiple bilingual/static vinext watchers | HMR loop and stale-route risk | Run exactly one canonical React process |
+| Build without `vinext.cmd` | Build could not start | Preflight free disk and restore dependencies safely |
+| Added SVG orbit outside the raster seal | Duplicated the supplied identity | Rotate only the exact seal's annular text crop |
+| Static and React products evolving together | Drift and duplicated work | React is canonical; static is a temporary reference |
+| Chained English → Thai → Burmese → Karen translation | Error and provenance compound at each hop | Generate independent proposals from English |
+| Short-lived glyph dispersion classes | Paths can disappear when the state window closes | Use stable particle IDs and persistent retargetable paths |
+
+## Reference strength and consideration weights
+
+Strength measures authority and reliability. Consideration measures how strongly a reference should shape this implementation. Both range from 0 to 100.
+
+| Reference | Strength | Consideration | Guardrail |
+|---|---:|---:|---|
+| Current explicit user instructions | 100 | 100 | Highest-priority product intent |
+| Supplied exact seal asset | 100 | 100 | Geometry and embedded text are fixed |
+| Approved one-app architecture | 100 | 100 | One main React runtime |
+| Current main React source | 95 | 100 | Canonical implementation baseline |
+| Fresh browser evidence | 95 | 95 | Governs regression decisions |
+| Existing K–seal–A cookbook contract | 90 | 95 | Preserve choreography |
+| KOA-approved copy/assets | 100 | 100 | Applies after approval is recorded |
+| Local Facebook-derived enhanced images | 60 | 50 | Draft only until originals and rights are documented |
+| Official KOA Facebook page | 80 | 60 | Discovery source, not automatic permission |
+| Referenced typography/halo site | 65 | 55 | Mood and technique, not cloning |
+| Algorithmic-art principles | 70 | 65 | Seeded natural motion and tunable behavior |
+| Generic component trends | 30 | 20 | Use only when mission and accessibility improve |
+
+## Media and source reference shelf
+
+### Media
+
+- [Exact seal](../public/koa/assets/koa-seal-white-lettering-v2.png)
+- [Capitol community group](../public/koa/assets/fb-capitol-group-mobile-enhanced.png)
+- [Community group](../public/koa/assets/fb-community-group-mobile-enhanced.png)
+- [Capitol flags](../public/koa/assets/fb-capitol-flags-mobile-enhanced.png)
+- [Outdoor gathering](../public/koa/assets/fb-outdoor-gathering-mobile-enhanced.png)
+- [Cursor-matrix proof](../output/playwright/phase6-cursor-matrix.jpg)
+- [Navigation-glimmer proof](../output/playwright/phase6-nav-glimmer.jpg)
+- [Mobile-film proof](../output/playwright/phase6-mobile-film.jpg)
+- [Mobile Motion-off proof](../output/playwright/phase6-mobile-motion-off.jpg)
+- [Runtime evidence JSON](../output/playwright/phase6-runtime-evidence.json)
+
+### Relevant files outside this docs folder
+
+- [React cinematic home](../components/CinematicHome.tsx)
+- [Locale loader](../components/i18n.ts)
+- [English messages](../messages/en.json)
+- [Current Karen messages](../messages/karen.json)
+- [Database schema](../db/schema.ts)
+- [Static film markup](../public/koa/index.html)
+- [Static film motion engine](../public/koa/storytelling.js)
+- [Static film styles](../public/koa/storytelling.css)
+- [Phase 6 browser verifier](../scripts/verify-phase6-cinema.cjs)
+- [Project README and PowerShell handoff](../README.md)
+
+## Versioned frame-story record
+
+Each verified phase adds `docs/cinematic/versions/vNNNN-<short-sha>.md` and a matching machine-readable manifest. Every frame records route, locale, entry condition, viewport visibility, foreground copy, background art, static features, motion features, tunables, exit condition, evidence, provenance, approval status, and the reason it exists. Page-specific design, spec, and ideas live under `docs/pages/<route>/`.
+
+The companion `UNDERSTANDING.md` explains why every important file exists, what it contains, and what breaks if it is absent. Planned skills—`koa-mobile-preview`, `koa-translation-mapper`, `koa-frame-story-spec`, and `repo-understanding-sync`—will update these records only after they are implemented and validated.
+
+## PowerShell viewing contract
+
+The temporary static reference and planned permanent React command are documented in the [README](../README.md). The eventual `scripts/run-koa.ps1` preflights disk space, starts one vinext process, waits for readiness, opens the local URL, and prints its stop command. It never deploys.

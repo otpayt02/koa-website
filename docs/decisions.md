@@ -116,3 +116,22 @@
 
 - Chosen: keep condition-based proof for the matrix, occlusion, glimmer, 1800vh geometry, mobile chrome, Motion off, overflow, and console; disclose the two timed-out headless seal-flight checks separately.
 - Why: source contracts and older proof are not a substitute for a new browser observation, and a blocked narrow state must not erase the supporting runtime evidence that did complete.
+
+## 2026-08-24 — Make main's React App Router the sole canonical KOA runtime
+
+- Chosen: consolidate public cinema, locales, translation authoring, mobile preview, and admin tools in `C:\Users\olive\Projects\koa-website` on `main`.
+- Considered: keep a permanent bilingual worktree or keep static and React runtimes evolving in parallel.
+- Why: the bilingual feature commit is already merged, while multiple runtimes created HMR conflicts, stale-browser risk, duplicated motion code, and unclear ownership.
+- Safety: keep `public/koa` read-only until React parity is proven; retire the worktree only after reviewing status; do not delete the remote branch or deploy.
+
+## 2026-08-24 — Rotate only the lettering embedded in the supplied seal
+
+- Chosen: split the exact seal image into a stationary core and a co-centered rotating annular crop.
+- Rejected: extra SVG orbit text outside the supplied logo.
+- Why: the white English and Karen circumference lettering is part of the approved logo and must preserve a constant proportional radius.
+
+## 2026-08-24 — Keep locale proposals parallel and review-gated
+
+- Chosen: English is the source; Thai, Burmese, and S'gaw Karen proposals are generated independently and retain provider, confidence, provenance, and review status.
+- Rejected: a chained English-to-Thai-to-Burmese-to-Karen pivot.
+- Why: independent proposals prevent compounded errors and preserve a defensible source relationship. S'gaw Karen pairs do not become approved training data without human review.

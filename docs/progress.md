@@ -68,6 +68,15 @@
 - Human review of Phase 5 pacing and cultural details before any public deployment.
 - Re-run bilingual rendered QA from one clean vinext process after the older watchers are stopped.
 
+## Phase 7 — Canonical one-app consolidation specification
+
+- Approved direction: main's React App Router becomes the sole canonical runtime.
+- Documented: one-app architecture, admin-only Language and Design Studios, exact seal annulus, persistent glyph paths, partner marquee, translation provenance, versioned frame manifests, and safe worktree retirement.
+- Documented: failed Magic UI install, fragile flight probe, multi-watcher HMR loop, missing vinext binary, duplicate SVG orbit, and static/React drift with canonical remedies.
+- Documented: one-paste temporary static preview and planned permanent `scripts/run-koa.ps1` command.
+- Recovered: C: now has about 12.2 GB free, removing the prior documentation blocker.
+- Waiting: user review of the committed written specification before the implementation plan is created.
+
 ## Phase 6 — Cursor matrix, interaction material, and runtime repair
 
 - Complete: added a pointer-local matrix limited to reviewed S'gaw Karen identity clusters plus K/O/A; it drifts, dithers, and shares the existing foreground occlusion map.
