@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { LanguageStudio } from "@/components/admin/LanguageStudio";
 import { isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
-import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
 import { requirePageAdmin } from "@/lib/page-auth";
 
@@ -22,9 +22,7 @@ export default async function LanguageStudioPage({ params }: { params: Promise<{
       <PageHero eyebrow="Admin authoring" title="Language Studio" description="A protected shell for source-led translation proposals and human review." compact>
         <StatusPill tone="gold">Admin only</StatusPill>
       </PageHero>
-      <Section eyebrow="Review boundary" title="Translation tools arrive in the next slice." intro="English remains the source of truth. Thai, Burmese, and S'gaw Karen proposals will retain provenance and require human approval before publication or training use.">
-        <div className="button-row"><a className="button button--secondary" href={`/${lang}/admin`}>Back to dashboard</a></div>
-      </Section>
+      <LanguageStudio lang={lang} />
     </>
   );
 }
