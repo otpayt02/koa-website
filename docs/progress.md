@@ -75,7 +75,7 @@
 - Documented: failed Magic UI install, fragile flight probe, multi-watcher HMR loop, missing vinext binary, duplicate SVG orbit, and static/React drift with canonical remedies.
 - Documented: one-paste temporary static preview and planned permanent `scripts/run-koa.ps1` command.
 - Recovered: C: now has about 12.2 GB free, removing the prior documentation blocker.
-- Waiting: user review of the committed written specification before the implementation plan is created.
+- Approved: the written specification was accepted on 2026-08-24; the task-by-task implementation plan is `docs/plans/2026-08-24-koa-canonical-one-app-phase-7.md`.
 
 ## Phase 6 — Cursor matrix, interaction material, and runtime repair
 

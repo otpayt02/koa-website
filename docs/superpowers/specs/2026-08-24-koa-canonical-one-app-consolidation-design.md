@@ -1,7 +1,7 @@
 # KOA canonical one-app consolidation design
 
 Date: 2026-08-24
-Status: Architecture approved; written specification awaiting user review
+Status: Approved by the user on 2026-08-24; implementation plan created
 Canonical repository: `C:\Users\olive\Projects\koa-website`
 
 ## Goal
