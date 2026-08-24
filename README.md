@@ -19,13 +19,13 @@ The current phase is local-only. It is not an official publication or deployment
 - [`components/i18n.ts`](components/i18n.ts) and [`messages/`](messages) — current locale loader and catalogs.
 - [`db/schema.ts`](db/schema.ts) — content, translation, dictionary, and review data.
 - [`public/koa`](public/koa) — temporary read-only static visual reference; it is not a second product.
-- [`scripts/`](scripts) and [`tests/`](tests) — verification and the planned one-command local runner.
+- [`scripts/`](scripts) and [`tests/`](tests) — verification and the one-command local runner.
 
 The separate `koa-website-bilingual` worktree is historical. Its feature commit is already merged into `main`; it will be removed only after generated artifacts are reviewed and the React application has fresh parity proof.
 
 ## View the current static reference
 
-The permanent React launcher is part of the next implementation phase. Until then, paste this once into PowerShell to open the temporary static film reference. Closing the PowerShell session does not automatically stop the hidden process; use the printed stop command.
+The static film reference remains available for read-only parity checks. Paste this once into PowerShell to open it. Closing the PowerShell session does not automatically stop the hidden process; use the printed stop command.
 
 ```powershell
 Set-Location 'C:\Users\olive\Projects\koa-website'; $global:KoaPreviewProcess = Start-Process -FilePath 'python' -ArgumentList '-m','http.server','8123','--bind','127.0.0.1','--directory','public\koa' -WorkingDirectory (Get-Location) -WindowStyle Hidden -PassThru; Start-Sleep -Seconds 1; Start-Process 'http://127.0.0.1:8123/index.html'; Write-Host "KOA reference: http://127.0.0.1:8123/index.html`nStop with: Stop-Process -Id $($global:KoaPreviewProcess.Id)"
@@ -33,13 +33,19 @@ Set-Location 'C:\Users\olive\Projects\koa-website'; $global:KoaPreviewProcess = 
 
 ## Permanent canonical command
 
-After `scripts/run-koa.ps1` is implemented and verified, the React application will always start with this one paste:
+Start the canonical React application with this one paste:
 
 ```powershell
 Set-Location 'C:\Users\olive\Projects\koa-website'; powershell -NoProfile -ExecutionPolicy Bypass -File '.\scripts\run-koa.ps1'
 ```
 
-The runner will verify dependencies, start exactly one vinext process, wait for readiness, open the English route, and print the exact stop command. It will never deploy.
+The runner verifies dependencies, starts exactly one vinext process, waits for readiness, opens the English route, and prints the exact stop command. It never deploys.
+
+Stop the owned local runtime with:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File '.\scripts\stop-koa.ps1'
+```
 
 ## Development commands
 
