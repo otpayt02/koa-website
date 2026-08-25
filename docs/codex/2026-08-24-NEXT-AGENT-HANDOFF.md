@@ -100,6 +100,7 @@ A cinematic, bilingual (eventually quad-lingual: EN/TH/MY/KSW) website for the S
 | `/{en,th,my,ksw}` | ✅ | 200 |
 | Admin anon rejection | ✅ | 307 to auth |
 | Existing Playwright evidence | ⚠️ | `output/playwright/phase7-*.jpg` and `phase7-runtime-evidence.json` exist from prior run but are **untracked**; verify freshness before committing |
+| Phase 7 Task 12 contract verifier (HTTP-only) | ⚠️ | **17/19 assertions pass** on `http://127.0.0.1:62290/en`. Failing: `cursorRevealIncreasesBackgroundPixels` (cursor-matrix interaction test) and `cleanRuntime` (Canvas2D `willReadFrequently` warning). Both pre-existing; not caused by the seal-contract test fix. |
 | `npm run lint` | ⚠️ | Not run this session — run before commit |
 | `npm test` (build + rendered) | ⚠️ | Not re-run this session — build already passed, but `tests/rendered-*.test.mjs` should be re-run after next build |
 | Phase 7 Task 12 fresh browser QA | 🔲 | Not performed this session — recommended next gate |
@@ -136,7 +137,10 @@ Run `git status` from this repo — you will see:
 
 1. **Commit the seal-contract test fix** — it's a one-line source repair with zero product change.
 2. **Stage the run-koa.ps1 / stop-koa.ps1 / test repairs** from prior Codex, review them, commit as `fix: harden one-paste runner ownership checks`.
-3. **Task 12 browser QA** — use `scripts/verify-phase7-one-app.cjs` against `http://127.0.0.1:62290/en`. Capture fresh `phase7-*.jpg` evidence. Update `docs/codex/REQUEST_ADHERENCE_LEDGER.md`.
+3. **Task 12 browser QA** — `scripts/verify-phase7-one-app.cjs` against `http://127.0.0.1:62290/en` currently yields **17/19 assertions green**. Two remaining amber items to investigate:
+   - `cursorRevealIncreasesBackgroundPixels` — the cursor-matrix reveal measurement doesn't cross its delta threshold; may need a longer settle time, a different sampling region, or confirmation that the measurement is still meaningful after the glyph-path persistence changes.
+   - `cleanRuntime` — a single Canvas2D `willReadFrequently` warning from the glyph canvas. Fix is one-line: set `{ willReadFrequently: true }` on the canvas `getContext("2d", …)` calls in `KOALogoIntro.tsx` / `LivingGlyphField.tsx`.
+   - Capture fresh `phase7-*.jpg` evidence once those two are resolved, then update `docs/codex/REQUEST_ADHERENCE_LEDGER.md`.
 4. **Task 13 bilingual worktree retirement** — verify `5d5bcfe` is ancestor of `main`, archive generated evidence to `output/worktree-archive/`, then remove.
 5. **Task 14 fast-forward** — only after Tasks 12+13 are green and the user confirms.
 6. **S'gaw-Mango AI integration spec** — drafted at `docs/specs/2026-08-24-sgaw-mango-ai-integration.md`. Implementation belongs in a future phase (likely Phase 8).
