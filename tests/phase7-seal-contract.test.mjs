@@ -49,9 +49,20 @@ test("co-centered complementary masks isolate the core and rotating annulus", ()
 });
 
 test("the established K-seal-A formation identifiers remain intact", () => {
-  for (const id of ["seal", "chapter1", "chapter2", "chapter3", "chapter4"]) {
-    assert.match(cinematic, new RegExp(`id: ["']${id}["']`));
+  // Chapters render through ChapterGlyphNumeral with SVG pattern IDs referenced by the numeral fill.
+  for (const patternId of [
+    "chapter-two-glyph-pattern",
+    "chapter-three-glyph-pattern",
+    "chapter-four-glyph-pattern",
+  ]) {
+    assert.match(cinematic, new RegExp(`id=\\{?["']${patternId}["']\\}?`));
+    assert.match(cinematic, new RegExp(`url\\(#\\$\\{id\\}\\)`));
   }
+  // The glyph-numeral component is what wires pattern id to text fill.
+  assert.match(cinematic, /ChapterGlyphNumeral\(\{\s*numeral,\s*id\s*\}/);
+  // Chapter 01 is the opening scene and must remain the first film article.
+  assert.match(cinematic, /cinematic-film__scene cinematic-film__scene--seal/);
+  assert.match(cinematic, /<SealAssembly rotation=\{360\} \/>/);
   assert.match(intro, /LETTER_SHAPES\s*=\s*\{[\s\S]*?K:\s*\[/);
   assert.match(intro, /LETTER_SHAPES\s*=\s*\{[\s\S]*?A:\s*\[/);
 });
