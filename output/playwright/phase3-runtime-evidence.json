@@ -1,0 +1,116 @@
+{
+  "target": "http://127.0.0.1:4187/koa/",
+  "capturedAt": "2026-08-23T15:50:48.562Z",
+  "runtimeExceptions": [],
+  "evidence": [
+    {
+      "label": "phase3-scroll-buffer",
+      "initialScale": "1.0000",
+      "scaleAfterOneSecond": "1.0000",
+      "scaleAfterSixSeconds": "0.9272",
+      "heldForThreeSeconds": true,
+      "replayStartedAfterBuffer": true
+    },
+    {
+      "label": "phase3-desktop-opener",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 0,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready",
+      "haloVisibility": "visible",
+      "flightOpacity": 0,
+      "brandFilled": false,
+      "rayIntensity": "0.0000",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase3-desktop-seal-migration",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 1436,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready",
+      "haloVisibility": "visible",
+      "flightOpacity": 0,
+      "brandFilled": false,
+      "rayIntensity": "0.0001",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase3-desktop-seal-flight",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 2457,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready is-assembly is-logo-flight",
+      "haloVisibility": "visible",
+      "flightOpacity": 1,
+      "brandFilled": false,
+      "rayIntensity": "0.0000",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase3-desktop-glyph-o",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 2986,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready is-assembly is-logo-flight is-glyph-o",
+      "haloVisibility": "hidden",
+      "flightOpacity": 0,
+      "brandFilled": true,
+      "rayIntensity": "0.0000",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase3-desktop-complete-koa",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 3289,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready is-assembly is-logo-flight is-glyph-o is-risen",
+      "haloVisibility": "hidden",
+      "flightOpacity": 0,
+      "brandFilled": true,
+      "rayIntensity": "0.0000",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase3-desktop-film",
+      "viewport": [
+        1440,
+        900
+      ],
+      "activeChapter": "၁",
+      "corridorOpacity": "1",
+      "corridorTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase3-mobile-glyph-o",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollY": 2552,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready is-assembly is-logo-flight is-glyph-o",
+      "haloVisibility": "hidden",
+      "flightOpacity": 0,
+      "brandFilled": true,
+      "rayIntensity": "0.0000",
+      "horizontalOverflow": 0
+    }
+  ]
+}
