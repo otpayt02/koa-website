@@ -203,7 +203,7 @@ for (const skillName of [
   test(`${skillName} exposes a focused reviewable operating contract`, () => {
     const skill = read(resolve(repositoryRoot, "skills", skillName, "SKILL.md"));
 
-    assert.match(skill, /^---\nname: [a-z0-9-]+\ndescription: .+\n---/);
+    assert.match(skill, /^---\r?\nname: [a-z0-9-]+\r?\ndescription: .+\r?\n---/);
     for (const heading of [
       "Trigger",
       "Inputs",
@@ -212,7 +212,7 @@ for (const skillName of [
       "Verification",
       "Approval boundary",
     ]) {
-      assert.match(skill, new RegExp(`^## ${heading}$`, "m"));
+      assert.match(skill, new RegExp(`^## ${heading}\\r?$`, "m"));
     }
     assert.match(skill, /approval|review/i);
   });
