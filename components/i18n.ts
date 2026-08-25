@@ -54,4 +54,6 @@ export const pageLabels = {
   board: pageLabel("The community board", "กระดานชุมชน", "ရပ်ရွာဘုတ်အဖွဲ့", "ပှၤတဝၢတၢ်တဲသကိးခီၣ်ထံး"),
   changelog: pageLabel("Built in public, accountable to community.", "สร้างอย่างเปิดเผย รับผิดชอบต่อชุมชน", "ပွင့်လင်းစွာ တည်ဆောက်ပြီး ရပ်ရွာကို တာဝန်ခံသည်", "တ့ထီၣ်လၢပှၤခဲလၢာ်အမဲာ်ညါ ဒီးစံးဆၢပှၤတဝၢ။"),
   admin: pageLabel("Community stewardship workspace", "พื้นที่ดูแลชุมชน", "ရပ်ရွာစောင့်ရှောက်မှု လုပ်ငန်းခွင်", "ပှၤတဝၢတၢ်ကွၢ်ထွဲအလီၢ်"),
+  ai: pageLabel("A Karen language tool, built by the Karen community.", "เครื่องมือภาษากะเหรี่ยง สร้างโดยชุมชนกะเหรี่ยง", "ကရင်ဘာသာစကား ကိရိယာ၊ ကရင်အသိုင်းအဝိုင်းက တည်ဆောက်ထားသည်", "ကညီကျိာ်တၢ်ပညိၣ်လၢပှၤတဝၢတဖၣ်တ့ထီၣ်။"),
+  music: pageLabel("The sound of home, carried forward.", "เสียงของบ้าน สืบสานต่อไป", "အိမ်၏ အသံကို ဆက်လက်သယ်ဆောင်သည်", "တၢ်သိၣ်အိၣ်အသဲ၊ ခါဆူညါ။"),
 } as const;

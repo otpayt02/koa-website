@@ -1933,3 +1933,92 @@ footer nav a:hover { color: var(--accent-secondary); }
   .design-studio__partner-review > header { align-items: flex-start; flex-direction: column; gap: 8px; }
   .design-studio__partner-review li { grid-template-columns: 1fr; }
 }
+
+/* ── Phase 8: truth-state labels ────────────────────────────────── */
+.truth-label {
+  display: inline-block;
+  margin: 12px 0 4px;
+  padding: 3px 10px;
+  font: 600 0.65rem / 1.5 var(--font-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid;
+}
+.truth-label--measured {
+  color: #5dbb63;
+  border-color: rgba(93, 187, 99, 0.3);
+  background: rgba(93, 187, 99, 0.08);
+}
+.truth-label--declared {
+  color: var(--accent-secondary);
+  border-color: rgba(212, 168, 67, 0.25);
+  background: rgba(212, 168, 67, 0.06);
+}
+.truth-label--development {
+  color: #8ba4c4;
+  border-color: rgba(139, 164, 196, 0.3);
+  background: rgba(139, 164, 196, 0.08);
+}
+
+/* ── Phase 8: chapter cards (music page) ────────────────────────── */
+.chapter-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.chapter-card:last-child { border-bottom: none; }
+.chapter-card__numeral {
+  font: 300 2.5rem var(--font-display);
+  color: var(--accent-secondary);
+  line-height: 1;
+  min-width: 48px;
+  text-align: center;
+}
+.chapter-card h3 {
+  margin: 0 0 8px;
+  font: 400 1.25rem var(--font-display);
+  color: var(--fg-primary);
+}
+.chapter-card p {
+  margin: 0;
+  color: var(--fg-secondary);
+  line-height: 1.65;
+}
+
+/* ── Phase 8: music editor iframe embed (option 4) ──────────────── */
+.music-embed-section {
+  padding: 80px 0;
+  background: var(--bg-elevated, #0d1117);
+}
+.music-embed-section h2 {
+  font: 300 2rem var(--font-display);
+  color: var(--fg-primary);
+  margin: 0 0 12px;
+}
+.music-embed-frame {
+  margin-top: 32px;
+}
+.music-embed-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 480px;
+  border-radius: 8px;
+  background: #111;
+}
+.music-embed-note {
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: var(--fg-secondary);
+  line-height: 1.55;
+}
+.music-embed-note a { color: var(--accent-secondary); }
+
+@media (max-width: 760px) {
+  .chapter-card { grid-template-columns: auto 1fr; gap: 12px; }
+  .chapter-card__numeral { font-size: 1.8rem; min-width: 36px; }
+  .music-embed-frame iframe { min-height: 320px; }
+}
