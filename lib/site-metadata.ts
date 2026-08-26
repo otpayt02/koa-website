@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { languages, localeMeta } from "@/components/i18n";
-import "./globals.css";
 
-export const metadata: Metadata = {
+export const siteMetadata: Metadata = {
   metadataBase: new URL("https://karen-organization-of-america.oliverp789.chatgpt.site"),
   title: {
     default: "Karen Organization of America | Many places. One community.",
@@ -10,12 +8,6 @@ export const metadata: Metadata = {
   },
   description:
     "A national home for Karen communities to lead, connect, and act together.",
-  alternates: {
-    canonical: "/en",
-    languages: Object.fromEntries(
-      languages.map((lang) => [localeMeta[lang].htmlLang, `/${lang}`]),
-    ),
-  },
   icons: {
     icon: "/koa/assets/koa-logo.png",
     shortcut: "/koa/assets/koa-logo.png",
@@ -32,15 +24,3 @@ export const metadata: Metadata = {
     images: ["/og-cinematic.png"],
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
-    </html>
-  );
-}

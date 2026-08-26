@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = { title: "Programs & Services", description: "Education, advocacy, community care, workforce, health, immigration, and language access programs." };
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "services", { title: "Programs & Services", description: "Education, advocacy, community care, workforce, health, immigration, and language access programs." });
+}
 
 const programs = [
   ["Civic education", "Advocacy training, public-system learning, Washington visits, and youth leadership development.", "Learn and lead"],

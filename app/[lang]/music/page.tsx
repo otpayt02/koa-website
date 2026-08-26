@@ -1,16 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = {
-  title: "Karen Music Director · Preserve, Equip, Connect",
-  description:
-    "Karen hymnody, bilingual chord-chart editor, and community music archive — preserving the sound of home for the S'gaw Karen diaspora.",
-};
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "music", {
+    title: "Karen Music Director · Preserve, Equip, Connect",
+    description:
+      "Karen hymnody, bilingual chord-chart editor, and community music archive — preserving the sound of home for the S'gaw Karen diaspora.",
+  });
+}
 
 const chapters = [
   {

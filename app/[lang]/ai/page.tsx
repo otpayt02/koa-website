@@ -1,16 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = {
-  title: "S'gaw-Mango AI · Karen Language Program",
-  description:
-    "A community-owned Karen language tool — dictionary, translation, glyph recognition, and sentence construction — built by and for the S'gaw Karen diaspora.",
-};
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "ai", {
+    title: "S'gaw-Mango AI · Karen Language Program",
+    description:
+      "A community-owned Karen language tool — dictionary, translation, glyph recognition, and sentence construction — built by and for the S'gaw Karen diaspora.",
+  });
+}
 
 const capabilities = [
   {

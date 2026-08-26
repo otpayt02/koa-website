@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { AudioRecorder } from "@/components/AudioRecorder";
 import { ContributionForm } from "@/components/ContributionForm";
 import { getMessages, isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { Card } from "@/components/Card";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = {
-  title: "Contribute to the Dictionary",
-  description: "Share Karen definitions, translations, examples, and recordings for community review."
-};
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "contribute", {
+    title: "Contribute to the Dictionary",
+    description: "Share Karen definitions, translations, examples, and recordings for community review.",
+  });
+}
 
 export default async function ContributePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params;

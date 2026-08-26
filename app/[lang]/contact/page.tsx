@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { AsyncForm } from "@/components/FormStatus";
 import { Input, Select, Textarea } from "@/components/Input";
 import { Card } from "@/components/Card";
 import { getMessages, isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = {
-  title: "Contact KOA",
-  description: "Contact the Karen Organization of America about programs, language access, partnerships, and community support."
-};
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "contact", {
+    title: "Contact KOA",
+    description: "Contact the Karen Organization of America about programs, language access, partnerships, and community support.",
+  });
+}
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params;

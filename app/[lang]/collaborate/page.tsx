@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import { DonationForm } from "@/components/DonationForm";
 import { FeatureRequestForm } from "@/components/FeatureRequestForm";
 import { Card } from "@/components/Card";
 import { getMessages, isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = {
-  title: "Collaborate & Contribute",
-  description: "Suggest a feature, propose a service, partner with KOA, or support community-led work."
-};
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "collaborate", {
+    title: "Collaborate & Contribute",
+    description: "Suggest a feature, propose a service, partner with KOA, or support community-led work.",
+  });
+}
 
 export default async function CollaboratePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params;

@@ -7,15 +7,17 @@ import { getMessages, isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
+import { withLocalizedMetadata } from "@/lib/locale-metadata";
 
 export function generateStaticParams() {
   return interpreters.map((interpreter) => ({ username: interpreter.username }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ username: string }> }): Promise<Metadata> {
-  const { username } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; username: string }> }): Promise<Metadata> {
+  const { lang: value, username } = await params;
   const profile = interpreters.find((interpreter) => interpreter.username === username);
-  return profile ? { title: `${profile.name} · Community profile`, description: `${profile.name}'s approved Karen language profile.` } : { title: "Community profile" };
+  const metadata = profile ? { title: `${profile.name} · Community profile`, description: `${profile.name}'s approved Karen language profile.` } : { title: "Community profile" };
+  return withLocalizedMetadata(isLang(value) ? value : "en", `u/${encodeURIComponent(username)}`, metadata);
 }
 
 export default async function ProfilePage({ params }: { params: Promise<{ lang: string; username: string }> }) {

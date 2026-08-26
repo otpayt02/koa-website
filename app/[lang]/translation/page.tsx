@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { AsyncForm } from "@/components/FormStatus";
 import { Input, Select, Textarea } from "@/components/Input";
 import { InterpreterCard } from "@/components/InterpreterCard";
@@ -7,11 +6,14 @@ import { getMessages, isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { Card } from "@/components/Card";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = {
-  title: "Translation & Interpretation",
-  description: "Request trusted Karen translation and interpretation from community-approved providers."
-};
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "translation", {
+    title: "Translation & Interpretation",
+    description: "Request trusted Karen translation and interpretation from community-approved providers.",
+  });
+}
 
 export default async function TranslationPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params;

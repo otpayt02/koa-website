@@ -5,8 +5,11 @@ import test from "node:test";
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 const workerPath = workerUrl.pathname.replace(/^\/(?:[A-Za-z]:)/, (drive) => drive.slice(1));
 const sourcePaths = [
-  new URL("../app/page.tsx", import.meta.url),
+  new URL("../app/(default)/page.tsx", import.meta.url),
+  new URL("../app/(default)/layout.tsx", import.meta.url),
+  new URL("../app/[lang]/layout.tsx", import.meta.url),
   new URL("../components/i18n.ts", import.meta.url),
+  new URL("../lib/locale-metadata.ts", import.meta.url),
 ];
 const builtArtifactIsCurrent =
   existsSync(workerPath) &&

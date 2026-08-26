@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
@@ -7,8 +6,11 @@ import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = { title: "Community", description: "Karen community stories, events, volunteer opportunities, and moderated discussions." };
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "community", { title: "Community", description: "Karen community stories, events, volunteer opportunities, and moderated discussions." });
+}
 
 export default async function CommunityPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params; if (!isLang(value)) return null; const lang = value;

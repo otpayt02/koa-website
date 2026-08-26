@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
@@ -7,8 +6,11 @@ import { dictionaryEntries } from "@/components/data";
 import { DictionaryEntry } from "@/components/DictionaryEntry";
 import { getMessages, isLang } from "@/components/i18n";
 import { Section } from "@/components/Section";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = { title: "Home", description: "A national home for Karen communities to connect, contribute, and lead." };
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "", { title: "Home", description: "A national home for Karen communities to connect, contribute, and lead." });
+}
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params;

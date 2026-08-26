@@ -161,7 +161,7 @@ test("all 50 grilling questions remain traceable as unconfirmed assumptions", ()
 
 test("the bilingual shell exposes baseline accessibility signals", () => {
   const relevantFiles = [
-    "app/layout.tsx",
+    "app/(default)/layout.tsx",
     "app/[lang]/layout.tsx",
     ...listFiles("components").filter((path) => [".tsx", ".ts"].includes(extname(path))),
   ];
@@ -184,10 +184,12 @@ test("technical SEO includes metadata, language alternates, sitemap, robots, and
   assertFile("app/robots.ts");
 
   const seoSource = [
-    "app/layout.tsx",
+    "app/(default)/layout.tsx",
     "app/[lang]/layout.tsx",
     "app/sitemap.ts",
     "app/robots.ts",
+    "lib/locale-metadata.ts",
+    "lib/site-metadata.ts",
     ...listFiles("app/[lang]").filter((path) => path.endsWith("page.tsx")),
   ]
     .map((path) => read(...path.split("/")))

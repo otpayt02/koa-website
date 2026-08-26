@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { discussions } from "@/components/data";
 import { getMessages, isLang, pageLabels } from "@/components/i18n";
@@ -6,8 +5,11 @@ import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
 import { Button } from "@/components/Button";
+import { localizedPageMetadata } from "@/lib/locale-metadata";
 
-export const metadata: Metadata = { title: "Community Board", description: "Moderated community suggestions, service ideas, and collaboration requests." };
+export function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
+  return localizedPageMetadata(params, "community/board", { title: "Community Board", description: "Moderated community suggestions, service ideas, and collaboration requests." });
+}
 
 export default async function CommunityBoardPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params;

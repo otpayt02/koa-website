@@ -8,15 +8,17 @@ import { getMessages, isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
+import { withLocalizedMetadata } from "@/lib/locale-metadata";
 
 export function generateStaticParams() {
   return dictionaryEntries.map((entry) => ({ id: entry.id }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; id: string }> }): Promise<Metadata> {
+  const { lang: value, id } = await params;
   const entry = dictionaryEntries.find((item) => item.id === id);
-  return entry ? { title: `${entry.word} · Karen Dictionary`, description: entry.definition.en } : { title: "Dictionary entry" };
+  const metadata = entry ? { title: `${entry.word} · Karen Dictionary`, description: entry.definition.en } : { title: "Dictionary entry" };
+  return withLocalizedMetadata(isLang(value) ? value : "en", `dictionary/${encodeURIComponent(id)}`, metadata);
 }
 
 export default async function DictionaryEntryPage({ params }: { params: Promise<{ lang: string; id: string }> }) {
