@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { languages, localeMeta } from "@/components/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,10 +12,9 @@ export const metadata: Metadata = {
     "A national home for Karen communities to lead, connect, and act together.",
   alternates: {
     canonical: "/en",
-    languages: {
-      en: "/en",
-      "ksw-US": "/karen",
-    },
+    languages: Object.fromEntries(
+      languages.map((lang) => [localeMeta[lang].htmlLang, `/${lang}`]),
+    ),
   },
   icons: {
     icon: "/koa/assets/koa-logo.png",

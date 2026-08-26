@@ -38,11 +38,15 @@ test("non-English locale catalogs remain proposals for human review", () => {
 
 test("root, static params, and sitemap share the canonical locale boundary", () => {
   const rootPage = read("app", "page.tsx");
+  const rootLayout = read("app", "layout.tsx");
   const languageLayout = read("app", "[lang]", "layout.tsx");
   const sitemap = read("app", "sitemap.ts");
 
   assert.match(rootPage, /redirect\(["']\/en["']\)/);
   assert.doesNotMatch(rootPage, /\/koa\//);
+  assert.match(rootLayout, /import\s*\{[^}]*languages[^}]*localeMeta[^}]*\}\s*from\s*["']@\/components\/i18n["']/s);
+  assert.match(rootLayout, /languages\.map\(/);
+  assert.doesNotMatch(rootLayout, /["']\/karen["']/);
   assert.match(languageLayout, /import\s*\{[^}]*languages[^}]*\}\s*from\s*["']@\/components\/i18n["']/s);
   assert.match(languageLayout, /languages\.map\(\(lang\)\s*=>\s*\(\{\s*lang\s*\}\)\)/);
   assert.doesNotMatch(languageLayout, /supportedLanguages\s*=/);
