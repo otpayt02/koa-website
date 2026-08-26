@@ -128,6 +128,29 @@ function Assert-KoaRuntimeIdentity {
   }
 }
 
+function ConvertTo-KoaProcessId {
+  param($Value)
+
+  $integralTypeNames = @(
+    'System.SByte',
+    'System.Byte',
+    'System.Int16',
+    'System.UInt16',
+    'System.Int32',
+    'System.UInt32',
+    'System.Int64',
+    'System.UInt64'
+  )
+  if ($null -eq $Value -or $Value.GetType().FullName -notin $integralTypeNames) {
+    throw 'Refusing runtime state with a malformed PID; expected a JSON integer.'
+  }
+  if ([decimal]$Value -lt [int]::MinValue -or [decimal]$Value -gt [int]::MaxValue) {
+    throw 'Refusing runtime state with a malformed PID outside the supported process-ID range.'
+  }
+
+  return [int]$Value
+}
+
 if (Test-Path -LiteralPath $statePath -PathType Leaf) {
   try {
     $state = Get-Content -LiteralPath $statePath -Raw | ConvertFrom-Json
@@ -136,21 +159,27 @@ if (Test-Path -LiteralPath $statePath -PathType Leaf) {
     throw "Refusing unreadable runtime state at '$statePath': $($_.Exception.Message)"
   }
 
-  $recordedPid = [int]$state.pid
-  $recordedProcess = Get-CimInstance -ClassName Win32_Process -Filter "ProcessId = $recordedPid" -ErrorAction SilentlyContinue
-  if ($null -ne $recordedProcess) {
-    Assert-KoaRuntimeIdentity -State $state -Process $recordedProcess -ExpectedRoot $koaRoot -ExpectedVinextCliPath $vinextCliPath
-
-    Write-Host "KOA already owns PID $recordedPid at $($state.url)."
-    if (-not $CheckOnly -and -not $NoBrowser) {
-      Start-Process ([string]$state.url)
-    }
-    Write-Host "Stop with: powershell -NoProfile -ExecutionPolicy Bypass -File '$PSScriptRoot\stop-koa.ps1'"
-    return
+  $recordedPid = ConvertTo-KoaProcessId -Value $state.pid
+  if ($recordedPid -lt 1) {
+    Remove-Item -LiteralPath $statePath -Force
+    Write-Host "Removed stale KOA runtime state with impossible PID $recordedPid; no process was inspected or stopped."
   }
+  else {
+    $recordedProcess = Get-CimInstance -ClassName Win32_Process -Filter "ProcessId = $recordedPid" -ErrorAction SilentlyContinue
+    if ($null -ne $recordedProcess) {
+      Assert-KoaRuntimeIdentity -State $state -Process $recordedProcess -ExpectedRoot $koaRoot -ExpectedVinextCliPath $vinextCliPath
 
-  Remove-Item -LiteralPath $statePath -Force
-  Write-Host "Removed stale KOA runtime state for exited PID $recordedPid."
+      Write-Host "KOA already owns PID $recordedPid at $($state.url)."
+      if (-not $CheckOnly -and -not $NoBrowser) {
+        Start-Process ([string]$state.url)
+      }
+      Write-Host "Stop with: powershell -NoProfile -ExecutionPolicy Bypass -File '$PSScriptRoot\stop-koa.ps1'"
+      return
+    }
+
+    Remove-Item -LiteralPath $statePath -Force
+    Write-Host "Removed stale KOA runtime state for exited PID $recordedPid."
+  }
 }
 
 $listeners = @(Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue)

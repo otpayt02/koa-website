@@ -83,6 +83,29 @@ function Assert-KoaRuntimeIdentity {
   }
 }
 
+function ConvertTo-KoaProcessId {
+  param($Value)
+
+  $integralTypeNames = @(
+    'System.SByte',
+    'System.Byte',
+    'System.Int16',
+    'System.UInt16',
+    'System.Int32',
+    'System.UInt32',
+    'System.Int64',
+    'System.UInt64'
+  )
+  if ($null -eq $Value -or $Value.GetType().FullName -notin $integralTypeNames) {
+    throw 'Refusing runtime state with a malformed PID; expected a JSON integer.'
+  }
+  if ([decimal]$Value -lt [int]::MinValue -or [decimal]$Value -gt [int]::MaxValue) {
+    throw 'Refusing runtime state with a malformed PID outside the supported process-ID range.'
+  }
+
+  return [int]$Value
+}
+
 try {
   $state = Get-Content -LiteralPath $statePath -Raw | ConvertFrom-Json
 }
@@ -96,9 +119,11 @@ foreach ($field in @('pid', 'port', 'url', 'root', 'startedAt')) {
   }
 }
 
-$ownedPid = [int]$state.pid
+$ownedPid = ConvertTo-KoaProcessId -Value $state.pid
 if ($ownedPid -lt 1) {
-  throw "Refusing invalid recorded PID $ownedPid."
+  Remove-Item -LiteralPath $statePath -Force
+  Write-Host "Removed stale KOA runtime state with impossible PID $ownedPid; no process was inspected or stopped."
+  return
 }
 
 $ownedProcess = Get-CimInstance -ClassName Win32_Process -Filter "ProcessId = $ownedPid" -ErrorAction SilentlyContinue
