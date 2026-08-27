@@ -107,3 +107,11 @@
 - Complete: Phase 8 Music landing page at `/[lang]/music` with option 4 iframe embed — five-chapter cinematic treatment, bilingual editor feature overview with truth-state labels, live iframe embed of the Karen Music Director chord-chart editor (`http://127.0.0.1:4177`), Karen music style spec section, contribution intake. Quad-lingual i18n entries added.
 - Added: CSS for `.truth-label` (Measured/Declared/In development badges), `.chapter-card` (music page chapter layout), and `.music-embed-section` (iframe embed frame) in `app/globals.css`.
 - Verified: 60/60 contract tests pass, TypeScript clean, production build includes `/:lang/ai` and `/:lang/music` as dynamic routes.
+
+## Director's Cut — approved direction and written-design gate
+
+- Approved: Living Loom Director's Cut for the static `public/koa` prototype.
+- Documented: the seal now dissolves in place before the glyph O converges; the former header-flight choreography is superseded for this prototype only.
+- Preserved: one seeded motion engine, native scroll, foreground occlusion, Burmese/Arabic chapter treatment, reading corridor, crowd-led documentary imagery, and reduced motion.
+- Current focus: written-spec review before implementation, as required by the creative-design workflow.
+- Boundary: the dirty React workstream remains untouched and publication remains approval-gated.

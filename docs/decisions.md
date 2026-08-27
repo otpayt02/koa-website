@@ -142,3 +142,10 @@
 - Considered: Astryx beta, Radix Primitives, and a styled shadcn/Magic UI layer.
 - Why: Base UI preserves the established KOA CSS and subject-specific visual language while Motion adds opt-in gestures, sequencing, and reduced-motion-aware transitions without forcing a whole-app theme migration.
 - Boundary: use these packages incrementally for admin and general interface controls. The existing seeded cinematic canvas, seal choreography, and persistent glyph engine remain first-party and must not gain a second animation runtime.
+
+## 2026-08-27 — Dissolve the static seal before the glyph O arrives
+
+- Chosen: in `public/koa`, keep the seal centered, expand it into the navy field, fade it completely, and then converge the glyph O from beyond all four viewport edges.
+- Superseded for this prototype: the earlier measured seal flight into the header.
+- Why: the latest user direction gives the O formation a clearer cause-and-effect sequence and lets the seal's navy field become the visual bridge into the page background.
+- Boundary: the compact header emblem appears later through a quiet material fade. The React canonical workstream is not changed in this pass.
