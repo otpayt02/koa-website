@@ -97,3 +97,42 @@ html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:
 .logo-scene:not(.active) .torch-flare{animation-play-state:paused}
 .scene-copy .story-line:not(.secondary),.story-line.secondary{backdrop-filter:none}
 @media(max-width:759px){.vortex-field{inset:-6%;opacity:.62}.vortex-field::before{filter:blur(5px)}.vortex-field::after{display:none}.logo-stack{filter:drop-shadow(0 18px 34px rgba(0,0,0,.44))}}
+
+/* KOA identity ritual: glyphs assemble, hold, scatter, then reveal the field. */
+.film{height:1400svh}
+.logo-scene{display:block;padding:0;background:radial-gradient(circle at 50% 45%,#293184 0,#131b4d 35%,#080d2d 72%)}
+.logo-scene::before,.logo-scene::after,.vortex-field{display:none}
+.identity-atmosphere,.glyph-depth-field,.glyph-dither-field{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.identity-atmosphere{z-index:0;background:radial-gradient(circle at 50% 34%,rgba(110,128,255,.12),transparent 38%)}
+.glyph-depth-field span{position:absolute;left:var(--x);top:var(--y);color:#f8f3e8;font-family:'Padauk','Myanmar Text',var(--serif);font-size:var(--size);opacity:var(--alpha);filter:blur(var(--blur));text-shadow:0 0 18px rgba(255,230,154,.2);animation:koa-depth-drift var(--drift) ease-in-out var(--delay) infinite alternate;will-change:transform,opacity}
+.glyph-dither-field{z-index:2;opacity:var(--dither-reveal,0);transition:opacity .18s linear}
+.glyph-dither-field span{position:absolute;color:#fff5c8;font-family:'Padauk','Myanmar Text',monospace;font-size:clamp(.58rem,.78vw,.82rem);line-height:1;transform:translate(-50%,-50%);transition:opacity .13s ease,transform .13s ease;text-shadow:0 0 12px rgba(242,200,90,.24)}
+.identity-lockup{position:absolute;z-index:6;top:50%;left:50%;display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,310px) minmax(0,1fr);gap:clamp(10px,2.5vw,40px);align-items:center;width:min(94vw,1120px);height:min(43vw,360px);transform:translate3d(-50%,-50%,0);transform-origin:center;will-change:transform,opacity}
+.glyph-letter{position:relative;width:100%;height:100%}
+.identity-glyph{position:absolute;top:50%;left:50%;display:block;color:#fff8dc;font-family:'Padauk','Myanmar Text',var(--serif);font-size:clamp(.68rem,1.35vw,1.08rem);font-weight:700;line-height:1;text-shadow:0 0 10px rgba(255,230,154,.42);transform-origin:center;will-change:transform,opacity}
+.identity-lockup .seal-orbit{position:relative;width:100%;aspect-ratio:1}
+.identity-lockup .logo-stack{position:absolute;z-index:4;inset:10%;width:auto;filter:drop-shadow(0 22px 46px rgba(0,0,0,.46));transform-origin:center;will-change:transform,opacity}
+.identity-lockup .logo-stack img{width:100%;height:100%;object-fit:contain}
+.seal-rays{position:absolute;z-index:1;inset:-8%;border-radius:50%;opacity:0;background:repeating-conic-gradient(from 0deg,rgba(255,230,154,.5) 0 1deg,transparent 1deg 8deg);filter:blur(2.4px);-webkit-mask:radial-gradient(circle,transparent 0 55%,#000 66% 70%,transparent 82%);mask:radial-gradient(circle,transparent 0 55%,#000 66% 70%,transparent 82%);transform-origin:center;will-change:transform,opacity}
+.seal-type-ring{position:absolute;z-index:3;inset:-4%;border-radius:50%;opacity:0;transform-origin:center;will-change:transform,opacity}
+.seal-type-ring span{position:absolute;top:50%;left:50%;height:54%;color:#f8f3e8;font-family:var(--sans);font-size:clamp(.38rem,.6vw,.58rem);font-weight:700;letter-spacing:.02em;transform:translate(-50%,-100%) rotate(var(--ring-angle));transform-origin:50% 100%;text-shadow:0 0 8px rgba(255,255,255,.34)}
+.identity-caption{position:absolute;z-index:7;right:var(--gutter);bottom:clamp(58px,10vh,100px);left:var(--gutter);opacity:0;text-align:center;will-change:transform,opacity}
+.identity-caption p{margin:0 0 .7rem;color:#ff767c;font-size:.61rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.identity-caption h1{max-width:920px;margin:0 auto;color:#f8f3e8;font:400 clamp(2rem,5.7vw,5.7rem)/.91 var(--serif);letter-spacing:-.055em}
+.identity-caption h1 em{color:#ffe69a;font-style:normal}
+.identity-instruction{position:absolute;z-index:8;right:var(--gutter);bottom:1.5rem;margin:0;color:#d7dcef;font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;will-change:opacity}
+.identity-instruction span{margin-left:.55rem;color:#ffe69a}
+@keyframes koa-depth-drift{0%{opacity:.025;transform:translate3d(-10px,18px,0) scale(.9)}50%{opacity:var(--alpha)}100%{opacity:.055;transform:translate3d(14px,-24px,0) scale(1.08)}}
+
+@media(max-width:759px){
+  .film{height:1250svh}
+  .identity-lockup{grid-template-columns:minmax(0,1fr) minmax(118px,34vw) minmax(0,1fr);gap:3px;width:106vw;height:min(64vw,300px)}
+  .identity-glyph{font-size:clamp(.52rem,2.2vw,.78rem)}
+  .seal-type-ring span{font-size:.31rem}
+  .seal-rays{filter:blur(1.4px)}
+  .identity-caption{bottom:15vh}
+  .identity-caption h1{font-size:clamp(2.1rem,11vw,3.9rem)}
+  .glyph-dither-field span:nth-child(3n){display:none}
+}
+@media(prefers-reduced-motion:reduce){.glyph-depth-field span{animation:none}.glyph-dither-field{opacity:.12}.identity-lockup{position:relative;top:auto;left:auto;width:min(92vw,760px);height:min(46vw,330px);margin:14vh auto 0;transform:none!important}.identity-caption{position:relative;right:auto;bottom:auto;left:auto;margin:2rem var(--gutter);opacity:1!important;transform:none!important}.identity-instruction{display:none}.identity-glyph{opacity:1!important}.identity-lockup .logo-stack,.seal-rays,.seal-type-ring{opacity:1!important;transform:none!important}}
+html[data-motion=reduced] .glyph-depth-field span{animation:none}html[data-motion=reduced] .glyph-dither-field{opacity:.12}html[data-motion=reduced] .identity-lockup{position:relative;top:auto;left:auto;width:min(92vw,760px);height:min(46vw,330px);margin:14vh auto 0;transform:none!important}html[data-motion=reduced] .identity-caption{position:relative;right:auto;bottom:auto;left:auto;margin:2rem var(--gutter);opacity:1!important;transform:none!important}html[data-motion=reduced] .identity-instruction{display:none}html[data-motion=reduced] .identity-glyph{opacity:1!important}html[data-motion=reduced] .identity-lockup .logo-stack,html[data-motion=reduced] .seal-rays,html[data-motion=reduced] .seal-type-ring{opacity:1!important;transform:none!important}

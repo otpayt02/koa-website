@@ -1,49 +1,35 @@
-**Evidence**
+# KOA identity ritual — design QA
 
-- Source visual truth: `C:\Users\olive\Projects\koa\qa\source-option-1.png`
-- Browser-rendered implementation: `C:\Users\olive\Projects\koa\qa\implementation-desktop.png`
-- Responsive browser evidence: `C:\Users\olive\Projects\koa\qa\implementation-mobile-programs.png`
-- Facebook-photo program evidence: `C:\Users\olive\Projects\koa\qa\implementation-facebook-programs.png`
-- Combined full-view comparison: `C:\Users\olive\Projects\koa\qa\desktop-comparison.png`
-- Source pixels: 919 × 1711. The source is a tall, two-chapter concept board rather than a single fixed viewport.
-- Desktop implementation pixels: 1265 × 712 at a 1280 × 720 CSS viewport, browser density 1.25.
-- Mobile implementation pixels: 375 × 811 at the browser's 390 × 844 mobile override.
-- State: homepage hero at rest for the desktop comparison; Programs page chapter scroll for mobile responsive evidence.
-- Density normalization: the combined comparison contains both images without upscaling the implementation. Each is fit within a labeled 1240 × 720 comparison region, preserving aspect ratio.
+## Evidence
 
-**Findings**
+- Design target: the August 29, 2026 KOA Codex handoff and follow-up constraints for the glyph-built K/O/A seal sequence.
+- Existing product source: the KOA navy, red, cream, and gold editorial site and its current photography-led chapters.
+- Rendered states inspected in the cloud browser: atmospheric opening, partial assembly, completed K/O/A lockup, upper-viewport hold, glyph scatter/seal fade, cursor dither field, and photo-story handoff.
+- Browser console: no application errors. The browser extension emitted unrelated metadata messages.
 
-- No actionable P0/P1/P2 differences remain.
-- Fonts and typography: the Libre Caslon display face and DM Sans UI face reproduce the serif/sans hierarchy, editorial scale, tight headline leading, and readable small navigation from the source. Mobile sizes use fluid clamps and preserve hierarchy without clipping.
-- Spacing and layout rhythm: the centered banner navigation, left chapter rail, full-bleed hero, glass narrative panel, and lower cinematic chapter structure match the selected direction. The responsive layout collapses controls and glass content into a single mobile column with touch-sized actions.
-- Colors and visual tokens: KOA navy, red, cream, and restrained gold remain consistent. No color-shifting treatment was introduced. Glass surfaces use subtle blur, hairline borders, and navy-to-transparent fades.
-- Image quality and asset fidelity: the implementation includes four user-supplied KOA Facebook photographs recreated as portrait-first backgrounds: a Capitol advocacy group, a community gathering, a Capitol flag demonstration, and a large outdoor gathering. It also retains two enhanced KOA project photographs and one complementary documentary-style generated scene. All assets are stored locally and photography remains full-bleed background imagery rather than off-axis cards. People, flags, architecture, and event context were preserved while improving resolution and mobile crop safety.
-- Copy and content: the implementation corrects the generated mock's inaccurate 2003 history. It uses the supplied KOA sequence: June 13, 2018; August 8, 2018; and the formation of one national body in Omaha, Nebraska.
-- Accessibility and controls: navigation landmarks, headings, skip link, dialog labeling, tab roles, focus styles, reduced-motion behavior, and button labels are present. Site search and program tab switching were exercised successfully.
+## Findings
 
-**Comparison History**
+- P0: none.
+- P1: none.
+- P2: none.
+- K and A are constructed from 62 live S'gaw Karen glyph fragments and resolve to the seal's optical height.
+- The seal scales down as the letterforms finish, then the complete lockup rises to an upper-middle responsive stop.
+- The lockup holds across an extended scroll interval before the seal fades and the glyphs scatter.
+- Circumference type and rays rotate in opposite directions at dampened scroll-linked speeds; the boundaries remain soft without a full-screen blur layer.
+- The post-scatter field uses a fixed glyph grid with a Bayer-style cursor dither threshold, not free-moving cursor particles.
+- Atmospheric glyphs vary in scale, opacity, speed, and blur, with lower counts on narrow screens.
+- The original photo-led chapters remain intact and begin only after the identity sequence resolves.
+- The animation uses one bounded requestAnimationFrame update per scroll event and pauses inactive scene work, preserving the earlier mobile crash fix.
+- Reduced motion presents a static completed lockup, visible caption, restrained background field, and normal document flow.
 
-- Initial concept issue: generated history copy introduced an incorrect 2003 founding narrative and staged synthetic photography.
-  Fix: replaced the history with the supplied 2018 KOA script, used enhanced source photography, and retained only one complementary generated scene.
-  Post-fix evidence: `qa/desktop-comparison.png` and the browser-rendered source/content snapshot.
-- Initial implementation issue: desktop-oriented imagery and side-image page patterns did not satisfy the requested mobile-first, background-only approach.
-  Fix: rebuilt Home, About, Programs, Stories, and Contact around full-bleed backgrounds and portrait-first asset crops; mobile glass panels and actions now stack into the safe focal area.
-  Post-fix evidence: `qa/implementation-mobile-programs.png`.
+## Primary interactions tested
 
-**Focused Region Comparison**
-
-- The hero region was inspected at full readable scale in `qa/desktop-comparison.png`; navigation, chapter rail, headline wrapping, glass treatment, CTAs, palette, and search icon are legible there. No additional crop was needed.
-
-**Primary Interactions Tested**
-
-- Open, type in, filter, and close the site-search dialog.
-- Switch program tabs and verify the live heading/content update.
-- Switch across all four Facebook-derived background placements and verify the images render without console errors.
-- Verify desktop navigation links and mobile menu presentation.
-- Check browser console warnings and errors: none.
-
-**Follow-up Polish**
-
-- P3: Once KOA can provide downloadable originals from Facebook, the current enhanced project images can be replaced one-for-one with higher-resolution source files without changing layout.
+- Scrub from fragmented opening through K/O/A completion.
+- Verify upper-viewport rise and hold interval.
+- Scrub through seal fade and glyph scatter.
+- Move the pointer across the static dither field.
+- Continue into the photography chapters without a crash.
+- Toggle Motion off and back on.
+- Use the first chapter control to return to the beginning.
 
 final result: passed
