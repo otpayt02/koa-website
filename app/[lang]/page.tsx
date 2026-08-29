@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
-import { CinematicHome } from "@/components/CinematicHome";
+import { CinematicLanding } from "@/components/CinematicLanding";
 import { dictionaryEntries } from "@/components/data";
 import { DictionaryEntry } from "@/components/DictionaryEntry";
 import { getMessages, isLang } from "@/components/i18n";
@@ -17,7 +17,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const m = getMessages(lang);
   return (
     <>
-      <CinematicHome lang={lang} messages={m} />
+      <CinematicLanding lang={lang} messages={m} />
 
       <Section eyebrow="Our purpose · ပတၢ်ပညိၣ်" title={lang === "ksw" ? "မၤဂၢၢ်မၤကျၢၤတၢ်ဃူတၢ်ဖိး။ ဒီသဒၢတၢ်ခွဲးတၢ်ယာ်။" : "Strengthen unity. Protect rights. Build belonging."} intro={lang === "ksw" ? "KOA ဆဲးကျိးပှၤတဝၢ၊ ကတိၤခဲပှၤတဖၣ်အဂီၢ်၊ ဒီးဟ့ၣ်တၢ်သ့တၢ်ဘၣ်လၢကတီခိၣ်ရိၣ်မဲ။" : "KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead."}>
         <div className="feature-grid feature-grid--3">
