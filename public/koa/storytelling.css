@@ -39,8 +39,11 @@ html[data-motion=reduced] .logo-stack{opacity:1}
 
 /* Momentum cinema and warmer editorial accents */
 :root{--cream:#f8f3e8;--gold:#f2c85a;--gold-soft:#ffe69a;--yellow-ink:#a96f00}
-.scene{clip-path:none!important;filter:blur(var(--soft-blur,0));transform:translate3d(0,calc((1 - var(--resolved,1))*1.4%),0) scale(var(--scene-scale,1));transform-origin:center;will-change:opacity,transform,filter}
-.scene-media img{object-position:var(--position,50% 50%);filter:saturate(.96) contrast(1.055);transform:scale(calc(1.115 - var(--local)*.055 + var(--momentum)*.018)) translate3d(calc((.5 - var(--local))*2.2%),calc((.5 - var(--local))*2.8%),0);transform-origin:var(--position,50% 50%);will-change:transform}
+.scene{clip-path:none!important;contain:layout paint;filter:none;transform:translate3d(0,calc((1 - var(--resolved,1))*1.4%),0) scale(var(--scene-scale,1));transform-origin:center;will-change:auto}
+.scene.active{will-change:opacity,transform}
+.scene-media img{object-position:var(--position,50% 50%);filter:saturate(.96) contrast(1.055);transform:scale(calc(1.115 - var(--local)*.055)) translate3d(calc((.5 - var(--local))*2.2%),calc((.5 - var(--local))*2.8%),0);transform-origin:var(--position,50% 50%);will-change:auto}
+.scene.active .scene-media img{will-change:transform}
+.scene:not(.active) .scene-media{visibility:hidden}
 .scene--generated .scene-media img{filter:saturate(.94) contrast(1.055) brightness(.88)}
 .scene-media::after,.scene--split .scene-media::after,.scene--portrait .scene-media::after,.scene--ribbon .scene-media::after{background:linear-gradient(0deg,rgba(8,13,45,.96) 0,rgba(16,23,67,.5) 42%,rgba(16,23,67,.05) 77%),linear-gradient(90deg,rgba(8,13,45,.62),transparent 60%),radial-gradient(circle at 78% 18%,rgba(242,200,90,.14),transparent 28%)}
 .scene-copy .story-line:not(.secondary){border:0;border-radius:24px;background:linear-gradient(105deg,rgba(8,13,45,.9),rgba(26,32,88,.6) 64%,transparent);box-shadow:0 28px 90px rgba(2,4,20,.3);-webkit-mask-image:linear-gradient(90deg,#000 0,#000 82%,transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 82%,transparent 100%)}
@@ -84,3 +87,13 @@ html[data-motion=reduced] .scene{filter:none;transform:none}html[data-motion=red
 @media(max-width:759px){.language-mode small{display:none}.language-mode{min-width:68px;padding-inline:.45rem}.language-mode span{font-size:.61rem}}
 @media(prefers-reduced-motion:reduce){.cinematic-reveal{opacity:1;transform:none;transition:none}}
 html[data-motion=reduced] .cinematic-reveal{opacity:1;transform:none;transition:none}
+
+/* Keep the cinematic handoff within mobile GPU memory limits. */
+.vortex-field{inset:-12%;mix-blend-mode:normal;opacity:.72}
+.vortex-field::before{filter:blur(8px) saturate(1.08)}
+.vortex-field::after{filter:blur(3px);opacity:.58}
+.logo-scene:not(.active) .vortex-field::before,
+.logo-scene:not(.active) .vortex-field::after,
+.logo-scene:not(.active) .torch-flare{animation-play-state:paused}
+.scene-copy .story-line:not(.secondary),.story-line.secondary{backdrop-filter:none}
+@media(max-width:759px){.vortex-field{inset:-6%;opacity:.62}.vortex-field::before{filter:blur(5px)}.vortex-field::after{display:none}.logo-stack{filter:drop-shadow(0 18px 34px rgba(0,0,0,.44))}}
