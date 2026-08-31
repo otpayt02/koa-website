@@ -1,0 +1,220 @@
+# Decisions
+
+## 2026-08-22 — Preserve native scrolling
+
+- Chosen: lengthen the cinematic runways and lerp normalized progress.
+- Considered: intercept wheel/touch input with a smooth-scroll library.
+- Why: native scrolling keeps keyboard, touch, and assistive behavior predictable while still giving each chapter more reading time.
+
+## 2026-08-22 — Use one seeded canvas engine
+
+- Chosen: extend the existing glyph canvas with deterministic randomness and corner anchors.
+- Considered: add p5.js, GSAP, or a second scene engine.
+- Why: one engine reduces accidental complexity, avoids duplicate animation loops, and makes visual QA reproducible.
+
+## 2026-08-22 — Treat the seal as the O
+
+- Chosen: sample only K and A into glyph particles and reserve the center for the KOA seal.
+- Considered: sample all three letters behind the logo.
+- Why: the blank center makes the requested identity choreography legible and prevents glyph clutter around the emblem.
+
+## 2026-08-22 — Keep publication approval-gated
+
+- Chosen: modify and verify the local artifact only.
+- Why: KOA wording, cultural symbols, official status, and publication require KOA/community review.
+
+## 2026-08-23 — Let the seal complete its flight before the glyph O arrives
+
+- Chosen: K and A resolve around the seal; the seal grows subtly, flies into the header, then glyphs enter from beyond the four viewport edges and form the O.
+- Considered: morphing the seal directly into the O or assembling all three letters at once.
+- Why: the separated handoff keeps the KOA identity sequence readable and gives the O formation its own cinematic beat.
+
+## 2026-08-23 — Keep motion native and deterministic
+
+- Chosen: use scroll-normalized timelines, eased interpolation, seeded particle targets, and velocity-linked CSS variables inside the existing canvas engine.
+- Considered: installing a smooth-scroll or animation dependency.
+- Why: the existing engine can deliver the requested inertia and easing without hijacking scrolling or adding a second animation runtime.
+
+## 2026-08-23 — Treat foreground geometry as a glyph mask
+
+- Chosen: measure visible foreground elements and suppress glyph drawing inside padded rectangles; hide the departed halo as an occluder before the new O arrives.
+- Why: the field can remain dense across the page while text, photographs, navigation, and controls stay clean and legible.
+
+## 2026-08-23 — Arabic numerals are a brief companion, not a strobe
+
+- Chosen: keep the full Burmese chapter numeral dominant and expose the Arabic value for 96 milliseconds at restrained luminance, with a static companion in reduced-motion mode.
+- Why: it preserves the bilingual reveal while avoiding an aggressive flash.
+
+## 2026-08-23 — Buffer the cinematic scroll by three seconds
+
+- Chosen: record normalized arrival and film targets, replay them three seconds later, then apply a slower interpolation pass.
+- Considered: longer CSS durations without delaying the scroll signal.
+- Why: the explicit buffer gives the visitor a real reading pause while preserving native wheel, touch, keyboard, and scrollbar behavior.
+
+## 2026-08-23 — Make the seal the opening thesis
+
+- Chosen: increase the seal to approximately five times its former visual area, remove the visible KOA outline, and let K/A emerge around the shrinking seal.
+- Considered: begin with the full glyph wordmark or retain the transparent outline as scaffolding.
+- Why: the identity starts with the organization mark itself and the sampled letters no longer compete with a clear typographic duplicate.
+
+## 2026-08-23 — Use a readable two-arc identity orbit
+
+- Chosen: place the organization name on the upper arc and “One people · One home” upright on the lower arc, rotating no more than 68 degrees from scroll progress.
+- Why: the type visibly hugs the Statue of Liberty mark while remaining readable at the opening and during the slow migration.
+
+## 2026-08-23 — Promote the real gathering photograph
+
+- Chosen: move `fb-outdoor-gathering.jpg` to Chapter 1 with a more open crop and restrained documentary grade.
+- Why: the first image now shows the scale of the Karen community and balances the site’s informational narrative with immediate human presence.
+
+## 2026-08-23 — Let the navigation breathe with the cinematic
+
+- Chosen: a slightly expanded arrival state, a compact post-arrival state, and a slow hover/focus expansion that works in both phases.
+- Considered: hiding the navigation during the opener or making the compact state permanent.
+- Why: the navigation remains usable from the first frame, settles out of the reading corridor when the identity sequence ends, and still rewards deliberate exploration.
+
+## 2026-08-23 — Build one original premium block around truthful commitments
+
+- Chosen: a first-party Commitment Loom with always-visible summaries, one-open supporting detail, and explicit truth states.
+- Considered: importing a paid motion library, recreating several commercial blocks, or adding multiple decorative components.
+- Why: one subject-specific interaction expresses care without turning the mission into a showcase reel. Native HTML, CSS, and JavaScript keep it portable and accessible.
+
+## 2026-08-23 — Do not invent bilingual mission copy
+
+- Chosen: preserve existing bilingual typography while keeping new Phase 4 mission copy in verified English until KOA/community translation review.
+- Why: a visually convincing but unverified S'gaw Karen phrase would weaken the trust the new block is designed to establish.
+
+## 2026-08-23 — Make the halo a corona, not a ring
+
+- Chosen: place tiny Karen glyphs at real viewport-unit orbital distances behind a soft radial mask, with white English/Karen type on two readable clockwise arcs.
+- Considered: a visible circumference, a dense particle ring, or generic CSS light beams.
+- Why: the seal reads as the source of quiet sunlight while the glyphs stay atmospheric and the outer edge never becomes a hard graphic boundary.
+
+## 2026-08-23 — Normalize visual transport, not the user's physical scroll
+
+- Chosen: keep native wheel, touch, keyboard, and scrollbar behavior while replaying normalized targets after a three-second buffer with a fixed maximum visual-progress rate and chapter holds.
+- Why: visitors receive the same readable cinematic pacing without accessibility-hostile wheel interception.
+
+## 2026-08-23 — Share algorithms, preserve each site's information architecture
+
+- Chosen: use the same living-field, corona, chapter, and motion principles in the static and bilingual sites while keeping one established header implementation in each.
+- Considered: rendering two competing bilingual headers or cloning the static markup into React.
+- Why: parity comes from a shared experience contract, not duplicated structure; navigation remains maintainable and semantically native to each site.
+
+## 2026-08-24 — Add the cursor matrix inside the existing cultural field
+
+- Chosen: render a second, pointer-local matrix from reviewed S'gaw Karen identity clusters plus K/O/A inside the established seeded canvas and foreground occlusion map.
+- Considered: a separate Magic UI/shadcn component, a second canvas runtime, or increasing the opacity of every ambient particle.
+- Why: one animation loop preserves Motion off, deterministic QA, foreground masking, and the K–seal–A choreography while the matrix remains a small discoverable background event.
+
+## 2026-08-24 — Use one material wipe instead of many hover effects
+
+- Chosen: a shared 2.35-second red-to-paper-to-gold glimmer on meaningful interactive surfaces, mirrored on focus and removed with reduced motion.
+- Why: a single interaction grammar adds premium material response without crowding the site with unrelated microinteractions.
+
+## 2026-08-24 — Separate verified support states from the blocked flight probe
+
+- Chosen: keep condition-based proof for the matrix, occlusion, glimmer, 1800vh geometry, mobile chrome, Motion off, overflow, and console; disclose the two timed-out headless seal-flight checks separately.
+- Why: source contracts and older proof are not a substitute for a new browser observation, and a blocked narrow state must not erase the supporting runtime evidence that did complete.
+
+## 2026-08-24 — Make main's React App Router the sole canonical KOA runtime
+
+- Chosen: consolidate public cinema, locales, translation authoring, mobile preview, and admin tools in `C:\Users\olive\Projects\koa-website` on `main`.
+- Considered: keep a permanent bilingual worktree or keep static and React runtimes evolving in parallel.
+- Why: the bilingual feature commit is already merged, while multiple runtimes created HMR conflicts, stale-browser risk, duplicated motion code, and unclear ownership.
+- Safety: keep `public/koa` read-only until React parity is proven; retire the worktree only after reviewing status; do not delete the remote branch or deploy.
+
+## 2026-08-24 — Rotate only the lettering embedded in the supplied seal
+
+- Chosen: split the exact seal image into a stationary core and a co-centered rotating annular crop.
+- Rejected: extra SVG orbit text outside the supplied logo.
+- Why: the white English and Karen circumference lettering is part of the approved logo and must preserve a constant proportional radius.
+
+## 2026-08-24 — Keep locale proposals parallel and review-gated
+
+- Chosen: English is the source; Thai, Burmese, and S'gaw Karen proposals are generated independently and retain provider, confidence, provenance, and review status.
+- Rejected: a chained English-to-Thai-to-Burmese-to-Karen pivot.
+- Why: independent proposals prevent compounded errors and preserve a defensible source relationship. S'gaw Karen pairs do not become approved training data without human review.
+
+## 2026-08-24 — Pair Base UI with Motion at the interface boundary
+
+- Chosen: pin MIT-licensed `@base-ui/react` 1.7.0 for accessible headless controls and `motion` 13.1.1 for deliberate React interaction animation.
+- Considered: Astryx beta, Radix Primitives, and a styled shadcn/Magic UI layer.
+- Why: Base UI preserves the established KOA CSS and subject-specific visual language while Motion adds opt-in gestures, sequencing, and reduced-motion-aware transitions without forcing a whole-app theme migration.
+- Boundary: use these packages incrementally for admin and general interface controls. The existing seeded cinematic canvas, seal choreography, and persistent glyph engine remain first-party and must not gain a second animation runtime.
+
+## 2026-08-27 — Dissolve the static seal before the glyph O arrives
+
+- Chosen: in `public/koa`, keep the seal centered, expand it into the navy field, fade it completely, and then converge the glyph O from beyond all four viewport edges.
+- Superseded for this prototype: the earlier measured seal flight into the header.
+- Why: the latest user direction gives the O formation a clearer cause-and-effect sequence and lets the seal's navy field become the visual bridge into the page background.
+- Boundary: the compact header emblem appears later through a quiet material fade. The React canonical workstream is not changed in this pass.
+
+## 2026-08-27 — Match responsive transport before adding more spectacle
+
+- Chosen: keep the existing first-party cinematic engine, but adapt its work per device and pause it when hidden instead of introducing another animation library or a second renderer.
+- Chosen: remove artificial scroll buffering and reserve direct layout reads for reduced-motion settling; normal motion uses queued normalized progress.
+- Why: ChatGPT Sites-like responsiveness is primarily a transport/frame-pacing problem. This preserves KOA's visual identity while reducing CPU, GPU, and layout pressure on slower hardware.
+- Boundary: static `public/koa` prototype remains unchanged in this pass; parity is deferred until the prototype's Director's Cut is reviewed.
+
+## 2026-08-29 — Make the React route the canonical best-of composition
+
+- Chosen: merge the strongest local variant traits into `app/[lang]` and treat `/en` as the single canonical runtime: V4 buffered chapter loading, the React split-screen story, the denser Qoder-style K/A formation, and the existing first-party canvas layers.
+- Considered: keep the static prototypes as a parallel production runtime or add a second animation framework.
+- Why: one renderer keeps scroll transport, reduced motion, occlusion, and performance budgets consistent while the audit/gallery remain useful as reference material.
+
+## 2026-08-29 — Use a centered orbit label layer instead of SVG text paths
+
+- Chosen: keep the seal core stationary and render the readable English/Karen halo as a co-centered SVG guide/label group rotated by the normalized scroll scrub.
+- Why: it preserves the requested clockwise halo motion while avoiding browser-specific text-path alignment drift and keeping the logo's cultural type legible.
+
+## 2026-08-29 — Spend motion budget on local input, not a full-screen redraw
+
+- Chosen: reveal and reseed only a bounded ASCII neighborhood for pointer, touch, and scroll input; cap cursor trails, click bursts, DPR, and frame rate on low-power devices.
+- Why: the site can feel alive immediately on slower hardware without turning the dense glyph field into a permanent high-cost animation.
+
+## 2026-08-30 — Make participation the conversion and discovery the first step
+
+- Chosen: make `Find your way to contribute` the primary hero action and `Why KOA matters` the secondary newcomer path.
+- Considered: leading with Donate, a generic Explore button, or separate CTAs for every audience.
+- Why: the user's chronology is discover → understand why KOA matters → act. One primary invitation keeps the page legible while allowing contribution to include money, time, language, collaboration, attendance, or a useful question.
+
+## 2026-08-30 — Use Build for the coming-soon tab
+
+- Chosen: label the sixth launch tab `Build` and pair it with a visible `soon` status.
+- Considered: `Coming soon`, `Make`, and `Create`.
+- Why: `Build` is concise, action-oriented, and can invite contribution without implying that an unapproved program or partnership already exists.
+
+## 2026-08-30 — Keep one row, let narrow rails scroll internally
+
+- Chosen: preserve the existing centered-seal header but reduce its primary navigation to About, Programs, Stories, Impact, Contact, and Build; each side can scroll inside its own bounded strip on small screens.
+- Considered: a second mobile row, a hamburger-only replacement, or hiding the header during the intro.
+- Why: one row is a non-negotiable identity constraint, while internal strip scrolling preserves direct access, keyboard reachability, and the existing seal choreography without widening the page.
+
+## 2026-08-30 — Treat unapproved content as explicit review states
+
+- Chosen: document and render empty/review-gated states for new Why KOA, Programs, Stories, and Impact content rather than inventing claims, numbers, testimonials, or details.
+- Why: a truthful absence is safer and more useful than polished copy that has not been supplied or reviewed by KOA/community owners.
+
+## 2026-08-30 — Keep the mission visible before the motion asks for attention
+
+- Chosen: render the exact mission and smaller secondary statement in the first viewport before scroll scrub begins.
+- Rejected: hide the copy until the seal assembly reaches a later scroll beat.
+- Why: the visitor needs to understand what KOA is within seconds; the animation can create awe and curiosity around that orientation without making comprehension dependent on scrolling.
+
+## 2026-08-30 — Preserve the seal lettering by layering the authentic asset
+
+- Chosen: render the supplied full seal as one counterclockwise rear layer, cover its rotating inner artwork with a feathered navy occluder, and place a cropped stationary inner seal at the exact same center.
+- Rejected: reconstructed SVG text paths, free-floating phrases, or a second independent hero animation.
+- Why: the visible rotating type stays exactly proportional to the approved mark while the foreground O remains still and correctly reduced after its outer lettering is omitted.
+
+## 2026-08-30 — Make hero light scroll-owned and boundaryless
+
+- Chosen: use one circular eclipse, one blurred X glare, and three separately eased blurred color-ray groups inside the existing GSAP master timeline.
+- Rejected: time-based ray loops, hard line ends, ellipse scaling, and stacked duplicate scenes.
+- Why: all motion responds to the same scroll transport while the red, gold, and blue light dissolves into the navy field without visible graphic edges.
+
+## 2026-08-30 — Do not accept broken-server screenshots
+
+- Chosen: keep TypeScript, contract, and production-build proof, but mark visual acceptance blocked after the two served-runtime recovery attempts failed.
+- Why: dev HMR failure and production asset 404s produce screenshots that cannot prove layout, motion, or responsive quality.

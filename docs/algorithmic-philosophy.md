@@ -1,0 +1,11 @@
+# Diaspora Loom
+
+Diaspora Loom treats the KOA interface as a living field rather than a stack of decorated sections. A seeded population of Latin and Myanmar-script glyphs drifts according to small depth, velocity, and phase differences, then gathers only when the story needs a symbol. The central act is subtraction: K and A are computationally assembled while the physical KOA seal occupies the absent O, allowing organizational identity and generative process to become one image.
+
+The system moves like woven thread under tension. Particle targets are sampled from type, assigned through a deterministic shuffle, and pulled along curved waypoints into diamond lattices derived from Karen textile geometry. Each chapter chooses a different corner and transition grammar, but every variation comes from the same meticulously crafted algorithm and restrained palette. The work should feel painstakingly tuned, not randomly ornamented.
+
+Time is a material. Raw scroll progress is mapped into normalized chapter states, then softened with lerp and asymmetric easing so the visitor has time to read before the next state arrives. Slow movement reveals detail; faster movement quiets the field. The implementation should show deep computational expertise through control: motion clarifies hierarchy, continuity, and cause, while service links and form controls remain immediate.
+
+The logo handoff is the movement's central transformation. After the glyph-built wordmark settles, the seal breathes upward, follows a measured arc, scales toward the initially empty navigation anchor, and resolves there. The hero does not discard its identity; it transfers it. This sequence requires master-level calibration because the source, destination, scale, and arc are calculated from the rendered page rather than guessed coordinates.
+
+Each run begins from the same KOA seed so visual QA is reproducible, while temporal behavior still feels organic. The final effect should resemble the product of countless careful iterations: subtle glyphs remain behind foreground information, chapter structures emerge and dissolve without blocking action, and reduced-motion users receive the complete story without the choreography. Beauty lives in the system's disciplined execution, not in any single frozen frame.

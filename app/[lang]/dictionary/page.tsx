@@ -20,7 +20,7 @@ export default async function DictionaryPage({ params }: { params: Promise<{ lan
       <PageHero
         eyebrow="Living language · ကညီကျိာ်"
         title={pageLabels.dictionary[lang]}
-        description={lang === "karen" ? "ဃုကွၢ်ကညီတၢ်ကတိၤတဖၣ်လၢပှၤတဝၢကွၢ်သမံသမိးဝဲ ဒီးနၢ်ဟူအကလုၢ်တဖၣ်။" : "Explore S'gaw Karen words held in public by the people who speak, teach, and carry them."}
+        description={lang === "ksw" ? "ဃုကွၢ်ကညီတၢ်ကတိၤတဖၣ်လၢပှၤတဝၢကွၢ်သမံသမိးဝဲ ဒီးနၢ်ဟူအကလုၢ်တဖၣ်။" : "Explore S'gaw Karen words held in public by the people who speak, teach, and carry them."}
         image="/koa/assets/hero-community-mobile-enhanced.png"
         imageAlt="Karen community members sharing language"
       />

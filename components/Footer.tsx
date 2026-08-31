@@ -10,6 +10,11 @@ export function Footer({ lang, messages }: { lang: Lang; messages: Messages }) {
       </div>
       <nav aria-label="Footer navigation">
         <Link href={`/${lang}/about`}>{messages.about}</Link>
+        <Link href={`/${lang}/services`}>Programs</Link>
+        <Link href={`/${lang}/community`}>Stories</Link>
+        <Link href={`/${lang}/about#impact`}>Impact</Link>
+        <Link href={`/${lang}/contact`}>Contact</Link>
+        <Link href={`/${lang}/build`}>Build</Link>
         <Link href={`/${lang}/dictionary`}>{messages.dictionary}</Link>
         <Link href={`/${lang}/translation`}>{messages.translation}</Link>
         <Link href={`/${lang}/collaborate`}>{messages.collaborate}</Link>

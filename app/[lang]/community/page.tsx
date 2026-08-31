@@ -7,13 +7,15 @@ import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { StatusPill } from "@/components/StatusPill";
+import { TabImageGallery } from "@/components/TabImageGallery";
 
 export const metadata: Metadata = { title: "Community", description: "Karen community stories, events, volunteer opportunities, and moderated discussions." };
 
 export default async function CommunityPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: value } = await params; if (!isLang(value)) return null; const lang = value;
   return <>
-    <PageHero eyebrow="Community · ပှၤတဝၢ" title={pageLabels.community[lang]} description={lang === "karen" ? "နမ့ၢ်အိၣ်ဖဲလဲၣ်ဂ့ၤ နပာ်ဃုာ်လၢကညီပှၤတဝၢအတၢ်မၤသကိးန့ၢ်လီၤ။" : "Find community moments, join an event, volunteer your skills, or bring an idea to the people shaping KOA's work."} image="/koa/assets/fb-outdoor-gathering-mobile-enhanced.png" imageAlt="Karen community members gathered outdoors" />
+    <PageHero eyebrow="Community · ပှၤတဝၢ" title={pageLabels.community[lang]} description={lang === "ksw" ? "နမ့ၢ်အိၣ်ဖဲလဲၣ်ဂ့ၤ နပာ်ဃုာ်လၢကညီပှၤတဝၢအတၢ်မၤသကိးန့ၢ်လီၤ။" : "Find community moments, join an event, volunteer your skills, or bring an idea to the people shaping KOA's work."} image="/koa/assets/fb-outdoor-gathering-mobile-enhanced.png" imageAlt="Karen community members gathered outdoors" />
+    <TabImageGallery tab="stories" />
     <Section eyebrow="Upcoming" title="Gather, learn, and celebrate.">
       <div className="event-grid"><Card><time dateTime="2026-08-22"><strong>22</strong>August · Online</time><h3>Language contributor orientation</h3><p>A welcoming introduction to dictionary entries, recordings, consent, and community review.</p><Link className="text-link" href={`/${lang}/contribute`}>Reserve a place</Link></Card><Card><time dateTime="2026-09-05"><strong>05</strong>September · Omaha</time><h3>Youth civic leadership workshop</h3><p>Public systems, advocacy practice, and a plan for local action.</p><Link className="text-link" href={`/${lang}/contact`}>Ask about registration</Link></Card><Card><time dateTime="2026-09-19"><strong>19</strong>September · Minnesota</time><h3>Community culture & sport day</h3><p>An intergenerational day of connection, food, play, and cultural learning.</p><Link className="text-link" href={`/${lang}/contact`}>Volunteer</Link></Card></div>
     </Section>

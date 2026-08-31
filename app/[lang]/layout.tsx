@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { getMessages, isLang } from "@/components/i18n";
-
-const supportedLanguages = ["en", "karen"] as const;
+import { getMessages, isLang, languages } from "@/components/i18n";
+import { AsciiWaveBackground } from "@/components/AsciiWaveBackground";
+import { ContentRevealSystem } from "@/components/ui/ContentRevealSystem";
+import { AmbientGlyphField } from "@/components/cinematic/AmbientGlyphField";
 
 export function generateStaticParams() {
-  return supportedLanguages.map((lang) => ({ lang }));
+  return languages.map((lang) => ({ lang }));
 }
 
 export default async function LanguageLayout({ children, params }: Readonly<{ children: React.ReactNode; params: Promise<{ lang: string }> }>) {
@@ -28,10 +29,18 @@ export default async function LanguageLayout({ children, params }: Readonly<{ ch
         }}
       />
       <a className="skip-link" href="#main-content">{messages.skip}</a>
-      <aside className="preview-mode-bar" aria-label="Bilingual preview mode">
-        <span>Bilingual preview mode · Community review in progress</span>
-        <a href="/koa/">Return to cinematic site</a>
-      </aside>
+      <AsciiWaveBackground
+        elementSize={16}
+        noiseScale={0.008}
+        speed={0.3}
+        waveIntensity={1.0}
+        cursorInteraction={true}
+        interactionIntensity={1.0}
+        opacity={0.035}
+        color="#d4a843"
+      />
+      <ContentRevealSystem />
+      <AmbientGlyphField />
       <Header lang={value} messages={messages} />
       <main id="main-content">{children}</main>
       <Footer lang={value} messages={messages} />
