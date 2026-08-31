@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Organization of America (KOA) — A National Home</title>
+    <meta name="description" content="KOA connects Karen communities across the United States through civic education, cultural preservation, humanitarian aid.">
+    
+    <!-- Fonts - Premium Deluxe System -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Noto+Sans+Myanmar:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Hourglass Glyph Canvas — persists for section transitions -->
+    <canvas id="hourglass-canvas" aria-hidden="true"></canvas>
+    
+    <!-- Premium Loading Screen — Hourglass Glyph Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <div class="loader-logo">KOA</div>
+            <div class="loader-text">Karen Organization of America</div>
+        </div>
+    </div>
+    
+    <!-- Film Grain Overlay -->
+    <div class="film-grain" aria-hidden="true"></div>
+    
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+    
+    <!-- Progress Timeline -->
+    <div class="progress-timeline" aria-hidden="true">
+        <div class="progress-bar"></div>
+        <div class="progress-chapters">
+            <div class="chapter-dot active" data-chapter="0"></div>
+            <div class="chapter-dot" data-chapter="1"></div>
+            <div class="chapter-dot" data-chapter="2"></div>
+            <div class="chapter-dot" data-chapter="3"></div>
+            <div class="chapter-dot" data-chapter="4"></div>
+            <div class="chapter-dot" data-chapter="5"></div>
+        </div>
+    </div>
+    
+    <!-- Vertical Chapter Tracker -->
+    <nav class="chapter-tracker" aria-label="Chapter navigation">
+        <div class="tracker-line"></div>
+        <div class="tracker-dots">
+            <a href="#hero" class="tracker-dot active" data-index="0">
+                <span class="dot"></span>
+                <span class="label">Home</span>
+            </a>
+            <a href="#national-home" class="tracker-dot" data-index="1">
+                <span class="dot"></span>
+                <span class="label">National Home</span>
+            </a>
+            <a href="#one-body" class="tracker-dot" data-index="2">
+                <span class="dot"></span>
+                <span class="label">One Body</span>
+            </a>
+            <a href="#leadership" class="tracker-dot" data-index="3">
+                <span class="dot"></span>
+                <span class="label">Leadership</span>
+            </a>
+            <a href="#work-continues" class="tracker-dot" data-index="4">
+                <span class="dot"></span>
+                <span class="label">The Work</span>
+            </a>
+            <a href="#invitation" class="tracker-dot" data-index="5">
+                <span class="dot"></span>
+                <span class="label">Invitation</span>
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Background Glyph Matrix -->
+    <canvas id="glyph-matrix" aria-hidden="true"></canvas>
+    
+    <!-- Premium Marquee Ticker -->
+    <div class="premium-marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-item">Unity</span>
+            <span class="marquee-item">ကညီ</span>
+            <span class="marquee-item">Community</span>
+            <span class="marquee-item">Culture</span>
+            <span class="marquee-item">ကမၠး</span>
+            <span class="marquee-item">Heritage</span>
+            <span class="marquee-item">အသံ</span>
+            <span class="marquee-item">Voice</span>
+            <span class="marquee-item">ကညီ</span>
+            <span class="marquee-item">Unity</span>
+            <span class="marquee-item">ကညီ</span>
+            <span class="marquee-item">Community</span>
+            <span class="marquee-item">Culture</span>
+            <span class="marquee-item">ကမၠး</span>
+            <span class="marquee-item">Heritage</span>
+            <span class="marquee-item">အသံ</span>
+            <span class="marquee-item">Voice</span>
+            <span class="marquee-item">ကညီ</span>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-text">KOA</span>
+            </div>
+            <nav class="nav-main" aria-label="Main navigation">
+                <button class="nav-toggle" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <div class="nav-menu">
+                    <a href="#about">About</a>
+                    <a href="#programs">Programs</a>
+                    <a href="#stories">Stories</a>
+                    <a href="#impact">Impact</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+            <div class="header-controls">
+                <div class="lang-toggle-wrap" id="lang-toggle" role="switch" aria-checked="false" tabindex="0">
+                    <span class="lt-label">Lang</span>
+                    <span class="lt-track">
+                        <span class="lt-thumb"></span>
+                        <span class="lt-opt lt-en"><span class="lt-abbr">EN</span><span class="lt-full">English</span></span>
+                        <span class="lt-sep">/</span>
+                        <span class="lt-opt lt-ksw"><span class="lt-abbr">ကညီ</span><span class="lt-full">S'gaw</span></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero — Scroll-Driven Cinematic Sequence -->
+        <section id="hero" class="hero hero-scroll" data-chapter="0">
+            <div class="hero-scroll-space"></div>
+            <div class="hero-sticky">
+                <div class="hero-bg" aria-hidden="true"></div>
+                <!-- Seal: circular emblem that revolves on scroll -->
+                <div class="hero-seal" id="hero-seal" aria-hidden="true">
+                    <svg class="seal-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <path id="seal-text-path" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/>
+                        </defs>
+                        <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(212,175,55,0.25)" stroke-width="0.5"/>
+                        <circle cx="100" cy="100" r="82" fill="none" stroke="rgba(212,175,55,0.15)" stroke-width="0.5"/>
+                        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="0.5"/>
+                        <text class="seal-svg-text" font-size="7.2" fill="rgba(212,175,55,0.5)" letter-spacing="3.5">
+                            <textPath href="#seal-text-path">KAREN · ORGANIZATION · OF · AMERICA · EST · 2018 · </textPath>
+                        </text>
+                        <!-- Decorative Karen script glyphs at cardinal points -->
+                        <text x="100" y="22" text-anchor="middle" font-size="10" fill="rgba(212,175,55,0.35)" font-family="'Noto Sans Myanmar',sans-serif">က</text>
+                        <text x="178" y="104" text-anchor="middle" font-size="10" fill="rgba(212,175,55,0.35)" font-family="'Noto Sans Myanmar',sans-serif">ည</text>
+                        <text x="100" y="186" text-anchor="middle" font-size="10" fill="rgba(212,175,55,0.35)" font-family="'Noto Sans Myanmar',sans-serif">မ</text>
+                        <text x="22" y="104" text-anchor="middle" font-size="10" fill="rgba(212,175,55,0.35)" font-family="'Noto Sans Myanmar',sans-serif">အ</text>
+                    </svg>
+                </div>
+                <!-- KOA glyph formation canvas -->
+                <canvas id="hero-koa-canvas" class="hero-koa-canvas" aria-hidden="true"></canvas>
+                <!-- Tagline words (fade + blur sweep) -->
+                <div class="hero-tagline" id="hero-tagline">
+                    <span class="ht-word" data-text="Many places.">Many places.</span>
+                    <span class="ht-word" data-text="One community.">One community.</span>
+                    <span class="ht-word" data-text="One voice.">One voice.</span>
+                    <span class="ht-word" data-text="One home.">One home.</span>
+                </div>
+                <!-- Scroll prompt -->
+                <div class="hero-scroll-prompt" id="hero-scroll-prompt">
+                    <span class="hsp-text">Scroll to begin</span>
+                    <span class="hsp-line"></span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Chapter 1: Split Layout - Image Left, Text Right -->
+        <section id="national-home" class="chapter split-layout" data-chapter="1">
+            <div class="split-image">
+                <div class="image-container" data-parallax>
+                    <div class="image-placeholder"></div>
+                </div>
+            </div>
+            <div class="split-content">
+                <div class="content-inner">
+                    <span class="chapter-number">၁</span>
+                    <h2 class="chapter-title">A National Home</h2>
+                    <p class="chapter-lead">Uniting Karen communities across twenty states, building belonging in the land we now call home.</p>
+                    <div class="chapter-body">
+                        <p>From the Pacific to the Atlantic, Karen families have planted roots in American soil while carrying the spirit of Kawthoolei in their hearts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Chapter 2: Full Bleed Image with Overlay Text -->
+        <section id="one-body" class="chapter full-bleed" data-chapter="2">
+            <div class="full-bleed-bg" data-parallax>
+                <div class="image-placeholder"></div>
+            </div>
+            <div class="full-bleed-overlay"></div>
+            <div class="full-bleed-content">
+                <span class="chapter-number">၂</span>
+                <h2 class="chapter-title">One National Body</h2>
+                <p class="chapter-lead">Born from unity. Forged by fifty leaders. Established for all Karen people.</p>
+                <p class="chapter-body">On August 8, 2018, more than fifty Karen community leaders from twenty U.S. states met in Omaha, Nebraska. Two organizations became one national body.</p>
+            </div>
+        </section>
+        
+        <!-- Chapter 3: Split Layout - Text Left, Image Right -->
+        <section id="leadership" class="chapter split-layout reverse" data-chapter="3">
+            <div class="split-content">
+                <div class="content-inner">
+                    <span class="chapter-number">၃</span>
+                    <h2 class="chapter-title">Public Leadership</h2>
+                    <p class="chapter-lead">Advocating for Karen voices in the halls of power, from local councils to the Capitol.</p>
+                    <div class="chapter-body">
+                        <p>Our youth and leaders travel to Washington, D.C., meeting with legislators, sharing our stories, and ensuring that Karen perspectives shape the policies that affect our communities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="split-image">
+                <div class="image-container" data-parallax>
+                    <div class="image-placeholder"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Chapter 4: Widget Grid - Multiple Images -->
+        <section id="work-continues" class="chapter widget-grid" data-chapter="4">
+            <div class="widget-content">
+                <span class="chapter-number">၄</span>
+                <h2 class="chapter-title">The Work Continues</h2>
+                <p class="chapter-lead">Three pillars guide our mission.</p>
+            </div>
+            <div class="widget-grid-layout">
+                <div class="widget-item large">
+                    <div class="widget-image" data-parallax>
+                        <div class="image-placeholder"></div>
+                    </div>
+                    <div class="widget-label">Civic Education</div>
+                </div>
+                <div class="widget-item">
+                    <div class="widget-image" data-parallax>
+                        <div class="image-placeholder"></div>
+                    </div>
+                    <div class="widget-label">Community</div>
+                </div>
+                <div class="widget-item">
+                    <div class="widget-image" data-parallax>
+                        <div class="image-placeholder"></div>
+                    </div>
+                    <div class="widget-label">Humanitarian</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Chapter 5: Full Bleed with Centered Text -->
+        <section id="invitation" class="chapter full-bleed centered" data-chapter="5">
+            <div class="full-bleed-bg" data-parallax>
+                <div class="image-placeholder"></div>
+            </div>
+            <div class="full-bleed-overlay"></div>
+            <div class="full-bleed-content centered-content">
+                <span class="chapter-number">၅</span>
+                <h2 class="chapter-title">An Invitation</h2>
+                <p class="chapter-lead">Join us. Volunteer. Contribute. Follow our journey.</p>
+                <div class="cta-group">
+                    <a href="#contact" class="cta-primary breathe-hover">Get Involved</a>
+                    <a href="#donate" class="cta-secondary breathe-hover">Support KOA</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="about-section" data-glyph-occlude>
+            <div class="section-content">
+                <h2 class="section-title">About KOA</h2>
+                <div class="about-grid">
+                    <div class="about-block">
+                        <h3>Vision</h3>
+                        <p>To unite and empower Karen community thriving in the U.S. and advocating for justice in Burma.</p>
+                    </div>
+                    <div class="about-block">
+                        <h3>Mission</h3>
+                        <p>The Karen Organization of America advocates for the rights and well-being of Karen communities in the United States and abroad.</p>
+                    </div>
+                    <div class="about-block">
+                        <h3>History</h3>
+                        <p>Founded August 8, 2018 in Omaha, Nebraska, when fifty leaders from twenty states united as one national body.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">KOA</div>
+                <p class="footer-tagline">One People. One Home.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.facebook.com/koamerica" target="_blank" rel="noopener">Facebook</a>
+                <a href="mailto:karenorgamerica@gmail.com">Email</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Karen Organization of America</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/hourglass-loader.js"></script>
+    <script src="js/glyph-matrix.js"></script>
+    <script src="js/hero-scroll-controller.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
