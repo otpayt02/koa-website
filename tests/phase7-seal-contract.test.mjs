@@ -76,12 +76,17 @@ test("the opening K/A field is a dense filled formation, not a visible guide out
   assert.match(livingGlyphField, /filledLetterPoint/);
   assert.doesNotMatch(livingGlyphField, /K_POINTS|A_POINTS/);
   assert.match(livingGlyphField, /width < 720 \? 150 : width < 1024 \? 220 : 280/);
-  assert.match(cinematic, /cinematic-film__mark-letters/);
+  assert.doesNotMatch(cinematic, /cinematic-film__mark-letters/);
+  assert.doesNotMatch(css, /cinematic-film__mark-letters/);
+  assert.match(livingGlyphField, /arrivalAtMs/);
+  assert.match(livingGlyphField, /isReleased/);
+  assert.match(cinematic, /cinematic-film__seal-wrap" data-glyph-occlusion/);
   assert.doesNotMatch(cinematic, />O<|>0</);
 });
 
 test("the landing defaults to the cinematic only on capable devices and uses Burmese chapter marks", () => {
   assert.match(cinematic, /canPlayCinematicMotion/);
+  assert.match(cinematic, /shouldReduceMotionBeforeFirstPaint/);
   assert.match(cinematic, /smoothlyFollowProgress/);
   assert.doesNotMatch(cinematic, /cinematic-film__chapter-buttons/);
   assert.match(css, /font-size:\s*clamp\(180px, 38vw, 480px\)/);
@@ -89,7 +94,6 @@ test("the landing defaults to the cinematic only on capable devices and uses Bur
   assert.match(dictionaryEntry, /dictionary-card__definition/);
 });
 
-test("the opening K-seal-A mark stays in one shared viewport movement range", () => {
+test("the opening seal stays within the shared viewport movement range", () => {
   assert.match(css, /cinematic-film__seal-wrap\s*\{[\s\S]*?var\(--film-progress\) \* 8vh[\s\S]*?\* \.18/);
-  assert.match(css, /cinematic-film__mark-letters\s*\{[\s\S]*?var\(--film-progress\) \* 8vh[\s\S]*?\* \.18/);
 });

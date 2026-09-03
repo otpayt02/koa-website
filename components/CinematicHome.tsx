@@ -33,6 +33,13 @@ function canPlayCinematicMotion() {
   return (device.hardwareConcurrency ?? 4) >= 4 && (device.deviceMemory ?? 4) >= 4 && !device.connection?.saveData;
 }
 
+function shouldReduceMotionBeforeFirstPaint() {
+  if (typeof window === "undefined") return false;
+  const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const previewRequestsMotionOff = new URLSearchParams(window.location.search).get("motion") === "off";
+  return previewRequestsMotionOff || media.matches || !canPlayCinematicMotion();
+}
+
 function phaseForProgress(progress: number, reducedMotion: boolean): CinematicPhase {
   if (reducedMotion) return "motion-off";
   if (progress < 0.16) return "mark-formation";
@@ -65,7 +72,7 @@ function ChapterGlyphNumeral({ numeral, id }: { numeral: string; id: string }) {
 export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messages }) {
   const filmRef = useRef<HTMLElement>(null);
   const ditherCanvasRef = useRef<HTMLCanvasElement>(null);
-  const [motionReduced, setMotionReduced] = useState(false);
+  const [motionReduced, setMotionReduced] = useState(shouldReduceMotionBeforeFirstPaint);
   const [cinematicPhase, setCinematicPhase] = useState<CinematicPhase>("mark-formation");
   const [currentChapter, setCurrentChapter] = useState(1);
   const [occlusionRects, setOcclusionRects] = useState<OcclusionRect[]>([]);
@@ -75,8 +82,7 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
   // Reduced motion
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const previewRequestsMotionOff = new URLSearchParams(window.location.search).get("motion") === "off";
-    const setPreferredMotion = () => setMotionReduced(previewRequestsMotionOff || media.matches || !canPlayCinematicMotion());
+    const setPreferredMotion = () => setMotionReduced(shouldReduceMotionBeforeFirstPaint());
     setPreferredMotion();
     media.addEventListener("change", setPreferredMotion);
     return () => media.removeEventListener("change", setPreferredMotion);
@@ -212,11 +218,9 @@ export function CinematicHome({ lang, messages }: { lang: Lang; messages: Messag
           />
           <div className="cinematic-film__vortex" aria-hidden="true"><i /><b /></div>
           <div className="cinematic-film__grain" aria-hidden="true" />
-          <div className="cinematic-film__mark-letters" aria-hidden="true"><span>K</span><span>A</span></div>
-
           {/* Scene 1: Seal / National home */}
           <article className="cinematic-film__scene cinematic-film__scene--seal">
-            <div className="cinematic-film__seal-wrap">
+            <div className="cinematic-film__seal-wrap" data-glyph-occlusion>
               <span className="cinematic-film__seal-name">Karen Organization of America</span>
               <div className="cinematic-film__seal-halo" aria-hidden="true" />
               <SealAssembly rotation={-360} />

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import {
   advanceParticle,
   boundedSparseAlpha,
+  cycleParticleLife,
   createParticle,
   retargetParticle,
 } from "../../lib/cinema/glyph-motion.mjs";
@@ -36,10 +37,6 @@ const K_SILHOUETTE: Point[] = [
 const A_SILHOUETTE: Point[] = [
   { x: -0.76, y: 1 }, { x: 0, y: -1 }, { x: 0.76, y: 1 },
 ];
-const A_COUNTER: Point[] = [
-  { x: -0.25, y: 0.34 }, { x: 0, y: -0.35 }, { x: 0.25, y: 0.34 },
-];
-
 function seeded(index: number, salt: number) {
   let value = Math.imul(index + 1, 374761393) ^ Math.imul(salt + 1, 668265263);
   value = Math.imul(value ^ (value >>> 13), 1274126177);
@@ -65,8 +62,7 @@ function filledLetterPoint(index: number, isK: boolean): Point {
       x: -0.8 + seeded(index, 40 + attempt * 2) * 1.6,
       y: -1 + seeded(index, 41 + attempt * 2) * 2,
     };
-    const isACounter = !isK && isInsidePolygon(point, A_COUNTER) && !(point.y > 0.32 && point.y < 0.5);
-    if (isInsidePolygon(point, silhouette) && !isACounter) return point;
+    if (isInsidePolygon(point, silhouette)) return point;
   }
   return isK ? { x: -0.5, y: 0 } : { x: 0, y: 0.62 };
 }
@@ -97,11 +93,13 @@ function sceneTarget(
   if (phase === "mark-formation" || phase === "hero-copy") {
     const isK = index % 2 === 0;
     const point = filledLetterPoint(index, isK);
-    const scale = Math.min(width, height) * (phase === "mark-formation" ? 0.41 : 0.35);
+    // Match the seal's visual height and leave its perimeter unoccupied.
+    // The K and A sit as complete but separate filled fields, not an orbit.
+    const scale = Math.min(width, height) * (phase === "mark-formation" ? 0.24 : 0.22);
     return {
       mode: "forming",
       target: {
-        x: width * (isK ? 0.17 : 0.83) + point.x * scale,
+        x: width * (isK ? 0.16 : 0.84) + point.x * scale,
         y: height * (phase === "mark-formation" ? 0.5 : 0.3) + point.y * scale,
       },
     } as const;
@@ -138,6 +136,7 @@ export function LivingGlyphField({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<GlyphParticle[]>([]);
+  const ambientParticlesRef = useRef<GlyphParticle[]>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -154,6 +153,7 @@ export function LivingGlyphField({
     let height = 1;
     let frame = 0;
     let lastTime = performance.now();
+    const startedAt = lastTime;
     let pointerX = -10000;
     let pointerY = -10000;
     let pointerActive = false;
@@ -172,19 +172,52 @@ export function LivingGlyphField({
         particlesRef.current = Array.from({ length: count }, (_, index) => {
           const pathSeed = 7000 + index * 37;
           const anchor = { x: seeded(index, 3) * width, y: seeded(index, 4) * height };
+          const isK = index % 2 === 0;
+          const formation = filledLetterPoint(index, isK);
+          const formationScale = Math.min(width, height) * 0.24;
+          const formationTarget = {
+            x: width * (isK ? 0.16 : 0.84) + formation.x * formationScale,
+            y: height * 0.5 + formation.y * formationScale,
+          };
           return createParticle({
             id: `koa-glyph-${index}`,
             pathSeed,
             anchor,
-            position: { x: anchor.x, y: anchor.y },
+            // The mark begins as a loose rainfall rather than an instant outline.
+            // Each deterministic release time makes the assembly varied but replayable.
+            position: {
+              x: formationTarget.x + (seeded(index, 62) - 0.5) * width * 0.6,
+              y: -24 - seeded(index, 63) * height * 0.72,
+            },
             char: GLYPHS[Math.floor(seeded(index, 1) * GLYPHS.length)],
             size: 8 + seeded(index, 9) * 10,
             baseOpacity: 0.018 + seeded(index, 10) * 0.032,
             lifePhase: seeded(index, 11),
             lifeDurationMs: 14000 + seeded(index, 12) * 22000,
+            arrivalAtMs: 90 + seeded(index, 64) * 3000,
           });
         });
         canvas.dataset.particleSignature = particlesRef.current
+          .map((particle) => `${particle.id}:${particle.pathSeed}`)
+          .join("|");
+
+        const ambientCount = width < 720 ? 44 : width < 1024 ? 64 : 84;
+        ambientParticlesRef.current = Array.from({ length: ambientCount }, (_, index) => {
+          const pathSeed = 12000 + index * 53;
+          const anchor = { x: seeded(index, 70) * width, y: seeded(index, 71) * height };
+          return createParticle({
+            id: `koa-ambient-glyph-${index}`,
+            pathSeed,
+            anchor,
+            char: GLYPHS[Math.floor(seeded(index, 72) * GLYPHS.length)],
+            size: 8 + seeded(index, 73) * 11,
+            baseOpacity: 0.045 + seeded(index, 74) * 0.07,
+            lifePhase: seeded(index, 75),
+            lifeDurationMs: 7000 + seeded(index, 76) * 13000,
+            nextTargetAtMs: 900 + seeded(index, 77) * 5000,
+          });
+        });
+        canvas.dataset.ambientSignature = ambientParticlesRef.current
           .map((particle) => `${particle.id}:${particle.pathSeed}`)
           .join("|");
       }
@@ -207,7 +240,9 @@ export function LivingGlyphField({
 
       particlesRef.current.forEach((particle, index) => {
         const destination = sceneTarget(particle, index, phase, chapter, width, height);
-        retargetParticle(particle, destination);
+        const isOpeningMark = phase === "mark-formation" || phase === "hero-copy";
+        const isReleased = now - startedAt >= particle.arrivalAtMs;
+        if (!isOpeningMark || isReleased) retargetParticle(particle, destination);
         advanceParticle(particle, { deltaMs, elapsedMs: now });
 
         const distance = pointerActive
@@ -228,7 +263,7 @@ export function LivingGlyphField({
         });
         // Formation is the signature mark: keep the glyphs individually quiet,
         // but lift the assembled K/A enough to read without a cursor.
-        const formationLift = phase === "mark-formation" || phase === "hero-copy" ? 7 : 1;
+        const formationLift = isOpeningMark && isReleased ? 7 : 1;
         const alpha = Math.min(0.48, sparseAlpha * formationLift);
         if (alpha < 0.002) return;
 
@@ -238,6 +273,33 @@ export function LivingGlyphField({
           ? "#f8f3e8"
           : "#d4c8b8";
         context.fillText(particle.char, particle.position.x, particle.position.y);
+      });
+
+      // A separate, low-count school gives the grid depth. It is deliberately
+      // independent from the K/A arrival so it can drift, fade, and redirect
+      // without ever reading as an extra letter or a seal orbit.
+      ambientParticlesRef.current.forEach((particle, index) => {
+        if (now >= particle.nextTargetAtMs) {
+          cycleParticleLife(particle);
+          particle.nextTargetAtMs = now + 4200 + seeded(index, 80 + particle.pathCursor) * 7000;
+        }
+        advanceParticle(particle, { deltaMs, elapsedMs: now });
+        const occluded = isOccluded(particle.position.x, particle.position.y, occlusionRects);
+        const alpha = boundedSparseAlpha({
+          baseOpacity: particle.opacity,
+          lifePhase: particle.lifePhase,
+          mode: "ambient",
+          occluded,
+        });
+        if (alpha < 0.006) return;
+
+        const hue = 195 + Math.round(seeded(index, 81) * 72);
+        context.globalAlpha = Math.min(0.16, alpha);
+        context.filter = `blur(${(1.5 - alpha * 8).toFixed(2)}px)`;
+        context.fillStyle = `hsl(${hue} 58% ${72 + Math.round(seeded(index, 82) * 14)}%)`;
+        context.font = `${particle.size}px "Noto Sans Myanmar", sans-serif`;
+        context.fillText(particle.char, particle.position.x, particle.position.y);
+        context.filter = "none";
       });
 
       context.globalAlpha = 1;
