@@ -12,21 +12,20 @@ const sealAssembly = read("components/cinematic/SealAssembly.tsx");
 const header = read("components/Header.tsx");
 const css = read("app/globals.css");
 
-test("bilingual hero shares the boundaryless Karen glyph corona", () => {
-  assert.match(cinematic, /cinematic-film__glyph-rays/);
+test("bilingual hero keeps the supplied seal as the sole O without a glyph corona", () => {
+  assert.doesNotMatch(cinematic, /cinematic-film__glyph-rays|cinematic-film__ka-outline/);
   assert.match(cinematic, /SealAssembly/);
   assert.match(sealAssembly, /koa-seal-white-lettering-v2\.png/);
   assert.match(cinematic, /[\u1000-\u109f]/u);
-  assert.match(css, /\.cinematic-film__glyph-rays/);
   assert.match(css, /\.cinematic-seal__annulus/);
 });
 
-test("bilingual cinematic uses normalized delayed progress instead of raw wheel distance", () => {
-  assert.match(cinematic, /MAX_PROGRESS_PER_SECOND/);
-  assert.match(cinematic, /SCROLL_DELAY_MS/);
-  assert.match(cinematic, /advanceNormalizedProgress/);
+test("bilingual cinematic uses capability-gated, continuously eased scroll progress", () => {
+  assert.match(cinematic, /canPlayCinematicMotion/);
+  assert.match(cinematic, /smoothlyFollowProgress/);
+  assert.match(cinematic, /SCROLL_SMOOTHING_MS/);
   assert.match(cinematic, /targetProgressRef/);
-  assert.match(cinematic, /chapterHoldUntilRef/);
+  assert.doesNotMatch(cinematic, /SCROLL_DELAY_MS|chapterHoldUntilRef|cinematic-film__chapter-buttons/);
   assert.match(css, /\.cinematic-film\s*\{[\s\S]*?height:\s*1800vh/);
   assert.match(css, /@media\s*\(max-width:\s*720px\)[\s\S]*?\.cinematic-film\s*\{[\s\S]*?height:\s*1440vh/);
   assert.match(cinematic, /data-cinematic-phase=/);

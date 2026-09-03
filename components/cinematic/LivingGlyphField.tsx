@@ -9,9 +9,8 @@ import {
 } from "../../lib/cinema/glyph-motion.mjs";
 
 export type CinematicPhase =
-  | "arrival"
-  | "seal-flight"
-  | "glyph-o"
+  | "mark-formation"
+  | "hero-copy"
   | `chapter-${number}`
   | "motion-off";
 
@@ -25,11 +24,51 @@ export type OcclusionRect = {
 type GlyphParticle = ReturnType<typeof createParticle>;
 
 const GLYPHS = "ကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇၈၉";
+type Point = { x: number; y: number };
+
+// Solid silhouettes keep the letters filled during forward and reverse scatter.
+const K_SILHOUETTE: Point[] = [
+  { x: -0.72, y: -1 }, { x: -0.34, y: -1 }, { x: -0.34, y: -0.34 },
+  { x: 0.5, y: -1 }, { x: 0.78, y: -1 }, { x: 0.08, y: 0 },
+  { x: 0.78, y: 1 }, { x: 0.5, y: 1 }, { x: -0.34, y: 0.34 },
+  { x: -0.34, y: 1 }, { x: -0.72, y: 1 },
+];
+const A_SILHOUETTE: Point[] = [
+  { x: -0.76, y: 1 }, { x: 0, y: -1 }, { x: 0.76, y: 1 },
+];
+const A_COUNTER: Point[] = [
+  { x: -0.25, y: 0.34 }, { x: 0, y: -0.35 }, { x: 0.25, y: 0.34 },
+];
 
 function seeded(index: number, salt: number) {
   let value = Math.imul(index + 1, 374761393) ^ Math.imul(salt + 1, 668265263);
   value = Math.imul(value ^ (value >>> 13), 1274126177);
   return ((value ^ (value >>> 16)) >>> 0) / 4294967296;
+}
+
+function isInsidePolygon(point: Point, polygon: Point[]) {
+  let inside = false;
+  for (let current = 0, previous = polygon.length - 1; current < polygon.length; previous = current++) {
+    const a = polygon[current];
+    const b = polygon[previous];
+    const crosses = (a.y > point.y) !== (b.y > point.y);
+    const edgeX = ((b.x - a.x) * (point.y - a.y)) / (b.y - a.y) + a.x;
+    if (crosses && point.x < edgeX) inside = !inside;
+  }
+  return inside;
+}
+
+function filledLetterPoint(index: number, isK: boolean): Point {
+  const silhouette = isK ? K_SILHOUETTE : A_SILHOUETTE;
+  for (let attempt = 0; attempt < 24; attempt += 1) {
+    const point = {
+      x: -0.8 + seeded(index, 40 + attempt * 2) * 1.6,
+      y: -1 + seeded(index, 41 + attempt * 2) * 2,
+    };
+    const isACounter = !isK && isInsidePolygon(point, A_COUNTER) && !(point.y > 0.32 && point.y < 0.5);
+    if (isInsidePolygon(point, silhouette) && !isACounter) return point;
+  }
+  return isK ? { x: -0.5, y: 0 } : { x: 0, y: 0.62 };
 }
 
 function ditherThreshold(x: number, y: number) {
@@ -55,15 +94,15 @@ function sceneTarget(
   width: number,
   height: number,
 ) {
-  if (phase === "glyph-o") {
-    const angle = (index % 96) / 96 * Math.PI * 2;
-    const radiusX = Math.min(width, height) * 0.155;
-    const radiusY = radiusX * 1.18;
+  if (phase === "mark-formation" || phase === "hero-copy") {
+    const isK = index % 2 === 0;
+    const point = filledLetterPoint(index, isK);
+    const scale = Math.min(width, height) * (phase === "mark-formation" ? 0.41 : 0.35);
     return {
       mode: "forming",
       target: {
-        x: width / 2 + Math.cos(angle) * radiusX,
-        y: height * 0.47 + Math.sin(angle) * radiusY,
+        x: width * (isK ? 0.17 : 0.83) + point.x * scale,
+        y: height * (phase === "mark-formation" ? 0.5 : 0.3) + point.y * scale,
       },
     } as const;
   }
@@ -77,13 +116,6 @@ function sceneTarget(
         x: width / 2 + chapterOffset + Math.sin(angle * 2) * Math.min(width, height) * 0.09,
         y: height * 0.48 + Math.cos(angle) * Math.min(width, height) * 0.19,
       },
-    } as const;
-  }
-
-  if (phase === "seal-flight") {
-    return {
-      mode: "dispersing",
-      target: particle.path[(particle.pathCursor + 4) % particle.path.length],
     } as const;
   }
 
@@ -136,7 +168,7 @@ export function LivingGlyphField({
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
       if (particlesRef.current.length === 0) {
-        const count = width < 720 ? 72 : width < 1024 ? 112 : 168;
+        const count = width < 720 ? 150 : width < 1024 ? 220 : 280;
         particlesRef.current = Array.from({ length: count }, (_, index) => {
           const pathSeed = 7000 + index * 37;
           const anchor = { x: seeded(index, 3) * width, y: seeded(index, 4) * height };
@@ -146,8 +178,8 @@ export function LivingGlyphField({
             anchor,
             position: { x: anchor.x, y: anchor.y },
             char: GLYPHS[Math.floor(seeded(index, 1) * GLYPHS.length)],
-            size: 6 + seeded(index, 9) * 8,
-            baseOpacity: 0.008 + seeded(index, 10) * 0.026,
+            size: 8 + seeded(index, 9) * 10,
+            baseOpacity: 0.018 + seeded(index, 10) * 0.032,
             lifePhase: seeded(index, 11),
             lifeDurationMs: 14000 + seeded(index, 12) * 22000,
           });
@@ -187,13 +219,17 @@ export function LivingGlyphField({
           ? cursorReveal
           : 0;
         const occluded = isOccluded(particle.position.x, particle.position.y, occlusionRects);
-        const alpha = boundedSparseAlpha({
+        const sparseAlpha = boundedSparseAlpha({
           baseOpacity: particle.opacity,
           lifePhase: particle.lifePhase,
           reveal: revealed,
           mode: particle.mode,
           occluded,
         });
+        // Formation is the signature mark: keep the glyphs individually quiet,
+        // but lift the assembled K/A enough to read without a cursor.
+        const formationLift = phase === "mark-formation" || phase === "hero-copy" ? 7 : 1;
+        const alpha = Math.min(0.48, sparseAlpha * formationLift);
         if (alpha < 0.002) return;
 
         context.globalAlpha = alpha;
