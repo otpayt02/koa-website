@@ -172,12 +172,7 @@ $stderrPath = Join-Path $runtimeDirectory "koa-$Port.stderr.log"
 $koaProcess = Start-Process -FilePath $nodePath -ArgumentList @($vinextCliPath, 'dev', '--hostname', '127.0.0.1', '--port', [string]$Port) -WorkingDirectory $koaRoot -WindowStyle Hidden -RedirectStandardOutput $stdoutPath -RedirectStandardError $stderrPath -PassThru
 $startedAt = [DateTimeOffset]$koaProcess.StartTime.ToUniversalTime()
 
-# The first vinext dev compile can traverse the RSC graph and image/font
-# references before the HTTP route is ready. Keep the bound finite, but give a
-# cold checkout enough time to become reachable instead of killing a healthy
-# process during its initial transform. Five minutes is still bounded and is
-# only relevant on a cold dev start; subsequent starts reuse Vite's graph.
-$deadline = [DateTimeOffset]::UtcNow.AddSeconds(300)
+$deadline = [DateTimeOffset]::UtcNow.AddSeconds(60)
 $ready = $false
 while ([DateTimeOffset]::UtcNow -lt $deadline) {
   if ($koaProcess.HasExited) {
@@ -204,7 +199,7 @@ if (-not $ready) {
     Stop-Process -Id $koaProcess.Id -Force -ErrorAction SilentlyContinue
     Wait-Process -Id $koaProcess.Id -Timeout 10 -ErrorAction SilentlyContinue
   }
-  throw "KOA did not become ready at '$koaUrl' within 300 seconds. Logs: '$stdoutPath' and '$stderrPath'."
+  throw "KOA did not become ready at '$koaUrl' within 60 seconds. Logs: '$stdoutPath' and '$stderrPath'."
 }
 
 $runtimeState = [ordered]@{

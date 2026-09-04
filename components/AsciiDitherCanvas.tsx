@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import type { Lang } from "./i18n";
-import { SGAW_GLYPHS } from "../lib/cinema/glyph-config";
 
 /**
  * ASCII Dithering Canvas - "The Static Veil"
@@ -15,7 +14,27 @@ import { SGAW_GLYPHS } from "../lib/cinema/glyph-config";
  * - Configurable density and contrast
  */
 
-const KAREN_DITHER_CHARS = [...SGAW_GLYPHS];
+const KAREN_DITHER_CHARS = [
+  // Light
+  " ", " ", " ", "·", "·", "•", "◦", "◘", "◙",
+  // Medium - Karen tone marks
+  "ှ", "ံ", "့", "း", "ၠ", "ၡ", "ၢ", "ၣ", "ၤ", "ၥ", "ၦ", "ၧ", "ၨ", "ၩ",
+  // Heavy - Karen consonants
+  "က", "ခ", "ဂ", "ဃ", "င", "စ", "ဆ", "ဇ", "ဈ", "ဉ", "ည",
+  "တ", "ထ", "ဒ", "ဓ", "န", "ပ", "ဖ", "ဗ", "ဘ", "မ",
+  "ယ", "ရ", "လ", "ဝ", "သ", "ဟ", "ဠ", "အ",
+  // Numerals
+  "၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉",
+  // Block elements for classic dither
+  "░", "▒", "▓", "▄", "▀", "▌", "▐", "█"
+];
+
+const DITHER_GRADIENT = [
+  // 0-255 brightness mapped to character index
+  // This creates a smooth dither gradient
+];
+
+const SGAW_AURORA_CHARS = ["က", "ည", "ီ", "ၢ", "ၤ", "ၥ", "့", "း", "၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
 
 interface DitherCell {
   char: string;
@@ -25,7 +44,6 @@ interface DitherCell {
   animationOffset: number;
   isRevealed: boolean;
   revealIntensity: number;
-  variantSeed: number;
 }
 
 interface CursorPosition {
@@ -66,9 +84,6 @@ export function AsciiDitherCanvas({
   const colsRef = useRef(0);
   const rowsRef = useRef(0);
   const initializedRef = useRef(false);
-  const lastRevealNotifyRef = useRef(0);
-  const inputSequenceRef = useRef(0);
-  const scrollRevealTimerRef = useRef<number | null>(null);
 
   // Initialize grid
   const initializeGrid = useCallback((width: number, height: number) => {
@@ -108,7 +123,6 @@ export function AsciiDitherCanvas({
           animationOffset: Math.random() * Math.PI * 2,
           isRevealed: false,
           revealIntensity: 0,
-          variantSeed: Math.random() * 100000,
         });
       }
       grid.push(rowCells);
@@ -122,71 +136,11 @@ export function AsciiDitherCanvas({
   useEffect(() => {
     if (!cursorReveal) return;
 
-    let pendingX = 0;
-    let pendingY = 0;
-    let mutationFrame = 0;
-
-    const swapNearbyGlyphs = (x: number, y: number) => {
-      const cellSize = cellSizeRef.current;
-      const radius = revealRadius * 1.15;
-      const sequence = ++inputSequenceRef.current;
-      const centerCol = Math.floor(x / cellSize);
-      const centerRow = Math.floor(y / cellSize);
-      const radiusInCells = Math.max(2, Math.floor(radius / cellSize));
-      const updateBudget = window.innerWidth < 720 ? 10 : 18;
-      for (let index = 0; index < updateBudget; index += 1) {
-        const angle = Math.random() * Math.PI * 2;
-        const distance = Math.sqrt(Math.random()) * radiusInCells;
-        const col = Math.max(0, Math.min(colsRef.current - 1, centerCol + Math.round(Math.cos(angle) * distance)));
-        const row = Math.max(0, Math.min(rowsRef.current - 1, centerRow + Math.round(Math.sin(angle) * distance)));
-        const cell = gridRef.current[row]?.[col];
-        if (!cell) continue;
-        cell.variantSeed = Math.random() * 100000 + sequence * 0.618 + index;
-        cell.char = KAREN_DITHER_CHARS[Math.floor(Math.random() * KAREN_DITHER_CHARS.length)];
-      }
-    };
-
-    const queueGlyphSwap = (x: number, y: number) => {
-      pendingX = x;
-      pendingY = y;
-      if (mutationFrame) return;
-      mutationFrame = window.requestAnimationFrame(() => {
-        mutationFrame = 0;
-        swapNearbyGlyphs(pendingX, pendingY);
-      });
-    };
-
     const handleMouseMove = (e: MouseEvent) => {
       cursorRef.current.x = e.clientX;
       cursorRef.current.y = e.clientY;
       cursorRef.current.active = true;
       cursorRef.current.radius = revealRadius;
-      queueGlyphSwap(e.clientX, e.clientY);
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      if (!touch) return;
-      cursorRef.current.x = touch.clientX;
-      cursorRef.current.y = touch.clientY;
-      cursorRef.current.active = true;
-      cursorRef.current.radius = revealRadius;
-      queueGlyphSwap(touch.clientX, touch.clientY);
-    };
-
-    const handleScroll = () => {
-      if (!cursorRef.current.active) {
-        cursorRef.current.x = window.innerWidth * 0.5;
-        cursorRef.current.y = window.innerHeight * 0.56;
-        cursorRef.current.radius = Math.min(revealRadius, 220) * 0.72;
-        cursorRef.current.active = true;
-      }
-      queueGlyphSwap(cursorRef.current.x, cursorRef.current.y);
-      if (scrollRevealTimerRef.current) window.clearTimeout(scrollRevealTimerRef.current);
-      scrollRevealTimerRef.current = window.setTimeout(() => {
-        cursorRef.current.active = false;
-        scrollRevealTimerRef.current = null;
-      }, 260);
     };
 
     const handleMouseLeave = () => {
@@ -194,17 +148,11 @@ export function AsciiDitherCanvas({
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
-    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mouseleave", handleMouseLeave);
-      if (mutationFrame) window.cancelAnimationFrame(mutationFrame);
-      if (scrollRevealTimerRef.current) window.clearTimeout(scrollRevealTimerRef.current);
     };
   }, [cursorReveal, revealRadius]);
 
@@ -217,50 +165,25 @@ export function AsciiDitherCanvas({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const lowPower = window.matchMedia("(prefers-reduced-data: reduce)").matches
-      || (navigator.hardwareConcurrency || 8) <= 4;
-    const frameInterval = lowPower ? 1000 / 30 : 1000 / 60;
-    let lastPaint = 0;
-    let visible = true;
-
     const resize = () => {
-      const dpr = lowPower ? 1 : Math.min(1.5, window.devicePixelRatio || 1);
-      cellSizeRef.current = lowPower ? 12 : 9;
+      const dpr = window.devicePixelRatio || 1;
       canvasSizeRef.current.width = window.innerWidth;
       canvasSizeRef.current.height = window.innerHeight;
       canvas.width = canvasSizeRef.current.width * dpr;
       canvas.height = canvasSizeRef.current.height * dpr;
       canvas.style.width = `${canvasSizeRef.current.width}px`;
       canvas.style.height = `${canvasSizeRef.current.height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.scale(dpr, dpr);
 
-      initializeGrid(canvasSizeRef.current.width, canvasSizeRef.current.height);
+      if (!initializedRef.current) {
+        initializeGrid(canvasSizeRef.current.width, canvasSizeRef.current.height);
+      }
     };
 
     resize();
-    const visibilityObserver = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (visible && !animationRef.current) animationRef.current = requestAnimationFrame(animate);
-    }, { threshold: 0 });
-    visibilityObserver.observe(canvas);
-    const onVisibilityChange = () => {
-      if (!document.hidden && visible && !animationRef.current) animationRef.current = requestAnimationFrame(animate);
-    };
-    document.addEventListener("visibilitychange", onVisibilityChange);
     window.addEventListener("resize", resize);
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(canvas);
 
     const animate = (time: number) => {
-      if (!visible || document.hidden) {
-        animationRef.current = null;
-        return;
-      }
-      if (time - lastPaint < frameInterval) {
-        animationRef.current = requestAnimationFrame(animate);
-        return;
-      }
-      lastPaint = time;
       const dt = Math.min(time - lastTimeRef.current, 33);
       lastTimeRef.current = time;
 
@@ -272,33 +195,16 @@ export function AsciiDitherCanvas({
       const grid = gridRef.current;
       const cursor = cursorRef.current;
 
-      // Clear
-      // Transparent idle state: the grid is only visible in the interaction
-      // halo, so the cinematic background remains quiet between inputs.
+      // Leave the CSS grid visible through the dither field.
       ctx.clearRect(0, 0, width, height);
-
-      // The canvas is dormant between interactions. This is the main
-      // performance guard: no full-screen grid loop runs while the visitor is
-      // reading, while the global wave canvas supplies a nearly invisible base.
-      if (!cursor.active) {
-        ctx.globalAlpha = 1;
-        animationRef.current = requestAnimationFrame(animate);
-        return;
-      }
 
       // Update and render each cell
       ctx.font = `${cellSize}px 'Noto Sans Myanmar', monospace`;
       ctx.textBaseline = "top";
       ctx.textAlign = "left";
 
-      const radius = cursor.radius * 1.12;
-      const minCol = Math.max(0, Math.floor((cursor.x - radius) / cellSize));
-      const maxCol = Math.min(cols - 1, Math.ceil((cursor.x + radius) / cellSize));
-      const minRow = Math.max(0, Math.floor((cursor.y - radius) / cellSize));
-      const maxRow = Math.min(rows - 1, Math.ceil((cursor.y + radius) / cellSize));
-
-      for (let row = minRow; row <= maxRow; row++) {
-        for (let col = minCol; col <= maxCol; col++) {
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
           const cell = grid[row][col];
           const x = col * cellSize;
           const y = row * cellSize;
@@ -322,10 +228,9 @@ export function AsciiDitherCanvas({
               // Brighten significantly at cursor
               targetBrightness = Math.min(255, cell.baseBrightness + influence * 200);
               
-              // Shift to Karen glyphs at high reveal
+              // Shift to S'gaw Karen and Myanmar Unicode glyphs at high reveal.
               if (influence > 0.6) {
-                const karenIndex = Math.floor(influence * (KAREN_DITHER_CHARS.length - 20)) + 20;
-                cell.char = KAREN_DITHER_CHARS[Math.min(karenIndex, KAREN_DITHER_CHARS.length - 1)];
+                cell.char = SGAW_AURORA_CHARS[(row * 7 + col * 11) % SGAW_AURORA_CHARS.length];
               } else if (influence > 0.3) {
                 const midIndex = Math.floor(influence * 20) + 10;
                 cell.char = KAREN_DITHER_CHARS[Math.min(midIndex, KAREN_DITHER_CHARS.length - 1)];
@@ -351,28 +256,28 @@ export function AsciiDitherCanvas({
           const clampedIndex = Math.max(0, Math.min(charIndex, KAREN_DITHER_CHARS.length - 1));
           
           // Smooth character transition
-          const flutterTick = Math.floor(time / 1200 + cell.animationOffset);
-          if ((flutterTick + row * 13 + col * 7) % 251 === 0) {
-            cell.char = KAREN_DITHER_CHARS[Math.max(0, clampedIndex + (Math.floor(cell.variantSeed) % 5 - 2))];
+          if (Math.random() < 0.002) { // Occasional character flutter
+            cell.char = KAREN_DITHER_CHARS[Math.max(0, clampedIndex + (Math.random() - 0.5) * 4 | 0)];
           } else {
             cell.char = KAREN_DITHER_CHARS[clampedIndex];
           }
 
-          // Color based on brightness and reveal
+          // An aurora color field passes under a stable grid. Cursor brightness
+          // intensifies the same Unicode glyphs instead of replacing the layer.
           let color: string;
           let alpha: number;
-
-          if (cell.revealIntensity <= 0.04) continue;
+          const aurora = Math.sin(x * 0.009 + time * 0.00016) + Math.cos(y * 0.013 - time * 0.00011);
+          const hue = 190 + (aurora + 2) * 23;
 
           if (cell.revealIntensity > 0.1) {
             // Revealed - gold/cream
             const intensity = cell.revealIntensity;
             alpha = 0.02 + intensity * 0.15;
-            color = intensity > 0.5 ? "#e8c85a" : "#f8f3e8";
+            color = intensity > 0.5 ? "#f4d883" : `hsl(${hue} 78% 82%)`;
           } else {
             // Normal - subtle navy/gold
             alpha = 0.01 + (finalBrightness / 255) * 0.025;
-            color = finalBrightness > 180 ? "#d4a843" : "#3d6b9e";
+            color = `hsl(${hue} 58% ${42 + Math.round(finalBrightness / 14)}%)`;
           }
 
           ctx.globalAlpha = alpha;
@@ -384,8 +289,7 @@ export function AsciiDitherCanvas({
       ctx.globalAlpha = 1;
 
       // Notify parent of reveal area for coordination
-      if (cursor.active && time - lastRevealNotifyRef.current > 120) {
-        lastRevealNotifyRef.current = time;
+      if (cursor.active) {
         onRevealArea(cursor.x, cursor.y, cursor.radius);
       }
 
@@ -395,9 +299,6 @@ export function AsciiDitherCanvas({
     animationRef.current = requestAnimationFrame(animate);
     return () => {
       window.removeEventListener("resize", resize);
-      document.removeEventListener("visibilitychange", onVisibilityChange);
-      resizeObserver.disconnect();
-      visibilityObserver.disconnect();
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, [canvasRef, isReducedMotion, cursorReveal, initializeGrid, lang]);

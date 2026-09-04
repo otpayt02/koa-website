@@ -51,4 +51,3 @@ htmlcov/
 .koa-runtime.json
 output/runtime/
 .playwright-cli/
-.tmp-gsap/

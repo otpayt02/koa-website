@@ -1,17 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import type { Lang } from "./i18n";
 
 /**
  * KOA Logo Intro Sequence - "The Beacon" (Enhanced Deluxe Version)
  * 
- * Phase 1: The Spark (0-.6s) - Subtle sunshine halo, Karen glyph rays
- * Phase 2: Statue of Liberty Emerges (.6-1.5s) - Silhouette rises from light
- * Phase 3: KOA Letters Form (1.5-2.7s) - Glyphs swarm into K, O, A
- * Phase 4: The Reveal (2.7-3.6s) - Logo scales, O dissolves, K/A settle horizontal
- * Phase 5: The O Forms (3.6-5s) - Glyphs converge from off-screen to form O
- * Phase 6: Idle Breathing (5s+) - One final frame hands off to the scroll film
+ * Phase 1: The Spark (0-2s) - Subtle sunshine halo, Karen glyph rays
+ * Phase 2: Statue of Liberty Emerges (2-5s) - Silhouette rises from light
+ * Phase 3: KOA Letters Form (5-8s) - Glyphs swarm into K, O, A
+ * Phase 4: The Reveal (8-12s) - Logo scales, O dissolves, K/A settle horizontal
+ * Phase 5: The O Forms (12-16s) - Glyphs converge from off-screen to form O
+ * Phase 6: Idle Breathing (16s+) - Ray rotation, glyph breathing, clockwise orbit
  * 
  * NEW ENHANCEMENTS:
  * - Halo made of Karen glyph rays (subtle, semi-transparent)
@@ -19,7 +19,7 @@ import type { Lang } from "./i18n";
  * - White Karen glyphs orbiting clockwise around inner circle
  * - White circumference-outlining words in English/Karen orbiting
  * - Ray spiral never has visible boundary
- * - frame-capped handoff so the intro never competes with the page film
+ * - 2x frame duration for smoother cinematic
  */
 
 // Karen script Unicode ranges
@@ -41,31 +41,16 @@ const ORBIT_TEXTS = {
 // Letter shapes for glyph formation
 const LETTER_SHAPES = {
   K: [
-    [-1.15, -1.35], [-1.15, -1.08], [-1.15, -0.81], [-1.15, -0.54],
-    [-1.15, -0.27], [-1.15, 0.0], [-1.15, 0.27], [-1.15, 0.54],
-    [-1.15, 0.81], [-1.15, 1.08], [-1.15, 1.35],
-    [-0.92, -0.15], [-0.68, -0.05], [-0.44, 0.05], [-0.18, 0.18],
-    [0.10, 0.42], [0.34, 0.66], [0.58, 0.90], [0.82, 1.18],
-    [0.10, -0.10], [0.34, -0.34], [0.58, -0.58], [0.82, -0.86],
-    [-0.72, -0.18], [-0.46, -0.08], [-0.20, 0.02],
-    [0.22, 0.32], [0.46, 0.56], [0.70, 0.80],
-    [0.22, -0.22], [0.46, -0.46],
+    [-1, -1.2], [-1, -0.6], [-1, 0], [-1, 0.6], [-1, 1.2],
+    [-0.3, 0], [0.4, 0.6], [0.4, -0.6],
   ],
   O: [
-    [-0.78, -1.04], [-0.42, -1.16], [0, -1.2], [0.42, -1.16], [0.78, -1.04],
-    [1.02, -0.72], [1.10, -0.36], [1.12, 0], [1.10, 0.36], [1.02, 0.72],
-    [0.78, 1.04], [0.42, 1.16], [0, 1.2], [-0.42, 1.16], [-0.78, 1.04],
-    [-1.02, 0.72], [-1.10, 0.36], [-1.12, 0], [-1.10, -0.36], [-1.02, -0.72],
+    [-0.7, -0.9], [0, -1.1], [0.7, -0.9], [1.0, -0.4], [1.0, 0], [1.0, 0.4],
+    [0.7, 0.9], [0, 1.1], [-0.7, 0.9], [-1.0, 0.4], [-1.0, 0], [-1.0, -0.4],
   ],
   A: [
-    [-1.08, 1.18], [-0.92, 0.86], [-0.76, 0.54], [-0.60, 0.22], [-0.44, -0.10],
-    [-0.28, -0.42], [-0.14, -0.70], [0, -0.98],
-    [0.14, -0.70], [0.28, -0.42], [0.44, -0.10], [0.60, 0.22],
-    [0.76, 0.54], [0.92, 0.86], [1.08, 1.18],
-    [-0.62, 0.22], [-0.42, 0.22], [-0.21, 0.22], [0, 0.22],
-    [0.21, 0.22], [0.42, 0.22], [0.62, 0.22],
-    [-0.82, 0.70], [-0.66, 0.38], [-0.50, 0.06], [-0.34, -0.26],
-    [0.34, -0.26], [0.50, 0.06], [0.66, 0.38], [0.82, 0.70],
+    [-0.8, 0.6], [-0.4, -0.6], [0, -0.9], [0.4, -0.6], [0.8, 0.6],
+    [-0.3, 0], [0.3, 0],
   ],
 };
 
@@ -110,12 +95,12 @@ interface IntroPhase {
 }
 
 const PHASES: IntroPhase[] = [
-  { name: "spark", start: 0, end: 600 },
-  { name: "statue", start: 600, end: 1500 },
-  { name: "letters", start: 1500, end: 2700 },
-  { name: "reveal", start: 2700, end: 3600 },
-  { name: "o-form", start: 3600, end: 5000 },
-  { name: "idle", start: 5000, end: Infinity },
+  { name: "spark", start: 0, end: 2000 },
+  { name: "statue", start: 2000, end: 5000 },
+  { name: "letters", start: 5000, end: 8000 },
+  { name: "reveal", start: 8000, end: 12000 },
+  { name: "o-form", start: 12000, end: 16000 },
+  { name: "idle", start: 16000, end: Infinity },
 ];
 
 export function KOALogoIntro({
@@ -129,14 +114,13 @@ export function KOALogoIntro({
   isReducedMotion?: boolean;
   lang?: Lang;
 }) {
+  const [phase, setPhase] = useState(isReducedMotion ? PHASES.length - 1 : 0);
+  const [phaseProgress, setPhaseProgress] = useState(isReducedMotion ? 1 : 0);
   const particlesRef = useRef<GlyphParticle[]>([]);
   const orbitTextsRef = useRef<OrbitingText[]>([]);
   const animationRef = useRef<number | null>(null);
   const startTimeRef = useRef<number>(0);
   const completedRef = useRef(false);
-  const lettersAssignedRef = useRef(false);
-  const lastPaintRef = useRef(0);
-  const lowPowerRef = useRef(false);
   const statueYRef = useRef(1);
   const logoScaleRef = useRef(0.1);
   const rayRotationRef = useRef(0);
@@ -148,18 +132,16 @@ export function KOALogoIntro({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resize = () => {
-      const lowPower = window.matchMedia("(prefers-reduced-data: reduce)").matches || (navigator.hardwareConcurrency || 8) <= 4;
-      lowPowerRef.current = lowPower;
-      const dpr = lowPower ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       canvas.style.width = `${window.innerWidth}px`;
       canvas.style.height = `${window.innerHeight}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.scale(dpr, dpr);
     };
 
     resize();
@@ -167,11 +149,7 @@ export function KOALogoIntro({
     startTimeRef.current = performance.now();
 
     // Initialize particles for streaming from torch/halo
-    // Denser formation on capable devices; keep the low-power profile light
-    // enough that the intro never delays the first meaningful interaction.
-    const lowPower = window.matchMedia("(prefers-reduced-data: reduce)").matches || (navigator.hardwareConcurrency || 8) <= 4;
-    const particleCount = lowPower ? 240 : 420;
-    particlesRef.current = Array.from({ length: particleCount }, (_, i) => ({
+    particlesRef.current = Array.from({ length: 300 }, (_, i) => ({
       id: i,
       char: KAREN_GLYPHS[Math.floor(Math.random() * KAREN_GLYPHS.length)],
       x: window.innerWidth / 2,
@@ -187,7 +165,7 @@ export function KOALogoIntro({
       state: "streaming",
       targetLetter: null,
       letterIndex: -1,
-       delay: Math.random() * 800,
+      delay: Math.random() * 3000,
       noiseOffset: Math.random() * 10000,
     }));
 
@@ -318,10 +296,8 @@ export function KOALogoIntro({
     phase: number,
     progress: number
   ) => {
-    // Use the CSS viewport size rather than the browser's devicePixelRatio;
-    // the canvas may intentionally use a capped DPR on slower devices.
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = ctx.canvas.width / (window.devicePixelRatio || 1);
+    const height = ctx.canvas.height / (window.devicePixelRatio || 1);
     const maxDim = Math.max(width, height);
     
     // Spiral ray parameters - never ending, no hard boundary
@@ -361,7 +337,7 @@ export function KOALogoIntro({
       
       // Gradient along spiral - fades to transparency without boundary
       const gradient = ctx.createLinearGradient(0, 0, maxDim * 0.6, 0);
-      const rayProgress = Math.min(1, elapsed / PHASES[4].end);
+      const rayProgress = Math.min(1, elapsed / 16000);
       const opacity = baseRayOpacity * (0.5 + rayProgress * 0.5);
       
       gradient.addColorStop(0, `rgba(232, 200, 90, ${opacity})`);
@@ -380,17 +356,14 @@ export function KOALogoIntro({
       const glyphRayCount = 24;
       for (let i = 0; i < glyphRayCount; i++) {
         const angle = (i / glyphRayCount) * Math.PI * 2 + spiralAngleRef.current * 0.5;
-          // Stable per-ray glyphs avoid a full-field randomization on every
-          // frame while still changing gently as the intro breathes.
-          const glyphIndex = (i * 11 + Math.floor(elapsed / 1200)) % KAREN_GLYPHS.length;
-          const glyph = KAREN_GLYPHS[glyphIndex];
+        const glyph = KAREN_GLYPHS[Math.floor(Math.random() * KAREN_GLYPHS.length)];
         
         // Draw glyph along ray at varying distances
         for (let t = 0.2; t <= 0.8; t += 0.15) {
           const dist = t * maxDim * 0.45;
           const x = Math.cos(angle) * dist;
           const y = Math.sin(angle) * dist;
-            const gProgress = Math.min(1, Math.max(0, (elapsed - PHASES[1].start) / (PHASES[1].end - PHASES[1].start)));
+          const gProgress = Math.min(1, (elapsed - 2000) / 3000);
           const gOpacity = 0.008 * gProgress * (1 - t); // Fade with distance
           
           if (gOpacity > 0.001) {
@@ -419,16 +392,10 @@ export function KOALogoIntro({
 
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const animate = (time: number) => {
-      const frameInterval = lowPowerRef.current ? 1000 / 30 : 1000 / 60;
-      if (lastPaintRef.current && time - lastPaintRef.current < frameInterval) {
-        animationRef.current = requestAnimationFrame(animate);
-        return;
-      }
-      lastPaintRef.current = time;
       const elapsed = time - startTimeRef.current;
       
       // Determine current phase
@@ -446,10 +413,13 @@ export function KOALogoIntro({
         }
       }
       
+      setPhase(currentPhase);
+      setPhaseProgress(currentProgress);
+
       const particles = particlesRef.current;
       const orbitTexts = orbitTextsRef.current;
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const width = canvas.width / (window.devicePixelRatio || 1);
+      const height = canvas.height / (window.devicePixelRatio || 1);
       const centerX = width / 2;
       const centerY = height / 2;
 
@@ -584,6 +554,13 @@ export function KOALogoIntro({
       if (currentPhase >= 2) {
         const p = currentPhase === 2 ? currentProgress : 1;
         
+        // Navy background full
+        ctx.fillStyle = "#040818";
+        ctx.fillRect(0, 0, width, height);
+
+        // Redraw spiral rays
+        drawSpiralRays(ctx, centerX, centerY, elapsed, currentPhase, currentProgress);
+
         // Statue fades out
         if (currentPhase > 2) {
           statueYRef.current -= 0.003;
@@ -596,8 +573,7 @@ export function KOALogoIntro({
         const aPos = getLetterPositions("A", centerX + 200 * letterScale, centerY, letterScale);
 
         // Assign particles to letters
-        if (currentPhase === 2 && !lettersAssignedRef.current) {
-          lettersAssignedRef.current = true;
+        if (currentPhase === 2) {
           let particleIdx = 0;
           const allPositions = [...kPos, ...oPos, ...aPos];
           
@@ -613,7 +589,7 @@ export function KOALogoIntro({
               pt.state = "forming";
               pt.targetLetter = letter;
               pt.letterIndex = letterIdx;
-              pt.delay = letterIdx * 7 + (letter === "O" ? kPos.length * 7 : 0) + (letter === "A" ? (kPos.length + oPos.length) * 7 : 0);
+              pt.delay = letterIdx * 25 + (letter === "O" ? kPos.length * 25 : 0) + (letter === "A" ? (kPos.length + oPos.length) * 25 : 0);
               pt.size = 22 + Math.random() * 14;
               particleIdx++;
             }
@@ -623,7 +599,7 @@ export function KOALogoIntro({
         // Animate forming particles
         particles.forEach(pt => {
           if (pt.state === "forming") {
-            const localProgress = Math.min(1, Math.max(0, (elapsed - PHASES[2].start - pt.delay) / 950));
+            const localProgress = Math.min(1, Math.max(0, (elapsed - PHASES[2].start - pt.delay) / 1200));
             if (localProgress > 0) {
               const eased = 1 - Math.pow(1 - localProgress, 3);
               pt.x += (pt.targetX - pt.x) * eased * 0.15;
@@ -673,6 +649,10 @@ export function KOALogoIntro({
       if (currentPhase >= 3) {
         const p = currentPhase === 3 ? currentProgress : 1;
         
+        ctx.fillStyle = "#040818";
+        ctx.fillRect(0, 0, width, height);
+        drawSpiralRays(ctx, centerX, centerY, elapsed, currentPhase, currentProgress);
+
         const scale = logoScaleRef.current * (1 + p * 2);
         const oDissolveProgress = Math.min(1, p * 1.5);
 
@@ -748,6 +728,10 @@ export function KOALogoIntro({
       if (currentPhase >= 4) {
         const p = currentPhase === 4 ? currentProgress : 1;
         
+        ctx.fillStyle = "#040818";
+        ctx.fillRect(0, 0, width, height);
+        drawSpiralRays(ctx, centerX, centerY, elapsed, currentPhase, currentProgress);
+
         // K and A stay formed
         particles.forEach(pt => {
           if ((pt.targetLetter === "K" || pt.targetLetter === "A") && pt.state === "formed") {
@@ -795,7 +779,7 @@ export function KOALogoIntro({
               pt.state = "forming";
               pt.targetLetter = "O";
               pt.letterIndex = oParticleIdx;
-              pt.delay = oParticleIdx * 9;
+              pt.delay = oParticleIdx * 15;
               pt.size = 26 + Math.random() * 12;
               pt.opacity = 0;
               oParticleIdx++;
@@ -804,7 +788,7 @@ export function KOALogoIntro({
 
           particles.forEach(pt => {
             if (pt.targetLetter === "O" && pt.state === "forming") {
-              const localProgress = Math.min(1, Math.max(0, (elapsed - PHASES[4].start - pt.delay) / 980));
+              const localProgress = Math.min(1, Math.max(0, (elapsed - PHASES[4].start - pt.delay) / 1400));
               if (localProgress > 0) {
                 const eased = 1 - Math.pow(1 - localProgress, 4);
                 pt.x += (pt.targetX - pt.x) * eased * 0.12;
@@ -853,6 +837,8 @@ export function KOALogoIntro({
           completedRef.current = true;
           onComplete?.();
         }
+
+        drawSpiralRays(ctx, centerX, centerY, elapsed, currentPhase, currentProgress);
 
         // All three letters breathing + orbiting slowly
         particles.forEach(pt => {
@@ -945,10 +931,6 @@ export function KOALogoIntro({
         rayRotationRef.current += 0.000001;
       }
 
-      // The scroll film owns the long-lived breathing state. Stop this
-      // handoff canvas as soon as its final frame has been delivered so a
-      // detached overlay can never continue consuming a frame budget.
-      if (currentPhase >= 5) return;
       animationRef.current = requestAnimationFrame(animate);
     };
 

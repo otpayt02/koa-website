@@ -5,7 +5,6 @@ import { Card } from "@/components/Card";
 import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Karen Music Director · Preserve, Equip, Connect",
@@ -92,19 +91,15 @@ export default async function MusicPage({
         </Button>
       </PageHero>
 
-      <Section eyebrow="Five chapters">
-        <div className="section-heading">
-          <p className="eyebrow">Five chapters</p>
-          <ScrollReveal><h2>A story told in song.</h2></ScrollReveal>
-        </div>
+      <Section eyebrow="Five chapters" title="A story told in song.">
         <div className="feature-grid feature-grid--1">
           {chapters.map((chapter) => (
             <article key={chapter.numeral} className="chapter-card">
               <span className="chapter-card__numeral">{chapter.numeral}</span>
-              <ScrollReveal>
+              <div>
                 <h3>{chapter.title}</h3>
                 <p>{chapter.copy}</p>
-              </ScrollReveal>
+              </div>
             </article>
           ))}
         </div>
@@ -176,18 +171,14 @@ export default async function MusicPage({
           />
         </div>
         <div>
-          <ScrollReveal>
-            <p className="eyebrow">Karen music style</p>
-            <h2>Meter, melody, and meaning.</h2>
-          </ScrollReveal>
-          <ScrollReveal>
-            <p>
+          <p className="eyebrow">Karen music style</p>
+          <h2>Meter, melody, and meaning.</h2>
+          <p>
             Karen hymns follow established patterns — predominantly 4/4 meter,
             verse–chorus form, I–IV–V–I harmony with stepwise melody within an
             octave. Lyrics use S'gaw Karen script with English chord symbols
             above the line.
           </p>
-          </ScrollReveal>
           <ul className="check-list">
             <li>Predominantly 4/4 meter; some 3/4 waltz hymns</li>
             <li>Verse–chorus or strophic form</li>
@@ -201,12 +192,9 @@ export default async function MusicPage({
       <Section
         tone="ink"
         eyebrow="Contribute"
+        title="Send a song."
+        intro="Every hymn, chart, and recording helps preserve the Karen music tradition for the next generation. All contributions pass through a rights review before publication."
       >
-        <div className="section-heading">
-          <p className="eyebrow">Contribute</p>
-          <ScrollReveal><h2>Send a song.</h2></ScrollReveal>
-          <p>Every hymn, chart, and recording helps preserve the Karen music tradition for the next generation. All contributions pass through a rights review before publication.</p>
-        </div>
         <div className="feature-grid feature-grid--3">
           <Card>
             <h3>Upload a chart</h3>

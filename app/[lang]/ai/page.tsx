@@ -5,7 +5,6 @@ import { Card } from "@/components/Card";
 import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "S'gaw-Mango AI · Karen Language Program",
@@ -101,16 +100,12 @@ export default async function AIPage({
 
       <Section
         eyebrow="How it works"
+        title="From syllables on paper to syllables in the air."
+        intro="S'gaw-Mango AI connects community-reviewed language tools into one pipeline. Every capability traces to a real evidence artifact and a real reviewer."
       >
-        <div className="section-heading">
-          <p className="eyebrow">How it works</p>
-          <ScrollReveal><h2>From syllables on paper to syllables in the air.</h2></ScrollReveal>
-          <p>S'gaw-Mango AI connects community-reviewed language tools into one pipeline. Every capability traces to a real evidence artifact and a real reviewer.</p>
-        </div>
         <div className="feature-grid feature-grid--3">
           {capabilities.map((cap, index) => (
-            <ScrollReveal key={cap.title}>
-            <Card>
+            <Card key={cap.title}>
               <span className="card-number">
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -126,7 +121,6 @@ export default async function AIPage({
                 {cap.action}
               </Link>
             </Card>
-            </ScrollReveal>
           ))}
         </div>
       </Section>
@@ -139,10 +133,8 @@ export default async function AIPage({
           />
         </div>
         <div>
-          <ScrollReveal>
-            <p className="eyebrow">Data provenance</p>
-            <h2>Every word is reviewed. Every voice belongs to someone.</h2>
-          </ScrollReveal>
+          <p className="eyebrow">Data provenance</p>
+          <h2>Every word is reviewed. Every voice belongs to someone.</h2>
           <p>
             S'gaw-Mango AI does not learn from scraped text or unreviewed
             submissions. Every training datum traces to one approved translation
@@ -160,12 +152,9 @@ export default async function AIPage({
       <Section
         tone="cream"
         eyebrow="Community contribution"
+        title="The language grows because people give to it."
+        intro="Every correction, recording, and sentence pair helps the next generation of Karen speakers. Contributions pass through the Language Studio before they become training data."
       >
-        <div className="section-heading">
-          <p className="eyebrow">Community contribution</p>
-          <ScrollReveal><h2>The language grows because people give to it.</h2></ScrollReveal>
-          <p>Every correction, recording, and sentence pair helps the next generation of Karen speakers. Contributions pass through the Language Studio before they become training data.</p>
-        </div>
         <div className="feature-grid feature-grid--2">
           <Card>
             <span className="card-number">01</span>
@@ -202,12 +191,9 @@ export default async function AIPage({
       <Section
         tone="ink"
         eyebrow="Truth in claims"
+        title="What we say, and how we know it."
+        intro="KOA does not overclaim. Every capability statement carries a truth-state label so visitors know what is measured, what is in development, and what is planned."
       >
-        <div className="section-heading">
-          <p className="eyebrow">Truth in claims</p>
-          <ScrollReveal><h2>What we say, and how we know it.</h2></ScrollReveal>
-          <p>KOA does not overclaim. Every capability statement carries a truth-state label so visitors know what is measured, what is in development, and what is planned.</p>
-        </div>
         <div className="feature-grid feature-grid--2">
           <Card>
             <h3>Declared</h3>

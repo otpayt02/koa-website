@@ -4,22 +4,14 @@ import { useEffect, useRef } from "react";
 import {
   advanceParticle,
   boundedSparseAlpha,
+  cycleParticleLife,
   createParticle,
   retargetParticle,
-  getNumeral1Positions,
 } from "../../lib/cinema/glyph-motion.mjs";
-import { getLetterPositions } from "../../lib/cinema/letter-shapes.mjs";
-import { SGAW_GLYPH_STRING } from "../../lib/cinema/glyph-config";
 
 export type CinematicPhase =
-  | "arrival"
-  | "seal-flight"
-  | "glyph-o"
-  | "koa-shrink"
-  | "koa-form"
-  | "koa-lock"
-  | "koa-rise"
-  | "text-reveal"
+  | "mark-formation"
+  | "hero-copy"
   | `chapter-${number}`
   | "motion-off";
 
@@ -32,12 +24,47 @@ export type OcclusionRect = {
 
 type GlyphParticle = ReturnType<typeof createParticle>;
 
-const GLYPHS = SGAW_GLYPH_STRING;
+const GLYPHS = "ကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇၈၉";
+type Point = { x: number; y: number };
 
+// Solid silhouettes keep the letters filled during forward and reverse scatter.
+const K_SILHOUETTE: Point[] = [
+  { x: -0.72, y: -1 }, { x: -0.34, y: -1 }, { x: -0.34, y: -0.34 },
+  { x: 0.5, y: -1 }, { x: 0.78, y: -1 }, { x: 0.08, y: 0 },
+  { x: 0.78, y: 1 }, { x: 0.5, y: 1 }, { x: -0.34, y: 0.34 },
+  { x: -0.34, y: 1 }, { x: -0.72, y: 1 },
+];
+const A_SILHOUETTE: Point[] = [
+  { x: -0.76, y: 1 }, { x: 0, y: -1 }, { x: 0.76, y: 1 },
+];
 function seeded(index: number, salt: number) {
   let value = Math.imul(index + 1, 374761393) ^ Math.imul(salt + 1, 668265263);
   value = Math.imul(value ^ (value >>> 13), 1274126177);
   return ((value ^ (value >>> 16)) >>> 0) / 4294967296;
+}
+
+function isInsidePolygon(point: Point, polygon: Point[]) {
+  let inside = false;
+  for (let current = 0, previous = polygon.length - 1; current < polygon.length; previous = current++) {
+    const a = polygon[current];
+    const b = polygon[previous];
+    const crosses = (a.y > point.y) !== (b.y > point.y);
+    const edgeX = ((b.x - a.x) * (point.y - a.y)) / (b.y - a.y) + a.x;
+    if (crosses && point.x < edgeX) inside = !inside;
+  }
+  return inside;
+}
+
+function filledLetterPoint(index: number, isK: boolean): Point {
+  const silhouette = isK ? K_SILHOUETTE : A_SILHOUETTE;
+  for (let attempt = 0; attempt < 24; attempt += 1) {
+    const point = {
+      x: -0.8 + seeded(index, 40 + attempt * 2) * 1.6,
+      y: -1 + seeded(index, 41 + attempt * 2) * 2,
+    };
+    if (isInsidePolygon(point, silhouette)) return point;
+  }
+  return isK ? { x: -0.5, y: 0 } : { x: 0, y: 0.62 };
 }
 
 function ditherThreshold(x: number, y: number) {
@@ -55,52 +82,6 @@ function isOccluded(x: number, y: number, rectangles: OcclusionRect[]) {
   );
 }
 
-type CachedTargets = {
-  k: Array<{ x: number; y: number }>;
-  a: Array<{ x: number; y: number }>;
-  numeral: Array<{ x: number; y: number }>;
-};
-
-const targetCache = new Map<string, CachedTargets>();
-
-function easeInOut(value: number) {
-  const t = Math.min(1, Math.max(0, value));
-  return t * t * (3 - 2 * t);
-}
-
-function isFormationPhase(phase: CinematicPhase) {
-  return phase === "koa-form"
-    || phase === "koa-lock"
-    || phase === "koa-rise"
-    || phase === "glyph-o"
-    || phase.startsWith("chapter-");
-}
-
-function getCachedTargets(
-  phase: CinematicPhase,
-  chapter: number,
-  width: number,
-  height: number,
-  progress: number,
-) {
-  // Include a coarse progress bucket so the K/A targets can rise together
-  // without recalculating geometry on every animation frame.
-  const key = `${phase}:${chapter}:${Math.round(progress * 100)}:${Math.round(width)}x${Math.round(height)}`;
-  const existing = targetCache.get(key);
-  if (existing) return existing;
-  const rise = easeInOut((progress - 0.28) / 0.1);
-  const heroY = height * (0.34 - rise * 0.105);
-  const heroScale = 3.85 + rise * 0.45;
-  const targets: CachedTargets = {
-    k: getLetterPositions("K", width * 0.23, heroY, heroScale),
-    a: getLetterPositions("A", width * 0.77, heroY, heroScale),
-    numeral: getNumeral1Positions(width, height, 120),
-  };
-  if (targetCache.size > 12) targetCache.delete(targetCache.keys().next().value!);
-  targetCache.set(key, targets);
-  return targets;
-}
-
 function sceneTarget(
   particle: GlyphParticle,
   index: number,
@@ -108,54 +89,23 @@ function sceneTarget(
   chapter: number,
   width: number,
   height: number,
-  progress: number,
 ) {
-  const cached = getCachedTargets(phase, chapter, width, height, progress);
-  // K/A letter formation during hero sequence — flanking the seal
-  if (phase === "koa-form" || phase === "koa-lock" || phase === "koa-rise") {
-    const kPositions = cached.k;
-    const aPositions = cached.a;
-    const totalK = kPositions.length;
-    const totalA = aPositions.length;
-    const total = totalK + totalA;
-    const particleMod = index % total;
-    const jitterX = (seeded(index, 211) - 0.5) * 5;
-    const jitterY = (seeded(index, 223) - 0.5) * 5;
-
-    if (particleMod < totalK) {
-      const pos = kPositions[particleMod % kPositions.length];
-      return { mode: "forming", target: { x: pos.x + jitterX, y: pos.y + jitterY } } as const;
-    } else {
-      const aIdx = (particleMod - totalK) % totalA;
-      const pos = aPositions[aIdx];
-      return { mode: "forming", target: { x: pos.x + jitterX, y: pos.y + jitterY } } as const;
-    }
-  }
-
-  if (phase === "glyph-o") {
-    const angle = (index % 96) / 96 * Math.PI * 2;
-    const radiusX = Math.min(width, height) * 0.155;
-    const radiusY = radiusX * 1.18;
+  if (phase === "mark-formation" || phase === "hero-copy") {
+    const isK = index % 2 === 0;
+    const point = filledLetterPoint(index, isK);
+    // Match the seal's visual height and leave its perimeter unoccupied.
+    // The K and A sit as complete but separate filled fields, not an orbit.
+    const scale = Math.min(width, height) * (phase === "mark-formation" ? 0.24 : 0.22);
     return {
       mode: "forming",
       target: {
-        x: width / 2 + Math.cos(angle) * radiusX,
-        y: height * 0.26 + Math.sin(angle) * radiusY,
+        x: width * (isK ? 0.16 : 0.84) + point.x * scale,
+        y: height * (phase === "mark-formation" ? 0.5 : 0.3) + point.y * scale,
       },
     } as const;
   }
 
   if (phase.startsWith("chapter-")) {
-    // Chapter 1: form Burmese numeral "၁" with mini glyphs
-    if (chapter === 1) {
-      const numeralPoints = cached.numeral;
-      const pt = numeralPoints[index % numeralPoints.length];
-      const scatter = seeded(index, 77) * 18 - 9;
-      return {
-        mode: "forming",
-        target: { x: pt.x + scatter, y: pt.y + scatter * 0.5 },
-      } as const;
-    }
     const angle = (index % 80) / 80 * Math.PI * 2;
     const chapterOffset = (chapter - 2.5) * Math.min(width * 0.025, 22);
     return {
@@ -164,13 +114,6 @@ function sceneTarget(
         x: width / 2 + chapterOffset + Math.sin(angle * 2) * Math.min(width, height) * 0.09,
         y: height * 0.48 + Math.cos(angle) * Math.min(width, height) * 0.19,
       },
-    } as const;
-  }
-
-  if (phase === "seal-flight") {
-    return {
-      mode: "dispersing",
-      target: particle.path[(particle.pathCursor + 4) % particle.path.length],
     } as const;
   }
 
@@ -185,30 +128,20 @@ export function LivingGlyphField({
   chapter,
   reducedMotion,
   occlusionRects,
-  progressRef,
 }: {
   phase: CinematicPhase;
   chapter: number;
   reducedMotion: boolean;
   occlusionRects: OcclusionRect[];
-  progressRef: { current: number };
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<GlyphParticle[]>([]);
-  const occlusionRef = useRef<OcclusionRect[]>(occlusionRects);
-  const phaseRef = useRef(phase);
-  const chapterRef = useRef(chapter);
-  const lastPhaseRef = useRef<CinematicPhase>(phase);
-  const releaseUntilRef = useRef(0);
-  const releaseSeedRef = useRef(0);
-  phaseRef.current = phase;
-  chapterRef.current = chapter;
-  occlusionRef.current = occlusionRects;
+  const ambientParticlesRef = useRef<GlyphParticle[]>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext("2d", { willReadFrequently: true });
     if (!context) return;
 
     if (reducedMotion) {
@@ -220,45 +153,71 @@ export function LivingGlyphField({
     let height = 1;
     let frame = 0;
     let lastTime = performance.now();
+    const startedAt = lastTime;
     let pointerX = -10000;
     let pointerY = -10000;
     let pointerActive = false;
-    let parallaxX = 0;
-    let parallaxY = 0;
-    let visible = true;
-    const lowPower = window.matchMedia("(prefers-reduced-data: reduce)").matches
-      || (navigator.hardwareConcurrency || 8) <= 4;
-    const frameInterval = lowPower ? 1000 / 30 : 1000 / 60;
-    let lastPaint = 0;
 
     const resize = () => {
       const rectangle = canvas.getBoundingClientRect();
       width = Math.max(1, rectangle.width);
       height = Math.max(1, rectangle.height);
-      const pixelRatio = lowPower ? 1 : Math.min(1.5, window.devicePixelRatio || 1);
+      const pixelRatio = Math.min(1.5, window.devicePixelRatio || 1);
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 
       if (particlesRef.current.length === 0) {
-        const count = width < 720 ? 84 : width < 1024 ? 132 : 204;
+        const count = width < 720 ? 150 : width < 1024 ? 220 : 280;
         particlesRef.current = Array.from({ length: count }, (_, index) => {
           const pathSeed = 7000 + index * 37;
           const anchor = { x: seeded(index, 3) * width, y: seeded(index, 4) * height };
+          const isK = index % 2 === 0;
+          const formation = filledLetterPoint(index, isK);
+          const formationScale = Math.min(width, height) * 0.24;
+          const formationTarget = {
+            x: width * (isK ? 0.16 : 0.84) + formation.x * formationScale,
+            y: height * 0.5 + formation.y * formationScale,
+          };
           return createParticle({
             id: `koa-glyph-${index}`,
             pathSeed,
             anchor,
-            position: { x: anchor.x, y: anchor.y },
+            // The mark begins as a loose rainfall rather than an instant outline.
+            // Each deterministic release time makes the assembly varied but replayable.
+            position: {
+              x: formationTarget.x + (seeded(index, 62) - 0.5) * width * 0.6,
+              y: -24 - seeded(index, 63) * height * 0.72,
+            },
             char: GLYPHS[Math.floor(seeded(index, 1) * GLYPHS.length)],
-            size: 6 + seeded(index, 9) * 8,
-            baseOpacity: 0.015 + seeded(index, 10) * 0.035,
+            size: 8 + seeded(index, 9) * 10,
+            baseOpacity: 0.018 + seeded(index, 10) * 0.032,
             lifePhase: seeded(index, 11),
             lifeDurationMs: 14000 + seeded(index, 12) * 22000,
-            depth: 0.3 + seeded(index, 13) * 0.7,
+            arrivalAtMs: 90 + seeded(index, 64) * 3000,
           });
         });
         canvas.dataset.particleSignature = particlesRef.current
+          .map((particle) => `${particle.id}:${particle.pathSeed}`)
+          .join("|");
+
+        const ambientCount = width < 720 ? 44 : width < 1024 ? 64 : 84;
+        ambientParticlesRef.current = Array.from({ length: ambientCount }, (_, index) => {
+          const pathSeed = 12000 + index * 53;
+          const anchor = { x: seeded(index, 70) * width, y: seeded(index, 71) * height };
+          return createParticle({
+            id: `koa-ambient-glyph-${index}`,
+            pathSeed,
+            anchor,
+            char: GLYPHS[Math.floor(seeded(index, 72) * GLYPHS.length)],
+            size: 8 + seeded(index, 73) * 11,
+            baseOpacity: 0.045 + seeded(index, 74) * 0.07,
+            lifePhase: seeded(index, 75),
+            lifeDurationMs: 7000 + seeded(index, 76) * 13000,
+            nextTargetAtMs: 900 + seeded(index, 77) * 5000,
+          });
+        });
+        canvas.dataset.ambientSignature = ambientParticlesRef.current
           .map((particle) => `${particle.id}:${particle.pathSeed}`)
           .join("|");
       }
@@ -269,54 +228,21 @@ export function LivingGlyphField({
       pointerX = event.clientX - rectangle.left;
       pointerY = event.clientY - rectangle.top;
       pointerActive = true;
-      // Parallax offset based on cursor position relative to center
-      parallaxX = (pointerX - width / 2) / width;
-      parallaxY = (pointerY - height / 2) / height;
     };
     const pointerLeave = () => { pointerActive = false; };
 
     const draw = (now: number) => {
-      if (!visible || document.hidden) {
-        frame = 0;
-        return;
-      }
-      if (now - lastPaint < frameInterval) {
-        frame = window.requestAnimationFrame(draw);
-        return;
-      }
-      lastPaint = now;
       const deltaMs = Math.min(48, Math.max(1, now - lastTime));
       lastTime = now;
       context.clearRect(0, 0, width, height);
       context.textAlign = "center";
       context.textBaseline = "middle";
 
-      const activePhase = phaseRef.current;
-      if (activePhase !== lastPhaseRef.current) {
-        if (isFormationPhase(lastPhaseRef.current) && !isFormationPhase(activePhase)) {
-          releaseUntilRef.current = now + 980;
-          releaseSeedRef.current += 1;
-        }
-        lastPhaseRef.current = activePhase;
-      }
-      const releasing = now < releaseUntilRef.current;
-
       particlesRef.current.forEach((particle, index) => {
-        const destination = releasing
-          ? {
-              mode: "dispersing" as const,
-              target: particle.path[(particle.pathCursor + releaseSeedRef.current + index) % particle.path.length],
-            }
-          : sceneTarget(
-              particle,
-              index,
-              activePhase,
-              chapterRef.current,
-              width,
-              height,
-              progressRef.current,
-            );
-        retargetParticle(particle, destination);
+        const destination = sceneTarget(particle, index, phase, chapter, width, height);
+        const isOpeningMark = phase === "mark-formation" || phase === "hero-copy";
+        const isReleased = now - startedAt >= particle.arrivalAtMs;
+        if (!isOpeningMark || isReleased) retargetParticle(particle, destination);
         advanceParticle(particle, { deltaMs, elapsedMs: now });
 
         const distance = pointerActive
@@ -327,28 +253,53 @@ export function LivingGlyphField({
         const revealed = cursorReveal > ditherThreshold(particle.position.x, particle.position.y) * 0.72
           ? cursorReveal
           : 0;
-        const occluded = isOccluded(particle.position.x, particle.position.y, occlusionRef.current);
-        const alpha = boundedSparseAlpha({
+        const occluded = isOccluded(particle.position.x, particle.position.y, occlusionRects);
+        const sparseAlpha = boundedSparseAlpha({
           baseOpacity: particle.opacity,
           lifePhase: particle.lifePhase,
           reveal: revealed,
           mode: particle.mode,
           occluded,
         });
+        // Formation is the signature mark: keep the glyphs individually quiet,
+        // but lift the assembled K/A enough to read without a cursor.
+        const formationLift = isOpeningMark && isReleased ? 7 : 1;
+        const alpha = Math.min(0.48, sparseAlpha * formationLift);
         if (alpha < 0.002) return;
-
-        // Depth-based cursor parallax — deeper layers move less (3D effect)
-        const depth = particle.depth || 0.5;
-        const parallaxIntensity = depth * 25;
-        const px = particle.position.x + parallaxX * parallaxIntensity;
-        const py = particle.position.y + parallaxY * parallaxIntensity;
 
         context.globalAlpha = alpha;
         context.font = `${particle.size}px "Noto Sans Myanmar", sans-serif`;
         context.fillStyle = particle.mode === "forming" || particle.mode === "breathing"
           ? "#f8f3e8"
           : "#d4c8b8";
-        context.fillText(particle.char, px, py);
+        context.fillText(particle.char, particle.position.x, particle.position.y);
+      });
+
+      // A separate, low-count school gives the grid depth. It is deliberately
+      // independent from the K/A arrival so it can drift, fade, and redirect
+      // without ever reading as an extra letter or a seal orbit.
+      ambientParticlesRef.current.forEach((particle, index) => {
+        if (now >= particle.nextTargetAtMs) {
+          cycleParticleLife(particle);
+          particle.nextTargetAtMs = now + 4200 + seeded(index, 80 + particle.pathCursor) * 7000;
+        }
+        advanceParticle(particle, { deltaMs, elapsedMs: now });
+        const occluded = isOccluded(particle.position.x, particle.position.y, occlusionRects);
+        const alpha = boundedSparseAlpha({
+          baseOpacity: particle.opacity,
+          lifePhase: particle.lifePhase,
+          mode: "ambient",
+          occluded,
+        });
+        if (alpha < 0.006) return;
+
+        const hue = 195 + Math.round(seeded(index, 81) * 72);
+        context.globalAlpha = Math.min(0.16, alpha);
+        context.filter = `blur(${(1.5 - alpha * 8).toFixed(2)}px)`;
+        context.fillStyle = `hsl(${hue} 58% ${72 + Math.round(seeded(index, 82) * 14)}%)`;
+        context.font = `${particle.size}px "Noto Sans Myanmar", sans-serif`;
+        context.fillText(particle.char, particle.position.x, particle.position.y);
+        context.filter = "none";
       });
 
       context.globalAlpha = 1;
@@ -357,32 +308,18 @@ export function LivingGlyphField({
 
     resize();
     canvas.dataset.motionState = "running";
-    const visibilityObserver = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (visible && !frame) frame = window.requestAnimationFrame(draw);
-    }, { threshold: 0 });
-    visibilityObserver.observe(canvas);
-    const onVisibilityChange = () => {
-      if (!document.hidden && visible && !frame) frame = window.requestAnimationFrame(draw);
-    };
     window.addEventListener("resize", resize);
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(canvas);
     window.addEventListener("pointermove", pointerMove, { passive: true });
     document.documentElement.addEventListener("pointerleave", pointerLeave);
-    document.addEventListener("visibilitychange", onVisibilityChange);
     frame = window.requestAnimationFrame(draw);
     return () => {
       canvas.dataset.motionState = "stopped";
       window.removeEventListener("resize", resize);
-      resizeObserver.disconnect();
       window.removeEventListener("pointermove", pointerMove);
       document.documentElement.removeEventListener("pointerleave", pointerLeave);
-      document.removeEventListener("visibilitychange", onVisibilityChange);
-      visibilityObserver.disconnect();
       window.cancelAnimationFrame(frame);
     };
-  }, [reducedMotion]);
+  }, [chapter, occlusionRects, phase, reducedMotion]);
 
   return (
     <canvas

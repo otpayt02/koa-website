@@ -186,38 +186,8 @@ async function scrollFilm(cdp, progress) {
     const runway = Math.max(1, film.offsetHeight - innerHeight);
     scrollTo(0, film.offsetTop + runway * ${progress});
     dispatchEvent(new Event("scroll"));
-    // Directly update CSS variable + data attributes for test automation
-    // (bypasses the 3.2s delayed scroll engine for faster verification)
-    film.style.setProperty("--film-progress", ${progress}.toFixed(5));
-    film.style.setProperty("--film-frame", String(Math.round(${progress} * 9600)));
-    const rayPeak = Math.max(0, 1 - Math.abs(${progress} - 0.05) * 7);
-    film.style.setProperty("--ray-intensity", (0.03 + rayPeak * 0.14).toFixed(4));
-    film.dataset.heroPhase = (() => {
-      const p = ${progress};
-      if (p < 0.02) return "seal";
-      if (p < 0.08) return "shrink";
-      if (p < 0.18) return "form";
-      if (p < 0.24) return "lock";
-      if (p < 0.30) return "rise";
-      if (p < 0.35) return "reveal";
-      return "done";
-    })();
-    // Compute the phase directly (mirrors phaseForProgress)
-    const p = ${progress};
-    let phase;
-    if (p < 0.02) phase = "arrival";
-    else if (p < 0.08) phase = "koa-shrink";
-    else if (p < 0.18) phase = "koa-form";
-    else if (p < 0.24) phase = "koa-lock";
-    else if (p < 0.30) phase = "koa-rise";
-    else if (p < 0.35) phase = "text-reveal";
-    else if (p < 0.65) phase = "chapter-1";
-    else if (p < 0.92) phase = "chapter-3";
-    else phase = "chapter-4";
-    film.dataset.cinematicPhase = phase;
     return true;
   })()`);
-  await new Promise((r) => setTimeout(r, 300));
 }
 
 async function waitForPhase(cdp, phase, timeoutMs = 36000) {
@@ -442,17 +412,17 @@ async function main() {
     })()`);
 
     await scrollFilm(cdp, 0.04);
-    await waitForPhase(cdp, "koa-shrink");
-    evidence.telemetry.push({ phase: "koa-shrink", observedAt: new Date().toISOString() });
+    await waitForPhase(cdp, "seal-flight");
+    evidence.telemetry.push({ phase: "seal-flight", observedAt: new Date().toISOString() });
     evidence.screenshots.sealFlight = await cdp.screenshot(SCREENSHOTS.sealFlight);
 
-    await scrollFilm(cdp, 0.10);
-    await waitForPhase(cdp, "koa-form");
-    evidence.telemetry.push({ phase: "koa-form", observedAt: new Date().toISOString() });
+    await scrollFilm(cdp, 0.09);
+    await waitForPhase(cdp, "glyph-o");
+    evidence.telemetry.push({ phase: "glyph-o", observedAt: new Date().toISOString() });
     evidence.screenshots.glyphO = await cdp.screenshot(SCREENSHOTS.glyphO);
 
-    await scrollFilm(cdp, 0.36);
-    await waitForPhase(cdp, "chapter-1", 45000);
+    await scrollFilm(cdp, 0.18);
+    await waitForPhase(cdp, "chapter-1");
     evidence.telemetry.push({ phase: "chapter-1", observedAt: new Date().toISOString() });
     evidence.persistentParticles = await cdp.evaluate(`(() => ({
       signatureAfterDispersion: document.querySelector(".cinematic-film__glyph-field--living")?.dataset.particleSignature,
@@ -558,7 +528,7 @@ async function main() {
       nonAdminStudiosRejectedWhenRuntimeCanResolveIdentity: nonAdminOutcomes.every(studioRejected) ? true : nonAdminSourceDefect ? false : null,
       desktopFilmIs1800vh: Math.abs(evidence.desktop.filmViewportHeights - 18) < 0.05,
       mobileFilmIs1440vh: Math.abs(evidence.mobile.filmViewportHeights - 14.4) < 0.05,
-      orderedTelemetry: evidence.telemetry.map((item) => item.phase).join("|") === "arrival|koa-shrink|koa-form|chapter-1",
+      orderedTelemetry: evidence.telemetry.map((item) => item.phase).join("|") === "arrival|seal-flight|glyph-o|chapter-1",
       exactSealAssetTwice: evidence.seal.assetPaths.length === 2 && evidence.seal.assetPaths.every((item) => item === "/koa/assets/koa-seal-white-lettering-v2.png"),
       sealLayersCoCentered: coCentered,
       noExtraOrbitSvgOrText: evidence.seal.nestedSvgCount === 0 && evidence.seal.extraOrbitTextCount === 0 && evidence.seal.semanticNames.length === 1,

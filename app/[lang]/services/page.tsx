@@ -5,7 +5,6 @@ import { Card } from "@/components/Card";
 import { isLang, pageLabels } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
-import { TabImageGallery } from "@/components/TabImageGallery";
 
 export const metadata: Metadata = { title: "Programs & Services", description: "Education, advocacy, community care, workforce, health, immigration, and language access programs." };
 
@@ -22,7 +21,6 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
   const { lang: value } = await params; if (!isLang(value)) return null; const lang = value;
   return <>
     <PageHero eyebrow="Programs & services · တၢ်မၤစၢၤတဖၣ်" title={pageLabels.services[lang]} description={lang === "ksw" ? "တၢ်ကူၣ်ဘၣ်ကူၣ်သ့၊ တၢ်ကတိၤခဲ၊ တၢ်အိၣ်ဆူၣ်အိၣ်ချ့ ဒီးကျိာ်တၢ်မၤစၢၤလၢဟံၣ်ဖိဃီဖိတဖၣ်အဂီၢ်။" : "Practical programs help individuals and families navigate public systems, access care, grow skills, and lead in community."} image="/koa/assets/programs-community-mobile-generated.png" imageAlt="Karen community members participating in a program" />
-    <TabImageGallery tab="programs" />
     <Section eyebrow="How KOA helps" title="One door to practical support." intro="Program availability varies by region. KOA connects each request to a local community, partner, or approved provider.">
       <div className="feature-grid feature-grid--3">{programs.map(([title, copy, action], index) => <Card key={title}><span className="card-number">{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p><Link className="text-link" href={title === "Translation & interpretation" ? `/${lang}/translation` : `/${lang}/contact`}>{action}</Link></Card>)}</div>
     </Section>

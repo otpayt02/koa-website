@@ -6,14 +6,11 @@ import { partners, publicPartners } from "@/content/partners";
 
 type ReviewTab = "static" | "motion" | "content";
 type MotionSetting = "on" | "off";
-type ViewportId = "mobile" | "mobile-wide" | "tablet" | "desktop" | "desktop-wide" | "full";
+type ViewportId = "mobile" | "tablet" | "full";
 
 const viewports: Array<{ id: ViewportId; label: string; width: number | string; height: number | string }> = [
   { id: "mobile", label: "390 × 844", width: 390, height: 844 },
-  { id: "mobile-wide", label: "393 × 852", width: 393, height: 852 },
   { id: "tablet", label: "768 × 1024", width: 768, height: 1024 },
-  { id: "desktop", label: "1280 × 800", width: 1280, height: 800 },
-  { id: "desktop-wide", label: "1440 × 900", width: 1440, height: 900 },
   { id: "full", label: "Full width", width: "100%", height: "min(78vh, 960px)" },
 ];
 
@@ -65,12 +62,13 @@ export function DesignStudio({ lang, manifest }: { lang: string; manifest: Frame
 
       <div className="design-studio__controls" aria-label="Preview controls">
         <ControlGroup label="Preview viewport">
-          <label className="design-studio__viewport-select">
-            <span className="sr-only">Choose a preview viewport</span>
-            <select value={viewportId} onChange={(event) => setViewportId(event.target.value as ViewportId)} aria-label="Choose a preview viewport">
-              {viewports.map((candidate) => <option key={candidate.id} value={candidate.id}>{candidate.label}</option>)}
-            </select>
-          </label>
+          <div className="design-studio__button-group" role="group" aria-label="Preview viewport">
+            {viewports.map((candidate) => (
+              <button key={candidate.id} type="button" aria-pressed={candidate.id === viewportId} onClick={() => setViewportId(candidate.id)}>
+                {candidate.label}
+              </button>
+            ))}
+          </div>
         </ControlGroup>
         <ControlGroup label="Motion">
           <div className="design-studio__button-group" role="group" aria-label="Motion setting">
