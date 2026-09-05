@@ -18,7 +18,10 @@ const clampSigned = (value: number) => Math.min(0.5, Math.max(-0.5, value));
 // ============================================================================
 // SCROLL NORMALIZATION - Ignores OS scroll speed settings
 // ============================================================================
-const SCROLL_SMOOTHING_MS = 280;
+// The reference scene follows the native scroll position on the next frame;
+// this short settle window keeps the React scene equally responsive without
+// making a fast wheel gesture feel jagged.
+const SCROLL_SMOOTHING_MS = 64;
 const CHAPTER_BOUNDARIES = [0.35, 0.65, 0.92]; // More granular chapters
 const TOTAL_FRAMES = 9600; // 2x frames for ultra-smooth cinematic (was 4800)
 
