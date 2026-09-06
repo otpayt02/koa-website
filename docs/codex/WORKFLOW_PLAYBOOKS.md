@@ -40,3 +40,29 @@
 - Verification: contracts pass in both repos, TypeScript passes, changed-component lint has zero errors, current route has no runtime/hydration errors, and responsive proof is named by route/state.
 - Rollback: revert the route-specific adapter while preserving the shared behavior contract and unrelated working-tree changes.
 - Privacy, cost, and approval: local proof only; no deployment, publishing, or cultural translation approval is implied.
+
+## Cursor-matrix and mobile-chrome QA
+
+- Trigger: a change to the living glyph field, foreground occlusion, premium hover material, mobile film chrome, or Motion-off canvas behavior.
+- Outcome: supporting visual states are measured independently of the narrow K–seal–A flight window.
+- Inputs: static KOA URL, 1440x900 and 390x844 viewports, pointer background point, foreground sample, Motion toggle, and source contract.
+- Steps: run `node scripts\verify-phase6-cinema.cjs http://127.0.0.1:8123/index.html --supporting-only`; inspect the JSON; inspect the cursor, glimmer, mobile film, and Motion-off images; run the cinematic source contract separately.
+- Tools and owner: local Python HTTP server, Chrome DevTools Protocol, Node source tests, and visual inspection; implementation owner records blocked choreography observations separately.
+- Bottleneck: a fixed sleep can miss the three-second target buffer or a brief flight class, and a screenshot alone cannot prove foreground canvas transparency.
+- Optimized version: wait for authored support conditions, sample canvas alpha before/after pointer reveal, sample the header occluder, and record computed mobile rectangles.
+- Verification: 18 desktop viewport heights, positive cursor alpha delta, zero foreground alpha, glimmer visible, mobile label below/above counter without overlap, zero overflow, settled Motion-off canvas, and empty runtime problem lists.
+- Rollback: revert the isolated matrix/glimmer/mobile CSS and keep prior Phase 5 artifacts intact.
+- Privacy, cost, and approval: local pointer coordinates are transient; screenshots contain only the local KOA page; no deployment or paid call.
+
+## Canonical one-app vinext handoff
+
+- Trigger: starting, repairing, or visually verifying the KOA React application after dependency, worktree, or watcher changes.
+- Outcome: one known vinext process serves the canonical `koa-website` checkout and opens the correct current route.
+- Inputs: canonical repository path, package lock, minimum free-disk threshold, desired port, expected source signature, and stop authority for the process started by this workflow.
+- Steps: verify at least 2 GB free; verify or restore locked dependencies; reject a missing `node_modules\.bin\vinext.cmd`; start one process and record its PID; wait for HTTP readiness; confirm the expected route/source signature; open the browser; print the exact stop command.
+- Tools and owner: `scripts/run-koa.ps1`, npm, vinext, PowerShell readiness polling, and browser QA; the implementation owner records PID, URL, and verification output.
+- Bottleneck: stale watchers and shared generated folders previously caused HMR loops and made old browser output look current.
+- Optimized version: the runner owns one PID and port, refuses to silently reuse an unidentified server, and never starts the historical bilingual worktree.
+- Verification: English route responds, canonical signature matches, console is clean, desktop/mobile/Motion-off smoke states render, and stopping the recorded PID releases the port.
+- Rollback: stop only the runner-owned PID and restore only runner/config changes; preserve generated proof and unrelated user work.
+- Privacy, cost, and approval: local-only; no credentials, public deployment, remote branch deletion, or external publication.

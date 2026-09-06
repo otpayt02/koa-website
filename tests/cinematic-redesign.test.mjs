@@ -137,3 +137,14 @@ test("phase 5 normalizes cinematic progress and gives chapter convergences a hol
   assert.match(js, /GlyphStage\.formLoom\(num, false, anchor\)/);
   assert.match(css, /\.film\s*\{\s*height:\s*1800vh/);
 });
+
+test("phase 6 keeps the cursor matrix cultural, occluded, and visually restrained", () => {
+  assert.match(js, /SGAW_KAREN_CURSOR_GLYPHS/);
+  assert.match(js, /drawCursorGlyphMatrix/);
+  assert.match(js, /cursorMatrixGlyph/);
+  assert.match(js, /if \(isOccluded\(px, py\)\) continue/);
+  assert.match(css, /--glimmer-duration/);
+  assert.match(css, /\.premium-glimmer::after/);
+  assert.match(css, /@media \(max-width:\s*640px\)[\s\S]*\.film-label[\s\S]*\.film-meta/);
+  assert.match(css, /body\[data-motion="off"\][\s\S]*\.premium-glimmer::after/);
+});

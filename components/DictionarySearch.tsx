@@ -18,7 +18,7 @@ export function DictionarySearch({ lang, messages }: { lang: Lang; messages: Mes
   return (
     <div className="dictionary-explorer">
       <div className="search-panel">
-        <label htmlFor="dictionary-query"><span>{messages.searchDictionary}</span><input id="dictionary-query" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={lang === "karen" ? "ကညီ မ့တမ့ၢ် English" : "Try “community” or ကညီ"} autoComplete="off" /></label>
+        <label htmlFor="dictionary-query"><span>{messages.searchDictionary}</span><input id="dictionary-query" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={lang === "ksw" ? "ကညီ မ့တမ့ၢ် English" : "Try “community” or ကညီ"} autoComplete="off" /></label>
         <div className="filter-row" aria-label="Filter by category">{categories.map((item) => <button type="button" key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div>
       </div>
       <div className="result-count" aria-live="polite"><strong>{results.length}</strong> {results.length === 1 ? "entry" : "entries"}<span>Approved S&apos;gaw Karen records</span></div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { Card } from "@/components/Card";
-import { dictionaryEntries } from "@/components/data";
+import { content, dictionaryEntries } from "@/components/data";
 import { getMessages, isLang } from "@/components/i18n";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
@@ -33,7 +33,7 @@ export default async function DictionaryEntryPage({ params }: { params: Promise<
         <AudioPlayer word={entry.word} label={`${entry.audioCount} community recordings`} />
         <Link className="button button--secondary" href={`/${lang}/contribute`}>{messages.contribute}</Link>
       </PageHero>
-      <Section eyebrow="Meaning & use" title={entry.translations.join(" · ")} intro={entry.definition[lang]}>
+      <Section eyebrow="Meaning & use" title={entry.translations.join(" · ")} intro={content(lang, entry.definition.en, entry.definition.karen)}>
         <div className="feature-grid feature-grid--2">
           <Card><p className="eyebrow">Example · တၢ်သူအီၤ</p><p className="dictionary-example" lang="ksw">{entry.exampleKaren}</p><p>{entry.exampleEnglish}</p></Card>
           <Card><p className="eyebrow">Provenance · တၢ်မၤလီၤတံၢ်</p><dl className="detail-list"><div><dt>Category</dt><dd>{entry.category}</dd></div><div><dt>Contributor</dt><dd><Link className="text-link" href={`/${lang}/u/${entry.contributor}`}>@{entry.contributor}</Link></dd></div><div><dt>Published</dt><dd>{entry.updated}</dd></div><div><dt>Version</dt><dd>v{entry.version}</dd></div></dl><StatusPill tone="green">{messages.communityReviewed}</StatusPill></Card>

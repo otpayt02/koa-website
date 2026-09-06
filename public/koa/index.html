@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="The Karen Organization of America — a home for the S'gaw Karen people in America, and the beginning of something monumental.">
-<meta name="theme-color" content="#05090e">
+<meta name="description" content="The Karen Organization of America — a national home for the S'gaw Karen people in America. Language, culture, advocacy, community, and the S'gaw-Mango AI initiative.">
+<meta name="theme-color" content="#05080E">
 <title>KOA — Karen Organization of America</title>
 <link rel="icon" href="assets/koa-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600&family=Noto+Serif+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="storytelling.css">
 <script src="storytelling.js" defer></script>
 </head>
@@ -33,12 +33,17 @@
     <a href="contact.html"><span class="nav-label">Contact</span><span class="nav-detail">Reach KOA</span></a>
   </nav>
   <div class="header-tools">
+    <div class="lang-toggle" data-lang-toggle>
+      <button class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="kar" aria-pressed="false">ကညီ</button>
+    </div>
     <a class="pill pill--gold" href="#waitlist"><span class="pulse"></span>Join the early access</a>
     <button class="motion-button" data-motion>Motion on</button>
     <button class="menu" data-menu aria-expanded="false" aria-controls="mobile-panel">Menu</button>
   </div>
 </header>
 
+<!-- Flying logo for hero-to-header transition -->
 <img class="logo-flight" src="assets/koa-logo.png" alt="" aria-hidden="true" data-logo-flight>
 
 <div class="mobile-panel" id="mobile-panel" data-mobile-panel>
@@ -51,6 +56,14 @@
   <a href="contact.html">Contact</a>
   <a href="#waitlist" class="pill pill--gold">Join the early access</a>
 </div>
+
+<!-- Fixed donate button -->
+<button class="donate-fixed" data-donate-fixed aria-label="Support KOA">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+  </svg>
+  <span>Support KOA</span>
+</button>
 
 <main id="main">
 
@@ -100,9 +113,7 @@
       <div class="film-progress" aria-hidden="true"><i></i></div>
       <div class="film-label" aria-hidden="true">KOA · a homecoming in five chapters</div>
       <div class="film-meta" aria-hidden="true"><span>FRAME</span><b data-frame>0000</b><span>/ 3000</span></div>
-      <ol class="chapter-dots" aria-hidden="true">
-        <li><span>၁</span></li><li><span>၂</span></li><li><span>၃</span></li><li><span>၄</span></li><li><span>၅</span></li>
-      </ol>
+      <ol class="chapter-dots" aria-hidden="true"><li><span>၁</span></li><li><span>၂</span></li><li><span>၃</span></li><li><span>၄</span></li><li><span>၅</span></li></ol>
 
       <!-- Chapter 01 · rack focus -->
       <article class="scene scene--rack scene--crowd active" data-scene data-glyph-num="၁" data-glyph-anchor="ne">
@@ -146,7 +157,7 @@
         <div class="scene-copy reading-corridor" data-reading-corridor data-glyph-occlude>
           <div data-beat>
             <p class="scene-kicker">03 · Life in the open</p>
-            <h2>Tournaments,<br>tables &amp; <em>songs.</em></h2>
+            <h2>Tournaments,<br>tables & <em>songs.</em></h2>
           </div>
           <p class="scene-sub" data-beat data-assemble="late">Sepak takraw under floodlights. Sunday tables full. Music that only this people knows how to feel. A culture isn't preserved in a museum — it's lived on a schedule.</p>
         </div>
@@ -326,7 +337,7 @@
         <a class="card" href="coming-soon.html">
           <span class="num">05</span>
           <h3>Coming Soon</h3>
-          <p>The Karen AI, the national registry, events &amp; recipes. Nobody knows it yet.</p>
+          <p>The Karen AI, the national registry, events & recipes. Nobody knows it yet.</p>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
         <a class="card" href="programs.html#events">
@@ -352,7 +363,7 @@
   </section>
 
   <!-- ============================ COMING SOON TEASER ============================ -->
-  <section class="section" aria-labelledby="teaser-title" style="background:var(--ink-900);border-block:1px solid var(--line)">
+  <section class="section" aria-labelledby="teaser-title" style="background:var(--ink-900);border-block:1px solid var(--border-subtle)">
     <div class="container split split--reversed split--wide">
       <div class="split-media" data-reveal>
         <img src="assets/koa-sepak-takraw-tournament-ai.jpg" alt="A sepak takraw player mid-air at a floodlit night tournament" loading="lazy">

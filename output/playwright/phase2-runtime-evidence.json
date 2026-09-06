@@ -1,0 +1,93 @@
+{
+  "target": "http://127.0.0.1:4187/koa/",
+  "capturedAt": "2026-08-23T14:22:56.554Z",
+  "runtimeExceptions": [],
+  "evidence": [
+    {
+      "label": "phase2-desktop-opener",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 0,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready",
+      "haloVisibility": "visible",
+      "flightOpacity": 0,
+      "brandFilled": false,
+      "rayIntensity": "0.0000",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase2-desktop-seal-flight",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 972,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready is-assembly is-logo-flight",
+      "haloVisibility": "visible",
+      "flightOpacity": 1,
+      "brandFilled": false,
+      "rayIntensity": "0.0169",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase2-desktop-glyph-o",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 1264,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready is-assembly is-logo-flight is-glyph-o",
+      "haloVisibility": "hidden",
+      "flightOpacity": 0,
+      "brandFilled": true,
+      "rayIntensity": "0.0065",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase2-desktop-complete-koa",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scrollY": 1458,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-wordmark-ready is-assembly is-logo-flight is-glyph-o",
+      "haloVisibility": "hidden",
+      "flightOpacity": 0,
+      "brandFilled": true,
+      "rayIntensity": "0.0043",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase2-desktop-film",
+      "viewport": [
+        1440,
+        900
+      ],
+      "activeChapter": "၁",
+      "corridorOpacity": "1",
+      "corridorTransform": "matrix(1, 0, 0, 1, 0, 0)",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase2-mobile-glyph-o",
+      "viewport": [
+        390,
+        844
+      ],
+      "scrollY": 1139,
+      "bodyMotion": "on",
+      "arrivalClass": "arrival is-assembly is-glyph-o is-risen is-wordmark-ready is-logo-flight",
+      "haloVisibility": "hidden",
+      "flightOpacity": 0,
+      "brandFilled": true,
+      "rayIntensity": "0.0613",
+      "horizontalOverflow": 0
+    }
+  ]
+}

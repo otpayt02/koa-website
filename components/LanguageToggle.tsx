@@ -3,23 +3,39 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import type { Lang, Messages } from "./i18n";
+import { languages, localeMeta, type Lang, type Messages } from "./i18n";
 
 export function LanguageToggle({ lang, messages }: { lang: Lang; messages: Messages }) {
   const pathname = usePathname();
-  const nextLang = lang === "en" ? "karen" : "en";
-  const nextPath = pathname.replace(/^\/(en|karen)(?=\/|$)/, `/${nextLang}`);
+  const localePrefix = new RegExp(`^/(${languages.join("|")})(?=/|$)`);
+  const pathFor = (locale: Lang) =>
+    localePrefix.test(pathname)
+      ? pathname.replace(localePrefix, `/${locale}`)
+      : `/${locale}${pathname === "/" ? "" : pathname}`;
 
   useEffect(() => {
     localStorage.setItem("koa-language", lang);
     document.cookie = `koa-language=${lang}; path=/; max-age=31536000; samesite=lax`;
-    document.documentElement.lang = lang === "karen" ? "ksw" : "en";
+    document.documentElement.lang = localeMeta[lang].htmlLang;
   }, [lang]);
 
   return (
-    <Link className="language-toggle" href={nextPath || `/${nextLang}`} hrefLang={nextLang === "karen" ? "ksw" : "en"} aria-label={`${messages.language}: ${nextLang === "en" ? messages.english : messages.karen}`}>
-      <span aria-hidden="true">{lang === "en" ? "EN" : "ကညီ"}</span>
-      <span>{nextLang === "en" ? messages.english : messages.karen}</span>
-    </Link>
+    <nav className="language-toggle" aria-label={messages.language}>
+      {languages.map((locale) => {
+        const meta = localeMeta[locale];
+        return (
+          <Link
+            key={locale}
+            href={pathFor(locale)}
+            hrefLang={meta.htmlLang}
+            lang={meta.htmlLang}
+            aria-current={locale === lang ? "page" : undefined}
+            aria-label={`${messages.language}: ${meta.label}`}
+          >
+            {meta.nativeLabel}
+          </Link>
+        );
+      })}
+    </nav>
   );
 }

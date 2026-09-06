@@ -1,0 +1,19 @@
+{
+  "target": "http://127.0.0.1:4187/koa/",
+  "capturedAt": "2026-08-23T18:54:03.876Z",
+  "runtimeExceptions": [],
+  "evidence": [
+    {
+      "label": "phase4-reduced-opener",
+      "viewport": [
+        1280,
+        720
+      ],
+      "bodyMotion": "on",
+      "motionPreference": "reduce",
+      "missionDisplay": "none",
+      "copyBottom": 665,
+      "horizontalOverflow": 0
+    }
+  ]
+}

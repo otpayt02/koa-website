@@ -67,3 +67,43 @@
 
 - Human review of Phase 5 pacing and cultural details before any public deployment.
 - Re-run bilingual rendered QA from one clean vinext process after the older watchers are stopped.
+
+## Phase 7 — Canonical one-app consolidation specification
+
+- Approved direction: main's React App Router becomes the sole canonical runtime.
+- Documented: one-app architecture, admin-only Language and Design Studios, exact seal annulus, persistent glyph paths, partner marquee, translation provenance, versioned frame manifests, and safe worktree retirement.
+- Documented: failed Magic UI install, fragile flight probe, multi-watcher HMR loop, missing vinext binary, duplicate SVG orbit, and static/React drift with canonical remedies.
+- Documented: one-paste temporary static preview and planned permanent `scripts/run-koa.ps1` command.
+- Recovered: C: now has about 12.2 GB free, removing the prior documentation blocker.
+- Approved: the written specification was accepted on 2026-08-24; the task-by-task implementation plan is `docs/plans/2026-08-24-koa-canonical-one-app-phase-7.md`.
+- Implemented and verified: Task 1 restored the locked vinext 0.0.50 environment; the focused environment test, TypeScript, and production build pass in commit `8bc67f4`.
+- Partially implemented: Task 2's one-command runner is committed at `baa27a7`; review found wrapper-PID and stale-state ownership defects before the task advanced.
+- Deferred verification: the preserved direct-vinext repair passes source contracts and stale-state refusal, but owned-runtime shutdown is not verified. A bounded repository diagnostic ran once on port 65241 and timed out before `/en` readiness, so it did not reach Windows termination; evidence is `output/runtime/task2-stop-diagnostic.json`. Cleanup succeeded and PID 14356 was untouched.
+- Implemented: Tasks 3–7 added four canonical locale routes, server-side admin guards, revisioned translation provenance, the Language Studio, and the frame-aware Design Studio.
+- Implemented and focused-review clean: Task 8 replaces the duplicate orbit copy with the exact supplied seal split into stationary core and rotating annulus in commit `b1f9f47`; focused contracts pass 8/8 and TypeScript passes. Runtime visual proof remains assigned to Task 12.
+- Installed: the open-source interface foundation pins `@base-ui/react` 1.7.0 and `motion` 13.1.1 in commit `a5d3ac3`; package resolution and TypeScript pass. These packages are restricted to incremental interface use and do not replace the first-party cinematic runtime.
+- Current focus: Task 9 persistent glyph paths and 1800vh pacing. Task 2 remains deferred verification and does not block implementation under the user's explicit override.
+
+## Phase 6 — Cursor matrix, interaction material, and runtime repair
+
+- Complete: added a pointer-local matrix limited to reviewed S'gaw Karen identity clusters plus K/O/A; it drifts, dithers, and shares the existing foreground occlusion map.
+- Complete: added one 2.35-second red/paper/gold glimmer language to navigation, pills, buttons, cards, and commitment triggers with hover/focus parity and Motion-off/reduced-motion guards.
+- Complete: repaired the confirmed 390x844 collision between the film label and frame counter by stacking the chrome with an 18px measured gap.
+- Complete: recorded the full choreography, tunable parameters, later-page patterns, fillable section card, SEO rules, accessibility, and approval gates in `docs/KOA-CINEMATIC-COOKBOOK.md`.
+- Verified: 20 tests pass with one build-dependent rendered bilingual skip; JavaScript syntax and diff checks pass.
+- Verified after rebasing onto remote `ce74fd1`: desktop film resolves to 18 viewport heights (`1800vh`); scroll-reactive halo renders at restrained opacity `0.02`; cursor sample increases from alpha sum `15` to `588`; header occlusion remains `0`; glimmer opacity reaches `0.72`; desktop/mobile overflow is `0`; Motion off settles canvas opacity to `0`; browser error and warning lists are empty.
+- Evidence: `output/playwright/phase6-runtime-evidence.json`, `phase6-cursor-matrix.jpg`, `phase6-nav-glimmer.jpg`, `phase6-mobile-film.jpg`, and `phase6-mobile-motion-off.jpg`.
+- Limitation: the new condition-based headless verifier timed out twice on the brief seal-flight class window. The K–seal–A source contract remains green and the implementation was not changed, but this run does not claim a fresh runtime observation of that narrow state.
+- Blocked: `npx shadcn@latest add @magicui/glyph-matrix` first failed npm dependency resolution and the installer-recommended retry then failed with `ENOSPC`; the partial configuration was removed and disposable npm extraction caches were cleaned.
+- Blocked: `npm.cmd run build` cannot start because the local `vinext` binary is absent.
+- Repaired: the newly merged remote branch had removed `glyphsDense()` and `ARABIC` while leaving active callers; both targeted restorations were verified in the local browser with zero runtime exceptions.
+- Published to repository history: Phase 6 source/test/docs commit `5f6d942` was rebased onto the newer remote work and pushed to `origin/main`; this was a source push only, not a website deployment.
+
+## Phase 7 — Tasks 12–14 and Phase 8 launch
+
+- Complete: Task 12 full browser QA — 19/19 verifier assertions pass. Fixed the `willReadFrequently` Canvas2D warning in `LivingGlyphField.tsx` (added `{ willReadFrequently: true }` to `getContext`), fixed the `cursorRevealIncreasesBackgroundPixels` sampling region and assertion logic in `verify-phase7-one-app.cjs`, and fixed the CRLF-vs-LF line ending issue in the skill contract tests in `documentation-sync.test.mjs`. Evidence: `output/playwright/phase7-runtime-evidence.json` and `phase7-*.jpg` screenshots.
+- Complete: Task 13 bilingual worktree retirement — verified commit `5d5bcfe` is ancestor of `main`, archived the bilingual browser evidence to `output/worktree-archive/bilingual-5d5bcfe/`, cleaned generated files, deregistered the git worktree, deleted the local branch `koa-visual-narrative-redesign-994e3`. Remote branch intentionally untouched. Partial directory cleanup due to locked Wrangler SQLite files; remaining files are safe to remove after a reboot. Documented in `docs/history/bilingual-worktree-retirement.md`.
+- Complete: Phase 8 AI landing page at `/[lang]/ai` — cinematic landing promoting S'gaw-Mango AI as a KOA program. Six capabilities with truth-state labels (Measured/Declared/In development), data provenance section, community contribution invitation. Built with existing `PageHero`, `Section`, `Card`, and `Button` components. Quad-lingual i18n entries added.
+- Complete: Phase 8 Music landing page at `/[lang]/music` with option 4 iframe embed — five-chapter cinematic treatment, bilingual editor feature overview with truth-state labels, live iframe embed of the Karen Music Director chord-chart editor (`http://127.0.0.1:4177`), Karen music style spec section, contribution intake. Quad-lingual i18n entries added.
+- Added: CSS for `.truth-label` (Measured/Declared/In development badges), `.chapter-card` (music page chapter layout), and `.music-embed-section` (iframe embed frame) in `app/globals.css`.
+- Verified: 60/60 contract tests pass, TypeScript clean, production build includes `/:lang/ai` and `/:lang/music` as dynamic routes.

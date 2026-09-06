@@ -171,5 +171,5 @@ export const discussions = [
 ] as const;
 
 export function content(lang: Lang, en: string, karen: string): string {
-  return lang === "karen" ? karen : en;
+  return lang === "ksw" ? karen : en;
 }

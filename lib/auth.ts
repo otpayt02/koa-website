@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm";
 import { getDb } from "@/db";
 import { users, type UserRole } from "@/db/schema";
 import { ApiError } from "@/lib/api";
+import { ADMIN_STUDIO_ROLES, canAccessAdminStudio } from "@/lib/authorization.mjs";
 import { getBindings } from "@/lib/cloudflare";
 
 export type ApiUser = typeof users.$inferSelect;
@@ -48,7 +49,12 @@ export async function requireUser(request: Request, minimumRole: UserRole = "con
 
 export async function requireAnyRole(request: Request, allowed: readonly UserRole[]): Promise<ApiUser> {
   const user = await requireUser(request);
-  if (!allowed.includes(user.role)) throw new ApiError(403, "You do not have permission to perform this action");
+  const usesAdminStudioPolicy = allowed.length === ADMIN_STUDIO_ROLES.length
+    && allowed.every((role, index) => role === ADMIN_STUDIO_ROLES[index]);
+  const hasAllowedRole = usesAdminStudioPolicy
+    ? canAccessAdminStudio(user.role)
+    : allowed.includes(user.role);
+  if (!hasAllowedRole) throw new ApiError(403, "You do not have permission to perform this action");
   return user;
 }
 

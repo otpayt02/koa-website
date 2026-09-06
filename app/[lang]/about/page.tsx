@@ -12,7 +12,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
   if (!isLang(value)) return null;
   const lang = value;
   return <>
-    <PageHero eyebrow="About KOA · ဘၣ်ဃး KOA" title={pageLabels.about[lang]} description={lang === "karen" ? "ပှၤတီခိၣ်ရိၣ်မဲလၢကီၢ်အါဘ့ၣ် ပာ်ဖှိၣ်ထီၣ်အသးလၢတၢ်ကတိၤခဲ၊ တၢ်ကူၣ်ဘၣ်ကူၣ်သ့ ဒီးတၢ်ဃူတၢ်ဖိးအဂီၢ်။" : "Born from collaboration among Karen leaders across the United States, KOA advocates, educates, connects, and stands in solidarity."} image="/koa/assets/founding-conference.jpg" imageAlt="Karen leaders at a founding conference" />
+    <PageHero eyebrow="About KOA · ဘၣ်ဃး KOA" title={pageLabels.about[lang]} description={lang === "ksw" ? "ပှၤတီခိၣ်ရိၣ်မဲလၢကီၢ်အါဘ့ၣ် ပာ်ဖှိၣ်ထီၣ်အသးလၢတၢ်ကတိၤခဲ၊ တၢ်ကူၣ်ဘၣ်ကူၣ်သ့ ဒီးတၢ်ဃူတၢ်ဖိးအဂီၢ်။" : "Born from collaboration among Karen leaders across the United States, KOA advocates, educates, connects, and stands in solidarity."} image="/koa/assets/founding-conference.jpg" imageAlt="Karen leaders at a founding conference" />
     <Section eyebrow="Our story" title="From conversation to national coalition." intro="In 2018, leaders recognized that communities in many places could act with greater strength together.">
       <ol className="timeline"><li><span>June 13, 2018</span><h3>A shared conversation</h3><p>KOUSA and KAO leaders began discussing deeper collaboration and national unity.</p></li><li><span>August 8, 2018</span><h3>Leaders gathered in Omaha</h3><p>More than fifty leaders representing twenty states met to build a common direction.</p></li><li><span>Today</span><h3>One community, many places</h3><p>KOA connects local strength to national advocacy, language access, and collective care.</p></li></ol>
     </Section>

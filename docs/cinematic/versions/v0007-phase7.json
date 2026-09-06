@@ -1,0 +1,809 @@
+{
+  "schemaVersion": 1,
+  "version": "v0007-phase7",
+  "commit": "c827016",
+  "generatedFrom": "content/cinematic-frame-manifest.json",
+  "canonicalManifestVersion": 7,
+  "route": "/[lang]",
+  "locales": [
+    "en",
+    "th",
+    "my",
+    "ksw"
+  ],
+  "evidenceDirectory": "output/playwright",
+  "rationale": "Phase 7 records the canonical one-app frame story before browser finalization; evidence remains reviewable and does not imply deployment or publication.",
+  "frames": [
+    {
+      "order": 1,
+      "id": "home-arrival-seal",
+      "title": "Seal arrival",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0
+      },
+      "exit": {
+        "progress": 0.08
+      },
+      "content": {
+        "foreground": [
+          "KOA seal identity",
+          "Karen Organization of America name"
+        ],
+        "background": [
+          "living Karen glyph field",
+          "quiet cinematic navy"
+        ],
+        "staticFeatures": [
+          "centered supplied seal",
+          "semantic organization name"
+        ]
+      },
+      "motion": {
+        "features": [
+          "glyph field gathers toward the arrival anchor",
+          "seal holds before migration"
+        ],
+        "motionOff": {
+          "summary": "The complete seal identity is present immediately.",
+          "result": [
+            "seal is centered",
+            "organization name remains readable"
+          ]
+        }
+      },
+      "tunables": {
+        "arrivalScale": {
+          "value": 1,
+          "min": 0.82,
+          "max": 1.08,
+          "step": 0.01,
+          "unit": "ratio",
+          "referenceWeight": 1,
+          "description": "Keeps the arriving seal legible without overpowering the title."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-desktop.png",
+          "phase5-main-motion-off.png"
+        ]
+      },
+      "rationale": "Begin with the community identity before introducing the letter choreography; see the cookbook for the full narrative rationale."
+    },
+    {
+      "order": 2,
+      "id": "home-seal-migration",
+      "title": "Seal migration",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.08
+      },
+      "exit": {
+        "progress": 0.16
+      },
+      "content": {
+        "foreground": [
+          "migrating seal"
+        ],
+        "background": [
+          "persistent glyph trajectories"
+        ],
+        "staticFeatures": [
+          "one supplied seal asset"
+        ]
+      },
+      "motion": {
+        "features": [
+          "seal travels on the authored path",
+          "field leaves space around the seal"
+        ],
+        "motionOff": {
+          "summary": "The seal rests at its resolved destination.",
+          "result": [
+            "no flight animation runs",
+            "the destination composition is complete"
+          ]
+        }
+      },
+      "tunables": {
+        "migrationArc": {
+          "value": 0.64,
+          "min": 0.4,
+          "max": 0.78,
+          "step": 0.01,
+          "unit": "weight",
+          "referenceWeight": 0.64,
+          "description": "Balances the seal flight arc against the later K and A convergence."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase3-desktop-seal-migration.png"
+        ]
+      },
+      "rationale": "Migration creates the connective gesture between identity and the K/A construction documented in the cookbook."
+    },
+    {
+      "order": 3,
+      "id": "home-ka-resolve",
+      "title": "K / A resolve",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.16
+      },
+      "exit": {
+        "progress": 0.24
+      },
+      "content": {
+        "foreground": [
+          "K glyph",
+          "seal",
+          "A glyph"
+        ],
+        "background": [
+          "sparse living field"
+        ],
+        "staticFeatures": [
+          "K–seal–A order",
+          "shared baseline"
+        ]
+      },
+      "motion": {
+        "features": [
+          "K and A converge around the seal"
+        ],
+        "motionOff": {
+          "summary": "K, seal, and A appear in their resolved positions.",
+          "result": [
+            "K–seal–A order is preserved",
+            "no convergence animation runs"
+          ]
+        }
+      },
+      "tunables": {
+        "opacity": {
+          "value": 0.92,
+          "min": 0.68,
+          "max": 1,
+          "step": 0.01,
+          "unit": "alpha",
+          "referenceWeight": 0.92,
+          "description": "Keeps the K and A strong while retaining the seal as the central identity."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-desktop.png"
+        ]
+      },
+      "rationale": "The letters resolve around the living seal in the deliberate order preserved by the cookbook."
+    },
+    {
+      "order": 4,
+      "id": "home-o-resolve",
+      "title": "Delayed O resolve",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.24
+      },
+      "exit": {
+        "progress": 0.32
+      },
+      "content": {
+        "foreground": [
+          "completed K O A mark"
+        ],
+        "background": [
+          "glyph-built O formation"
+        ],
+        "staticFeatures": [
+          "complete KOA reading"
+        ]
+      },
+      "motion": {
+        "features": [
+          "O resolves after the K and A",
+          "glyph particles retain their paths"
+        ],
+        "motionOff": {
+          "summary": "The complete KOA mark appears without delay.",
+          "result": [
+            "O is present",
+            "the final mark is readable"
+          ]
+        }
+      },
+      "tunables": {
+        "delay": {
+          "value": 0.55,
+          "min": 0.35,
+          "max": 0.75,
+          "step": 0.01,
+          "unit": "weight",
+          "referenceWeight": 0.55,
+          "description": "Protects the readable beat between the K/A arrival and O convergence."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-final.png",
+          "phase3-desktop-glyph-o.png"
+        ]
+      },
+      "rationale": "The delayed O is the authored convergence payoff, not a generic wordmark reveal."
+    },
+    {
+      "order": 5,
+      "id": "home-copy-reveal",
+      "title": "Purpose copy",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.32
+      },
+      "exit": {
+        "progress": 0.4
+      },
+      "content": {
+        "foreground": [
+          "localized purpose statement"
+        ],
+        "background": [
+          "settled KOA composition"
+        ],
+        "staticFeatures": [
+          "one readable purpose statement per locale"
+        ]
+      },
+      "motion": {
+        "features": [
+          "copy enters after the identity resolves"
+        ],
+        "motionOff": {
+          "summary": "Purpose copy is immediately readable beneath the complete identity.",
+          "result": [
+            "copy is not hidden",
+            "localized text remains semantic"
+          ]
+        }
+      },
+      "tunables": {
+        "copyWidth": {
+          "value": 42,
+          "min": 32,
+          "max": 54,
+          "step": 1,
+          "unit": "rem",
+          "referenceWeight": 42,
+          "description": "Keeps localized copy readable without covering the resolved identity."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-desktop.png"
+        ]
+      },
+      "rationale": "Meaning follows identity so visitors understand what KOA does after recognizing who is speaking."
+    },
+    {
+      "order": 6,
+      "id": "home-scroll-invitation",
+      "title": "Scroll invitation",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.4
+      },
+      "exit": {
+        "progress": 0.46
+      },
+      "content": {
+        "foreground": [
+          "scroll invitation"
+        ],
+        "background": [
+          "open path into the chapters"
+        ],
+        "staticFeatures": [
+          "plain-language invitation"
+        ]
+      },
+      "motion": {
+        "features": [
+          "restrained directional cue"
+        ],
+        "motionOff": {
+          "summary": "The invitation remains visible without bouncing.",
+          "result": [
+            "direction remains clear",
+            "no repeated cue animation runs"
+          ]
+        }
+      },
+      "tunables": {
+        "cueAlpha": {
+          "value": 0.72,
+          "min": 0.48,
+          "max": 0.86,
+          "step": 0.01,
+          "unit": "alpha",
+          "referenceWeight": 0.72,
+          "description": "Makes the invitation findable without competing with the story."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-desktop.png"
+        ]
+      },
+      "rationale": "The invitation makes the long-form story discoverable while preserving native scrolling."
+    },
+    {
+      "order": 7,
+      "id": "home-chapter-belonging",
+      "title": "Chapter I · Belonging",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.46
+      },
+      "exit": {
+        "progress": 0.54
+      },
+      "content": {
+        "foreground": [
+          "chapter numeral I",
+          "belonging story"
+        ],
+        "background": [
+          "living community field"
+        ],
+        "staticFeatures": [
+          "localized chapter content"
+        ]
+      },
+      "motion": {
+        "features": [
+          "numeral forms sparsely",
+          "chapter door holds for reading"
+        ],
+        "motionOff": {
+          "summary": "The belonging chapter is fully open.",
+          "result": [
+            "numeral and copy are present",
+            "content order remains intact"
+          ]
+        }
+      },
+      "tunables": {
+        "hold": {
+          "value": 2,
+          "min": 1.4,
+          "max": 2.8,
+          "step": 0.1,
+          "unit": "seconds",
+          "referenceWeight": 2,
+          "description": "Preserves a readable pause at the first chapter door."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase4-commitment-loom.png"
+        ]
+      },
+      "rationale": "Belonging opens the five-door community story described in the cookbook."
+    },
+    {
+      "order": 8,
+      "id": "home-chapter-language",
+      "title": "Chapter II · Language",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.54
+      },
+      "exit": {
+        "progress": 0.62
+      },
+      "content": {
+        "foreground": [
+          "chapter numeral II",
+          "language story"
+        ],
+        "background": [
+          "Karen glyph paths"
+        ],
+        "staticFeatures": [
+          "localized chapter content"
+        ]
+      },
+      "motion": {
+        "features": [
+          "glyphs converge into the numeral",
+          "chapter door holds for reading"
+        ],
+        "motionOff": {
+          "summary": "The language chapter is fully open.",
+          "result": [
+            "numeral and copy are present",
+            "glyph texture is settled"
+          ]
+        }
+      },
+      "tunables": {
+        "numeralAlpha": {
+          "value": 0.34,
+          "min": 0.2,
+          "max": 0.48,
+          "step": 0.01,
+          "unit": "alpha",
+          "referenceWeight": 0.34,
+          "description": "Keeps the glyph-built numeral porous rather than typographically solid."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-desktop.png"
+        ]
+      },
+      "rationale": "Language continuity is shown through persistent glyph material rather than decorative symbols."
+    },
+    {
+      "order": 9,
+      "id": "home-chapter-culture",
+      "title": "Chapter III · Culture",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.62
+      },
+      "exit": {
+        "progress": 0.7
+      },
+      "content": {
+        "foreground": [
+          "chapter numeral III",
+          "culture story"
+        ],
+        "background": [
+          "cultural memory field"
+        ],
+        "staticFeatures": [
+          "localized chapter content"
+        ]
+      },
+      "motion": {
+        "features": [
+          "field breathes around the chapter",
+          "chapter door holds for reading"
+        ],
+        "motionOff": {
+          "summary": "The culture chapter is fully open.",
+          "result": [
+            "chapter copy is unobscured",
+            "background remains quiet"
+          ]
+        }
+      },
+      "tunables": {
+        "fieldDensity": {
+          "value": 0.42,
+          "min": 0.24,
+          "max": 0.58,
+          "step": 0.01,
+          "unit": "weight",
+          "referenceWeight": 0.42,
+          "description": "Retains a living cultural field while leaving the chapter copy unobscured."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-desktop.png"
+        ]
+      },
+      "rationale": "Culture receives a distinct readable door while remaining connected to the same living field."
+    },
+    {
+      "order": 10,
+      "id": "home-chapter-service",
+      "title": "Chapter IV · Service",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.7
+      },
+      "exit": {
+        "progress": 0.78
+      },
+      "content": {
+        "foreground": [
+          "chapter numeral IV",
+          "service story"
+        ],
+        "background": [
+          "community action field"
+        ],
+        "staticFeatures": [
+          "localized chapter content"
+        ]
+      },
+      "motion": {
+        "features": [
+          "paths shift toward action",
+          "chapter door holds for reading"
+        ],
+        "motionOff": {
+          "summary": "The service chapter is fully open.",
+          "result": [
+            "action copy remains complete",
+            "the field is settled"
+          ]
+        }
+      },
+      "tunables": {
+        "pathEnergy": {
+          "value": 0.46,
+          "min": 0.28,
+          "max": 0.62,
+          "step": 0.01,
+          "unit": "weight",
+          "referenceWeight": 0.46,
+          "description": "Adds forward intent without creating frantic motion behind service copy."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-desktop.png"
+        ]
+      },
+      "rationale": "Service turns the story outward while keeping action evidence separate from aspirational copy."
+    },
+    {
+      "order": 11,
+      "id": "home-chapter-future",
+      "title": "Chapter V · Future",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.78
+      },
+      "exit": {
+        "progress": 0.86
+      },
+      "content": {
+        "foreground": [
+          "chapter numeral V",
+          "future story"
+        ],
+        "background": [
+          "open forward field"
+        ],
+        "staticFeatures": [
+          "localized chapter content"
+        ]
+      },
+      "motion": {
+        "features": [
+          "field opens toward the partner handoff",
+          "chapter door holds for reading"
+        ],
+        "motionOff": {
+          "summary": "The future chapter is fully open.",
+          "result": [
+            "future copy is present",
+            "the transition remains visually clear"
+          ]
+        }
+      },
+      "tunables": {
+        "opening": {
+          "value": 0.58,
+          "min": 0.38,
+          "max": 0.72,
+          "step": 0.01,
+          "unit": "weight",
+          "referenceWeight": 0.58,
+          "description": "Creates forward space for the transition from story to participation."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-final.png"
+        ]
+      },
+      "rationale": "The fifth door prepares the shift from narrated identity to shared future action."
+    },
+    {
+      "order": 12,
+      "id": "home-partner-handoff",
+      "title": "Partner handoff",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.86
+      },
+      "exit": {
+        "progress": 0.94
+      },
+      "content": {
+        "foreground": [
+          "verified partner presentation boundary"
+        ],
+        "background": [
+          "settled chapter field"
+        ],
+        "staticFeatures": [
+          "only approved relationship records may appear"
+        ]
+      },
+      "motion": {
+        "features": [
+          "opposed partner rows when verified data exists"
+        ],
+        "motionOff": {
+          "summary": "Approved partners use a static accessible grid.",
+          "result": [
+            "no marquee movement runs",
+            "unapproved records remain unpublished"
+          ]
+        }
+      },
+      "tunables": {
+        "rowTempo": {
+          "value": 36,
+          "min": 28,
+          "max": 48,
+          "step": 1,
+          "unit": "seconds",
+          "referenceWeight": 36,
+          "description": "Keeps autonomous partner motion slow enough for recognition and focus pausing."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "Task 10 partner policy contract"
+        ]
+      },
+      "rationale": "The public story can hand off to real relationships only when source and logo permission are verified."
+    },
+    {
+      "order": 13,
+      "id": "home-final-involvement",
+      "title": "Final involvement action",
+      "route": "/[lang]",
+      "locales": [
+        "en",
+        "th",
+        "my",
+        "ksw"
+      ],
+      "entry": {
+        "progress": 0.94
+      },
+      "exit": {
+        "progress": 1
+      },
+      "content": {
+        "foreground": [
+          "final involvement invitation",
+          "clear action destinations"
+        ],
+        "background": [
+          "complete settled film"
+        ],
+        "staticFeatures": [
+          "direct action labels",
+          "complete semantic content"
+        ]
+      },
+      "motion": {
+        "features": [
+          "final composition settles rather than looping"
+        ],
+        "motionOff": {
+          "summary": "Every involvement action is immediately available.",
+          "result": [
+            "complete content is present",
+            "all destinations remain keyboard reachable"
+          ]
+        }
+      },
+      "tunables": {
+        "actionEmphasis": {
+          "value": 0.78,
+          "min": 0.58,
+          "max": 0.9,
+          "step": 0.01,
+          "unit": "weight",
+          "referenceWeight": 0.78,
+          "description": "Makes the primary involvement path clear without turning the ending into a sales panel."
+        }
+      },
+      "evidence": {
+        "directory": "output/playwright",
+        "items": [
+          "phase5-main-final.png",
+          "phase5-main-mobile-motion-off-final.png"
+        ]
+      },
+      "rationale": "The film ends with a concrete path to participate after the full KOA story has been read."
+    }
+  ]
+}

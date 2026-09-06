@@ -100,3 +100,45 @@
 - Chosen: use the same living-field, corona, chapter, and motion principles in the static and bilingual sites while keeping one established header implementation in each.
 - Considered: rendering two competing bilingual headers or cloning the static markup into React.
 - Why: parity comes from a shared experience contract, not duplicated structure; navigation remains maintainable and semantically native to each site.
+
+## 2026-08-24 — Add the cursor matrix inside the existing cultural field
+
+- Chosen: render a second, pointer-local matrix from reviewed S'gaw Karen identity clusters plus K/O/A inside the established seeded canvas and foreground occlusion map.
+- Considered: a separate Magic UI/shadcn component, a second canvas runtime, or increasing the opacity of every ambient particle.
+- Why: one animation loop preserves Motion off, deterministic QA, foreground masking, and the K–seal–A choreography while the matrix remains a small discoverable background event.
+
+## 2026-08-24 — Use one material wipe instead of many hover effects
+
+- Chosen: a shared 2.35-second red-to-paper-to-gold glimmer on meaningful interactive surfaces, mirrored on focus and removed with reduced motion.
+- Why: a single interaction grammar adds premium material response without crowding the site with unrelated microinteractions.
+
+## 2026-08-24 — Separate verified support states from the blocked flight probe
+
+- Chosen: keep condition-based proof for the matrix, occlusion, glimmer, 1800vh geometry, mobile chrome, Motion off, overflow, and console; disclose the two timed-out headless seal-flight checks separately.
+- Why: source contracts and older proof are not a substitute for a new browser observation, and a blocked narrow state must not erase the supporting runtime evidence that did complete.
+
+## 2026-08-24 — Make main's React App Router the sole canonical KOA runtime
+
+- Chosen: consolidate public cinema, locales, translation authoring, mobile preview, and admin tools in `C:\Users\olive\Projects\koa-website` on `main`.
+- Considered: keep a permanent bilingual worktree or keep static and React runtimes evolving in parallel.
+- Why: the bilingual feature commit is already merged, while multiple runtimes created HMR conflicts, stale-browser risk, duplicated motion code, and unclear ownership.
+- Safety: keep `public/koa` read-only until React parity is proven; retire the worktree only after reviewing status; do not delete the remote branch or deploy.
+
+## 2026-08-24 — Rotate only the lettering embedded in the supplied seal
+
+- Chosen: split the exact seal image into a stationary core and a co-centered rotating annular crop.
+- Rejected: extra SVG orbit text outside the supplied logo.
+- Why: the white English and Karen circumference lettering is part of the approved logo and must preserve a constant proportional radius.
+
+## 2026-08-24 — Keep locale proposals parallel and review-gated
+
+- Chosen: English is the source; Thai, Burmese, and S'gaw Karen proposals are generated independently and retain provider, confidence, provenance, and review status.
+- Rejected: a chained English-to-Thai-to-Burmese-to-Karen pivot.
+- Why: independent proposals prevent compounded errors and preserve a defensible source relationship. S'gaw Karen pairs do not become approved training data without human review.
+
+## 2026-08-24 — Pair Base UI with Motion at the interface boundary
+
+- Chosen: pin MIT-licensed `@base-ui/react` 1.7.0 for accessible headless controls and `motion` 13.1.1 for deliberate React interaction animation.
+- Considered: Astryx beta, Radix Primitives, and a styled shadcn/Magic UI layer.
+- Why: Base UI preserves the established KOA CSS and subject-specific visual language while Motion adds opt-in gestures, sequencing, and reduced-motion-aware transitions without forcing a whole-app theme migration.
+- Boundary: use these packages incrementally for admin and general interface controls. The existing seeded cinematic canvas, seal choreography, and persistent glyph engine remain first-party and must not gain a second animation runtime.

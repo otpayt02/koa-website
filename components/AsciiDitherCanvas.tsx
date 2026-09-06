@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import type { Lang } from "./i18n";
 
 /**
  * ASCII Dithering Canvas - "The Static Veil"
@@ -33,6 +34,8 @@ const DITHER_GRADIENT = [
   // This creates a smooth dither gradient
 ];
 
+const SGAW_AURORA_CHARS = ["က", "ည", "ီ", "ၢ", "ၤ", "ၥ", "့", "း", "၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
+
 interface DitherCell {
   char: string;
   baseBrightness: number;
@@ -64,7 +67,7 @@ export function AsciiDitherCanvas({
   cursorReveal?: boolean;
   revealRadius?: number;
   density?: number;
-  lang?: "en" | "karen";
+  lang?: Lang;
   onRevealArea?: (x: number, y: number, radius: number) => void;
 }) {
   const gridRef = useRef<DitherCell[][]>([]);
@@ -192,9 +195,8 @@ export function AsciiDitherCanvas({
       const grid = gridRef.current;
       const cursor = cursorRef.current;
 
-      // Clear
-      ctx.fillStyle = "#040818";
-      ctx.fillRect(0, 0, width, height);
+      // Leave the CSS grid visible through the dither field.
+      ctx.clearRect(0, 0, width, height);
 
       // Update and render each cell
       ctx.font = `${cellSize}px 'Noto Sans Myanmar', monospace`;
@@ -226,10 +228,9 @@ export function AsciiDitherCanvas({
               // Brighten significantly at cursor
               targetBrightness = Math.min(255, cell.baseBrightness + influence * 200);
               
-              // Shift to Karen glyphs at high reveal
+              // Shift to S'gaw Karen and Myanmar Unicode glyphs at high reveal.
               if (influence > 0.6) {
-                const karenIndex = Math.floor(influence * (KAREN_DITHER_CHARS.length - 20)) + 20;
-                cell.char = KAREN_DITHER_CHARS[Math.min(karenIndex, KAREN_DITHER_CHARS.length - 1)];
+                cell.char = SGAW_AURORA_CHARS[(row * 7 + col * 11) % SGAW_AURORA_CHARS.length];
               } else if (influence > 0.3) {
                 const midIndex = Math.floor(influence * 20) + 10;
                 cell.char = KAREN_DITHER_CHARS[Math.min(midIndex, KAREN_DITHER_CHARS.length - 1)];
@@ -261,19 +262,22 @@ export function AsciiDitherCanvas({
             cell.char = KAREN_DITHER_CHARS[clampedIndex];
           }
 
-          // Color based on brightness and reveal
+          // An aurora color field passes under a stable grid. Cursor brightness
+          // intensifies the same Unicode glyphs instead of replacing the layer.
           let color: string;
           let alpha: number;
+          const aurora = Math.sin(x * 0.009 + time * 0.00016) + Math.cos(y * 0.013 - time * 0.00011);
+          const hue = 190 + (aurora + 2) * 23;
 
           if (cell.revealIntensity > 0.1) {
             // Revealed - gold/cream
             const intensity = cell.revealIntensity;
             alpha = 0.02 + intensity * 0.15;
-            color = intensity > 0.5 ? "#e8c85a" : "#f8f3e8";
+            color = intensity > 0.5 ? "#f4d883" : `hsl(${hue} 78% 82%)`;
           } else {
             // Normal - subtle navy/gold
             alpha = 0.01 + (finalBrightness / 255) * 0.025;
-            color = finalBrightness > 180 ? "#d4a843" : "#3d6b9e";
+            color = `hsl(${hue} 58% ${42 + Math.round(finalBrightness / 14)}%)`;
           }
 
           ctx.globalAlpha = alpha;
