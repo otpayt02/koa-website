@@ -1,0 +1,196 @@
+{
+  "_AudioPlayer-8FUM6dtx.js": {
+    "file": "assets/AudioPlayer-8FUM6dtx.js",
+    "name": "AudioPlayer",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "_framework-CXnKph_e.js": {
+    "file": "assets/framework-CXnKph_e.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js"
+    ]
+  },
+  "_link-BrOkkNaa.js": {
+    "file": "assets/link-BrOkkNaa.js",
+    "name": "link",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ],
+    "dynamicImports": [
+      "node_modules/vinext/dist/shims/router.js"
+    ]
+  },
+  "_partners-CtgE8Bhp.js": {
+    "file": "assets/partners-CtgE8Bhp.js",
+    "name": "partners"
+  },
+  "_rolldown-runtime-S-ySWqyJ.js": {
+    "file": "assets/rolldown-runtime-S-ySWqyJ.js",
+    "name": "rolldown-runtime"
+  },
+  "components/AudioRecorder.tsx": {
+    "file": "assets/AudioRecorder-0RCiv2rv.js",
+    "name": "AudioRecorder",
+    "src": "components/AudioRecorder.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "components/CinematicLanding.tsx": {
+    "file": "assets/CinematicLanding-CTqlivsN.js",
+    "name": "CinematicLanding",
+    "src": "components/CinematicLanding.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_partners-CtgE8Bhp.js",
+      "_framework-CXnKph_e.js",
+      "_link-BrOkkNaa.js"
+    ]
+  },
+  "components/CommunityAtmosphere.tsx": {
+    "file": "assets/CommunityAtmosphere-C4LDw5qE.js",
+    "name": "CommunityAtmosphere",
+    "src": "components/CommunityAtmosphere.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "components/DictionarySearch.tsx": {
+    "file": "assets/DictionarySearch-DuRgCuws.js",
+    "name": "DictionarySearch",
+    "src": "components/DictionarySearch.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_AudioPlayer-8FUM6dtx.js",
+      "_framework-CXnKph_e.js",
+      "_link-BrOkkNaa.js"
+    ]
+  },
+  "components/DonationForm.tsx": {
+    "file": "assets/DonationForm-ZsF5wPrr.js",
+    "name": "DonationForm",
+    "src": "components/DonationForm.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "components/FormStatus.tsx": {
+    "file": "assets/FormStatus-C3M5rH3f.js",
+    "name": "FormStatus",
+    "src": "components/FormStatus.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "components/Header.tsx": {
+    "file": "assets/Header-Bx3Gnf38.js",
+    "name": "Header",
+    "src": "components/Header.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js",
+      "_link-BrOkkNaa.js"
+    ]
+  },
+  "components/admin/DesignStudio.tsx": {
+    "file": "assets/DesignStudio-DUNpC1Rs.js",
+    "name": "DesignStudio",
+    "src": "components/admin/DesignStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_partners-CtgE8Bhp.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "components/admin/LanguageStudio.tsx": {
+    "file": "assets/LanguageStudio-C-B2gre8.js",
+    "name": "LanguageStudio",
+    "src": "components/admin/LanguageStudio.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "components/ui/CursorGlareImage.tsx": {
+    "file": "assets/CursorGlareImage-CyOFZVv7.js",
+    "name": "CursorGlareImage",
+    "src": "components/ui/CursorGlareImage.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "assets/layout-segment-context-2A1XkvSF.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/router.js": {
+    "file": "assets/router-DE1G1j5A.js",
+    "name": "router",
+    "src": "node_modules/vinext/dist/shims/router.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js",
+      "_link-BrOkkNaa.js"
+    ],
+    "dynamicImports": [
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "assets/index-9ux5Ohf3.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "dynamicImports": [
+      "components/DonationForm.tsx",
+      "node_modules/vinext/dist/shims/layout-segment-context.js",
+      "components/CommunityAtmosphere.tsx",
+      "components/DictionarySearch.tsx",
+      "_AudioPlayer-8FUM6dtx.js",
+      "components/admin/DesignStudio.tsx",
+      "components/FormStatus.tsx",
+      "virtual:vinext-app-browser-entry",
+      "components/CinematicLanding.tsx",
+      "components/admin/LanguageStudio.tsx",
+      "components/Header.tsx",
+      "_link-BrOkkNaa.js",
+      "components/ui/CursorGlareImage.tsx",
+      "components/AudioRecorder.tsx"
+    ]
+  }
+}

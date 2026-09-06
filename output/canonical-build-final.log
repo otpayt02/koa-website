@@ -1,0 +1,119 @@
+
+> site-creator-vinext-starter@0.1.0 build
+> vinext build
+
+
+  vinext build  (Vite 8.0.13)
+
+[1/5] analyze client references...
+[2K
+transforming...✓ 329 modules transformed.
+rendering chunks...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - rsc:virtual-client-package (33%)
+  - vinext:react-canary (23%)
+  - vinext:config (5%)
+  - rsc:scan-strip (4%)
+  - rsc:rsc-css-export-transform (3%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 4.61s
+[2/5] analyze server references...
+[2K
+transforming...✓ 495 modules transformed.
+rendering chunks...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:react-canary (30%)
+  - rsc:virtual-client-package (11%)
+  - vinext:image-imports (5%)
+  - rsc:scan-strip (5%)
+  - rsc:scan-strip (5%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 4.65s
+[3/5] build rsc environment...
+[2K
+transforming...✓ 335 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - rsc:virtual-client-package (27%)
+  - vinext:react-canary (19%)
+  - vinext:strip-server-exports (8%)
+  - rsc:use-server (6%)
+  - vite-plugin-commonjs (5%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 6.01s
+[4/5] build client environment...
+[2K
+transforming...✓ 502 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:react-canary (24%)
+  - rsc:virtual-client-package (9%)
+  - vinext:strip-server-exports (5%)
+  - vinext:optimize-imports (5%)
+  - rsc:use-server (5%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 6.48s
+[5/5] build ssr environment...
+[2K
+transforming...✓ 501 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:react-canary (29%)
+  - vite-plugin-commonjs (12%)
+  - rsc:virtual-client-package (7%)
+  - vinext:og-inline-fetch-assets (5%)
+  - vinext:jsx-in-js (5%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 5.38s
+[0m
+  Route (app)
+  ┌ ? /                               
+  ├ ƒ /:lang                          
+  ├ ƒ /:lang/about                    
+  ├ ƒ /:lang/admin                    
+  ├ ƒ /:lang/admin/design-studio      
+  ├ ƒ /:lang/admin/language-studio    
+  ├ ƒ /:lang/ai                       
+  ├ ƒ /:lang/changelog                
+  ├ ƒ /:lang/collaborate              
+  ├ ƒ /:lang/community                
+  ├ ƒ /:lang/community/board          
+  ├ ƒ /:lang/contact                  
+  ├ ƒ /:lang/contribute               
+  ├ ƒ /:lang/dictionary               
+  ├ ƒ /:lang/dictionary/:id           
+  ├ ƒ /:lang/music                    
+  ├ ƒ /:lang/services                 
+  ├ ƒ /:lang/translation              
+  ├ ƒ /:lang/u/:username              
+  ├ λ /api/admin/content-units        
+  ├ λ /api/admin/translation-proposals
+  ├ λ /api/audio/upload               
+  ├ λ /api/collaborate                
+  ├ λ /api/contact                    
+  ├ λ /api/contribute                 
+  ├ λ /api/dictionary                 
+  ├ λ /api/dictionary/:id             
+  ├ λ /api/donations                  
+  ├ λ /api/logs                       
+  ├ λ /api/training/feedback          
+  ├ λ /api/training/pair              
+  ├ λ /api/translation/interpreters   
+  └ λ /api/translation/request        
+
+  λ API  ƒ Dynamic  ? Unknown
+
+  ? Some routes could not be classified. vinext currently uses static analysis
+    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.
+    Automatic classification will be improved in a future release.
+
+  Build complete. Run `vinext start` to start the production server.
+

@@ -1,0 +1,23 @@
+[   21311ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=88840a7b:14337
+[ 5466639ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[ 5551991ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 6663491ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc=jOkYH9b0HqhSzpov:0
+[ 6713302ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 6777152ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[ 6823621ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[ 6824653ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/favicon.ico:0
+[ 6900063ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[ 7797008ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 7815204ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[ 7833550ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[ 8687721ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[18093572ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[18093625ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[18095358ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[18808559ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[18808597ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[18809450ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[20508232ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[47544524ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[47545082ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[47552158ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337

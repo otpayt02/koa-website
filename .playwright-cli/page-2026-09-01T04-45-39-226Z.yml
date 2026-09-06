@@ -1,0 +1,194 @@
+- generic [active] [ref=f11e1]:
+  - link "Skip to main content" [ref=f11e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f11e3]:
+    - navigation "Primary navigation, left sections" [ref=f11e4]:
+      - link "About" [ref=f11e5] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f11e7] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f11e9] [cursor=pointer]:
+        - /url: /en/community
+    - link "Karen Organization of America — Home" [ref=f11e11] [cursor=pointer]:
+      - /url: /en
+    - navigation "Primary navigation, right sections" [ref=f11e12]:
+      - link "Impact" [ref=f11e13] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f11e15] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f11e17] [cursor=pointer]:
+        - /url: /en/build
+    - navigation "Language" [ref=f11e20]:
+      - 'link "Language: English" [ref=f11e21] [cursor=pointer]':
+        - /url: /en/community
+        - text: English
+      - 'link "Language: Thai" [ref=f11e22] [cursor=pointer]':
+        - /url: /th/community
+        - text: ไทย
+      - 'link "Language: Burmese" [ref=f11e23] [cursor=pointer]':
+        - /url: /my/community
+        - text: မြန်မာ
+      - 'link "Language: S''gaw Karen" [ref=f11e24] [cursor=pointer]':
+        - /url: /ksw/community
+        - text: ကညီ
+  - main [ref=f11e25]:
+    - generic [ref=f11e26]:
+      - generic:
+        - img "Karen community members gathered outdoors"
+      - generic [ref=f11e27]:
+        - paragraph [ref=f11e28]: Community · ပှၤတဝၢ
+        - heading "Belong, participate, and lead." [level=1] [ref=f11e29]
+        - paragraph [ref=f11e30]: Find community moments, join an event, volunteer your skills, or bring an idea to the people shaping KOA's work.
+    - region "stories community scenes" [ref=f11e31]:
+      - img "Oral history" [ref=f11e33]
+      - img "Family memory" [ref=f11e35]
+      - img "Community voice" [ref=f11e37]
+    - region [ref=f11e38]:
+      - generic [ref=f11e39]:
+        - generic [ref=f11e40]:
+          - paragraph [ref=f11e41]: Combine · Six clear questions
+          - heading "A community story is more than a photograph." [level=2] [ref=f11e42]
+          - paragraph [ref=f11e43]: People, place, time, purpose, and participation combine to give each story meaning.
+        - generic [ref=f11e44]:
+          - generic [ref=f11e45]:
+            - term [ref=f11e46]:
+              - generic [ref=f11e47]: "01"
+              - text: Who
+            - definition [ref=f11e48]:
+              - strong [ref=f11e49]: The people whose experience gives the story its meaning.
+              - paragraph [ref=f11e50]: Young people, families, elders, volunteers, and community leaders may all carry part of it.
+          - generic [ref=f11e51]:
+            - term [ref=f11e52]:
+              - generic [ref=f11e53]: "02"
+              - text: What
+            - definition [ref=f11e54]:
+              - strong [ref=f11e55]: Gatherings, ideas, cultural life, learning, and action.
+              - paragraph [ref=f11e56]: Stories connect what happened with what the community learned or moved forward.
+          - generic [ref=f11e57]:
+            - term [ref=f11e58]:
+              - generic [ref=f11e59]: "03"
+              - text: When
+            - definition [ref=f11e60]:
+              - strong [ref=f11e61]: When an event or contribution is ready to be shared.
+              - paragraph [ref=f11e62]: Dates and participation windows should remain visible and current.
+          - generic [ref=f11e63]:
+            - term [ref=f11e64]:
+              - generic [ref=f11e65]: "04"
+              - text: Where
+            - definition [ref=f11e66]:
+              - strong [ref=f11e67]: Online and in Karen communities across the United States.
+              - paragraph [ref=f11e68]: Place helps explain the local context behind a national connection.
+          - generic [ref=f11e69]:
+            - term [ref=f11e70]:
+              - generic [ref=f11e71]: "05"
+              - text: Why
+            - definition [ref=f11e72]:
+              - strong [ref=f11e73]: To sustain belonging and carry knowledge into action.
+              - paragraph [ref=f11e74]: A clear purpose keeps a story from becoming decoration.
+          - generic [ref=f11e75]:
+            - term [ref=f11e76]:
+              - generic [ref=f11e77]: "06"
+              - text: How
+            - definition [ref=f11e78]:
+              - strong [ref=f11e79]: Attend, volunteer, contribute an idea, or follow its public status.
+              - paragraph [ref=f11e80]: Every story should leave a visible path for the next person to participate.
+    - generic [ref=f11e82]:
+      - generic [ref=f11e83]:
+        - paragraph [ref=f11e84]: Upcoming
+        - heading "Gather, learn, and celebrate." [level=2] [ref=f11e85]
+      - generic [ref=f11e86]:
+        - article [ref=f11e87]:
+          - time [ref=f11e88]:
+            - strong [ref=f11e89]: "22"
+            - text: August · Online
+          - heading "Language contributor orientation" [level=3] [ref=f11e90]
+          - paragraph [ref=f11e91]: A welcoming introduction to dictionary entries, recordings, consent, and community review.
+          - link "Reserve a place →" [ref=f11e92] [cursor=pointer]:
+            - /url: /en/contribute
+        - article [ref=f11e93]:
+          - time [ref=f11e94]:
+            - strong [ref=f11e95]: "05"
+            - text: September · Omaha
+          - heading "Youth civic leadership workshop" [level=3] [ref=f11e96]
+          - paragraph [ref=f11e97]: Public systems, advocacy practice, and a plan for local action.
+          - link "Ask about registration →" [ref=f11e98] [cursor=pointer]:
+            - /url: /en/contact
+        - article [ref=f11e99]:
+          - time [ref=f11e100]:
+            - strong [ref=f11e101]: "19"
+            - text: September · Minnesota
+          - heading "Community culture & sport day" [level=3] [ref=f11e102]
+          - paragraph [ref=f11e103]: An intergenerational day of connection, food, play, and cultural learning.
+          - link "Volunteer →" [ref=f11e104] [cursor=pointer]:
+            - /url: /en/contact
+    - generic [ref=f11e105]:
+      - article [ref=f11e106]:
+        - img "Karen youth advocates" [ref=f11e107]
+        - generic [ref=f11e108]:
+          - paragraph [ref=f11e109]: Youth leadership
+          - heading "Young people carry knowledge into action." [level=2] [ref=f11e110]
+          - paragraph [ref=f11e111]: Workshops and national learning visits help emerging leaders understand public systems and advocate for their communities.
+      - article [ref=f11e112]:
+        - img "Karen cultural community gathering" [ref=f11e113]
+        - generic [ref=f11e114]:
+          - paragraph [ref=f11e115]: Culture & belonging
+          - heading "Connection crosses generations." [level=2] [ref=f11e116]
+          - paragraph [ref=f11e117]: Gatherings create space to speak Karen, share traditions, build relationships, and welcome people home.
+    - generic [ref=f11e119]:
+      - generic [ref=f11e120]:
+        - paragraph [ref=f11e121]: Community board
+        - heading "Ideas move forward in public." [level=2] [ref=f11e122]
+        - paragraph [ref=f11e123]: Every suggestion has a visible status and a moderated place for constructive discussion.
+      - generic [ref=f11e124]:
+        - article [ref=f11e125]:
+          - generic [ref=f11e126]:
+            - generic [ref=f11e127]: Under review
+            - heading "Add regional pronunciation notes to family terms" [level=3] [ref=f11e128]
+            - paragraph [ref=f11e129]: Dictionary · Naw S. · 2 hours ago
+          - strong [ref=f11e130]: 12replies
+        - article [ref=f11e131]:
+          - generic [ref=f11e132]:
+            - generic [ref=f11e133]: Proposed
+            - heading "Monthly community health interpretation clinic" [level=3] [ref=f11e134]
+            - paragraph [ref=f11e135]: Service idea · Htoo W. · Yesterday
+          - strong [ref=f11e136]: 8replies
+        - article [ref=f11e137]:
+          - generic [ref=f11e138]:
+            - generic [ref=f11e139]: Approved
+            - heading "Partner with libraries for recording sessions" [level=3] [ref=f11e140]
+            - paragraph [ref=f11e141]: Collaboration · Saw L. · 2 days ago
+          - strong [ref=f11e142]: 19replies
+      - generic [ref=f11e143]:
+        - link "Open the community board" [ref=f11e144] [cursor=pointer]:
+          - /url: /en/community/board
+        - link "Share a new idea" [ref=f11e145] [cursor=pointer]:
+          - /url: /en/collaborate
+  - contentinfo [ref=f11e146]:
+    - generic [ref=f11e148]:
+      - strong [ref=f11e149]: Karen Organization of America
+      - paragraph [ref=f11e150]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=f11e151]:
+      - link "About" [ref=f11e152] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f11e153] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f11e154] [cursor=pointer]:
+        - /url: /en/community
+      - link "Impact" [ref=f11e155] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f11e156] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f11e157] [cursor=pointer]:
+        - /url: /en/build
+      - link "Dictionary" [ref=f11e158] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=f11e159] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=f11e160] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=f11e161] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=f11e162]:
+      - paragraph [ref=f11e163]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=f11e164] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

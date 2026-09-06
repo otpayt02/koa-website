@@ -1,0 +1,27 @@
+[    3266ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[    3805ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/favicon.ico:0
+[  569200ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[  572704ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[  640015ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[  772691ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[  843940ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[  860572ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[  954563ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[  959710ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[ 1174014ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[ 1260187ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 2439938ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 2492643ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[ 3512108ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 3519091ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[ 3537368ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[13791843ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[13859273ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[13860088ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[13862129ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[43440966ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[43864503ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[45782389ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[45782404ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[45782618ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[45906138ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968

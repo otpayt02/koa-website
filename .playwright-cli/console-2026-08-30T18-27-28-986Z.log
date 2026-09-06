@@ -1,0 +1,32 @@
+[    1769ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 5353020ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[ 6167541ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 9330066ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[12937829ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[13781802ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:2114
+[13781809ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:2114
+[13781935ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:2114
+[13781937ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:2114
+[13782021ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:2114
+[13782128ms] [ERROR] Unable to preventDefault inside passive event listener invocation. @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:2114
+[13789631ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/en/culture.rsc?_rsc=jOkYH9b0HqhSzpov:0
+[13790430ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/en/culture:0
+[13791339ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/favicon.ico:0
+[13795053ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[14323714ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[14323719ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[14323720ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[14323721ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[14323865ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[14323882ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[14323885ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[14323886ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[14729092ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968

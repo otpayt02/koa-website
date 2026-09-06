@@ -1,0 +1,30 @@
+Default inspector port 9229 not available, using 9232 instead
+
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+10:51:14 PM [vite] (client) [console.error] [vinext] RSC HMR error: TypeError: Failed to fetch
+    at handleRscUpdate (http://127.0.0.1:62290/node_modules/vinext/dist/server/app-browser-entry.js?v=7a2dd507:582:95)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.

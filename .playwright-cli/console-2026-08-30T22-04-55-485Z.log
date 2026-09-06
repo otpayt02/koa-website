@@ -1,0 +1,96 @@
+[    6251ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 1276809ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[ 1276868ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[ 1277466ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[ 1277467ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[ 1277469ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[ 1277480ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[ 1277488ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[ 1277491ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=ab8bd986:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[ 1457559ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[ 1682618ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[ 1894188ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-logo.png:0
+[ 1894192ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/rolldown-runtime-S-ySWqyJ.js:0
+[ 1894193ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/layout-segment-context-BRKigdHT.js:0
+[ 1894195ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/index-BhULURav.css:0
+[ 1894199ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-seal-white-lettering-v2.png:0
+[ 1894200ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/index-Cs0bwtCd.js:0
+[ 1894405ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/framework-B8WyT5R3.js:0
+[ 1894406ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/readonly-url-search-params-BRv7ewS0.js:0
+[ 1894472ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/url-utils-BAkPrQqo.js:0
+[ 1894473ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AsciiWaveBackground-BcQY6qZq.js:0
+[ 1894473ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AmbientGlyphField-BkS21jBi.js:0
+[ 1894474ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/glyph-config-Dw_E_8Qo.js:0
+[ 1894532ms] Failed to fetch dynamically imported module: http://127.0.0.1:3013/assets/index-Cs0bwtCd.js
+[ 1894529ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/NumeralConvergence-ln3xZj9y.js:0
+[ 1894530ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/navigation-D9vFTYz6.js:0
+[ 1894531ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/Header-Cxhx0bKT.js:0
+[ 1894533ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/link-BzPEhmDA.js:0
+[ 1894534ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/CinematicHome-8HDnwM1D.js:0
+[ 1894535ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/ScrollReveal-LoczTWk6.js:0
+[ 1894581ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/partners-CND19K8v.js:0
+[ 1894582ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-capitol-group-mobile-enhanced.png:0
+[ 1894587ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-seal-white-lettering-v2.png:0
+[ 1894589ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/story-community-original.png:0
+[ 1894611ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-outdoor-gathering-mobile-enhanced.png:0
+[ 1895415ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AudioPlayer-D-B3BicN.js:0
+[ 1897814ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-capitol-group-mobile-enhanced.png:0
+[ 1899857ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-logo.png:0
+[ 1899863ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/index-BhULURav.css:0
+[ 1899935ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-seal-white-lettering-v2.png:0
+[ 1899936ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/layout-segment-context-BRKigdHT.js:0
+[ 1899937ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/rolldown-runtime-S-ySWqyJ.js:0
+[ 1899956ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/index-Cs0bwtCd.js:0
+[ 1899958ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/framework-B8WyT5R3.js:0
+[ 1899966ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/readonly-url-search-params-BRv7ewS0.js:0
+[ 1899966ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/url-utils-BAkPrQqo.js:0
+[ 1899981ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AsciiWaveBackground-BcQY6qZq.js:0
+[ 1900004ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AmbientGlyphField-BkS21jBi.js:0
+[ 1900024ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/glyph-config-Dw_E_8Qo.js:0
+[ 1900034ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/NumeralConvergence-ln3xZj9y.js:0
+[ 1900051ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/navigation-D9vFTYz6.js:0
+[ 1900073ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/Header-Cxhx0bKT.js:0
+[ 1900101ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/link-BzPEhmDA.js:0
+[ 1900108ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/CinematicHome-8HDnwM1D.js:0
+[ 1900122ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/ScrollReveal-LoczTWk6.js:0
+[ 1900145ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/partners-CND19K8v.js:0
+[ 1900186ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AudioPlayer-D-B3BicN.js:0
+[ 1900203ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-capitol-group-mobile-enhanced.png:0
+[ 1900359ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-seal-white-lettering-v2.png:0
+[ 1900360ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-capitol-group-mobile-enhanced.png:0
+[ 1900386ms] Failed to fetch dynamically imported module: http://127.0.0.1:3013/assets/index-Cs0bwtCd.js
+[ 1900386ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-seal-white-lettering-v2.png:0
+[ 1901428ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/story-community-original.png:0
+[ 1901430ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-outdoor-gathering-mobile-enhanced.png:0
+[ 1903345ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-logo.png:0
+[ 1903346ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-seal-white-lettering-v2.png:0
+[ 1903346ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/index-BhULURav.css:0
+[ 1903347ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/layout-segment-context-BRKigdHT.js:0
+[ 1903347ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/rolldown-runtime-S-ySWqyJ.js:0
+[ 1903395ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/index-Cs0bwtCd.js:0
+[ 1903395ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/framework-B8WyT5R3.js:0
+[ 1903413ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/readonly-url-search-params-BRv7ewS0.js:0
+[ 1903416ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/url-utils-BAkPrQqo.js:0
+[ 1903470ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AsciiWaveBackground-BcQY6qZq.js:0
+[ 1903503ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AmbientGlyphField-BkS21jBi.js:0
+[ 1903504ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/glyph-config-Dw_E_8Qo.js:0
+[ 1903504ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/NumeralConvergence-ln3xZj9y.js:0
+[ 1903505ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/navigation-D9vFTYz6.js:0
+[ 1903505ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/Header-Cxhx0bKT.js:0
+[ 1903535ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/link-BzPEhmDA.js:0
+[ 1903536ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/CinematicHome-8HDnwM1D.js:0
+[ 1903537ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/ScrollReveal-LoczTWk6.js:0
+[ 1903538ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/partners-CND19K8v.js:0
+[ 1903538ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/assets/AudioPlayer-D-B3BicN.js:0
+[ 1903547ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-capitol-group-mobile-enhanced.png:0
+[ 1903590ms] Failed to fetch dynamically imported module: http://127.0.0.1:3013/assets/index-Cs0bwtCd.js
+[ 1903667ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/koa-seal-white-lettering-v2.png:0
+[ 1903667ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/koa/assets/fb-capitol-group-mobile-enhanced.png:0

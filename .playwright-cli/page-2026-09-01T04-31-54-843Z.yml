@@ -1,0 +1,189 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - navigation "Primary navigation, left sections" [ref=e4]:
+      - link "About" [ref=e5] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=e7] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=e9] [cursor=pointer]:
+        - /url: /en/community
+    - link "Karen Organization of America — Home" [ref=e11] [cursor=pointer]:
+      - /url: /en
+    - navigation "Primary navigation, right sections" [ref=e12]:
+      - link "Impact" [ref=e13] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=e17] [cursor=pointer]:
+        - /url: /en/build
+        - generic "Coming soon" [ref=e19]: soon
+    - navigation "Language" [ref=e21]:
+      - 'link "Language: English" [ref=e22] [cursor=pointer]':
+        - /url: /en/services
+        - text: English
+      - 'link "Language: Thai" [ref=e23] [cursor=pointer]':
+        - /url: /th/services
+        - text: ไทย
+      - 'link "Language: Burmese" [ref=e24] [cursor=pointer]':
+        - /url: /my/services
+        - text: မြန်မာ
+      - 'link "Language: S''gaw Karen" [ref=e25] [cursor=pointer]':
+        - /url: /ksw/services
+        - text: ကညီ
+  - main [ref=e26]:
+    - generic [ref=e27]:
+      - generic:
+        - img "Karen community members participating in a program"
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Programs & services · တၢ်မၤစၢၤတဖၣ်
+        - heading "Support shaped around community life." [level=1] [ref=e30]
+        - paragraph [ref=e31]: Practical programs help individuals and families navigate public systems, access care, grow skills, and lead in community.
+    - region "programs community scenes" [ref=e32]:
+      - img "Civic learning" [ref=e34]
+      - img "Language navigation" [ref=e36]
+      - img "Practical support" [ref=e38]
+    - region [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: Provide · Six clear questions
+          - heading "See what help is for, and how to reach it." [level=2] [ref=e43]
+          - paragraph [ref=e44]: Program details are organized around practical access rather than organizational jargon.
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - term [ref=e47]:
+              - generic [ref=e48]: "01"
+              - text: Who
+            - definition [ref=e49]:
+              - strong [ref=e50]: Individuals, families, and community members looking for a next step.
+              - paragraph [ref=e51]: Requests can begin with a need even when the right program is not yet clear.
+          - generic [ref=e52]:
+            - term [ref=e53]:
+              - generic [ref=e54]: "02"
+              - text: What
+            - definition [ref=e55]:
+              - strong [ref=e56]: Education, navigation, care, skills, language access, and solidarity.
+              - paragraph [ref=e57]: The program list explains the kinds of support represented on this site.
+          - generic [ref=e58]:
+            - term [ref=e59]:
+              - generic [ref=e60]: "03"
+              - text: When
+            - definition [ref=e61]:
+              - strong [ref=e62]: Availability varies by region.
+              - paragraph [ref=e63]: Contact KOA to confirm what is currently reachable where you live.
+          - generic [ref=e64]:
+            - term [ref=e65]:
+              - generic [ref=e66]: "04"
+              - text: Where
+            - definition [ref=e67]:
+              - strong [ref=e68]: Through local communities, partners, and approved providers.
+              - paragraph [ref=e69]: KOA connects national coordination to local knowledge.
+          - generic [ref=e70]:
+            - term [ref=e71]:
+              - generic [ref=e72]: "05"
+              - text: Why
+            - definition [ref=e73]:
+              - strong [ref=e74]: Public systems should be easier to understand and use.
+              - paragraph [ref=e75]: Practical support helps people access care, grow skills, and lead in community.
+          - generic [ref=e76]:
+            - term [ref=e77]:
+              - generic [ref=e78]: "06"
+              - text: How
+            - definition [ref=e79]:
+              - strong [ref=e80]: Tell KOA what you need in the channel that works for you.
+              - paragraph [ref=e81]: A community navigator can help identify the appropriate next step.
+    - generic [ref=e83]:
+      - generic [ref=e84]:
+        - paragraph [ref=e85]: How KOA helps
+        - heading "One door to practical support." [level=2] [ref=e86]
+        - paragraph [ref=e87]: Program availability varies by region. KOA connects each request to a local community, partner, or approved provider.
+      - generic [ref=e88]:
+        - article [ref=e89]:
+          - generic [ref=e90]: "01"
+          - heading "Civic education" [level=3] [ref=e91]
+          - paragraph [ref=e92]: Advocacy training, public-system learning, Washington visits, and youth leadership development.
+          - link "Learn and lead →" [ref=e93] [cursor=pointer]:
+            - /url: /en/contact
+        - article [ref=e94]:
+          - generic [ref=e95]: "02"
+          - heading "Immigration support" [level=3] [ref=e96]
+          - paragraph [ref=e97]: Trusted referrals, document navigation, interpretation, and connections to qualified legal help.
+          - link "Find support →" [ref=e98] [cursor=pointer]:
+            - /url: /en/contact
+        - article [ref=e99]:
+          - generic [ref=e100]: "03"
+          - heading "Health access" [level=3] [ref=e101]
+          - paragraph [ref=e102]: Language access, community health navigation, and culturally responsive connections to care.
+          - link "Access care →" [ref=e103] [cursor=pointer]:
+            - /url: /en/contact
+        - article [ref=e104]:
+          - generic [ref=e105]: "04"
+          - heading "Workforce development" [level=3] [ref=e106]
+          - paragraph [ref=e107]: Employment readiness, skills pathways, mentoring, and connections to local opportunity.
+          - link "Build a pathway →" [ref=e108] [cursor=pointer]:
+            - /url: /en/contact
+        - article [ref=e109]:
+          - generic [ref=e110]: "05"
+          - heading "Translation & interpretation" [level=3] [ref=e111]
+          - paragraph [ref=e112]: Reviewed document translation and trusted medical, legal, community, phone, and video interpretation.
+          - link "Request language help →" [ref=e113] [cursor=pointer]:
+            - /url: /en/translation
+        - article [ref=e114]:
+          - generic [ref=e115]: "06"
+          - heading "Humanitarian assistance" [level=3] [ref=e116]
+          - paragraph [ref=e117]: Practical solidarity through food, clean water, shelter, education, and vocational support.
+          - link "Stand together →" [ref=e118] [cursor=pointer]:
+            - /url: /en/contact
+    - generic [ref=e119]:
+      - img "Karen advocates in Washington, D.C." [ref=e121]
+      - generic [ref=e122]:
+        - paragraph [ref=e123]: Civic leadership
+        - heading "Understand the system. Bring knowledge home." [level=2] [ref=e124]
+        - paragraph [ref=e125]: From Advocacy 101 to national learning visits, KOA creates practical ways for Karen people to participate in public life with confidence.
+        - list [ref=e126]:
+          - listitem [ref=e127]: Youth leadership development
+          - listitem [ref=e128]: Public policy and systems learning
+          - listitem [ref=e129]: Community-led advocacy planning
+          - listitem [ref=e130]: Local action and national connection
+        - link "Ask about a program" [ref=e131] [cursor=pointer]:
+          - /url: /en/contact
+    - generic [ref=e133]:
+      - generic [ref=e134]:
+        - paragraph [ref=e135]: Program access
+        - heading "Not sure where to begin?" [level=2] [ref=e136]
+        - paragraph [ref=e137]: Tell us what you need in the language and channel that works for you. A community navigator will help identify the next step.
+      - generic [ref=e138]:
+        - link "Talk with KOA" [ref=e139] [cursor=pointer]:
+          - /url: /en/contact
+        - link "Request an interpreter" [ref=e140] [cursor=pointer]:
+          - /url: /en/translation
+  - contentinfo [ref=e141]:
+    - generic [ref=e143]:
+      - strong [ref=e144]: Karen Organization of America
+      - paragraph [ref=e145]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=e146]:
+      - link "About" [ref=e147] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=e148] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=e149] [cursor=pointer]:
+        - /url: /en/community
+      - link "Impact" [ref=e150] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=e151] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=e152] [cursor=pointer]:
+        - /url: /en/build
+      - link "Dictionary" [ref=e153] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=e154] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=e155] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=e156] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=e157]:
+      - paragraph [ref=e158]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=e159] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

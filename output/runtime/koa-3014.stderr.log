@@ -1,0 +1,25 @@
+12:18:40 AM [vite] (client) [Unhandled error] Error: ResizeObserver loop completed with undelivered notifications.
+ > ../../../../@vite/client:516:55
+
+12:18:40 AM [vite] (client) [Unhandled error] Error: ResizeObserver loop completed with undelivered notifications.
+ > ../../../../@vite/client:516:55
+
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+12:23:10 AM [vite] Internal server error: Cannot read properties of null (reading 'useContext')
+      at Object.exports.useContext (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-DGPCLjpP.js?v=9ea19a79:708:22)
+      at Slot (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/shims/slot.tsx:98:26)
+      at Object.react_stack_bottom_frame (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:5310:11)
+      at renderWithHooks (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:2796:19)
+      at renderElement (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:2934:17)
+      at renderElement (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:3234:7)
+      at retryNode (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:3363:285)
+      at performWork (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:3855:9)
+      at null.<anonymous> (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:2472:12)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.

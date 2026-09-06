@@ -1,0 +1,6 @@
+[   20143ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[10140851ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[10211380ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[10211809ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://karen-organization-of-america.oliverp789.chatgpt.site/koa/assets/koa-logo.png:0
+[10214038ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=ab8bd986:14337
+[39914954ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968

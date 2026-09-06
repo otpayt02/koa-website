@@ -1,0 +1,194 @@
+- generic [active] [ref=f1e1]:
+  - link "Skip to main content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f1e3]:
+    - link "Karen Organization of America — Home" [ref=f1e4] [cursor=pointer]:
+      - /url: /en
+    - button "Menu" [ref=f1e5] [cursor=pointer]
+  - main [ref=f1e8]:
+    - region [ref=f1e9]:
+      - generic [ref=f1e10]:
+        - paragraph [ref=f1e11]:
+          - generic [ref=f1e12]: ကညီပှၤတဝၢ
+          - generic [ref=f1e13]: ·
+          - generic [ref=f1e14]: KOA / 2018
+        - img "KOA identity assembly The authentic KOA seal rises as its original outer lettering revolves behind a stationary inner seal and fine S'gaw Karen glyphs form the K and A." [ref=f1e15]:
+          - generic [ref=f1e18]: MANY PLACES · ONE COMMUNITY
+        - generic [ref=f1e19]:
+          - paragraph [ref=f1e20]: Established 2018 · Omaha, Nebraska
+          - heading "America's home for the Karen community." [level=1] [ref=f1e21]
+          - paragraph [ref=f1e22]: Providing, combining, and inviting a national Karen voice.
+          - generic [ref=f1e23]:
+            - link "Find your way to contribute" [ref=f1e24] [cursor=pointer]:
+              - /url: /en/contribute
+              - text: Find your way to contribute
+              - generic [ref=f1e25]: ↗
+            - link "Why KOA matters" [ref=f1e26] [cursor=pointer]:
+              - /url: /en/about
+              - text: Why KOA matters
+              - generic [ref=f1e27]: ↗
+    - region "Karen Organization of America story" [ref=f1e29]:
+      - generic [ref=f1e30]:
+        - navigation "Film timeline" [ref=f1e31]:
+          - generic [ref=f1e32]:
+            - generic [ref=f1e33]: KOA / STORY
+            - generic [ref=f1e34]: ၁ · Arrival
+          - list [ref=f1e36]:
+            - listitem "Go to Arrival chapter" [ref=f1e37] [cursor=pointer]:
+              - generic [ref=f1e38]: ၁
+              - generic [ref=f1e39]: Arrival
+            - listitem "Go to Voice chapter" [ref=f1e40] [cursor=pointer]:
+              - generic [ref=f1e41]: ၂
+              - generic [ref=f1e42]: Voice
+            - listitem "Go to Language chapter" [ref=f1e43] [cursor=pointer]:
+              - generic [ref=f1e44]: ၃
+              - generic [ref=f1e45]: Language
+            - listitem "Go to Belonging chapter" [ref=f1e46] [cursor=pointer]:
+              - generic [ref=f1e47]: ၄
+              - generic [ref=f1e48]: Belonging
+        - complementary "Story sequence" [ref=f1e49]:
+          - list [ref=f1e50]:
+            - listitem [ref=f1e51]:
+              - button "Jump to Arrival" [ref=f1e52] [cursor=pointer]
+            - listitem [ref=f1e54]:
+              - button "Jump to Voice" [ref=f1e55] [cursor=pointer]
+            - listitem [ref=f1e57]:
+              - button "Jump to Language" [ref=f1e58] [cursor=pointer]
+            - listitem [ref=f1e60]:
+              - button "Jump to Belonging" [ref=f1e61] [cursor=pointer]
+        - generic [ref=f1e63]:
+          - paragraph [ref=f1e64]:
+            - text: Film ·
+            - strong [ref=f1e65]: "9600"
+            - text: frames
+          - generic "Story chapters" [ref=f1e66]:
+            - button "Go to chapter 1" [ref=f1e67] [cursor=pointer]: "01"
+            - button "Go to chapter 2" [ref=f1e68] [cursor=pointer]: "02"
+            - button "Go to chapter 3" [ref=f1e69] [cursor=pointer]: "03"
+            - button "Go to chapter 4" [ref=f1e70] [cursor=pointer]: "04"
+          - button "Motion on" [ref=f1e71] [cursor=pointer]
+        - paragraph:
+          - text: Scroll to enter
+          - generic: ↓
+    - generic [ref=f1e73]:
+      - generic [ref=f1e74]:
+        - paragraph [ref=f1e75]: Our purpose · ပတၢ်ပညိၣ်
+        - heading "Strengthen unity. Protect rights. Build belonging." [level=2] [ref=f1e76]
+        - paragraph [ref=f1e77]: KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead.
+      - generic [ref=f1e78]:
+        - article [ref=f1e79]:
+          - generic [ref=f1e80]: "01"
+          - heading "Civic education" [level=3] [ref=f1e81]
+          - paragraph [ref=f1e82]: Understand public systems, grow youth leadership, and turn community priorities into action.
+          - link "Explore programs →" [ref=f1e83] [cursor=pointer]:
+            - /url: /en/services
+        - article [ref=f1e84]:
+          - generic [ref=f1e85]: "02"
+          - heading "Language access" [level=3] [ref=f1e86]
+          - paragraph [ref=f1e87]: Find community-reviewed words and request trusted Karen translation or interpretation.
+          - link "Find language support →" [ref=f1e88] [cursor=pointer]:
+            - /url: /en/translation
+        - article [ref=f1e89]:
+          - generic [ref=f1e90]: "03"
+          - heading "Community care" [level=3] [ref=f1e91]
+          - paragraph [ref=f1e92]: Share ideas, volunteer, partner, or give so resources move where they matter most.
+          - link "Take part →" [ref=f1e93] [cursor=pointer]:
+            - /url: /en/collaborate
+    - generic [ref=f1e94]:
+      - img "Karen advocates visiting the United States Capitol" [ref=f1e96]
+      - generic [ref=f1e97]:
+        - paragraph [ref=f1e98]: Community-led advocacy
+        - heading "Knowledge becomes a voice in the room." [level=2] [ref=f1e99]
+        - paragraph [ref=f1e100]: KOA helps Karen leaders and young people understand public systems, speak to decision-makers, and bring what they learn home.
+        - link "See the work" [ref=f1e101] [cursor=pointer]:
+          - /url: /en/services
+    - generic [ref=f1e103]:
+      - generic [ref=f1e104]:
+        - paragraph [ref=f1e105]: Living language · ကညီကျိာ်
+        - heading "Words carried forward, together." [level=2] [ref=f1e106]
+        - paragraph [ref=f1e107]: Explore the working collection and help KOA verify language, context, attribution, and permission before entries are published as community-reviewed.
+      - generic [ref=f1e108]:
+        - article [ref=f1e109]:
+          - generic [ref=f1e110]:
+            - generic [ref=f1e111]: Review required
+            - generic [ref=f1e112]: prototype v4
+          - generic [ref=f1e113]:
+            - paragraph [ref=f1e114]: ကညီ
+            - paragraph [ref=f1e115]: K'nyaw · noun
+          - heading "Karen person · Karen people" [level=3] [ref=f1e116]
+          - generic [ref=f1e117]:
+            - button "Device voice preview" [ref=f1e118] [cursor=pointer]
+            - link "View prototype entry →" [ref=f1e119] [cursor=pointer]:
+              - /url: /en/dictionary/knyaw
+        - article [ref=f1e120]:
+          - generic [ref=f1e121]:
+            - generic [ref=f1e122]: Review required
+            - generic [ref=f1e123]: prototype v6
+          - generic [ref=f1e124]:
+            - paragraph [ref=f1e125]: ကညီကျိာ်
+            - paragraph [ref=f1e126]: K'nyaw kwa · noun
+          - heading "Karen language · S'gaw Karen" [level=3] [ref=f1e127]
+          - generic [ref=f1e128]:
+            - button "Device voice preview" [ref=f1e129] [cursor=pointer]
+            - link "View prototype entry →" [ref=f1e130] [cursor=pointer]:
+              - /url: /en/dictionary/karen-language
+        - article [ref=f1e131]:
+          - generic [ref=f1e132]:
+            - generic [ref=f1e133]: Review required
+            - generic [ref=f1e134]: prototype v3
+          - generic [ref=f1e135]:
+            - paragraph [ref=f1e136]: တၢ်ဘျုး
+            - paragraph [ref=f1e137]: Ta bluh · expression
+          - heading "thank you · gratitude" [level=3] [ref=f1e138]
+          - generic [ref=f1e139]:
+            - button "Device voice preview" [ref=f1e140] [cursor=pointer]
+            - link "View prototype entry →" [ref=f1e141] [cursor=pointer]:
+              - /url: /en/dictionary/thank-you
+      - generic [ref=f1e142]:
+        - link "Explore Dictionary" [ref=f1e143] [cursor=pointer]:
+          - /url: /en/dictionary
+        - link "Share a word or recording" [ref=f1e144] [cursor=pointer]:
+          - /url: /en/contribute
+    - generic [ref=f1e146]:
+      - generic [ref=f1e147]:
+        - paragraph [ref=f1e148]: Coming together
+        - heading "A community in motion." [level=2] [ref=f1e149]
+        - paragraph [ref=f1e150]: Dates and locations appear only after the host, access details, and public wording are approved.
+      - generic [ref=f1e151]:
+        - paragraph [ref=f1e152]: Schedule under review
+        - heading "No approved public event dates are posted yet." [level=3] [ref=f1e153]
+        - paragraph [ref=f1e154]: Contribute an idea now, or check the community page for the next reviewed announcement.
+        - generic [ref=f1e155]:
+          - link "Contribute an idea" [ref=f1e156] [cursor=pointer]:
+            - /url: /en/contribute
+          - link "Community updates" [ref=f1e157] [cursor=pointer]:
+            - /url: /en/community
+  - contentinfo [ref=f1e158]:
+    - generic [ref=f1e160]:
+      - strong [ref=f1e161]: Karen Organization of America
+      - paragraph [ref=f1e162]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=f1e163]:
+      - link "About" [ref=f1e164] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f1e165] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f1e166] [cursor=pointer]:
+        - /url: /en/community
+      - link "Impact" [ref=f1e167] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f1e168] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f1e169] [cursor=pointer]:
+        - /url: /en/build
+      - link "Dictionary" [ref=f1e170] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=f1e171] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=f1e172] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=f1e173] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=f1e174]:
+      - paragraph [ref=f1e175]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=f1e176] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

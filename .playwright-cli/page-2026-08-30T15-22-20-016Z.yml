@@ -1,0 +1,184 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: KOA
+    - generic [ref=e5]: Karen Organization of America
+  - navigation "Chapter navigation" [ref=e7]:
+    - generic [ref=e9]:
+      - link "Home" [ref=e10] [cursor=pointer]:
+        - /url: "#hero"
+      - link "National Home" [ref=e13] [cursor=pointer]:
+        - /url: "#national-home"
+      - link "One Body" [ref=e16] [cursor=pointer]:
+        - /url: "#one-body"
+      - link "Leadership" [ref=e19] [cursor=pointer]:
+        - /url: "#leadership"
+      - link "The Work" [ref=e22] [cursor=pointer]:
+        - /url: "#work-continues"
+      - link "Invitation" [ref=e25] [cursor=pointer]:
+        - /url: "#invitation"
+  - generic [ref=e29]:
+    - generic [ref=e30]: Unity ◆
+    - generic [ref=e31]: ကညီ ◆
+    - generic [ref=e32]: Community ◆
+    - generic [ref=e33]: Culture ◆
+    - generic [ref=e34]: ကမၠး ◆
+    - generic [ref=e35]: Heritage ◆
+    - generic [ref=e36]: အသံ ◆
+    - generic [ref=e37]: Voice ◆
+    - generic [ref=e38]: ကညီ ◆
+    - generic [ref=e39]: Unity ◆
+    - generic [ref=e40]: ကညီ ◆
+    - generic [ref=e41]: Community ◆
+    - generic [ref=e42]: Culture ◆
+    - generic [ref=e43]: ကမၠး ◆
+    - generic [ref=e44]: Heritage ◆
+    - generic [ref=e45]: အသံ ◆
+    - generic [ref=e46]: Voice ◆
+    - generic [ref=e47]: ကညီ ◆
+  - banner [ref=e48]:
+    - generic [ref=e49]:
+      - generic [ref=e50]: KOA
+      - navigation "Main navigation" [ref=e51]:
+        - generic [ref=e52]:
+          - link "About" [ref=e53] [cursor=pointer]:
+            - /url: "#about"
+          - link "Programs" [ref=e54] [cursor=pointer]:
+            - /url: "#programs"
+          - link "Stories" [ref=e55] [cursor=pointer]:
+            - /url: "#stories"
+          - link "Impact" [ref=e56] [cursor=pointer]:
+            - /url: "#impact"
+          - link "Contact" [ref=e57] [cursor=pointer]:
+            - /url: "#contact"
+      - button "EN / ကညီ" [ref=e59] [cursor=pointer]
+  - main [ref=e60]:
+    - generic [ref=e63]:
+      - generic [ref=e64]: Est. 2018
+      - heading "Karen Organization of America" [level=1] [ref=e65]:
+        - generic [ref=e66]: Karen Organization
+        - generic [ref=e67]: of America
+      - paragraph [ref=e68]: A National Home for the S'gaw Karen People
+      - generic [ref=e69]: Scroll to explore
+    - generic [ref=e77]:
+      - generic [ref=e78]: ၁
+      - heading "A National Home" [level=2] [ref=e79]:
+        - generic [ref=e80]: A
+        - generic [ref=e81]: National
+        - generic [ref=e82]: Home
+      - paragraph [ref=e83]:
+        - generic [ref=e84]: Uniting
+        - generic [ref=e85]: Karen
+        - generic [ref=e86]: communities
+        - generic [ref=e87]: across
+        - generic [ref=e88]: twenty
+        - generic [ref=e89]: states,
+        - generic [ref=e90]: building
+        - generic [ref=e91]: belonging
+        - generic [ref=e92]: in
+        - generic [ref=e93]: the
+        - generic [ref=e94]: land
+        - generic [ref=e95]: we
+        - generic [ref=e96]: now
+        - generic [ref=e97]: call
+        - generic [ref=e98]: home.
+      - paragraph [ref=e100]: From the Pacific to the Atlantic, Karen families have planted roots in American soil while carrying the spirit of Kawthoolei in their hearts.
+    - generic [ref=e105]:
+      - generic [ref=e106]: ၂
+      - heading "One National Body" [level=2] [ref=e107]:
+        - generic [ref=e108]: One
+        - generic [ref=e109]: National
+        - generic [ref=e110]: Body
+      - paragraph [ref=e111]:
+        - generic [ref=e112]: Born
+        - generic [ref=e113]: from
+        - generic [ref=e114]: unity.
+        - generic [ref=e115]: Forged
+        - generic [ref=e116]: by
+        - generic [ref=e117]: fifty
+        - generic [ref=e118]: leaders.
+        - generic [ref=e119]: Established
+        - generic [ref=e120]: for
+        - generic [ref=e121]: all
+        - generic [ref=e122]: Karen
+        - generic [ref=e123]: people.
+      - paragraph [ref=e124]: On August 8, 2018, more than fifty Karen community leaders from twenty U.S. states met in Omaha, Nebraska. Two organizations became one national body.
+    - generic [ref=e127]:
+      - generic [ref=e128]: ၃
+      - heading "Public Leadership" [level=2] [ref=e129]:
+        - generic [ref=e130]: Public
+        - generic [ref=e131]: Leadership
+      - paragraph [ref=e132]:
+        - generic [ref=e133]: Advocating
+        - generic [ref=e134]: for
+        - generic [ref=e135]: Karen
+        - generic [ref=e136]: voices
+        - generic [ref=e137]: in
+        - generic [ref=e138]: the
+        - generic [ref=e139]: halls
+        - generic [ref=e140]: of
+        - generic [ref=e141]: power,
+        - generic [ref=e142]: from
+        - generic [ref=e143]: local
+        - generic [ref=e144]: councils
+        - generic [ref=e145]: to
+        - generic [ref=e146]: the
+        - generic [ref=e147]: Capitol.
+      - paragraph [ref=e149]: Our youth and leaders travel to Washington, D.C., meeting with legislators, sharing our stories, and ensuring that Karen perspectives shape the policies that affect our communities.
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - generic [ref=e155]: ၄
+        - heading "The Work Continues" [level=2] [ref=e156]:
+          - generic [ref=e157]: The
+          - generic [ref=e158]: Work
+          - generic [ref=e159]: Continues
+        - paragraph [ref=e160]:
+          - generic [ref=e161]: Three
+          - generic [ref=e162]: pillars
+          - generic [ref=e163]: guide
+          - generic [ref=e164]: our
+          - generic [ref=e165]: mission.
+      - generic [ref=e166]:
+        - generic [ref=e167] [cursor=pointer]: Civic Education
+        - generic [ref=e171] [cursor=pointer]: Community
+        - generic [ref=e175] [cursor=pointer]: Humanitarian
+    - generic [ref=e183]:
+      - generic [ref=e184]: ၅
+      - heading "An Invitation" [level=2] [ref=e185]:
+        - generic [ref=e186]: An
+        - generic [ref=e187]: Invitation
+      - paragraph [ref=e188]:
+        - generic [ref=e189]: Join
+        - generic [ref=e190]: us.
+        - generic [ref=e191]: Volunteer.
+        - generic [ref=e192]: Contribute.
+        - generic [ref=e193]: Follow
+        - generic [ref=e194]: our
+        - generic [ref=e195]: journey.
+      - generic [ref=e196]:
+        - link "Get Involved" [ref=e197] [cursor=pointer]:
+          - /url: "#contact"
+        - link "Support KOA" [ref=e198] [cursor=pointer]:
+          - /url: "#donate"
+    - generic [ref=e200]:
+      - heading "About KOA" [level=2] [ref=e201]
+      - generic [ref=e202]:
+        - generic [ref=e203]:
+          - heading "Vision" [level=3] [ref=e204]
+          - paragraph [ref=e205]: To unite and empower Karen community thriving in the U.S. and advocating for justice in Burma.
+        - generic [ref=e206]:
+          - heading "Mission" [level=3] [ref=e207]
+          - paragraph [ref=e208]: The Karen Organization of America advocates for the rights and well-being of Karen communities in the United States and abroad.
+        - generic [ref=e209]:
+          - heading "History" [level=3] [ref=e210]
+          - paragraph [ref=e211]: Founded August 8, 2018 in Omaha, Nebraska, when fifty leaders from twenty states united as one national body.
+  - contentinfo [ref=e212]:
+    - generic [ref=e213]:
+      - generic [ref=e214]:
+        - generic [ref=e215]: KOA
+        - paragraph [ref=e216]: One People. One Home.
+      - generic [ref=e217]:
+        - link "Facebook" [ref=e218] [cursor=pointer]:
+          - /url: https://www.facebook.com/koamerica
+        - link "Email" [ref=e219] [cursor=pointer]:
+          - /url: mailto:karenorgamerica@gmail.com
+      - paragraph [ref=e221]: © 2026 Karen Organization of America

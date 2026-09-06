@@ -1,0 +1,2 @@
+[     363ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3014/signin-with-chatgpt?return_to=%2Fen%2Fadmin%2Fdesign-studio:0
+[     586ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3014/favicon.ico:0

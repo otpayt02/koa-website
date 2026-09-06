@@ -1,0 +1,171 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - navigation "Primary navigation, left sections" [ref=e4]:
+      - link "About" [ref=e5] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=e7] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=e9] [cursor=pointer]:
+        - /url: /en/community
+    - link "Karen Organization of America — Home" [ref=e11] [cursor=pointer]:
+      - /url: /en
+    - navigation "Primary navigation, right sections" [ref=e12]:
+      - link "Impact" [ref=e13] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=e15] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=e17] [cursor=pointer]:
+        - /url: /en/build
+        - generic "Coming soon" [ref=e19]: soon
+    - navigation "Language" [ref=e21]:
+      - 'link "Language: English" [ref=e22] [cursor=pointer]':
+        - /url: /en/dictionary
+        - text: English
+      - 'link "Language: Thai" [ref=e23] [cursor=pointer]':
+        - /url: /th/dictionary
+        - text: ไทย
+      - 'link "Language: Burmese" [ref=e24] [cursor=pointer]':
+        - /url: /my/dictionary
+        - text: မြန်မာ
+      - 'link "Language: S''gaw Karen" [ref=e25] [cursor=pointer]':
+        - /url: /ksw/dictionary
+        - text: ကညီ
+  - main [ref=e26]:
+    - generic [ref=e27]:
+      - generic:
+        - img "Karen community members sharing language"
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Living language · ကညီကျိာ်
+        - heading "A living dictionary, held by community." [level=1] [ref=e30]
+        - paragraph [ref=e31]: Explore S'gaw Karen words held in public by the people who speak, teach, and carry them.
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - paragraph [ref=e35]: Search, listen, contribute
+        - heading "A dictionary that remembers its people." [level=2] [ref=e36]
+        - paragraph [ref=e37]: Browse by category or search Karen, romanization, English translations, and definitions. Every published entry keeps its review status and contribution history visible.
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - text: Search the dictionary
+            - searchbox "Search the dictionary" [ref=e41]
+          - generic "Filter by category" [ref=e42]:
+            - button "all" [pressed] [ref=e43]
+            - button "identity" [ref=e44]
+            - button "language" [ref=e45]
+            - button "everyday" [ref=e46]
+            - button "community" [ref=e47]
+            - button "family" [ref=e48]
+            - button "values" [ref=e49]
+        - generic [ref=e50]:
+          - strong [ref=e51]: "6"
+          - text: entriesApproved S'gaw Karen records
+        - generic [ref=e52]:
+          - article [ref=e53]:
+            - generic [ref=e54]:
+              - generic [ref=e55]: Community reviewed
+              - generic [ref=e56]: v4
+            - generic [ref=e57]:
+              - paragraph [ref=e58]: ကညီ
+              - paragraph [ref=e59]: K'nyaw · noun
+            - heading "Karen person · Karen people" [level=3] [ref=e60]
+            - paragraph [ref=e61]: A Karen person or the Karen people; a community identifier used across generations.
+            - generic [ref=e62]:
+              - button "4 recordings" [ref=e63] [cursor=pointer]
+              - link "View full entry →" [ref=e64] [cursor=pointer]:
+                - /url: /en/dictionary/knyaw
+          - article [ref=e65]:
+            - generic [ref=e66]:
+              - generic [ref=e67]: Community reviewed
+              - generic [ref=e68]: v6
+            - generic [ref=e69]:
+              - paragraph [ref=e70]: ကညီကျိာ်
+              - paragraph [ref=e71]: K'nyaw kwa · noun
+            - heading "Karen language · S'gaw Karen" [level=3] [ref=e72]
+            - paragraph [ref=e73]: The Karen language; this entry focuses on the S'gaw Karen variety used by this website.
+            - generic [ref=e74]:
+              - button "7 recordings" [ref=e75] [cursor=pointer]
+              - link "View full entry →" [ref=e76] [cursor=pointer]:
+                - /url: /en/dictionary/karen-language
+          - article [ref=e77]:
+            - generic [ref=e78]:
+              - generic [ref=e79]: Community reviewed
+              - generic [ref=e80]: v3
+            - generic [ref=e81]:
+              - paragraph [ref=e82]: တၢ်ဘျုး
+              - paragraph [ref=e83]: Ta bluh · expression
+            - heading "thank you · gratitude" [level=3] [ref=e84]
+            - paragraph [ref=e85]: An expression of thanks or gratitude.
+            - generic [ref=e86]:
+              - button "9 recordings" [ref=e87] [cursor=pointer]
+              - link "View full entry →" [ref=e88] [cursor=pointer]:
+                - /url: /en/dictionary/thank-you
+          - article [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]: Community reviewed
+              - generic [ref=e92]: v2
+            - generic [ref=e93]:
+              - paragraph [ref=e94]: ပှၤတဝၢ
+              - paragraph [ref=e95]: Pwa ta wah · noun
+            - heading "community · society" [level=3] [ref=e96]
+            - paragraph [ref=e97]: People connected by place, identity, care, or shared purpose.
+            - generic [ref=e98]:
+              - button "3 recordings" [ref=e99] [cursor=pointer]
+              - link "View full entry →" [ref=e100] [cursor=pointer]:
+                - /url: /en/dictionary/community
+          - article [ref=e101]:
+            - generic [ref=e102]:
+              - generic [ref=e103]: Community reviewed
+              - generic [ref=e104]: v3
+            - generic [ref=e105]:
+              - paragraph [ref=e106]: မိၢ်
+              - paragraph [ref=e107]: Moo · noun
+            - heading "mother · mom" [level=3] [ref=e108]
+            - paragraph [ref=e109]: A mother; an affectionate or respectful family term.
+            - generic [ref=e110]:
+              - button "5 recordings" [ref=e111] [cursor=pointer]
+              - link "View full entry →" [ref=e112] [cursor=pointer]:
+                - /url: /en/dictionary/mother
+          - article [ref=e113]:
+            - generic [ref=e114]:
+              - generic [ref=e115]: Community reviewed
+              - generic [ref=e116]: v1
+            - generic [ref=e117]:
+              - paragraph [ref=e118]: တၢ်ဃူတၢ်ဖိး
+              - paragraph [ref=e119]: Ta ghuh ta hpoh · noun
+            - heading "peace · harmony" [level=3] [ref=e120]
+            - paragraph [ref=e121]: Peace, unity, or harmony among people.
+            - generic [ref=e122]:
+              - button "2 recordings" [ref=e123] [cursor=pointer]
+              - link "View full entry →" [ref=e124] [cursor=pointer]:
+                - /url: /en/dictionary/peace
+  - contentinfo [ref=e125]:
+    - generic [ref=e127]:
+      - strong [ref=e128]: Karen Organization of America
+      - paragraph [ref=e129]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=e130]:
+      - link "About" [ref=e131] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=e132] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=e133] [cursor=pointer]:
+        - /url: /en/community
+      - link "Impact" [ref=e134] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=e135] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=e136] [cursor=pointer]:
+        - /url: /en/build
+      - link "Dictionary" [ref=e137] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=e138] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=e139] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=e140] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=e141]:
+      - paragraph [ref=e142]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=e143] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

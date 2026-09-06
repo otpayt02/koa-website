@@ -1,0 +1,130 @@
+- generic [active] [ref=f15e1]:
+  - link "Skip to main content" [ref=f15e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f15e3]:
+    - navigation "Primary navigation, left sections" [ref=f15e4]:
+      - link "About" [ref=f15e5] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f15e7] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f15e9] [cursor=pointer]:
+        - /url: /en/community
+    - link "Karen Organization of America — Home" [ref=f15e11] [cursor=pointer]:
+      - /url: /en
+    - navigation "Primary navigation, right sections" [ref=f15e12]:
+      - link "Impact" [ref=f15e13] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f15e15] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f15e17] [cursor=pointer]:
+        - /url: /en/build
+    - navigation "Language" [ref=f15e20]:
+      - 'link "Language: English" [ref=f15e21] [cursor=pointer]':
+        - /url: /en/about
+        - text: English
+      - 'link "Language: Thai" [ref=f15e22] [cursor=pointer]':
+        - /url: /th/about
+        - text: ไทย
+      - 'link "Language: Burmese" [ref=f15e23] [cursor=pointer]':
+        - /url: /my/about
+        - text: မြန်မာ
+      - 'link "Language: S''gaw Karen" [ref=f15e24] [cursor=pointer]':
+        - /url: /ksw/about
+        - text: ကညီ
+  - main [ref=f15e25]:
+    - generic [ref=f15e26]:
+      - generic:
+        - img "Karen leaders at a founding conference"
+      - generic [ref=f15e27]:
+        - paragraph [ref=f15e28]: About KOA · ဘၣ်ဃး KOA
+        - heading "A shared history. A future built together." [level=1] [ref=f15e29]
+        - paragraph [ref=f15e30]: Born from collaboration among Karen leaders across the United States, KOA advocates, educates, connects, and stands in solidarity.
+    - generic [ref=f15e32]:
+      - generic [ref=f15e33]:
+        - paragraph [ref=f15e34]: Our story
+        - heading "From conversation to national coalition." [level=2] [ref=f15e35]
+        - paragraph [ref=f15e36]: In 2018, leaders recognized that communities in many places could act with greater strength together.
+      - list [ref=f15e37]:
+        - listitem [ref=f15e38]:
+          - text: June 13, 2018
+          - heading "A shared conversation" [level=3] [ref=f15e39]
+          - paragraph [ref=f15e40]: KOUSA and KAO leaders began discussing deeper collaboration and national unity.
+        - listitem [ref=f15e41]:
+          - text: August 8, 2018
+          - heading "Leaders gathered in Omaha" [level=3] [ref=f15e42]
+          - paragraph [ref=f15e43]: More than fifty leaders representing twenty states met to build a common direction.
+        - listitem [ref=f15e44]:
+          - text: Today
+          - heading "One community, many places" [level=3] [ref=f15e45]
+          - paragraph [ref=f15e46]: KOA connects local strength to national advocacy, language access, and collective care.
+    - generic [ref=f15e48]:
+      - generic [ref=f15e49]:
+        - paragraph [ref=f15e50]: Vision and mission
+        - heading "Purpose that becomes action." [level=2] [ref=f15e51]
+      - generic [ref=f15e52]:
+        - article [ref=f15e53]:
+          - generic [ref=f15e54]: Vision
+          - heading "Thriving Karen communities" [level=3] [ref=f15e55]
+          - paragraph [ref=f15e56]: United and empowered in the United States, with the confidence and resources to shape their own future and advocate for justice in Burma.
+        - article [ref=f15e57]:
+          - generic [ref=f15e58]: Mission
+          - heading "Rights, well-being, and unity" [level=3] [ref=f15e59]
+          - paragraph [ref=f15e60]: Advocate for Karen people, create pathways for learning and leadership, strengthen community ties, and stand in solidarity where help is needed.
+    - generic [ref=f15e62]:
+      - generic [ref=f15e63]:
+        - paragraph [ref=f15e64]: Leadership
+        - heading "Accountable, community-rooted leadership." [level=2] [ref=f15e65]
+        - paragraph [ref=f15e66]: KOA is preparing verified public biographies and regional roles. Profiles are published only after each leader approves the details.
+      - generic [ref=f15e67]:
+        - article [ref=f15e68]:
+          - generic [ref=f15e69]: OP
+          - heading "Oliver P." [level=3] [ref=f15e70]
+          - paragraph [ref=f15e71]: IT Manager & Web Lead
+          - text: Digital stewardship · National
+        - article [ref=f15e72]:
+          - generic [ref=f15e73]: KOA
+          - heading "Executive leadership" [level=3] [ref=f15e74]
+          - paragraph [ref=f15e75]: Names and biographies in community review
+          - text: Publication approval pending
+        - article [ref=f15e76]:
+          - generic [ref=f15e77]: "11"
+          - heading "Community network" [level=3] [ref=f15e78]
+          - paragraph [ref=f15e79]: Founding communities across the United States
+          - text: Relationships being reconfirmed
+    - generic [ref=f15e80]:
+      - img "A Karen community gathering" [ref=f15e81]
+      - generic [ref=f15e82]:
+        - paragraph [ref=f15e83]: Annual reporting
+        - heading "Transparency belongs to everyone." [level=2] [ref=f15e84]
+        - paragraph [ref=f15e85]: KOA's first public digital annual report will bring program outcomes, partnerships, and financial stewardship into one accessible view.
+        - link "See public decisions" [ref=f15e86] [cursor=pointer]:
+          - /url: /en/changelog
+  - contentinfo [ref=f15e87]:
+    - generic [ref=f15e89]:
+      - strong [ref=f15e90]: Karen Organization of America
+      - paragraph [ref=f15e91]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=f15e92]:
+      - link "About" [ref=f15e93] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f15e94] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f15e95] [cursor=pointer]:
+        - /url: /en/community
+      - link "Impact" [ref=f15e96] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f15e97] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f15e98] [cursor=pointer]:
+        - /url: /en/build
+      - link "Dictionary" [ref=f15e99] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=f15e100] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=f15e101] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=f15e102] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=f15e103]:
+      - paragraph [ref=f15e104]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=f15e105] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

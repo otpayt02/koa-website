@@ -1,0 +1,19 @@
+2026-08-31 21:43:32.471: [INFO] CurrentProfilePath: C:\Users\olive\Projects\koa-website\output\edge-proof-mobile\Default
+2026-08-31 21:43:32.471: [INFO] Profiles total count: 1
+2026-08-31 21:43:32.471: [INFO] Profile: name=Profile 1 path=C:\Users\olive\Projects\koa-website\output\edge-proof-mobile\Default lastActive=2026-08-31T21:43:32.430Z
+2026-08-31 21:43:32.471: [INFO] LastUsedProfileDir: C:\Users\olive\Projects\koa-website\output\edge-proof-mobile\Default
+2026-08-31 21:43:32.471: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\olive\Projects\koa-website\output\edge-proof-mobile\Default lastActive=2026-08-31T21:43:32.430Z
+2026-08-31 21:43:32.471: [INFO] OnDoneLoading sync enabled: 0
+2026-08-31 21:43:32.471: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-08-31 21:43:32.471: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-08-31 21:43:32.471: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-31 21:43:32.494: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-08-31 21:43:33.055: [INFO] VisibilityChanged: 0
+2026-08-31 21:43:35.138: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-08-31 21:43:35.146: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-08-31 21:43:35.150: [INFO] Primary account changed.
+2026-08-31 21:43:35.150: [INFO] OnPrimaryAccountChanged PrimaryAccountChangeEvent::Type::kSet
+2026-08-31 21:43:35.176: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-08-31 21:43:36.953: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-31 21:43:36.955: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-31 21:43:36.956: [INFO] BookmarkNodeAdded, ABU: 0

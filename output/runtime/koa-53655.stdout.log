@@ -1,0 +1,19 @@
+
+  vinext dev  (Vite 8.0.13)
+
+5:36:27 PM [vite] (rsc) Re-optimizing dependencies because vite config has changed
+5:36:27 PM [vite] (ssr) Re-optimizing dependencies because vite config has changed
+5:36:28 PM [vite] (rsc) [optimizer] scanning dependencies...
+5:36:29 PM [vite] (ssr) [optimizer] scanning dependencies...
+5:36:33 PM [vite] (ssr) [optimizer] bundling dependencies...
+5:36:33 PM [vite] (rsc) [optimizer] bundling dependencies...
+5:36:40 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+  ➜  Local:   http://127.0.0.1:53655/
+  ➜  Debug:   http://127.0.0.1:53655/__debug
+{"event":"http.request","requestId":"eb0d01ab-7af5-4cc4-b7c1-30dbeb6360b6","method":"GET","path":"/en","latencyMs":1,"timestamp":"2026-08-31T21:36:41.672Z"}
+5:36:42 PM [vite] (client) [optimizer] bundling dependencies...
+{"event":"http.request","requestId":"1484c751-82df-486e-a732-94dc274bd452","method":"GET","path":"/en","latencyMs":0,"timestamp":"2026-08-31T21:36:42.466Z"}
+{"event":"http.request","requestId":"312141fb-eeab-4314-bfe3-1b8c97916252","method":"GET","path":"/en","latencyMs":0,"timestamp":"2026-08-31T21:36:44.643Z"}
+{"event":"http.request","requestId":"2804b295-a7aa-4eef-811d-7b52cf672005","method":"GET","path":"/en","latencyMs":0,"timestamp":"2026-08-31T21:36:46.898Z"}
+{"event":"http.request","requestId":"8a6477c2-274c-44d0-bd1b-d313e41b150a","method":"GET","path":"/en","latencyMs":0,"timestamp":"2026-08-31T21:36:49.178Z"}
+ GET /en 200 in 928ms (compile: 1788212184.2s, render: 734ms)

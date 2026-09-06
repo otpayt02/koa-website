@@ -1,0 +1,3 @@
+[     823ms] [LOG] KOA Canonical — Premium Cinematic Edition initialized @ http://127.0.0.1:8888/js/main.js:349
+[     824ms] [LOG] Features: Hourglass Glyph Loader, Cursor Glow, Film Grain, Text Reveals, Progress Timeline, Chapter Tracker, Parallax, 3D Tilt, Marquee, Micro-interactions, Bilingual @ http://127.0.0.1:8888/js/main.js:350
+[    1310ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8888/favicon.ico:0

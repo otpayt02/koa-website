@@ -1,0 +1,561 @@
+- generic [active] [ref=f1e1]:
+  - link "Skip to main content" [ref=f1e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f1e3]:
+    - navigation "Primary navigation, left sections" [ref=f1e4]:
+      - link "About" [ref=f1e5] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f1e7] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f1e9] [cursor=pointer]:
+        - /url: /en/community
+    - link "Karen Organization of America — Home" [ref=f1e11] [cursor=pointer]:
+      - /url: /en
+    - navigation "Primary navigation, right sections" [ref=f1e12]:
+      - link "Impact" [ref=f1e13] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f1e15] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f1e17] [cursor=pointer]:
+        - /url: /en/build
+        - generic "Coming soon" [ref=f1e19]: soon
+    - navigation "Language" [ref=f1e21]:
+      - 'link "Language: English" [ref=f1e22] [cursor=pointer]':
+        - /url: /en
+        - text: English
+      - 'link "Language: Thai" [ref=f1e23] [cursor=pointer]':
+        - /url: /th
+        - text: ไทย
+      - 'link "Language: Burmese" [ref=f1e24] [cursor=pointer]':
+        - /url: /my
+        - text: မြန်မာ
+      - 'link "Language: S''gaw Karen" [ref=f1e25] [cursor=pointer]':
+        - /url: /ksw
+        - text: ကညီ
+  - main [ref=f1e26]:
+    - region [ref=f1e27]:
+      - generic [ref=f1e28]:
+        - paragraph [ref=f1e29]:
+          - generic [ref=f1e30]: ကညီပှၤတဝၢ
+          - generic [ref=f1e31]: ·
+          - generic [ref=f1e32]: KOA / 2018
+        - img "KOA identity assembly The authentic KOA seal rises as its original outer lettering revolves behind a stationary inner seal and fine S'gaw Karen glyphs form the K and A." [ref=f1e33]:
+          - generic [ref=f1e35]:
+            - generic:
+              - generic: ၭ
+              - generic: ၫ
+              - generic: ၹ
+              - generic: ပ
+              - generic: စ
+              - generic: သ
+              - generic: ၤ
+              - generic: ၯ
+              - generic: ယ
+              - generic: ၧ
+              - generic: ၻ
+              - generic: ၲ
+              - generic: ၾ
+              - generic: ၥ
+              - generic: ၲ
+              - generic: ဆ
+              - generic: ၮ
+              - generic: ၢ
+              - generic: ဖ
+              - generic: ၽ
+              - generic: ၭ
+              - generic: ၧ
+              - generic: င
+              - generic: ဝ
+              - generic: ၲ
+              - generic: တ
+              - generic: တ
+              - generic: ၯ
+              - generic: စ
+              - generic: ဂ
+              - generic: အ
+              - generic: ဗ
+              - generic: ၳ
+              - generic: က
+              - generic: ဇ
+              - generic: ခ
+              - generic: ဆ
+              - generic: ၾ
+              - generic: ၿ
+              - generic: ထ
+              - generic: ည
+              - generic: ၣ
+              - generic: ၿ
+              - generic: ၳ
+              - generic: ၴ
+              - generic: ၳ
+              - generic: ထ
+              - generic: ဝ
+              - generic: ၱ
+              - generic: ဓ
+              - generic: ၷ
+              - generic: ၦ
+              - generic: ၺ
+              - generic: ရ
+              - generic: ယ
+              - generic: ဗ
+              - generic: ၧ
+              - generic: ၱ
+              - generic: ဝ
+              - generic: ၯ
+              - generic: ၽ
+              - generic: ဖ
+              - generic: န
+              - generic: ဆ
+              - generic: ဟ
+              - generic: မ
+              - generic: ၻ
+              - generic: ဆ
+              - generic: ၱ
+              - generic: ဇ
+              - generic: ၥ
+              - generic: ထ
+              - generic: ၱ
+              - generic: ည
+              - generic: ဝ
+              - generic: ၺ
+              - generic: ၱ
+              - generic: ဃ
+              - generic: စ
+              - generic: င
+              - generic: ၩ
+              - generic: ၵ
+              - generic: ၲ
+              - generic: အ
+              - generic: န
+              - generic: ခ
+              - generic: ၨ
+              - generic: ဇ
+              - generic: ဖ
+              - generic: ဟ
+              - generic: ၦ
+              - generic: ည
+              - generic: တ
+              - generic: ဆ
+              - generic: ၤ
+              - generic: ဝ
+              - generic: ည
+              - generic: ၹ
+              - generic: သ
+              - generic: ၻ
+              - generic: ၪ
+              - generic: ခ
+              - generic: ၿ
+              - generic: မ
+              - generic: ၿ
+              - generic: သ
+              - generic: ဇ
+              - generic: ဟ
+              - generic: ၮ
+              - generic: ၽ
+              - generic: ၴ
+              - generic: ၥ
+              - generic: ၫ
+              - generic: ဓ
+              - generic: ည
+              - generic: ၿ
+              - generic: ၥ
+              - generic: ၯ
+              - generic: ၢ
+              - generic: ၣ
+              - generic: အ
+              - generic: ၮ
+              - generic: ၰ
+              - generic: ၵ
+              - generic: ဘ
+              - generic: ၢ
+              - generic: မ
+              - generic: န
+              - generic: ၲ
+              - generic: ၥ
+              - generic: ၲ
+              - generic: ၸ
+              - generic: ၷ
+              - generic: ၯ
+              - generic: ၲ
+              - generic: စ
+              - generic: ၢ
+              - generic: င
+              - generic: ၤ
+              - generic: ၶ
+              - generic: ၮ
+              - generic: ၾ
+              - generic: က
+              - generic: ၦ
+              - generic: န
+              - generic: ဆ
+              - generic: ခ
+              - generic: ၽ
+              - generic: စ
+              - generic: ၫ
+              - generic: ၬ
+              - generic: ဘ
+              - generic: ယ
+              - generic: ၮ
+              - generic: ဒ
+              - generic: ၶ
+            - generic:
+              - generic: ယ
+              - generic: မ
+              - generic: ၧ
+              - generic: န
+              - generic: စ
+              - generic: တ
+              - generic: ၦ
+              - generic: က
+              - generic: ဒ
+              - generic: ၸ
+              - generic: ဆ
+              - generic: ၣ
+              - generic: ဗ
+              - generic: ၰ
+              - generic: ဝ
+              - generic: ယ
+              - generic: ၮ
+              - generic: ထ
+              - generic: သ
+              - generic: ၻ
+              - generic: ည
+              - generic: ဝ
+              - generic: ၴ
+              - generic: ၺ
+              - generic: ၼ
+              - generic: ယ
+              - generic: ဂ
+              - generic: ၧ
+              - generic: ၶ
+              - generic: ၬ
+              - generic: ၤ
+              - generic: ၼ
+              - generic: ရ
+              - generic: ၾ
+              - generic: ၼ
+              - generic: သ
+              - generic: ၷ
+              - generic: ၨ
+              - generic: ဒ
+              - generic: ပ
+              - generic: ယ
+              - generic: ၭ
+              - generic: ဆ
+              - generic: ၱ
+              - generic: ဟ
+              - generic: ၣ
+              - generic: ဆ
+              - generic: ယ
+              - generic: ၥ
+              - generic: ၷ
+              - generic: ဘ
+              - generic: ရ
+              - generic: ၫ
+              - generic: ဆ
+              - generic: ၯ
+              - generic: ၮ
+              - generic: ဒ
+              - generic: ဂ
+              - generic: ဆ
+              - generic: ၬ
+              - generic: ထ
+              - generic: ၷ
+              - generic: ၸ
+              - generic: ၯ
+              - generic: ၧ
+              - generic: ဃ
+              - generic: ခ
+              - generic: ၺ
+              - generic: ၦ
+              - generic: ဆ
+              - generic: ယ
+              - generic: င
+              - generic: ဓ
+              - generic: ထ
+              - generic: ၼ
+              - generic: ၵ
+              - generic: ၿ
+              - generic: ၹ
+              - generic: ၭ
+              - generic: န
+              - generic: ၩ
+              - generic: ၾ
+              - generic: ၽ
+              - generic: ဂ
+              - generic: ၾ
+              - generic: ၺ
+              - generic: ၸ
+              - generic: ခ
+              - generic: ၹ
+              - generic: ၼ
+              - generic: ၦ
+              - generic: ၹ
+              - generic: လ
+              - generic: ပ
+              - generic: စ
+              - generic: ဓ
+              - generic: ၳ
+              - generic: ၰ
+              - generic: ၢ
+              - generic: ထ
+              - generic: ၮ
+              - generic: ၺ
+              - generic: လ
+              - generic: ၵ
+              - generic: ဃ
+              - generic: လ
+              - generic: ၲ
+              - generic: ၳ
+              - generic: ၯ
+              - generic: ဃ
+              - generic: ၸ
+              - generic: ပ
+              - generic: သ
+              - generic: ဒ
+              - generic: ၣ
+              - generic: ဘ
+              - generic: ၵ
+              - generic: အ
+              - generic: ၯ
+              - generic: ၢ
+              - generic: ထ
+              - generic: သ
+              - generic: ၥ
+              - generic: ဟ
+              - generic: အ
+              - generic: ၭ
+              - generic: ဖ
+              - generic: င
+              - generic: ထ
+              - generic: ၽ
+              - generic: ၽ
+              - generic: န
+              - generic: ၶ
+              - generic: ၰ
+              - generic: န
+              - generic: ၧ
+              - generic: ၳ
+              - generic: ဃ
+              - generic: ၧ
+              - generic: ၼ
+              - generic: ဂ
+              - generic: ၹ
+              - generic: ရ
+              - generic: ၹ
+              - generic: ၲ
+              - generic: ၫ
+              - generic: ၫ
+              - generic: ယ
+              - generic: ၶ
+              - generic: ဆ
+              - generic: ၴ
+              - generic: ၵ
+              - generic: ၲ
+              - generic: က
+              - generic: သ
+              - generic: ၵ
+          - generic [ref=f1e36]: MANY PLACES · ONE COMMUNITY
+        - generic [ref=f1e37]:
+          - paragraph [ref=f1e38]: Established 2018 · Omaha, Nebraska
+          - heading "America's home for the Karen community." [level=1] [ref=f1e39]
+          - paragraph [ref=f1e40]: Providing, combining, and inviting a national Karen voice.
+          - generic [ref=f1e41]:
+            - link "Find your way to contribute" [ref=f1e42] [cursor=pointer]:
+              - /url: /en/contribute
+              - text: Find your way to contribute
+              - generic [ref=f1e43]: ↗
+            - link "Why KOA matters" [ref=f1e44] [cursor=pointer]:
+              - /url: /en/about
+              - text: Why KOA matters
+              - generic [ref=f1e45]: ↗
+    - region "Karen Organization of America story" [ref=f1e47]:
+      - generic [ref=f1e48]:
+        - navigation "Film timeline" [ref=f1e49]:
+          - generic [ref=f1e50]:
+            - generic [ref=f1e51]: KOA / STORY
+            - generic [ref=f1e52]: ၁ · Arrival
+          - list [ref=f1e54]:
+            - listitem "Go to Arrival chapter" [ref=f1e55] [cursor=pointer]:
+              - generic [ref=f1e56]: ၁
+              - generic [ref=f1e57]: Arrival
+            - listitem "Go to Voice chapter" [ref=f1e58] [cursor=pointer]:
+              - generic [ref=f1e59]: ၂
+              - generic [ref=f1e60]: Voice
+            - listitem "Go to Language chapter" [ref=f1e61] [cursor=pointer]:
+              - generic [ref=f1e62]: ၃
+              - generic [ref=f1e63]: Language
+            - listitem "Go to Belonging chapter" [ref=f1e64] [cursor=pointer]:
+              - generic [ref=f1e65]: ၄
+              - generic [ref=f1e66]: Belonging
+        - complementary "Story sequence" [ref=f1e67]:
+          - generic [ref=f1e68]: Sequence
+          - list [ref=f1e69]:
+            - listitem [ref=f1e70]:
+              - button "Jump to Arrival" [ref=f1e71] [cursor=pointer]:
+                - generic [ref=f1e73]:
+                  - generic [ref=f1e74]: ၁
+                  - text: Arrival
+            - listitem [ref=f1e75]:
+              - button "Jump to Voice" [ref=f1e76] [cursor=pointer]:
+                - generic [ref=f1e78]:
+                  - generic [ref=f1e79]: ၂
+                  - text: Voice
+            - listitem [ref=f1e80]:
+              - button "Jump to Language" [ref=f1e81] [cursor=pointer]:
+                - generic [ref=f1e83]:
+                  - generic [ref=f1e84]: ၃
+                  - text: Language
+            - listitem [ref=f1e85]:
+              - button "Jump to Belonging" [ref=f1e86] [cursor=pointer]:
+                - generic [ref=f1e88]:
+                  - generic [ref=f1e89]: ၄
+                  - text: Belonging
+        - generic [ref=f1e90]:
+          - paragraph [ref=f1e91]:
+            - text: Film ·
+            - strong [ref=f1e92]: "9600"
+            - text: frames
+          - generic "Story chapters" [ref=f1e93]:
+            - button "Go to chapter 1" [ref=f1e94] [cursor=pointer]: "01"
+            - button "Go to chapter 2" [ref=f1e95] [cursor=pointer]: "02"
+            - button "Go to chapter 3" [ref=f1e96] [cursor=pointer]: "03"
+            - button "Go to chapter 4" [ref=f1e97] [cursor=pointer]: "04"
+          - button "Motion on" [ref=f1e98] [cursor=pointer]
+        - paragraph:
+          - text: Scroll to enter
+          - generic: ↓
+    - generic [ref=f1e100]:
+      - generic [ref=f1e101]:
+        - paragraph [ref=f1e102]: Our purpose · ပတၢ်ပညိၣ်
+        - heading "Strengthen unity. Protect rights. Build belonging." [level=2] [ref=f1e103]
+        - paragraph [ref=f1e104]: KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead.
+      - generic [ref=f1e105]:
+        - article [ref=f1e106]:
+          - generic [ref=f1e107]: "01"
+          - heading "Civic education" [level=3] [ref=f1e108]
+          - paragraph [ref=f1e109]: Understand public systems, grow youth leadership, and turn community priorities into action.
+          - link "Explore programs →" [ref=f1e110] [cursor=pointer]:
+            - /url: /en/services
+        - article [ref=f1e111]:
+          - generic [ref=f1e112]: "02"
+          - heading "Language access" [level=3] [ref=f1e113]
+          - paragraph [ref=f1e114]: Find community-reviewed words and request trusted Karen translation or interpretation.
+          - link "Find language support →" [ref=f1e115] [cursor=pointer]:
+            - /url: /en/translation
+        - article [ref=f1e116]:
+          - generic [ref=f1e117]: "03"
+          - heading "Community care" [level=3] [ref=f1e118]
+          - paragraph [ref=f1e119]: Share ideas, volunteer, partner, or give so resources move where they matter most.
+          - link "Take part →" [ref=f1e120] [cursor=pointer]:
+            - /url: /en/collaborate
+    - generic [ref=f1e121]:
+      - img "Karen advocates visiting the United States Capitol" [ref=f1e123]
+      - generic [ref=f1e124]:
+        - paragraph [ref=f1e125]: Community-led advocacy
+        - heading "Knowledge becomes a voice in the room." [level=2] [ref=f1e126]
+        - paragraph [ref=f1e127]: KOA helps Karen leaders and young people understand public systems, speak to decision-makers, and bring what they learn home.
+        - link "See the work" [ref=f1e128] [cursor=pointer]:
+          - /url: /en/services
+    - generic [ref=f1e130]:
+      - generic [ref=f1e131]:
+        - paragraph [ref=f1e132]: Living language · ကညီကျိာ်
+        - heading "Words carried forward, together." [level=2] [ref=f1e133]
+        - paragraph [ref=f1e134]: Every published entry preserves who contributed, who reviewed it, and how the language is used.
+      - generic [ref=f1e135]:
+        - article [ref=f1e136]:
+          - generic [ref=f1e137]:
+            - generic [ref=f1e138]: Community reviewed
+            - generic [ref=f1e139]: v4
+          - generic [ref=f1e140]:
+            - paragraph [ref=f1e141]: ကညီ
+            - paragraph [ref=f1e142]: K'nyaw · noun
+          - heading "Karen person · Karen people" [level=3] [ref=f1e143]
+          - generic [ref=f1e144]:
+            - button "4 recordings" [ref=f1e145] [cursor=pointer]
+            - link "View full entry →" [ref=f1e146] [cursor=pointer]:
+              - /url: /en/dictionary/knyaw
+        - article [ref=f1e147]:
+          - generic [ref=f1e148]:
+            - generic [ref=f1e149]: Community reviewed
+            - generic [ref=f1e150]: v6
+          - generic [ref=f1e151]:
+            - paragraph [ref=f1e152]: ကညီကျိာ်
+            - paragraph [ref=f1e153]: K'nyaw kwa · noun
+          - heading "Karen language · S'gaw Karen" [level=3] [ref=f1e154]
+          - generic [ref=f1e155]:
+            - button "7 recordings" [ref=f1e156] [cursor=pointer]
+            - link "View full entry →" [ref=f1e157] [cursor=pointer]:
+              - /url: /en/dictionary/karen-language
+        - article [ref=f1e158]:
+          - generic [ref=f1e159]:
+            - generic [ref=f1e160]: Community reviewed
+            - generic [ref=f1e161]: v3
+          - generic [ref=f1e162]:
+            - paragraph [ref=f1e163]: တၢ်ဘျုး
+            - paragraph [ref=f1e164]: Ta bluh · expression
+          - heading "thank you · gratitude" [level=3] [ref=f1e165]
+          - generic [ref=f1e166]:
+            - button "9 recordings" [ref=f1e167] [cursor=pointer]
+            - link "View full entry →" [ref=f1e168] [cursor=pointer]:
+              - /url: /en/dictionary/thank-you
+      - generic [ref=f1e169]:
+        - link "Explore Dictionary" [ref=f1e170] [cursor=pointer]:
+          - /url: /en/dictionary
+        - link "Share a word or recording" [ref=f1e171] [cursor=pointer]:
+          - /url: /en/contribute
+    - generic [ref=f1e173]:
+      - generic [ref=f1e174]:
+        - paragraph [ref=f1e175]: This month
+        - heading "A community in motion." [level=2] [ref=f1e176]
+        - paragraph [ref=f1e177]: Ways to learn, connect, and take part—wherever you live.
+      - generic [ref=f1e178]:
+        - article [ref=f1e179]:
+          - time [ref=f1e180]:
+            - strong [ref=f1e181]: "22"
+            - text: Aug 2026-08-22
+          - generic [ref=f1e182]:
+            - paragraph [ref=f1e183]: Online · National
+            - heading "Language contributor orientation" [level=3] [ref=f1e184]
+            - paragraph [ref=f1e185]: Learn how community definitions and recordings move through review.
+          - link "Join orientation →" [ref=f1e186] [cursor=pointer]:
+            - /url: /en/contribute
+        - article [ref=f1e187]:
+          - time [ref=f1e188]:
+            - strong [ref=f1e189]: "05"
+            - text: Sep 2026-09-05
+          - generic [ref=f1e190]:
+            - paragraph [ref=f1e191]: Omaha, Nebraska
+            - heading "Youth civic leadership workshop" [level=3] [ref=f1e192]
+            - paragraph [ref=f1e193]: A practical day of public-system learning and community action.
+          - link "Event details →" [ref=f1e194] [cursor=pointer]:
+            - /url: /en/community
+  - contentinfo [ref=f1e195]:
+    - generic [ref=f1e197]:
+      - strong [ref=f1e198]: Karen Organization of America
+      - paragraph [ref=f1e199]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=f1e200]:
+      - link "About" [ref=f1e201] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f1e202] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f1e203] [cursor=pointer]:
+        - /url: /en/community
+      - link "Impact" [ref=f1e204] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f1e205] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f1e206] [cursor=pointer]:
+        - /url: /en/build
+      - link "Dictionary" [ref=f1e207] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=f1e208] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=f1e209] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=f1e210] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=f1e211]:
+      - paragraph [ref=f1e212]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=f1e213] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

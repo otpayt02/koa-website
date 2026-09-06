@@ -1,0 +1,234 @@
+[2m4:16:44 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m4:16:47 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async fetchModule (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:23123:15)
+    at async Object.handleInvoke (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26561:21)
+    at async __VITE_INVOKE_MODULE__ (file:///C:/Users/olive/Projects/koa-website/node_modules/@cloudflare/vite-plugin/dist/index.mjs:52697:22)
+[2m4:20:56 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m4:21:02 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async fetchModule (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:23123:15)
+    at async Object.handleInvoke (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26561:21)
+    at async __VITE_INVOKE_MODULE__ (file:///C:/Users/olive/Projects/koa-website/node_modules/@cloudflare/vite-plugin/dist/index.mjs:52697:22)
+[2m4:21:41 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m4:21:41 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m4:21:51 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async fetchModule (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:23123:15)
+    at async Object.handleInvoke (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26561:21)
+    at async __VITE_INVOKE_MODULE__ (file:///C:/Users/olive/Projects/koa-website/node_modules/@cloudflare/vite-plugin/dist/index.mjs:52697:22)
+[2m4:22:23 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m4:22:29 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async fetchModule (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:23123:15)
+    at async Object.handleInvoke (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26561:21)
+    at async __VITE_INVOKE_MODULE__ (file:///C:/Users/olive/Projects/koa-website/node_modules/@cloudflare/vite-plugin/dist/index.mjs:52697:22)
+[2m4:49:17 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m4:49:45 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m5:39:40 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m5:47:59 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m5:48:03 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m5:48:14 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m5:49:30 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m5:49:36 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)
+[2m5:50:40 AM[22m [33m[1m[vite][22m[39m [33m[2m(rsc)[22m[39m Failed to load source map for C:/Users/olive/Projects/koa-website/app/globals.css.
+Error: An error occurred while trying to read the map file at Projects_koa-website_app_globals_0r4k3mj.css.map
+Error: ENOENT: no such file or directory, open 'C:\Users\olive\Projects\koa-website\app\Projects_koa-website_app_globals_0r4k3mj.css.map'
+    at Object.readFileSync (node:fs:440:20)
+    at file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20082:13
+    at readFromFileMap (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19861:13)
+    at exports.fromMapFileComment (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19955:12)
+    at exports.fromMapFileSource (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:19966:22)
+    at extractSourcemapFromFile (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:20068:87)
+    at loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24498:22)
+    at async MinimalPluginContext.hotUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/@vitejs/plugin-rsc/dist/plugin-BhzHKRFo.js:850:8)
+    at async handleHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26768:29)
+    at async onHMRUpdate (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:26273:35)

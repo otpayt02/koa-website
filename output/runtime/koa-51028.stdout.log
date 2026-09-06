@@ -1,0 +1,30 @@
+
+> site-creator-vinext-starter@0.1.0 dev
+> vinext dev --host 127.0.0.1 --port 51028
+
+
+  vinext dev  (Vite 8.0.13)
+
+7:57:03 AM [vite] (rsc) [optimizer] scanning dependencies...
+7:57:03 AM [vite] (ssr) [optimizer] scanning dependencies...
+7:57:06 AM [vite] (ssr) [optimizer] bundling dependencies...
+7:57:06 AM [vite] (rsc) [optimizer] bundling dependencies...
+  ➜  Local:   http://localhost:51028/
+  ➜  Debug:   http://localhost:51028/__debug
+7:57:23 AM [vite] (client) [optimizer] bundling dependencies...
+7:57:38 AM [vite] (rsc) hmr update /app/globals.css
+7:57:38 AM [vite] (rsc) hmr update /app/globals.css
+7:57:38 AM [vite] (rsc) hmr update /app/globals.css
+7:57:38 AM [vite] (rsc) hmr update /app/globals.css
+7:58:08 AM [vite] (rsc) hmr update /app/globals.css
+7:58:08 AM [vite] (rsc) hmr update /app/globals.css
+7:58:08 AM [vite] (rsc) hmr update /app/globals.css
+7:58:08 AM [vite] (rsc) hmr update /app/globals.css
+7:58:38 AM [vite] (rsc) hmr update /app/globals.css
+7:58:38 AM [vite] (rsc) hmr update /app/globals.css
+7:58:38 AM [vite] (rsc) hmr update /app/globals.css
+7:58:38 AM [vite] (rsc) hmr update /app/globals.css
+7:59:08 AM [vite] (rsc) hmr update /app/globals.css
+7:59:08 AM [vite] (rsc) hmr update /app/globals.css
+7:59:08 AM [vite] (rsc) hmr update /app/globals.css
+7:59:08 AM [vite] (rsc) hmr update /app/globals.css

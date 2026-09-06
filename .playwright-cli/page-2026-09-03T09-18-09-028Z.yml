@@ -1,0 +1,279 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner:
+    - link "Karen Organization of America — Home":
+      - /url: /en
+      - generic:
+        - strong: KOA
+        - generic: Karen Organization of America
+    - generic:
+      - navigation "Language":
+        - 'link "Language: English"':
+          - /url: /en
+          - text: English
+        - 'link "Language: Thai"':
+          - /url: /th
+          - text: ไทย
+        - 'link "Language: Burmese"':
+          - /url: /my
+          - text: မြန်မာ
+        - 'link "Language: S''gaw Karen"':
+          - /url: /ksw
+          - text: ကညီ
+    - navigation "Primary navigation":
+      - generic:
+        - link "01 Home":
+          - /url: /en
+          - generic: "01"
+          - text: Home
+        - generic:
+          - button "Language + AI"
+        - generic:
+          - button "Community Knowledge"
+        - generic:
+          - button "National Community"
+        - generic:
+          - button "Culture"
+        - generic:
+          - button "Events"
+        - generic:
+          - button "History + Resources"
+        - link "09 Collaborate":
+          - /url: /en/collaborate
+          - generic: "09"
+          - text: Collaborate
+  - main [ref=e3]:
+    - region [ref=e4]:
+      - generic [ref=e5]:
+        - heading "Karen Organization of America" [level=1] [ref=e6]
+        - generic [aria-hidden]:
+          - generic: Karen Organization
+          - generic: of America
+        - generic [aria-hidden] [ref=e10]:
+          - generic [ref=e11]: Language
+          - generic [ref=e12]: Identity
+          - generic [ref=e13]: Community
+        - paragraph [aria-hidden] [ref=e14]:
+          - text: Scroll to assemble
+          - generic [ref=e15]: ↓
+        - button "Motion on" [ref=e16] [cursor=pointer]
+    - main [ref=e17]:
+      - region [ref=e18]:
+        - img "Karen community advocates gathered during a visit to the United States Capitol" [ref=e20]
+        - generic [ref=e21]:
+          - paragraph [ref=e22]: Chapter 01 · Civic voice
+          - heading "Knowledge becomes a voice in the room." [level=2] [ref=e23]
+          - paragraph [ref=e24]: KOA helps Karen leaders and young people understand public systems, speak to decision-makers, and bring what they learn back into community life.
+          - link "Explore community programs" [ref=e25] [cursor=pointer]:
+            - /url: /en/services
+            - text: Explore community programs
+            - generic [aria-hidden] [ref=e26]: →
+      - region [ref=e27]:
+        - img "Karen community members gathering together" [ref=e28]
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Chapter 02 · Living language
+          - heading "Every word is a way home." [level=2] [ref=e32]
+          - paragraph [ref=e33]: Language survives because people use it, record it, correct it, teach it, and carry it into the next generation.
+          - link "Enter the living dictionary" [ref=e34] [cursor=pointer]:
+            - /url: /en/dictionary
+            - text: Enter the living dictionary
+            - generic [aria-hidden] [ref=e35]: →
+      - region [ref=e36]:
+        - generic [ref=e37]:
+          - paragraph [ref=e38]: Chapter 03 · Belonging
+          - heading "Culture, care, and courage—connected." [level=2] [ref=e39]
+          - paragraph [ref=e40]: From community gatherings to practical support, KOA builds connective tissue between Karen people across cities, generations, and experiences.
+          - link "Find the community hub" [ref=e41] [cursor=pointer]:
+            - /url: /en/community
+            - text: Find the community hub
+            - generic [aria-hidden] [ref=e42]: →
+        - img "Karen community members gathered outdoors" [ref=e44]
+      - region [ref=e45]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Chapter 04 · Why KOA exists
+          - heading "A national organization should feel as alive as the people it serves." [level=2] [ref=e48]
+        - generic [ref=e49]:
+          - article [ref=e50]:
+            - generic [ref=e52]:
+              - text: "01"
+              - heading "Civic voice" [level=3] [ref=e53]
+              - paragraph [ref=e54]: Help Karen communities understand public systems, organize around priorities, and speak where decisions are made.
+              - link "Explore" [ref=e55] [cursor=pointer]:
+                - /url: /en/services
+                - text: Explore
+                - generic [aria-hidden] [ref=e56]: ↗
+          - article [ref=e57]:
+            - generic [ref=e59]:
+              - text: "02"
+              - heading "Living language" [level=3] [ref=e60]
+              - paragraph [ref=e61]: Preserve S’gaw Karen through community-reviewed words, recordings, translation, and intergenerational learning.
+              - link "Explore" [ref=e62] [cursor=pointer]:
+                - /url: /en/dictionary
+                - text: Explore
+                - generic [aria-hidden] [ref=e63]: ↗
+          - article [ref=e64]:
+            - generic [ref=e66]:
+              - text: "03"
+              - heading "Community care" [level=3] [ref=e67]
+              - paragraph [ref=e68]: Connect people to practical support, trusted community relationships, and ways to help one another.
+              - link "Explore" [ref=e69] [cursor=pointer]:
+                - /url: /en/community
+                - text: Explore
+                - generic [aria-hidden] [ref=e70]: ↗
+          - article [ref=e71]:
+            - generic [ref=e73]:
+              - text: "04"
+              - heading "Youth leadership" [level=3] [ref=e74]
+              - paragraph [ref=e75]: Make room for the next generation to learn, build, organize, and lead with confidence.
+              - link "Explore" [ref=e76] [cursor=pointer]:
+                - /url: /en/collaborate
+                - text: Explore
+                - generic [aria-hidden] [ref=e77]: ↗
+          - article [ref=e78]:
+            - generic [ref=e80]:
+              - text: "05"
+              - heading "Culture in motion" [level=3] [ref=e81]
+              - paragraph [ref=e82]: Keep identity visible through gathering, sport, music, food, storytelling, and shared public life.
+              - link "Explore" [ref=e83] [cursor=pointer]:
+                - /url: /en/community
+                - text: Explore
+                - generic [aria-hidden] [ref=e84]: ↗
+        - generic [ref=e85]:
+          - paragraph [ref=e86]: Our mission
+          - paragraph [ref=e87]: Strengthen unity, protect Karen rights and language, and build practical pathways for people to participate, contribute, and lead—wherever they call home in America.
+          - generic [ref=e88]:
+            - link "Get involved" [ref=e89] [cursor=pointer]:
+              - /url: /en/collaborate
+            - link "Contribute language" [ref=e90] [cursor=pointer]:
+              - /url: /en/contribute
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - paragraph [ref=e94]: Our purpose · ပတၢ်ပညိၣ်
+        - heading "Strengthen unity. Protect rights. Build belonging." [level=2] [ref=e95]
+        - paragraph [ref=e96]: KOA connects Karen communities, advocates for justice, and gives people practical pathways to participate and lead.
+      - generic [ref=e97]:
+        - article [ref=e98]:
+          - generic [ref=e99]: "01"
+          - heading "Civic education" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Understand public systems, grow youth leadership, and turn community priorities into action.
+          - link "Explore programs →" [ref=e102] [cursor=pointer]:
+            - /url: /en/services
+        - article [ref=e103]:
+          - generic [ref=e104]: "02"
+          - heading "Language access" [level=3] [ref=e105]
+          - paragraph [ref=e106]: Find community-reviewed words and request trusted Karen translation or interpretation.
+          - link "Find language support →" [ref=e107] [cursor=pointer]:
+            - /url: /en/translation
+        - article [ref=e108]:
+          - generic [ref=e109]: "03"
+          - heading "Community care" [level=3] [ref=e110]
+          - paragraph [ref=e111]: Share ideas, volunteer, partner, or give so resources move where they matter most.
+          - link "Take part →" [ref=e112] [cursor=pointer]:
+            - /url: /en/collaborate
+    - generic [ref=e113]:
+      - img "Karen advocates visiting the United States Capitol" [ref=e115]
+      - generic [ref=e116]:
+        - paragraph [ref=e117]: Community-led advocacy
+        - heading "Knowledge becomes a voice in the room." [level=2] [ref=e118]
+        - paragraph [ref=e119]: KOA helps Karen leaders and young people understand public systems, speak to decision-makers, and bring what they learn home.
+        - link "See the work" [ref=e120] [cursor=pointer]:
+          - /url: /en/services
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - paragraph [ref=e124]: Living language · ကညီကျိာ်
+        - heading "Words carried forward, together." [level=2] [ref=e125]
+        - paragraph [ref=e126]: Every published entry preserves who contributed, who reviewed it, and how the language is used.
+      - generic [ref=e127]:
+        - article [ref=e128]:
+          - generic [ref=e129]:
+            - generic [ref=e130]: Community reviewed
+            - generic [ref=e131]: v4
+          - generic [ref=e132]:
+            - paragraph [ref=e133]: ကညီ
+            - paragraph [ref=e134]:
+              - text: K'nyaw
+              - generic [ref=e135]: · noun
+          - heading "Karen person · Karen people" [level=3] [ref=e136]
+          - generic [ref=e137]:
+            - button "4 recordings" [ref=e138] [cursor=pointer]
+            - link "View full entry →" [ref=e139] [cursor=pointer]:
+              - /url: /en/dictionary/knyaw
+        - article [ref=e140]:
+          - generic [ref=e141]:
+            - generic [ref=e142]: Community reviewed
+            - generic [ref=e143]: v6
+          - generic [ref=e144]:
+            - paragraph [ref=e145]: ကညီကျိာ်
+            - paragraph [ref=e146]:
+              - text: K'nyaw kwa
+              - generic [ref=e147]: · noun
+          - heading "Karen language · S'gaw Karen" [level=3] [ref=e148]
+          - generic [ref=e149]:
+            - button "7 recordings" [ref=e150] [cursor=pointer]
+            - link "View full entry →" [ref=e151] [cursor=pointer]:
+              - /url: /en/dictionary/karen-language
+        - article [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]: Community reviewed
+            - generic [ref=e155]: v3
+          - generic [ref=e156]:
+            - paragraph [ref=e157]: တၢ်ဘျုး
+            - paragraph [ref=e158]:
+              - text: Ta bluh
+              - generic [ref=e159]: · expression
+          - heading "thank you · gratitude" [level=3] [ref=e160]
+          - generic [ref=e161]:
+            - button "9 recordings" [ref=e162] [cursor=pointer]
+            - link "View full entry →" [ref=e163] [cursor=pointer]:
+              - /url: /en/dictionary/thank-you
+      - generic [ref=e164]:
+        - link "Explore Dictionary" [ref=e165] [cursor=pointer]:
+          - /url: /en/dictionary
+        - link "Share a word or recording" [ref=e166] [cursor=pointer]:
+          - /url: /en/contribute
+    - generic [ref=e168]:
+      - generic [ref=e169]:
+        - paragraph [ref=e170]: This month
+        - heading "A community in motion." [level=2] [ref=e171]
+        - paragraph [ref=e172]: Ways to learn, connect, and take part—wherever you live.
+      - generic [ref=e173]:
+        - article [ref=e174]:
+          - time [ref=e175]:
+            - strong [ref=e176]: "22"
+            - text: Aug 2026-08-22
+          - generic [ref=e177]:
+            - paragraph [ref=e178]: Online · National
+            - heading "Language contributor orientation" [level=3] [ref=e179]
+            - paragraph [ref=e180]: Learn how community definitions and recordings move through review.
+          - link "Join orientation →" [ref=e181] [cursor=pointer]:
+            - /url: /en/contribute
+        - article [ref=e182]:
+          - time [ref=e183]:
+            - strong [ref=e184]: "05"
+            - text: Sep 2026-09-05
+          - generic [ref=e185]:
+            - paragraph [ref=e186]: Omaha, Nebraska
+            - heading "Youth civic leadership workshop" [level=3] [ref=e187]
+            - paragraph [ref=e188]: A practical day of public-system learning and community action.
+          - link "Event details →" [ref=e189] [cursor=pointer]:
+            - /url: /en/community
+  - contentinfo [ref=e190]:
+    - generic [ref=e192]:
+      - strong [ref=e193]: Karen Organization of America
+      - paragraph [ref=e194]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=e195]:
+      - link "About" [ref=e196] [cursor=pointer]:
+        - /url: /en/about
+      - link "Dictionary" [ref=e197] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=e198] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=e199] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=e200] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=e201]:
+      - paragraph [ref=e202]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=e203] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

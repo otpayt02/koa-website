@@ -1,0 +1,17 @@
+
+  vinext dev  (Vite 8.0.13)
+
+  ➜  Local:   http://127.0.0.1:50971/
+  ➜  Debug:   http://127.0.0.1:50971/__debug
+{"event":"http.request","requestId":"a7200a13-7f80-4959-8dc7-014ad24d148b","method":"GET","path":"/en","latencyMs":1,"timestamp":"2026-08-24T12:02:18.387Z"}
+{"event":"http.request","requestId":"ca65d818-705f-47e6-9490-9ca1648c1b3a","method":"GET","path":"/en","latencyMs":1,"timestamp":"2026-08-24T12:02:20.128Z"}
+{"event":"http.request","requestId":"42d50d13-9724-4352-9239-879f3b49f6ea","method":"GET","path":"/en","latencyMs":0,"timestamp":"2026-08-24T12:02:22.574Z"}
+ GET /en 200 in 501ms (compile: 1787572915.2s, render: 243ms)
+8:02:35 AM [vite] (rsc) hmr update /app/globals.css
+8:02:35 AM [vite] (rsc) hmr update /app/globals.css
+8:02:35 AM [vite] (rsc) hmr update /app/globals.css
+8:02:35 AM [vite] (rsc) hmr update /app/globals.css
+8:03:05 AM [vite] (rsc) hmr update /app/globals.css
+8:03:06 AM [vite] (rsc) hmr update /app/globals.css
+8:03:06 AM [vite] (rsc) hmr update /app/globals.css
+8:03:06 AM [vite] (rsc) hmr update /app/globals.css

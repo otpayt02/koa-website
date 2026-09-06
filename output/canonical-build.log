@@ -1,0 +1,120 @@
+
+> site-creator-vinext-starter@0.1.0 build
+> vinext build
+
+
+  vinext build  (Vite 8.0.13)
+
+[PLUGIN_TIMINGS] Your build spent significant time in plugin `externalize-deps`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+[1/5] analyze client references...
+[2K
+transforming...✓ 329 modules transformed.
+rendering chunks...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - rsc:virtual-client-package (27%)
+  - vinext:react-canary (22%)
+  - vinext:image-imports (8%)
+  - rsc:rsc-css-export-transform (4%)
+  - vite-plugin-commonjs (4%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 31.50s
+[2/5] analyze server references...
+[2K
+transforming...✓ 495 modules transformed.
+rendering chunks...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:react-canary (58%)
+  - rsc:virtual-client-package (4%)
+  - rsc:scan-strip (3%)
+  - rsc:scan-strip (3%)
+  - vinext:jsx-in-js (3%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 17.00s
+[3/5] build rsc environment...
+[2K
+transforming...✓ 335 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:react-canary (31%)
+  - rsc:virtual-client-package (27%)
+  - vinext:config (5%)
+  - vinext:rsc-client-reference-loaders (4%)
+  - rsc:scan-strip (4%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 10.95s
+[4/5] build client environment...
+[2K
+transforming...✓ 502 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:react-canary (34%)
+  - rsc:virtual-client-package (11%)
+  - vinext:mdx (5%)
+  - vinext:og-inline-fetch-assets (4%)
+  - vinext:og-font-patch (4%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 29.75s
+[5/5] build ssr environment...
+[2K
+transforming...✓ 501 modules transformed.
+rendering chunks...
+computing gzip size...
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - vinext:react-canary (24%)
+  - rsc:virtual-client-package (9%)
+  - vinext:strip-server-exports (6%)
+  - vinext:rsc-client-reference-loaders (5%)
+  - vinext:og-inline-fetch-assets (5%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 7.63s
+[0m
+  Route (app)
+  ┌ ? /                               
+  ├ ƒ /:lang                          
+  ├ ƒ /:lang/about                    
+  ├ ƒ /:lang/admin                    
+  ├ ƒ /:lang/admin/design-studio      
+  ├ ƒ /:lang/admin/language-studio    
+  ├ ƒ /:lang/ai                       
+  ├ ƒ /:lang/changelog                
+  ├ ƒ /:lang/collaborate              
+  ├ ƒ /:lang/community                
+  ├ ƒ /:lang/community/board          
+  ├ ƒ /:lang/contact                  
+  ├ ƒ /:lang/contribute               
+  ├ ƒ /:lang/dictionary               
+  ├ ƒ /:lang/dictionary/:id           
+  ├ ƒ /:lang/music                    
+  ├ ƒ /:lang/services                 
+  ├ ƒ /:lang/translation              
+  ├ ƒ /:lang/u/:username              
+  ├ λ /api/admin/content-units        
+  ├ λ /api/admin/translation-proposals
+  ├ λ /api/audio/upload               
+  ├ λ /api/collaborate                
+  ├ λ /api/contact                    
+  ├ λ /api/contribute                 
+  ├ λ /api/dictionary                 
+  ├ λ /api/dictionary/:id             
+  ├ λ /api/donations                  
+  ├ λ /api/logs                       
+  ├ λ /api/training/feedback          
+  ├ λ /api/training/pair              
+  ├ λ /api/translation/interpreters   
+  └ λ /api/translation/request        
+
+  λ API  ƒ Dynamic  ? Unknown
+
+  ? Some routes could not be classified. vinext currently uses static analysis
+    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.
+    Automatic classification will be improved in a future release.
+  Build complete. Run `vinext start` to start the production server.
+

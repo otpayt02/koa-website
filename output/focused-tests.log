@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: living glyph responsibility is extracted from the cinematic orchestrator
+ok 1 - living glyph responsibility is extracted from the cinematic orchestrator
+  ---
+  duration_ms: 79.1569
+  type: 'test'
+  ...
+# Subtest: particle identity, path, and anchor survive formation, dispersion, and reforming
+ok 2 - particle identity, path, and anchor survive formation, dispersion, and reforming
+  ---
+  duration_ms: 167.2328
+  type: 'test'
+  ...
+# Subtest: distance damping slows particles farther from their fixed anchor
+ok 3 - distance damping slows particles farther from their fixed anchor
+  ---
+  duration_ms: 1.3981
+  type: 'test'
+  ...
+# Subtest: particle alpha remains bounded and ambiently sparse
+ok 4 - particle alpha remains bounded and ambiently sparse
+  ---
+  duration_ms: 12.147
+  type: 'test'
+  ...
+# Subtest: Motion off returns a complete static semantic composition
+ok 5 - Motion off returns a complete static semantic composition
+  ---
+  duration_ms: 12.6898
+  type: 'test'
+  ...
+# Subtest: bilingual hero shares the boundaryless Karen glyph corona
+ok 6 - bilingual hero shares the boundaryless Karen glyph corona
+  ---
+  duration_ms: 21.5348
+  type: 'test'
+  ...
+# Subtest: bilingual cinematic uses normalized delayed progress instead of raw wheel distance
+ok 7 - bilingual cinematic uses normalized delayed progress instead of raw wheel distance
+  ---
+  duration_ms: 4.6272
+  type: 'test'
+  ...
+# Subtest: bilingual background has cursor-revealed, life-cycled Karen glyphs
+ok 8 - bilingual background has cursor-revealed, life-cycled Karen glyphs
+  ---
+  duration_ms: 5.2715
+  type: 'test'
+  ...
+# Subtest: bilingual header breathes and expands labels without replacing menu behavior
+ok 9 - bilingual header breathes and expands labels without replacing menu behavior
+  ---
+  duration_ms: 2.029
+  type: 'test'
+  ...
+# Subtest: the seal core and annulus come from the one supplied KOA identity asset
+ok 10 - the seal core and annulus come from the one supplied KOA identity asset
+  ---
+  duration_ms: 12.7163
+  type: 'test'
+  ...
+# Subtest: the duplicate orbit copy is removed while one semantic KOA identity remains
+ok 11 - the duplicate orbit copy is removed while one semantic KOA identity remains
+  ---
+  duration_ms: 4.0903
+  type: 'test'
+  ...
+# Subtest: co-centered complementary masks isolate the core and rotating annulus
+ok 12 - co-centered complementary masks isolate the core and rotating annulus
+  ---
+  duration_ms: 20.2045
+  type: 'test'
+  ...
+# Subtest: the established K-seal-A formation identifiers remain intact
+ok 13 - the established K-seal-A formation identifiers remain intact
+  ---
+  duration_ms: 2.7571
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1633.7879

@@ -1,0 +1,16 @@
+
+  vinext dev  (Vite 8.0.13)
+
+  ➜  Local:   http://127.0.0.1:53058/
+  ➜  Debug:   http://127.0.0.1:53058/__debug
+{"event":"http.request","requestId":"a4cb26bd-291a-46f9-a4c2-86562bd7f4d6","method":"GET","path":"/en","latencyMs":1,"timestamp":"2026-08-24T13:20:44.428Z"}
+{"event":"http.request","requestId":"87590e5e-2dc4-43fe-a646-670ad94c0075","method":"GET","path":"/en","latencyMs":0,"timestamp":"2026-08-24T13:20:46.161Z"}
+ GET /en 200 in 907ms (compile: 1787577632.5s, render: 773ms)
+9:21:08 AM [vite] (rsc) hmr update /app/globals.css
+9:21:08 AM [vite] (rsc) hmr update /app/globals.css
+9:21:08 AM [vite] (rsc) hmr update /app/globals.css
+9:21:08 AM [vite] (rsc) hmr update /app/globals.css
+9:21:38 AM [vite] (rsc) hmr update /app/globals.css
+9:21:38 AM [vite] (rsc) hmr update /app/globals.css
+9:21:38 AM [vite] (rsc) hmr update /app/globals.css
+9:21:38 AM [vite] (rsc) hmr update /app/globals.css

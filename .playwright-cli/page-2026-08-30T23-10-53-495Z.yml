@@ -1,0 +1,94 @@
+- generic [active] [ref=f4e1]:
+  - link "Skip to main content" [ref=f4e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=f4e3]:
+    - navigation "Primary navigation, left sections" [ref=f4e4]:
+      - link "About" [ref=f4e5] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f4e7] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f4e9] [cursor=pointer]:
+        - /url: /en/community
+    - link "Karen Organization of America — Home" [ref=f4e11] [cursor=pointer]:
+      - /url: /en
+    - navigation "Primary navigation, right sections" [ref=f4e12]:
+      - link "Impact" [ref=f4e13] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f4e15] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f4e17] [cursor=pointer]:
+        - /url: /en/build
+    - navigation "Language" [ref=f4e20]:
+      - 'link "Language: English" [ref=f4e21] [cursor=pointer]':
+        - /url: /en/build
+        - text: English
+      - 'link "Language: Thai" [ref=f4e22] [cursor=pointer]':
+        - /url: /th/build
+        - text: ไทย
+      - 'link "Language: Burmese" [ref=f4e23] [cursor=pointer]':
+        - /url: /my/build
+        - text: မြန်မာ
+      - 'link "Language: S''gaw Karen" [ref=f4e24] [cursor=pointer]':
+        - /url: /ksw/build
+        - text: ကညီ
+  - main [ref=f4e25]:
+    - generic [ref=f4e27]:
+      - paragraph [ref=f4e28]: Coming soon · Build with KOA
+      - heading "Help shape what comes next." [level=1] [ref=f4e29]
+      - paragraph [ref=f4e30]: This space will share what KOA is preparing next, when the details are ready for community review.
+    - generic [ref=f4e32]:
+      - generic [ref=f4e33]:
+        - paragraph [ref=f4e34]: A review-gated space
+        - heading "The next contribution starts with a good question." [level=2] [ref=f4e35]
+        - paragraph [ref=f4e36]: New work will be described here only after its purpose, details, and invitation to participate are ready to share.
+      - generic [ref=f4e37]:
+        - article [ref=f4e38]:
+          - generic [ref=f4e39]: "01"
+          - heading "What is being shaped" [level=3] [ref=f4e40]
+          - paragraph [ref=f4e41]: Public details will be added when they are ready for review.
+        - article [ref=f4e42]:
+          - generic [ref=f4e43]: "02"
+          - heading "What needs a voice" [level=3] [ref=f4e44]
+          - paragraph [ref=f4e45]: Tell KOA what would help you learn, connect, or take part.
+        - article [ref=f4e46]:
+          - generic [ref=f4e47]: "03"
+          - heading "What you can do now" [level=3] [ref=f4e48]
+          - paragraph [ref=f4e49]: Contribute language knowledge, collaboration, time, or a thoughtful question.
+    - generic [ref=f4e51]:
+      - paragraph [ref=f4e52]: Your next move
+      - heading "Bring the useful idea forward." [level=2] [ref=f4e53]
+      - paragraph [ref=f4e54]: Tell KOA what you would like to help build, or choose a contribution that is ready today.
+      - generic [ref=f4e55]:
+        - link "Tell us what to build" [ref=f4e56] [cursor=pointer]:
+          - /url: /en/contact
+        - link "Contribute now" [ref=f4e57] [cursor=pointer]:
+          - /url: /en/contribute
+  - contentinfo [ref=f4e58]:
+    - generic [ref=f4e60]:
+      - strong [ref=f4e61]: Karen Organization of America
+      - paragraph [ref=f4e62]: Working with Karen communities across the United States.
+    - navigation "Footer navigation" [ref=f4e63]:
+      - link "About" [ref=f4e64] [cursor=pointer]:
+        - /url: /en/about
+      - link "Programs" [ref=f4e65] [cursor=pointer]:
+        - /url: /en/services
+      - link "Stories" [ref=f4e66] [cursor=pointer]:
+        - /url: /en/community
+      - link "Impact" [ref=f4e67] [cursor=pointer]:
+        - /url: /en/about#impact
+      - link "Contact" [ref=f4e68] [cursor=pointer]:
+        - /url: /en/contact
+      - link "Build" [ref=f4e69] [cursor=pointer]:
+        - /url: /en/build
+      - link "Dictionary" [ref=f4e70] [cursor=pointer]:
+        - /url: /en/dictionary
+      - link "Translation" [ref=f4e71] [cursor=pointer]:
+        - /url: /en/translation
+      - link "Collaborate" [ref=f4e72] [cursor=pointer]:
+        - /url: /en/collaborate
+      - link "Changelog" [ref=f4e73] [cursor=pointer]:
+        - /url: /en/changelog
+    - generic [ref=f4e74]:
+      - paragraph [ref=f4e75]: © 2026 KOA · Privacy and community care
+      - link "Facebook" [ref=f4e76] [cursor=pointer]:
+        - /url: https://www.facebook.com/koamerica

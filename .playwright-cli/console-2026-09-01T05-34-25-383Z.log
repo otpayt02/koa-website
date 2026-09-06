@@ -1,0 +1,60 @@
+[   17737ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:14337
+[   42762ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:14337
+[   58292ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:14337
+[   63375ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:14337
+[   68066ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:14337
+[17984698ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[17984961ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3013/favicon.ico:0
+[18028471ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[18292125ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:14337
+[19176016ms] [ERROR] ReferenceError: kGroupRef is not defined
+    at ScrollScrubIntro (http://127.0.0.1:3013/components/cinematic/ScrollScrubIntro.tsx?t=1788260041010:1128:15)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:12868:12)
+    at renderWithHooks (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:4213:19)
+    at updateFunctionComponent (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:5569:16)
+    at beginWork (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:6140:20)
+    at runWithFiberInDEV (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:851:66)
+    at performUnitOfWork (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:8429:92)
+    at workLoopSync (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:8325:37)
+    at renderRootSync (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:8309:6)
+    at performWorkOnRoot (http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:7994:27) @ http://127.0.0.1:3013/@vite/client:509
+[19176024ms] [ERROR] The above error occurred in a React component:
+
+    at ScrollScrubIntro (http://127.0.0.1:3013/components/cinematic/ScrollScrubIntro.tsx?t=1788260041010:65:36)
+    at CinematicHome (http://127.0.0.1:3013/components/CinematicHome.tsx:161:33)
+    at HomePage (about://React/Server/C:/Users/olive/Projects/koa-website/app/%5Blang%5D/page.tsx?36:43:19)
+    at AwaitAppRenderDependencies [Server] (<anonymous>)
+    at Slot (http://127.0.0.1:3013/node_modules/vinext/dist/shims/slot.js?v=2d2a6831:42:17)
+    at LayoutSegmentProvider (http://127.0.0.1:3013/node_modules/vinext/dist/shims/layout-segment-context.js?v=2d2a6831:32:34)
+    at RedirectErrorBoundary (http://127.0.0.1:3013/node_modules/vinext/dist/shims/error-boundary.js?v=2d2a6831:56:3)
+    at RedirectBoundary (http://127.0.0.1:3013/node_modules/vinext/dist/shims/error-boundary.js?v=2d2a6831:86:29)
+    at Children (http://127.0.0.1:3013/node_modules/vinext/dist/shims/slot.js?v=2d2a6831:64:17)
+    at main (<anonymous>)
+    at LanguageLayout (about://React/Server/C:/Users/olive/Projects/koa-website/app/%5Blang%5D/layout.tsx?12:91:19)
+    at LanguageLayout (about://React/Server/C:/Users/olive/Projects/koa-website/app/%5Blang%5D/layout.tsx?12:91:19)
+    at AwaitAppRenderDependencies [Server] (<anonymous>)
+    at Slot (http://127.0.0.1:3013/node_modules/vinext/dist/shims/slot.js?v=2d2a6831:42:17)
+    at LayoutSegmentProvider (http://127.0.0.1:3013/node_modules/vinext/dist/shims/layout-segment-context.js?v=2d2a6831:32:34)
+    at Children (http://127.0.0.1:3013/node_modules/vinext/dist/shims/slot.js?v=2d2a6831:64:17)
+    at body (<anonymous>)
+    at html (<anonymous>)
+    at RootLayout [Server] (<anonymous>)
+    at default (about://React/Server/C:/Users/olive/Projects/koa-website/app/layout.tsx?1:66:26)
+    at default (about://React/Server/C:/Users/olive/Projects/koa-website/app/layout.tsx?1:66:26)
+    at Slot (http://127.0.0.1:3013/node_modules/vinext/dist/shims/slot.js?v=2d2a6831:42:17)
+    at LayoutSegmentProvider (http://127.0.0.1:3013/node_modules/vinext/dist/shims/layout-segment-context.js?v=2d2a6831:32:34)
+    at Slot (http://127.0.0.1:3013/node_modules/vinext/dist/shims/slot.js?v=2d2a6831:42:17)
+    at NavigationCommitSignal (http://127.0.0.1:3013/node_modules/vinext/dist/server/app-browser-navigation-controller.js?v=2d2a6831:184:36)
+    at RedirectErrorBoundary (http://127.0.0.1:3013/node_modules/vinext/dist/shims/error-boundary.js?v=2d2a6831:56:3)
+    at RedirectBoundary (http://127.0.0.1:3013/node_modules/vinext/dist/shims/error-boundary.js?v=2d2a6831:86:29)
+    at DevRecoveryBoundary (http://127.0.0.1:3013/node_modules/vinext/dist/shims/error-boundary.js?v=2d2a6831:268:3)
+    at BrowserRoot (http://127.0.0.1:3013/node_modules/vinext/dist/server/app-browser-entry.js?v=2d2a6831:209:24) @ http://127.0.0.1:3013/@vite/client:509
+[19917246ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[20227525ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0
+[20571904ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3013/node_modules/.vite/deps/react-dom_client.js?v=2d2a6831:14337
+[21662650ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en.rsc?_rsc:0
+[21662671ms] [ERROR] [vinext] RSC HMR error: Error: Connection closed.
+    at close (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=2d2a6831:2364:36)
+    at progress (http://127.0.0.1:3013/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=2d2a6831:2437:28) @ http://127.0.0.1:3013/@vite/client:509
+[21788158ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:3013/@vite/client:968
+[23515081ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3013/en:0

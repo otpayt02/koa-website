@@ -1,0 +1,11 @@
+- generic [ref=f2e3]:
+  - generic [ref=f2e4]: internal error; reference = om9gd8mbnhj8vu7muh684lb7
+  - generic [ref=f2e5]: at runInRunnerObject (workers/runner-worker/index.js:107:3) at Object.renderHtmlStream (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/server/app-page-render.ts:439:26) at renderAppPageHtmlStreamWithRecovery (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/server/app-page-stream.ts:203:24) at renderAppPageLifecycle (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/server/app-page-render.ts:429:22) at dispatchAppPage (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/server/app-page-dispatch.ts:309:10) at route (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/server/app-rsc-handler.ts:582:24) at handleRequest (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/server/app-router-entry.ts:85:18) at maybeCaptureError (workers/runner-worker/index.js:51:10)
+  - generic [ref=f2e6]:
+    - text: Click outside, press Esc key, or fix the code to dismiss.You can also disable this overlay by setting
+    - code [ref=f2e7]: server.hmr.overlay
+    - text: to
+    - code [ref=f2e8]: "false"
+    - text: in
+    - code [ref=f2e9]: vite.config.ts
+    - text: .

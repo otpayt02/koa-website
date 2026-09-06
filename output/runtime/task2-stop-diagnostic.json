@@ -1,0 +1,16 @@
+{
+    "diagnostic":  "task2-stop-lifecycle",
+    "root":  "C:\\Users\\olive\\Projects\\koa-website",
+    "port":  65241,
+    "before":  null,
+    "terminateReturnValue":  null,
+    "waitProcess":  null,
+    "afterImmediate":  null,
+    "afterPoll":  null,
+    "taskkillFallbackExitCode":  null,
+    "cleanup":  null,
+    "error":  {
+                  "message":  "KOA did not become ready at \u0027http://127.0.0.1:65241/en\u0027 within 60 seconds. Logs: \u0027C:\\Users\\olive\\Projects\\koa-website\\output\\runtime\\koa-65241.stdout.log\u0027 and \u0027C:\\Users\\olive\\Projects\\koa-website\\output\\runtime\\koa-65241.stderr.log\u0027.",
+                  "fullyQualifiedErrorId":  "KOA did not become ready at \u0027http://127.0.0.1:65241/en\u0027 within 60 seconds. Logs: \u0027C:\\Users\\olive\\Projects\\koa-website\\output\\runtime\\koa-65241.stdout.log\u0027 and \u0027C:\\Users\\olive\\Projects\\koa-website\\output\\runtime\\koa-65241.stderr.log\u0027."
+              }
+}
