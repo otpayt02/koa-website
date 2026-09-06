@@ -49,7 +49,7 @@ function context() {
 }
 
 test(
-  "built English and Karen home pages render semantic, localized HTML without a dev server",
+  "all four built locale home pages render semantic HTML without a dev server",
   { skip: !builtArtifactIsCurrent && "run npm run build before rendered checks" },
   async (t) => {
     let worker;
@@ -63,7 +63,7 @@ test(
       throw error;
     }
     const responses = await Promise.all(
-      ["en", "karen"].map((language) =>
+      ["en", "th", "my", "ksw"].map((language) =>
         worker.fetch(
           new Request(`http://localhost/${language}`, {
             headers: { accept: "text/html" },
@@ -79,15 +79,19 @@ test(
       assert.match(response.headers.get("content-type") ?? "", /text\/html/);
     }
 
-    const [englishHtml, karenHtml] = await Promise.all(responses.map((response) => response.text()));
-    for (const html of [englishHtml, karenHtml]) {
+    const [englishHtml, thaiHtml, burmeseHtml, karenHtml] = await Promise.all(responses.map((response) => response.text()));
+    for (const html of [englishHtml, thaiHtml, burmeseHtml, karenHtml]) {
       assert.match(html, /<main\b[^>]*\bid="main-content"/i);
       assert.match(html, /<h1\b/i);
       assert.match(html, /<title>[^<]+<\/title>/i);
       assert.match(html, /<meta\b[^>]*name="description"/i);
     }
 
-    assert.notEqual(karenHtml, englishHtml, "Localized pages rendered identical HTML");
+    assert.notEqual(thaiHtml, englishHtml, "Thai page rendered identical HTML");
+    assert.notEqual(burmeseHtml, englishHtml, "Burmese page rendered identical HTML");
+    assert.notEqual(karenHtml, englishHtml, "S'gaw Karen page rendered identical HTML");
+    assert.match(thaiHtml, /[\u0e00-\u0e7f]/u, "Thai page lacks Thai Unicode text");
+    assert.match(burmeseHtml, /[\u1000-\u109f]/u, "Burmese page lacks Myanmar Unicode text");
     assert.match(karenHtml, /[\u1000-\u109f]/u, "Karen page lacks Karen/Myanmar Unicode text");
   },
 );

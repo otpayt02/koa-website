@@ -1,0 +1,47 @@
+{
+  "target": "http://127.0.0.1:4187/koa/",
+  "capturedAt": "2026-08-23T21:10:34.557Z",
+  "runtimeExceptions": [],
+  "evidence": [
+    {
+      "label": "phase4-nav-intro",
+      "cinematicComplete": false,
+      "transform": "matrix(1.018, 0, 0, 1.018, 0, 0)",
+      "padding": "5.76px",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase4-nav-resting",
+      "cinematicComplete": true,
+      "transform": "matrix(1.018, 0, 0, 1.018, 0, 0)",
+      "padding": "5.76px",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase4-nav-hover-after-cinema",
+      "cinematicComplete": true,
+      "transform": "matrix(1.035, 0, 0, 1.035, 0, 0)",
+      "detailOpacity": "1",
+      "horizontalOverflow": 0
+    },
+    {
+      "label": "phase4-commitment-truth-open",
+      "expanded": [
+        "false",
+        "true",
+        "false"
+      ],
+      "hidden": [
+        "true",
+        "false",
+        "true"
+      ],
+      "itemOpacity": [
+        "1",
+        "1",
+        "1"
+      ],
+      "horizontalOverflow": 0
+    }
+  ]
+}

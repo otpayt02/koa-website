@@ -1,45 +1,64 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+```
+# Logs and temp files
+*.log
+*.tmp
+*.swp
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# Environment
+.env
+.env.local
+*.env.*
 
-# testing
-/coverage
+# Editors
+.vscode/
+.idea/
 
-# next.js
-/.next/
-/.vinext/
-/out/
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
 
-# misc
+# Build artifacts
+dist/
+build/
+target/
+*.pyc
+*.class
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# System files
 .DS_Store
-*.pem
+Thumbs.db
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-dev-server*.log
-site-package.tgz
+# Coverage
+coverage/
+htmlcov/
+.coverage
 
-# env files (can opt-in for committing if needed)
-.env*
+# Original rules preserved
+*.log
+```
 
-# vercel
-.vercel
+.koa-runtime.json
+output/runtime/
+.playwright-cli/
 
-# typescript
-next-env.d.ts
-/dist/
-/.wrangler/
-/outputs/
-/work/
-*.tsbuildinfo
+# Local agent, package, and runtime caches — never application source.
+.codex-worktrees/
+.openai/
+.tmp-gsap/
+.vinext/
+.wrangler/
+tsconfig.tsbuildinfo
+
+# Local screen recording captured during development.
+Recording *.mp4

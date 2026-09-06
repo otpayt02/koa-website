@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mission-led motion UI"
+  short_description: "Build premium motion blocks that support trust and reading"
+  default_prompt: "Use this skill to add one mission-led, accessible motion component without copying proprietary code."

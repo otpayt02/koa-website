@@ -47,10 +47,10 @@ export function AudioRecorder({ lang, messages }: { lang: Lang; messages: Messag
   }
 
   const text = {
-    record: lang === "karen" ? "စးထီၣ်ဖီၣ်ကလုၢ်" : "Start recording",
-    stop: lang === "karen" ? "ပတုာ်" : "Stop recording",
-    upload: lang === "karen" ? "ဆှၢလီၤကလုၢ်" : "Upload recording",
-    ready: lang === "karen" ? "ကွၢ်ကဒါနကလုၢ်" : "Review your recording"
+    record: lang === "ksw" ? "စးထီၣ်ဖီၣ်ကလုၢ်" : "Start recording",
+    stop: lang === "ksw" ? "ပတုာ်" : "Stop recording",
+    upload: lang === "ksw" ? "ဆှၢလီၤကလုၢ်" : "Upload recording",
+    ready: lang === "ksw" ? "ကွၢ်ကဒါနကလုၢ်" : "Review your recording"
   };
 
   return (
@@ -58,7 +58,7 @@ export function AudioRecorder({ lang, messages }: { lang: Lang; messages: Messag
       <div className="recorder__visual" data-recording={status === "recording"} aria-hidden="true"><i /><i /><i /><i /><i /></div>
       <div>
         <strong>{status === "recording" ? text.stop : status === "ready" ? text.ready : text.record}</strong>
-        <p>{lang === "karen" ? "တဲဖျါထီၣ်ကညီကျိာ်တဖျၢၣ် မ့တမ့ၢ် တကျိာ်။" : "Record a Karen word or sentence in a quiet place."}</p>
+        <p>{lang === "ksw" ? "တဲဖျါထီၣ်ကညီကျိာ်တဖျၢၣ် မ့တမ့ၢ် တကျိာ်။" : "Record a Karen word or sentence in a quiet place."}</p>
       </div>
       {url ? <audio controls src={url}><track kind="captions" /></audio> : null}
       <div className="button-row">

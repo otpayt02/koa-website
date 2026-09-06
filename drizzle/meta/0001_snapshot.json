@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "0d8b81cc-b8aa-41ad-9a5f-0d731d2c7813",
+  "id": "e99bad70-4462-4d3c-83a5-d4c0a6bf0220",
   "prevId": "e8271374-eeb2-4fee-82d1-2265e68758a0",
   "tables": {
     "audio_pairs": {
@@ -459,239 +459,6 @@
       "uniqueConstraints": {},
       "checkConstraints": {}
     },
-    "content_translation_publications": {
-      "name": "content_translation_publications",
-      "columns": {
-        "content_key": {
-          "name": "content_key",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "english_revision_id": {
-          "name": "english_revision_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "karen_revision_id": {
-          "name": "karen_revision_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "publication_batch_id": {
-          "name": "publication_batch_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "published_by": {
-          "name": "published_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "published_at": {
-          "name": "published_at",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "content_publication_batch_idx": {
-          "name": "content_publication_batch_idx",
-          "columns": [
-            "publication_batch_id"
-          ],
-          "isUnique": false
-        },
-        "content_publication_actor_idx": {
-          "name": "content_publication_actor_idx",
-          "columns": [
-            "published_by"
-          ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {
-        "content_translation_publications_english_revision_id_content_translation_revisions_id_fk": {
-          "name": "content_translation_publications_english_revision_id_content_translation_revisions_id_fk",
-          "tableFrom": "content_translation_publications",
-          "tableTo": "content_translation_revisions",
-          "columnsFrom": [
-            "english_revision_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "content_translation_publications_karen_revision_id_content_translation_revisions_id_fk": {
-          "name": "content_translation_publications_karen_revision_id_content_translation_revisions_id_fk",
-          "tableFrom": "content_translation_publications",
-          "tableTo": "content_translation_revisions",
-          "columnsFrom": [
-            "karen_revision_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "content_translation_publications_publication_batch_id_translation_publication_batches_id_fk": {
-          "name": "content_translation_publications_publication_batch_id_translation_publication_batches_id_fk",
-          "tableFrom": "content_translation_publications",
-          "tableTo": "translation_publication_batches",
-          "columnsFrom": [
-            "publication_batch_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "content_translation_publications_published_by_users_id_fk": {
-          "name": "content_translation_publications_published_by_users_id_fk",
-          "tableFrom": "content_translation_publications",
-          "tableTo": "users",
-          "columnsFrom": [
-            "published_by"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {}
-    },
-    "content_translation_revisions": {
-      "name": "content_translation_revisions",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "content_key": {
-          "name": "content_key",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "language": {
-          "name": "language",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "value": {
-          "name": "value",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "version": {
-          "name": "version",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "base_revision_id": {
-          "name": "base_revision_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "author_id": {
-          "name": "author_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "imported": {
-          "name": "imported",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false,
-          "default": "(unixepoch() * 1000)"
-        }
-      },
-      "indexes": {
-        "content_revision_version_unique": {
-          "name": "content_revision_version_unique",
-          "columns": [
-            "content_key",
-            "language",
-            "version"
-          ],
-          "isUnique": true
-        },
-        "content_revision_key_idx": {
-          "name": "content_revision_key_idx",
-          "columns": [
-            "content_key"
-          ],
-          "isUnique": false
-        },
-        "content_revision_author_idx": {
-          "name": "content_revision_author_idx",
-          "columns": [
-            "author_id"
-          ],
-          "isUnique": false
-        }
-      },
-      "foreignKeys": {
-        "content_translation_revisions_author_id_users_id_fk": {
-          "name": "content_translation_revisions_author_id_users_id_fk",
-          "tableFrom": "content_translation_revisions",
-          "tableTo": "users",
-          "columnsFrom": [
-            "author_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {}
-    },
     "content_translations": {
       "name": "content_translations",
       "columns": {
@@ -800,6 +567,93 @@
           "onUpdate": "no action"
         }
       },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "content_units": {
+      "name": "content_units",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "route": {
+          "name": "route",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "section": {
+          "name": "section",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "frame": {
+          "name": "frame",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "source_revision": {
+          "name": "source_revision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
+        },
+        "source_text": {
+          "name": "source_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "source_provenance": {
+          "name": "source_provenance",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch() * 1000)"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch() * 1000)"
+        }
+      },
+      "indexes": {
+        "content_unit_revision_unique": {
+          "name": "content_unit_revision_unique",
+          "columns": [
+            "route",
+            "section",
+            "frame",
+            "source_revision"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "checkConstraints": {}
@@ -2506,8 +2360,8 @@
       "uniqueConstraints": {},
       "checkConstraints": {}
     },
-    "translation_publication_batches": {
-      "name": "translation_publication_batches",
+    "translation_proposals": {
+      "name": "translation_proposals",
       "columns": {
         "id": {
           "name": "id",
@@ -2516,18 +2370,89 @@
           "notNull": true,
           "autoincrement": false
         },
-        "published_by": {
-          "name": "published_by",
+        "content_unit_id": {
+          "name": "content_unit_id",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
-        "entry_count": {
-          "name": "entry_count",
+        "source_revision": {
+          "name": "source_revision",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
+          "autoincrement": false
+        },
+        "locale": {
+          "name": "locale",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "value": {
+          "name": "value",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "provider": {
+          "name": "provider",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "model_version": {
+          "name": "model_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "confidence": {
+          "name": "confidence",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'draft'"
+        },
+        "reviewer_id": {
+          "name": "reviewer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "review_note": {
+          "name": "review_note",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "reviewed_at": {
+          "name": "reviewed_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "supersedes_proposal_id": {
+          "name": "supersedes_proposal_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
           "autoincrement": false
         },
         "created_at": {
@@ -2537,29 +2462,72 @@
           "notNull": true,
           "autoincrement": false,
           "default": "(unixepoch() * 1000)"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch() * 1000)"
         }
       },
       "indexes": {
-        "translation_publication_actor_idx": {
-          "name": "translation_publication_actor_idx",
+        "translation_proposal_unit_revision_idx": {
+          "name": "translation_proposal_unit_revision_idx",
           "columns": [
-            "published_by"
+            "content_unit_id",
+            "source_revision"
+          ],
+          "isUnique": false
+        },
+        "translation_proposal_status_locale_idx": {
+          "name": "translation_proposal_status_locale_idx",
+          "columns": [
+            "status",
+            "locale"
           ],
           "isUnique": false
         }
       },
       "foreignKeys": {
-        "translation_publication_batches_published_by_users_id_fk": {
-          "name": "translation_publication_batches_published_by_users_id_fk",
-          "tableFrom": "translation_publication_batches",
+        "translation_proposals_content_unit_id_content_units_id_fk": {
+          "name": "translation_proposals_content_unit_id_content_units_id_fk",
+          "tableFrom": "translation_proposals",
+          "tableTo": "content_units",
+          "columnsFrom": [
+            "content_unit_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "translation_proposals_reviewer_id_users_id_fk": {
+          "name": "translation_proposals_reviewer_id_users_id_fk",
+          "tableFrom": "translation_proposals",
           "tableTo": "users",
           "columnsFrom": [
-            "published_by"
+            "reviewer_id"
           ],
           "columnsTo": [
             "id"
           ],
           "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "translation_proposals_supersedes_proposal_id_translation_proposals_id_fk": {
+          "name": "translation_proposals_supersedes_proposal_id_translation_proposals_id_fk",
+          "tableFrom": "translation_proposals",
+          "tableTo": "translation_proposals",
+          "columnsFrom": [
+            "supersedes_proposal_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
           "onUpdate": "no action"
         }
       },

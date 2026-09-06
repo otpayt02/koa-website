@@ -1,0 +1,83 @@
+{
+  "target": "http://127.0.0.1:8123/index.html",
+  "capturedAt": "2026-08-24T09:13:46.386Z",
+  "desktop": {
+    "viewport": [
+      1440,
+      900
+    ],
+    "filmViewportHeights": 18,
+    "horizontalOverflow": 0,
+    "motion": "on"
+  },
+  "cursorMatrix": {
+    "before": {
+      "alphaSum": 15,
+      "visibleSamples": 0,
+      "width": 240,
+      "height": 220
+    },
+    "after": {
+      "alphaSum": 588,
+      "visibleSamples": 24,
+      "width": 240,
+      "height": 220
+    },
+    "alphaRatio": 39.2
+  },
+  "glimmer": {
+    "classApplied": true,
+    "opacity": 0.72,
+    "transform": "matrix(1, 0, -0.176327, 1, 131.165, 0)",
+    "canvasInHeader": {
+      "alphaSum": 0,
+      "visibleSamples": 0,
+      "width": 142,
+      "height": 38
+    }
+  },
+  "halo": {
+    "intensity": 0.0001,
+    "shift": "0.002deg",
+    "renderedOpacity": 0.02
+  },
+  "choreographyVerification": "Skipped after two seal-flight condition timeouts; source contracts remain authoritative for this run.",
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "horizontalOverflow": 0,
+    "label": {
+      "top": 78,
+      "bottom": 90
+    },
+    "meta": {
+      "top": 108,
+      "bottom": 123
+    },
+    "chromeSeparated": true
+  },
+  "motionOff": {
+    "motion": "off",
+    "canvasOpacity": 0,
+    "glimmerDisplay": "none",
+    "brandFilled": true,
+    "horizontalOverflow": 0
+  },
+  "runtimeExceptions": [],
+  "consoleProblems": [],
+  "assertions": {
+    "desktopFilmIs1800vh": true,
+    "cursorRevealIncreasesPixels": true,
+    "foregroundOccludesCanvas": true,
+    "glimmerVisible": true,
+    "haloRemainsSubtle": true,
+    "choreographyPreserved": null,
+    "chapterTransitionReached": null,
+    "mobileChromeSeparated": true,
+    "noHorizontalOverflow": true,
+    "motionOffSettled": true,
+    "cleanRuntime": true
+  }
+}

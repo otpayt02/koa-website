@@ -1,14 +1,25 @@
 import assert from "node:assert/strict";
+import { existsSync, statSync } from "node:fs";
 import test from "node:test";
 
-async function render(cookie) {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+const workerPath = workerUrl.pathname.replace(/^\/(?:[A-Za-z]:)/, (drive) => drive.slice(1));
+const sourcePaths = [
+  new URL("../app/page.tsx", import.meta.url),
+  new URL("../components/i18n.ts", import.meta.url),
+];
+const builtArtifactIsCurrent =
+  existsSync(workerPath) &&
+  sourcePaths.every((source) => statSync(workerPath).mtimeMs >= statSync(source).mtimeMs);
+
+async function render() {
+  const cacheBustedWorkerUrl = new URL(workerUrl);
+  cacheBustedWorkerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(cacheBustedWorkerUrl.href);
 
   return worker.fetch(
     new Request("http://localhost/", {
-      headers: { accept: "text/html", ...(cookie ? { cookie } : {}) },
+      headers: { accept: "text/html" },
     }),
     {
       ASSETS: {
@@ -22,7 +33,7 @@ async function render(cookie) {
   );
 }
 
-test("root route directs visitors to the bilingual KOA shell", async (t) => {
+test("root route redirects visitors to the canonical English React route", { skip: !builtArtifactIsCurrent && "run npm run build before rendered checks" }, async (t) => {
   let response;
   try {
     response = await render();
@@ -38,19 +49,4 @@ test("root route directs visitors to the bilingual KOA shell", async (t) => {
     response.headers.get("location"),
     "http://localhost/en",
   );
-});
-
-test("root route honors a returning reader's Karen preference", async (t) => {
-  let response;
-  try {
-    response = await render("koa-language=karen");
-  } catch (error) {
-    if (error instanceof Error && error.message.includes("cloudflare:")) {
-      t.skip("The local Node ESM loader cannot resolve the Cloudflare worker protocol; run this check in the Workers runtime.");
-      return;
-    }
-    throw error;
-  }
-  assert.equal(response.status, 307);
-  assert.equal(response.headers.get("location"), "http://localhost/karen");
 });

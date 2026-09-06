@@ -1,0 +1,216 @@
+{
+  "capturedAt": "2026-08-25T15:46:55.162Z",
+  "runtime": {
+    "exactUrl": "http://127.0.0.1:62290/en",
+    "pid": 21752,
+    "port": 62290,
+    "root": "C:\\Users\\olive\\Projects\\koa-website",
+    "startedAt": "2026-08-24T17:55:58.0956885+00:00",
+    "sourceSignature": "sha256:28c85d2686f9a05682962c73ab1dd19b3b10dafbcaa25e73cb64137128340ea3"
+  },
+  "screenshots": {
+    "arrival": "C:\\Users\\olive\\Projects\\koa-website\\output\\playwright\\phase7-desktop-arrival.jpg",
+    "sealFlight": "C:\\Users\\olive\\Projects\\koa-website\\output\\playwright\\phase7-seal-flight.jpg",
+    "glyphO": "C:\\Users\\olive\\Projects\\koa-website\\output\\playwright\\phase7-glyph-o.jpg",
+    "mobile": "C:\\Users\\olive\\Projects\\koa-website\\output\\playwright\\phase7-mobile.jpg",
+    "mobileMotionOff": "C:\\Users\\olive\\Projects\\koa-website\\output\\playwright\\phase7-mobile-motion-off.jpg",
+    "languageStudio": "C:\\Users\\olive\\Projects\\koa-website\\output\\playwright\\phase7-language-studio.jpg"
+  },
+  "http": {
+    "root": {
+      "status": 307,
+      "location": "http://127.0.0.1:62290/en",
+      "contentType": null
+    },
+    "locales": {
+      "en": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "th": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "my": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      },
+      "ksw": {
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8"
+      }
+    },
+    "anonymousStudios": {
+      "language-studio": {
+        "status": 307,
+        "location": "http://127.0.0.1:62290/signin-with-chatgpt?return_to=%2Fen%2Fadmin%2Flanguage-studio",
+        "contentType": null
+      },
+      "design-studio": {
+        "status": 307,
+        "location": "http://127.0.0.1:62290/signin-with-chatgpt?return_to=%2Fen%2Fadmin%2Fdesign-studio",
+        "contentType": null
+      }
+    },
+    "nonAdminStudios": {
+      "language-studio": {
+        "status": 404,
+        "location": null,
+        "contentType": "text/plain;charset=UTF-8"
+      },
+      "design-studio": {
+        "status": 404,
+        "location": null,
+        "contentType": "text/plain;charset=UTF-8"
+      }
+    }
+  },
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "motion": "full",
+    "filmViewportHeights": 18,
+    "horizontalOverflow": 0,
+    "initialPhase": "arrival",
+    "particleSignature": "koa-glyph-0:7000|koa-glyph-1:7037|koa-glyph-2:7074|koa-glyph-3:7111|koa-glyph-4:7148|koa-glyph-5:7185|koa-glyph-6:7222|koa-glyph-7:7259|koa-glyph-8:7296|koa-glyph-9:7333|koa-glyph-10:7370|koa-glyph-11:7407|koa-glyph-12:7444|koa-glyph-13:7481|koa-glyph-14:7518|koa-glyph-15:7555|koa-glyph-16:7592|koa-glyph-17:7629|koa-glyph-18:7666|koa-glyph-19:7703|koa-glyph-20:7740|koa-glyph-21:7777|koa-glyph-22:7814|koa-glyph-23:7851|koa-glyph-24:7888|koa-glyph-25:7925|koa-glyph-26:7962|koa-glyph-27:7999|koa-glyph-28:8036|koa-glyph-29:8073|koa-glyph-30:8110|koa-glyph-31:8147|koa-glyph-32:8184|koa-glyph-33:8221|koa-glyph-34:8258|koa-glyph-35:8295|koa-glyph-36:8332|koa-glyph-37:8369|koa-glyph-38:8406|koa-glyph-39:8443|koa-glyph-40:8480|koa-glyph-41:8517|koa-glyph-42:8554|koa-glyph-43:8591|koa-glyph-44:8628|koa-glyph-45:8665|koa-glyph-46:8702|koa-glyph-47:8739|koa-glyph-48:8776|koa-glyph-49:8813|koa-glyph-50:8850|koa-glyph-51:8887|koa-glyph-52:8924|koa-glyph-53:8961|koa-glyph-54:8998|koa-glyph-55:9035|koa-glyph-56:9072|koa-glyph-57:9109|koa-glyph-58:9146|koa-glyph-59:9183|koa-glyph-60:9220|koa-glyph-61:9257|koa-glyph-62:9294|koa-glyph-63:9331|koa-glyph-64:9368|koa-glyph-65:9405|koa-glyph-66:9442|koa-glyph-67:9479|koa-glyph-68:9516|koa-glyph-69:9553|koa-glyph-70:9590|koa-glyph-71:9627|koa-glyph-72:9664|koa-glyph-73:9701|koa-glyph-74:9738|koa-glyph-75:9775|koa-glyph-76:9812|koa-glyph-77:9849|koa-glyph-78:9886|koa-glyph-79:9923|koa-glyph-80:9960|koa-glyph-81:9997|koa-glyph-82:10034|koa-glyph-83:10071|koa-glyph-84:10108|koa-glyph-85:10145|koa-glyph-86:10182|koa-glyph-87:10219|koa-glyph-88:10256|koa-glyph-89:10293|koa-glyph-90:10330|koa-glyph-91:10367|koa-glyph-92:10404|koa-glyph-93:10441|koa-glyph-94:10478|koa-glyph-95:10515|koa-glyph-96:10552|koa-glyph-97:10589|koa-glyph-98:10626|koa-glyph-99:10663|koa-glyph-100:10700|koa-glyph-101:10737|koa-glyph-102:10774|koa-glyph-103:10811|koa-glyph-104:10848|koa-glyph-105:10885|koa-glyph-106:10922|koa-glyph-107:10959|koa-glyph-108:10996|koa-glyph-109:11033|koa-glyph-110:11070|koa-glyph-111:11107|koa-glyph-112:11144|koa-glyph-113:11181|koa-glyph-114:11218|koa-glyph-115:11255|koa-glyph-116:11292|koa-glyph-117:11329|koa-glyph-118:11366|koa-glyph-119:11403|koa-glyph-120:11440|koa-glyph-121:11477|koa-glyph-122:11514|koa-glyph-123:11551|koa-glyph-124:11588|koa-glyph-125:11625|koa-glyph-126:11662|koa-glyph-127:11699|koa-glyph-128:11736|koa-glyph-129:11773|koa-glyph-130:11810|koa-glyph-131:11847|koa-glyph-132:11884|koa-glyph-133:11921|koa-glyph-134:11958|koa-glyph-135:11995|koa-glyph-136:12032|koa-glyph-137:12069|koa-glyph-138:12106|koa-glyph-139:12143|koa-glyph-140:12180|koa-glyph-141:12217|koa-glyph-142:12254|koa-glyph-143:12291|koa-glyph-144:12328|koa-glyph-145:12365|koa-glyph-146:12402|koa-glyph-147:12439|koa-glyph-148:12476|koa-glyph-149:12513|koa-glyph-150:12550|koa-glyph-151:12587|koa-glyph-152:12624|koa-glyph-153:12661|koa-glyph-154:12698|koa-glyph-155:12735|koa-glyph-156:12772|koa-glyph-157:12809|koa-glyph-158:12846|koa-glyph-159:12883|koa-glyph-160:12920|koa-glyph-161:12957|koa-glyph-162:12994|koa-glyph-163:13031|koa-glyph-164:13068|koa-glyph-165:13105|koa-glyph-166:13142|koa-glyph-167:13179"
+  },
+  "telemetry": [
+    {
+      "phase": "arrival",
+      "observedAt": "2026-08-25T15:47:20.432Z"
+    },
+    {
+      "phase": "seal-flight",
+      "observedAt": "2026-08-25T15:47:29.248Z"
+    },
+    {
+      "phase": "glyph-o",
+      "observedAt": "2026-08-25T15:47:36.425Z"
+    },
+    {
+      "phase": "chapter-1",
+      "observedAt": "2026-08-25T15:47:44.327Z"
+    }
+  ],
+  "seal": {
+    "assetPaths": [
+      "/koa/assets/koa-seal-white-lettering-v2.png",
+      "/koa/assets/koa-seal-white-lettering-v2.png"
+    ],
+    "rectangles": [
+      {
+        "left": 363.0000305175781,
+        "top": 190.00003051757812,
+        "width": 714,
+        "height": 714
+      },
+      {
+        "left": 363.0000305175781,
+        "top": 190.00003051757812,
+        "width": 714,
+        "height": 714
+      }
+    ],
+    "masks": [
+      {
+        "mask": "radial-gradient(circle, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 62%, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 0) 100%)",
+        "webkitMask": "radial-gradient(circle, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 62%, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 0) 100%)"
+      },
+      {
+        "mask": "radial-gradient(circle, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 62%, rgb(0, 0, 0) 62.5%, rgb(0, 0, 0) 100%)",
+        "webkitMask": "radial-gradient(circle, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 62%, rgb(0, 0, 0) 62.5%, rgb(0, 0, 0) 100%)"
+      }
+    ],
+    "semanticNames": [
+      "Karen Organization of America"
+    ],
+    "nestedSvgCount": 0,
+    "extraOrbitTextCount": 0
+  },
+  "cursorReveal": {
+    "before": {
+      "alphaSum": 1134,
+      "visibleSamples": 70,
+      "width": 720,
+      "height": 450
+    },
+    "after": {
+      "alphaSum": 1163,
+      "visibleSamples": 69,
+      "width": 720,
+      "height": 450
+    },
+    "conditionReached": true,
+    "alphaRatio": 1.026
+  },
+  "foregroundAlpha": {
+    "alphaSum": 0,
+    "visibleSamples": 0,
+    "width": 420,
+    "height": 254
+  },
+  "persistentParticles": {
+    "signatureAfterDispersion": "koa-glyph-0:7000|koa-glyph-1:7037|koa-glyph-2:7074|koa-glyph-3:7111|koa-glyph-4:7148|koa-glyph-5:7185|koa-glyph-6:7222|koa-glyph-7:7259|koa-glyph-8:7296|koa-glyph-9:7333|koa-glyph-10:7370|koa-glyph-11:7407|koa-glyph-12:7444|koa-glyph-13:7481|koa-glyph-14:7518|koa-glyph-15:7555|koa-glyph-16:7592|koa-glyph-17:7629|koa-glyph-18:7666|koa-glyph-19:7703|koa-glyph-20:7740|koa-glyph-21:7777|koa-glyph-22:7814|koa-glyph-23:7851|koa-glyph-24:7888|koa-glyph-25:7925|koa-glyph-26:7962|koa-glyph-27:7999|koa-glyph-28:8036|koa-glyph-29:8073|koa-glyph-30:8110|koa-glyph-31:8147|koa-glyph-32:8184|koa-glyph-33:8221|koa-glyph-34:8258|koa-glyph-35:8295|koa-glyph-36:8332|koa-glyph-37:8369|koa-glyph-38:8406|koa-glyph-39:8443|koa-glyph-40:8480|koa-glyph-41:8517|koa-glyph-42:8554|koa-glyph-43:8591|koa-glyph-44:8628|koa-glyph-45:8665|koa-glyph-46:8702|koa-glyph-47:8739|koa-glyph-48:8776|koa-glyph-49:8813|koa-glyph-50:8850|koa-glyph-51:8887|koa-glyph-52:8924|koa-glyph-53:8961|koa-glyph-54:8998|koa-glyph-55:9035|koa-glyph-56:9072|koa-glyph-57:9109|koa-glyph-58:9146|koa-glyph-59:9183|koa-glyph-60:9220|koa-glyph-61:9257|koa-glyph-62:9294|koa-glyph-63:9331|koa-glyph-64:9368|koa-glyph-65:9405|koa-glyph-66:9442|koa-glyph-67:9479|koa-glyph-68:9516|koa-glyph-69:9553|koa-glyph-70:9590|koa-glyph-71:9627|koa-glyph-72:9664|koa-glyph-73:9701|koa-glyph-74:9738|koa-glyph-75:9775|koa-glyph-76:9812|koa-glyph-77:9849|koa-glyph-78:9886|koa-glyph-79:9923|koa-glyph-80:9960|koa-glyph-81:9997|koa-glyph-82:10034|koa-glyph-83:10071|koa-glyph-84:10108|koa-glyph-85:10145|koa-glyph-86:10182|koa-glyph-87:10219|koa-glyph-88:10256|koa-glyph-89:10293|koa-glyph-90:10330|koa-glyph-91:10367|koa-glyph-92:10404|koa-glyph-93:10441|koa-glyph-94:10478|koa-glyph-95:10515|koa-glyph-96:10552|koa-glyph-97:10589|koa-glyph-98:10626|koa-glyph-99:10663|koa-glyph-100:10700|koa-glyph-101:10737|koa-glyph-102:10774|koa-glyph-103:10811|koa-glyph-104:10848|koa-glyph-105:10885|koa-glyph-106:10922|koa-glyph-107:10959|koa-glyph-108:10996|koa-glyph-109:11033|koa-glyph-110:11070|koa-glyph-111:11107|koa-glyph-112:11144|koa-glyph-113:11181|koa-glyph-114:11218|koa-glyph-115:11255|koa-glyph-116:11292|koa-glyph-117:11329|koa-glyph-118:11366|koa-glyph-119:11403|koa-glyph-120:11440|koa-glyph-121:11477|koa-glyph-122:11514|koa-glyph-123:11551|koa-glyph-124:11588|koa-glyph-125:11625|koa-glyph-126:11662|koa-glyph-127:11699|koa-glyph-128:11736|koa-glyph-129:11773|koa-glyph-130:11810|koa-glyph-131:11847|koa-glyph-132:11884|koa-glyph-133:11921|koa-glyph-134:11958|koa-glyph-135:11995|koa-glyph-136:12032|koa-glyph-137:12069|koa-glyph-138:12106|koa-glyph-139:12143|koa-glyph-140:12180|koa-glyph-141:12217|koa-glyph-142:12254|koa-glyph-143:12291|koa-glyph-144:12328|koa-glyph-145:12365|koa-glyph-146:12402|koa-glyph-147:12439|koa-glyph-148:12476|koa-glyph-149:12513|koa-glyph-150:12550|koa-glyph-151:12587|koa-glyph-152:12624|koa-glyph-153:12661|koa-glyph-154:12698|koa-glyph-155:12735|koa-glyph-156:12772|koa-glyph-157:12809|koa-glyph-158:12846|koa-glyph-159:12883|koa-glyph-160:12920|koa-glyph-161:12957|koa-glyph-162:12994|koa-glyph-163:13031|koa-glyph-164:13068|koa-glyph-165:13105|koa-glyph-166:13142|koa-glyph-167:13179",
+    "motionState": "running"
+  },
+  "chapterNumeral": {
+    "opacity": 0.15,
+    "text": "၂"
+  },
+  "partners": {
+    "exists": false,
+    "reason": "No verified partner data is present; public section is intentionally omitted."
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "motion": "full",
+    "filmViewportHeights": 14.4,
+    "horizontalOverflow": 0,
+    "phase": "arrival"
+  },
+  "motionOff": {
+    "motion": "reduced",
+    "canvasHidden": true,
+    "canvasDisplay": "none",
+    "completeSceneCount": 4,
+    "totalSceneCount": 4,
+    "horizontalOverflow": 0
+  },
+  "languageStudio": {
+    "source": "sanitized-local-demo-fixture",
+    "productionDataUsed": false,
+    "inventedKarenTranslation": false
+  },
+  "runtimeExceptions": [],
+  "consoleProblems": [],
+  "assertions": {
+    "rootRedirectsToEnglish": true,
+    "fourLocalesRespond": true,
+    "anonymousStudiosRejected": true,
+    "nonAdminStudiosRejectedWhenRuntimeCanResolveIdentity": true,
+    "desktopFilmIs1800vh": true,
+    "mobileFilmIs1440vh": true,
+    "orderedTelemetry": true,
+    "exactSealAssetTwice": true,
+    "sealLayersCoCentered": true,
+    "noExtraOrbitSvgOrText": true,
+    "particlesRemainPersistent": true,
+    "cursorRevealIncreasesBackgroundPixels": true,
+    "foregroundOccludesLivingGlyphs": true,
+    "chapterNumeralBelowSolidGuardrail": true,
+    "partnerPolicyRespected": true,
+    "noHorizontalOverflow": true,
+    "motionOffContentComplete": true,
+    "cleanRuntime": true,
+    "languageStudioEvidenceIsSanitized": true
+  }
+}

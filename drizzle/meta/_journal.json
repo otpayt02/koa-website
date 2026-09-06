@@ -12,29 +12,8 @@
     {
       "idx": 1,
       "version": "6",
-      "when": 1787076804820,
-      "tag": "0001_slippery_roulette",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "6",
-      "when": 1787330716853,
-      "tag": "0002_spicy_diamondback",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "6",
-      "when": 1787331534398,
-      "tag": "0003_dictionary_seed",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "6",
-      "when": 1787337365029,
-      "tag": "0004_keen_elektra",
+      "when": 1787585970603,
+      "tag": "0001_phase7_content_studio",
       "breakpoints": true
     }
   ]
