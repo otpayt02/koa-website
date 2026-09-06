@@ -1,0 +1,3065 @@
+<!DOCTYPE html>
+<html lang="en">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Karen Organization of America — a home for the S'gaw Karen people in America, and the beginning of something monumental.">
+<meta name="theme-color" content="#05090e">
+<title>KOA — Karen Organization of America</title>
+<link rel="icon" type="image/png" href="[embedded asset]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   KOA — Karen Organization of America · Cinematic Editorial Design System
+   -------------------------------------------------------------------------
+   Spine:  deep ink + warm gold. Display: Cormorant Garamond. Body: Space
+   Grotesk. Karen script: Noto Sans Myanmar. Motion: scroll reveals + the
+   home "film". Motion is a garnish, never the meal — and it fully honors
+   prefers-reduced-motion.
+   ========================================================================== */
+
+:root {
+  /* Palette ---------------------------------------------------------------- */
+  --ink-950: #05090e;
+  --ink-900: #070d15;
+  --ink-800: #0a1220;
+  --ink-700: #101c2e;
+  --ink-600: #16253c;
+
+  --gold:        #d4a24e;
+  --gold-bright: #e8bd6f;
+  --gold-deep:   #a97c33;
+  --gold-ghost:  rgba(212, 162, 78, 0.12);
+
+  --paper:   #f2ead9;
+  --paper-2: #e8ddc6;
+  --paper-3: #ddd0b4;
+  --text:    #ece4d2;
+  --text-dim:#a89f8b;
+  --text-faint: #6f695a;
+  --line:    rgba(236, 228, 210, 0.14);
+  --line-soft: rgba(236, 228, 210, 0.07);
+
+  /* Type ------------------------------------------------------------------- */
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-script: "Noto Sans Myanmar", "Padauk", sans-serif;
+
+  --text-scale: 1;
+  --fs-xs:   calc(0.75rem  * var(--text-scale));
+  --fs-sm:   calc(0.875rem * var(--text-scale));
+  --fs-md:   calc(1.0625rem* var(--text-scale));
+  --fs-lg:   calc(1.3125rem* var(--text-scale));
+  --fs-xl:   calc(1.75rem  * var(--text-scale));
+  --fs-2xl:  calc(2.5rem   * var(--text-scale));
+  --fs-hero: clamp(3rem, 8.5vw, 7rem);
+  --fs-title: clamp(2.25rem, 5.5vw, 4.25rem);
+
+  /* Spacing rhythm (8pt base) ---------------------------------------------- */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.75rem;
+  --s-4: 3rem;
+  --s-5: 5rem;
+  --s-6: 8rem;
+  --s-7: 12rem;
+  --measure: 62ch;
+
+  /* Misc -------------------------------------------------------------------- */
+  --container: min(1240px, 92vw);
+  --header-h: 76px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.7s;
+  --radius: 2px;
+}
+
+/* Reset & base -------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--ink-950);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Film grain + vignette: one fixed layer, no stacking contexts, no reflow */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 10%, transparent 60%, rgba(0,0,0,0.42) 100%);
+}
+
+/* Cinematic scrollbar: thin, dark, gold on hover ------------------------------------ */
+html {
+  scrollbar-color: rgba(212, 162, 78, 0.35) var(--ink-950);
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ink-950); }
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 162, 78, 0.28);
+  border-radius: 999px;
+  border: 2px solid var(--ink-950);
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(212, 162, 78, 0.55); }
+
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--gold); color: var(--ink-950); }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: fixed;
+  top: -100px;
+  left: var(--s-2);
+  z-index: 3000;
+  padding: 0.75rem 1.25rem;
+  background: var(--gold);
+  color: var(--ink-950);
+  font-size: var(--fs-sm);
+  transition: top 0.2s;
+}
+.skip:focus { top: var(--s-2); }
+
+/* Typography primitives ------------------------------------------------------ */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-hero); }
+h2 { font-size: var(--fs-title); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow::before {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+.karen-script {
+  font-family: var(--font-script);
+  line-height: 1.5;
+}
+
+.lede {
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--text-dim);
+  max-width: 56ch;
+}
+
+/* Layout primitives ----------------------------------------------------------- */
+.container { width: var(--container); margin-inline: auto; }
+
+.section {
+  padding-block: var(--s-6);
+  position: relative;
+}
+
+.section--tight { padding-block: var(--s-4); }
+
+.section-head {
+  display: grid;
+  gap: var(--s-2);
+  max-width: 720px;
+  margin-bottom: var(--s-4);
+}
+
+.section-head .lede { margin-top: var(--s-1); }
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+.section-head--center .eyebrow { justify-content: center; }
+.section-head--center .eyebrow::before { display: none; }
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+
+/* Reveal-on-scroll (JS adds .is-visible) --------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal-delay="1"] { transition-delay: 0.1s; }
+[data-reveal-delay="2"] { transition-delay: 0.2s; }
+[data-reveal-delay="3"] { transition-delay: 0.3s; }
+[data-reveal-delay="4"] { transition-delay: 0.4s; }
+
+/* Line-mask reveal for big display lines */
+[data-reveal="lines"] { opacity: 1; transform: none; }
+[data-reveal="lines"] .line-mask {
+  display: block;
+  overflow: hidden;
+}
+[data-reveal="lines"] .line-mask > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.9s var(--ease);
+}
+[data-reveal="lines"].is-visible .line-mask > span { transform: none; }
+[data-reveal="lines"].is-visible .line-mask:nth-child(2) > span { transition-delay: 0.12s; }
+[data-reveal="lines"].is-visible .line-mask:nth-child(3) > span { transition-delay: 0.24s; }
+
+/* Header ----------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  padding-inline: max(4vw, calc((100vw - var(--container)) / 2));
+  background: linear-gradient(to bottom, rgba(5, 9, 14, 0.82), rgba(5, 9, 14, 0));
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.header.is-scrolled {
+  background: rgba(5, 9, 14, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.brand img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+}
+.brand span { display: grid; line-height: 1.15; }
+.brand strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+.brand small {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.nav { display: flex; gap: var(--s-3); }
+
+.nav a {
+  position: relative;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  padding-block: 0.4rem;
+  transition: color 0.25s;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: right 0.35s var(--ease);
+}
+.nav a:hover, .nav a[aria-current="page"] { color: var(--text); }
+.nav a:hover::after, .nav a[aria-current="page"]::after { right: 0; }
+.nav a[aria-current="page"] { color: var(--gold-bright); }
+
+.header-tools { display: flex; align-items: center; gap: var(--s-2); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.pill:hover { border-color: var(--gold); color: var(--gold-bright); background: var(--gold-ghost); }
+
+.pill--gold {
+  border-color: rgba(212, 162, 78, 0.5);
+  color: var(--gold-bright);
+  background: var(--gold-ghost);
+}
+.pill--gold .pulse {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.motion-button {
+  appearance: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.motion-button:hover { border-color: var(--gold); color: var(--gold-bright); }
+
+.menu {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  font: 600 var(--fs-xs)/1 var(--font-body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+}
+
+/* Mobile menu panel */
+.mobile-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(5, 9, 14, 0.97);
+  backdrop-filter: blur(16px);
+  display: grid;
+  place-content: center;
+  gap: var(--s-3);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+}
+.mobile-panel.is-open { opacity: 1; visibility: visible; }
+.mobile-panel a {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: var(--text-dim);
+  transition: color 0.25s;
+}
+.mobile-panel a:hover { color: var(--gold-bright); }
+
+/* ==========================================================================
+   HOME FILM — the one full cinematic scroll experience
+   ========================================================================== */
+.film {
+  position: relative;
+  height: 560vh;
+  background: var(--ink-950);
+}
+
+.film-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* THE CONTINUOUS TAKE — the film's light is graded per chapter.
+   --chapter-tint is set by JS on every scene change; the grade layer
+   cross-fades like a colorist pulling a fader. */
+.film-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 90% at 50% 42%,
+    rgba(var(--chapter-tint, 255,255,255), 0.075) 0%,
+    rgba(var(--chapter-tint, 255,255,255), 0.03) 46%,
+    transparent 74%
+  );
+  transition: background 1.4s ease;
+  mix-blend-mode: screen;
+}
+
+.film-progress {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 20;
+  background: rgba(255,255,255,0.06);
+}
+.film-progress i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+}
+
+.film-label, .film-meta {
+  position: absolute;
+  z-index: 20;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.film-label { top: calc(var(--header-h) + 1.25rem); left: 4vw; }
+.film-meta {
+  top: calc(var(--header-h) + 1.25rem);
+  right: 4vw;
+  display: flex;
+  gap: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.film-meta b { color: var(--gold); font-weight: 500; }
+
+.chapter-dots {
+  position: absolute;
+  right: 4vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.chapter-dots li {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(236,228,210,0.34);
+  box-shadow: 0 0 0 1px rgba(5,9,14,0.6);
+  transition: background 0.3s, transform 0.3s;
+}
+.chapter-dots li.is-active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+/* Scenes ---------------------------------------------------------------------- */
+.scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  /* THE RACK FOCUS — scenes never cut; they pull focus. The outgoing scene
+     blurs into the dark while the incoming one resolves out of blur. */
+  filter: blur(16px) saturate(0.82);
+  transform: scale(1.035);
+  transition:
+    opacity 1.15s var(--ease),
+    visibility 1.15s,
+    filter 1.15s var(--ease),
+    transform 1.15s var(--ease);
+}
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  filter: blur(0px) saturate(1);
+  transform: scale(1);
+}
+
+.scene-media {
+  position: absolute;
+  inset: 0;
+}
+.scene-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(5,9,14,0.92) 0%, rgba(5,9,14,0.62) 38%, rgba(5,9,14,0.18) 72%, rgba(5,9,14,0.42) 100%),
+    linear-gradient(to top, rgba(5,9,14,0.88), transparent 42%),
+    linear-gradient(to bottom, rgba(5,9,14,0.72), transparent 18%);
+}
+.scene-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--position, 50% 50%);
+  transform: scale(1.08);
+}
+.scene.active .scene-media img {
+  animation: kenburns 14s var(--ease) forwards;
+}
+@keyframes kenburns {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.0); }
+}
+
+.scene-credit {
+  position: absolute;
+  z-index: 5;
+  bottom: 2rem;
+  right: 4vw;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(236,228,210,0.5);
+}
+
+.scene-copy {
+  position: relative;
+  z-index: 10;
+  width: var(--container);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.scene-kicker {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--s-2);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.scene-kicker::before {
+  content: "";
+  width: 2.5rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.scene h2 {
+  font-size: var(--fs-hero);
+  max-width: 14ch;
+  margin-bottom: var(--s-2);
+}
+
+.scene .scene-sub {
+  max-width: 48ch;
+  font-size: var(--fs-lg);
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+/* Scene copy entrance */
+.scene [data-beat] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.scene.active [data-beat] { opacity: 1; transform: none; }
+.scene.active [data-beat]:nth-child(2) { transition-delay: 0.15s; }
+.scene.active [data-beat]:nth-child(3) { transition-delay: 0.3s; }
+
+/* Hero scene (scene 1) gets an extra big title treatment */
+.scene--hero h2 {
+  font-size: clamp(3.25rem, 10vw, 8.5rem);
+  line-height: 0.98;
+  max-width: 12ch;
+}
+.scene--hero .scene-script {
+  font-family: var(--font-script);
+  font-size: var(--fs-lg);
+  color: var(--gold-bright);
+  margin-bottom: var(--s-2);
+}
+
+.scroll-cue {
+  position: absolute;
+  z-index: 20;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  transition: opacity 0.5s;
+}
+.scroll-cue.is-hidden { opacity: 0; }
+.scroll-cue i {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(var(--gold), transparent);
+  animation: cue 2s ease-in-out infinite;
+}
+@keyframes cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Quote interlude (full-bleed text on ink) -------------------------------------- */
+.interlude {
+  min-height: 70vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: var(--s-6) 4vw;
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(212,162,78,0.06), transparent 70%),
+    var(--ink-900);
+}
+.interlude blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.25;
+  max-width: 24ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+.interlude blockquote em { color: var(--gold-bright); font-style: italic; }
+.interlude cite {
+  display: block;
+  margin-top: var(--s-3);
+  font-style: normal;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Editorial split -------------------------------------------------------------- */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+.split--reversed { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.split--reversed > :first-child { order: 2; }
+
+.split-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-soft);
+  aspect-ratio: 4 / 5;
+  background: var(--ink-800);
+}
+.split--wide .split-media { aspect-ratio: 16 / 10; }
+.split-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 1.2s var(--ease);
+}
+.split-media:hover img { transform: scale(1.06); }
+.split-media figcaption {
+  position: absolute;
+  left: 1rem; bottom: 1rem;
+  z-index: 2;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(236,228,210,0.75);
+  background: rgba(5,9,14,0.6);
+  backdrop-filter: blur(6px);
+  padding: 0.4rem 0.8rem;
+}
+.split-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,9,14,0.5), transparent 45%);
+  pointer-events: none;
+}
+
+.split-copy { display: grid; gap: var(--s-2); align-content: start; }
+.split-copy .lede { margin-top: var(--s-1); }
+
+.split-copy ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: var(--s-1);
+}
+/* Dash-bulleted list. The dash is absolutely positioned (not a flex item) —
+   display:flex here would turn each text run + <strong> into a separate
+   column and scramble the reading order. */
+.split-copy li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--text-dim);
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+}
+.split-copy li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gold);
+}
+
+/* Cards & grids ------------------------------------------------------------------ */
+.card {
+  position: relative;
+  display: grid;
+  gap: var(--s-1);
+  padding: var(--s-3);
+  background: linear-gradient(160deg, var(--ink-800), var(--ink-900));
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  transition: border-color 0.35s, transform 0.35s var(--ease), background 0.35s;
+}
+.card:hover {
+  border-color: rgba(212,162,78,0.4);
+  transform: translateY(-4px);
+}
+.card .num {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+.card h3 { font-size: var(--fs-xl); }
+.card p { color: var(--text-dim); font-size: var(--fs-sm); line-height: 1.6; }
+.card .arrow {
+  margin-top: auto;
+  font-size: var(--fs-lg);
+  color: var(--gold);
+  transition: transform 0.3s var(--ease);
+}
+.card:hover .arrow { transform: translateX(6px); }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-2); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-2); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-2); }
+
+/* Stat row ------------------------------------------------------------------------ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-2);
+  padding: var(--s-4) 0;
+  border-block: 1px solid var(--line);
+}
+.stat { display: grid; gap: 0.25rem; }
+.stat b {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--gold-bright);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stat span {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Buttons ------------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font: 600 var(--fs-sm)/1 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.3s var(--ease), box-shadow 0.3s;
+}
+.btn:hover {
+  background: var(--gold);
+  color: var(--ink-950);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(212,162,78,0.25);
+}
+
+.btn--solid {
+  background: var(--gold);
+  color: var(--ink-950);
+}
+.btn--solid:hover {
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+}
+
+.btn--ghost {
+  border-color: var(--line);
+  color: var(--text-dim);
+}
+.btn--ghost:hover {
+  border-color: var(--text);
+  background: rgba(236,228,210,0.06);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; }
+
+/* Waitlist / newsletter band --------------------------------------------------------- */
+.waitlist {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 120% at 50% 120%, rgba(212,162,78,0.14), transparent 60%),
+    var(--ink-900);
+  border-block: 1px solid var(--line);
+  padding-block: var(--s-6);
+  text-align: center;
+}
+.waitlist .section-head { margin-bottom: var(--s-3); }
+
+.waitlist-form {
+  display: flex;
+  gap: var(--s-1);
+  max-width: 560px;
+  margin-inline: auto;
+}
+.waitlist-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem 1.4rem;
+  background: rgba(236,228,210,0.05);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  font: 400 var(--fs-md)/1.4 var(--font-body);
+  transition: border-color 0.3s;
+}
+.waitlist-form input::placeholder { color: var(--text-faint); }
+.waitlist-form input:focus { outline: none; border-color: var(--gold); }
+
+.waitlist-note {
+  margin-top: var(--s-2);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+}
+
+.waitlist-success {
+  display: none;
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  color: var(--gold-bright);
+}
+.waitlist-form.is-sent { display: none; }
+.waitlist.is-done .waitlist-success { display: block; }
+
+/* Page hero (interior pages) ------------------------------------------------------------- */
+.page-hero {
+  position: relative;
+  padding: calc(var(--header-h) + var(--s-6)) 0 var(--s-6);
+  background:
+    radial-gradient(70% 60% at 80% 10%, rgba(212,162,78,0.08), transparent 60%),
+    var(--ink-950);
+  overflow: hidden;
+}
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero h1 { max-width: 16ch; margin: var(--s-2) 0 var(--s-2); }
+.page-hero .lede { margin-top: var(--s-1); }
+.page-hero .page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.16;
+}
+.page-hero .page-hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8);
+}
+.page-hero .page-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--ink-950) 5%, transparent 60%);
+}
+
+/* Section number watermark */
+.section-num {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212,162,78,0.25);
+  user-select: none;
+}
+
+/* Timeline ------------------------------------------------------------------------- */
+.timeline {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  max-width: 720px;
+}
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: var(--s-2);
+  padding-bottom: var(--s-3);
+  border-left: 1px solid var(--line);
+  padding-left: var(--s-3);
+  margin-left: 0.5rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.5rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,162,78,0.15);
+}
+.timeline .year {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--gold-bright);
+  line-height: 1.4;
+}
+.timeline p { color: var(--text-dim); font-size: var(--fs-sm); }
+.timeline h3 { font-size: var(--fs-lg); margin-bottom: 0.25rem; }
+
+/* Story cards ------------------------------------------------------------------------ */
+.story-card {
+  display: grid;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--ink-800);
+  transition: border-color 0.35s, transform 0.35s var(--ease);
+}
+.story-card:hover { border-color: rgba(212,162,78,0.4); transform: translateY(-4px); }
+.story-card .story-media {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--ink-700);
+}
+.story-card .story-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease);
+}
+.story-card:hover .story-media img { transform: scale(1.05); }
+.story-card .story-body {
+  display: grid;
+  gap: 0.6rem;
+  padding: var(--s-3);
+}
+.story-card .tag {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.story-card h3 { font-size: var(--fs-xl); }
+.story-card p { color: var(--text-dim); font-size: var(--fs-sm); }
+
+/* Contact cards ------------------------------------------------------------------------ */
+.contact-card {
+  display: grid;
+  gap: var(--s-1);
+  align-content: start;
+  padding: var(--s-3);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--ink-800), var(--ink-900));
+  transition: border-color 0.35s, transform 0.35s var(--ease);
+}
+.contact-card:hover { border-color: rgba(212,162,78,0.5); transform: translateY(-4px); }
+.contact-card h3 { font-size: var(--fs-xl); }
+.contact-card p { color: var(--text-dim); font-size: var(--fs-sm); }
+.contact-card .contact-arrow {
+  justify-self: end;
+  color: var(--gold);
+  font-size: var(--fs-lg);
+  transition: transform 0.3s var(--ease);
+}
+.contact-card:hover .contact-arrow { transform: translate(4px, -4px); }
+
+/* Forms (contact / submissions) ---------------------------------------------------------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-2);
+  max-width: 760px;
+}
+.form-field { display: grid; gap: 0.5rem; }
+.form-field--full { grid-column: 1 / -1; }
+.form-field label {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 0.9rem 1.1rem;
+  background: rgba(236,228,210,0.05);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: 400 var(--fs-md)/1.5 var(--font-body);
+  transition: border-color 0.3s;
+}
+.form-field textarea { min-height: 140px; resize: vertical; }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { outline: none; border-color: var(--gold); }
+
+/* Footer ---------------------------------------------------------------------------------- */
+footer {
+  border-top: 1px solid var(--line);
+  background: var(--ink-950);
+  padding: var(--s-5) 0 var(--s-4);
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: var(--s-4);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid var(--line-soft);
+}
+.foot-brand p {
+  margin-top: var(--s-2);
+  color: var(--text-faint);
+  font-size: var(--fs-sm);
+  max-width: 34ch;
+}
+.foot-col h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--s-2);
+}
+.foot-col ul { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+.foot-col a {
+  color: var(--text-dim);
+  font-size: var(--fs-sm);
+  transition: color 0.25s;
+}
+.foot-col a:hover { color: var(--gold-bright); }
+.foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  padding-top: var(--s-3);
+  color: var(--text-faint);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+}
+.foot-bottom a { color: var(--text-dim); }
+.foot-bottom a:hover { color: var(--gold-bright); }
+
+/* S'gaw-Mango showcase (Coming Soon page) -------------------------------------------------- */
+.mango-shell {
+  position: relative;
+  border: 1px solid rgba(212,162,78,0.35);
+  border-radius: 12px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(212,162,78,0.1), transparent 55%),
+    linear-gradient(170deg, var(--ink-800), var(--ink-950));
+  padding: clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
+}
+.mango-shell::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(212,162,78,0.5), transparent 30%, transparent 70%, rgba(212,162,78,0.3));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.mango-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--s-3);
+}
+.mango-head .model-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  color: var(--gold-bright);
+}
+.mango-head .model-meta {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.mango-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(212,162,78,0.5);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+.mango-demo { display: grid; gap: var(--s-2); }
+.mango-row {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: var(--s-2);
+  align-items: baseline;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.mango-row .lang {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.mango-row .text { font-size: var(--fs-lg); line-height: 1.5; }
+.mango-row .text--script { font-family: var(--font-script); color: var(--gold-bright); }
+.mango-row .text--dim { color: var(--text-dim); }
+
+.mango-caption {
+  margin-top: var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+}
+
+/* Feature list rows (Coming Soon page) ----------------------------------------------------- */
+.feature-row {
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  gap: var(--s-3);
+  align-items: start;
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.feature-row:first-child { border-top: 1px solid var(--line); }
+.feature-row .fnum {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.feature-row h3 { font-size: var(--fs-xl); margin-bottom: 0.4rem; }
+.feature-row p { color: var(--text-dim); font-size: var(--fs-sm); max-width: 62ch; }
+.feature-row .ftag {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  white-space: nowrap;
+}
+.feature-row .ftag--live {
+  color: var(--gold-bright);
+  border-color: rgba(212,162,78,0.5);
+}
+
+/* Music showcase ----------------------------------------------------------------------------- */
+.music-feature {
+  position: relative;
+  display: grid;
+  min-height: 420px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.music-feature .music-art {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(80% 90% at 30% 20%, rgba(212,162,78,0.18), transparent 60%),
+    linear-gradient(150deg, var(--ink-700), var(--ink-950));
+}
+.music-feature .music-art::before {
+  content: "♪";
+  position: absolute;
+  font-size: clamp(10rem, 30vw, 22rem);
+  color: rgba(212,162,78,0.12);
+  font-family: var(--font-display);
+  line-height: 1;
+  transform: rotate(-8deg);
+}
+.music-feature .music-copy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-content: end;
+  gap: var(--s-2);
+  padding: var(--s-4);
+}
+.music-feature .music-kicker {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.music-feature h3 { font-size: var(--fs-2xl); }
+.music-feature p { color: var(--text-dim); max-width: 52ch; }
+
+.artist-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: var(--s-2);
+  align-items: center;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--line-soft);
+  transition: padding-left 0.3s var(--ease);
+}
+.artist-row:hover { padding-left: 0.5rem; }
+.artist-row .a-num {
+  font-family: var(--font-display);
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+.artist-row .a-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  transition: color 0.25s;
+}
+.artist-row:hover .a-name { color: var(--gold-bright); }
+.artist-row .a-note {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  text-align: right;
+}
+
+/* Registry entries (Directory) ------------------------------------------------------------------ */
+.registry-entry {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-2);
+  align-items: baseline;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.registry-entry h4 { font-size: var(--fs-lg); }
+.registry-entry .meta {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  text-align: right;
+}
+.registry-empty {
+  padding: var(--s-3);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--text-faint);
+  font-size: var(--fs-sm);
+  text-align: center;
+}
+
+/* Podcast (embedded players) ------------------------------------------------------------------------ */
+.podcast-card {
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  gap: var(--s-2);
+  align-items: center;
+  padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.podcast-card .p-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.podcast-card h4 { font-size: var(--fs-lg); margin-bottom: 0.2rem; }
+.podcast-card .p-meta {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+}
+.podcast-card audio { width: 220px; }
+
+/* Utilities ---------------------------------------------------------------------------------------- */
+.mt-1 { margin-top: var(--s-1); } .mt-2 { margin-top: var(--s-2); }
+.mt-3 { margin-top: var(--s-3); } .mt-4 { margin-top: var(--s-4); }
+.mb-2 { margin-bottom: var(--s-2); } .mb-3 { margin-bottom: var(--s-3); }
+.text-dim { color: var(--text-dim); }
+.hidden { display: none !important; }
+
+/* Responsive — restrained, only where it aids the message ------------------------------------------- */
+@media (max-width: 1020px) {
+  .nav { display: none; }
+  .menu { display: inline-block; }
+  .header-tools .pill--hide-sm { display: none; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: var(--s-3); }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .split, .split--reversed { grid-template-columns: 1fr; }
+  .split--reversed > :first-child { order: 0; }
+  .split-media { aspect-ratio: 16 / 10; }
+}
+
+@media (max-width: 640px) {
+  :root { --header-h: 64px; }
+  .section { padding-block: var(--s-5); }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .feature-row { grid-template-columns: 1fr; gap: var(--s-1); }
+  .feature-row .fnum { font-size: var(--fs-md); }
+  .mango-row { grid-template-columns: 1fr; gap: 0.35rem; }
+  .waitlist-form { flex-direction: column; }
+  .waitlist-form .btn { justify-content: center; }
+  .foot-grid { grid-template-columns: 1fr; gap: var(--s-3); }
+  .film { height: 420vh; }
+  .scene-credit { display: none; }
+  .chapter-dots { display: none; }
+  .brand small { display: none; }
+  .podcast-card { grid-template-columns: 1fr; }
+  .podcast-card audio { width: 100%; }
+}
+
+/* Reduced motion: everything lands, nothing moves ----------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal], .scene [data-beat],
+  [data-reveal="lines"] .line-mask > span {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  /* rack focus becomes a plain fade — no blur/scale choreography */
+  .scene {
+    filter: none !important;
+    transform: none !important;
+    transition: opacity 0.25s ease, visibility 0.25s;
+  }
+  .scene.active .scene-media img { animation: none; }
+  .scroll-cue i, .pill--gold .pulse { animation: none; }
+  .split-media img, .story-card .story-media img { transition: none; }
+}
+
+/* The site ships motion OFF by default (user toggles via Motion button) ------------------------------ */
+body[data-motion="off"] [data-reveal],
+body[data-motion="off"] .scene [data-beat],
+body[data-motion="off"] [data-reveal="lines"] .line-mask > span {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+body[data-motion="off"] .scene {
+  filter: none !important;
+  transform: none !important;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+body[data-motion="off"] .scene.active .scene-media img { animation: none; }
+
+/* ==========================================================================
+   CINEMA PASS — the living alphabet
+   --------------------------------------------------------------------------
+   1. Glyph stage canvas (fixed, behind chrome) — Karen + Latin glyph dust
+   2. Film grain + letterbox — the projection room
+   3. White wordmark opener — the logo's letters become the stage
+   4. Focus-pull scene transitions
+   5. Route veil — minimalist page-to-page crossfade
+   ========================================================================== */
+
+/* 1 · Glyph stage --------------------------------------------------------- */
+.glyph-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+/* During the home film the glyph field floats above the scenes, under the header */
+body.is-filming .glyph-stage { z-index: 7; }
+
+/* 2 · Projection room: grain + letterbox ---------------------------------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 1400;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("[embedded asset] xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.1s steps(4) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 1.4%); }
+  50% { transform: translate(1.6%, -1.2%); }
+  75% { transform: translate(-1.2%, -1.8%); }
+  100% { transform: translate(0, 0); }
+}
+
+.film-letterbox { position: absolute; inset: 0; z-index: 18; pointer-events: none; }
+.film-letterbox .lb {
+  position: absolute;
+  left: 0; right: 0;
+  height: 0;
+  background: #020407;
+  transition: height 1.1s var(--ease) 0.35s;
+}
+.film-letterbox .lb--top { top: 0; }
+.film-letterbox .lb--bottom { bottom: 0; }
+body.is-filming .film-letterbox .lb { height: clamp(24px, 4.6vh, 56px); }
+
+/* The brand's letters are white — always */
+.brand strong { color: #fff; }
+
+/* 3 · White wordmark opener ------------------------------------------------ */
+.scene--wordmark { background: var(--ink-950); }
+.scene-copy--wordmark {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: var(--s-2);
+}
+.wordmark {
+  display: flex;
+  justify-content: center;
+  gap: 0.04em;
+  line-height: 1;
+  animation: wm-in 1.5s var(--ease) 0.25s both;
+}
+@keyframes wm-in {
+  from { opacity: 0; transform: translateY(4.5vh) scale(0.965); filter: blur(12px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+.wordmark span {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(5.5rem, 19vw, 15.5rem);
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: 0 0 60px rgba(236, 228, 210, 0.22);
+  /* The release: scroll drives --release 0→1, letters drift apart & dissolve */
+  opacity: calc(1 - min(1, var(--release, 0) * 1.4));
+  transform:
+    translateX(calc((var(--i) - 1) * var(--release, 0) * 11vw))
+    rotate(calc((var(--i) - 1) * var(--release, 0) * 3.5deg))
+    scale(calc(1 + var(--release, 0) * 0.3));
+  filter: blur(calc(var(--release, 0) * 9px));
+}
+.scene-kicker--center { justify-content: center; }
+.scene-kicker--center::before { display: none; }
+.scene-sub--center { margin-inline: auto; text-align: center; }
+
+/* 4 · Focus-pull scene transitions ----------------------------------------- */
+.scene { transition: opacity 0.85s ease, visibility 0.85s; }
+.scene .scene-media img { filter: blur(7px); transform: scale(1.1); }
+.scene.active .scene-media img {
+  animation: focuspull 1.7s var(--ease) forwards;
+}
+@keyframes focuspull {
+  from { filter: blur(7px); transform: scale(1.1); }
+  to   { filter: blur(0); transform: scale(1.02); }
+}
+
+/* 5 · Route veil ------------------------------------------------------------ */
+.veil {
+  position: fixed;
+  inset: 0;
+  z-index: 1450;
+  background: var(--ink-950);
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease);
+}
+.veil.is-clear { opacity: 0; }
+
+/* Interior heroes get a chapter glyph floating top-right (see data-glyph-word) */
+.page-hero { position: relative; }
+
+/* Cinema pass · reduced motion & motion-off guards -------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
+  .veil { transition: none; }
+  .wordmark { animation: none; opacity: 1; }
+  .wordmark span { transform: none; filter: none; opacity: 1; }
+  .film-letterbox .lb { transition: none; }
+  .scene .scene-media img { filter: none; }
+  .scene.active .scene-media img { animation: none; filter: none; transform: scale(1.02); }
+}
+body[data-motion="off"]::after { animation: none; }
+body[data-motion="off"] .veil { transition: none; }
+body[data-motion="off"] .wordmark { animation: none; opacity: 1; }
+body[data-motion="off"] .wordmark span { transform: none; filter: none; opacity: 1; }
+body[data-motion="off"] .scene .scene-media img { filter: none; }
+body[data-motion="off"] .scene.active .scene-media img { animation: none; filter: none; transform: scale(1.02); }
+body[data-motion="off"] .glyph-stage { display: block; }
+
+/* Small screens: the film keeps its pace */
+@media (max-width: 640px) {
+  .film { height: 500vh; }
+}
+
+/* ==========================================================================
+   THE ARRIVAL — pass 3
+   --------------------------------------------------------------------------
+   The seal lands first: halo rings spiraling around the logo, front and
+   center. Its KOA is the animation — the glyph canvas assembles the letters
+   from hundreds of Karen glyphs, answers the cursor, rises on scroll, then
+   disperses into the binary rain while the film begins. Every chapter after
+   enters by its own door: rack focus, curtain wipe, iris, rise, parting
+   veil. Chapter numerals live in the background. The partner wall shows
+   three large marks at a time, rotating honestly (announcements pending).
+   ========================================================================== */
+
+/* Red accent — from the flag, used with restraint ------------------------- */
+:root {
+  --red: #d84a4d;
+  --red-deep: #a93a3f;
+}
+
+/* 1 · The arrival prologue -------------------------------------------------- */
+.arrival {
+  position: relative;
+  height: 220vh;            /* runway for assemble → hold → rise → disperse */
+  background: radial-gradient(120% 90% at 50% 12%, var(--ink-800) 0%, var(--ink-950) 62%);
+}
+.arrival-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* The seal with its halo + spiral, exactly as the original ---------------- */
+.halo {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 42%;                 /* the same line the glyph-KOA anchors to */
+  width: min(34vmin, 340px);
+  height: min(34vmin, 340px);
+  transform: translate(-50%, -50%);
+  transition: opacity 1.15s var(--ease), transform 1.15s var(--ease), filter 1.15s var(--ease);
+}
+.halo-seal {
+  position: absolute;
+  inset: 12%;
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 42px rgba(226, 180, 91, 0.22));
+}
+.halo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  will-change: transform;
+}
+.halo-ring--1 {
+  inset: 0;
+  border-top-color: rgba(226, 180, 91, 0.85);
+  border-right-color: rgba(226, 180, 91, 0.18);
+  animation: halo-spin 9s linear infinite;
+}
+.halo-ring--2 {
+  inset: -7%;
+  border-bottom-color: rgba(216, 74, 77, 0.55);
+  border-left-color: rgba(216, 74, 77, 0.08);
+  animation: halo-spin 15s linear infinite reverse;
+}
+.halo-ring--3 {
+  inset: -15%;
+  border-top-color: rgba(236, 228, 210, 0.28);
+  border-left-color: rgba(236, 228, 210, 0.04);
+  animation: halo-spin 23s linear infinite;
+}
+.halo-spiral {
+  position: absolute;
+  inset: -26%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    transparent 0deg, rgba(226, 180, 91, 0.13) 42deg,
+    transparent 96deg, rgba(236, 228, 210, 0.05) 198deg,
+    transparent 258deg, rgba(216, 74, 77, 0.09) 312deg, transparent 360deg);
+  -webkit-mask: radial-gradient(closest-side, transparent 55%, #000 56%);
+  mask: radial-gradient(closest-side, transparent 55%, #000 56%);
+  animation: halo-spin 34s linear infinite;
+}
+@keyframes halo-spin { to { transform: rotate(360deg); } }
+
+/* The copy that lands with the arrival ------------------------------------ */
+.arrival .eyebrow { color: var(--gold-bright); }
+.arrival h1 {
+  font-size: clamp(3.25rem, 9vw, 7.25rem);
+  margin-top: var(--s-2);
+}
+.arrival-copy {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 68%;
+  transform: translateX(-50%);
+  width: min(92vw, 900px);
+  text-align: center;
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+}
+[data-arrival-beat] {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(8px);
+  transition: opacity 1.15s var(--ease), transform 1.15s var(--ease), filter 1.15s var(--ease);
+}
+.arrival.is-assembly [data-arrival-beat] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.arrival.is-assembly .arrival-mission { transition-delay: 0.25s; }
+.arrival.is-risen .arrival-copy {
+  opacity: 0;
+  transform: translate(-50%, -12px);
+  filter: blur(6px);
+}
+
+/* The mission tells itself once the KOA has risen ------------------------- */
+.arrival-mission {
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  top: 46vh;
+  transform: translateX(-50%);
+  width: min(92vw, 66ch);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  line-height: 1.72;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+.arrival.is-risen .arrival-mission {
+  opacity: calc(0.92 - var(--rise, 0));
+  transform: translate(-50%, calc(var(--rise, 0) * -8vh));
+}
+
+/* 2 · Chapter numerals live in the background ------------------------------ */
+.chapter-bg-num {
+  position: absolute;
+  z-index: 1;
+  bottom: -5vh;
+  right: -1vw;
+  font-family: var(--font-script);
+  font-size: clamp(14rem, 34vw, 30rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(226, 180, 91, 0.15);
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 1.3s var(--ease);
+}
+.scene .chapter-bg-num {
+  bottom: -7vh;
+  right: 3vw;
+  -webkit-text-stroke-color: rgba(226, 180, 91, 0.09);
+}
+.scene--iris .chapter-bg-num { right: auto; left: 3vw; bottom: -4vh; }
+.scene--rise .chapter-bg-num { bottom: -10vh; right: 50%; transform: translateX(50%); }
+.chapter-bg-num--prologue {
+  top: 6vh;
+  bottom: auto;
+  right: 50%;
+  transform: translateX(50%);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: clamp(6rem, 16vw, 13rem);
+  -webkit-text-stroke-color: rgba(236, 228, 210, 0.05);
+}
+
+/* 3 · Five doors — one per chapter ----------------------------------------
+   01 rack focus (the base), 02 curtain wipe, 03 iris, 04 rise, 05 veil.   */
+.scene--wipe .scene-media {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s var(--ease) 0.12s;
+}
+.scene--wipe.active .scene-media { clip-path: inset(0 0 0 0); }
+.scene--wipe .scene-media::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 3px;
+  background: linear-gradient(rgba(226, 180, 91, 0.95), rgba(226, 180, 91, 0.15));
+  box-shadow: 0 0 28px rgba(226, 180, 91, 0.5);
+  opacity: 0;
+  transition: transform 1.2s var(--ease) 0.12s, opacity 0.25s;
+}
+.scene--wipe.active .scene-media::before {
+  opacity: 1;
+  transform: translateX(calc(100vw - 3px));
+}
+
+.scene--iris .scene-media {
+  -webkit-mask: radial-gradient(circle at 50% 46%, #000 var(--iris-r, 0%), transparent calc(var(--iris-r, 0%) + 18%));
+  mask: radial-gradient(circle at 50% 46%, #000 var(--iris-r, 0%), transparent calc(var(--iris-r, 0%) + 18%));
+}
+.scene--iris.active .scene-media { animation: iris-open 1.5s var(--ease) forwards; }
+@keyframes iris-open { from { --iris-r: 0%; } to { --iris-r: 140%; } }
+@property --iris-r {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.scene--rise {
+  transform: translateY(7vh) scale(1.02);
+  filter: blur(10px) saturate(0.85);
+}
+.scene--rise.active {
+  transform: none;
+  filter: none;
+}
+
+.scene--veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--ink-950) 44%, rgba(5, 9, 14, 0.4) 50%, var(--ink-950) 56%);
+  opacity: 1;
+  transform: scaleX(1);
+  transform-origin: center;
+  transition: opacity 1.25s var(--ease) 0.2s, transform 1.25s var(--ease) 0.2s;
+}
+.scene--veil.active::after {
+  opacity: 0;
+  transform: scaleX(2.8);
+}
+
+/* 4 · The partner wall (contact) -------------------------------------------
+   Three large marks across the screen; one changes at a time. Honest by
+   design: announcement-pending seals until real partners are named.        */
+.partner-wall {
+  padding-block: var(--s-6);
+  background: var(--ink-950);
+}
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.6vw, 2.4rem);
+}
+.partner-slot {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  min-height: clamp(280px, 38vh, 420px);
+  padding: var(--s-4) var(--s-3);
+  border: 1px solid var(--line-soft);
+  background: linear-gradient(180deg, rgba(236, 228, 210, 0.028), rgba(236, 228, 210, 0.008));
+  transition: opacity 0.52s var(--ease), transform 0.52s var(--ease), filter 0.52s var(--ease), border-color 0.4s;
+}
+.partner-slot:hover { border-color: rgba(226, 180, 91, 0.35); }
+.partner-slot.is-swapping {
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  filter: blur(6px);
+}
+.partner-mark {
+  font-family: var(--font-script);
+  font-size: clamp(5rem, 11vw, 9.5rem);
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 0 44px rgba(226, 180, 91, 0.28);
+}
+.partner-slot:nth-child(2) .partner-mark {
+  color: var(--red);
+  text-shadow: 0 0 44px rgba(216, 74, 77, 0.3);
+}
+.partner-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  letter-spacing: 0.02em;
+}
+.partner-role {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.partner-note {
+  margin-top: var(--s-3);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-faint);
+}
+
+/* 5 · Word assembly --------------------------------------------------------
+   assembleEl wraps each word in .aw with inline opacity 0→1; this adds the
+   rise-and-settle micro-motion so words land instead of switch on.         */
+.aw {
+  display: inline;
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease), filter 0.55s var(--ease);
+  transform: translateY(0.45em);
+  filter: blur(4px);
+}
+.aw[style*="opacity: 1"],
+.aw[style*="opacity:1"] {
+  transform: none;
+  filter: none;
+}
+
+/* 6 · Arrival × reduced motion / motion off -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .halo-ring, .halo-spiral { animation: none; }
+  [data-arrival-beat] { opacity: 1; transform: none; filter: none; transition: none; }
+  .arrival-mission { opacity: 0.92; }
+  .scene--wipe .scene-media { clip-path: none; transition: none; }
+  .scene--wipe .scene-media::before { display: none; }
+  .scene--iris .scene-media { -webkit-mask: none; mask: none; }
+  .scene--iris.active .scene-media { animation: none; }
+  .scene--rise { transform: none; filter: none; }
+  .scene--veil::after { display: none; }
+  .partner-slot { transition: opacity 0.25s; }
+  .aw { transform: none; filter: none; transition: none; }
+}
+body[data-motion="off"] .halo-ring,
+body[data-motion="off"] .halo-spiral { animation: none; }
+body[data-motion="off"] [data-arrival-beat] { opacity: 1; transform: none; filter: none; transition: none; }
+body[data-motion="off"] .arrival-mission { opacity: 0.92; }
+body[data-motion="off"] .scene--wipe .scene-media { clip-path: none; transition: none; }
+body[data-motion="off"] .scene--wipe .scene-media::before { display: none; }
+body[data-motion="off"] .scene--iris .scene-media { -webkit-mask: none; mask: none; }
+body[data-motion="off"] .scene--iris.active .scene-media { animation: none; }
+body[data-motion="off"] .scene--rise { transform: none; filter: none; }
+body[data-motion="off"] .scene--veil::after { display: none; }
+body[data-motion="off"] .partner-slot { transition: opacity 0.25s; }
+body[data-motion="off"] .aw { transform: none; filter: none; transition: none; }
+
+@media (max-width: 900px) {
+  .partner-grid { grid-template-columns: 1fr; }
+  .partner-slot { min-height: 220px; }
+  .chapter-bg-num { font-size: clamp(9rem, 42vw, 16rem); }
+}
+@media (max-width: 640px) {
+  .arrival { height: 200vh; }
+  .arrival h1 { font-size: clamp(2.5rem, 11vw, 3.5rem); }
+  .arrival-mission { font-size: var(--fs-md); top: 44vh; }
+}
+
+</style>
+</head>
+<body>
+<header class="header" data-header>
+  <a class="brand" href="#/">
+    <img src="[embedded asset]" alt="">
+    <span><strong>KOA</strong><small>Karen Organization of America</small></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a aria-current="page" href="#/">Home</a>
+    <a href="#/about">About</a>
+    <a href="#/programs">Programs</a>
+    <a href="#/stories">Stories</a>
+    <a href="#/music">Music</a>
+    <a href="#/coming-soon">Coming Soon</a>
+    <a href="#/contact">Contact</a>
+  </nav>
+  <div class="header-tools">
+    <a class="pill pill--gold" href="#/coming-soon#waitlist"><span class="pulse"></span>Join the early access</a>
+    <button class="motion-button" data-motion>Motion on</button>
+    <button class="menu" data-menu aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+  </div>
+</header>
+<main id="main"><!-- packed: page content injected by the hash router --></main>
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#/">
+          <img src="[embedded asset]" alt="">
+          <span><strong>KOA</strong><small>Karen Organization of America</small></span>
+        </a>
+        <p>Working with Karen communities across the United States — and building the home the language deserves.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/programs">Programs</a></li>
+          <li><a href="#/stories">Stories</a></li>
+          <li><a href="#/music">Music</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Building</h4>
+        <ul>
+          <li><a href="#/coming-soon">Coming Soon</a></li>
+          <li><a href="#/coming-soon#mango">S'gaw-Mango</a></li>
+          <li><a href="#/coming-soon#waitlist">Early access</a></li>
+          <li><a href="#/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/koamerica" target="_blank" rel="noreferrer">Facebook — KOA</a></li>
+          <li><a href="https://m.me/koamerica" target="_blank" rel="noreferrer">Messenger</a></li>
+          <li><a href="mailto:karenorgamerica@gmail.com">karenorgamerica@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> Karen Organization of America. Built by the community, for the community.</span>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Return home ↑</a>
+    </div>
+  </div>
+</footer>
+<script>
+/* ==========================================================================
+   KOA — Karen Organization of America · storytelling engine (The Arrival)
+   -------------------------------------------------------------------------
+   One engine, three layers:
+
+   1. GlyphStage — a fixed, volumetric canvas of Latin + S'gaw Karen glyphs.
+      Modes:
+        drift     — ambient dust with pointer parallax + scroll streaks
+        arrival   — the KOA wordmark built FROM glyphs: cursor-reactive,
+                    rises on scroll, disperses, hands off to the film
+        word/loom — pixel-sampled words + the Karen diamond-weave frame
+      Plus the RAIN: intermittent vertical glyph columns that spawn at
+      random places, live briefly, and leave at random times.
+
+   2. The Arrival — the prologue scroll stage (seal → glyph-KOA → rise →
+      mission, told word by word) that hands its glyphs to chapter 01.
+
+   3. Word assembly — paragraphs that solidify one randomly-ordered word
+      at a time, because the words are the product.
+
+   Motion is a garnish, never the meal. prefers-reduced-motion and the
+   manual Motion toggle are honored everywhere.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var motionOn = !prefersReduced;
+  document.body.dataset.motion = motionOn ? "on" : "off";
+
+  var MYAN = ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"];
+  var GLYPH_SET = "KOAKAREက" + "AKOကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇";
+
+  /* ======================================================================
+     GLYPH STAGE
+     ====================================================================== */
+  var GlyphStage = (function () {
+    var canvas, ctx, W = 0, H = 0, DPR = 1;
+    var particles = [];
+    var targets = null;            // current formation points (word/loom)
+    var formationWord = null;
+    var formationMode = null;      // "word" | "loom" | "arrival" | null
+    var tintColor = null;          // rgb string for chapter temperature
+    var fontsReady = false;
+    var pendingWord = null;
+    var pendingLoom = false;
+    var pendingArrival = false;
+    var raf = null;
+    var active = false;            // motion allowed + initialized
+    var staticDrawn = false;
+    var pointerX = 0, pointerY = 0;
+    var scrollVel = 0, lastScrollY = window.scrollY, lastScrollT = performance.now();
+
+    /* arrival state ------------------------------------------------------ */
+    var arrivalAnchorY = 0.5;      // fraction of H where the KOA sits
+    var arrivalScale = 1;
+    var arrivalScatter = 0;        // 0 = locked, 1 = fully dispersed
+    var arrivalCursor = true;      // pointer repels the formed glyphs
+
+    /* rain state ---------------------------------------------------------- */
+    var rainOn = false;
+    var rainBoost = 0;             // 0..1, driven by scroll + arrival phase
+    var rainCols = [];
+    var RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
+
+    function glyphs() { return GLYPH_SET; }
+
+    function makeParticles() {
+      var n = window.innerWidth < 720 ? 60 : 150;
+      particles = [];
+      var set = glyphs();
+      for (var i = 0; i < n; i++) {
+        var z = Math.random(); // volumetric depth: 0 = far, 1 = near
+        particles.push({
+          ch: set.charAt(Math.floor(Math.random() * set.length)),
+          x: Math.random() * W,
+          y: Math.random() * H,
+          z: z,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.14,
+          vz: (Math.random() - 0.5) * 0.0016,
+          size: 11 + Math.random() * 13,
+          baseAlpha: 0.05 + Math.random() * 0.10,
+          alpha: 0,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.5 + Math.random() * 1.2,
+          depth: 0.4 + z * 0.6,
+          tx: 0, ty: 0, hasTarget: false,
+          wx: 0, wy: 0, hasWay: false,   // loom thread waypoint (curved flight)
+          bx: 0, by: 0, hasBase: false,  // arrival base offsets (centered)
+          sx: 0, sy: 0, sf: 0,           // arrival scatter destination + factor
+          k: 0.045 + Math.random() * 0.05   // spring stiffness
+        });
+      }
+    }
+
+    function resize() {
+      DPR = Math.min(2, window.devicePixelRatio || 1);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      if (!canvas) return;
+      canvas.width = Math.round(W * DPR);
+      canvas.height = Math.round(H * DPR);
+      canvas.style.width = W + "px";
+      canvas.style.height = H + "px";
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+
+    function init() {
+      if (canvas) return;
+      canvas = document.createElement("canvas");
+      canvas.className = "glyph-stage";
+      canvas.setAttribute("aria-hidden", "true");
+      document.body.appendChild(canvas);
+      ctx = canvas.getContext("2d");
+      resize();
+      makeParticles();
+      window.addEventListener("resize", function () {
+        if (raf) cancelAnimationFrame(raf);
+        resize();
+        RAIN_MAX = window.innerWidth < 720 ? 4 : 7;
+        /* re-form whatever is on stage at the new size */
+        if (formationMode === "arrival") formArrival(true);
+        else if (formationMode === "loom") formLoom(formationWord, true);
+        else if (formationMode === "word") form(formationWord, true);
+        if (active && motionOn) { raf = requestAnimationFrame(frame); }
+        else { drawStatic(); }
+      });
+      window.addEventListener("pointermove", function (e) {
+        pointerX = (e.clientX / W - 0.5) * 2;
+        pointerY = (e.clientY / H - 0.5) * 2;
+      }, { passive: true });
+      window.addEventListener("scroll", function () {
+        var now = performance.now();
+        var dt = Math.max(16, now - lastScrollT);
+        var inst = ((window.scrollY - lastScrollY) / dt) * 16;
+        scrollVel = scrollVel * 0.78 + inst * 0.22;
+        lastScrollY = window.scrollY; lastScrollT = now;
+      }, { passive: true });
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+          fontsReady = true;
+          if (pendingArrival) { pendingArrival = false; formArrival(); return; }
+          if (pendingWord) {
+            var w = pendingWord, loom = pendingLoom;
+            pendingWord = null; pendingLoom = false;
+            if (loom) formLoom(w); else form(w);
+          }
+        });
+      } else { fontsReady = true; }
+    }
+
+    /* Sample a word into target points via an offscreen canvas.
+       Returns points centered on (cx, cy), scaled to targetW. */
+    function samplePoints(word, cx, cy, targetW, step, maxH) {
+      var off = document.createElement("canvas");
+      var octx = off.getContext("2d");
+      var fs = 260;
+      var font = "600 " + fs + "px 'Noto Sans Myanmar','Space Grotesk',serif";
+      octx.font = font;
+      var wpx = Math.max(40, octx.measureText(word).width);
+      off.width = Math.ceil(wpx) + 60;
+      off.height = Math.ceil(fs * 1.7);
+      octx.font = font;
+      octx.fillStyle = "#fff";
+      octx.textAlign = "center";
+      octx.textBaseline = "middle";
+      octx.fillText(word, off.width / 2, off.height / 2);
+      var data;
+      try { data = octx.getImageData(0, 0, off.width, off.height).data; }
+      catch (e) { return []; }
+      var pts = [];
+      for (var y = 0; y < off.height; y += step) {
+        for (var x = 0; x < off.width; x += step) {
+          if (data[(y * off.width + x) * 4 + 3] > 120) pts.push([x, y]);
+        }
+      }
+      if (!pts.length) return [];
+      var scale = Math.min(targetW / off.width, (maxH || H * 0.34) / off.height);
+      var ox = cx - (off.width * scale) / 2;
+      var oy = cy - (off.height * scale) / 2;
+      for (var i = 0; i < pts.length; i++) {
+        pts[i][0] = ox + pts[i][0] * scale;
+        pts[i][1] = oy + pts[i][1] * scale;
+      }
+      return pts;
+    }
+
+    function sampleWord(word, cx, cy, targetW) {
+      var pts = samplePoints(word, cx, cy, targetW, 5);
+      // shuffle + cap to particle count
+      for (var j = pts.length - 1; j > 0; j--) {
+        var k = Math.floor(Math.random() * (j + 1));
+        var t = pts[j]; pts[j] = pts[k]; pts[k] = t;
+      }
+      return pts.slice(0, particles.length);
+    }
+
+    /* Sample a diamond LOOM — the Karen weaving motif. Nested diamond
+       lattice + weft threads that frame the chapter numeral like a stage. */
+    function sampleLoom(cx, cy, r) {
+      var pts = [];
+      var push = function (x, y) { pts.push([x, y]); };
+      // two nested diamond frames (classic Karen cloth: diamond in diamond)
+      var rings = [1, 0.74];
+      for (var q = 0; q < rings.length; q++) {
+        var rr = r * rings[q];
+        var corners = [[cx, cy - rr], [cx + rr, cy], [cx, cy + rr], [cx - rr, cy]];
+        for (var s = 0; s < 4; s++) {
+          var a = corners[s], b = corners[(s + 1) % 4];
+          var seg = q === 0 ? 16 : 11;
+          for (var i = 1; i < seg; i++) {
+            var t = i / seg;
+            push(a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t);
+          }
+        }
+      }
+      // weft threads: faint horizontal passes across the inner diamond
+      var inner = r * 0.52;
+      for (var row = -2; row <= 2; row++) {
+        var yy = cy + (inner * row) / 3;
+        var half = inner * (1 - Math.abs(row) / 3);
+        for (var c = -3; c <= 3; c++) push(cx + (half * c) / 3, yy);
+      }
+      // four corner accents just outside the frame
+      var out = r * 1.13;
+      push(cx, cy - out); push(cx + out, cy); push(cx, cy + out); push(cx - out, cy);
+      return pts;
+    }
+
+    function assignTargets(pts, loomPts) {
+      // shuffle both pools; interleave loom (60%) + word (40%)
+      var shuffle = function (arr) {
+        for (var j = arr.length - 1; j > 0; j--) {
+          var k = Math.floor(Math.random() * (j + 1));
+          var t = arr[j]; arr[j] = arr[k]; arr[k] = t;
+        }
+        return arr;
+      };
+      shuffle(pts); shuffle(loomPts);
+      var n = particles.length;
+      var nLoom = loomPts.length ? Math.round(n * 0.58) : 0;
+      nLoom = Math.min(nLoom, loomPts.length);
+      var nWord = Math.min(pts.length, n - nLoom);
+      targets = pts.slice(0, nWord).concat(loomPts.slice(0, nLoom));
+      for (var i = 0; i < n; i++) {
+        var p = particles[i];
+        p.hasWay = false; p.hasBase = false;
+        if (i < nWord) {
+          p.tx = pts[i][0]; p.ty = pts[i][1]; p.hasTarget = true;
+        } else if (i < nWord + nLoom) {
+          var lp = loomPts[i - nWord];
+          p.tx = lp[0]; p.ty = lp[1]; p.hasTarget = true;
+          // curved thread flight: waypoint on an arc between here and target
+          var mx = (p.x + lp[0]) / 2, my = (p.y + lp[1]) / 2;
+          var dx = lp[0] - p.x, dy = lp[1] - p.y;
+          var len = Math.sqrt(dx * dx + dy * dy) || 1;
+          var side = (i % 2 === 0) ? 1 : -1;
+          p.wx = mx + (-dy / len) * len * 0.28 * side;
+          p.wy = my + (dx / len) * len * 0.28 * side;
+          p.hasWay = true;
+        } else { p.hasTarget = false; }
+      }
+    }
+
+    function form(word, silent) {
+      if (!canvas) init();
+      if (!fontsReady) { pendingWord = word; return; }
+      formationWord = word; formationMode = "word";
+      var isHome = !!document.querySelector("[data-film]");
+      var cx = W / 2;
+      var cy = isHome ? H * 0.40 : H * 0.30;
+      var tw = Math.min(W * 0.74, 880);
+      var pts = sampleWord(word, cx, cy, tw);
+      if (!pts.length) { targets = null; return; }
+      assignTargets(pts, []);
+      if (!motionOn) { drawStatic(); return; }
+      if (!silent && !raf && active) raf = requestAnimationFrame(frame);
+    }
+
+    /* THE LOOM — word at the heart, woven diamond lattice framing it. */
+    function formLoom(word, silent) {
+      if (!canvas) init();
+      if (!fontsReady) { pendingWord = word; pendingLoom = true; return; }
+      formationWord = word; formationMode = "loom";
+      var cx = W / 2;
+      var cy = H * 0.42;
+      var tw = Math.min(W * 0.5, 460);
+      var pts = sampleWord(word, cx, cy, tw);
+      var r = Math.min(W, H) * 0.36;
+      if (window.innerWidth < 720) r = Math.min(W, H) * 0.42;
+      var loomPts = sampleLoom(cx, cy, r);
+      if (!pts.length) { form(word, silent); return; }
+      assignTargets(pts, loomPts);
+      if (!motionOn) { drawStatic(); return; }
+      if (!silent && !raf && active) raf = requestAnimationFrame(frame);
+    }
+
+    /* THE ARRIVAL — the KOA wordmark built from glyphs, centered and level.
+       Targets are stored as offsets from center so the whole formation can
+       rise, grow, and disperse every frame without re-sampling. */
+    function formArrival(silent) {
+      if (!canvas) init();
+      if (!fontsReady) { pendingArrival = true; return; }
+      formationWord = "KOA"; formationMode = "arrival";
+      var tw = Math.min(W * 0.82, 1000);
+      var pts = samplePoints("KOA", 0, 0, tw, 4, H * 0.4);
+      if (!pts.length) { targets = null; return; }
+      // center offsets
+      var cx0 = 0, cy0 = 0;
+      for (var i = 0; i < pts.length; i++) { cx0 += pts[i][0]; cy0 += pts[i][1]; }
+      cx0 /= pts.length; cy0 /= pts.length;
+      for (i = 0; i < pts.length; i++) { pts[i][0] -= cx0; pts[i][1] -= cy0; }
+      // shuffle
+      for (var j = pts.length - 1; j > 0; j--) {
+        var k = Math.floor(Math.random() * (j + 1));
+        var t = pts[j]; pts[j] = pts[k]; pts[k] = t;
+      }
+      targets = pts.slice(0, particles.length);
+      var n = Math.min(targets.length, particles.length);
+      for (i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.hasWay = false;
+        if (i < n) {
+          p.bx = pts[i][0]; p.by = pts[i][1]; p.hasBase = true; p.hasTarget = true;
+          // scatter destination: somewhere out toward the edges
+          var ang = Math.random() * Math.PI * 2;
+          var rad = Math.max(W, H) * (0.55 + Math.random() * 0.5);
+          p.sx = W / 2 + Math.cos(ang) * rad;
+          p.sy = H * arrivalAnchorY + Math.sin(ang) * rad * 0.7;
+          p.sf = 0.55 + Math.random() * 0.75;
+          // begin at the seal's heart: the KOA rises off the logo itself
+          if (!silent) {
+            var d = Math.hypot(p.x - W / 2, p.y - H * 0.5);
+            if (d > Math.min(W, H) * 0.34) {
+              p.x = W / 2 + (Math.random() - 0.5) * 90;
+              p.y = H * 0.5 + (Math.random() - 0.5) * 90;
+              p.alpha = 0;
+            }
+          }
+        } else { p.hasBase = false; p.hasTarget = false; }
+      }
+      if (!motionOn) { drawStatic(); return; }
+      if (!silent && !raf && active) raf = requestAnimationFrame(frame);
+    }
+
+    /* live transform of the arrival formation (called from scroll) */
+    function arrivalTransform(anchorY, scale, scatter, cursor) {
+      arrivalAnchorY = anchorY;
+      arrivalScale = scale;
+      arrivalScatter = scatter;
+      arrivalCursor = cursor !== false;
+      if (!motionOn) drawStatic();
+    }
+
+    function release() {
+      targets = null; formationWord = null; formationMode = null;
+      arrivalScatter = 0;
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].hasTarget = false;
+        particles[i].hasWay = false;
+        particles[i].hasBase = false;
+      }
+      if (!motionOn) drawStatic();
+    }
+
+    function tint(rgb) { tintColor = rgb; }
+
+    /* ---- the rain ------------------------------------------------------- */
+    function setRain(on) { rainOn = on; if (!on) rainCols = []; }
+    function boostRain(v) { rainBoost = Math.max(rainBoost * 0.94, v); }
+
+    function spawnRainColumn(now) {
+      var set = glyphs();
+      var size = 10 + Math.random() * 13;               // different sizes
+      var len = 4 + Math.floor(Math.random() * 11);      // different lengths
+      var chars = [];
+      for (var i = 0; i < len; i++) chars.push(set.charAt(Math.floor(Math.random() * set.length)));
+      rainCols.push({
+        x: Math.random() * W,
+        y: H * (0.05 + Math.random() * 0.55),
+        size: size,
+        chars: chars,
+        vy: 0.14 + Math.random() * 0.4,
+        born: now,
+        life: 1400 + Math.random() * 2800,               // leaves at random times
+        maxAlpha: 0.07 + Math.random() * 0.09
+      });
+    }
+
+    function updateRain(now) {
+      if (!rainOn) return;
+      // intermittent spawning: base chance + scroll boost
+      var chance = 0.010 + Math.min(0.10, Math.abs(scrollVel) * 0.012) + rainBoost * 0.05;
+      if (rainCols.length < RAIN_MAX && Math.random() < chance) spawnRainColumn(now);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (var i = rainCols.length - 1; i >= 0; i--) {
+        var c = rainCols[i];
+        var age = now - c.born;
+        if (age > c.life) { rainCols.splice(i, 1); continue; }
+        // envelope: quick fade in, hold, fade out
+        var env = age < 380 ? age / 380
+          : age > c.life - 620 ? Math.max(0, (c.life - age) / 620)
+          : 1;
+        c.y += c.vy * (1 + Math.abs(scrollVel) * 0.06);
+        ctx.font = c.size + "px 'Noto Sans Myanmar','Space Grotesk',serif";
+        ctx.fillStyle = tintColor || "#fff";
+        for (var j = 0; j < c.chars.length; j++) {
+          var a = c.maxAlpha * env * (1 - j / (c.chars.length + 2));
+          if (a < 0.004) continue;
+          ctx.globalAlpha = a;
+          ctx.fillText(c.chars[j], c.x, c.y + j * c.size * 1.22);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    /* ---- drawing -------------------------------------------------------- */
+    function drawGlyph(p, now, streak) {
+      var flicker = 0.72 + 0.28 * Math.sin(now * 0.0011 * p.speed + p.phase);
+      var a = p.alpha * flicker;
+      if (a < 0.004) return;
+      var px = p.x + pointerX * 22 * p.depth;
+      var py = p.y + pointerY * 14 * p.depth;
+      if (streak > 3) {
+        ctx.globalAlpha = a * 0.3;
+        ctx.fillText(p.ch, px, py - streak * 1.4);
+      }
+      ctx.globalAlpha = a;
+      if (tintColor && p.hasTarget) ctx.fillStyle = tintColor;
+      else ctx.fillStyle = "#fff";
+      ctx.fillText(p.ch, px, py);
+    }
+
+    function frame(now) {
+      raf = null;
+      if (!active) return;
+      ctx.clearRect(0, 0, W, H);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      var streak = Math.abs(scrollVel);
+
+      updateRain(now);
+
+      var mpx = W / 2 + pointerX * (W / 2);
+      var mpy = H / 2 + pointerY * (H / 2);
+      var ay = H * arrivalAnchorY;
+
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (formationMode === "arrival" && p.hasBase) {
+          /* the KOA lives here: anchored, scalable, dispersible */
+          var tx = W / 2 + p.bx * arrivalScale;
+          var ty = ay + p.by * arrivalScale;
+          if (arrivalScatter > 0.001) {
+            tx += (p.sx - tx) * arrivalScatter * p.sf;
+            ty += (p.sy - ty) * arrivalScatter * p.sf;
+          }
+          p.x += (tx - p.x) * (p.k * 1.5);
+          p.y += (ty - p.y) * (p.k * 1.5);
+          /* cursor-reactive: the formed glyphs shy away from the hand */
+          if (arrivalCursor && arrivalScatter < 0.4) {
+            var dx = p.x - mpx, dy = p.y - mpy;
+            var d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 130 && d > 0.001) {
+              var f = (1 - d / 130) * 8.5;
+              p.x += (dx / d) * f;
+              p.y += (dy / d) * f;
+            }
+          }
+          var dd = Math.abs(tx - p.x) + Math.abs(ty - p.y);
+          p.alpha += ((dd < 30 ? 0.66 : 0.30) - p.alpha) * 0.06;
+        } else if (p.hasTarget) {
+          if (p.hasWay) {
+            // thread flight: pulled toward the arc waypoint first, then target
+            var dw = Math.abs(p.wx - p.x) + Math.abs(p.wy - p.y);
+            if (dw > 26) {
+              p.x += (p.wx - p.x) * (p.k * 1.6);
+              p.y += (p.wy - p.y) * (p.k * 1.6);
+            } else { p.hasWay = false; }
+          }
+          p.x += (p.tx - p.x) * p.k;
+          p.y += (p.ty - p.y) * p.k;
+          var d2 = Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y);
+          var settled = d2 < 30;
+          p.alpha += ((settled ? 0.62 : 0.30) - p.alpha) * 0.06;
+        } else {
+          p.x += p.vx; p.y += p.vy;
+          // volumetric drift: particles slowly breathe through depth
+          p.z += p.vz;
+          if (p.z < 0.05 || p.z > 1) p.vz = -p.vz;
+          if (p.x < -30) p.x = W + 20; if (p.x > W + 30) p.x = -20;
+          if (p.y < -30) p.y = H + 20; if (p.y > H + 30) p.y = -20;
+          p.alpha += (p.baseAlpha - p.alpha) * 0.04;
+        }
+        var zs = 0.72 + p.z * 0.55; // depth scale: far glyphs small, near glyphs big
+        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Space Grotesk',serif";
+        drawGlyph(p, now, streak);
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = "#fff";
+      scrollVel *= 0.9;
+      rainBoost *= 0.97;
+      raf = requestAnimationFrame(frame);
+    }
+
+    function drawStatic() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, W, H);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      var now = performance.now();
+      var ay = H * arrivalAnchorY;
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        if (formationMode === "arrival" && p.hasBase) {
+          p.x = W / 2 + p.bx * arrivalScale;
+          p.y = ay + p.by * arrivalScale;
+          p.alpha = 0.58;
+        } else if (p.hasTarget) { p.x = p.tx; p.y = p.ty; p.alpha = 0.55; }
+        else { p.alpha = p.baseAlpha; }
+        var zs = 0.72 + p.z * 0.55;
+        ctx.font = Math.max(7, p.size * zs) + "px 'Noto Sans Myanmar','Space Grotesk',serif";
+        drawGlyph(p, now, 0);
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = "#fff";
+      staticDrawn = true;
+    }
+
+    function setActive(on) {
+      active = on;
+      if (!canvas) return;
+      if (on) {
+        if (!raf) raf = requestAnimationFrame(frame);
+      } else {
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+        drawStatic();
+      }
+    }
+
+    return {
+      init: init,
+      form: form,
+      formLoom: formLoom,
+      formArrival: formArrival,
+      arrivalTransform: arrivalTransform,
+      release: release,
+      tint: tint,
+      setRain: setRain,
+      boostRain: boostRain,
+      setActive: setActive,
+      isFormed: function () { return !!targets; },
+      mode: function () { return formationMode; },
+      word: function () { return formationWord; },
+      numerals: MYAN
+    };
+  })();
+
+  /* ======================================================================
+     WORD ASSEMBLY — paragraphs solidify one randomly-ordered word at a time.
+     The text is already in the HTML; we only wrap + reveal when motion is on.
+     ====================================================================== */
+  function assembleEl(el) {
+    if (!el || el.dataset.assembled) return;
+    el.dataset.assembled = "1";
+    if (!motionOn || prefersReduced) return; // text stays visible as-is
+    var words = el.textContent.trim().split(/\s+/);
+    if (words.length < 3) return;
+    el.textContent = "";
+    var spans = [];
+    for (var i = 0; i < words.length; i++) {
+      var s = document.createElement("span");
+      s.className = "aw";
+      s.textContent = words[i] + (i < words.length - 1 ? " " : "");
+      s.style.opacity = "0";
+      el.appendChild(s);
+      spans.push(s);
+    }
+    var order = spans.map(function (_, idx) { return idx; });
+    for (var j = order.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1));
+      var t = order[j]; order[j] = order[k]; order[k] = t;
+    }
+    var n = 0;
+    var iv = setInterval(function () {
+      if (n >= order.length) { clearInterval(iv); return; }
+      spans[order[n++]].style.opacity = "1";
+    }, 34);
+  }
+
+  /* ---- Motion toggle — one-time chrome binding ---------------------------- */
+  var motionBtn = document.querySelector("button[data-motion]");
+  function syncMotionBtn() {
+    if (!motionBtn) return;
+    motionBtn.textContent = motionOn ? "Motion on" : "Motion off";
+  }
+  syncMotionBtn();
+  if (motionBtn) {
+    motionBtn.addEventListener("click", function () {
+      motionOn = !motionOn;
+      document.body.dataset.motion = motionOn ? "on" : "off";
+      syncMotionBtn();
+      GlyphStage.setActive(motionOn);
+    });
+  }
+
+  /* ---- Header scroll state — one-time chrome binding ---------------------- */
+  var header = document.querySelector("[data-header]");
+  function onHeaderScroll() {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+  }
+  window.addEventListener("scroll", onHeaderScroll, { passive: true });
+  onHeaderScroll();
+
+  /* ---- Mobile menu — one-time chrome binding ------------------------------- */
+  var menuBtn = document.querySelector("[data-menu]");
+  var panel = document.querySelector("[data-mobile-panel]");
+  if (menuBtn && panel) {
+    menuBtn.addEventListener("click", function () {
+      var open = panel.classList.toggle("is-open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
+    });
+    panel.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        panel.classList.remove("is-open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
+  /* ---- Footer year — one-time chrome binding -------------------------------- */
+  var yr = document.querySelector("[data-year]");
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ---- GlyphStage + veil boot (chrome, once) -------------------------------- */
+  GlyphStage.init();
+  GlyphStage.setActive(motionOn);
+  // Dev mode (no hash router): clear the intro veil ourselves.
+  if (location.hash.indexOf("#/") !== 0 && !window.__koaRouter) {
+    var v0 = document.querySelector(".veil");
+    if (v0) {
+      setTimeout(function () { v0.classList.add("is-clear"); }, 260);
+    }
+  }
+
+  /* ================= content-scoped init (re-runnable) ==================== */
+  var homeScrollHandler = null;
+  var homeResizeHandler = null;
+  var partnerTimer = null;
+  var lastSceneIdx = -1;
+
+  function init() {
+    var root = document.getElementById("main") || document;
+    var film = root.querySelector("[data-film]");
+    var arrivalEl = root.querySelector("[data-arrival]");
+
+    /* drop the previous page's home listeners + timers */
+    if (homeScrollHandler) {
+      window.removeEventListener("scroll", homeScrollHandler);
+      window.removeEventListener("resize", homeResizeHandler);
+      homeScrollHandler = homeResizeHandler = null;
+    }
+    if (partnerTimer) { clearInterval(partnerTimer); partnerTimer = null; }
+    document.body.classList.toggle("is-filming", !!film);
+    lastSceneIdx = -1;
+
+    /* ---- GlyphStage: formation for this page ------------------------------- */
+    var glyphHolder = root.querySelector("[data-glyph-word]");
+    GlyphStage.setRain(!!film);
+    if (film) {
+      // home: the arrival + film drive formations (see updateHome); start assembled
+      GlyphStage.formArrival();
+      GlyphStage.arrivalTransform(0.42, 1, 0, true);
+    } else if (glyphHolder && glyphHolder.dataset.glyphWord) {
+      var w = glyphHolder.dataset.glyphWord;
+      GlyphStage.release();
+      setTimeout(function () {
+        // only if we're still on a page that wants this word
+        var still = document.querySelector("[data-glyph-word]");
+        if (still && still.dataset.glyphWord === w) GlyphStage.form(w);
+      }, 380);
+    } else {
+      GlyphStage.release();
+    }
+
+    /* ---- Scroll reveals ---------------------------------------------------- */
+    var revealEls = root.querySelectorAll("[data-reveal]");
+    if ("IntersectionObserver" in window && motionOn) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+    }
+
+    /* ---- Stagger data-reveal children -------------------------------------- */
+    root.querySelectorAll("[data-reveal-stagger]").forEach(function (group) {
+      Array.prototype.forEach.call(group.children, function (child, i) {
+        child.setAttribute("data-reveal", "");
+        child.setAttribute("data-reveal-delay", String(i % 4));
+      });
+    });
+
+    /* ---- Word assembly: standalone elements assemble on sight --------------
+       Film scenes + the arrival mission are driven by their own choreography
+       and marked data-assemble="late" so this observer skips them. */
+    var freeAssemble = root.querySelectorAll('[data-assemble]:not([data-assemble="late"])');
+    if ("IntersectionObserver" in window && motionOn && !prefersReduced) {
+      var aio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { assembleEl(e.target); aio.unobserve(e.target); }
+        });
+      }, { threshold: 0.4 });
+      freeAssemble.forEach(function (el) { aio.observe(el); });
+    }
+
+    /* ---- Home: THE ARRIVAL + the film, one continuous scroll --------------- */
+    if (film && arrivalEl) {
+      var scenes = Array.prototype.slice.call(film.querySelectorAll("[data-scene]"));
+      var dots = Array.prototype.slice.call(film.querySelectorAll(".chapter-dots li"));
+      var bar = film.querySelector(".film-progress i");
+      var frameEl = film.querySelector("[data-frame]");
+      var total = parseInt(film.dataset.total || "3000", 10);
+      var cue = root.querySelector(".scroll-cue");
+      var mission = arrivalEl.querySelector('[data-assemble="late"]');
+      var ticking = false;
+      var control = "arrival"; // who owns the glyph stage right now
+
+      /* chapter color temperature — the film's light changes with the hour */
+      var TEMPS = [null, "255,196,140", "238,240,235", "168,196,255", "150,232,222", "255,178,120"];
+
+      function onSceneChange(idx, scene) {
+        dots.forEach(function (d, i) { d.classList.toggle("is-active", i === idx); });
+        /* the chapter's light */
+        var t = TEMPS[idx + 1] || null;
+        film.style.setProperty("--chapter-tint", t || "255,255,255");
+        document.body.style.setProperty("--chapter-tint", t || "255,255,255");
+        GlyphStage.tint(t ? "rgb(" + t + ")" : null);
+        /* the KOA's glyphs dissolve into this chapter's woven numeral */
+        var num = scene && scene.dataset.glyphNum ? scene.dataset.glyphNum : MYAN[idx];
+        GlyphStage.formLoom(num);
+        /* and the chapter's words solidify */
+        if (scene) {
+          var late = scene.querySelector('[data-assemble="late"]');
+          if (late) setTimeout(function () { assembleEl(late); }, 420);
+        }
+      }
+
+      function updateHome() {
+        ticking = false;
+
+        /* ---- arrival progress ------------------------------------------ */
+        var ah = arrivalEl.offsetHeight - window.innerHeight;
+        var aScrolled = Math.min(Math.max(window.scrollY - (arrivalEl.offsetTop || 0), 0), ah);
+        var pa = ah > 0 ? aScrolled / ah : 0;
+
+        /* ---- film progress ---------------------------------------------- */
+        var fh = film.offsetHeight - window.innerHeight;
+        var fScrolled = Math.min(Math.max(window.scrollY - (film.offsetTop || 0), 0), fh);
+        var pf = fh > 0 ? fScrolled / fh : 0;
+        var filmLive = window.scrollY + window.innerHeight > film.offsetTop + 40 && pf > 0.004;
+
+        if (bar) bar.style.width = (pf * 100).toFixed(2) + "%";
+        if (frameEl) frameEl.textContent = String(Math.round(pf * total)).padStart(4, "0");
+
+        var idx = Math.min(scenes.length - 1, Math.floor(pf * scenes.length));
+        if (filmLive) {
+          scenes.forEach(function (s, i) { s.classList.toggle("active", i === idx); });
+        } else {
+          scenes.forEach(function (s) { s.classList.remove("active"); });
+        }
+        if (cue) cue.classList.toggle("is-hidden", pa > 0.03);
+
+        /* ---- arrival phase states (CSS hooks) --------------------------- */
+        arrivalEl.classList.toggle("is-assembly", pa > 0.16);
+        arrivalEl.classList.toggle("is-risen", pa > 0.46);
+        arrivalEl.classList.toggle("is-scattering", pa > 0.72);
+
+        /* ---- who owns the glyphs ---------------------------------------- */
+        if (filmLive) {
+          if (control !== "film") {
+            control = "film";
+            lastSceneIdx = -1; // force formation handoff on entry
+          }
+          if (idx !== lastSceneIdx) { lastSceneIdx = idx; onSceneChange(idx, scenes[idx]); }
+        } else {
+          if (control !== "arrival") {
+            control = "arrival";
+            if (GlyphStage.mode() !== "arrival") GlyphStage.formArrival();
+            GlyphStage.tint(null);
+            film.style.setProperty("--chapter-tint", "255,255,255");
+            document.body.style.setProperty("--chapter-tint", "255,255,255");
+          }
+          /* the choreography: assemble → hold → rise → disperse */
+          var assembleP = Math.min(1, Math.max(0, (pa - 0.10) / 0.22));
+          var riseP = Math.min(1, Math.max(0, (pa - 0.46) / 0.30));
+          var scatterP = Math.min(1, Math.max(0, (pa - 0.74) / 0.24));
+          var ease = function (x) { return x * x * (3 - 2 * x); };
+          var anchorY = 0.42 - ease(riseP) * 0.24;         // seal line → top third
+          var scale = 1 + ease(riseP) * 0.16;               // grows a little
+          var scatter = ease(scatterP);
+          GlyphStage.arrivalTransform(anchorY, scale, scatter, assembleP > 0.5 && scatter < 0.3);
+          GlyphStage.boostRain(scatterP * 0.9 + Math.min(1, Math.abs(window.scrollY - (lastScrollForRain || 0)) / 240) * 0.4);
+          lastScrollForRain = window.scrollY;
+          /* the mission tells itself once the KOA has risen */
+          if (pa > 0.5 && mission) assembleEl(mission);
+        }
+      }
+      var lastScrollForRain = 0;
+
+      homeScrollHandler = function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateHome); }
+      };
+      homeResizeHandler = updateHome;
+      window.addEventListener("scroll", homeScrollHandler, { passive: true });
+      window.addEventListener("resize", homeResizeHandler);
+      updateHome();
+    }
+
+    /* ---- Partner wall (contact) --------------------------------------------
+       Three large marks across the screen; one changes at a random interval.
+       Real partner logos slot into POOL as {name, role, logo:"assets/…png"}
+       the moment a partnership is confirmed — until then the wall honestly
+       shows announcement-pending seals, never invented organizations. */
+    var partnerStage = root.querySelector("[data-partners]");
+    if (partnerStage) {
+      var POOL = [
+        { mark: "၁", name: "Partner announcement", role: "pending · slot one" },
+        { mark: "၂", name: "Partner announcement", role: "pending · slot two" },
+        { mark: "၃", name: "Partner announcement", role: "pending · slot three" },
+        { mark: "၄", name: "Partner announcement", role: "pending · slot four" },
+        { mark: "၅", name: "Partner announcement", role: "pending · slot five" }
+      ];
+      var slots = Array.prototype.slice.call(partnerStage.querySelectorAll(".partner-slot"));
+      var renderSlot = function (slot, item) {
+        slot.dataset.mark = item.mark;
+        slot.innerHTML =
+          '<span class="partner-mark" aria-hidden="true">' + item.mark + '</span>' +
+          '<span class="partner-name">' + item.name + '</span>' +
+          '<span class="partner-role">' + item.role + '</span>';
+      };
+      var pickDifferent = function (currentMark) {
+        var options = POOL.filter(function (p) { return p.mark !== currentMark; });
+        return options[Math.floor(Math.random() * options.length)];
+      };
+      slots.forEach(function (slot, i) { renderSlot(slot, POOL[i % POOL.length]); });
+      if (motionOn && !prefersReduced && slots.length > 1) {
+        partnerTimer = setInterval(function () {
+          var slot = slots[Math.floor(Math.random() * slots.length)];
+          slot.classList.add("is-swapping");
+          setTimeout(function () {
+            renderSlot(slot, pickDifferent(slot.dataset.mark));
+            slot.classList.remove("is-swapping");
+          }, 520);
+        }, 4200);
+      }
+    }
+
+    /* ---- Stat counters --------------------------------------------------------
+       The final value lives in the HTML, so the numbers are correct with no JS,
+       reduced motion, or before any scroll. We only *animate* (from 0) when the
+       element starts below the fold and motion is on. */
+    var counters = root.querySelectorAll("[data-count]");
+    var finalOf = function (el) {
+      return el.dataset.count + (el.dataset.suffix || "");
+    };
+    counters.forEach(function (el) {
+      if (!motionOn || prefersReduced) { el.textContent = finalOf(el); return; }
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) {
+        el.textContent = finalOf(el); // already on screen: no point counting up
+        return;
+      }
+      el.textContent = "0" + (el.dataset.suffix || "");
+      var done = false;
+      var run = function () {
+        if (done) return;
+        done = true;
+        var end = parseInt(el.dataset.count, 10);
+        var suffix = el.dataset.suffix || "";
+        var t0 = null, dur = 1400;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(end * eased) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      };
+      if ("IntersectionObserver" in window) {
+        var cio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { cio.unobserve(e.target); run(); }
+          });
+        }, { threshold: 0.5 });
+        cio.observe(el);
+      } else {
+        run();
+      }
+    });
+
+    /* ---- Waitlist / newsletter form -------------------------------------------- */
+    var waitlistForms = root.querySelectorAll("[data-waitlist-form]");
+    waitlistForms.forEach(function (form) {
+      var wrap = form.closest("[data-waitlist]") || form.parentElement;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var input = form.querySelector("input[type=email]");
+        var email = input && input.value ? input.value.trim() : "";
+        if (!email) return;
+        // Works today with zero backend: opens a pre-filled email to the KOA
+        // team so the signup is real from day one. Swap for an endpoint later.
+        var subject = encodeURIComponent("KOA early access — " + (form.dataset.tag || "newsletter"));
+        var body = encodeURIComponent(
+          "Name: " + (form.dataset.name || "") + "\n" +
+          "Email: " + email + "\n" +
+          "I'd like early access to the beta and to help build the Karen AI with the community."
+        );
+        window.location.href = "mailto:karenorgamerica@gmail.com?subject=" + subject + "&body=" + body;
+        form.classList.add("is-sent");
+        if (wrap) wrap.classList.add("is-done");
+      });
+    });
+  }
+
+  window.__koaInit = init;
+  init();
+})();
+
+</script>
+<script>
+
+/* ================= KOA hash router (packed single-file build) ================= */
+(function () {
+  "use strict";
+  var PAGES = {
+    "/": "\n<a class=\"skip\" href=\"#main\">Skip to main content</a>\n\n\n\n<div class=\"mobile-panel\" id=\"mobile-panel\" data-mobile-panel>\n  <a href=\"#/\">Home</a>\n  <a href=\"#/about\">About</a>\n  <a href=\"#/programs\">Programs</a>\n  <a href=\"#/stories\">Stories</a>\n  <a href=\"#/music\">Music</a>\n  <a href=\"#/coming-soon\">Coming Soon</a>\n  <a href=\"#/contact\">Contact</a>\n  <a href=\"#/coming-soon#waitlist\" class=\"pill pill--gold\">Join the early access</a>\n</div>\n\n<main id=\"main\">\n\n  <!-- ============================ THE ARRIVAL ============================\n       The first thing you see: the seal, haloed and spiraling. Its KOA is\n       the animation — assembled from glyphs, cursor-responsive, rising on\n       scroll, then dispersing into the film. -->\n  <section class=\"arrival\" data-arrival aria-label=\"KOA — the arrival\">\n    <div class=\"arrival-stage\">\n      <span class=\"chapter-bg-num chapter-bg-num--prologue\" aria-hidden=\"true\">KOA</span>\n      <div class=\"halo\" aria-hidden=\"true\">\n        <i class=\"halo-ring halo-ring--1\"></i>\n        <i class=\"halo-ring halo-ring--2\"></i>\n        <i class=\"halo-ring halo-ring--3\"></i>\n        <i class=\"halo-spiral\"></i>\n        <img src=\"[embedded asset]" alt=\"\" class=\"halo-seal\">\n      </div>\n      <div class=\"arrival-copy\">\n        <p class=\"eyebrow\" data-arrival-beat>Karen Organization of America</p>\n        <h1 data-arrival-beat>One people.<br>One <em>home.</em></h1>\n      </div>\n      <div class=\"arrival-mission\" data-arrival-beat>\n        <p data-assemble=\"late\">KOA exists so the Karen people in America have one national home — the elders who carried the language across an ocean, the parents keeping it alive at kitchen tables, the kids hearing it for the first time in a new country; the churches and the businesses, the musicians and the athletes, the cooks and the quiet keepers of every old song. One roof for the language, the food, the faith, the games, the news — and the future.</p>\n      </div>\n      <div class=\"scroll-cue\" aria-hidden=\"true\"><span>Scroll</span><i></i></div>\n    </div>\n  </section>\n\n  <!-- ============================ THE FILM ============================ -->\n  <section class=\"film\" data-film data-total=\"3000\" aria-label=\"KOA cinematic introduction\">\n    <div class=\"film-stage\">\n      <div class=\"film-letterbox\" aria-hidden=\"true\"><i class=\"lb lb--top\"></i><i class=\"lb lb--bottom\"></i></div>\n      <div class=\"film-progress\" aria-hidden=\"true\"><i></i></div>\n      <div class=\"film-label\" aria-hidden=\"true\">KOA · a homecoming in five chapters</div>\n      <div class=\"film-meta\" aria-hidden=\"true\"><span>FRAME</span><b data-frame>0000</b><span>/ 3000</span></div>\n      <ol class=\"chapter-dots\" aria-hidden=\"true\"><li></li><li></li><li></li><li></li><li></li></ol>\n\n      <!-- Chapter 01 · rack focus -->\n      <article class=\"scene scene--rack active\" data-scene data-glyph-num=\"၁\">\n        <span class=\"chapter-bg-num\" aria-hidden=\"true\">၁</span>\n        <div class=\"scene-media\" style=\"--position:50% 40%\">\n          <img src=\"[embedded asset]" alt=\"An elder woman in traditional dress is steadied by a younger family member at a community food distribution at dusk\">\n        </div>\n        <div class=\"scene-copy\">\n          <p class=\"scene-script karen-script\" data-beat lang=\"khw\">ဒလ်စာလိက် ဒလ်သိုဟ် ဒလ်သၞာန်</p>\n          <div data-beat>\n            <p class=\"scene-kicker\">01 · Since before borders</p>\n            <h2>The people are<br>the <em>story.</em></h2>\n          </div>\n          <p class=\"scene-sub\" data-beat data-assemble=\"late\">A thousand years of song, scripture, and survival — carried now into America, into a new century, into a home of their own making.</p>\n        </div>\n        <span class=\"scene-credit\">Community care, at dusk</span>\n      </article>\n\n      <!-- Chapter 02 · curtain wipe -->\n      <article class=\"scene scene--wipe\" data-scene data-glyph-num=\"၂\">\n        <span class=\"chapter-bg-num\" aria-hidden=\"true\">၂</span>\n        <div class=\"scene-media\" style=\"--position:50% 60%\">\n          <img src=\"[embedded asset]" alt=\"A large outdoor Karen community gathering\">\n        </div>\n        <div class=\"scene-copy\">\n          <div data-beat>\n            <p class=\"scene-kicker\">02 · The organization</p>\n            <h2>One roof.<br>Every <em>need.</em></h2>\n          </div>\n          <p class=\"scene-sub\" data-beat data-assemble=\"late\">KOA works where the community stands — education, health, language, faith, and the everyday. A nonprofit built by Karen hands, for Karen people, across the United States.</p>\n        </div>\n        <span class=\"scene-credit\">Community scale</span>\n      </article>\n\n      <!-- Chapter 03 · iris -->\n      <article class=\"scene scene--iris\" data-scene data-glyph-num=\"၃\">\n        <span class=\"chapter-bg-num\" aria-hidden=\"true\">၃</span>\n        <div class=\"scene-media\" style=\"--position:50% 35%\">\n          <img src=\"[embedded asset]" alt=\"A sepak takraw player frozen mid-air over the net at a floodlit night tournament, crowd behind\">\n        </div>\n        <div class=\"scene-copy\">\n          <div data-beat>\n            <p class=\"scene-kicker\">03 · Life in the open</p>\n            <h2>Tournaments,<br>tables &amp; <em>songs.</em></h2>\n          </div>\n          <p class=\"scene-sub\" data-beat data-assemble=\"late\">Sepak takraw under floodlights. Sunday tables full. Music that only this people knows how to feel. A culture isn't preserved in a museum — it's lived on a schedule.</p>\n        </div>\n        <span class=\"scene-credit\">Night match, community courts</span>\n      </article>\n\n      <!-- Chapter 04 · rise -->\n      <article class=\"scene scene--rise\" data-scene data-glyph-num=\"၄\">\n        <span class=\"chapter-bg-num\" aria-hidden=\"true\">၄</span>\n        <div class=\"scene-media\" style=\"--position:50% 50%\">\n          <img src=\"[embedded asset]" alt=\"Karen community members gathered together at an outdoor gathering\">\n        </div>\n        <div class=\"scene-copy\">\n          <div data-beat>\n            <p class=\"scene-kicker\">04 · The future, in our hands</p>\n            <h2>We'll teach a<br>machine to <em>speak.</em></h2>\n          </div>\n          <p class=\"scene-sub\" data-beat data-assemble=\"late\">A Karen AI — built with the community, for the language itself. Coming soon. The people who help build it will be written into its name.</p>\n        </div>\n        <span class=\"scene-credit\">The next generation, gathered</span>\n      </article>\n\n      <!-- Chapter 05 · parting veil -->\n      <article class=\"scene scene--veil\" data-scene data-glyph-num=\"၅\">\n        <span class=\"chapter-bg-num\" aria-hidden=\"true\">၅</span>\n        <div class=\"scene-media\" style=\"--position:50% 45%\">\n          <img src=\"[embedded asset]" alt=\"A community handout at dusk, warm light under the eaves\">\n        </div>\n        <div class=\"scene-copy\">\n          <div data-beat>\n            <p class=\"scene-kicker\">05 · An invitation</p>\n            <h2>Come in.<br>Stay a <em>while.</em></h2>\n          </div>\n          <p class=\"scene-sub\" data-beat data-assemble=\"late\">Volunteer, contribute your voice and words, or simply follow along. The next chapter is being written now — and there's a seat with your name on it.</p>\n          <div class=\"btn-row\" data-beat style=\"margin-top:2rem\">\n            <a class=\"btn btn--solid\" href=\"#/coming-soon#waitlist\">Reserve a seat</a>\n            <a class=\"btn btn--ghost\" href=\"#/about\">Read the story</a>\n          </div>\n        </div>\n        <span class=\"scene-credit\">Doors open at dusk</span>\n      </article>\n    </div>\n  </section>\n\n  <!-- ============================ INTERLUDE ============================ -->\n  <section class=\"interlude\">\n    <blockquote data-reveal=\"lines\">\n      <span class=\"line-mask\"><span>A language is a house.</span></span>\n      <span class=\"line-mask\"><span>When it leaves a mouth for the last time,</span></span>\n      <span class=\"line-mask\"><span><em>someone goes home to nothing.</em></span></span>\n    </blockquote>\n    <cite data-reveal>Why this work matters</cite>\n  </section>\n\n  <!-- ============================ MISSION SPLIT ============================ -->\n  <section class=\"section\" aria-labelledby=\"mission-title\">\n    <div class=\"container split\">\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"Karen community members gathered together\" loading=\"lazy\">\n        <figcaption>KOA community, United States</figcaption>\n      </div>\n      <div class=\"split-copy\">\n        <p class=\"eyebrow\" data-reveal>The organization</p>\n        <h2 id=\"mission-title\" data-reveal>Not a monument.<br>A <em>living thing.</em></h2>\n        <p class=\"lede\" data-reveal>The Karen Organization of America exists so that the S'gaw Karen people in America have a home — a place for the language, the food, the faith, the games, the news, and the future.</p>\n        <ul data-reveal>\n          <li>Language kept alive — and taught, by the people, with new tools no one has built before</li>\n          <li>Community services across the United States, run at the human scale</li>\n          <li>A national registry of Karen churches, businesses, and resources — so you're never alone, ever</li>\n          <li>Music, events, and a story told the way it deserves to be told</li>\n        </ul>\n        <div class=\"btn-row mt-3\" data-reveal>\n          <a class=\"btn\" href=\"#/about\">About KOA</a>\n          <a class=\"btn btn--ghost\" href=\"#/programs\">What we do</a>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ STATS ============================ -->\n  <section class=\"section section--tight\" aria-label=\"KOA by the numbers\">\n    <div class=\"container\">\n      <div class=\"stats\" data-reveal-stagger>\n        <div class=\"stat\"><b data-count=\"1000\" data-suffix=\"+\">1000+</b><span>Years of S'gaw Karen</span></div>\n        <div class=\"stat\"><b data-count=\"3\">3</b><span>Languages side by side<br>(Karen · Thai · Burmese)</span></div>\n        <div class=\"stat\"><b data-count=\"15\" data-suffix=\"B\">15B</b><span>Parameters planned<br>for the Karen AI</span></div>\n        <div class=\"stat\"><b>∞</b><span>Seats at the table</span></div>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ WHAT WE DO ============================ -->\n  <section class=\"section\" aria-labelledby=\"do-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">Where to start</p>\n        <h2 id=\"do-title\">One organization.<br>Seven <em>doors.</em></h2>\n        <p class=\"lede\">Every door leads somewhere real. Some are open now — others are being built, and the community is invited to build them.</p>\n      </div>\n      <div class=\"grid-4\" data-reveal-stagger>\n        <a class=\"card\" href=\"#/about\">\n          <span class=\"num\">01</span>\n          <h3>About</h3>\n          <p>The story of the Karen people and the mission behind KOA.</p>\n          <span class=\"arrow\" aria-hidden=\"true\">→</span>\n        </a>\n        <a class=\"card\" href=\"#/programs\">\n          <span class=\"num\">02</span>\n          <h3>Programs</h3>\n          <p>Education, language, health, and community services across the U.S.</p>\n          <span class=\"arrow\" aria-hidden=\"true\">→</span>\n        </a>\n        <a class=\"card\" href=\"#/stories\">\n          <span class=\"num\">03</span>\n          <h3>Stories</h3>\n          <p>Voices from the community — the news hub, told in the first person.</p>\n          <span class=\"arrow\" aria-hidden=\"true\">→</span>\n        </a>\n        <a class=\"card\" href=\"#/music\">\n          <span class=\"num\">04</span>\n          <h3>Music</h3>\n          <p>Karen music, front to back — featuring thra eh keh lah.</p>\n          <span class=\"arrow\" aria-hidden=\"true\">→</span>\n        </a>\n        <a class=\"card\" href=\"#/coming-soon\">\n          <span class=\"num\">05</span>\n          <h3>Coming Soon</h3>\n          <p>The Karen AI, the national registry, events &amp; recipes. Nobody knows it yet.</p>\n          <span class=\"arrow\" aria-hidden=\"true\">→</span>\n        </a>\n        <a class=\"card\" href=\"#/programs#events\">\n          <span class=\"num\">06</span>\n          <h3>Events</h3>\n          <p>Sepak takraw, volleyball, soccer — and the table where everyone cooks.</p>\n          <span class=\"arrow\" aria-hidden=\"true\">→</span>\n        </a>\n        <a class=\"card\" href=\"#/contact\">\n          <span class=\"num\">07</span>\n          <h3>Contact</h3>\n          <p>Reach the people making it. The doors are open.</p>\n          <span class=\"arrow\" aria-hidden=\"true\">→</span>\n        </a>\n        <div class=\"card\" style=\"display:flex;flex-direction:column;justify-content:center\">\n          <span class=\"num\">↔</span>\n          <h3>Coming in <em>English · Karen · ไทย · မြန်မာ</em></h3>\n          <p>The bilingual edition is on its way. Leave your email and be first through the door.</p>\n          <a class=\"btn btn--ghost\" href=\"#/coming-soon#waitlist\" style=\"margin-top:1rem;align-self:start\">Get notified</a>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ COMING SOON TEASER ============================ -->\n  <section class=\"section\" aria-labelledby=\"teaser-title\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\">\n    <div class=\"container split split--reversed split--wide\">\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"A sepak takraw player mid-air at a floodlit night tournament\" loading=\"lazy\">\n        <figcaption>Night match — the events to come</figcaption>\n      </div>\n      <div class=\"split-copy\">\n        <p class=\"eyebrow\" data-reveal>Whispered, not announced</p>\n        <h2 id=\"teaser-title\" data-reveal>There's a lot more<br>coming <em>soon.</em></h2>\n        <p class=\"lede\" data-reveal>A Karen AI that teaches the language. A national registry of churches and businesses. Tournaments and recipes the community votes on. A podcast. We're building it quietly — and we want you inside the walls before the doors open.</p>\n        <div class=\"btn-row mt-2\" data-reveal>\n          <a class=\"btn\" href=\"#/coming-soon\">See what's coming</a>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ WAITLIST ============================ -->\n  <section class=\"waitlist\" id=\"waitlist\" data-waitlist aria-labelledby=\"waitlist-title\">\n    <div class=\"container\">\n      <div class=\"section-head section-head--center\" data-reveal>\n        <p class=\"eyebrow\">Early access</p>\n        <h2 id=\"waitlist-title\">Be first through<br>the <em>door.</em></h2>\n        <p class=\"lede\" style=\"margin-inline:auto\">The beta of the Karen AI, the newsletter, the community invites — and the chance to help train it with your voice, your words, and your translations. One email. No noise.</p>\n      </div>\n      <form class=\"waitlist-form\" data-waitlist-form data-tag=\"early access\" data-reveal>\n        <input type=\"email\" name=\"email\" required placeholder=\"you@example.com\" aria-label=\"Email address\">\n        <button class=\"btn btn--solid\" type=\"submit\">Join the list</button>\n      </form>\n      <p class=\"waitlist-success\" role=\"status\">You're on the list. The door's opening soon — we'll write.</p>\n      <p class=\"waitlist-note\" data-reveal>One email when there's something real to say. Unsubscribe any time.</p>\n    </div>\n  </section>\n\n</main>\n\n<!-- ============================ FOOTER ============================ -->\n\n\n",
+    "/about": "\n<a class=\"skip\" href=\"#main\">Skip to main content</a>\n\n\n\n<div class=\"mobile-panel\" id=\"mobile-panel\" data-mobile-panel>\n  <a href=\"#/\">Home</a>\n  <a href=\"#/about\">About</a>\n  <a href=\"#/programs\">Programs</a>\n  <a href=\"#/stories\">Stories</a>\n  <a href=\"#/music\">Music</a>\n  <a href=\"#/coming-soon\">Coming Soon</a>\n  <a href=\"#/contact\">Contact</a>\n</div>\n\n<main id=\"main\">\n\n  <section class=\"page-hero\" data-glyph-word=\"၁\">\n    <div class=\"page-hero-bg\" aria-hidden=\"true\">\n      <img src=\"[embedded asset]" alt=\"\">\n    </div>\n    <div class=\"container\">\n      <p class=\"eyebrow\" data-reveal>About · founded August 8, 2018 · Omaha, Nebraska</p>\n      <h1 data-reveal=\"lines\">\n        <span class=\"line-mask\"><span>Fifty leaders.</span></span>\n        <span class=\"line-mask\"><span>Twenty states.</span></span>\n        <span class=\"line-mask\"><span>One <em>organization.</em></span></span>\n      </h1>\n      <p class=\"lede\" data-reveal>The Karen Organization of America was formed when the leaders of the Karen diaspora decided that one voice, raised together, carries further than twenty raised alone.</p>\n    </div>\n  </section>\n\n  <!-- History timeline -->\n  <section class=\"section\" aria-labelledby=\"history-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">The founding</p>\n        <h2 id=\"history-title\">From conversation<br>to <em>one national body.</em></h2>\n      </div>\n      <ol class=\"timeline\" data-reveal>\n        <li>\n          <span class=\"year\">June 13, 2018</span>\n          <div>\n            <h3>The conversation</h3>\n            <p>Leaders of KOUSA and KAO sit down to discuss working collaboratively and strengthening unity across the diaspora.</p>\n          </div>\n        </li>\n        <li>\n          <span class=\"year\">August 8, 2018</span>\n          <div>\n            <h3>The national gathering</h3>\n            <p>More than fifty leaders from twenty states meet in Omaha, Nebraska.</p>\n          </div>\n        </li>\n        <li>\n          <span class=\"year\">2018</span>\n          <div>\n            <h3>KOA is formed</h3>\n            <p>The organizations join to form the Karen Organization of America — one national body for the Karen community in the United States.</p>\n          </div>\n        </li>\n        <li>\n          <span class=\"year\">Now</span>\n          <div>\n            <h3>The work, and what's coming</h3>\n            <p>Civic, community, and humanitarian programs across the U.S. — and a next chapter the community is building with us. <a href=\"#/coming-soon\" style=\"color:var(--gold-bright)\">See what's coming →</a></p>\n          </div>\n        </li>\n      </ol>\n    </div>\n  </section>\n\n  <!-- Vision & mission -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"values-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">Vision &amp; mission</p>\n        <h2 id=\"values-title\">Purpose you can <em>act on.</em></h2>\n      </div>\n      <div class=\"grid-3\" data-reveal-stagger>\n        <div class=\"card\">\n          <span class=\"num\">Vision</span>\n          <h3>Thriving Karen communities</h3>\n          <p>United and empowered in the United States — advocating for justice in Burma.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">Mission</span>\n          <h3>Rights and well-being</h3>\n          <p>Advocate. Educate. Strengthen unity. Stand in solidarity. KOA strengthens rights, well-being, educational success, and relationships between Karen communities.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">What endures</span>\n          <h3>Identity lives when shared</h3>\n          <p>Culture, language, relationships, and public presence keep community knowledge moving — built for continuity, connecting historical purpose to the work communities need now.</p>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- Coalition -->\n  <section class=\"section\" aria-labelledby=\"coalition-title\">\n    <div class=\"container split\">\n      <div class=\"split-copy\">\n        <p class=\"eyebrow\" data-reveal>The national coalition</p>\n        <h2 id=\"coalition-title\" data-reveal>Eleven communities.<br>One <em>network.</em></h2>\n        <p class=\"lede\" data-reveal>KOA's founding network brought together Karen community organizations from across the United States — each carrying its own knowledge, all carrying one name.</p>\n      </div>\n      <div data-reveal>\n        <div class=\"grid-2\">\n          <div class=\"registry-entry\"><h4>Karen Community of North Carolina</h4><span class=\"meta\">NC</span></div>\n          <div class=\"registry-entry\"><h4>Georgia Karen Community</h4><span class=\"meta\">GA</span></div>\n          <div class=\"registry-entry\"><h4>Karen Community of Jacksonville</h4><span class=\"meta\">FL</span></div>\n          <div class=\"registry-entry\"><h4>Karen Society of Buffalo</h4><span class=\"meta\">NY</span></div>\n          <div class=\"registry-entry\"><h4>Karen Community of South Carolina</h4><span class=\"meta\">SC</span></div>\n          <div class=\"registry-entry\"><h4>Karen Organization of Minnesota</h4><span class=\"meta\">MN</span></div>\n          <div class=\"registry-entry\"><h4>Karen Society of Nebraska</h4><span class=\"meta\">NE</span></div>\n          <div class=\"registry-entry\"><h4>Karen Association of Iowa</h4><span class=\"meta\">IA</span></div>\n          <div class=\"registry-entry\"><h4>Karen Organization of San Diego</h4><span class=\"meta\">CA</span></div>\n          <div class=\"registry-entry\"><h4>Karen Organization of Illinois</h4><span class=\"meta\">IL</span></div>\n          <div class=\"registry-entry\"><h4>Karen Community of New Bern</h4><span class=\"meta\">NC</span></div>\n        </div>\n        <p class=\"text-dim mt-3\" style=\"font-size:var(--fs-sm)\">Representatives from twenty states formed the founding national body.</p>\n      </div>\n    </div>\n  </section>\n\n  <!-- Language -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"language-title\">\n    <div class=\"container\">\n      <div class=\"section-head section-head--center\" data-reveal>\n        <p class=\"eyebrow\" lang=\"khw\">ကညီကျိာ်</p>\n        <h2 id=\"language-title\">The language is the <em>house.</em></h2>\n        <p class=\"lede\" style=\"margin-inline:auto\">Language carries identity, family knowledge, and connection across generations. Everything KOA builds — programs, registry, AI — stands on this.</p>\n      </div>\n      <div class=\"grid-2\" data-reveal-stagger>\n        <div class=\"card\" style=\"text-align:center\">\n          <h3 lang=\"khw\" class=\"karen-script\" style=\"font-size:var(--fs-2xl)\">ကညီ</h3>\n          <p>Karen / K'nyaw — a community name shared across generations and places.</p>\n        </div>\n        <div class=\"card\" style=\"text-align:center\">\n          <h3 lang=\"khw\" class=\"karen-script\" style=\"font-size:var(--fs-2xl)\">ကညီကျိာ်</h3>\n          <p>S'gaw Karen — a language spoken, taught, and carried by Karen communities. Soon: spoken by a machine the community taught.</p>\n        </div>\n      </div>\n      <div class=\"btn-row mt-4\" style=\"justify-content:center\" data-reveal>\n        <a class=\"btn\" href=\"#/coming-soon#mango\">Meet S'gaw-Mango, the Karen AI</a>\n      </div>\n    </div>\n  </section>\n\n</main>\n\n\n\n",
+    "/programs": "\n<a class=\"skip\" href=\"#main\">Skip to main content</a>\n\n\n\n<div class=\"mobile-panel\" id=\"mobile-panel\" data-mobile-panel>\n  <a href=\"#/\">Home</a>\n  <a href=\"#/about\">About</a>\n  <a href=\"#/programs\">Programs</a>\n  <a href=\"#/stories\">Stories</a>\n  <a href=\"#/music\">Music</a>\n  <a href=\"#/coming-soon\">Coming Soon</a>\n  <a href=\"#/contact\">Contact</a>\n</div>\n\n<main id=\"main\">\n\n  <section class=\"page-hero\" data-glyph-word=\"၂\">\n    <div class=\"page-hero-bg\" aria-hidden=\"true\">\n      <img src=\"[embedded asset]" alt=\"\">\n    </div>\n    <div class=\"container\">\n      <p class=\"eyebrow\" data-reveal>Programs · learn · gather · support</p>\n      <h1 data-reveal=\"lines\">\n        <span class=\"line-mask\"><span>The work, in</span></span>\n        <span class=\"line-mask\"><span>three <em>movements.</em></span></span>\n      </h1>\n      <p class=\"lede\" data-reveal>Civic education gives the community a voice. Community engagement keeps culture moving. Humanitarian assistance moves care where it's needed. One organization, holding all three at once.</p>\n    </div>\n  </section>\n\n  <!-- 01 Civic education -->\n  <section class=\"section\" aria-labelledby=\"civic-title\">\n    <div class=\"container split\">\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"Karen youth participating in an education and advocacy program\" loading=\"lazy\">\n        <figcaption>Youth leadership</figcaption>\n      </div>\n      <div class=\"split-copy\">\n        <span class=\"section-num\" data-reveal>01</span>\n        <p class=\"eyebrow\" data-reveal>Civic education</p>\n        <h2 id=\"civic-title\" data-reveal>Learn the system.<br>Find your <em>voice.</em></h2>\n        <p class=\"lede\" data-reveal>KOA teaches how public systems work and prepares advocates to participate with confidence — so the community doesn't just live inside the system, it shapes it.</p>\n        <ul data-reveal>\n          <li>Civic education and exploratory learning</li>\n          <li>Advocacy 101 training</li>\n          <li>Advocacy trips to Washington, D.C.</li>\n          <li>Local advocacy activities</li>\n          <li>Annual Youth Leadership Conference</li>\n        </ul>\n      </div>\n    </div>\n  </section>\n\n  <!-- 02 Community engagement -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"engage-title\">\n    <div class=\"container split split--reversed\">\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"Karen community members gathered together at an outdoor gathering\" loading=\"lazy\">\n        <figcaption>Community engagement</figcaption>\n      </div>\n      <div class=\"split-copy\">\n        <span class=\"section-num\" data-reveal>02</span>\n        <p class=\"eyebrow\" data-reveal>Community engagement</p>\n        <h2 id=\"engage-title\" data-reveal>Keep culture<br><em>moving.</em></h2>\n        <p class=\"lede\" data-reveal>Community visits and workshops create space to learn, gather, and pass knowledge forward. Connection in motion: arts, sports, and cultural events that strengthen relationships across ages and places.</p>\n        <ul data-reveal>\n          <li>Community visits and workshops</li>\n          <li>Arts and cultural events</li>\n          <li>Sports and youth connection</li>\n          <li>Intergenerational learning</li>\n        </ul>\n      </div>\n    </div>\n  </section>\n\n  <!-- 03 Humanitarian -->\n  <section class=\"section\" aria-labelledby=\"human-title\">\n    <div class=\"container split\">\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"Community care and assistance at dusk\" loading=\"lazy\">\n        <figcaption>Practical solidarity</figcaption>\n      </div>\n      <div class=\"split-copy\">\n        <span class=\"section-num\" data-reveal>03</span>\n        <p class=\"eyebrow\" data-reveal>Humanitarian assistance</p>\n        <h2 id=\"human-title\" data-reveal>Move care where<br>it is <em>needed.</em></h2>\n        <p class=\"lede\" data-reveal>KOA supports food, water, shelter, education, and vocational training for displaced families. Care with purpose: relief addresses immediate needs while education and training open longer-term possibility.</p>\n        <ul data-reveal>\n          <li>Food, clean water, and shelter</li>\n          <li>Education support</li>\n          <li>Vocational training</li>\n          <li>Assistance for displaced families</li>\n        </ul>\n      </div>\n    </div>\n  </section>\n\n  <!-- Events (coming) -->\n  <section class=\"section\" id=\"events\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"events-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">The table · coming soon</p>\n        <h2 id=\"events-title\">Tournaments under floodlights.<br>Recipes upvoted by the <em>room.</em></h2>\n        <p class=\"lede\">Events is the newest wing of KOA: sepak takraw, volleyball, and soccer tournaments — and a cooking table where you submit your recipe, the community upvotes, and the top dishes get featured on the front thumbnail. The frame is built; the games and recipes land here as they're announced.</p>\n      </div>\n      <div class=\"grid-3\" data-reveal-stagger>\n        <div class=\"card\">\n          <span class=\"num\">01</span>\n          <h3>Sepak Takraw</h3>\n          <p>The signature event. Night courts, floodlights, and a crowd that has come out in full. Tournament listings go here.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">02</span>\n          <h3>Volleyball &amp; Soccer</h3>\n          <p>Community leagues and tournaments, listed and celebrated in one place. Coming with the events hub.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">03</span>\n          <h3>The Cooking Table</h3>\n          <p>Submit your recipe. The community upvotes. The most-loved dishes get featured on the thumbnail, front and center.</p>\n        </div>\n      </div>\n      <div class=\"btn-row mt-4\" data-reveal>\n        <a class=\"btn\" href=\"#/coming-soon\">See everything coming</a>\n        <a class=\"btn btn--ghost\" href=\"#/contact\">Submit a recipe or event</a>\n      </div>\n    </div>\n  </section>\n\n</main>\n\n\n\n",
+    "/stories": "\n<a class=\"skip\" href=\"#main\">Skip to main content</a>\n\n\n\n<div class=\"mobile-panel\" id=\"mobile-panel\" data-mobile-panel>\n  <a href=\"#/\">Home</a>\n  <a href=\"#/about\">About</a>\n  <a href=\"#/programs\">Programs</a>\n  <a href=\"#/stories\">Stories</a>\n  <a href=\"#/music\">Music</a>\n  <a href=\"#/coming-soon\">Coming Soon</a>\n  <a href=\"#/contact\">Contact</a>\n</div>\n\n<main id=\"main\">\n\n  <section class=\"page-hero\" data-glyph-word=\"၃\">\n    <div class=\"page-hero-bg\" aria-hidden=\"true\">\n      <img src=\"[embedded asset]" alt=\"\">\n    </div>\n    <div class=\"container\">\n      <p class=\"eyebrow\" data-reveal>Stories · the news hub, in the first person</p>\n      <h1 data-reveal=\"lines\">\n        <span class=\"line-mask\"><span>Presence becomes</span></span>\n        <span class=\"line-mask\"><span><em>power.</em> Joy becomes</span></span>\n        <span class=\"line-mask\"><span><em>home.</em></span></span>\n      </h1>\n      <p class=\"lede\" data-reveal>The story of who the Karen people are, told as it happens — at the Capitol, on the courts, across the border, and in every gathering in between.</p>\n    </div>\n  </section>\n\n  <!-- Story grid -->\n  <section class=\"section\" aria-labelledby=\"stories-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">The story, in four movements</p>\n        <h2 id=\"stories-title\">Showing up. Playing.<br>Caring. <em>Continuing.</em></h2>\n      </div>\n      <div class=\"grid-2\" data-reveal-stagger>\n        <article class=\"story-card\">\n          <div class=\"story-media\"><img src=\"[embedded asset]" alt=\"Karen community members with flags at the United States Capitol\" loading=\"lazy\"></div>\n          <div class=\"story-body\">\n            <span class=\"tag\">Public voice · Washington, D.C.</span>\n            <h3>Showing up</h3>\n            <p>Karen advocates gather where national decisions are made and make community concerns visible. Presence at the Capitol isn't a photo op — it's a position in the room.</p>\n          </div>\n        </article>\n        <article class=\"story-card\">\n          <div class=\"story-media\"><img src=\"[embedded asset]" alt=\"A sepak takraw player frozen mid-air over the net at a floodlit night tournament\" loading=\"lazy\"></div>\n          <div class=\"story-body\">\n            <span class=\"tag\">Joy · the courts</span>\n            <h3>Community grows between the lines</h3>\n            <p>Sport creates room for teamwork, friendship, youth participation, and shared celebration. Belonging is active — built through ordinary moments as much as formal programs.</p>\n          </div>\n        </article>\n        <article class=\"story-card\">\n          <div class=\"story-media\"><img src=\"[embedded asset]" alt=\"Community members during a solidarity visit to Kawthoolei\" loading=\"lazy\"></div>\n          <div class=\"story-body\">\n            <span class=\"tag\">Care across distance</span>\n            <h3>Relationships travel farther</h3>\n            <p>Visits and humanitarian connections keep communities in the United States linked to families in Kawthoolei. Practical assistance begins with relationships and community-defined needs.</p>\n          </div>\n        </article>\n        <article class=\"story-card\">\n          <div class=\"story-media\"><img src=\"[embedded asset]" alt=\"A community care distribution at dusk, an elder steadied by a younger family member\" loading=\"lazy\"></div>\n          <div class=\"story-body\">\n            <span class=\"tag\">What stories carry</span>\n            <h3>Culture is a living connection</h3>\n            <p>Gatherings, workshops, arts, and public presence keep identity moving across generations. Young people, families, and leaders keep community knowledge moving forward.</p>\n          </div>\n        </article>\n      </div>\n    </div>\n  </section>\n\n  <!-- What the moments show -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"show-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">What these moments show</p>\n        <h2 id=\"show-title\">One community,<br>three <em>verbs.</em></h2>\n      </div>\n      <div class=\"grid-3\" data-reveal-stagger>\n        <div class=\"card\">\n          <span class=\"num\">Lead</span>\n          <h3>Public voice</h3>\n          <p>Advocacy and civic learning make community concerns visible at every level — local, state, and national.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">Share</span>\n          <h3>Culture and identity</h3>\n          <p>Language, arts, sport, and gathering connect generations — and keep the language itself alive in daily life.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">Care</span>\n          <h3>Solidarity</h3>\n          <p>Relationships guide practical assistance and long-term support, here in America and across the border.</p>\n        </div>\n      </div>\n      <div class=\"btn-row mt-4\" data-reveal>\n        <a class=\"btn btn--ghost\" href=\"https://www.facebook.com/koamerica\" target=\"_blank\" rel=\"noreferrer\">Follow the updates on Facebook ↗</a>\n        <a class=\"btn\" href=\"#/coming-soon\">See the history hub, coming soon</a>\n      </div>\n    </div>\n  </section>\n\n</main>\n\n\n\n",
+    "/contact": "\n<a class=\"skip\" href=\"#main\">Skip to main content</a>\n\n\n\n<div class=\"mobile-panel\" id=\"mobile-panel\" data-mobile-panel>\n  <a href=\"#/\">Home</a>\n  <a href=\"#/about\">About</a>\n  <a href=\"#/programs\">Programs</a>\n  <a href=\"#/stories\">Stories</a>\n  <a href=\"#/music\">Music</a>\n  <a href=\"#/coming-soon\">Coming Soon</a>\n  <a href=\"#/contact\">Contact</a>\n</div>\n\n<main id=\"main\">\n\n  <section class=\"page-hero\" data-glyph-word=\"၆\">\n    <div class=\"page-hero-bg\" aria-hidden=\"true\">\n      <img src=\"[embedded asset]" alt=\"\">\n    </div>\n    <div class=\"container\">\n      <p class=\"eyebrow\" data-reveal>Contact · the doors are open</p>\n      <h1 data-reveal=\"lines\">\n        <span class=\"line-mask\"><span>A conversation</span></span>\n        <span class=\"line-mask\"><span>can start <em>small.</em></span></span>\n      </h1>\n      <p class=\"lede\" data-reveal>Reach KOA, follow public updates, or start building something together. Choose the path that fits — or reach the person who's actually making the thing you're asking about.</p>\n    </div>\n  </section>\n\n  <!-- The partner wall: three large marks across the screen.\n       Honest by design — real partner logos slot in as they're confirmed;\n       until then the wall holds announcement-pending seals, never invented\n       organizations. The rotation swaps one mark at a time, at random. -->\n  <section class=\"partner-wall\" aria-labelledby=\"partners-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">Partners</p>\n        <h2 id=\"partners-title\">Building <em>together.</em></h2>\n      </div>\n      <div class=\"partner-grid\" data-partners data-reveal>\n        <div class=\"partner-slot\"></div>\n        <div class=\"partner-slot\"></div>\n        <div class=\"partner-slot\"></div>\n      </div>\n      <p class=\"partner-note\" data-reveal>Partnership announcements are being confirmed. When an organization joins the roof, its mark takes a place here.</p>\n    </div>\n  </section>\n\n  <!-- Three ways to reach -->\n  <section class=\"section\" aria-labelledby=\"reach-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">Reach KOA</p>\n        <h2 id=\"reach-title\">Three doors, <em>one roof.</em></h2>\n      </div>\n      <div class=\"grid-3\" data-reveal-stagger>\n        <a class=\"contact-card\" href=\"mailto:karenorgamerica@gmail.com\">\n          <p class=\"eyebrow\">Collaboration &amp; questions</p>\n          <h3>Email KOA</h3>\n          <p>Best for a detailed request, partnership idea, invitation, or follow-up.</p>\n          <span class=\"contact-arrow\" aria-hidden=\"true\">↗</span>\n        </a>\n        <a class=\"contact-card\" href=\"https://m.me/koamerica\" target=\"_blank\" rel=\"noreferrer\">\n          <p class=\"eyebrow\">Direct message</p>\n          <h3>Messenger</h3>\n          <p>Start a shorter conversation through the official KOA Facebook account.</p>\n          <span class=\"contact-arrow\" aria-hidden=\"true\">↗</span>\n        </a>\n        <a class=\"contact-card\" href=\"https://www.facebook.com/koamerica\" target=\"_blank\" rel=\"noreferrer\">\n          <p class=\"eyebrow\">Public updates</p>\n          <h3>Facebook</h3>\n          <p>See public posts, photographs, programs, and gathering notices.</p>\n          <span class=\"contact-arrow\" aria-hidden=\"true\">↗</span>\n        </a>\n      </div>\n    </div>\n  </section>\n\n  <!-- The people -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"people-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">The people making it</p>\n        <h2 id=\"people-title\">Talk to the person<br>actually <em>doing it.</em></h2>\n      </div>\n      <div class=\"grid-3\" data-reveal-stagger>\n        <a class=\"contact-card\" href=\"mailto:karenorgamerica@gmail.com\">\n          <p class=\"eyebrow\">President</p>\n          <h3>Nay Htoo</h3>\n          <p>General KOA and leadership inquiries.</p>\n          <span class=\"contact-arrow\" aria-hidden=\"true\">↗</span>\n        </a>\n        <a class=\"contact-card\" href=\"mailto:grehmoo@hotmail.com\">\n          <p class=\"eyebrow\">Joint Secretary</p>\n          <h3>Greh Moo</h3>\n          <p>Organization and coordination inquiries.</p>\n          <span class=\"contact-arrow\" aria-hidden=\"true\">↗</span>\n        </a>\n        <a class=\"contact-card\" href=\"mailto:ehnaythaw01@gmail.com\">\n          <p class=\"eyebrow\">Advocacy Coordinator</p>\n          <h3>Eh Nay Thaw</h3>\n          <p>Civic education and advocacy inquiries.</p>\n          <span class=\"contact-arrow\" aria-hidden=\"true\">↗</span>\n        </a>\n      </div>\n    </div>\n  </section>\n\n  <!-- Submissions -->\n  <section class=\"section\" aria-labelledby=\"submit-title\">\n    <div class=\"container split\">\n      <div class=\"split-copy\">\n        <p class=\"eyebrow\" data-reveal>Contribute</p>\n        <h2 id=\"submit-title\" data-reveal>Bring the thing<br>you've been <em>holding.</em></h2>\n        <p class=\"lede\" data-reveal>The movement runs on what the community sends in. Write it down, send it over, and it goes on the list — in the order the community decides.</p>\n        <ul data-reveal>\n          <li><strong>Word requests</strong> — the never-translated-but-necessary, first</li>\n          <li><strong>Translations</strong> — documents and texts that need to cross over</li>\n          <li><strong>Recipes</strong> — for the cooking table; the community upvotes</li>\n          <li><strong>Music</strong> — an artist or song that belongs on the wall</li>\n          <li><strong>Church &amp; business listings</strong> — for the national registry</li>\n          <li><strong>Voices &amp; pictures</strong> — for the Karen AI, with your name in it</li>\n        </ul>\n        <div class=\"btn-row mt-3\" data-reveal>\n          <a class=\"btn\" href=\"mailto:karenorgamerica@gmail.com?subject=Submission%20for%20KOA\">Start a submission</a>\n          <a class=\"btn btn--ghost\" href=\"#/coming-soon#join\">See how verification works</a>\n        </div>\n      </div>\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"Community members working together at a distribution at dusk\" loading=\"lazy\">\n        <figcaption>Community, at work</figcaption>\n      </div>\n    </div>\n  </section>\n\n  <!-- A clear first message -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"message-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">Before you write</p>\n        <h2 id=\"message-title\">A clear first message<br>goes <em>farther.</em></h2>\n      </div>\n      <div class=\"grid-3\" data-reveal-stagger>\n        <div class=\"card\">\n          <span class=\"num\">01</span>\n          <h3>Introduce yourself</h3>\n          <p>Name your organization or community and where you are located.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">02</span>\n          <h3>Describe the goal</h3>\n          <p>Explain what you want to accomplish and who it would serve.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">03</span>\n          <h3>Suggest a next step</h3>\n          <p>Include a useful timeline and the easiest way to follow up.</p>\n        </div>\n      </div>\n    </div>\n  </section>\n\n</main>\n\n\n\n",
+    "/coming-soon": "\n<a class=\"skip\" href=\"#main\">Skip to main content</a>\n\n\n\n<div class=\"mobile-panel\" id=\"mobile-panel\" data-mobile-panel>\n  <a href=\"#/\">Home</a>\n  <a href=\"#/about\">About</a>\n  <a href=\"#/programs\">Programs</a>\n  <a href=\"#/stories\">Stories</a>\n  <a href=\"#/music\">Music</a>\n  <a href=\"#/coming-soon\">Coming Soon</a>\n  <a href=\"#/contact\">Contact</a>\n  <a href=\"#/coming-soon#waitlist\" class=\"pill pill--gold\">Join the early access</a>\n</div>\n\n<main id=\"main\">\n\n  <!-- ============================ HERO ============================ -->\n  <section class=\"page-hero\" data-glyph-word=\"၅\">\n    <div class=\"page-hero-bg\" aria-hidden=\"true\">\n      <img src=\"[embedded asset]" alt=\"\">\n    </div>\n    <div class=\"container\">\n      <p class=\"eyebrow\" data-reveal>Coming Soon · not yet announced anywhere else</p>\n      <h1 data-reveal=\"lines\">\n        <span class=\"line-mask\"><span>The next chapter</span></span>\n        <span class=\"line-mask\"><span>is being <em>written.</em></span></span>\n      </h1>\n      <p class=\"lede\" data-reveal>We're building the most complete home the S'gaw Karen people in America have ever had — and the most ambitious thing built for a Karen language. A national movement, one brick at a time. This page is the wall before the paint dries.</p>\n      <div class=\"btn-row mt-4\" data-reveal>\n        <a class=\"btn btn--solid\" href=\"#mango\">Meet S'gaw-Mango</a>\n        <a class=\"btn btn--ghost\" href=\"#join\">Join the build</a>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ S'GAW-MANGO ============================ -->\n  <section class=\"section\" id=\"mango\" aria-labelledby=\"mango-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">01 · The centerpiece</p>\n        <h2 id=\"mango-title\">S'gaw-Mango.<br>The Karen AI, <em>on its way.</em></h2>\n        <p class=\"lede\">A ~15-billion-parameter model built to read, speak, and teach S'gaw Karen — side by side with English, Thai, and Burmese, the languages Karen families already live in. It won't be finished by a company. It'll be finished by a community.</p>\n      </div>\n\n      <div class=\"mango-shell\" data-reveal>\n        <div class=\"mango-head\">\n          <div>\n            <div class=\"model-name\">S'gaw-Mango · 15B</div>\n            <div class=\"model-meta\">Bilingual fork · text + vision · English ↔ Karen · ไทย · မြန်မာ</div>\n          </div>\n          <span class=\"mango-badge\"><span class=\"pulse\" style=\"width:6px;height:6px;border-radius:50%;background:var(--gold-bright);display:inline-block;animation:pulse 2.4s ease-in-out infinite\"></span>Beta · early access open</span>\n        </div>\n        <div class=\"mango-demo\">\n          <div class=\"mango-row\">\n            <span class=\"lang\">Karen</span>\n            <span class=\"text text--script\" lang=\"khw\">မိန်သီ ဒာန်လိက် ဒာန်လိက် အာ ယဝ် ?</span>\n          </div>\n          <div class=\"mango-row\">\n            <span class=\"lang\">English</span>\n            <span class=\"text\">What is the meaning of this word?</span>\n          </div>\n          <div class=\"mango-row\">\n            <span class=\"lang\">ไทย</span>\n            <span class=\"text text--script\">คำนี้มีความหมายว่าอะไร ?</span>\n          </div>\n          <div class=\"mango-row\">\n            <span class=\"lang\">မြန်မာ</span>\n            <span class=\"text text--script\">ဒီစကားဝါးရဲ့ အဓိပ္ပါယ် အဘယ်နည်း ?</span>\n          </div>\n        </div>\n        <p class=\"mango-caption\">Sample of the side-by-side generation S'gaw-Mango will produce — one thought, four tongues. (Illustrative sample — training has not begun yet.)</p>\n      </div>\n\n      <div class=\"grid-3 mt-4\" data-reveal-stagger>\n        <div class=\"card\">\n          <span class=\"num\">Teaches</span>\n          <h3>Every part of speech</h3>\n          <p>Breaks sentences down — grammar rules, common phrases, translations — the way a patient teacher would, in the language itself.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">Looks up</span>\n          <h3>Dictionary, live</h3>\n          <p>Every word traced to real instances — crawled from the internet, from texts and databases — so meanings come from how people actually use them.</p>\n        </div>\n        <div class=\"card\">\n          <span class=\"num\">Sees</span>\n          <h3>Vision &amp; OCR</h3>\n          <p>A vision model trained on Karen script — reading documents, signs, and pages so the written language enters the machine age.</p>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ THE BUILD (feature rows) ============================ -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"build-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">02 · The build, brick by brick</p>\n        <h2 id=\"build-title\">What's <em>coming.</em></h2>\n        <p class=\"lede\">Everything below is either already under construction or queued behind it. Statuses are honest: live, in build, or coming.</p>\n      </div>\n\n      <div data-reveal>\n        <div class=\"feature-row\">\n          <span class=\"fnum\">01</span>\n          <div>\n            <h3>The National Registry</h3>\n            <p>A verified directory of Karen churches (with addresses and pastors), businesses and restaurants, and community resources across the entire United States. One lookup, the whole diaspora on the map.</p>\n          </div>\n          <span class=\"ftag\">In build</span>\n        </div>\n        <div class=\"feature-row\">\n          <span class=\"fnum\">02</span>\n          <div>\n            <h3>Events &amp; Tournaments</h3>\n            <p>Sepak takraw, volleyball, and soccer — listed, counted, and celebrated. Plus the cooking table: submit your recipe, the community upvotes, and the top dishes get featured on the front thumbnail.</p>\n          </div>\n          <span class=\"ftag\">Coming</span>\n        </div>\n        <div class=\"feature-row\">\n          <span class=\"fnum\">03</span>\n          <div>\n            <h3>The Music Showcase</h3>\n            <p>Karen music front and center — starting with thra eh keh lah, and the Karen artists across the internet, linked to where their music already lives.</p>\n          </div>\n          <span class=\"ftag ftag--live\">Live now</span>\n        </div>\n        <div class=\"feature-row\">\n          <span class=\"fnum\">04</span>\n          <div>\n            <h3>The Podcast</h3>\n            <p>The KOA podcast — stories, language, and the movement, in episodes you can carry with you. Episodes land here the day they publish.</p>\n          </div>\n          <span class=\"ftag\">Coming</span>\n        </div>\n        <div class=\"feature-row\">\n          <span class=\"fnum\">05</span>\n          <div>\n            <h3>History &amp; News Hub</h3>\n            <p>The story of who the Karen people are — told fully, with the receipts — alongside the news as it happens. The memory and the front page, in one place.</p>\n          </div>\n          <span class=\"ftag\">In build</span>\n        </div>\n        <div class=\"feature-row\">\n          <span class=\"fnum\">06</span>\n          <div>\n            <h3>Community Verification</h3>\n            <p>A username system and verification tiers — from contributor to verified word-auditor to verified admin — so the people who carry the language carry the keys too. Your voice, your pictures, your translations, your word requests, all submitted from your account.</p>\n          </div>\n          <span class=\"ftag\">Coming</span>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ JOIN THE BUILD ============================ -->\n  <section class=\"section\" id=\"join\" aria-labelledby=\"join-title\">\n    <div class=\"container split\">\n      <div class=\"split-copy\">\n        <p class=\"eyebrow\" data-reveal>03 · An invitation, literally</p>\n        <h2 id=\"join-title\" data-reveal>This is a national<br><em>movement.</em> And you<br>are the <em>workforce.</em></h2>\n        <p class=\"lede\" data-reveal>Nothing on this page gets finished by one person. The model is trained on community voices. The dictionary is audited by community ears. The registry is filled by the people who live in it.</p>\n        <ul data-reveal>\n          <li>Contribute your <strong>voice and pictures</strong> — recorded, transcribed, and used with your name in it</li>\n          <li>Translate <strong>documents and texts</strong> — the never-translated-but-necessary, first</li>\n          <li>Submit <strong>word requests</strong> — the words the language is missing on the internet</li>\n          <li><strong>Audit words</strong> as a verified contributor — you'll hear it before anyone else</li>\n          <li>Claim a <strong>username</strong> early — early verification, early access, early voice</li>\n        </ul>\n        <div class=\"btn-row mt-3\" data-reveal>\n          <a class=\"btn btn--solid\" href=\"#/coming-soon#waitlist\">Join the early access</a>\n          <a class=\"btn btn--ghost\" href=\"#/contact\">Talk to the people making it</a>\n        </div>\n      </div>\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"Karen community members gathered together\" loading=\"lazy\">\n        <figcaption>The workforce, assembled</figcaption>\n      </div>\n    </div>\n  </section>\n\n  <!-- ============================ WAITLIST ============================ -->\n  <section class=\"waitlist\" id=\"waitlist\" data-waitlist aria-labelledby=\"waitlist-title\">\n    <div class=\"container\">\n      <div class=\"section-head section-head--center\" data-reveal>\n        <p class=\"eyebrow\">Early access</p>\n        <h2 id=\"waitlist-title\">The doors open<br><em>soon.</em> Be first.</h2>\n        <p class=\"lede\" style=\"margin-inline:auto\">The newsletter, the beta, the invites to help build the Karen AI — and notifications on how we'll train it together, how the dictionary grows, and how side-by-side English↔Karen text generation comes online. One email. No noise.</p>\n      </div>\n      <form class=\"waitlist-form\" data-waitlist-form data-tag=\"coming soon early access\" data-reveal>\n        <input type=\"email\" name=\"email\" required placeholder=\"you@example.com\" aria-label=\"Email address\">\n        <button class=\"btn btn--solid\" type=\"submit\">Join the list</button>\n      </form>\n      <p class=\"waitlist-success\" role=\"status\">You're on the list. We'll write the moment there's something real to show.</p>\n      <p class=\"waitlist-note\" data-reveal>One email when there's something real to say. Unsubscribe any time.</p>\n    </div>\n  </section>\n\n</main>\n\n\n\n",
+    "/music": "\n<a class=\"skip\" href=\"#main\">Skip to main content</a>\n\n\n\n<div class=\"mobile-panel\" id=\"mobile-panel\" data-mobile-panel>\n  <a href=\"#/\">Home</a>\n  <a href=\"#/about\">About</a>\n  <a href=\"#/programs\">Programs</a>\n  <a href=\"#/stories\">Stories</a>\n  <a href=\"#/music\">Music</a>\n  <a href=\"#/coming-soon\">Coming Soon</a>\n  <a href=\"#/contact\">Contact</a>\n</div>\n\n<main id=\"main\">\n\n  <section class=\"page-hero\" data-glyph-word=\"၄\">\n    <div class=\"container\">\n      <p class=\"eyebrow\" data-reveal>Music · the language, sung</p>\n      <h1 data-reveal=\"lines\">\n        <span class=\"line-mask\"><span>A song in Karen</span></span>\n        <span class=\"line-mask\"><span>is the language, <em>alive.</em></span></span>\n      </h1>\n      <p class=\"lede\" data-reveal>Karen music carries what no dictionary can — the cadence, the grief, the joy, the exact pitch of home. This is the stage for Karen artists, from the ones you know to the ones you're about to. Send us the music; we'll put it on the wall.</p>\n    </div>\n  </section>\n\n  <!-- Featured artist -->\n  <section class=\"section\" aria-labelledby=\"featured-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">Featured · the one that started this wall</p>\n        <h2 id=\"featured-title\">thra eh keh <em>lah</em></h2>\n      </div>\n      <div class=\"music-feature\" data-reveal>\n        <div class=\"music-art\" aria-hidden=\"true\"></div>\n        <div class=\"music-copy\">\n          <p class=\"music-kicker\">Karen · vocal</p>\n          <h3>thra eh keh lah</h3>\n          <p>The voice KOA is putting at the front of the house. Her full catalogue lives on her own music website — this is the community's stage; hers is the record label's. (Artwork and links drop in as they're confirmed.)</p>\n          <div class=\"btn-row\">\n            <a class=\"btn\" href=\"#\" aria-disabled=\"true\" title=\"Link to be confirmed\">Her music website — link coming</a>\n            <a class=\"btn btn--ghost\" href=\"#/contact\">Nominate an artist</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <!-- The wall -->\n  <section class=\"section\" style=\"background:var(--ink-900);border-block:1px solid var(--line)\" aria-labelledby=\"wall-title\">\n    <div class=\"container\">\n      <div class=\"section-head\" data-reveal>\n        <p class=\"eyebrow\">The wall</p>\n        <h2 id=\"wall-title\">Karen artists,<br><em>internet-wide.</em></h2>\n        <p class=\"lede\">Everyone who carries Karen songs onto the internet gets a place here. The list below is the frame — the names go in as artists are confirmed and linked.</p>\n      </div>\n      <div data-reveal>\n        <div class=\"artist-row\"><span class=\"a-num\">01</span><span class=\"a-name\">thra eh keh lah</span><span class=\"a-note\">Featured · link pending</span></div>\n        <div class=\"artist-row\"><span class=\"a-num\">02</span><span class=\"a-name\" style=\"color:var(--text-faint)\">Your artist here</span><span class=\"a-note\">Submit via contact</span></div>\n        <div class=\"artist-row\"><span class=\"a-num\">03</span><span class=\"a-name\" style=\"color:var(--text-faint)\">Your artist here</span><span class=\"a-note\">Submit via contact</span></div>\n        <div class=\"artist-row\"><span class=\"a-num\">04</span><span class=\"a-name\" style=\"color:var(--text-faint)\">Your artist here</span><span class=\"a-note\">Submit via contact</span></div>\n      </div>\n      <div class=\"btn-row mt-4\" data-reveal>\n        <a class=\"btn\" href=\"#/contact\">Submit an artist or song</a>\n      </div>\n    </div>\n  </section>\n\n  <!-- Why music matters + podcast teaser -->\n  <section class=\"section\" aria-labelledby=\"why-title\">\n    <div class=\"container split\">\n      <div class=\"split-copy\">\n        <p class=\"eyebrow\" data-reveal>Why the stage exists</p>\n        <h2 id=\"why-title\" data-reveal>Music is where<br>the <em>language</em> hides.</h2>\n        <p class=\"lede\" data-reveal>Half the vocabulary a generation lost lives in the songs the last one still hums. Putting Karen music in one place isn't a playlist — it's an archive, a classroom, and a claim on the future. S'gaw-Mango, the Karen AI, will eventually learn some of its language from right here.</p>\n        <div class=\"btn-row mt-3\" data-reveal>\n          <a class=\"btn btn--ghost\" href=\"#/coming-soon\">See the podcast, coming soon</a>\n        </div>\n      </div>\n      <div class=\"split-media\" data-reveal>\n        <img src=\"[embedded asset]" alt=\"Karen community members gathered together\" loading=\"lazy\">\n        <figcaption>Community, full house</figcaption>\n      </div>\n    </div>\n  </section>\n\n</main>\n\n\n\n"
+  };
+  var TITLES = {
+    "/": "KOA — Karen Organization of America",
+    "/about": "About — Karen Organization of America",
+    "/programs": "Programs — Karen Organization of America",
+    "/stories": "Stories — Karen Organization of America",
+    "/contact": "Contact — Karen Organization of America",
+    "/coming-soon": "Coming Soon — Karen Organization of America",
+    "/music": "Music — Karen Organization of America"
+  };
+  var main = document.getElementById("main");
+  var header = document.querySelector("header");
+
+  /* Minimalist route transition: a fixed ink veil that fades the swap. */
+  var veil = document.createElement("div");
+  veil.className = "veil";
+  document.body.appendChild(veil);
+  var motionOff = function () { return document.body.dataset.motion === "off"; };
+
+  function currentRoute() {
+    var h = location.hash;
+    var route = h.indexOf("#/") === 0 ? h.slice(1) : "/";
+    var anchor = "";
+    var i = route.indexOf("#", 1);
+    if (i > 0) { anchor = route.slice(i); route = route.slice(0, i); }
+    if (!(route in PAGES)) { route = "/"; anchor = ""; }
+    return { route: route, anchor: anchor };
+  }
+
+  function initPage() {
+    if (typeof window.__koaInit === "function") { window.__koaInit(); }
+  }
+
+  function render() {
+    var c = currentRoute();
+    main.innerHTML = PAGES[c.route];
+    document.title = TITLES[c.route];
+    if (header) {
+      header.querySelectorAll("a[href]").forEach(function (a) {
+        var r = a.getAttribute("href").replace(/^#/, "");
+        if (a.getAttribute("href").indexOf("#/") === 0) r = a.getAttribute("href").slice(1).split("#")[0];
+        if (r === c.route) { a.setAttribute("aria-current", "page"); }
+        else { a.removeAttribute("aria-current"); }
+      });
+    }
+    var panel = document.querySelector("[data-mobile-panel]");
+    if (panel) { panel.classList.remove("is-open"); document.body.style.overflow = ""; }
+    window.scrollTo(0, 0);
+    initPage();
+    if (c.anchor) {
+      setTimeout(function () {
+        var el = document.querySelector(c.anchor);
+        if (el) { el.scrollIntoView({ behavior: "auto", block: "start" }); }
+      }, 80);
+    }
+    return c;
+  }
+
+  function navigate(first) {
+    if (first || motionOff()) {
+      var c = render();
+      if (!first) { history.replaceState(null, "", "#" + c.route); }
+      // First paint / motion off: just clear the veil.
+      requestAnimationFrame(function () { veil.classList.add("is-clear"); });
+      return;
+    }
+    // Fade to ink, swap at the midpoint, fade back in.
+    veil.classList.remove("is-clear");
+    setTimeout(function () {
+      var c = render();
+      history.replaceState(null, "", "#" + c.route);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { veil.classList.add("is-clear"); });
+      });
+    }, 240);
+  }
+
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a || !a.hasAttribute("href")) { return; }
+    var href = a.getAttribute("href");
+    var m = href.match(/^#(\/[A-Za-z0-9_-]*)(#[A-Za-z0-9_-]+)?$/);
+    if (m) { e.preventDefault(); location.hash = "#" + m[1] + (m[2] || ""); return; }
+    if (href.indexOf("#waitlist") === 0) {           // bare in-page waitlist anchor
+      e.preventDefault();
+      var c = currentRoute();
+      if (c.route === "/coming-soon") {
+        var el = document.querySelector(href);
+        if (el) { el.scrollIntoView({ behavior: "auto", block: "start" }); }
+      } else { location.hash = "#/coming-soon#waitlist"; }
+    }
+  });
+
+  window.addEventListener("hashchange", function () { navigate(false); });
+  if (!location.hash) { history.replaceState(null, "", "#/"); navigate(true); }
+  else { navigate(true); }
+})();
+
+</script>
+<!-- packed by scripts/build-pack.py on 2026-08-21 14:02 -->
+</body></html>

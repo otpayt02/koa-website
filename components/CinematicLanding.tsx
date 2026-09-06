@@ -120,11 +120,6 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
           <div className="koa-film__atmosphere" aria-hidden="true" />
           <KAGlyphField progress={progress} reducedMotion={motionReduced} />
 
-          <svg className="koa-ka-outline" viewBox="0 0 1200 700" aria-hidden="true">
-            <path d="M170 100H250V290L380 100H465L330 340L475 600H385L250 395V600H170Z" />
-            <path d="M735 600L855 100H945L1065 600H980L950 465H850L820 600ZM871 375H929L900 235Z" fillRule="evenodd" />
-          </svg>
-
           <div className="koa-film__seal" aria-hidden="true">
             <div className="koa-film__seal-glow" />
             <SealAssembly rotation={progress * 360} />
@@ -156,6 +151,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
 
       <main className="koa-story" id="main-content">
         <section className="koa-chapter koa-chapter--split" aria-labelledby="koa-chapter-one">
+          <KAGlyphField progress={0} reducedMotion={motionReduced} chapter={1} />
           <div className="koa-chapter__media koa-chapter__media--portrait">
             <img src="/koa/assets/fb-capitol-group-mobile-enhanced.png" alt="Karen community advocates gathered during a visit to the United States Capitol" />
           </div>
@@ -168,6 +164,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
         </section>
 
         <section className="koa-chapter koa-chapter--full" aria-labelledby="koa-chapter-two">
+          <KAGlyphField progress={0} reducedMotion={motionReduced} chapter={2} />
           <img className="koa-chapter__full-image" src="/koa/assets/story-community-original.png" alt="Karen community members gathering together" />
           <div className="koa-chapter__full-shade" aria-hidden="true" />
           <div className="koa-chapter__full-copy">
@@ -179,6 +176,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
         </section>
 
         <section className="koa-chapter koa-chapter--split koa-chapter--reverse" aria-labelledby="koa-chapter-three">
+          <KAGlyphField progress={0} reducedMotion={motionReduced} chapter={3} />
           <div className="koa-chapter__copy">
             <p className="koa-chapter__eyebrow">Chapter 03 · Belonging</p>
             <h2 id="koa-chapter-three">Culture, care, and courage—connected.</h2>
@@ -191,6 +189,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
         </section>
 
         <section className="koa-mission" aria-labelledby="koa-mission-title">
+          <KAGlyphField progress={0} reducedMotion={motionReduced} chapter={4} />
           <header className="koa-mission__header">
             <p className="koa-chapter__eyebrow">Chapter 04 · Why KOA exists</p>
             <h2 id="koa-mission-title">A national organization should feel as alive as the people it serves.</h2>

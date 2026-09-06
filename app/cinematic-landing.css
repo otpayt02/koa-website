@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 :root {
-  --koa-display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --koa-body: "Source Sans 3", Inter, system-ui, sans-serif;
+  --koa-display: "Cormorant Garamond", Georgia, serif;
+  --koa-body: "Space Grotesk", Inter, system-ui, sans-serif;
   --koa-ink: #030814;
   --koa-ink-2: #071326;
   --koa-paper: #f5efe4;
@@ -80,40 +80,7 @@ body:has(.koa-film[data-phase="scatter"]) .site-header {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  filter: drop-shadow(0 0 12px rgba(255,248,233,.03));
-}
 
-.koa-ka-outline {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: 50%;
-  width: min(96vw, 1220px);
-  height: auto;
-  transform: translate(-50%, -50%);
-  overflow: visible;
-  pointer-events: none;
-}
-
-.koa-ka-outline path {
-  fill: none;
-  stroke: rgba(248,243,232,.5);
-  stroke-width: 1.3;
-  vector-effect: non-scaling-stroke;
-  opacity: 0;
-  filter: drop-shadow(0 0 18px rgba(212,168,67,.05));
-}
-
-.koa-film[data-phase="converge"] .koa-ka-outline path {
-  opacity: calc(var(--koa-progress) * 2.7);
-}
-
-.koa-film[data-phase="hold"] .koa-ka-outline path {
-  opacity: .42;
-}
-
-.koa-film[data-phase="scatter"] .koa-ka-outline path {
-  opacity: calc((.54 - var(--koa-progress)) * 2.6);
 }
 
 .koa-film__seal {
@@ -160,12 +127,12 @@ body:has(.koa-film[data-phase="scatter"]) .site-header {
   width: min(88vw, 1100px);
   transform: translate(-50%, -50%);
   text-align: center;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: var(--koa-display);
   font-weight: 600;
   letter-spacing: -.035em;
-  line-height: .78;
-  font-size: clamp(4rem, 12vw, 10.5rem);
+  line-height: .95;
+  font-size: clamp(3.2rem, 9vw, 8.5rem);
   opacity: 0;
   pointer-events: none;
 }
@@ -176,8 +143,8 @@ body:has(.koa-film[data-phase="scatter"]) .site-header {
 }
 
 .koa-film__identity span:last-child {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(245,239,228,.42);
+  color: var(--koa-gold);
+  font-style: italic;
   font-weight: 500;
 }
 
@@ -692,7 +659,6 @@ body:has(.koa-film[data-phase="scatter"]) .site-header {
 
 @media (max-width: 900px) {
   .koa-film { height: 360svh; }
-  .koa-ka-outline { width: 138vw; }
   .koa-film__seal { width: clamp(170px, 38vmin, 280px); }
   .koa-film__phase-label { display: none; }
   .koa-film__motion-toggle { top: 12px; right: 12px; }
@@ -761,10 +727,6 @@ body:has(.koa-film[data-phase="scatter"]) .site-header {
     position: relative;
   }
 
-  .koa-film[data-motion="reduced"] .koa-ka-outline path {
-    opacity: .42;
-  }
-
   .koa-film[data-motion="reduced"] .koa-film__scroll-cue,
   .koa-film[data-motion="reduced"] .koa-film__phase-label {
     display: none;
@@ -789,3 +751,22 @@ body:has(.koa-film[data-phase="scatter"]) .site-header {
     transition: none !important;
   }
 }
+
+/* The same complete still scene serves the button and the OS preference. */
+.koa-film[data-motion="reduced"] { height: 100svh; }
+.koa-film[data-motion="reduced"] .koa-film__sticky { position: relative; }
+.koa-film[data-motion="reduced"] .koa-film__scroll-cue,
+.koa-film[data-motion="reduced"] .koa-film__phase-label { display: none; }
+body:has(.koa-film[data-motion="reduced"]) .site-header { opacity: 1; pointer-events: auto; transform: none; }
+.koa-film[data-motion="reduced"] .koa-film__identity { top: 82%; opacity: 1; font-size: clamp(2rem, 5vw, 3.6rem); }
+.koa-chapter h2, .koa-mission h2 { font-weight: 500; line-height: 1.04; letter-spacing: -.025em; }
+.koa-story { font-family: var(--koa-body); }
+body:has(.koa-film) :is(.section-heading h2, .image-story h2, .section h2) { font-family: var(--koa-display); }
+@media (max-width: 720px) {
+  .koa-film__seal { width: min(25vw, 180px); }
+  .koa-film__identity { font-size: clamp(2.7rem, 10vw, 5rem); }
+}
+
+.koa-chapter, .koa-mission { position: relative; isolation: isolate; }
+.koa-chapter-glyph-field { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; mask-image: linear-gradient(90deg, transparent 42%, #000 74%); }
+.koa-chapter__copy, .koa-chapter__full-copy, .koa-mission__header, .koa-mission__grid, .koa-mission__statement { position: relative; z-index: 2; }
