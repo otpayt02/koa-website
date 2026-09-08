@@ -1,25 +1,53 @@
-12:18:40 AM [vite] (client) [Unhandled error] Error: ResizeObserver loop completed with undelivered notifications.
- > ../../../../@vite/client:516:55
+9:40:01 PM [vite] (client) [console.error] [vite] Failed to reload /components/cinematic/KAGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+11:46:03 AM [vite] (client) [console.error] [vite] Failed to reload /components/KarenGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+11:46:03 AM [vite] (client) [console.error] [vite] Failed to reload /components/KarenGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+12:06:35 PM [vite] (client) [console.error] [vite] Failed to reload /components/cinematic/KAGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+12:06:35 PM [vite] (client) [console.error] [vite] Failed to reload /components/cinematic/KAGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+12:06:36 PM [vite] (client) [console.error] [vite] Failed to reload /components/cinematic/KAGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+12:06:37 PM [vite] (client) [console.error] [vite] Failed to reload /components/cinematic/KAGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+12:55:25 PM [vite] Internal server error: Transform failed with 1 error:
 
-12:18:40 AM [vite] (client) [Unhandled error] Error: ResizeObserver loop completed with undelivered notifications.
- > ../../../../@vite/client:516:55
+[31m[PARSE_ERROR] [0mInvalid Character `‘`
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m components/KarenGlyphField.tsx:7:3 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m7 │[0m [38;5;249m [0m[38;5;249m [0m‘[38;5;249mက[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mခ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဂ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဃ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mင[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mစ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဆ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mည[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mတ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mထ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဒ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mန[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mပ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဖ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mဘ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mမ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mယ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mရ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mလ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mဝ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mသ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mဟ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mအ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mြ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mွ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mူ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mဲ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m့[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mး[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m်[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၀[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၁[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၂[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၃[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m»[0m[38;5;249mK[0m[38;5;249m»[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m»[0m[38;5;249mO[0m[38;5;249m»[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m»[0m[38;5;249mA[0m[38;5;249m»[0m
+ [38;5;240m  │[0m   ┬  
+ [38;5;240m  │[0m   ╰── 
+[38;5;246m───╯[0m
 
-Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
-Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
-Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
-1. You might have mismatching versions of React and the renderer (such as React DOM)
-2. You might be breaking the Rules of Hooks
-3. You might have more than one copy of React in the same app
-See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
-12:23:10 AM [vite] Internal server error: Cannot read properties of null (reading 'useContext')
-      at Object.exports.useContext (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-DGPCLjpP.js?v=9ea19a79:708:22)
-      at Slot (C:/Users/olive/Projects/koa-website/node_modules/vinext/src/shims/slot.tsx:98:26)
-      at Object.react_stack_bottom_frame (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:5310:11)
-      at renderWithHooks (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:2796:19)
-      at renderElement (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:2934:17)
-      at renderElement (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:3234:7)
-      at retryNode (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:3363:285)
-      at performWork (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:3855:9)
-      at null.<anonymous> (C:/Users/olive/Projects/koa-website/node_modules/.vite/deps_ssr/react-dom-server.edge.development-DnFjSFwK.js?v=9ea19a79:2472:12)
-Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
-Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+  Plugin: vite:oxc
+  File: C:/Users/olive/Projects/koa-website/components/KarenGlyphField.tsx
+      at transformWithOxc (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:3339:19)
+      at TransformPluginContext.transform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:3410:26)
+      at EnvironmentPluginContainer.transform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:30271:51)
+      at async loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24532:26)
+      at async viteTransformMiddleware (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24326:20)
+12:55:25 PM [vite] (client) [console.error] [vite] Failed to reload /components/KarenGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+12:55:25 PM [vite] Internal server error: Transform failed with 1 error:
+
+[31m[PARSE_ERROR] [0mInvalid Character `‘`
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m components/KarenGlyphField.tsx:7:3 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m7 │[0m [38;5;249m [0m[38;5;249m [0m‘[38;5;249mက[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mခ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဂ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဃ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mင[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mစ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဆ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mည[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mတ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mထ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဒ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mန[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mပ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m‘[0m[38;5;249mဖ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mဘ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mမ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mယ[0m[38;5;249m’[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mရ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mလ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m’[0m[38;5;249mဝ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mသ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mဟ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mအ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mြ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mွ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mူ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mဲ[0m[38;5;249m”[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m့[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249mး[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m်[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၀[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၁[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၂[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m”[0m[38;5;249m၃[0m[38;5;249m“[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m»[0m[38;5;249mK[0m[38;5;249m»[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m»[0m[38;5;249mO[0m[38;5;249m»[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249m»[0m[38;5;249mA[0m[38;5;249m»[0m
+ [38;5;240m  │[0m   ┬  
+ [38;5;240m  │[0m   ╰── 
+[38;5;246m───╯[0m
+
+  Plugin: vite:oxc
+  File: C:/Users/olive/Projects/koa-website/components/KarenGlyphField.tsx
+      at transformWithOxc (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:3339:19)
+      at TransformPluginContext.transform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:3410:26)
+      at EnvironmentPluginContainer.transform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:30271:51)
+      at async loadAndTransform (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24532:26)
+      at async viteTransformMiddleware (file:///C:/Users/olive/Projects/koa-website/node_modules/vite/dist/node/chunks/node.js:24326:20)
+12:55:26 PM [vite] (client) [console.error] [vite] Failed to reload /components/KarenGlyphField.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)

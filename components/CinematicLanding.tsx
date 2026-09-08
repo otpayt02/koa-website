@@ -4,11 +4,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Lang, Messages } from "./i18n";
 import { KAGlyphField } from "./cinematic/KAGlyphField";
+import { KarenGlyphField } from "./KarenGlyphField";
 import { PartnerMarquee } from "./cinematic/PartnerMarquee";
 import { SealAssembly } from "./cinematic/SealAssembly";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
-const voiceWords = ["Providing", "Combining", "Inviting"] as const;
+const voiceWords = ["Uniting", "Providing", "Inviting", "Defining", "Aligning", "Deciding", "Refining", "Exciting", "Rewriting", "Applying", "Supplying", "Combining"] as const;
 
 const missionCards = [
   {
@@ -49,11 +50,11 @@ const missionCards = [
 ];
 
 function phaseFor(progress: number) {
-  if (progress < 0.045) return "arrival";
-  if (progress < 0.22) return "converge";
-  if (progress < 0.38) return "hold";
-  if (progress < 0.54) return "scatter";
-  return "release";
+  if (progress < 0.10) return "arrival";
+  if (progress < 0.32) return "form";
+  if (progress < 0.46) return "hold";
+  if (progress < 0.74) return "narrative";
+  return "scatter";
 }
 
 export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Messages }) {
@@ -61,12 +62,18 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
   const [progress, setProgress] = useState(0);
   const [motionReduced, setMotionReduced] = useState(false);
   const [voiceIndex, setVoiceIndex] = useState(0);
+  const [displayCards, setDisplayCards] = useState(missionCards);
   const phase = phaseFor(progress);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     const query = new URLSearchParams(window.location.search);
-    const sync = () => setMotionReduced(media.matches || query.get("motion") === "off");
+    // `?motion=on` is an explicit preview override for motion QA; normal visits
+    // still honor the operating system's reduced-motion preference.
+    const requestedMotion = query.get("motion");
+    const sync = () => setMotionReduced(
+      requestedMotion === "off" || (requestedMotion !== "on" && media.matches),
+    );
     sync();
     media.addEventListener("change", sync);
     return () => media.removeEventListener("change", sync);
@@ -77,8 +84,8 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
     if (!film) return;
 
     if (motionReduced) {
-      film.style.setProperty("--koa-progress", "0.30");
-      setProgress(0.30);
+      film.style.setProperty("--koa-progress", "0.78");
+      setProgress(0.78);
       return;
     }
 
@@ -94,19 +101,19 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
     const requestUpdate = () => {
       if (!frame) frame = window.requestAnimationFrame(update);
     };
-
     update();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
+    const onScroll = () => { requestUpdate(); };
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", requestUpdate);
     return () => {
-      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", requestUpdate);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, [motionReduced]);
 
   useEffect(() => {
-    if (motionReduced || progress < 0.54) {
+    if (motionReduced || progress < 0.56) {
       setVoiceIndex(0);
       return;
     }
@@ -116,6 +123,20 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
     }, 2600);
     return () => window.clearInterval(cycle);
   }, [motionReduced, progress]);
+
+  useEffect(() => {
+    if (motionReduced) return;
+    let slot = 0;
+    const cycle = window.setInterval(() => {
+      setDisplayCards((cards) => cards.map((card, index) => {
+        if (index !== slot) return card;
+        const current = missionCards.findIndex((candidate) => candidate.number === card.number);
+        return missionCards[(current + 1) % missionCards.length];
+      }));
+      slot = (slot + 1) % missionCards.length;
+    }, 6000);
+    return () => window.clearInterval(cycle);
+  }, [motionReduced]);
 
   return (
     <>
@@ -132,21 +153,27 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
           </h1>
 
           <div className="koa-film__atmosphere" aria-hidden="true" />
-          <KAGlyphField progress={progress} reducedMotion={motionReduced} />
-
-          <div className="koa-film__seal" aria-hidden="true">
-            <div className="koa-film__seal-glow" />
-            <SealAssembly rotation={progress * 360} />
+          <KarenGlyphField reducedMotion={motionReduced} progress={progress} />
+          <div className="koa-film__mark" aria-hidden="true">
+            <KAGlyphField progress={progress} reducedMotion={motionReduced} />
+            <div className="koa-film__seal">
+              <div className="koa-film__seal-glow" />
+              <SealAssembly rotation={progress * 360} />
+            </div>
           </div>
 
-          <div className="koa-film__identity" aria-hidden="true">
-            <span>Karen Organization</span>
-            <span>of America</span>
+          <div className="koa-film__narrative" aria-hidden="true">
+            <p className="koa-film__narrative-label">Karen Organization of America</p>
+            <p className="koa-film__charter">
+              <span>We strengthen unity, protect Karen rights and language,</span>
+              <span>and build practical paths for people to participate,</span>
+              <span>contribute, and lead wherever they call home in America.</span>
+            </p>
           </div>
 
           <p className="koa-film__voice-line" aria-live="polite">
             <span className="koa-film__voice-word" key={voiceWords[voiceIndex]}>{voiceWords[voiceIndex]}</span>{" "}
-            <span>voices</span>
+            <span>a voice</span>
           </p>
 
           <div className="koa-film__phase-label" aria-hidden="true">
@@ -182,7 +209,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
         </section>
 
         <section className="koa-chapter koa-chapter--full" aria-labelledby="koa-chapter-two">
-          <img className="koa-chapter__full-image" src="/koa/assets/story-community-original.png" alt="Karen community members gathering together" />
+          <img className="koa-chapter__full-image" src="/koa/assets/fb-community-group-mobile-enhanced.png" alt="Karen community members gathering together" />
           <div className="koa-chapter__full-shade" aria-hidden="true" />
           <div className="koa-chapter__full-copy">
             <p className="koa-chapter__eyebrow">Chapter 02 · Living language</p>
@@ -211,14 +238,16 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
           </header>
 
           <div className="koa-mission__carnival">
-            {missionCards.map((card) => (
-              <article className="koa-mission-card" key={card.number}>
+            {displayCards.map((card, index) => (
+              <article className="koa-mission-card" key={`slot-${index}`}>
+                <div className="koa-mission-card__swap" key={card.number}>
                 <div className="koa-mission-card__image"><img src={card.image} alt="" /></div>
                 <div className="koa-mission-card__body">
                   <span>{card.number}</span>
                   <h3>{card.title}</h3>
                   <p>{card.body}</p>
                   <Link href={`/${lang}/${card.href}`}>Explore <span aria-hidden="true">↗</span></Link>
+                </div>
                 </div>
               </article>
             ))}

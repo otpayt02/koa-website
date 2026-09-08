@@ -19,9 +19,24 @@ test("the supplied seal keeps its ring lettering above the core shadow", () => {
   assert.match(landing, /<SealAssembly rotation=\{progress \* 360\} \/>/);
 });
 
-test("the post-assembly voice statement cycles inside the pinned scene", () => {
-  assert.match(landing, /const voiceWords = \["Providing", "Combining", "Inviting"\]/);
+test("the post-assembly voice statement cycles after the charter enters", () => {
+  assert.match(landing, /const voiceWords = \["Uniting", "Providing", "Inviting", "Defining", "Aligning", "Deciding", "Refining", "Exciting", "Rewriting", "Applying", "Supplying", "Combining"\]/);
   assert.match(landing, /koa-film__voice-line/);
-  assert.match(css, /\.koa-film\[data-phase="release"\] \.koa-film__voice-line/);
+  assert.match(css, /\.koa-film\[data-phase="narrative"\] \.koa-film__voice-line/);
   assert.match(css, /@keyframes koaVoiceWord/);
+});
+
+test("the release canonical field uses bounded source particle caps and native scroll timing", () => {
+  const field = read("components/cinematic/KAGlyphField.tsx");
+  assert.match(field, /const count = width < 720 \? 60 : 150/);
+  assert.match(field, /stiffness: 0\.045 \+ Math\.random\(\) \* 0\.05/);
+  assert.match(field, /distance < 130/);
+  assert.match(field, /\* 8\.5/);
+  assert.match(field, /new ResizeObserver\(resize\)/);
+  assert.match(field, /const rise = smooth\(\(sceneProgress - 0\.46\) \/ 0\.30\)/);
+  assert.match(field, /const scatter = smooth\(\(sceneProgress - 0\.74\) \/ 0\.24\)/);
+  assert.match(landing, /if \(progress < 0\.10\) return "arrival"/);
+  assert.match(landing, /if \(progress < 0\.32\) return "form"/);
+  assert.doesNotMatch(landing, /const landmarks = \[0\.05, 0\.50, 0\.78, 0\.88\]/);
+  assert.match(css, /height: 620svh/);
 });
