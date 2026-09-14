@@ -58,12 +58,10 @@ function insideFirstK(point: Point) {
   return spine || upper || lower;
 }
 
-// The original A triangle is retained, but targets fill its interior and the crossbar.
+// Targets occupy the whole original A silhouette. The glyph field, rather than a
+// solid face or a visible guide, carries both the letter's edge and its interior.
 function insideFirstA(point: Point) {
-  const outer = pointInPolygon(point, [{ x: 0.5, y: 0 }, { x: 0.04, y: 1 }, { x: 0.96, y: 1 }]);
-  const counter = pointInPolygon(point, [{ x: 0.5, y: 0.32 }, { x: 0.31, y: 0.76 }, { x: 0.69, y: 0.76 }]);
-  const crossbar = point.x >= 0.27 && point.x <= 0.73 && point.y >= 0.56 && point.y <= 0.69;
-  return outer && (!counter || crossbar);
+  return pointInPolygon(point, [{ x: 0.5, y: 0 }, { x: 0.04, y: 1 }, { x: 0.96, y: 1 }]);
 }
 
 function shuffled<T>(values: T[]) {
