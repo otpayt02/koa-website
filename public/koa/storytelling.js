@@ -1745,3 +1745,19 @@
   }
   
 })();
+/* WebGL2 procedural atmosphere companion for the React cinematic hero. */
+(function initShaderAtmosphere() {
+  var canvas = document.querySelector('[data-shader-atmosphere]');
+  if (!canvas) return;
+  var gl = canvas.getContext('webgl2', { alpha: true, antialias: false });
+  if (!gl) return;
+  var vs = '#version 300 es\nin vec2 p; void main(){gl_Position=vec4(p,0.,1.);}';
+  var fs = '#version 300 es\nprecision highp float; uniform vec2 r; uniform float t; uniform float progress; out vec4 o; float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);} float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+1.),f.x),f.y);} float f(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p=mat2(1.6,1.2,-1.2,1.6)*p*1.45;a*=.5;}return v;} void main(){vec2 uv=(2.*gl_FragCoord.xy-r)/r.y;vec2 q=uv*.72+vec2(t*.035,-t*.02);q+=vec2(f(q*1.15+t*.02),f(q*1.15-t*.02))*.34;float c=smoothstep(.32,.82,f(q*1.7+progress));float v=smoothstep(1.45,.15,length(uv));vec3 col=mix(vec3(.06,.18,.34),vec3(.83,.55,.18),c*.22+exp(-2.2*length(uv+vec2(0,.08)))*.08);o=vec4(col*c*v*.28,c*v*.42);}';
+  function shader(type, source) { var s=gl.createShader(type); gl.shaderSource(s,source); gl.compileShader(s); return s; }
+  var program=gl.createProgram(); gl.attachShader(program,shader(gl.VERTEX_SHADER,vs)); gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fs)); gl.linkProgram(program);
+  var buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+  var pos=gl.getAttribLocation(program,'p'), res=gl.getUniformLocation(program,'r'), time=gl.getUniformLocation(program,'t'), prog=gl.getUniformLocation(program,'progress'); gl.enableVertexAttribArray(pos); gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+  function resize(){var d=Math.min(1.5,devicePixelRatio||1),b=canvas.getBoundingClientRect();canvas.width=b.width*d;canvas.height=b.height*d;gl.viewport(0,0,canvas.width,canvas.height);}
+  function draw(now){gl.useProgram(program);gl.uniform2f(res,canvas.width,canvas.height);gl.uniform1f(time,now*.001);gl.uniform1f(prog,scrollY/Math.max(1,document.body.scrollHeight-innerHeight));gl.drawArrays(gl.TRIANGLES,0,6);if(document.body.dataset.motion!=='off')requestAnimationFrame(draw);}
+  resize(); addEventListener('resize',resize); requestAnimationFrame(draw);
+}());

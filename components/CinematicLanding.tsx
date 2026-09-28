@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import type { Lang, Messages } from "./i18n";
 import { KAGlyphField } from "./cinematic/KAGlyphField";
 import { PartnerMarquee } from "./cinematic/PartnerMarquee";
 import { SealAssembly } from "./cinematic/SealAssembly";
+import { ShaderAtmosphere } from "./cinematic/ShaderAtmosphere";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 
@@ -14,35 +16,35 @@ const missionCards = [
     number: "01",
     title: "Civic voice",
     body: "Help Karen communities understand public systems, organize around priorities, and speak where decisions are made.",
-    image: "/koa/assets/fb-capitol-group-mobile-enhanced.png",
+    image: "/koa/assets/koa-national-community-ai.jpg",
     href: "services",
   },
   {
     number: "02",
     title: "Living language",
     body: "Preserve S’gaw Karen through community-reviewed words, recordings, translation, and intergenerational learning.",
-    image: "/koa/assets/cultural-community.jpg",
+    image: "/koa/assets/programs-community-mobile-generated.png",
     href: "dictionary",
   },
   {
     number: "03",
     title: "Community care",
     body: "Connect people to practical support, trusted community relationships, and ways to help one another.",
-    image: "/koa/assets/humanitarian-assistance.jpg",
+    image: "/koa/assets/koa-community-care-ai.jpg",
     href: "community",
   },
   {
     number: "04",
     title: "Youth leadership",
     body: "Make room for the next generation to learn, build, organize, and lead with confidence.",
-    image: "/koa/assets/community-engagement.jpg",
+    image: "/koa/assets/hero-community-mobile-enhanced.png",
     href: "collaborate",
   },
   {
     number: "05",
     title: "Culture in motion",
     body: "Keep identity visible through gathering, sport, music, food, storytelling, and shared public life.",
-    image: "/koa/assets/fb-outdoor-gathering-mobile-enhanced.png",
+    image: "/koa/assets/koa-sepak-takraw-tournament-ai.jpg",
     href: "community",
   },
 ];
@@ -118,6 +120,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
           </h1>
 
           <div className="koa-film__atmosphere" aria-hidden="true" />
+          <ShaderAtmosphere progress={progress} reducedMotion={motionReduced} />
           <KAGlyphField progress={progress} reducedMotion={motionReduced} />
 
           <svg className="koa-ka-outline" viewBox="0 0 1200 700" aria-hidden="true">
@@ -154,7 +157,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
         </div>
       </section>
 
-      <main className="koa-story" id="main-content">
+      <main className="koa-story" id="main-content" style={{ "--koa-progress": progress } as CSSProperties}>
         <section className="koa-chapter koa-chapter--split" aria-labelledby="koa-chapter-one">
           <div className="koa-chapter__media koa-chapter__media--portrait">
             <img src="/koa/assets/fb-capitol-group-mobile-enhanced.png" alt="Karen community advocates gathered during a visit to the United States Capitol" />
@@ -196,8 +199,10 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
             <h2 id="koa-mission-title">A national organization should feel as alive as the people it serves.</h2>
           </header>
 
-          <div className="koa-mission__carnival">
-            {missionCards.map((card) => (
+            <div className="koa-mission__carnival" style={{ "--koa-gallery-progress": progress } as CSSProperties}>
+            {[missionCards.slice(0, 3), missionCards.slice(3)].map((row, rowIndex) => (
+              <div className={`koa-mission__row koa-mission__row--${rowIndex === 0 ? "forward" : "reverse"}`} key={rowIndex}>
+              {row.map((card) => (
               <article className="koa-mission-card" key={card.number}>
                 <div className="koa-mission-card__image"><img src={card.image} alt="" /></div>
                 <div className="koa-mission-card__body">
@@ -207,6 +212,8 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
                   <Link href={`/${lang}/${card.href}`}>Explore <span aria-hidden="true">↗</span></Link>
                 </div>
               </article>
+              ))}
+              </div>
             ))}
           </div>
 
