@@ -1,0 +1,1974 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Karen Organization of America — a home for the S'gaw Karen people in America, and the beginning of something monumental.">
+<meta name="theme-color" content="#0a1428">
+<title>KOA — Karen Organization of America</title>
+<link rel="icon" href="assets/koa-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Myanmar:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   KOA — REIMAGINED DESIGN SYSTEM
+   Premium luxury meets Karen heritage
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Hermes Blue + Navy + Red Dominant + Gold Accents */
+  --hermes-blue-950: #0a1428;
+  --hermes-blue-900: #0d1a3a;
+  --hermes-blue-850: #112147;
+  --hermes-blue-800: #152955;
+  --navy-deep: #0b1632;
+  --navy-rich: #0e1f45;
+  
+  --red-primary: #c41e3a;
+  --red-deep: #8b1538;
+  --red-bright: #e03050;
+  --red-soft: rgba(196, 30, 58, 0.15);
+  
+  --gold-primary: #d4af37;
+  --gold-muted: #b89628;
+  --gold-bright: #f4cf57;
+  --gold-ghost: rgba(212, 175, 55, 0.08);
+  
+  --porcelain: #f5f2eb;
+  --porcelain-dim: #d4cfc2;
+  --porcelain-faint: #9a9587;
+  
+  /* Typography - Premium Pairing */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-display-alt: "Playfair Display", Georgia, serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+  --font-script: "Noto Sans Myanmar", sans-serif;
+  
+  /* Spacing & Layout */
+  --header-height: 84px;
+  --container: min(1440px, 92vw);
+  --gutter: clamp(1.5rem, 5vw, 5rem);
+  
+  /* Easing & Motion */
+  --ease-out: cubic-bezier(0.21, 0.92, 0.7, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 0.3s;
+  --dur-med: 0.6s;
+  --dur-slow: 1.2s;
+  --dur-slower: 2s;
+  
+  /* Effects */
+  --shadow-soft: 0 8px 32px rgba(10, 20, 40, 0.3);
+  --shadow-deep: 0 20px 60px rgba(5, 10, 25, 0.5);
+  --glow-gold: 0 0 40px rgba(212, 175, 55, 0.3);
+  --glow-red: 0 0 40px rgba(196, 30, 58, 0.25);
+  
+  color-scheme: dark;
+}
+
+/* Reset & Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 2rem);
+  background: var(--hermes-blue-950);
+}
+
+body {
+  background: 
+    radial-gradient(ellipse at 80% 10%, rgba(196, 30, 58, 0.08), transparent 40%),
+    radial-gradient(ellipse at 20% 80%, rgba(13, 26, 58, 0.6), transparent 50%),
+    linear-gradient(180deg, var(--hermes-blue-950), var(--navy-deep) 40%, var(--hermes-blue-900));
+  color: var(--porcelain);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LOOM PATTERN - Diamond weave texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.03;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 175, 55, 0.3) 2px,
+      rgba(212, 175, 55, 0.3) 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(196, 30, 58, 0.2) 2px,
+      rgba(196, 30, 58, 0.2) 4px
+    );
+  pointer-events: none;
+}
+
+img, video, svg { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+::selection { background: var(--red-primary); color: white; }
+
+:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 3px;
+}
+
+/* Skip Link */
+.skip {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: var(--gold-primary);
+  color: var(--hermes-blue-950);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: top 0.3s var(--ease-out);
+}
+.skip:focus { top: 1rem; }
+
+/* ==========================================================================
+   GLYPH CANVAS - Dynamic background layer
+   ========================================================================== */
+.glyph-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.glyph-canvas.hidden { opacity: 0; }
+
+/* ==========================================================================
+   HEADER - Deluxe Premium Banner
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  background: linear-gradient(180deg, rgba(10, 20, 40, 0.95), rgba(10, 20, 40, 0.82));
+  backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  transition: all 0.4s var(--ease-out);
+}
+
+.header.is-scrolled {
+  background: rgba(10, 20, 40, 0.96);
+  backdrop-filter: blur(24px) saturate(160%);
+  border-bottom-color: rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-width: 0;
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.brand span {
+  display: grid;
+  line-height: 1.1;
+}
+
+.brand strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--porcelain);
+}
+
+.brand small {
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--porcelain-dim);
+  font-weight: 500;
+}
+
+/* Navigation - ChatGPT Style Tabs */
+.nav {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav a {
+  position: relative;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--porcelain-dim);
+  border-radius: 999px;
+  transition: all 0.3s var(--ease-out);
+}
+
+.nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(212, 175, 55, 0.15));
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--porcelain);
+}
+
+.nav a:hover::before {
+  opacity: 1;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--gold-bright);
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.25), rgba(212, 175, 55, 0.2));
+  box-shadow: 0 2px 12px rgba(196, 30, 58, 0.2);
+}
+
+/* Header Tools */
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(212, 175, 55, 0.1));
+  color: var(--gold-bright);
+  transition: all 0.3s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.pill:hover::before {
+  transform: translateX(100%);
+}
+
+.pill:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.pill .pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red-bright);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px var(--red-bright); }
+  50% { opacity: 0.5; transform: scale(0.8); box-shadow: 0 0 4px var(--red-bright); }
+}
+
+.motion-button {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--porcelain-dim);
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.motion-button:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-bright);
+}
+
+.menu {
+  display: none;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--porcelain);
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+/* Mobile Panel */
+.mobile-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(10, 20, 40, 0.98);
+  backdrop-filter: blur(20px);
+  display: grid;
+  place-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s var(--ease-out);
+}
+
+.mobile-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-panel a {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  color: var(--porcelain-dim);
+  transition: color 0.3s ease;
+}
+
+.mobile-panel a:hover {
+  color: var(--gold-bright);
+}
+
+/* ==========================================================================
+   ARRIVAL SECTION - KOA Logo Intro Sequence
+   ========================================================================== */
+.arrival {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.arrival-stage {
+  position: relative;
+  width: 100%;
+  max-width: var(--container);
+  padding: var(--gutter);
+  text-align: center;
+}
+
+/* Chapter Flash Container - Burmese ↔ Arabic */
+.chapter-flash-container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 18rem);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chapter-bg-num {
+  display: block;
+}
+
+.chapter-flash-arabic {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  animation: flash-number 4s ease-in-out infinite;
+}
+
+@keyframes flash-number {
+  0%, 85%, 100% { opacity: 0; }
+  87%, 92% { opacity: 0.15; }
+  94% { opacity: 0; }
+}
+
+/* Halo - Subtle Sunshine Effect */
+.halo {
+  position: relative;
+  width: clamp(280px, 50vw, 520px);
+  aspect-ratio: 1;
+  margin: 0 auto 3rem;
+  display: grid;
+  place-items: center;
+}
+
+.halo-rays {
+  position: absolute;
+  inset: -20%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(212, 175, 55, 0.08),
+    rgba(196, 30, 58, 0.06),
+    rgba(212, 175, 55, 0.08),
+    rgba(196, 30, 58, 0.06),
+    rgba(212, 175, 55, 0.08)
+  );
+  filter: blur(40px);
+  animation: rotate-sunshine 120s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes rotate-sunshine {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.halo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.halo-ring--1 { inset: 5%; animation-delay: 0s; }
+.halo-ring--2 { inset: 15%; animation-delay: 0.3s; }
+.halo-ring--3 { inset: 25%; animation-delay: 0.6s; }
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+}
+
+.halo-seal {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.5));
+  z-index: 2;
+}
+
+/* Arrival Copy */
+.arrival-copy {
+  margin-bottom: 2.5rem;
+}
+
+.arrival-copy .eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.arrival-copy .eyebrow::before,
+.arrival-copy .eyebrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+.arrival-copy .eyebrow::before { left: -4rem; }
+.arrival-copy .eyebrow::after { right: -4rem; }
+
+.arrival-copy h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--porcelain);
+}
+
+.arrival-copy h1 em {
+  font-style: italic;
+  color: var(--red-bright);
+}
+
+/* Mission Text */
+.arrival-mission {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.arrival-mission p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--porcelain-dim);
+}
+
+/* Scroll Cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--porcelain-faint);
+  opacity: 0.7;
+}
+
+.scroll-cue i {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, var(--gold-primary), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%, 100% { transform: scaleY(1); opacity: 0.5; }
+  50% { transform: scaleY(0.6); opacity: 0.9; }
+}
+
+/* ==========================================================================
+   FILM SECTION - Cinematic Chapters
+   ========================================================================== */
+.film {
+  position: relative;
+  height: 600vh;
+  background: var(--hermes-blue-950);
+}
+
+.film-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.film-letterbox {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.lb {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8%;
+  background: linear-gradient(180deg, var(--hermes-blue-950), transparent);
+}
+
+.lb--top { top: 0; }
+.lb--bottom { bottom: 0; }
+
+.film-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 100;
+}
+
+.film-progress i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-primary), var(--red-primary));
+}
+
+.film-label {
+  position: absolute;
+  top: calc(var(--header-height) + 1.5rem);
+  left: var(--gutter);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--porcelain-faint);
+  z-index: 100;
+}
+
+.film-meta {
+  position: absolute;
+  top: calc(var(--header-height) + 1.5rem);
+  right: var(--gutter);
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--porcelain-faint);
+  z-index: 100;
+}
+
+.film-meta b {
+  color: var(--gold-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.chapter-dots {
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.2rem;
+  z-index: 100;
+}
+
+.chapter-dots li {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s var(--ease-out);
+}
+
+.chapter-dots li.is-active {
+  background: var(--gold-primary);
+  transform: scale(1.5);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+/* Scenes */
+.scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(12px) saturate(0.9);
+  transform: scale(1.02);
+  transition: all 1.2s var(--ease-in-out);
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  filter: blur(0) saturate(1);
+  transform: scale(1);
+}
+
+.scene-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.scene-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 20, 40, 0.9) 0%, rgba(10, 20, 40, 0.5) 45%, rgba(10, 20, 40, 0.2) 75%),
+    linear-gradient(180deg, rgba(10, 20, 40, 0.6) 0%, transparent 45%, rgba(10, 20, 40, 0.8) 100%);
+  z-index: 2;
+}
+
+.scene-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--position, 50% 50%);
+  transform: scale(1.1);
+}
+
+.scene.active .scene-media img {
+  animation: kenburns-enhanced 18s var(--ease-in-out) forwards;
+}
+
+@keyframes kenburns-enhanced {
+  0% { transform: scale(1.1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1.08); }
+}
+
+.scene-credit {
+  position: absolute;
+  bottom: 2rem;
+  right: var(--gutter);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 235, 0.4);
+  z-index: 10;
+}
+
+.scene-copy {
+  position: relative;
+  z-index: 10;
+  width: var(--container);
+  margin: 0 auto;
+  padding-right: var(--gutter);
+}
+
+.scene-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+}
+
+.scene-kicker::before {
+  content: "";
+  width: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-primary), transparent);
+}
+
+.scene h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  max-width: 14ch;
+}
+
+.scene h2 em {
+  font-style: italic;
+  color: var(--red-bright);
+}
+
+.karen-script {
+  font-family: var(--font-script);
+  font-size: 1.25rem;
+  color: var(--gold-bright);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.scene-sub {
+  max-width: 38rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--porcelain-dim);
+}
+
+/* Scene Beat Animation */
+.scene [data-beat] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.scene.active [data-beat] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scene.active [data-beat]:nth-child(2) { transition-delay: 0.15s; }
+.scene.active [data-beat]:nth-child(3) { transition-delay: 0.3s; }
+
+/* Button Row */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--solid {
+  background: linear-gradient(135deg, var(--red-deep), var(--red-primary));
+  color: white;
+  border: 1px solid transparent;
+}
+
+.btn--solid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn--solid:hover::before {
+  transform: translateX(100%);
+}
+
+.btn--solid:hover {
+  box-shadow: 0 8px 30px rgba(196, 30, 58, 0.4);
+  transform: translateY(-3px);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--porcelain);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.btn--ghost:hover {
+  border-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   INTERLUDE - Quote Section
+   ========================================================================== */
+.interlude {
+  position: relative;
+  padding: 8rem var(--gutter);
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(196, 30, 58, 0.1), transparent 60%),
+    var(--hermes-blue-950);
+}
+
+.interlude blockquote {
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+}
+
+.line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.line-mask span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.4;
+  transform: translateY(100%);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.interlude.is-visible .line-mask span {
+  transform: translateY(0);
+}
+
+.interlude.is-visible .line-mask:nth-child(2) span { transition-delay: 0.15s; }
+.interlude.is-visible .line-mask:nth-child(3) span { transition-delay: 0.3s; }
+
+.interlude cite {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--porcelain-faint);
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   SECTIONS - Standard Layout
+   ========================================================================== */
+.section {
+  position: relative;
+  padding: clamp(5rem, 10vw, 8rem) var(--gutter);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: center;
+}
+
+.split-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.split-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.split-media:hover img {
+  transform: scale(1.05);
+}
+
+.split-media figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--porcelain);
+  background: linear-gradient(180deg, transparent, rgba(10, 20, 40, 0.9));
+}
+
+.split-copy .eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.split-copy h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.split-copy h2 em {
+  font-style: italic;
+  color: var(--red-bright);
+}
+
+.lede {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--porcelain-dim);
+  margin-bottom: 1.5rem;
+}
+
+.split-copy ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.split-copy li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--porcelain-dim);
+}
+
+.split-copy li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--red-primary);
+  font-size: 0.6rem;
+}
+
+/* Stats Section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat {
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(212, 175, 55, 0.2);
+  transform: translateY(-4px);
+}
+
+.stat b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--porcelain-dim);
+  line-height: 1.5;
+}
+
+/* Grid Cards */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  transition: all 0.4s var(--ease-out);
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(196, 30, 58, 0.08), rgba(212, 175, 55, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+}
+
+.card .num {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  font-size: 0.9375rem;
+  color: var(--porcelain-dim);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.card .arrow {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: var(--red-primary);
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(6px);
+}
+
+/* Reveal Animations */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all 0.8s var(--ease-out);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.7s var(--ease-out);
+}
+
+[data-reveal-stagger].is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+[data-reveal-stagger].is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+[data-reveal-stagger].is-visible > *:nth-child(3) { transition-delay: 0.15s; }
+[data-reveal-stagger].is-visible > *:nth-child(4) { transition-delay: 0.2s; }
+[data-reveal-stagger].is-visible > *:nth-child(5) { transition-delay: 0.25s; }
+[data-reveal-stagger].is-visible > *:nth-child(6) { transition-delay: 0.3s; }
+[data-reveal-stagger].is-visible > *:nth-child(7) { transition-delay: 0.35s; }
+[data-reveal-stagger].is-visible > *:nth-child(8) { transition-delay: 0.4s; }
+
+[data-reveal-stagger].is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   PARALLAX TEXT EFFECTS
+   ========================================================================== */
+.parallax-text {
+  position: relative;
+  will-change: transform;
+}
+
+.parallax-region {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-region::before,
+.parallax-region::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.parallax-region::before {
+  top: 0;
+  background: linear-gradient(180deg, var(--hermes-blue-950), transparent);
+}
+
+.parallax-region::after {
+  bottom: 0;
+  background: linear-gradient(0deg, var(--hermes-blue-950), transparent);
+}
+
+/* ==========================================================================
+   SPARKLE PARTICLES
+   ========================================================================== */
+.sparkle-container {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold-primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle-float 8s ease-in-out infinite;
+}
+
+.sparkle::before,
+.sparkle::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.sparkle::before {
+  width: 200%;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle::after {
+  width: 2px;
+  height: 200%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes sparkle-float {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(0.5); }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  50% { transform: translateY(-100px) scale(1); }
+}
+
+/* ==========================================================================
+   FLOATING ELEMENTS
+   ========================================================================== */
+.floating-element {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.4;
+  animation: float-gentle 20s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-30px) rotate(5deg); }
+  75% { transform: translateY(30px) rotate(-5deg); }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .menu { display: block; }
+  
+  .split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 72px;
+  }
+  
+  .brand strong { font-size: 1.15rem; }
+  .brand small { font-size: 0.5rem; }
+  
+  .arrival-copy h1 { font-size: clamp(2rem, 10vw, 4rem); }
+  
+  .scene-copy {
+    padding-right: var(--gutter);
+    padding-left: var(--gutter);
+  }
+  
+  .scene h2 { font-size: clamp(1.75rem, 7vw, 3.5rem); }
+  
+  .chapter-dots {
+    right: 1rem;
+    gap: 0.9rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- Glyph Canvas Background -->
+<canvas class="glyph-canvas" aria-hidden="true"></canvas>
+
+<!-- Sparkle Particles -->
+<div class="sparkle-container" aria-hidden="true"></div>
+
+<header class="header" data-header>
+  <a class="brand" href="index.html">
+    <img src="assets/koa-logo.png" alt="">
+    <span><strong>KOA</strong><small>Karen Organization of America</small></span>
+  </a>
+  
+  <nav class="nav" aria-label="Primary">
+    <a aria-current="page" href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="stories.html">Stories</a>
+    <a href="music.html">Music</a>
+    <a href="coming-soon.html">Coming Soon</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  
+  <div class="header-tools">
+    <a class="pill pill--gold" href="#waitlist"><span class="pulse"></span>Join early access</a>
+    <button class="motion-button" data-motion>Motion on</button>
+    <button class="menu" data-menu aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobile-panel" data-mobile-panel>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="programs.html">Programs</a>
+  <a href="stories.html">Stories</a>
+  <a href="music.html">Music</a>
+  <a href="coming-soon.html">Coming Soon</a>
+  <a href="contact.html">Contact</a>
+  <a href="#waitlist" class="pill pill--gold">Join early access</a>
+</div>
+
+<main id="main">
+
+  <!-- ===================== THE ARRIVAL ===================== -->
+  <section class="arrival" data-arrival aria-label="KOA — the arrival">
+    <div class="arrival-stage">
+      <!-- Chapter Number Flash -->
+      <div class="chapter-flash-container">
+        <span class="chapter-bg-num chapter-bg-num--prologue" aria-hidden="true">KOA</span>
+        <span class="chapter-flash-arabic" aria-hidden="true">0</span>
+      </div>
+      
+      <!-- Halo with Sunshine Rays -->
+      <div class="halo" aria-hidden="true">
+        <i class="halo-rays"></i>
+        <i class="halo-ring halo-ring--1"></i>
+        <i class="halo-ring halo-ring--2"></i>
+        <i class="halo-ring halo-ring--3"></i>
+        <img src="assets/koa-logo.png" alt="" class="halo-seal">
+      </div>
+      
+      <div class="arrival-copy">
+        <p class="eyebrow" data-arrival-beat>Karen Organization of America</p>
+        <h1 data-arrival-beat>One people.<br>One <em>home.</em></h1>
+      </div>
+      
+      <div class="arrival-mission" data-arrival-beat>
+        <p data-assemble="late">KOA exists so the Karen people in America have one national home — the elders who carried the language across an ocean, the parents keeping it alive at kitchen tables, the kids hearing it for the first time in a new country; the churches and the businesses, the musicians and the athletes, the cooks and the quiet keepers of every old song. One roof for the language, the food, the faith, the games, the news — and the future.</p>
+      </div>
+      
+      <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- ===================== THE FILM ===================== -->
+  <section class="film" data-film data-total="3000" aria-label="KOA cinematic introduction">
+    <div class="film-stage">
+      <div class="film-letterbox" aria-hidden="true">
+        <i class="lb lb--top"></i>
+        <i class="lb lb--bottom"></i>
+      </div>
+      <div class="film-progress" aria-hidden="true"><i></i></div>
+      <div class="film-label" aria-hidden="true">KOA · a homecoming in five chapters</div>
+      <div class="film-meta" aria-hidden="true"><span>FRAME</span><b data-frame>0000</b><span>/ 3000</span></div>
+      <ol class="chapter-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
+
+      <!-- Chapter 01 -->
+      <article class="scene scene--rack active" data-scene data-glyph-num="၁">
+        <div class="chapter-flash-container">
+          <span class="chapter-bg-num" aria-hidden="true">၁</span>
+          <span class="chapter-flash-arabic" aria-hidden="true">1</span>
+        </div>
+        <div class="scene-media" style="--position:50% 40%">
+          <img src="assets/koa-community-care-ai.jpg" alt="An elder woman in traditional dress is steadied by a younger family member at a community food distribution at dusk">
+        </div>
+        <div class="scene-copy">
+          <p class="scene-script karen-script" data-beat lang="khw">ဒလ်စာလိက် ဒလ်သိုဟ် ဒလ်သၞာန်</p>
+          <div data-beat>
+            <p class="scene-kicker">01 · Since before borders</p>
+            <h2>The people are<br>the <em>story.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat data-assemble="late">A thousand years of song, scripture, and survival — carried now into America, into a new century, into a home of their own making.</p>
+        </div>
+        <span class="scene-credit">Community care, at dusk</span>
+      </article>
+
+      <!-- Chapter 02 -->
+      <article class="scene scene--wipe" data-scene data-glyph-num="၂">
+        <div class="chapter-flash-container">
+          <span class="chapter-bg-num" aria-hidden="true">၂</span>
+          <span class="chapter-flash-arabic" aria-hidden="true">2</span>
+        </div>
+        <div class="scene-media" style="--position:50% 60%">
+          <img src="assets/fb-outdoor-gathering.jpg" alt="A large outdoor Karen community gathering">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">02 · The organization</p>
+            <h2>One roof.<br>Every <em>need.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat data-assemble="late">KOA works where the community stands — education, health, language, faith, and the everyday. A nonprofit built by Karen hands, for Karen people, across the United States.</p>
+        </div>
+        <span class="scene-credit">Community scale</span>
+      </article>
+
+      <!-- Chapter 03 -->
+      <article class="scene scene--iris" data-scene data-glyph-num="၃">
+        <div class="chapter-flash-container">
+          <span class="chapter-bg-num" aria-hidden="true">၃</span>
+          <span class="chapter-flash-arabic" aria-hidden="true">3</span>
+        </div>
+        <div class="scene-media" style="--position:50% 35%">
+          <img src="assets/koa-sepak-takraw-tournament-ai.jpg" alt="A sepak takraw player frozen mid-air over the net at a floodlit night tournament, crowd behind">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">03 · Life in the open</p>
+            <h2>Tournaments,<br>tables &amp; <em>songs.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat data-assemble="late">Sepak takraw under floodlights. Sunday tables full. Music that only this people knows how to feel. A culture isn't preserved in a museum — it's lived on a schedule.</p>
+        </div>
+        <span class="scene-credit">Night match, community courts</span>
+      </article>
+
+      <!-- Chapter 04 -->
+      <article class="scene scene--rise" data-scene data-glyph-num="၄">
+        <div class="chapter-flash-container">
+          <span class="chapter-bg-num" aria-hidden="true">၄</span>
+          <span class="chapter-flash-arabic" aria-hidden="true">4</span>
+        </div>
+        <div class="scene-media" style="--position:50% 50%">
+          <img src="assets/koa-national-community-ai.jpg" alt="Karen community members gathered together at an outdoor gathering">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">04 · The future, in our hands</p>
+            <h2>We'll teach a<br>machine to <em>speak.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat data-assemble="late">A Karen AI — built with the community, for the language itself. Coming soon. The people who help build it will be written into its name.</p>
+        </div>
+        <span class="scene-credit">The next generation, gathered</span>
+      </article>
+
+      <!-- Chapter 05 -->
+      <article class="scene scene--veil" data-scene data-glyph-num="၅">
+        <div class="chapter-flash-container">
+          <span class="chapter-bg-num" aria-hidden="true">၅</span>
+          <span class="chapter-flash-arabic" aria-hidden="true">5</span>
+        </div>
+        <div class="scene-media" style="--position:50% 45%">
+          <img src="assets/koa-community-care-ai.jpg" alt="A community handout at dusk, warm light under the eaves">
+        </div>
+        <div class="scene-copy">
+          <div data-beat>
+            <p class="scene-kicker">05 · An invitation</p>
+            <h2>Come in.<br>Stay a <em>while.</em></h2>
+          </div>
+          <p class="scene-sub" data-beat data-assemble="late">Volunteer, contribute your voice and words, or simply follow along. The next chapter is being written now — and there's a seat with your name on it.</p>
+          <div class="btn-row" data-beat style="margin-top:2rem">
+            <a class="btn btn--solid" href="#waitlist">Reserve a seat</a>
+            <a class="btn btn--ghost" href="about.html">Read the story</a>
+          </div>
+        </div>
+        <span class="scene-credit">Doors open at dusk</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== INTERLUDE ===================== -->
+  <section class="interlude">
+    <blockquote data-reveal="lines">
+      <span class="line-mask"><span>A language is a house.</span></span>
+      <span class="line-mask"><span>When it leaves a mouth for the last time,</span></span>
+      <span class="line-mask"><span><em>someone goes home to nothing.</em></span></span>
+    </blockquote>
+    <cite data-reveal>Why this work matters</cite>
+  </section>
+
+  <!-- ===================== MISSION SPLIT ===================== -->
+  <section class="section" aria-labelledby="mission-title">
+    <div class="container split">
+      <div class="split-media" data-reveal>
+        <img src="assets/koa-national-community-ai.jpg" alt="Karen community members gathered together" loading="lazy">
+        <figcaption>KOA community, United States</figcaption>
+      </div>
+      <div class="split-copy">
+        <p class="eyebrow" data-reveal>The organization</p>
+        <h2 id="mission-title" data-reveal>Not a monument.<br>A <em>living thing.</em></h2>
+        <p class="lede" data-reveal>The Karen Organization of America exists so that the S'gaw Karen people in America have a home — a place for the language, the food, the faith, the games, the news, and the future.</p>
+        <ul data-reveal>
+          <li>Language kept alive — and taught, by the people, with new tools no one has built before</li>
+          <li>Community services across the United States, run at the human scale</li>
+          <li>A national registry of Karen churches, businesses, and resources — so you're never alone, ever</li>
+          <li>Music, events, and a story told the way it deserves to be told</li>
+        </ul>
+        <div class="btn-row mt-3" data-reveal>
+          <a class="btn btn--solid" href="about.html">About KOA</a>
+          <a class="btn btn--ghost" href="programs.html">What we do</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="section section--tight" aria-label="KOA by the numbers">
+    <div class="container">
+      <div class="stats" data-reveal-stagger>
+        <div class="stat"><b data-count="1000" data-suffix="+">1000+</b><span>Years of S'gaw Karen</span></div>
+        <div class="stat"><b data-count="3">3</b><span>Languages side by side<br>(Karen · Thai · Burmese)</span></div>
+        <div class="stat"><b data-count="15" data-suffix="B">15B</b><span>Parameters planned<br>for the Karen AI</span></div>
+        <div class="stat"><b>∞</b><span>Seats at the table</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT WE DO ===================== -->
+  <section class="section" aria-labelledby="do-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Where to start</p>
+        <h2 id="do-title">One organization.<br>Seven <em>doors.</em></h2>
+        <p class="lede">Every door leads somewhere real. Some are open now — others are being built, and the community is invited to build them.</p>
+      </div>
+      <div class="grid-4" data-reveal-stagger>
+        <a class="card" href="about.html">
+          <span class="num">01</span>
+          <h3>About</h3>
+          <p>The story of the Karen people and the mission behind KOA.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="programs.html">
+          <span class="num">02</span>
+          <h3>Programs</h3>
+          <p>Education, language, health, and community services across the U.S.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="stories.html">
+          <span class="num">03</span>
+          <h3>Stories</h3>
+          <p>Voices from the community — the news hub, told in the first person.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="music.html">
+          <span class="num">04</span>
+          <h3>Music</h3>
+          <p>Karen music, front to back — featuring thra eh keh lah.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="coming-soon.html">
+          <span class="num">05</span>
+          <h3>Coming Soon</h3>
+          <p>The Karen AI, the national registry, events &amp; recipes. Nobody knows it yet.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="programs.html#events">
+          <span class="num">06</span>
+          <h3>Events</h3>
+          <p>Sepak takraw, volleyball, soccer — and the table where everyone cooks.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="card" href="contact.html">
+          <span class="num">07</span>
+          <h3>Contact</h3>
+          <p>Reach the people making it. The doors are open.</p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+          <span class="num">↔</span>
+          <h3>Coming in <em>English · Karen · ไทย · မြန်မာ</em></h3>
+          <p>The bilingual edition is on its way. Leave your email and be first through the door.</p>
+          <a class="btn btn--ghost" href="#waitlist" style="margin-top:1rem;align-self:start">Get notified</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* ==========================================================================
+   KOA — Enhanced Storytelling Engine
+   Features: Dynamic glyphs, parallax effects, sparkle particles,
+   chapter number flashing, ChatGPT-style interactions
+   ========================================================================== */
+(function() {
+  "use strict";
+  
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let motionOn = !prefersReduced;
+  
+  // Toggle motion
+  const motionBtn = document.querySelector('[data-motion]');
+  if (motionBtn) {
+    motionBtn.addEventListener('click', () => {
+      motionOn = !motionOn;
+      motionBtn.textContent = motionOn ? 'Motion on' : 'Motion off';
+      document.body.dataset.motion = motionOn ? 'on' : 'off';
+    });
+  }
+  
+  // ==========================================================================
+  // GLYPH CANVAS - Enhanced with drift, dispersal, convergence
+  // ==========================================================================
+  const canvas = document.querySelector('.glyph-canvas');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0, DPR = Math.min(2, window.devicePixelRatio || 1);
+  let particles = [];
+  let targets = null;
+  let formationMode = null;
+  let raf = null;
+  let active = false;
+  
+  const GLYPHS = "KOAKAREကခဂဃငစဆဇညတထဒဓနပဖဗဘမယရလဝသဟအ၁၂၃၄၅၆၇၈၉";
+  
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = Math.round(W * DPR);
+    canvas.height = Math.round(H * DPR);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  
+  function createParticles() {
+    const count = window.innerWidth < 720 ? 80 : 180;
+    particles = [];
+    
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        ch: GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length)),
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.25,
+        size: 10 + Math.random() * 14,
+        baseAlpha: 0.04 + Math.random() * 0.08,
+        alpha: 0,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.4 + Math.random() * 0.8,
+        targetX: null,
+        targetY: null,
+        hasTarget: false,
+        scatterX: 0,
+        scatterY: 0,
+        k: 0.03 + Math.random() * 0.04
+      });
+    }
+  }
+  
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = '500 14px "Noto Sans Myanmar", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    
+    const time = performance.now() * 0.001;
+    
+    particles.forEach((p, i) => {
+      // Drift movement
+      if (!p.hasTarget) {
+        p.x += p.vx * p.speed;
+        p.y += p.vy * p.speed;
+        
+        // Change direction intermittently
+        if (Math.random() < 0.002) {
+          p.vx = (Math.random() - 0.5) * 0.3;
+          p.vy = (Math.random() - 0.5) * 0.25;
+        }
+        
+        // Wrap around edges
+        if (p.x < -50) p.x = W + 50;
+        if (p.x > W + 50) p.x = -50;
+        if (p.y < -50) p.y = H + 50;
+        if (p.y > H + 50) p.y = -50;
+      } else {
+        // Move toward target with spring
+        const dx = p.targetX - p.x;
+        const dy = p.targetY - p.y;
+        p.vx = dx * p.k;
+        p.vy = dy * p.k;
+        p.x += p.vx;
+        p.y += p.vy;
+      }
+      
+      // Pulsing alpha
+      p.alpha = p.baseAlpha * (0.6 + 0.4 * Math.sin(time * 2 + p.phase));
+      
+      // Draw glyph
+      ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
+      ctx.font = `${p.size}px "Noto Sans Myanmar", sans-serif`;
+      ctx.fillText(p.ch, p.x, p.y);
+    });
+    
+    if (motionOn && active) {
+      raf = requestAnimationFrame(draw);
+    }
+  }
+  
+  function initCanvas() {
+    resize();
+    createParticles();
+    active = true;
+    if (motionOn) draw();
+  }
+  
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCanvas);
+  } else {
+    initCanvas();
+  }
+  
+  window.addEventListener('resize', () => {
+    if (raf) cancelAnimationFrame(raf);
+    resize();
+    createParticles();
+    if (motionOn && active) raf = requestAnimationFrame(draw);
+  });
+  
+  // ==========================================================================
+  // CHAPTER NUMBER FLASH - Burmese ↔ Arabic
+  // ==========================================================================
+  function setupChapterFlash() {
+    const containers = document.querySelectorAll('.chapter-flash-container');
+    
+    containers.forEach(container => {
+      const arabicEl = container.querySelector('.chapter-flash-arabic');
+      if (!arabicEl) return;
+      
+      // Flash very quickly and intermittently
+      setInterval(() => {
+        arabicEl.style.opacity = '0.15';
+        setTimeout(() => {
+          arabicEl.style.opacity = '0';
+        }, 80);
+      }, 3500 + Math.random() * 2000);
+    });
+  }
+  
+  setupChapterFlash();
+  
+  // ==========================================================================
+  // SCROLL-BASED ANIMATIONS
+  // ==========================================================================
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+  
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('[data-reveal]').forEach(el => {
+    revealObserver.observe(el);
+  });
+  
+  document.querySelectorAll('[data-reveal-stagger]').forEach(el => {
+    revealObserver.observe(el);
+  });
+  
+  // ==========================================================================
+  // FILM SCENE MANAGEMENT
+  // ==========================================================================
+  const filmSection = document.querySelector('[data-film]');
+  if (filmSection) {
+    const scenes = filmSection.querySelectorAll('[data-scene]');
+    const dots = filmSection.querySelectorAll('.chapter-dots li');
+    const frameEl = filmSection.querySelector('[data-frame]');
+    const progressEl = filmSection.querySelector('.film-progress i');
+    const totalFrames = parseInt(filmSection.dataset.total, 10) || 3000;
+    
+    let currentScene = 0;
+    
+    function updateFilm() {
+      const rect = filmSection.getBoundingClientRect();
+      const scrollTop = -rect.top;
+      const height = rect.height - window.innerHeight;
+      const progress = Math.min(1, Math.max(0, scrollTop / height));
+      const frame = Math.floor(progress * totalFrames);
+      
+      // Update frame counter
+      if (frameEl) {
+        frameEl.textContent = String(frame).padStart(4, '0');
+      }
+      
+      // Update progress bar
+      if (progressEl) {
+        progressEl.style.width = `${progress * 100}%`;
+      }
+      
+      // Determine current scene
+      const sceneIndex = Math.min(scenes.length - 1, Math.floor(progress * scenes.length));
+      if (sceneIndex !== currentScene) {
+        scenes.forEach((scene, i) => {
+          scene.classList.toggle('active', i === sceneIndex);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === sceneIndex);
+        });
+        currentScene = sceneIndex;
+      }
+    }
+    
+    window.addEventListener('scroll', () => {
+      if (motionOn) requestAnimationFrame(updateFilm);
+      else updateFilm();
+    }, { passive: true });
+    
+    updateFilm();
+  }
+  
+  // ==========================================================================
+  // HEADER SCROLL STATE
+  // ==========================================================================
+  const header = document.querySelector('[data-header]');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 50);
+    }, { passive: true });
+  }
+  
+  // ==========================================================================
+  // MOBILE MENU
+  // ==========================================================================
+  const menuBtn = document.querySelector('[data-menu]');
+  const mobilePanel = document.querySelector('[data-mobile-panel]');
+  
+  if (menuBtn && mobilePanel) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobilePanel.classList.contains('is-open');
+      mobilePanel.classList.toggle('is-open', !isOpen);
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+      document.body.classList.toggle('menu-open', !isOpen);
+    });
+    
+    mobilePanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobilePanel.classList.remove('is-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  }
+  
+  // ==========================================================================
+  // SPARKLE PARTICLES
+  // ==========================================================================
+  function createSparkles() {
+    const container = document.querySelector('.sparkle-container');
+    if (!container) return;
+    
+    const sparkleCount = 25;
+    
+    for (let i = 0; i < sparkleCount; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = `${Math.random() * 100}%`;
+      sparkle.style.top = `${Math.random() * 100}%`;
+      sparkle.style.animationDelay = `${Math.random() * 8}s`;
+      sparkle.style.animationDuration = `${6 + Math.random() * 4}s`;
+      container.appendChild(sparkle);
+    }
+  }
+  
+  createSparkles();
+  
+  // ==========================================================================
+  // PARALLAX TEXT EFFECT
+  // ==========================================================================
+  function setupParallax() {
+    const parallaxElements = document.querySelectorAll('.parallax-text');
+    
+    window.addEventListener('scroll', () => {
+      if (!motionOn) return;
+      
+      parallaxElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const speed = el.dataset.parallaxSpeed || 0.3;
+        const offset = (window.innerHeight - rect.top) * speed;
+        el.style.transform = `translateY(${offset}px)`;
+      });
+    }, { passive: true });
+  }
+  
+  setupParallax();
+  
+})();
+</script>
+</body>
+</html>

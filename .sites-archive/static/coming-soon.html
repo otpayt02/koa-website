@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="What KOA is building next: S'gaw-Mango, the Karen AI; the national registry; events, recipes, music, and the podcast. Early access is open.">
+<meta name="theme-color" content="#05090e">
+<title>Coming Soon — Karen Organization of America</title>
+<link rel="icon" href="assets/koa-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=Noto+Sans+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="storytelling.css">
+<script src="storytelling.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="header" data-header>
+  <a class="brand" href="index.html">
+    <img src="assets/koa-logo.png" alt="">
+    <span><strong>KOA</strong><small>Karen Organization of America</small></span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="stories.html">Stories</a>
+    <a href="music.html">Music</a>
+    <a aria-current="page" href="coming-soon.html">Coming Soon</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="header-tools">
+    <a class="pill pill--gold" href="#waitlist"><span class="pulse"></span>Join the early access</a>
+    <button class="motion-button" data-motion>Motion on</button>
+    <button class="menu" data-menu aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobile-panel" data-mobile-panel>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="programs.html">Programs</a>
+  <a href="stories.html">Stories</a>
+  <a href="music.html">Music</a>
+  <a href="coming-soon.html">Coming Soon</a>
+  <a href="contact.html">Contact</a>
+  <a href="#waitlist" class="pill pill--gold">Join the early access</a>
+</div>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="page-hero" data-glyph-word="၅">
+    <div class="page-hero-bg" aria-hidden="true">
+      <img src="assets/koa-national-community-ai.jpg" alt="">
+    </div>
+    <div class="container">
+      <p class="eyebrow" data-reveal>Coming Soon · not yet announced anywhere else</p>
+      <h1 data-reveal="lines">
+        <span class="line-mask"><span>The next chapter</span></span>
+        <span class="line-mask"><span>is being <em>written.</em></span></span>
+      </h1>
+      <p class="lede" data-reveal>We're building the most complete home the S'gaw Karen people in America have ever had — and the most ambitious thing built for a Karen language. A national movement, one brick at a time. This page is the wall before the paint dries.</p>
+      <div class="btn-row mt-4" data-reveal>
+        <a class="btn btn--solid" href="#mango">Meet S'gaw-Mango</a>
+        <a class="btn btn--ghost" href="#join">Join the build</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ S'GAW-MANGO ============================ -->
+  <section class="section" id="mango" aria-labelledby="mango-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">01 · The centerpiece</p>
+        <h2 id="mango-title">S'gaw-Mango.<br>The Karen AI, <em>on its way.</em></h2>
+        <p class="lede">A ~15-billion-parameter model built to read, speak, and teach S'gaw Karen — side by side with English, Thai, and Burmese, the languages Karen families already live in. It won't be finished by a company. It'll be finished by a community.</p>
+      </div>
+
+      <div class="mango-shell" data-reveal>
+        <div class="mango-head">
+          <div>
+            <div class="model-name">S'gaw-Mango · 15B</div>
+            <div class="model-meta">Bilingual fork · text + vision · English ↔ Karen · ไทย · မြန်မာ</div>
+          </div>
+          <span class="mango-badge"><span class="pulse" style="width:6px;height:6px;border-radius:50%;background:var(--gold-bright);display:inline-block;animation:pulse 2.4s ease-in-out infinite"></span>Beta · early access open</span>
+        </div>
+        <div class="mango-demo">
+          <div class="mango-row">
+            <span class="lang">Karen</span>
+            <span class="text text--script" lang="khw">မိန်သီ ဒာန်လိက် ဒာန်လိက် အာ ယဝ် ?</span>
+          </div>
+          <div class="mango-row">
+            <span class="lang">English</span>
+            <span class="text">What is the meaning of this word?</span>
+          </div>
+          <div class="mango-row">
+            <span class="lang">ไทย</span>
+            <span class="text text--script">คำนี้มีความหมายว่าอะไร ?</span>
+          </div>
+          <div class="mango-row">
+            <span class="lang">မြန်မာ</span>
+            <span class="text text--script">ဒီစကားဝါးရဲ့ အဓိပ္ပါယ် အဘယ်နည်း ?</span>
+          </div>
+        </div>
+        <p class="mango-caption">Sample of the side-by-side generation S'gaw-Mango will produce — one thought, four tongues. (Illustrative sample — training has not begun yet.)</p>
+      </div>
+
+      <div class="grid-3 mt-4" data-reveal-stagger>
+        <div class="card">
+          <span class="num">Teaches</span>
+          <h3>Every part of speech</h3>
+          <p>Breaks sentences down — grammar rules, common phrases, translations — the way a patient teacher would, in the language itself.</p>
+        </div>
+        <div class="card">
+          <span class="num">Looks up</span>
+          <h3>Dictionary, live</h3>
+          <p>Every word traced to real instances — crawled from the internet, from texts and databases — so meanings come from how people actually use them.</p>
+        </div>
+        <div class="card">
+          <span class="num">Sees</span>
+          <h3>Vision &amp; OCR</h3>
+          <p>A vision model trained on Karen script — reading documents, signs, and pages so the written language enters the machine age.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ THE BUILD (feature rows) ============================ -->
+  <section class="section" style="background:var(--ink-900);border-block:1px solid var(--line)" aria-labelledby="build-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">02 · The build, brick by brick</p>
+        <h2 id="build-title">What's <em>coming.</em></h2>
+        <p class="lede">Everything below is either already under construction or queued behind it. Statuses are honest: live, in build, or coming.</p>
+      </div>
+
+      <div data-reveal>
+        <div class="feature-row">
+          <span class="fnum">01</span>
+          <div>
+            <h3>The National Registry</h3>
+            <p>A verified directory of Karen churches (with addresses and pastors), businesses and restaurants, and community resources across the entire United States. One lookup, the whole diaspora on the map.</p>
+          </div>
+          <span class="ftag">In build</span>
+        </div>
+        <div class="feature-row">
+          <span class="fnum">02</span>
+          <div>
+            <h3>Events &amp; Tournaments</h3>
+            <p>Sepak takraw, volleyball, and soccer — listed, counted, and celebrated. Plus the cooking table: submit your recipe, the community upvotes, and the top dishes get featured on the front thumbnail.</p>
+          </div>
+          <span class="ftag">Coming</span>
+        </div>
+        <div class="feature-row">
+          <span class="fnum">03</span>
+          <div>
+            <h3>The Music Showcase</h3>
+            <p>Karen music front and center — starting with thra eh keh lah, and the Karen artists across the internet, linked to where their music already lives.</p>
+          </div>
+          <span class="ftag ftag--live">Live now</span>
+        </div>
+        <div class="feature-row">
+          <span class="fnum">04</span>
+          <div>
+            <h3>The Podcast</h3>
+            <p>The KOA podcast — stories, language, and the movement, in episodes you can carry with you. Episodes land here the day they publish.</p>
+          </div>
+          <span class="ftag">Coming</span>
+        </div>
+        <div class="feature-row">
+          <span class="fnum">05</span>
+          <div>
+            <h3>History &amp; News Hub</h3>
+            <p>The story of who the Karen people are — told fully, with the receipts — alongside the news as it happens. The memory and the front page, in one place.</p>
+          </div>
+          <span class="ftag">In build</span>
+        </div>
+        <div class="feature-row">
+          <span class="fnum">06</span>
+          <div>
+            <h3>Community Verification</h3>
+            <p>A username system and verification tiers — from contributor to verified word-auditor to verified admin — so the people who carry the language carry the keys too. Your voice, your pictures, your translations, your word requests, all submitted from your account.</p>
+          </div>
+          <span class="ftag">Coming</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ JOIN THE BUILD ============================ -->
+  <section class="section" id="join" aria-labelledby="join-title">
+    <div class="container split">
+      <div class="split-copy">
+        <p class="eyebrow" data-reveal>03 · An invitation, literally</p>
+        <h2 id="join-title" data-reveal>This is a national<br><em>movement.</em> And you<br>are the <em>workforce.</em></h2>
+        <p class="lede" data-reveal>Nothing on this page gets finished by one person. The model is trained on community voices. The dictionary is audited by community ears. The registry is filled by the people who live in it.</p>
+        <ul data-reveal>
+          <li>Contribute your <strong>voice and pictures</strong> — recorded, transcribed, and used with your name in it</li>
+          <li>Translate <strong>documents and texts</strong> — the never-translated-but-necessary, first</li>
+          <li>Submit <strong>word requests</strong> — the words the language is missing on the internet</li>
+          <li><strong>Audit words</strong> as a verified contributor — you'll hear it before anyone else</li>
+          <li>Claim a <strong>username</strong> early — early verification, early access, early voice</li>
+        </ul>
+        <div class="btn-row mt-3" data-reveal>
+          <a class="btn btn--solid" href="#waitlist">Join the early access</a>
+          <a class="btn btn--ghost" href="contact.html">Talk to the people making it</a>
+        </div>
+      </div>
+      <div class="split-media" data-reveal>
+        <img src="assets/koa-national-community-ai.jpg" alt="Karen community members gathered together" loading="lazy">
+        <figcaption>The workforce, assembled</figcaption>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WAITLIST ============================ -->
+  <section class="waitlist" id="waitlist" data-waitlist aria-labelledby="waitlist-title">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <p class="eyebrow">Early access</p>
+        <h2 id="waitlist-title">The doors open<br><em>soon.</em> Be first.</h2>
+        <p class="lede" style="margin-inline:auto">The newsletter, the beta, the invites to help build the Karen AI — and notifications on how we'll train it together, how the dictionary grows, and how side-by-side English↔Karen text generation comes online. One email. No noise.</p>
+      </div>
+      <form class="waitlist-form" data-waitlist-form data-tag="coming soon early access" data-reveal>
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+        <button class="btn btn--solid" type="submit">Join the list</button>
+      </form>
+      <p class="waitlist-success" role="status">You're on the list. We'll write the moment there's something real to show.</p>
+      <p class="waitlist-note" data-reveal>One email when there's something real to say. Unsubscribe any time.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <img src="assets/koa-logo.png" alt="">
+          <span><strong>KOA</strong><small>Karen Organization of America</small></span>
+        </a>
+        <p>Working with Karen communities across the United States — and building the home the language deserves.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="music.html">Music</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Building</h4>
+        <ul>
+          <li><a href="coming-soon.html">Coming Soon</a></li>
+          <li><a href="#mango">S'gaw-Mango</a></li>
+          <li><a href="#waitlist">Early access</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/koamerica" target="_blank" rel="noreferrer">Facebook — KOA</a></li>
+          <li><a href="https://m.me/koamerica" target="_blank" rel="noreferrer">Messenger</a></li>
+          <li><a href="mailto:karenorgamerica@gmail.com">karenorgamerica@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> Karen Organization of America. Built by the community, for the community.</span>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Return home ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
