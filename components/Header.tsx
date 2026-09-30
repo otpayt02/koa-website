@@ -120,6 +120,12 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
         </div>
         <div className="nav-grid">
           <Link href={`/${lang}`}><span>01</span>{messages.home}</Link>
+          <Link href={`/${lang}/mission`}><span>02</span>Our Mission</Link>
+          <Link href={`/${lang}/about`}><span>03</span>About</Link>
+          <Link href={`/${lang}/services`}><span>04</span>Programs</Link>
+          <Link href={`/${lang}/advocacy`}><span>05</span>Advocacy</Link>
+          <Link href={`/${lang}/donate`}><span>06</span>Donate</Link>
+          <Link href={`/${lang}/contact`}><span>07</span>Contact</Link>
           {navCategories.map((category, catIndex) => (
             <div key={category.slug} className="nav-dropdown">
               <button

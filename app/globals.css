@@ -2243,3 +2243,22 @@ footer nav a:hover { color: var(--accent-secondary); }
   .chapter-card__numeral { font-size: 1.8rem; min-width: 36px; }
   .music-embed-frame iframe { min-height: 320px; }
 }
+.unconfirmed { opacity: .9; color: inherit; }
+.content-page { background: var(--koa-ink, #080d2d); color: #f4ede1; }
+.page-hero, .content-section { padding: clamp(5rem, 10vw, 9rem) max(1.5rem, 7vw); }
+.page-hero { min-height: 62vh; display: grid; align-content: end; background: radial-gradient(circle at 75% 25%, #242b69 0, #080d2d 55%); }
+.page-hero h1, .content-section h2 { max-width: 13ch; font-family: Georgia, serif; font-weight: 400; font-size: clamp(2.7rem, 7vw, 6.5rem); line-height: .95; }
+.page-hero__intro { max-width: 58ch; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.7; color: #c8c2b8; margin-top: 2rem; }
+.content-section { background: #101743; border-top: 1px solid rgba(227,180,92,.16); }
+.content-section:nth-of-type(even) { background: #f4ede1; color: #080d2d; }
+.content-section__inner { max-width: 80rem; margin: auto; }
+.content-section h2 { font-size: clamp(2.3rem, 5vw, 4.5rem); margin-bottom: 2rem; }
+.content-section p { max-width: 64ch; font-size: 1.08rem; line-height: 1.75; color: inherit; }
+.content-section article { padding: 1.5rem; border: 1px solid rgba(227,180,92,.22); border-radius: 1rem; }
+.content-section article h3 { font-family: Georgia, serif; font-size: 1.5rem; margin-bottom: .75rem; }
+.content-section blockquote { max-width: 52ch; font-family: Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.8rem); line-height: 1.15; }
+.status-table { max-width: 40rem; margin-top: 2rem; border: 1px solid rgba(227,180,92,.35); }
+.status-table > div { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem; border-top: 1px solid rgba(227,180,92,.2); }
+.status-table > div:first-child { border-top: 0; background: rgba(227,180,92,.12); }
+.donation-amounts { display: flex; flex-wrap: wrap; gap: .75rem; margin: 2rem 0; }
+.donation-amounts button { min-width: 5.5rem; padding: 1rem 1.5rem; border: 1px solid #e3b45c; border-radius: 999px; color: inherit; background: transparent; }
