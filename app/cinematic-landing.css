@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "lenis/dist/lenis.css";
+
+/* Lenis owns wheel easing while mounted; CSS smooth scrolling must not add a second delay. */
+html.lenis, html.lenis body { scroll-behavior: auto !important; }
 
 :root {
   --koa-display: "Cormorant Garamond", Georgia, serif;
@@ -27,13 +31,25 @@
   transition: opacity .45s ease, transform .65s cubic-bezier(.16,1,.3,1), min-height 1.1s cubic-bezier(.16,1,.3,1), padding 1.1s cubic-bezier(.16,1,.3,1), box-shadow 1s ease !important;
 }
 
+/* Keep the navigation banner and its seal at one steady size throughout this scene. */
+body:has(.koa-film) .site-header[data-breathing-header],
+body:has(.koa-film) .site-header[data-breathing-header]:hover,
+body:has(.koa-film) .site-header[data-breathing-header]:focus-within {
+  min-height: 82px;
+  padding-block: 9px;
+  transform: none !important;
+}
+body:has(.koa-film) .site-header[data-breathing-header].is-compact { min-height: 82px; padding-block: 9px; }
+body:has(.koa-film) .site-header.is-compact .brand img { width: 54px; height: 54px; }
+body:has(.koa-film) .site-header.is-compact .site-nav { max-height: 72px; transform: none; }
+
 .koa-film {
   --koa-progress: 0;
+  --koa-rise: 0;
   position: relative;
   z-index: 8;
-  /* The reference uses a 220vh arrival followed by a 560vh film. This route keeps
-     that continuous take in one sticky runway so it never hands visitors to a blank viewport. */
-  height: 620svh;
+  /* One sticky runway owns the full arrival, rise, bilingual reveal, and handoff. */
+  height: 820svh;
   background: var(--koa-ink);
   color: var(--koa-paper);
   font-family: var(--koa-body);
@@ -77,6 +93,14 @@
   filter: drop-shadow(0 0 12px rgba(255,248,233,.03));
 }
 
+/* The selected dusk direction is drawn in CSS so the horizon stays crisp at every viewport. */
+.koa-film__landscape { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.koa-film__landscape::before { content: ""; position: absolute; inset: 32% 0 0; background: radial-gradient(ellipse at 50% 77%, rgba(226,176,111,.13), transparent 27%), linear-gradient(180deg, transparent, #08131f 77%, #030814); }
+.koa-film__sun { position: absolute; left: 50%; top: calc(105% - var(--koa-progress) * 13%); width: clamp(55px, 9vw, 135px); aspect-ratio: 1; border-radius: 50%; background: #f1d8ad; box-shadow: 0 0 28px 8px rgba(236,183,111,.45), 0 0 125px 50px rgba(235,159,96,.19); opacity: clamp(0, calc((var(--koa-progress) - .12) * 3.6), .83); transform: translate(-50%,-50%); filter: blur(1.2px); }
+.koa-film__ridge { position: absolute; inset: auto -4% 0; height: 38%; background: #050e19; clip-path: polygon(0 66%, 12% 60%, 25% 69%, 36% 54%, 48% 69%, 56% 65%, 67% 47%, 82% 64%, 100% 54%, 100% 100%, 0 100%); }
+.koa-film__ridge--far { height: 49%; background: #101e2b; opacity: .72; filter: blur(4px); }
+.koa-film__ridge--near { height: 29%; background: #030a12; clip-path: polygon(0 37%, 11% 57%, 22% 45%, 32% 62%, 46% 55%, 52% 82%, 59% 63%, 73% 45%, 87% 53%, 100% 38%, 100% 100%, 0 100%); }
+
 .karen-glyph-field {
   position: absolute;
   inset: 0;
@@ -84,6 +108,13 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+  transition: opacity .7s ease;
+}
+
+/* The ambient field yields during the identity read, then returns for the story. */
+.koa-film[data-phase="form"] .karen-glyph-field,
+.koa-film[data-phase="hold"] .karen-glyph-field {
+  opacity: .28;
 }
 
 .koa-film__mark {
@@ -99,11 +130,13 @@
   position: absolute;
   z-index: 4;
   left: 50%;
-  top: calc(48% - clamp(0px, (var(--koa-progress) - .62) * 145svh, 26svh));
-  width: min(62vmin, 530px, 38vw);
+  top: 54%;
+  width: min(68vmin, 560px, 40vw, calc(100vw - 24px));
   aspect-ratio: 1;
-  transform: translate(-50%, -50%) scale(calc(1 - clamp(0, (var(--koa-progress) - .62) * 2.5, .45)));
+  /* Match KAGlyphField's smooth rise: move the complete K/seal/A assembly as one, without reflow. */
+  transform: translate(-50%, calc(-50% - var(--koa-rise) * 16svh)) scale(calc(1 - var(--koa-rise) * .42));
   transform-origin: center;
+  will-change: transform;
 }
 
 .koa-film__seal > svg,
@@ -119,13 +152,14 @@
   --koa-annulus-y: 0;
 }
 
+/* The supplied artwork owns both rings of lettering from the first frame. */
+.koa-film__seal::before { content: ""; position: absolute; inset: 2%; border: 1px solid rgba(239,207,151,.18); border-radius: 50%; box-shadow: 0 0 30px rgba(236,191,131,.12); }
+.koa-film__seal .cinematic-seal__core { opacity: 1; filter: drop-shadow(0 28px 65px rgba(0,0,0,.45)); }
+.koa-film__seal .cinematic-seal__annulus { opacity: 1; filter: none; animation: none; }
+
 /* The identity scene owns direct, accelerating counterclockwise annulus rotation. */
 .koa-film__seal .cinematic-seal__annulus {
   transform: rotate(var(--seal-annulus-turn)) rotateX(calc(var(--koa-annulus-y) * -4deg)) rotateY(calc(var(--koa-annulus-x) * 4deg));
-}
-
-.koa-film__seal .cinematic-seal__core {
-  filter: drop-shadow(0 28px 65px rgba(0,0,0,.45));
 }
 
 .koa-film__seal-glow {
@@ -144,38 +178,54 @@
   opacity: clamp(0, calc((.99 - var(--koa-progress)) * 9), 1);
 }
 
+/* Tapered, blurred rays recall the supplied seal reference without hard ends. */
+.koa-film__seal-glow::before {
+  content: "";
+  position: absolute;
+  inset: -27%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from -12deg, rgba(238,215,175,.16) 0deg, rgba(63,103,169,.08) 2deg, transparent 7deg, transparent 19deg);
+  -webkit-mask: radial-gradient(circle, transparent 0 34%, #000 50%, rgba(0,0,0,.32) 68%, transparent 82%);
+  mask: radial-gradient(circle, transparent 0 34%, #000 50%, rgba(0,0,0,.32) 68%, transparent 82%);
+  filter: blur(15px);
+}
+
 .koa-film__narrative {
   position: absolute;
   z-index: 12;
   left: 50%;
-  bottom: clamp(14svh, 19vh, 23svh);
+  bottom: clamp(7svh, 11vh, 15svh);
   display: grid;
-  gap: clamp(12px, 2vh, 22px);
+  gap: clamp(8px, 1.4vh, 16px);
   width: min(86vw, 820px);
-  transform: translate(-50%, calc(19svh - clamp(0px, (var(--koa-progress) - .72) * 55svh, 9svh)));
+  transform: translate(-50%, 0);
   text-align: center;
   opacity: 0;
   pointer-events: none;
 }
 
-.koa-film[data-phase="narrative"] .koa-film__narrative,
-.koa-film[data-phase="scatter"] .koa-film__narrative {
-  opacity: clamp(0, calc((var(--koa-progress) - .72) * 11), 1);
-}
+.koa-film[data-title-visible="true"] .koa-film__narrative { opacity: 1; }
 
 .koa-film__narrative-label {
   margin: 0;
   color: var(--koa-gold);
   font: 600 clamp(1.3rem, 2.6vw, 2.1rem)/1 var(--koa-display);
   letter-spacing: .035em;
+  opacity: 0;
+  filter: blur(9px);
+  transform: translateY(16px);
+  transition: opacity 1.2s ease, filter 1.2s ease, transform 1.2s cubic-bezier(.16,1,.3,1);
 }
+.koa-film[data-title-visible="true"] .koa-film__narrative-label { opacity: 1; filter: blur(0); transform: translateY(0); }
+.koa-film__narrative-translation { margin: 0; color: var(--koa-paper); font: 500 clamp(1rem, 1.7vw, 1.4rem)/1.5 "Noto Sans Myanmar", sans-serif; opacity: 0; filter: blur(8px); transform: translateY(14px); transition: opacity 1.2s ease, filter 1.2s ease, transform 1.2s cubic-bezier(.16,1,.3,1); }
+.koa-film[data-translation-visible="true"] .koa-film__narrative-translation { opacity: 1; filter: blur(0); transform: translateY(0); }
 
 .koa-film__charter {
   display: grid;
   gap: .08em;
   margin: 0;
   color: rgba(245,239,228,.92);
-  font: 600 clamp(1.55rem, 3.25vw, 2.85rem)/1.02 var(--koa-display);
+  font: 600 clamp(1.18rem, 2vw, 1.8rem)/1.12 var(--koa-display);
   letter-spacing: -.035em;
 }
 
@@ -185,8 +235,7 @@
   transform: translateY(1.1em);
 }
 
-.koa-film[data-phase="narrative"] .koa-film__charter span,
-.koa-film[data-phase="scatter"] .koa-film__charter span {
+.koa-film[data-charter-visible="true"] .koa-film__charter span {
   clip-path: inset(0 0 0 0);
   transform: translateY(0);
   transition: clip-path .95s cubic-bezier(.16,1,.3,1), transform .95s cubic-bezier(.16,1,.3,1);
@@ -208,9 +257,8 @@
   pointer-events: none;
 }
 
-.koa-film[data-phase="narrative"] .koa-film__voice-line,
-.koa-film[data-phase="scatter"] .koa-film__voice-line {
-  opacity: clamp(0, calc((var(--koa-progress) - .79) * 12), 1);
+.koa-film[data-charter-visible="true"] .koa-film__voice-line {
+  opacity: clamp(0, calc((var(--koa-progress) - .97) * 34), 1);
   transform: translate(-50%, 0);
 }
 
@@ -746,8 +794,8 @@
 }
 
 @media (max-width: 900px) {
-  .koa-film { height: 520svh; }
-  .koa-film__seal { width: clamp(230px, 65vmin, 390px); }
+  .koa-film { height: 720svh; }
+  .koa-film__seal { width: min(68vmin, 560px, 40vw, calc(100vw - 24px)); }
   .koa-film__phase-label { display: none; }
   .koa-film__motion-toggle { top: 12px; right: 12px; }
 
@@ -796,10 +844,10 @@
 }
 
 @media (max-width: 520px) {
-  .koa-film__narrative { width: min(90vw, 520px); bottom: 13svh; }
+  .koa-film__narrative { width: min(90vw, 520px); bottom: 18svh; }
   .koa-film__narrative-label { font-size: 1.25rem; }
-  .koa-film__charter { font-size: clamp(1.7rem, 8.4vw, 2.35rem); }
-  .koa-film__voice-line { font-size: clamp(1.1rem, 7vw, 1.65rem); white-space: nowrap; }
+  .koa-film__charter { font-size: clamp(1.05rem, 4.8vw, 1.55rem); }
+  .koa-film__voice-line { display: none; }
   .koa-film__scroll-cue { bottom: 5.5vh; white-space: nowrap; }
   .koa-chapter__media--portrait,
   .koa-chapter__media--wide { min-height: 54svh; }
@@ -809,20 +857,75 @@
   .partner-marquee__rows { transform: none; }
 }
 
+/* 2026-09-23 interaction pass: chapter arrivals and tactile feedback stay transform/opacity-only. */
+.koa-film__motion-toggle,
+.koa-chapter__link,
+.koa-mission-card,
+.koa-mission-card a,
+.koa-mission-card a span,
+.koa-mission__actions a {
+  transition: border-color .16s ease, background-color .16s ease, color .16s ease, transform .16s ease, box-shadow .22s cubic-bezier(.16,1,.3,1);
+}
+
+.koa-film__motion-toggle:active,
+.koa-chapter__link:active,
+.koa-mission-card a:active,
+.koa-mission__actions a:active { transform: scale(.98); }
+
+/* The server-rendered story is readable first; this runs only after the observer mounts. */
+.koa-story[data-motion="full"] [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition: opacity .72s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+.koa-story[data-motion="full"] [data-reveal="media"] { transform: translate3d(0, 24px, 0) scale(.985); }
+.koa-story[data-motion="full"] [data-reveal][data-revealed="true"] { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+
+@media (hover: hover) and (pointer: fine) {
+  .koa-film__motion-toggle:hover { border-color: rgba(212,168,67,.68); background: rgba(16,29,48,.72); color: var(--koa-paper); box-shadow: 0 10px 28px rgba(0,0,0,.22); transform: translateY(-2px); }
+  .koa-chapter__media:hover img { transform: scale(1.025); filter: saturate(1) contrast(1.02); }
+  .koa-chapter__link:hover { border-color: var(--koa-gold); color: var(--koa-gold); transform: translateY(-1px); }
+  .koa-chapter__link:hover span { transform: translateX(5px); }
+  .koa-mission-card:hover { z-index: 2; border-color: rgba(212,168,67,.38); box-shadow: 0 36px 94px rgba(0,0,0,.38); transform: translateY(-7px); }
+  .koa-mission-card:hover .koa-mission-card__image img { transform: scale(1.035); filter: saturate(.95) brightness(.82); }
+  .koa-mission-card a:hover { color: var(--koa-gold); transform: translateY(-1px); }
+  .koa-mission-card a:hover span { transform: translate(3px, -3px); }
+  .koa-mission__actions a:hover { border-color: var(--koa-gold); color: var(--koa-paper); box-shadow: 0 12px 24px rgba(0,0,0,.2); transform: translateY(-2px); }
+  .koa-mission__actions a:first-child:hover { background: #e2b74f; color: #07101e; }
+  .partner-marquee__row:hover .partner-marquee__track { animation-play-state: paused; }
+}
+
+@media (hover: none) {
+  .koa-chapter__media:hover img,
+  .koa-mission-card:hover .koa-mission-card__image img { transform: none; filter: none; }
+}
+
+.koa-chapter__media:focus-within img { transform: scale(1.018); filter: saturate(1) contrast(1.02); }
+.koa-mission-card:focus-within { z-index: 2; border-color: rgba(212,168,67,.55); box-shadow: 0 30px 82px rgba(0,0,0,.34); }
+
 @media (prefers-reduced-motion: reduce) {
-  .koa-film[data-motion="reduced"] {
-    height: 100svh;
-  }
+  .koa-story[data-motion="full"] [data-reveal],
+  .koa-film__motion-toggle,
+  .koa-chapter__link,
+  .koa-mission-card,
+  .koa-mission-card a,
+  .koa-mission-card a span,
+  .koa-mission__actions a { transition: none !important; }
+}
 
-  .koa-film[data-motion="reduced"] .koa-film__sticky {
-    position: relative;
-  }
+/* The visible Motion control uses the same complete still layout even when OS motion is on. */
+.koa-film[data-motion="reduced"] { height: 100svh; }
+.koa-film[data-motion="reduced"] .koa-film__sticky { position: relative; }
+.koa-film[data-motion="reduced"] .koa-film__scroll-cue,
+.koa-film[data-motion="reduced"] .koa-film__phase-label,
+.koa-film[data-motion="reduced"] .koa-film__voice-line { display: none; }
+.koa-film[data-motion="reduced"] .cinematic-seal__annulus { animation: none !important; }
+.koa-film[data-motion="reduced"] .koa-film__narrative-label,
+.koa-film[data-motion="reduced"] .koa-film__narrative-translation { opacity: 1; filter: none; transform: none; transition: none; }
+.koa-film[data-motion="reduced"] .koa-film__charter span { clip-path: none; transform: none; transition: none; }
 
-  .koa-film[data-motion="reduced"] .koa-film__scroll-cue,
-  .koa-film[data-motion="reduced"] .koa-film__phase-label {
-    display: none;
-  }
-
+@media (prefers-reduced-motion: reduce) {
   .koa-film__scroll-cue span,
   .partner-marquee__track,
   .koa-film__voice-word {

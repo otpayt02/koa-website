@@ -4,6 +4,8 @@ This repository is the canonical React App Router application for the Karen Orga
 
 The current phase is local-only. It is not an official publication or deployment. Translations, organization relationships, photographs, cultural copy, and donation behavior remain review-gated.
 
+The cinematic landing now holds Karen-glyph K/A beside the supplied seal from the first frame; only a quiet breath remains, with no formation or scatter. The seal's soft rays appear immediately and stop animating when reduced motion is requested. Public copy follows the owner-supplied KOA website content draft; suggested additions are italicized pending review. `npm.cmd run build` succeeds after the translations admin import was corrected.
+
 ## Start here
 
 - [Cinematic cookbook](docs/KOA-CINEMATIC-COOKBOOK.md) — choreography, motion parameters, failure history, weighted references, and media.

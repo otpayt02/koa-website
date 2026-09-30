@@ -1,274 +1,166 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 
-// The formation uses only the approved background repertoire. The supplied seal is the only O mark.
-const KAREN_CODEPOINTS = Array.from({ length: 32 }, (_, index) => String.fromCodePoint(0xa9e0 + index));
-const GLYPHS = [...KAREN_CODEPOINTS, "K", "O", "A"];
-
-type Letter = "K" | "A";
+// The approved seal is the only O. These private masks place individual Karen
+// glyphs in K/A silhouettes; no outline, arrival path, or scatter is rendered.
 type Point = { x: number; y: number };
-type Particle = {
-  char: string;
-  letter: Letter;
-  local: Point;
-  x: number;
-  y: number;
-  spawnX: number;
-  spawnY: number;
-  scatterX: number;
-  scatterY: number;
-  curveY: number;
-  size: number;
-  alpha: number;
-  depth: number;
-  phase: number;
-  speed: number;
-  stiffness: number;
-  arrivalStart: number;
-  arrivalEnd: number;
-  tone: "gold" | "red" | "paper";
-};
+type Letter = "K" | "A";
+type Mark = { letter: Letter; point: Point; char: string; tone: "paper" | "gold" | "red"; size: number; phase: number };
+const KAREN_GLYPHS = Array.from({ length: 32 }, (_, index) => String.fromCodePoint(0xa9e0 + index));
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
-const mix = (from: number, to: number, amount: number) => from + (to - from) * amount;
-const smooth = (value: number) => {
-  const x = clamp(value);
-  return x * x * (3 - 2 * x);
-};
+const smooth = (value: number) => { const x = clamp(value); return x * x * (3 - 2 * x); };
 
 function pointInPolygon(point: Point, polygon: Point[]) {
   let inside = false;
   for (let current = 0, previous = polygon.length - 1; current < polygon.length; previous = current++) {
     const a = polygon[current];
     const b = polygon[previous];
-    const intersects = ((a.y > point.y) !== (b.y > point.y))
-      && point.x < (b.x - a.x) * (point.y - a.y) / (b.y - a.y) + a.x;
-    if (intersects) inside = !inside;
+    if ((a.y > point.y) !== (b.y > point.y)
+      && point.x < (b.x - a.x) * (point.y - a.y) / (b.y - a.y) + a.x) inside = !inside;
   }
   return inside;
 }
 
-// This is the original broad, architectural K silhouette. It is sampled internally;
-// no SVG, text node, or construction rail is ever rendered.
-function insideFirstK(point: Point) {
+function insideK(point: Point) {
   const spine = point.x >= 0.04 && point.x <= 0.25;
   const upper = pointInPolygon(point, [{ x: 0.21, y: 0.46 }, { x: 0.58, y: 0 }, { x: 0.88, y: 0 }, { x: 0.47, y: 0.49 }]);
   const lower = pointInPolygon(point, [{ x: 0.21, y: 0.54 }, { x: 0.58, y: 1 }, { x: 0.91, y: 1 }, { x: 0.47, y: 0.51 }]);
   return spine || upper || lower;
 }
 
-// Targets occupy the whole original A silhouette. The glyph field, rather than a
-// solid face or a visible guide, carries both the letter's edge and its interior.
-function insideFirstA(point: Point) {
-  return pointInPolygon(point, [{ x: 0.5, y: 0 }, { x: 0.04, y: 1 }, { x: 0.96, y: 1 }]);
+function insideA(point: Point) {
+  const left = pointInPolygon(point, [{ x: 0.45, y: 0 }, { x: 0.56, y: 0 }, { x: 0.34, y: 1 }, { x: 0.06, y: 1 }]);
+  const right = pointInPolygon(point, [{ x: 0.44, y: 0 }, { x: 0.55, y: 0 }, { x: 0.94, y: 1 }, { x: 0.66, y: 1 }]);
+  const bar = point.y >= 0.58 && point.y <= 0.7 && point.x >= 0.24 && point.x <= 0.76;
+  return left || right || bar;
 }
 
-function shuffled<T>(values: T[]) {
-  const copy = [...values];
-  for (let index = copy.length - 1; index > 0; index -= 1) {
-    const swap = Math.floor(Math.random() * (index + 1));
-    [copy[index], copy[swap]] = [copy[swap], copy[index]];
-  }
-  return copy;
-}
-
-function fillTargets(letter: Letter) {
-  const contains = letter === "K" ? insideFirstK : insideFirstA;
-  const targets: Point[] = [];
-  // A staggered grid fills the old silhouette without leaving regular visible rows.
-  for (let row = 0; row < 32; row += 1) {
-    for (let column = 0; column < 32; column += 1) {
-      const point = { x: (column + 0.16 + (row % 2) * 0.34) / 32, y: (row + 0.5) / 32 };
-      if (contains(point)) targets.push(point);
+function buildMarks(width: number): Mark[] {
+  const rows = width < 720 ? 20 : 28;
+  const marks: Mark[] = [];
+  for (const letter of ["K", "A"] as const) {
+    const contains = letter === "K" ? insideK : insideA;
+    for (let row = 0; row < rows; row++) {
+      for (let column = 0; column < rows; column++) {
+        const point = { x: (column + 0.33 + (row % 2) * 0.34) / rows, y: (row + 0.5) / rows };
+        if (!contains(point)) continue;
+        const index = marks.length;
+        const edge = [[0.75 / rows, 0], [-0.75 / rows, 0], [0, 0.75 / rows], [0, -0.75 / rows]]
+          .some(([dx, dy]) => !contains({ x: point.x + dx, y: point.y + dy }));
+        marks.push({
+          letter, point,
+          char: KAREN_GLYPHS[(index * 13 + row * 7) % KAREN_GLYPHS.length],
+          tone: index % 19 === 0 ? "red" : index % 7 === 0 ? "gold" : "paper",
+          size: (edge ? 1.08 : 0.96) / rows,
+          phase: (index * 0.61803398875 % 1) * Math.PI * 2,
+        });
+      }
     }
   }
-  return shuffled(targets);
-}
-
-function buildParticles(width: number, height: number) {
-  const count = width < 720 ? 180 : 360;
-  const targets = { K: fillTargets("K"), A: fillTargets("A") };
-  const centerX = width / 2;
-  const centerY = height * 0.48;
-  return Array.from({ length: count }, (_, index): Particle => {
-    const letter: Letter = index % 2 === 0 ? "K" : "A";
-    const target = targets[letter][Math.floor(index / 2) % targets[letter].length] ?? { x: 0.5, y: 0.5 };
-    const side = letter === "K" ? -1 : 1;
-    const toneRoll = Math.random();
-    const spawnX = centerX + side * (width * (0.52 + Math.random() * 0.28));
-    const spawnY = centerY + (Math.random() - 0.5) * height * 0.9;
-    const scatterX = clamp(centerX + side * width * (0.26 + Math.random() * 0.2) + (Math.random() - 0.5) * width * 0.16, 22, width - 22);
-    const scatterY = clamp(centerY + (Math.random() - 0.5) * height * 0.7, 22, height - 22);
-    const arrivalStart = 0.07 + Math.random() * 0.24;
-    return {
-      char: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
-      letter,
-      local: target,
-      x: spawnX,
-      y: spawnY,
-      spawnX,
-      spawnY,
-      scatterX,
-      scatterY,
-      curveY: (Math.random() - 0.5) * height * 0.22,
-      size: 9 + Math.random() * 10,
-      alpha: 0,
-      depth: 0.42 + Math.random() * 0.58,
-      phase: Math.random() * Math.PI * 2,
-      speed: 0.45 + Math.random() * 1.1,
-      stiffness: 0.045 + Math.random() * 0.05,
-      arrivalStart,
-      arrivalEnd: Math.min(0.42, arrivalStart + 0.065 + Math.random() * 0.11),
-      tone: toneRoll > 0.82 ? "red" : toneRoll > 0.58 ? "gold" : "paper",
-    };
-  });
+  return marks;
 }
 
 function composition(width: number, height: number, progress: number) {
-  const rise = smooth((progress - 0.62) / 0.18);
-  // Mirrors the CSS seal dimensions: the letters are 90% of the shrinking seal.
-  const initialSeal = Math.min(Math.min(width, height) * 0.62, 530, width * 0.38);
-  const sealSize = initialSeal * (1 - rise * 0.45);
-  const center = { x: width / 2, y: height * (0.48 - rise * 0.26) };
+  // Match the seal's CSS rise and scale so the three marks travel as one.
+  const rise = smooth((progress - 0.55) / 0.16);
+  const initialSeal = Math.min(Math.min(width, height) * 0.68, 560, width * 0.4);
+  const sealSize = initialSeal * (1 - rise * 0.42);
+  const mobile = width < 720;
+  const gap = Math.min(width * 0.035, 20);
+  const letterWidth = Math.min(
+    mobile ? Math.min(sealSize * 0.9, width * 0.25) : sealSize * 0.74,
+    (width - sealSize - gap * 2) / 2,
+  );
   return {
-    center,
-    sealSize,
-    letterWidth: sealSize * 0.79,
-    letterHeight: sealSize * 0.9,
-    // A fixed breathing corridor prevents either letter from touching the seal.
-    letterOffset: sealSize * 0.98,
+    centerX: width / 2,
+    centerY: height * (0.54 - rise * 0.16),
+    letterWidth,
+    letterHeight: sealSize * (mobile ? 1.14 : 1.04),
+    letterOffset: sealSize * 0.5 + gap + letterWidth * 0.5,
   };
 }
 
-function targetFor(particle: Particle, layout: ReturnType<typeof composition>) {
-  const centerX = layout.center.x + (particle.letter === "K" ? -layout.letterOffset : layout.letterOffset);
-  return {
-    x: centerX + (particle.local.x - 0.5) * layout.letterWidth,
-    y: layout.center.y + (particle.local.y - 0.5) * layout.letterHeight,
-  };
-}
-
-export function KAGlyphField({ progress, reducedMotion }: { progress: number; reducedMotion: boolean }) {
+export function KAGlyphField({ progress, reducedMotion }: { progress: RefObject<number>; reducedMotion: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const progressRef = useRef(progress);
-  useEffect(() => { progressRef.current = progress; }, [progress]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas?.getContext("2d");
     if (!canvas || !context) return;
-
     let width = 1;
     let height = 1;
     let frame = 0;
     let visible = true;
-    let coldStart = true;
-    let particles: Particle[] = [];
-    const pointer = { x: -9999, y: -9999, active: false };
+    let mounted = true;
+    let marks: Mark[] = [];
+    const sprites = new Map<string, HTMLCanvasElement>();
 
+    const draw = (now: number) => {
+      frame = 0;
+      context.clearRect(0, 0, width, height);
+      const layout = composition(width, height, progress.current);
+      for (const mark of marks) {
+        const key = mark.char + ":" + mark.tone;
+        let sprite = sprites.get(key);
+        if (!sprite) {
+          sprite = document.createElement("canvas");
+          sprite.width = 80;
+          sprite.height = 80;
+          const ink = sprite.getContext("2d");
+          if (ink) {
+            ink.textAlign = "center";
+            ink.textBaseline = "middle";
+            ink.font = '64px "Noto Sans Myanmar", sans-serif';
+            ink.fillStyle = mark.tone === "red" ? "#dc4b4f" : mark.tone === "gold" ? "#f0b84f" : "#f5efe4";
+            ink.fillText(mark.char, 40, 40, 64);
+          }
+          sprites.set(key, sprite);
+        }
+        // Breathing changes opacity and size slightly; every target stays put.
+        const breath = reducedMotion ? 1 : 0.93 + 0.07 * Math.sin(now * 0.00065 + mark.phase);
+        const size = mark.size * layout.letterHeight * (reducedMotion ? 1 : 0.985 + breath * 0.015);
+        const cell = size * 1.25;
+        const x = layout.centerX + (mark.letter === "K" ? -layout.letterOffset : layout.letterOffset)
+          + (mark.point.x - 0.5) * layout.letterWidth;
+        const y = layout.centerY + (mark.point.y - 0.5) * layout.letterHeight;
+        context.globalAlpha = (mark.tone === "paper" ? 0.83 : 0.76) * breath;
+        context.drawImage(sprite, x - cell / 2, y - cell / 2, cell, cell);
+      }
+      context.globalAlpha = 1;
+      if (!reducedMotion && visible && !document.hidden) frame = requestAnimationFrame(draw);
+    };
+
+    const wake = () => {
+      if (visible && !document.hidden && !frame) frame = requestAnimationFrame(draw);
+    };
     const resize = () => {
-      const rectangle = canvas.getBoundingClientRect();
-      width = Math.max(1, rectangle.width);
-      height = Math.max(1, rectangle.height);
+      const bounds = canvas.getBoundingClientRect();
+      width = Math.max(1, bounds.width);
+      height = Math.max(1, bounds.height);
       const dpr = Math.min(width < 720 ? 1.25 : 1.5, window.devicePixelRatio || 1);
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
-      particles = buildParticles(width, height);
-      coldStart = true;
-    };
-
-    const movePointer = (event: PointerEvent) => {
-      const rectangle = canvas.getBoundingClientRect();
-      pointer.x = event.clientX - rectangle.left;
-      pointer.y = event.clientY - rectangle.top;
-      pointer.active = true;
-    };
-    const leavePointer = () => { pointer.active = false; };
-
-    const draw = (now: number) => {
-      frame = 0;
-      const sceneProgress = reducedMotion ? 0.79 : progressRef.current;
-      const layout = composition(width, height, sceneProgress);
-      const scatter = smooth((sceneProgress - 0.91) / 0.09);
-      context.clearRect(0, 0, width, height);
-      context.textAlign = "center";
-      context.textBaseline = "middle";
-      context.filter = "blur(0.35px)";
-
-      for (const particle of particles) {
-        const finalTarget = targetFor(particle, layout);
-        const arrival = smooth((sceneProgress - particle.arrivalStart) / Math.max(0.001, particle.arrivalEnd - particle.arrivalStart));
-        const pathX = mix(particle.spawnX, finalTarget.x, arrival);
-        const pathY = mix(particle.spawnY, finalTarget.y, arrival) + Math.sin(arrival * Math.PI) * particle.curveY;
-        let targetX = pathX;
-        let targetY = pathY;
-        if (scatter > 0) {
-          targetX = mix(finalTarget.x, particle.scatterX, scatter);
-          targetY = mix(finalTarget.y, particle.scatterY, scatter);
-        }
-        if (coldStart && sceneProgress > 0.07) {
-          particle.x = targetX;
-          particle.y = targetY;
-        } else {
-          particle.x += (targetX - particle.x) * (particle.stiffness * 1.5);
-          particle.y += (targetY - particle.y) * (particle.stiffness * 1.5);
-        }
-
-        if (!reducedMotion && arrival > 0.98 && scatter < 0.35 && pointer.active) {
-          const dx = particle.x - pointer.x;
-          const dy = particle.y - pointer.y;
-          const distance = Math.hypot(dx, dy);
-          if (distance < 130 && distance > 0.001) {
-            // The settled mark makes room without breaking the seal/letter corridor.
-            const force = (1 - distance / 130) * 3.6;
-            particle.x += dx / distance * force;
-            particle.y += dy / distance * force;
-          }
-        }
-
-        const settled = arrival > 0.98 && scatter < 0.01;
-        const flicker = 0.82 + 0.18 * Math.sin(now * 0.001 * particle.speed + particle.phase);
-        const targetAlpha = settled ? 0.66 : arrival * 0.52;
-        particle.alpha += (targetAlpha * (1 - scatter * 0.82) - particle.alpha) * 0.08;
-        if (particle.alpha < 0.004 || arrival <= 0.001) continue;
-
-        context.globalAlpha = particle.alpha * flicker;
-        context.font = `${Math.max(8, particle.size * (0.75 + particle.depth * 0.5))}px "Noto Sans Myanmar", "Space Grotesk", sans-serif`;
-        context.fillStyle = particle.tone === "red" ? "#dc4b4f" : particle.tone === "gold" ? "#f0b84f" : "#f5efe4";
-        context.fillText(particle.char, particle.x, particle.y);
-      }
-
-      coldStart = false;
-      context.globalAlpha = 1;
-      context.filter = "none";
-      if (!reducedMotion && visible && !document.hidden) frame = window.requestAnimationFrame(draw);
-    };
-
-    const wake = () => {
-      if (!reducedMotion && visible && !document.hidden && !frame) frame = window.requestAnimationFrame(draw);
+      marks = buildMarks(width);
+      draw(performance.now());
     };
     const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) wake(); }, { threshold: 0.01 });
     const sizeObserver = new ResizeObserver(resize);
     resize();
+    void document.fonts.ready.then(() => { if (mounted) { sprites.clear(); resize(); } });
     observer.observe(canvas);
     sizeObserver.observe(canvas);
-    window.addEventListener("resize", resize);
-    window.addEventListener("pointermove", movePointer, { passive: true });
-    window.addEventListener("pointerleave", leavePointer);
     document.addEventListener("visibilitychange", wake);
-    if (reducedMotion) draw(performance.now()); else wake();
     return () => {
+      mounted = false;
       observer.disconnect();
       sizeObserver.disconnect();
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("pointermove", movePointer);
-      window.removeEventListener("pointerleave", leavePointer);
       document.removeEventListener("visibilitychange", wake);
-      if (frame) window.cancelAnimationFrame(frame);
+      if (frame) cancelAnimationFrame(frame);
     };
-  }, [reducedMotion]);
+  }, [progress, reducedMotion]);
 
   return <canvas ref={canvasRef} className="koa-ka-glyph-field" aria-hidden="true" />;
 }

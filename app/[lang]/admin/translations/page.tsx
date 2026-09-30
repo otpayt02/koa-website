@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { isLang } from "@/components/i18n";
 import { TranslationStudio } from "@/components/TranslationStudio";
-import { requireAdminPage } from "@/lib/page-auth";
+import { requirePageAdmin } from "@/lib/page-auth";
 
 export const metadata: Metadata = {
   title: "Bilingual Translation Studio",
@@ -16,7 +16,7 @@ export default async function TranslationStudioPage({ params }: { params: Promis
   const { lang: value } = await params;
   if (!isLang(value)) return null;
   const returnTo = `/${value}/admin/translations`;
-  const admin = await requireAdminPage(returnTo);
+  const admin = await requirePageAdmin(returnTo);
 
   if (!admin) {
     return (
