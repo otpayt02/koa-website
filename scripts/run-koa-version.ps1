@@ -26,7 +26,7 @@ try {
     try { npm.cmd ci } finally { Pop-Location }
   }
   $url = "http://127.0.0.1:$Port/en"
-  Write-Host "KOA version $short: $url"
+  Write-Host "KOA version ${short}: $url"
   Write-Host "Source: $checkout"
   $proc = Start-Process -FilePath 'npm.cmd' -ArgumentList 'run','dev','--','--hostname','127.0.0.1','--port',[string]$Port -WorkingDirectory $checkout -PassThru
   if ($Open) { Start-Sleep -Seconds 2; Start-Process $url }
