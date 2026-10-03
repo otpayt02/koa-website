@@ -4,6 +4,8 @@ This repository is the canonical React App Router application for the Karen Orga
 
 The current phase is local-only. It is not an official publication or deployment. Translations, organization relationships, photographs, cultural copy, and donation behavior remain review-gated.
 
+The [KOAmerica Facebook website content draft](content/koa-my-website-content-draft.md) maps reviewed profile, post, reel, and photo evidence to site sections with source links and editorial status. It is a partial historical survey; the full Page archive remains in the backlog.
+
 ## Start here
 
 - [Cinematic cookbook](docs/KOA-CINEMATIC-COOKBOOK.md) — choreography, motion parameters, failure history, weighted references, and media.
