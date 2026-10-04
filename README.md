@@ -2,9 +2,11 @@
 
 This repository is the canonical React App Router application for the Karen Organization of America (KOA) website. It combines the public mission experience, slow cinematic storytelling, multilingual content, and protected administration in one codebase.
 
-The current phase is local-only. It is not an official publication or deployment. Translations, organization relationships, photographs, cultural copy, and donation behavior remain review-gated.
+The current phase is local-only. It is not an official publication or deployment. Translations, organization relationships, cultural copy, and donation behavior remain review-gated; the five sourced Facebook photos requested on 2026-10-04 still need original-file and credit review.
 
 The [KOAmerica Facebook website content draft](content/koa-my-website-content-draft.md) maps reviewed profile, post, reel, and photo evidence to site sections with source links and editorial status. It is a partial historical survey; the full Page archive remains in the backlog.
+
+Five sourced Facebook photos now appear on Home, About, Advocacy, and Community with visible event captions and source links. They are dated examples, not claims about current staff or programs; the original-media replacement and full archive review remain in the backlog.
 
 ## Start here
 

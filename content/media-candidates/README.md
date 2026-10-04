@@ -1,6 +1,6 @@
 # KOAmerica Facebook media candidates
 
-Five selectively chosen, Facebook-rendered JPEGs captured on 2026-10-03 for site editorial review. Keep them in `content/` until the chosen story, caption, crop, and alt text are approved. These are rendered downloads, not original camera files. The source links and proposed accessible text are in `../koa-my-website-content-draft.md`.
+Five selectively chosen, Facebook-rendered JPEGs captured on 2026-10-03. The user requested their placement on the site on 2026-10-04; copies now appear in dated page sections. These are rendered downloads, not original camera files. The source links and proposed accessible text are in `../koa-my-website-content-draft.md`.
 
 | File | Source | Intended section | Evidence and use limit |
 | --- | --- | --- | --- |
@@ -10,4 +10,4 @@ Five selectively chosen, Facebook-rendered JPEGs captured on 2026-10-03 for site
 | `washington-advocacy-group-facebook.jpg` | [Facebook photo](https://www.facebook.com/photo.php?fbid=1347042117617648&set=pb.100069356176379.-2207520000&type=3) and [parent post](https://www.facebook.com/koamerica/posts/pfbid02gyq9NSU8LLi3WwoSzMUiWvupriK2y2ywgCmHaHZTNV4TVEzcJYDGjgba5bh9jzCil) | Advocacy story gallery | July 2026 trip; do not name a person or office from a wall plaque alone |
 | `kyo-day-soccer-facebook.jpg` | [Facebook photo](https://www.facebook.com/photo.php?fbid=2266694160182193&set=pb.100069356176379.-2207520000&type=3) and [parent post](https://www.facebook.com/koamerica/posts/pfbid02q1PkqBGG8bMbUMdGCB5GksLMDuZ6uUA8ACHZyX3phAQQBmv5rWe6Lbf9iU33kmQSl) | Community story gallery | KYO Day celebration in Des Moines; the frame includes young participants, so use only with its event context |
 
-Next: replace any selected rendered download with the matching original upload when available, then approve its visible caption and final crop before moving it to the public asset path.
+The five rendered files were copied to `public/koa/facebook/` for the dated Home, About, Advocacy, and Community placements requested on 2026-10-04. Next: replace each public copy with its matching original upload when available, then review its crop, visible caption, and preferred photo credit.
