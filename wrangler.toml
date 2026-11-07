@@ -22,5 +22,5 @@ compatibility_date = "2026-01-15"
 [[d1_databases]]
 binding = "DB"
 database_name = "koa-website-db"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "4e1be13b-e056-4585-a9d7-5bba4bf569ee"
 migrations_dir = "cloudflare/migrations"
