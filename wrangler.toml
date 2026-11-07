@@ -1,0 +1,26 @@
+# Cloudflare Workers configuration for the KOA public website.
+#
+# SCAFFOLD STATUS (branch: cloudflare-backend): this file is prepared but NOT
+# live. Nothing deploys until the one-time dashboard setup in
+# docs/cloudflare-backend-setup.md is finished and Oliver gives the go-ahead.
+# The site currently runs on ChatGPT Sites; this config is what lets the same
+# GitHub repo deploy to Cloudflare with a real backend instead.
+#
+# The entry point below matches the existing vinext app worker already in
+# this repo (worker/index.ts). The D1 binding name `DB` matches what
+# db/index.ts already expects via getBindings().
+
+name = "koa-website"
+main = "worker/index.ts"
+compatibility_date = "2026-01-15"
+
+# D1 database for the site's own data (content studio + the form tables in
+# cloudflare/migrations/). Create the database in the Cloudflare dashboard
+# (see the setup note), then replace the placeholder id with the real one.
+# A placeholder id is fine for local parsing checks; `wrangler deploy` will
+# refuse to use it, which is intentional until setup is done.
+[[d1_databases]]
+binding = "DB"
+database_name = "koa-website-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "cloudflare/migrations"
