@@ -1,0 +1,24 @@
+# Cloudflare Worker configuration for the standalone KOA forms API
+# (cloudflare/forms-worker.ts).
+#
+# This worker is deliberately separate from the main site worker: it can be
+# deployed on its own (e.g. as api.koamerica.org or koa-forms.<account>.
+# workers.dev) before, during, or after the main site moves to Cloudflare,
+# and it never touches the site's own build.
+#
+# SCAFFOLD STATUS (branch: cloudflare-backend): prepared, NOT deployed.
+# Replace the placeholder database_id after creating the D1 database
+# (see docs/cloudflare-backend-setup.md).
+
+name = "koa-website-forms"
+# Paths in this file are relative to the cloudflare/ folder it lives in.
+main = "forms-worker.ts"
+compatibility_date = "2026-01-15"
+
+# Same D1 database as the main site worker — the form tables live in
+# the migrations/ folder next to this file and are shared.
+[[d1_databases]]
+binding = "DB"
+database_name = "koa-website-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
