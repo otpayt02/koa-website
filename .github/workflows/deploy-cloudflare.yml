@@ -1,6 +1,5 @@
 name: Deploy to Cloudflare
 
-
 # Deploys the KOA website worker and the standalone forms worker to
 # Cloudflare, and applies D1 migrations, on every push to main.
 #
@@ -14,13 +13,11 @@ name: Deploy to Cloudflare
 #   CLOUDFLARE_ACCOUNT_ID  — the Cloudflare account id
 # Never commit either value to the repository.
 
-
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
 
 jobs:
   deploy:
@@ -29,21 +26,17 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
 
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: npm
 
-
       - name: Install dependencies
         run: npm ci
 
-
       - name: Build the site
         run: npm run build
-
 
       - name: Apply D1 migrations (remote)
         uses: cloudflare/wrangler-action@v3
@@ -52,14 +45,12 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: d1 migrations apply koa-website-db --remote
 
-
       - name: Deploy the site worker
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
-
 
       - name: Deploy the forms worker
         uses: cloudflare/wrangler-action@v3
