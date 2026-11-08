@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  brain-backend:
+    build: ./brain-app/backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../:/app/brain-data:ro
+    environment:
+      - BRAIN_DATA_PATH=/app/brain-data
+    restart: unless-stopped
+
+  brain-frontend:
+    build: ./brain-app/frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - brain-backend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    restart: unless-stopped
+
+  inbox-processor:
+    build: ./brain-app/inbox-processor
+    volumes:
+      - ../:/app/brain-data
+    environment:
+      - BRAIN_DATA_PATH=/app/brain-data
+    restart: unless-stopped
+    command: python scheduler.py
+
+volumes:
+  brain-data:
