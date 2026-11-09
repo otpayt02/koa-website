@@ -1,0 +1,13 @@
+{
+  "automation_id": "koa-facebook-and-signal-intake",
+  "checked_at": "2026-10-16T13:19:59.099032+00:00",
+  "facebook_check": "unverified",
+  "failures": [
+    "Browser connection unavailable after two attempts",
+    "Public web fetch throttled"
+  ],
+  "signal_new_items": [],
+  "signal_tail_empty": true,
+  "last_recorded_post_date": "2026-10-05",
+  "action": "no_publication_unverified_facebook"
+}

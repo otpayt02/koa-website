@@ -4,9 +4,13 @@ This repository is the canonical React App Router application for the Karen Orga
 
 The current phase is local-only. It is not an official publication or deployment. Translations, organization relationships, photographs, cultural copy, and donation behavior remain review-gated.
 
-The cinematic landing now holds Karen-glyph K/A beside the supplied seal from the first frame; only a quiet breath remains, with no formation or scatter. The seal's soft rays appear immediately and stop animating when reduced motion is requested. Public copy follows the owner-supplied KOA website content draft; suggested additions are italicized pending review. `npm.cmd run build` succeeds after the translations admin import was corrected.
+Home is a single-screen KOA introduction with the supplied seal, a top-down name reveal, a subtly breathing K–seal–A, and direct paths to Programs, Get involved, and Contact. Home's denser serif-shaped K/A glyphs and the seal share a larger mark; the seal tilts gently toward the pointer. The shared background uses a fixed S'gaw glyph grid with 12px spacing: pointer speed raises same-color glyph substitutions, faster movement widens a shorter ripple, and clicks send outward glyph-change waves. Foreground Karen-glyph motes travel slowly on straight paths with long fades. The English and Karen names share a blue-to-red-to-gold type treatment; glass controls have traveling edge light and reversible glare. Per owner direction, reduced-motion visitors see complete static text while subtle ambient grid, dust, K/A, and seal motion continues; the prior long film remains in `components/CinematicLanding.tsx` for comparison. Public copy and media still require owner review.
+
+The Home K/A now use fewer, lighter glyphs at 1.5–2.5× their former size. The Karen name uses Noto Serif Myanmar with extra room for diacritics; the subheading uses the display serif and the buttons use Inter.
 
 ## Start here
+
+- [Local version library](docs/koa-version-library-review.md) — review every saved HTML path, historical branch, strengths, gaps, and the recommended deployment base. Run `Set-Location 'C:\Users\olive\Projects\koa-website'; node .\scripts\koa-version-library.mjs` to open the one-click local dashboard; press Ctrl+C in that PowerShell window to stop it.
 
 - [Cinematic cookbook](docs/KOA-CINEMATIC-COOKBOOK.md) — choreography, motion parameters, failure history, weighted references, and media.
 - [Repository understanding](UNDERSTANDING.md) — curated ownership, consumers, removal impact, verification, and approval boundaries for top-level paths.
@@ -102,3 +106,17 @@ The Facebook-derived files are local draft references. Original files, provenanc
 ## Approval boundaries
 
 Local source changes and tests are allowed. Deployment, public publication, remote branch deletion, donation processing, claims of official partnership, and unreviewed translation publication require separate approval.
+# Content and first-screen paths (2026-09-30)
+
+`docs/koa-content-map.md` tracks owner-draft claims against live routes and open fact checks.
+The home film now keeps Programs and Get involved reachable from its first screen.
+`STYLESEED.md` records the local design lock; `.styleseed/` contains resolved working rules.
+
+## Glyph atmosphere (2026-10-01)
+
+The home loader scatters and reforms the proportional Karen-glyph K/A before revealing the one-screen introduction.
+Shared dither glyphs react to pointer paths and clicks; photo glyphs use a quiet inverse-color tile.
+The effect caps active ripples and caches letter sprites to keep the live canvas bounded.
+The Karen long-form line box includes extra space for upper marks at short viewports.
+Home follows the active locale for its title, supporting copy, controls, and glyph atmosphere; K/A remain Karen.
+The three Home actions open image previews with a route link and keyboard dismissal.

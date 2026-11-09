@@ -1,0 +1,54 @@
+{
+  "version": {
+    "id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_a8c31a654cbc819197d4978b79f82c98",
+    "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+    "version_number": 55,
+    "source": {
+      "commit_sha": "201048ff1c5f11748e831a8bbb17278b02d33286"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_000000000c1881f5b694674d97208cdf",
+      "content_hash": "sha256:7fc1d1568811ab46e3a4ed6d9e4c511e4fa2acc9fdf420417452c63ab0aa1d89",
+      "size_bytes": 20377600,
+      "file_count": 107
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deploy": {
+    "id": "appgdep_6ad473d2e6ac8191b21f8c013bbbe899",
+    "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+    "title": "Karen Organization of America",
+    "version_id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_a8c31a654cbc819197d4978b79f82c98",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://karen-organization-of-america.oliverp789.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "oliverp789--karen-organization-of-america",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-18T07:23:11.168581+00:00"
+  },
+  "checks": {
+    "build": "passed",
+    "typescript": "passed",
+    "graphRisk": "medium",
+    "cycleIntervalsMs": [
+      7894,
+      8026
+    ],
+    "crossfadeOpacities": [
+      0.804451,
+      0.195549
+    ],
+    "keyboard": "passed",
+    "reducedMotion": "visible text; near-zero duration",
+    "localDesktopWidth": 1280,
+    "localMobileWidth": 390,
+    "overflow": false,
+    "documentParity": true,
+    "missingArchiveImages": 0
+  }
+}

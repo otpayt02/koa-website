@@ -1,0 +1,72 @@
+{
+  "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+  "commit": "2e065bd7138c97db7a72ae953d98b629c08bff85",
+  "saved": {
+    "id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_b1c9d8e28d5c8191bdee563365046b78",
+    "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+    "version_number": 57,
+    "source": {
+      "commit_sha": "2e065bd7138c97db7a72ae953d98b629c08bff85"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_000000003aec81f5afb30c51ba16c490",
+      "content_hash": "sha256:5893e0e2adb702c099b6d1a36fe86e831bd3eaf17e37a66299b07a43d55d11cd",
+      "size_bytes": 18227200,
+      "file_count": 108
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ad59942e8388191a2ff4fd1494ee27e",
+    "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+    "title": "Karen Organization of America",
+    "version_id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_b1c9d8e28d5c8191bdee563365046b78",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://karen-organization-of-america.oliverp789.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "oliverp789--karen-organization-of-america",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-19T04:15:12.398065+00:00"
+  },
+  "changes": {
+    "largest_layer_parallax_previous_px": 15,
+    "largest_layer_parallax_px": 1.8,
+    "reduction_percent": 88,
+    "layer_offsets_px": [
+      0.45,
+      0.9,
+      1.8
+    ],
+    "seal_tilt": false,
+    "stationary_core": true,
+    "ring_rotation_seconds": 180,
+    "rotation_direction": "counterclockwise",
+    "original_seal_artwork_reused": true,
+    "original_alpha_preserved": true,
+    "typography": "Libre Caslon Display sampled into Karen glyph silhouettes"
+  },
+  "checks": {
+    "typescript": "pass",
+    "production_build": "pass",
+    "graph_risk": "medium",
+    "graph_changed_symbols": 9,
+    "graph_affected_processes": 4,
+    "desktop": [
+      1280,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "horizontal_overflow": false,
+    "static_seal_animations": 0,
+    "doc_inventory_parity": true
+  },
+  "doc_revision": "AHj4eMSZsy8kB5HUegby435tdwI3IqYaiu4kb_CCcTtvcFATxjfqrf-vM9mqZcXYw5tCT2CIAtc9MkaZyjUzX7utlzTWywSYM7DPxb7af0I"
+}

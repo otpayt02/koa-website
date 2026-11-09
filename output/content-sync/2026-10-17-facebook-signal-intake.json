@@ -1,0 +1,19 @@
+{
+  "automation_id": "koa-facebook-and-signal-intake",
+  "checked_at": "2026-10-17T17:24:43.265875+00:00",
+  "coverage": "Latest visible public Facebook feed and new-post permalink inspected in connected Chrome; not a complete archive.",
+  "new_candidates": [
+    "facebook-nyap-third-program-1422449540076905"
+  ],
+  "candidate_source_url": "https://www.facebook.com/koamerica/posts/pfbid025LATzoE2TtKf8vtaPFnUzCZw3okhspkg25L5deTBoAhJdM8JU7qufL9ffFwF1wGDl",
+  "caption_sha256": "83d000ba5d738502106482f4d502996c55caf0bfe35a722f0cf9a4adc671a0b9",
+  "status": "unpublished-draft",
+  "missing_fields": [
+    "Exact original post publication date; only relative time was exposed",
+    "Downloadable original poster files",
+    "Confirmed program dates, times, timezone and location before calendar listing"
+  ],
+  "signal_new_items": [],
+  "deployed": false,
+  "action": "held_candidate_missing_exact_post_date_and_original_media"
+}

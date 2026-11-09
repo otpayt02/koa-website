@@ -78,26 +78,19 @@ const navCategories = [
 export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [compact, setCompact] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle("nav-open", open);
     return () => document.body.classList.remove("nav-open");
   }, [open]);
 
-  useEffect(() => {
-    const update = () => setCompact(window.scrollY > window.innerHeight * 0.18);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-
   const closeDropdown = () => setOpenDropdown(null);
 
   return (
-    <header className={`site-header${compact ? " is-compact" : ""}`} data-breathing-header>
+    <header className="site-header" data-breathing-header>
       <Link className="brand" href={`/${lang}`} aria-label={`${messages.siteName} — ${messages.home}`}>
-        <img src="/koa/assets/koa-logo.png" alt="" width="52" height="52" />
+        {/* Reuse the supplied seal; the old header logo asset is absent locally. */}
+        <img src="/koa/assets/koa-seal-white-lettering-v2.png" alt="" width="52" height="52" />
         <span><strong>KOA</strong><small>{messages.siteName}</small></span>
       </Link>
       <div className="header-actions">
@@ -105,6 +98,7 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
         <button
           className="menu-button"
           type="button"
+          aria-label={open ? messages.close : messages.menu}
           aria-expanded={open}
           aria-controls="site-navigation"
           onClick={() => setOpen((value) => !value)}
@@ -120,7 +114,7 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
         </div>
         <div className="nav-grid">
           <Link href={`/${lang}`}><span>01</span>{messages.home}</Link>
-          {navCategories.map((category, catIndex) => (
+          {lang === "en" ? navCategories.map((category, catIndex) => (
             <div key={category.slug} className="nav-dropdown">
               <button
                 className="nav-dropdown__trigger"
@@ -156,6 +150,8 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
                 ))}
               </div>
             </div>
+          )) : (["about", "services", "community", "dictionary", "translation", "contribute", "music", "contact"] as const).map((slug) => (
+            <Link key={slug} href={`/${lang}/${slug}`} onClick={() => setOpen(false)}>{messages[slug]}</Link>
           ))}
           <Link href={`/${lang}/collaborate`}><span>09</span>{messages.collaborate}</Link>
         </div>

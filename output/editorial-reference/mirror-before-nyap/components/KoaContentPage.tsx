@@ -1,0 +1,16 @@
+import Link from "next/link";
+
+// Supplied originals: literal scene descriptions, unchanged faces, full-frame group portraits.
+const documentaryGalleries: Record<string, [string, string][]> = {"About KOA": [["552606827_1102555948732934_6193283630378424638_n.jpg", "Community group beneath stained-glass windows"], ["751578712_1343222811332912_4444276907434917093_n.jpg", "Workshop participants standing in a circle"], ["753874149_1347041864284340_8308738702706322409_n.jpg", "Group portrait in an office with framed city illustrations"]], "Programs": [["523419272_1052856803702849_6160094799043046969_n.jpg", "Participants listening to a presenter in a classroom"], ["751035095_1343222781332915_1294256063329196429_n.jpg", "Participants holding certificates in a group photograph"], ["751125654_1343222887999571_3470397962677151599_n.jpg", "Workshop participants seated around round tables"], ["752484583_1343222871332906_6839173991947170680_n.jpg", "Small-group discussion with printed handouts"], ["education_group.jpg", "Participants listening to a speaker in a brick atrium"]], "Federal advocacy": [["518370019_1052051797116683_5742779659502570903_n.jpg", "Group portrait beside a United States flag"], ["520228539_1052042917117571_646496839831873159_n.jpg", "Community group outside the United States Capitol"]]};
+import type { Lang } from "./i18n";
+
+export function KoaContentPage({ lang, eyebrow, title, intro, image, children, showContactAction = true, showDonateAction = true }: { lang: Lang; eyebrow: string; title: string; intro: string; image?: { src: string; alt: string; caption: string }; children: React.ReactNode; showContactAction?: boolean; showDonateAction?: boolean }) {
+  // The closing row keeps three real destinations together; the current route omits its own link.
+  return <div className={`content-page${image ? " content-page--photo" : ""}`}><div className="content-page__opening"><section className="page-hero"><h1>{title}</h1><p className="page-hero__intro">{intro}</p></section>{image && <figure className="content-page__documentary"><img src={image.src} alt={image.alt} data-asset={image.src.split("/").pop()} loading="lazy" /><figcaption>{image.caption}</figcaption></figure>}</div>{children}{documentaryGalleries[eyebrow] && <div className="documentary-collection" aria-label={eyebrow}>{documentaryGalleries[eyebrow].map(([file, alt]) => <figure key={file}><img src={`/koa/assets/${file}`} alt={alt} loading="lazy" width="1280" height="853" /></figure>)}</div>}<div className="section-action"><Link className="button button--secondary" href={`/${lang}`}>Return home</Link>{showContactAction && <Link className="button" href={`/${lang}/contact`}>Contact KOA</Link>}{showDonateAction && <Link className="button button--gold" href={`/${lang}/donate`}>Donate</Link>}</div></div>;
+}
+
+export function KoaSection({ eyebrow, title, children }: { eyebrow?: string; title: string; children: React.ReactNode }) {
+  return <section className="content-section"><div className="content-section__inner"><h2>{title}</h2><div className="content-section__body">{eyebrow && <p className="eyebrow">{eyebrow}</p>}{children}</div></div></section>;
+}
+
+export function Unconfirmed({ children }: { children: React.ReactNode }) { return <em className="unconfirmed">{children}</em>; }

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { languages, localeMeta, type Lang, type Messages } from "./i18n";
 
 export function LanguageToggle({ lang, messages }: { lang: Lang; messages: Messages }) {
+  const shortLabels: Record<Lang, string> = { en: "EN", th: "ไทย", my: "မြန်မာ", ksw: "ကညီ" };
   const pathname = usePathname();
   const localePrefix = new RegExp(`^/(${languages.join("|")})(?=/|$)`);
   const pathFor = (locale: Lang) =>
@@ -32,7 +33,7 @@ export function LanguageToggle({ lang, messages }: { lang: Lang; messages: Messa
             aria-current={locale === lang ? "page" : undefined}
             aria-label={`${messages.language}: ${meta.label}`}
           >
-            {meta.nativeLabel}
+            {shortLabels[locale]}
           </Link>
         );
       })}

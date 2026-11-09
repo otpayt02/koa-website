@@ -1,0 +1,431 @@
+/* V6 Interactions — Micro-interactions, hover, focus, click */
+/* AP Music & Audio AWWWARDS-Grade */
+
+/* ===== SHARED INTERACTIVE BASE ===== */
+.interactive {
+  position: relative; isolation: isolate;
+  transition:
+    transform 0.6s var(--ease-spring),
+    box-shadow 0.6s var(--ease-spring),
+    color 0.4s var(--ease-expo),
+    border-color 0.4s var(--ease-expo),
+    background-color 0.4s var(--ease-expo);
+  will-change: transform, box-shadow;
+}
+
+/* Breathing Hover — scale + glow + lift */
+.interactive:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow:
+    0 28px 64px -16px var(--gold-glow),
+    0 10px 24px -10px var(--canopy-glow);
+}
+.interactive:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  box-shadow:
+    0 0 0 4px var(--gold-glow),
+    0 28px 64px -16px var(--gold-glow),
+    0 10px 24px -10px var(--canopy-glow);
+}
+
+/* Expansive Click (Morph) */
+.interactive:active {
+  transition-duration: 0.12s;
+  transform: scale(0.98);
+  box-shadow:
+    0 8px 24px -12px var(--gold-glow),
+    0 4px 12px -8px var(--canopy-glow);
+}
+
+/* Shimmer sweep on hover (for links, buttons, cards) */
+.interactive::before {
+  content: "";
+  position: absolute; z-index: -1; top: -60%; bottom: -60%; left: -80%;
+  width: 40%;
+  opacity: 0; pointer-events: none;
+  background: linear-gradient(100deg,
+    transparent, rgba(255,255,255,0.85), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.8s var(--ease-spring), opacity 0.2s;
+}
+.interactive:hover::before,
+.interactive:focus-visible::before {
+  left: 140%; opacity: 0.9;
+}
+
+/* ===== SPECIFIC COMPONENT INTERACTIONS ===== */
+
+/* --- Header Elements --- */
+.header a, .nav a, .lang-toggle, .motion-btn, .menu-btn, .search-btn {
+  position: relative; overflow: hidden; transform: translateZ(0);
+}
+.header a::before, .nav a::before, .lang-toggle::before,
+.motion-btn::before, .menu-btn::before, .search-btn::before {
+  content: ""; position: absolute; z-index: 1; top: -60%; bottom: -60%; left: -80%;
+  width: 35%; opacity: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.8), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.75s var(--ease-spring), opacity 0.15s;
+}
+.header a:hover::before, .header a:focus-visible::before,
+.nav a:hover::before, .nav a:focus-visible::before,
+.lang-toggle:hover::before, .lang-toggle:focus-visible::before,
+.motion-btn:hover::before, .motion-btn:focus-visible::before,
+.menu-btn:hover::before, .menu-btn:focus-visible::before,
+.search-btn:hover::before, .search-btn:focus-visible::before {
+  left: 130%; opacity: 0.85;
+}
+
+.nav a { z-index: 1; }
+.nav a:hover, .nav a:focus-visible {
+  color: var(--paper);
+  text-shadow: 0 0 32px var(--gold-glow), 0 0 64px var(--gold-glow);
+}
+.nav a[aria-current] { color: var(--gold-bright); text-shadow: 0 0 28px var(--gold-glow); }
+
+.lang-toggle:hover, .lang-toggle:focus-visible,
+.motion-btn:hover, .motion-btn:focus-visible,
+.menu-btn:hover, .menu-btn:focus-visible,
+.search-btn:hover, .search-btn:focus-visible {
+  background: var(--gold-glow);
+  border-color: var(--divider);
+  transform: scale(1.05);
+}
+
+.brand img { transition: filter 0.6s var(--ease-spring); }
+.brand:hover img { filter: drop-shadow(0 18px 44px var(--gold-glow)); }
+.brand small { transition: color 0.4s; }
+.brand:hover small { color: var(--gold-bright); }
+
+/* --- Buttons & Links --- */
+.button-primary, .action {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  padding: 1rem 1.5rem; border-radius: 12px;
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+  color: var(--ink); font: 700 var(--text-xs) var(--font-ui);
+  letter-spacing: var(--ui-track-wider); text-transform: uppercase;
+  box-shadow: 0 16px 40px -12px var(--gold-glow);
+  transition: all 0.4s var(--ease-spring);
+}
+.button-primary:hover, .action:hover,
+.button-primary:focus-visible, .action:focus-visible {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 24px 56px -16px var(--gold-glow-strong);
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+}
+.button-primary:active, .action:active { transform: scale(0.985); }
+
+.button-secondary {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  padding: 0.875rem 1.25rem; border: 1px solid var(--gold);
+  border-radius: 10px; color: var(--gold);
+  font: 700 var(--text-xs) var(--font-ui); letter-spacing: var(--ui-track-wide); text-transform: uppercase;
+  background: transparent; transition: all 0.4s var(--ease-spring);
+}
+.button-secondary:hover, .button-secondary:focus-visible {
+  background: var(--gold-glow); border-color: var(--gold-bright);
+  color: var(--gold-bright); transform: translateY(-2px) scale(1.01);
+}
+
+.text-link {
+  position: relative; display: inline-flex; align-items: center; gap: 0.5rem;
+  color: var(--gold); font: 700 var(--text-sm) var(--font-ui);
+  letter-spacing: var(--ui-track-wide); text-transform: uppercase;
+}
+.text-link::after {
+  content: ""; position: absolute; bottom: -2px; left: 0; right: 0; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: right;
+  transition: transform 0.4s var(--ease-spring);
+}
+.text-link:hover::after, .text-link:focus-visible::after {
+  transform: scaleX(1); transform-origin: left;
+}
+
+/* --- Cards (Fact, Link, Contact, Review, Photo) --- */
+.fact, .link-card, .contact-card, .review-card, .photo-card {
+  position: relative; isolation: isolate; overflow: hidden;
+}
+.fact:hover, .fact:focus-visible,
+.link-card:hover, .link-card:focus-visible,
+.review-card:hover, .review-card:focus-visible,
+.photo-card:hover, .photo-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.35);
+}
+
+.contact-card:hover, .contact-card:focus-visible {
+  background: #fffdf5;
+  box-shadow: 0 36px 100px -20px var(--gold-glow), 0 16px 48px -16px var(--canopy-glow);
+  transform: translateY(-8px);
+}
+
+/* Image hover in photo cards */
+.photo-card img {
+  transition: transform 0.8s var(--ease-spring), filter 0.6s var(--ease-spring);
+  will-change: transform, filter;
+}
+.photo-card:hover img, .photo-card:focus-visible img {
+  transform: scale(1.03);
+  filter: saturate(1.05) brightness(1.02);
+}
+
+/* Chapter photo hover */
+.chapter-photo img,
+.scene-media img {
+  transition: transform 2.8s var(--ease-spring), filter 0.8s var(--ease-spring);
+}
+.scene:hover .scene-media img {
+  transform: scale(calc(1.12 - var(--local) * 0.06 + var(--momentum) * 0.02 + 0.015));
+  filter: saturate(1.02) contrast(1.03) brightness(1.01);
+}
+
+/* --- Dialog Interactions --- */
+.dialog-close {
+  transition: color 0.3s var(--ease-spring), transform 0.3s var(--ease-spring);
+}
+.dialog-close:hover, .dialog-close:focus-visible {
+  color: var(--gold-bright); transform: rotate(90deg);
+}
+
+.search-results a {
+  transition: color 0.3s var(--ease-spring), padding-left 0.3s var(--ease-spring);
+}
+.search-results a:hover, .search-results a:focus-visible {
+  color: var(--gold-bright); padding-left: 0.5rem;
+}
+
+/* --- Chapter Dots --- */
+.chapter-dots li {
+  transition: all 0.5s var(--ease-spring);
+}
+.chapter-dots li:hover:not(.active) {
+  background: var(--divider); transform: scale(1.4);
+}
+.chapter-dots li:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 4px;
+}
+
+/* --- Tracker Items --- */
+.tracker-item {
+  transition: opacity 0.5s var(--ease-spring), transform 0.5s var(--ease-spring);
+}
+.tracker-item:hover { opacity: 0.7; transform: translateX(4px); }
+.tracker-item.active { opacity: 1; transform: none; }
+
+.tracker-num { transition: color 0.4s var(--ease-spring), transform 0.4s var(--ease-spring); }
+.tracker-item.active .tracker-num { color: var(--gold); transform: scale(1.15); }
+.tracker-title { transition: opacity 0.4s var(--ease-spring), transform 0.4s var(--ease-spring), color 0.4s; }
+.tracker-item:hover .tracker-title,
+.tracker-item.active .tracker-title { opacity: 1; transform: none; }
+
+/* --- Top Timeline Markers --- */
+.top-timeline .marker {
+  transition: all 0.4s var(--ease-spring);
+}
+.top-timeline .marker:hover { background: var(--gold); box-shadow: 0 0 16px var(--gold-glow); height: 12px; width: 12px; }
+.top-timeline .marker::after { transition: opacity 0.3s; }
+.top-timeline .marker:hover::after { opacity: 1; }
+
+/* --- Footer Links --- */
+footer nav a, footer > a:last-child {
+  transition: color 0.4s var(--ease-spring);
+}
+footer nav a:hover, footer nav a:focus-visible,
+footer > a:last-child:hover, footer > a:last-child:focus-visible {
+  color: var(--gold-bright);
+}
+
+/* --- Scene Credit Badge --- */
+.scene-credit {
+  transition: border-color 0.4s, background-color 0.4s, color 0.4s;
+}
+.scene:hover .scene-credit {
+  border-color: var(--divider); background: rgba(232,197,109,0.1); color: var(--gold-bright);
+}
+
+/* --- Story Line Secondary --- */
+.story-line.secondary {
+  transition: background 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-spring);
+}
+
+/* ===== CURSOR-TRACKED ELEMENTS ===== */
+.cursor-tracked {
+  transition: transform 0.12s linear;
+  will-change: transform;
+}
+
+/* ===== LOADING STATES ===== */
+.loading-skeleton {
+  background: linear-gradient(90deg,
+    var(--ink-elevated) 25%,
+    var(--ink-highlight) 50%,
+    var(--ink-elevated) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== TOAST/NOTIFICATION --- */
+.toast {
+  position: fixed; z-index: var(--z-toast); bottom: var(--gutter); right: var(--gutter);
+  padding: 1rem 1.5rem; border-radius: 12px;
+  background: var(--ink-elevated); border: 1px solid var(--divider);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+  animation: toast-in 0.5s var(--ease-spring) forwards;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translate3d(0, 40px, 0) scale(0.95); }
+  to { opacity: 1; transform: none; }
+}
+.toast.removing { animation: toast-out 0.3s var(--ease-spring) forwards; }
+@keyframes toast-out {
+  to { opacity: 0; transform: translate3d(0, -20px, 0) scale(0.95); }
+}
+
+/* ===== REDUCED MOTION OVERRIDES ===== */
+@media (prefers-reduced-motion: reduce) {
+  .interactive,
+  .interactive::before,
+  .header a::before, .nav a::before, .lang-toggle::before,
+  .motion-btn::before, .menu-btn::before, .search-btn::before,
+  .button-primary, .action, .button-secondary, .text-link,
+  .fact, .link-card, .contact-card, .review-card, .photo-card,
+  .photo-card img, .chapter-photo img, .scene-media img,
+  .dialog-close, .search-results a, .chapter-dots li,
+  .tracker-item, .tracker-num, .tracker-title,
+  .top-timeline .marker, footer nav a, footer > a:last-child,
+  .scene-credit, .story-line.secondary,
+  .toast, .loading-skeleton {
+    transition: none !important; animation: none !important;
+    transform: none !important;
+  }
+  .interactive:hover, .interactive:focus-visible,
+  .interactive:active,
+  .nav a:hover, .nav a:focus-visible,
+  .lang-toggle:hover, .lang-toggle:focus-visible,
+  .motion-btn:hover, .motion-btn:focus-visible,
+  .menu-btn:hover, .menu-btn:focus-visible,
+  .search-btn:hover, .search-btn:focus-visible,
+  .brand:hover img, .brand:hover small,
+  .button-primary:hover, .action:hover, .button-primary:focus-visible, .action:focus-visible,
+  .button-primary:active, .action:active,
+  .button-secondary:hover, .button-secondary:focus-visible,
+  .text-link:hover::after, .text-link:focus-visible::after,
+  .fact:hover, .link-card:hover, .contact-card:hover,
+  .review-card:hover, .photo-card:hover,
+  .photo-card:hover img, .scene:hover .scene-media img,
+  .dialog-close:hover, .dialog-close:focus-visible,
+  .search-results a:hover, .search-results a:focus-visible,
+  .chapter-dots li:hover, .chapter-dots li:focus-visible,
+  .tracker-item:hover, .tracker-item.active,
+  .top-timeline .marker:hover, .top-timeline .marker.active,
+  footer nav a:hover, footer > a:last-child:hover,
+  .scene:hover .scene-credit {
+    transform: none !important; box-shadow: none !important;
+    background: none !important; color: inherit !important;
+    border-color: inherit !important; text-shadow: none !important;
+    filter: none !important;
+  }
+  .interactive::before { display: none !important; }
+  .header a::before, .nav a::before, .lang-toggle::before,
+  .motion-btn::before, .menu-btn::before, .search-btn::before { display: none !important; }
+  .contact-card::before, .contact-card::after { display: none !important; }
+}
+html[data-motion="reduced"] .interactive,
+html[data-motion="reduced"] .interactive::before,
+html[data-motion="reduced"] .header a::before,
+html[data-motion="reduced"] .nav a::before,
+html[data-motion="reduced"] .lang-toggle::before,
+html[data-motion="reduced"] .motion-btn::before,
+html[data-motion="reduced"] .menu-btn::before,
+html[data-motion="reduced"] .search-btn::before,
+html[data-motion="reduced"] .button-primary,
+html[data-motion="reduced"] .action,
+html[data-motion="reduced"] .button-secondary,
+html[data-motion="reduced"] .text-link,
+html[data-motion="reduced"] .fact,
+html[data-motion="reduced"] .link-card,
+html[data-motion="reduced"] .contact-card,
+html[data-motion="reduced"] .review-card,
+html[data-motion="reduced"] .photo-card,
+html[data-motion="reduced"] .photo-card img,
+html[data-motion="reduced"] .chapter-photo img,
+html[data-motion="reduced"] .scene-media img,
+html[data-motion="reduced"] .dialog-close,
+html[data-motion="reduced"] .search-results a,
+html[data-motion="reduced"] .chapter-dots li,
+html[data-motion="reduced"] .tracker-item,
+html[data-motion="reduced"] .tracker-num,
+html[data-motion="reduced"] .tracker-title,
+html[data-motion="reduced"] .top-timeline .marker,
+html[data-motion="reduced"] footer nav a,
+html[data-motion="reduced"] footer > a:last-child,
+html[data-motion="reduced"] .scene-credit,
+html[data-motion="reduced"] .story-line.secondary,
+html[data-motion="reduced"] .toast,
+html[data-motion="reduced"] .loading-skeleton {
+  transition: none !important; animation: none !important; transform: none !important;
+}
+html[data-motion="reduced"] .interactive:hover,
+html[data-motion="reduced"] .interactive:focus-visible,
+html[data-motion="reduced"] .interactive:active,
+html[data-motion="reduced"] .nav a:hover,
+html[data-motion="reduced"] .nav a:focus-visible,
+html[data-motion="reduced"] .lang-toggle:hover,
+html[data-motion="reduced"] .lang-toggle:focus-visible,
+html[data-motion="reduced"] .motion-btn:hover,
+html[data-motion="reduced"] .motion-btn:focus-visible,
+html[data-motion="reduced"] .menu-btn:hover,
+html[data-motion="reduced"] .menu-btn:focus-visible,
+html[data-motion="reduced"] .search-btn:hover,
+html[data-motion="reduced"] .search-btn:focus-visible,
+html[data-motion="reduced"] .brand:hover img,
+html[data-motion="reduced"] .brand:hover small,
+html[data-motion="reduced"] .button-primary:hover,
+html[data-motion="reduced"] .action:hover,
+html[data-motion="reduced"] .button-primary:focus-visible,
+html[data-motion="reduced"] .action:focus-visible,
+html[data-motion="reduced"] .button-primary:active,
+html[data-motion="reduced"] .action:active,
+html[data-motion="reduced"] .button-secondary:hover,
+html[data-motion="reduced"] .button-secondary:focus-visible,
+html[data-motion="reduced"] .text-link:hover::after,
+html[data-motion="reduced"] .text-link:focus-visible::after,
+html[data-motion="reduced"] .fact:hover,
+html[data-motion="reduced"] .link-card:hover,
+html[data-motion="reduced"] .contact-card:hover,
+html[data-motion="reduced"] .review-card:hover,
+html[data-motion="reduced"] .photo-card:hover,
+html[data-motion="reduced"] .photo-card:hover img,
+html[data-motion="reduced"] .scene:hover .scene-media img,
+html[data-motion="reduced"] .dialog-close:hover,
+html[data-motion="reduced"] .dialog-close:focus-visible,
+html[data-motion="reduced"] .search-results a:hover,
+html[data-motion="reduced"] .search-results a:focus-visible,
+html[data-motion="reduced"] .chapter-dots li:hover,
+html[data-motion="reduced"] .chapter-dots li:focus-visible,
+html[data-motion="reduced"] .tracker-item:hover,
+html[data-motion="reduced"] .tracker-item.active,
+html[data-motion="reduced"] .top-timeline .marker:hover,
+html[data-motion="reduced"] .top-timeline .marker.active,
+html[data-motion="reduced"] footer nav a:hover,
+html[data-motion="reduced"] footer > a:last-child:hover,
+html[data-motion="reduced"] .scene:hover .scene-credit {
+  transform: none !important; box-shadow: none !important;
+  background: none !important; color: inherit !important;
+  border-color: inherit !important; text-shadow: none !important;
+  filter: none !important;
+}
+html[data-motion="reduced"] .interactive::before { display: none !important; }
+html[data-motion="reduced"] .header a::before,
+html[data-motion="reduced"] .nav a::before,
+html[data-motion="reduced"] .lang-toggle::before,
+html[data-motion="reduced"] .motion-btn::before,
+html[data-motion="reduced"] .menu-btn::before,
+html[data-motion="reduced"] .search-btn::before { display: none !important; }
+html[data-motion="reduced"] .contact-card::before,
+html[data-motion="reduced"] .contact-card::after { display: none !important; }

@@ -1,0 +1,745 @@
+{
+  "captured": "2026-10-08",
+  "source": "https://www.meta.ai/artifacts",
+  "coverage": "All KOA HTML cards visible in the loaded artifact library were downloaded, including route-specific artifacts. Batch timed out on later unrelated artifacts; not a complete account archive. Identical files deduplicated by SHA-256. Source-code observations are not screenshot measurements.",
+  "references": [
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\koa_butter_style_1.html",
+      "sha256": "2f0b7f4ec74a3f2de24b011bd9fd7ceb673f9045ec280388a30b4dd31f4ac122",
+      "bytes": 3356132,
+      "fonts": [
+        "Cormorant Garamond",
+        "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "Noto Sans Myanmar",
+        "Space Grotesk",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji"
+      ],
+      "colors": [
+        "#05090e",
+        "#070d15",
+        "#0a1220",
+        "#6f695a",
+        "#9ca3af",
+        "#a89f8b",
+        "#d4a24e",
+        "#e5e7eb",
+        "#ece4d2"
+      ],
+      "motion": [
+        "transition-duration:.15s}.duration-700{transition-duration:.7s}.duration-\\[1600ms\\]{transition-duration:1.6s}.duration-\\[900ms\\]{transition-duration:.9s}.ease-\\[cubic-bez",
+        "transition-duration:.15s}.transition-all{transition-property:all",
+        "transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke",
+        "transition-duration:.15s}.transition-opacity{transition-property:opacity",
+        "transition-duration:.15s}.transition-transform{transition-property:transform",
+        "transition-timing-function:cubic-bezier(.22,1,.36,1)}#root,body,html{min-height:100%}body{margin:0",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)",
+        "transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\koa_butter_style_2.html",
+      "sha256": "f821fc93857202ba136f3c8cab1e49d61623f2b74d087b5937b057581f8b7048",
+      "bytes": 441488,
+      "fonts": [
+        "\"Cormorant Garamond\",serif",
+        "\"Noto Sans Myanmar\",sans-serif",
+        "\"Space Grotesk\",sans-serif",
+        "Cormorant Garamond",
+        "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji"
+      ],
+      "colors": [
+        "#05090e",
+        "#070d15",
+        "#0a1220",
+        "#6f695a",
+        "#9ca3af",
+        "#a89f8b",
+        "#d4a24e",
+        "#e5e7eb",
+        "#e8bd6f",
+        "#ece4d2"
+      ],
+      "motion": [
+        "animation: spin-slow 45s linear infinite",
+        "animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none",
+        "transition-all ${a?\"w-full opacity-80\":\"w-0 opacity-0 group-hover:w-full group-hover:opacity-60\"}`})]},f.hash)})})]})}),X(\"main\",{className:\"relative z-10 pt-[76px] max-w",
+        "transition-all{transition-property:all",
+        "transition-colors ${a?\"text-[#e8bd6f]\":\"text-[#a89f8b] hover:text-[#ece4d2]\"}`,children:[c(\"span\",{className:\"font-karen mr-1.5 opacity-60\",children:f.karen}),f.label,c(\"",
+        "transition-colors cursor-pointer\",children:[c(\"div\",{className:\"font-display text-[28px] text-[#e8bd6f]\",children:f}),c(\"div\",{className:\"text-[10px] tracking-[0.2em] upp",
+        "transition-colors\",children:\"Donate — ၅\"})]}),X(\"div\",{className:\"mt-10 flex items-center justify-center gap-6 text-[10px] tracking-[0.2em] uppercase text-[#6f695a]\",chil",
+        "transition-colors\",children:\"Our story — ၁\"}),c(\"a\",{href:\"#/donate\",className:\"rounded-[2px] border border-[rgba(236,228,210,0.18)] px-6 py-3 text-[11px] tracking-[0.2em",
+        "transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke",
+        "transition-duration:.15s}.will-change-transform{will-change:transform}#root,body,html{min-height:100%}body{margin:0",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\koa_mid_style_1.html",
+      "sha256": "126797cc8354c72f05ff2e23d5d5d0ba25870902e6d38bd0ef546883da13351e",
+      "bytes": 768136,
+      "fonts": [
+        "\"Instrument Serif\"",
+        "\"Instrument Serif\", serif",
+        "'Instrument Serif'",
+        "Inter,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#070b16",
+        "#0a1122",
+        "#0c162c",
+        "#111f3a",
+        "#1e2f5a",
+        "#233b78",
+        "#b52525",
+        "#c73a3a",
+        "#c9a86a",
+        "#e6c07a",
+        "#e85d5d",
+        "#eadbb0",
+        "#f7f0df"
+      ],
+      "motion": [
+        "transition:color .3s}",
+        "transition:opacity .2s, transform .2s}",
+        "transition:opacity .2s}",
+        "transition:opacity .3s}",
+        "transition:transform .25s cubic-bezier(.16,1,.3,1), border-color .25s}"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\koa_mid_style_2.html",
+      "sha256": "9d23ff9d1cb7278de47cda07b29d60dfb18bbf7386fe0f55ca216b032eb8218e",
+      "bytes": 1246144,
+      "fonts": [
+        "\"Fraunces\"",
+        "\"Fraunces\", serif",
+        "\"Instrument Serif\"",
+        "\"Instrument Serif\", serif",
+        "Inter",
+        "Inter,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#060a15",
+        "#070b16",
+        "#0a1226",
+        "#0c162c",
+        "#0e162c",
+        "#111f3a",
+        "#233b78",
+        "#a82a2a",
+        "#c73a3a",
+        "#c9a86a",
+        "#e94a4a",
+        "#eadbb0",
+        "#f7f0df"
+      ],
+      "motion": [
+        "animation:goldSweep 3.8s var(--ease-out-expo) 1.6s forwards",
+        "transition:all .4s var(--ease-out-expo)",
+        "transition:all .8s var(--ease-out-expo)}",
+        "transition:clip-path 1.3s var(--ease-out-expo)",
+        "transition:opacity .25s, transform .25s, color .25s",
+        "transition:opacity .6s",
+        "transition:transform .25s var(--ease-out-expo), box-shadow .25s",
+        "transition:transform .8s var(--ease-out-expo) .2s, opacity .6s .2s}",
+        "transition:transform .9s var(--ease-out-expo) .15s, opacity .7s .15s}",
+        "transition:transform .9s var(--ease-out-expo) .28s, opacity .7s .28s}",
+        "transition:transform 1.1s var(--ease-out-expo), opacity .8s, filter .9s}",
+        "transition:transform 1.2s var(--ease-cinema)}",
+        "transition:transform 1.2s var(--ease-out-expo), opacity 0.9s ease, filter 1s ease}",
+        "transition:transform 1.8s var(--ease-out-expo), filter 1.4s ease, opacity .9s ease}",
+        "transition:width .4s var(--ease-out-expo)}",
+        "transition='all .8s var(--ease-out-expo)'",
+        "transition='transform .95s var(--ease-out-expo), opacity .7s, filter .8s'",
+        "transition='transform 1.2s var(--ease-out-expo) 0.08s, opacity .9s 0.08s, filter 1s 0.08s'",
+        "transition='transform 1.2s var(--ease-out-expo), opacity .9s, filter 1s'",
+        "transition='transform 1s var(--ease-out-expo), opacity .8s'"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\about.html",
+      "sha256": "e714cef831c52f95838d5a39275886edc572b015127006dfa116940fa8c124e9",
+      "bytes": 13982,
+      "fonts": [
+        "Cormorant Garamond,serif",
+        "Space Grotesk,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#0a1428",
+        "#0b1632",
+        "#0d1a3a",
+        "#9a9587",
+        "#c41e3a",
+        "#d4af37",
+        "#d4cfc2",
+        "#f4cf57",
+        "#f5f2eb"
+      ],
+      "motion": [
+        "transition:.25s} .links a::after{content:''",
+        "transition:.3s}",
+        "transition:.3s} .btn.primary{background:var(--gold)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .card:hover{transform:translateY(-4px) scale(1.01)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .links a:hover{opacity:1",
+        "transition:transform 1s cubic-bezier(.16,1,.3,1), opacity .8s, filter 1s} .reveal.in{opacity:1"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\advocacy.html",
+      "sha256": "813bee6c167575f57932515ec7a1de087b556a3f75005a8e310de01c9f040003",
+      "bytes": 14671,
+      "fonts": [
+        "Cormorant Garamond,serif",
+        "Space Grotesk,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#0a1428",
+        "#0b1632",
+        "#0d1a3a",
+        "#9a9587",
+        "#c41e3a",
+        "#d4af37",
+        "#d4cfc2",
+        "#f4cf57",
+        "#f5f2eb"
+      ],
+      "motion": [
+        "transition:.25s} .links a::after{content:''",
+        "transition:.3s}",
+        "transition:.3s} .btn.primary{background:var(--gold)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .card:hover{transform:translateY(-4px) scale(1.01)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .links a:hover{opacity:1",
+        "transition:transform 1s cubic-bezier(.16,1,.3,1), opacity .8s, filter 1s} .reveal.in{opacity:1"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\cinematic-single.html",
+      "sha256": "3817cd0a7a8600b0acccdf47cd991b1b2ccac162786dbf1cf2fce1bbba10e6f8",
+      "bytes": 764018,
+      "fonts": [
+        "Cormorant Garamond",
+        "Cormorant Garamond,Georgia,serif",
+        "Noto Sans Myanmar",
+        "Space Grotesk",
+        "Space Grotesk,system-ui,sans-serif",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji"
+      ],
+      "colors": [
+        "#0a1428",
+        "#0b1632",
+        "#101e3a",
+        "#132447",
+        "#9aa6be",
+        "#9ca3af",
+        "#c41e3a",
+        "#d4af37",
+        "#e5e7eb",
+        "#f4cf57",
+        "#f5f2eb"
+      ],
+      "motion": [
+        "animation: floatSparkle linear infinite",
+        "animation: grainMove 7s steps(10) infinite",
+        "animation: sealBreathe 4.2s ease-in-out infinite",
+        "animation: sealBreathe 4.2s ease-in-out infinite reverse",
+        "animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.select-none{-webkit-user-select:none",
+        "animationDuration:`${6+y%3}s`,animationDelay:`${y*0.4%3}s`}},y))}),V(\"div\",{className:\"relative w-[min(1240px,92vw)] mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-[32px]",
+        "transition-all ${a===f&&!i?\"bg-[var(--hermes-950)] text-white border-[var(--hermes-950)] shadow-[0_8px_24px_rgba(10,20,40,0.18)]\":\"bg-white border-[rgba(10,20,40,0.12)] h",
+        "transition-all ${y?\"border-[var(--gold)] scale-100 opacity-100\":\"border-[rgba(245,242,235,0.12)] scale-75 opacity-0 group-hover:opacity-100 group-hover:scale-100\"}`}),o(\"",
+        "transition-all ${y?\"text-[var(--gold-light)] scale-110\":\"text-white/40 group-hover:text-white/80\"}`,children:f.burmese}),y&&o(\"span\",{className:\"absolute -right-[14px] w-",
+        "transition-all duration-700 origin-top ${l?\"scale-y-100 opacity-100\":\"scale-y-95 opacity-0 pointer-events-none\"}`,children:fn.map((f)=>V(\"button\",{onClick:()=>v(f.id),cla",
+        "transition-colors ${n===f.id?\"text-[var(--gold-light)]\":\"text-[var(--porcelain)]/80 group-hover:text-white\"}`,children:f.label}),o(\"span\",{className:`absolute left-0 righ",
+        "transition-colors shadow-[0_10px_30px_rgba(212,175,55,0.28)]\",children:[\"Support our work \",o(\"span\",{className:\"text-[16px]\",children:\"→\"})]}),o(\"button\",{onClick:()=>v(",
+        "transition-colors\",children:\"Get involved\"})]}),o(\"div\",{\"data-reveal\":!0,className:\"reveal-fade mt-[28px] grid grid-cols-3 gap-[1px] rounded-[18px] overflow-hidden bg-[r",
+        "transition-colors\",children:\"Support\"}),V(\"button\",{onClick:()=>u((f)=>!f),className:\"lg:hidden w-[36px] h-[36px] rounded-full bg-[rgba(245,242,235,0.08)] border border-[",
+        "transition-colors\",children:[\"Donate $\",a,\" — secure\"]}),o(\"div\",{className:\"mt-6 font-['Space_Grotesk'] text-[11px] leading-[1.5] opacity-60 max-w-[42ch]\",children:\"Othe",
+        "transition-duration:.15s}.duration-700{transition-duration:.7s}.duration-\\[1200ms\\]{transition-duration:1.2s}.ease-\\[cubic-bezier\\(\\.16\\2c 1\\2c \\.3\\2c 1\\)\\]{transition-ti",
+        "transition-duration:.15s}.transition-all{transition-property:all",
+        "transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke",
+        "transition-duration:.15s}.transition-opacity{transition-property:opacity",
+        "transition-duration:.15s}.transition-transform{transition-property:transform"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\contact.html",
+      "sha256": "d62d2b60bb670f4043e37f919032716e220e6c7caaef5dee8e6a0e5b2efda636",
+      "bytes": 13786,
+      "fonts": [
+        "Cormorant Garamond,serif",
+        "Space Grotesk,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#0a1428",
+        "#0b1632",
+        "#0d1a3a",
+        "#9a9587",
+        "#c41e3a",
+        "#d4af37",
+        "#d4cfc2",
+        "#f4cf57",
+        "#f5f2eb"
+      ],
+      "motion": [
+        "transition:.25s} .links a::after{content:''",
+        "transition:.3s}",
+        "transition:.3s} .btn.primary{background:var(--gold)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .card:hover{transform:translateY(-4px) scale(1.01)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .links a:hover{opacity:1",
+        "transition:transform 1s cubic-bezier(.16,1,.3,1), opacity .8s, filter 1s} .reveal.in{opacity:1"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\donate.html",
+      "sha256": "f52a6880d982a3497e447d09fd2469db3353c6af2972da5323f66644ab5bf8c3",
+      "bytes": 13731,
+      "fonts": [
+        "Cormorant Garamond,serif",
+        "Space Grotesk,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#0a1428",
+        "#0b1632",
+        "#0d1a3a",
+        "#9a9587",
+        "#c41e3a",
+        "#d4af37",
+        "#d4cfc2",
+        "#f4cf57",
+        "#f5f2eb"
+      ],
+      "motion": [
+        "transition:.25s} .links a::after{content:''",
+        "transition:.3s}",
+        "transition:.3s} .btn.primary{background:var(--gold)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .card:hover{transform:translateY(-4px) scale(1.01)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .links a:hover{opacity:1",
+        "transition:transform 1s cubic-bezier(.16,1,.3,1), opacity .8s, filter 1s} .reveal.in{opacity:1"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\index.html",
+      "sha256": "f0d762cf9250ce06cd9e18424925407bccce1d712394c6ddb53c93e07dea0722",
+      "bytes": 14181,
+      "fonts": [
+        "Cormorant Garamond,serif",
+        "Space Grotesk,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#0a1428",
+        "#0b1632",
+        "#0d1a3a",
+        "#9a9587",
+        "#c41e3a",
+        "#d4af37",
+        "#d4cfc2",
+        "#f4cf57",
+        "#f5f2eb"
+      ],
+      "motion": [
+        "transition-delay:.06s\"><h4>Civic Engagement & Culture</h4><p>Karen New Year celebrations, literacy classes, civic programs that pass identity and participation to next ge",
+        "transition-delay:.08s\">Standing with the Karen<br/>community in America,<br/>here and beyond borders.</h1><p class=\"sub reveal\" style=\"transition-delay:.16s\">Preserving K",
+        "transition-delay:.12s\"><h4>Policy Advocacy</h4><p>Engaging Congress and federal agencies on legislation affecting Myanmar/Burma and Karen people, including BRAVE Burma Ac",
+        "transition-delay:.18s\"><h4>Education Training</h4><p>College readiness, academic resources, job applications, citizenship testing, English literacy.</p></div></div></div>",
+        "transition-delay:.24s\"><a class=\"btn primary\" href=\"donate.html\">Support our work</a><a class=\"btn ghost\" href=\"programs.html\">Get involved</a></div></div></div><div clas",
+        "transition:.25s} .links a::after{content:''",
+        "transition:.3s}",
+        "transition:.3s} .btn.primary{background:var(--gold)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .card:hover{transform:translateY(-4px) scale(1.01)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .links a:hover{opacity:1",
+        "transition:transform 1s cubic-bezier(.16,1,.3,1), opacity .8s, filter 1s} .reveal.in{opacity:1"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\intelligence-os-v7-cinematic.html",
+      "sha256": "4f188bc7e86b30b542d1602caabacdca76f3e75fd6935174b4bb07cf442a2262",
+      "bytes": 187721,
+      "fonts": [
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+        "ui-serif,Georgia,Cambria,Times New Roman,Times,serif"
+      ],
+      "colors": [
+        "#070709",
+        "#0f0f11",
+        "#7CFF7C",
+        "#7cff7c",
+        "#9ca3af",
+        "#e5e7eb"
+      ],
+      "motion": [
+        "animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}@keyframes spin{to{transform:rotate(1turn)}}.animate-spin{animation:spin 1s linear infinite}.grid-cols-1{grid-templat",
+        "transition",
+        "transition-duration:.15s}.duration-300{transition-duration:.3s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}:root{--safe-area-inset-top:0px",
+        "transition-duration:.15s}.transition-all{transition-property:all",
+        "transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)",
+        "transition:null},ad={ReactCurrentDispatcher:re,ReactCurrentBatchConfig:dr,ReactCurrentOwner:Ml}",
+        "transition=i}}function Wf(e,t,n,r){var l=I,i=qt.transition",
+        "transition=i}}function yo(e,t,n,r){if(Jr){var l=Ii(e,t,n,r)",
+        "transition=null",
+        "transition=t}}",
+        "transition={}",
+        "transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\koa-content-only-spec.html",
+      "sha256": "ee243b2e632450bcc9a58418377e19a77c17adda259c46824d61ad05d7e5101e",
+      "bytes": 440181,
+      "fonts": [
+        "\"Cormorant Garamond\",serif",
+        "\"Noto Sans Myanmar\",sans-serif",
+        "\"Space Grotesk\",sans-serif",
+        "\"Space Grotesk\",system-ui,sans-serif",
+        "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji"
+      ],
+      "colors": [
+        "#05090e",
+        "#0a0a0a",
+        "#9ca3af",
+        "#a89f8b",
+        "#d4a24e",
+        "#e5e7eb",
+        "#e8bd6f",
+        "#ece4d2"
+      ],
+      "motion": [
+        "animation: sealOrbit 45s linear infinite",
+        "animation:none }",
+        "transition\",children:\"Donate\"}),u(\"a\",{href:\"#contact\",className:\"hover:text-[#ece4d2] transition\",children:\"Contact\"})]}),u(\"a\",{href:\"#donate\",className:\"md:hidden btn ",
+        "transition\",children:\"Home\"}),u(\"a\",{href:\"#about\",className:\"hover:text-[#ece4d2] transition\",children:\"About\"}),u(\"a\",{href:\"#programs\",className:\"hover:text-[#ece4d2] ",
+        "transition\",children:\"Programs\"}),u(\"a\",{href:\"#advocacy\",className:\"hover:text-[#ece4d2] transition\",children:\"Advocacy\"}),u(\"a\",{href:\"#donate\",className:\"hover:text-[#",
+        "transition-duration:.15s}#root,body,html{min-height:100%}body{margin:0",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)",
+        "transition:all 0.2s ease",
+        "transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\koa-executive-approved-final.html",
+      "sha256": "a8386e0802084d307a885ef6e0f37852adc75ffd0c7e640aec424c0ef93ae043",
+      "bytes": 3525224,
+      "fonts": [
+        "\"Instrument Serif\", \"Iowan Old Style\", \"Palatino Linotype\", Georgia, serif",
+        "\"Plus Jakarta Sans\", ui-sans-system, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "'\"Noto Sans Myanmar\", \"Myanmar Text\", serif'",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+        "ui-serif,Georgia,Cambria,Times New Roman,Times,serif"
+      ],
+      "colors": [
+        "#1a1816",
+        "#1d4ed8",
+        "#2a2724",
+        "#4a4743",
+        "#6b6560",
+        "#92400e",
+        "#991b1b",
+        "#9ca3af",
+        "#b45309",
+        "#b91c1c",
+        "#bfdbfe",
+        "#d4a24e",
+        "#e5e7eb",
+        "#e8e0d2",
+        "#eff6ff",
+        "#f5efe3",
+        "#faf8f2",
+        "#fde68a",
+        "#fecaca",
+        "#fef2f2",
+        "#fef3c7",
+        "#fff9ec",
+        "#fffbeb"
+      ],
+      "motion": [
+        "animation: raysRotate 120s linear infinite",
+        "animation: trace 4s linear infinite",
+        "animation:\"haloRotate 120s linear infinite\"}}),u(\"div\",{className:\"absolute inset-0 rounded-full bg-[#d4a24e]/20 blur-[40px] scale-[1.6]\"}),u(\"div\",{className:\"absolute ",
+        "animation:\"sealRotate 45s linear infinite\"}})]}),H(\"div\",{className:\"text-left leading-none\",children:[u(\"div\",{className:\"font-serif text-[19px] tracking-[-0.02em] font",
+        "animation:\"sealRotate 45s linear infinite\"}})})]}),H(\"div\",{className:\"flex-1 min-w-0\",children:[H(\"div\",{className:\"flex items-baseline gap-[2px] font-serif hero-k text",
+        "animation:j===V?\"kenBurns 6s cubic-bezier(0.22,1,0.36,1) forwards\":\"none\",transformOrigin:\"50% 35%\"}}),u(\"div\",{className:\"absolute inset-0 bg-gradient-to-t from-black/6",
+        "animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.select-none{-webkit-user-select:none",
+        "transition-all ${a===\"home\"?\"scale-[1.02]\":\"\"}`,children:[H(\"div\",{className:\"relative w-[44px] h-[44px] rounded-full overflow-visible shrink-0\",children:[u(\"div\",{classN",
+        "transition-all ${f===k&&!b?\"bg-[#1a1816] text-white border-[#1a1816]\":\"bg-white border-[#e8e0d2] hover:border-[#1a1816]\"}`,children:[\"$\",k]},k))}),H(\"div\",{className:\"mt-",
+        "transition-all ${j===V?\"bg-white\":\"bg-white/40 hover:bg-white/70\"}`},V))}),u(\"div\",{className:\"absolute inset-0 pointer-events-none opacity-60 mix-blend-overlay\",style:{b",
+        "transition-all ease-expo border ${t===k.id?\"bg-[#1a1816] text-[#faf8f2] border-[#1a1816]\":\"bg-transparent text-[#6b6560] border-transparent hover:text-[#1a1816] hover:bor",
+        "transition-colors ${t===k.id?\"bg-[#1a1816] text-[#faf8f2]\":\"bg-[#faf8f2] text-[#6b6560]\"} ${a===k.id?\"brightness-110\":\"\"}`,children:[u(\"span\",{className:\"font-sans text-[",
+        "transition-colors ease-expo\",children:\"Explore Programs →\"}),u(\"button\",{onClick:()=>X(\"advocacy\"),className:\"no-radius border border-[#1a1816] px-6 py-3 font-sans text-[",
+        "transition-colors\",children:\"Donate\"})]})]})}),H(\"main\",{className:\"relative z-10 pb-[84px] md:pb-0\",children:[H(\"section\",{style:{display:t===\"home\"?\"block\":\"none\"},clas",
+        "transition-colors\",children:\"Facebook • koamerica\"}),u(\"button\",{onClick:()=>X(\"about\"),className:\"no-radius border border-[#e8e0d2] px-4 py-2 font-sans text-[12px] upper",
+        "transition-colors\",children:\"See Advocacy\"})]}),u(\"div\",{className:\"grid grid-cols-3 gap-3 pt-6\",children:[{n:\"12+\",l:\"States served\",k:\"၁၂+\"},{n:\"<25\",l:\"Staff & volunte",
+        "transition-colors\",children:\"Website • karenamerica.org\"})]})]}),u(\"img\",{src:Qa,alt:\"Karen Conference Group Photo\",className:\"w-full aspect-[16/10] object-cover border b",
+        "transition-colors\",children:Z?\"Saved locally ✓\":\"Send message\"})]}),H(\"div\",{className:\"mt-6 p-3 bg-[#1a1816] text-white font-mono text-[11px] leading-[1.5]\",children:[u(",
+        "transition-colors\",children:[\"Give \",b?`$${b}`:`$${f}`]})]}),u(\"div\",{className:\"mt-4 font-sans text-[11px] leading-[1.5] text-[#6b6560]\",children:\"Karen Organization of ",
+        "transition-duration:.15s}.duration-\\[1200ms\\]{transition-duration:1.2s}#root,body,html{min-height:100%}body{margin:0"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\koa-meta-style-final (1).html",
+      "sha256": "9f6cb300b0aa75ba26e5484118d14d500bcdf26a8c394f3d597d1ce9ca9af1ac",
+      "bytes": 186411,
+      "fonts": [
+        "\"Fraunces\"",
+        "\"Fraunces\", serif",
+        "\"Fraunces\",fontSize:18",
+        "\"Instrument Serif\", serif",
+        "\"Inter\", sans-serif",
+        "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+        "\"Inter\",fontSize:13,fontWeight:300,maxWidth:\"32ch\"",
+        "\"Inter\",fontWeight:300,fontSize:13,lineHeight:1.6,maxWidth:\"38ch\",color:\"rgba(247,240,223,0.72)\",marginTop:12",
+        "\"JetBrains Mono\", monospace",
+        "\"JetBrains Mono\",fontSize:10,letterSpacing:\"0.14em\",color:\"rgba(247,240,223,0.42)\"",
+        "\"JetBrains Mono\",fontSize:11,lineHeight:1.5,marginTop:10,color:\"rgba(247,240,223,0.6)\"",
+        "\"JetBrains Mono\",fontSize:11,opacity:0.6,marginTop:6"
+      ],
+      "colors": [
+        "#070b16",
+        "#0a1220",
+        "#0c162c",
+        "#111f3a",
+        "#1e3a8a",
+        "#233b78",
+        "#9ca3af",
+        "#c41e3a",
+        "#c73a3a",
+        "#c9a86a",
+        "#e5e7eb",
+        "#eadbb0",
+        "#f5f0e6",
+        "#f7f0df"
+      ],
+      "motion": [
+        "animation:halo-spin 120s linear infinite}",
+        "animation:seal-spin 45s linear infinite",
+        "animation:trace 4s linear infinite}",
+        "transition:all .4s",
+        "transition:all .4s var(--ease-out-expo)",
+        "transition:all 0.9s cubic-bezier(0.22,1,0.36,1)}",
+        "transition:color .3s}",
+        "transition:opacity .3s",
+        "transition:opacity .4s",
+        "transition:opacity 1.2s var(--ease-cinema), transform 6s var(--ease-cinema)",
+        "transition:transform .6s var(--ease-out-expo), border-color .4s"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\koa-static-hero-multipage.html",
+      "sha256": "2b7a0d564dc5753d337da71728f918916439c9a2a8438d6e6f1833919fa68d37",
+      "bytes": 984015,
+      "fonts": [
+        "\"var(--font-display)\",letterSpacing:\"0.14em\"",
+        "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+        "var(--font-body)",
+        "var(--font-display)",
+        "var(--font-script)"
+      ],
+      "colors": [
+        "#05090e",
+        "#070d15",
+        "#0a1220",
+        "#101c2e",
+        "#6f695a",
+        "#9ca3af",
+        "#a89f8b",
+        "#d4a24e",
+        "#d84a4d",
+        "#e5e7eb",
+        "#e8bd6f",
+        "#ece4d2",
+        "#f2ead9"
+      ],
+      "motion": [
+        "animation-delay:0.12s}",
+        "animation:cue 2s ease-in-out infinite}",
+        "animation:lineIn 0.9s var(--ease) both}",
+        "animation:sealSpin 45s linear infinite",
+        "transition-duration:.15s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}#root,body,html{min-height:100%}body{margin:0",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)",
+        "transition:\"opacity 0.4s ease, visibility 0.4s\"},children:[u(\"style\",{children:\".mobile-panel.is-open{opacity:1 !important",
+        "transition:all 0.3s}",
+        "transition:background 0.4s}",
+        "transition:border-color 0.35s,transform 0.35s var(--ease)}",
+        "transition:border-color 0.3s}",
+        "transition:color 0.25s}",
+        "transition:right 0.35s var(--ease)}",
+        "transition:transform 1.2s var(--ease)}",
+        "transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\koa_x5f_facebook_x5f_updates_x5f_section.html",
+      "sha256": "a5697570f6caeee32e1c95191a736478afb3d3a3808ceeb971be379b88519615",
+      "bytes": 191373,
+      "fonts": [
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji",
+        "var(--font-body)"
+      ],
+      "colors": [
+        "#05080e",
+        "#070c15",
+        "#0a1220",
+        "#9ca3af",
+        "#C43D40",
+        "#d4a843",
+        "#d84a4d",
+        "#e5e7eb",
+        "#f5f0e8"
+      ],
+      "motion": [
+        "animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.select-none{-webkit-user-select:none",
+        "transition",
+        "transition-\\[width\\]{transition-property:width",
+        "transition-duration:.15s}.transition-all{transition-property:all",
+        "transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke",
+        "transition-duration:.15s}.transition-transform{transition-property:transform",
+        "transition-duration:.7s}.duration-\\[1200ms\\]{transition-duration:1.2s}.ease-\\[cubic-bezier\\(0\\.16\\2c 1\\2c 0\\.3\\2c 1\\)\\]{transition-timing-function:cubic-bezier(.16,1,.3,1",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-150,.transition-transform{transition-duration:.15s}.duration-300{transition-duration:.3s}.duration-500{transi",
+        "transition-timing-function:cubic-bezier(0,0,.2,1)}.will-change-transform{will-change:transform}:root{--bg-deep:#05080e",
+        "transition:null},af={ReactCurrentDispatcher:te,ReactCurrentBatchConfig:cr,ReactCurrentOwner:Ml}",
+        "transition=null",
+        "transition=n}}",
+        "transition=o}}function $d(e,n,t,r){var l=L,o=qn.transition",
+        "transition=o}}function yu(e,n,t,r){if(Zr){var l=Ro(e,n,t,r)",
+        "transition={}"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\koa_x5f_premium_x5f_upgraded_x5f_koamerica.html",
+      "sha256": "b1d90502b733e90b320429d7377e886e2a11f224f210c261d4b28d7153eee955",
+      "bytes": 202650,
+      "fonts": [
+        "\"Bodoni Moda\", Didot, \"Times New Roman\", Georgia, serif",
+        "\"Bodoni Moda\",fontSize:\"22\",fill:\"#D4A843\",letterSpacing:\"6\",children:\"K\"",
+        "\"Bodoni Moda\",fontSize:\"22\",fill:\"#D84A4D\",letterSpacing:\"6\",children:\"A\"",
+        "\"JetBrains Mono\", ui-monospace, Menlo, monospace",
+        "\"Manrope\", \"Inter\", system-ui, -apple-system, sans-serif",
+        "\"Manrope\",fontWeight:\"500\",children:p(\"textPath\",{href:\"#circlePath\",startOffset:\"0%\",children:\"KAREN ORGANIZATION OF AMERICA • EST. AUGUST 2018 • KAREN ORGANIZATION OF AMERICA •\"",
+        "\"Noto Sans Myanmar\", \"Myanmar Text\", sans-serif",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji"
+      ],
+      "colors": [
+        "#05080E",
+        "#070C15",
+        "#0A1220",
+        "#1877F2",
+        "#9ca3af",
+        "#A8A5A0",
+        "#D4A843",
+        "#D84A4D",
+        "#F5F0E8",
+        "#e5e7eb"
+      ],
+      "motion": [
+        "animation: bob 2.2s ease-in-out infinite",
+        "animation: breathe 6s ease-in-out infinite",
+        "animation:\"pulse-gold 3s ease-in-out infinite\"},children:m},m))}),p(\"div\",{className:\"mt-4 font-mono text-[10px]\",children:\"Hermes blue field • Karen red interaction • T",
+        "animation:marquee 38s linear infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.select-none{-webkit-user-selec",
+        "animation:s?void 0:\"rotate-slow 44s linear infinite\"},children:S(\"svg\",{viewBox:\"0 0 400 400\",className:\"w-full h-full\",children:[p(\"defs\",{children:p(\"path\",{id:\"circle",
+        "animation:s?void 0:\"rotate-slow 80s linear infinite\"},children:S(\"svg\",{viewBox:\"0 0 560 560\",className:\"w-full h-full\",children:[p(\"defs\",{children:S(\"radialGradient\",{",
+        "transition-all ${m.accent===\"gold\"?\"bg-[var(--gold-500)] text-black hover:shadow-[0_0_24px_var(--gold-glow)]\":m.accent===\"red\"?\"bg-[var(--red-600)] text-white hover:shado",
+        "transition-all duration-300 ${l===m?\"bg-[var(--text-primary)] text-black shadow-[0_0_18px_rgba(212,168,67,0.35)]\":\"text-[var(--text-muted)] hover:text-[var(--text-primary",
+        "transition-all duration-500 flex flex-col items-center justify-center min-w-0`,children:[p(\"span\",{className:\"font-display text-[16px]\",children:Rm[w]}),p(\"span\",{classNa",
+        "transition-colors\",children:v?\"✓ JOINED — CHECK KSW INBOX\":\"JOIN WAITLIST →\"})]}),S(\"div\",{\"data-reveal\":!0,className:\"glass rounded-[24px] p-6\",children:[p(\"div\",{classN",
+        "transition-duration:.15s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.duration-75{transition-duration:75ms}.ease-in-out{transition-timing-",
+        "transition-duration:.15s}.transition-all{transition-property:all",
+        "transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke",
+        "transition-duration:.15s}.transition-opacity{transition-property:opacity",
+        "transition-duration:.15s}.transition-transform{transition-property:transform",
+        "transition-opacity\",children:\"↗\"})]}),p(\"h3\",{className:\"font-display text-[24px] mt-4\",children:m.title}),p(\"p\",{className:\"font-body text-[13.5px] leading-[1.75] text-[",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)",
+        "transition-transform duration-75 will-change-transform\",style:{transformOrigin:\"left\"}})}),p(\"canvas\",{ref:N,className:\"fixed inset-0 z-0 pointer-events-none\",\"aria-hidde",
+        "transition: all .6s ease",
+        "transition: opacity .9s ease, filter .9s ease, transform .9s ease"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\payton_x5f_glass_x5f_center_x5f_v7.html",
+      "sha256": "198d0016159644495fda4312be2df8cbec3b9c3a58c2eb9da77ec50d93e1be56",
+      "bytes": 2453455,
+      "fonts": [
+        "Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif",
+        "inherit",
+        "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace",
+        "ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji"
+      ],
+      "colors": [
+        "#050507",
+        "#08080A",
+        "#0E2A4A",
+        "#1A6DFF",
+        "#1a6dff",
+        "#7ED7F0",
+        "#7ed7f0",
+        "#9ca3af",
+        "#FFB347",
+        "#FFFCF9",
+        "#e5e7eb",
+        "#ffb347",
+        "#fffcf9"
+      ],
+      "motion": [
+        "transition-duration:.15s}.transition-all{transition-property:all",
+        "transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke",
+        "transition-duration:.15s}.transition-opacity{transition-property:opacity",
+        "transition-duration:.15s}.transition-transform{transition-property:transform",
+        "transition-duration:.7s}.duration-\\[800ms\\]{transition-duration:.8s}.ease-\\[cubic-bezier\\(0\\.16\\2c 1\\2c 0\\.3\\2c 1\\)\\]{transition-timing-function:cubic-bezier(.16,1,.3,1)}",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-150,.transition-transform{transition-duration:.15s}.duration-300{transition-duration:.3s}.duration-500{transi",
+        "transition-timing-function:cubic-bezier(.4,0,.2,1)}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.will-change-transform{will-change:transform}#root,body,htm",
+        "transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter"
+      ]
+    },
+    {
+      "file": "C:\\Users\\olive\\Projects\\koa-website\\versions\\meta-artifacts-20261008\\programs.html",
+      "sha256": "70cc7876d03c42beff87368adff24461f835abc66ebd466c7eb3a35dc5300e29",
+      "bytes": 13855,
+      "fonts": [
+        "Cormorant Garamond,serif",
+        "Space Grotesk,system-ui,sans-serif"
+      ],
+      "colors": [
+        "#0a1428",
+        "#0b1632",
+        "#0d1a3a",
+        "#9a9587",
+        "#c41e3a",
+        "#d4af37",
+        "#d4cfc2",
+        "#f4cf57",
+        "#f5f2eb"
+      ],
+      "motion": [
+        "transition:.25s} .links a::after{content:''",
+        "transition:.3s}",
+        "transition:.3s} .btn.primary{background:var(--gold)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .card:hover{transform:translateY(-4px) scale(1.01)",
+        "transition:.4s cubic-bezier(.16,1,.3,1)} .links a:hover{opacity:1",
+        "transition:transform 1s cubic-bezier(.16,1,.3,1), opacity .8s, filter 1s} .reveal.in{opacity:1"
+      ]
+    }
+  ]
+}

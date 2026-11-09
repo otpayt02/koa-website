@@ -1,0 +1,20 @@
+Changes: 3 files, 9 symbols
+Affected processes: 4
+Risk level: medium
+
+Changed symbols:
+  Function pointInPolygon → components/cinematic/HeritageGlyphMark.tsx
+  Function insideK → components/cinematic/HeritageGlyphMark.tsx
+  Function insideA → components/cinematic/HeritageGlyphMark.tsx
+  Function buildMarks → components/cinematic/HeritageGlyphMark.tsx
+  Property x → components/cinematic/HeritageGlyphMark.tsx
+  Property y → components/cinematic/HeritageGlyphMark.tsx
+  Function HeritageGlyphMark → components/cinematic/HeritageGlyphMark.tsx
+  Function draw → components/cinematic/HeritageGlyphMark.tsx
+  Function SealAssembly → components/cinematic/SealAssembly.tsx
+
+Affected execution flows:
+  • HomePage → Composition (6 steps) — changed: draw, HeritageGlyphMark
+  • HomePage → BuildMarks (5 steps) — changed: HeritageGlyphMark, buildMarks
+  • HomePage → Wake (4 steps) — changed: HeritageGlyphMark
+  • HomePage → SealAssembly (3 steps) — changed: SealAssembly

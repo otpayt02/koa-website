@@ -1,0 +1,32 @@
+services:
+  brain-backend:
+    build: ./backend
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      BRAIN_DATA_PATH: /app/brain-data
+    volumes:
+      - ..:/app/brain-data:ro
+    working_dir: /app/brain-data/brain-app/backend
+
+  brain-frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - brain-backend
+    volumes:
+      - ..:/app/brain-data:ro
+      - frontend_modules:/app/brain-data/brain-app/frontend/node_modules
+    working_dir: /app/brain-data/brain-app/frontend
+
+  inbox-processor:
+    build: ./inbox-processor
+    environment:
+      BRAIN_DATA_PATH: /app/brain-data
+    volumes:
+      - ..:/app/brain-data:ro
+    working_dir: /app/brain-data/brain-app/inbox-processor
+
+volumes:
+  frontend_modules:

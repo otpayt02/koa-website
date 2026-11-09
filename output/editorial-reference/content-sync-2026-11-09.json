@@ -1,0 +1,56 @@
+{
+  "automation": "koa-daily-content-sync-and-deploy",
+  "requestedAt": "2026-11-09T14:00:09.264Z",
+  "checkedAt": "2026-11-09T14:01:42.5129316+00:00",
+  "documentId": "12KQN1uLNMfIJj0bFrbPe7bLZ6U5qYlFrEo0I966W534",
+  "revisionId": "AHj4eMQZawxN4K5XPsI72EEhJJEOj4CUXKlJogULdAJxSn9S0OP7duDxWCvnB-Ytz-c6WeiGE37Vo8rYK4v2R5vxIKCBj1jN4hNTYhx0ZkE",
+  "tabs": [
+    {
+      "tabId": "t.0",
+      "title": "English source",
+      "chars": 10093,
+      "fnv1a_utf16": 1736299578
+    },
+    {
+      "tabId": "t.vletsxukg015",
+      "title": "S'gaw Karen fillable",
+      "chars": 17023,
+      "fnv1a_utf16": 3690769068
+    },
+    {
+      "tabId": "t.eht4reut537a",
+      "title": "Burmese machine draft",
+      "chars": 12403,
+      "fnv1a_utf16": 3954768064
+    },
+    {
+      "tabId": "t.bggklp7a9xs5",
+      "title": "Thai machine draft",
+      "chars": 10029,
+      "fnv1a_utf16": 1337984717
+    },
+    {
+      "tabId": "t.n2xtl590zkvo",
+      "title": "Published website copy",
+      "chars": 136464,
+      "fnv1a_utf16": 1240700044
+    }
+  ],
+  "result": "no-content-change",
+  "publicLocalDocParity": true,
+  "checkedRouteLanguageEntries": 68,
+  "affectedRoutes": [],
+  "inventoryLinesAdded": 0,
+  "news": 2,
+  "calendar": 3,
+  "newApprovedIntake": 0,
+  "newKarenHolds": 0,
+  "liveVersion": 59,
+  "liveCommit": "7390cc566b4385ae77860bf35543a1f6f5fc7473",
+  "liveDeployment": "appgdep_6aef80da50848191b4ead9056c6f7638",
+  "inventoryCommit": "23c7293b18472254c9e7114a89263177d8fdadd2",
+  "inventoryPushed": true,
+  "deployed": false,
+  "intakeQualification": "News, events and Facebook ledgers match the prior baseline. Signal and provenance drafts match the previously reviewed files. The November 8 separate intake check found no newer Facebook post or Signal submission.",
+  "note": "Five Doc tab hashes match the preceding run. The normalized rendered copy across all 68 live routes equals the source inventory and Published website copy tab (FNV-1a UTF-16: 336161446). No source changes or deployment."
+}

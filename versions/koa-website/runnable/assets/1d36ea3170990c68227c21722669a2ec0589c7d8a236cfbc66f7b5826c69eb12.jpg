@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+  <rect width="1920" height="1080" fill="#071426"/>
+  <rect x="460" y="240" width="1000" height="600" rx="8" fill="#0c1f3a" stroke="#e8c56d" stroke-width="2" opacity="0.3"/>
+  <text x="960" y="480" font-family="Fraunces, Georgia, serif" font-size="48" font-weight="600" fill="#e8c56d" text-anchor="middle" opacity="0.6">Playable Blueprints</text>
+  <text x="960" y="550" font-family="Space Grotesk, sans-serif" font-size="24" fill="#b8c0c8" text-anchor="middle" opacity="0.5">Scene placeholder — replace with photo</text>
+  <circle cx="960" cy="720" r="60" stroke="#e8c56d" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M960 690v60M930 720h60" stroke="#e8c56d" stroke-width="2" opacity="0.4"/>
+</svg>

@@ -1,0 +1,24 @@
+
+  GitNexus Detect Changes (1.6.12)
+Changes: 4 files, 4 symbols
+Affected processes: 9
+Risk level: high
+
+Changed symbols:
+  Function CinematicLanding → components/CinematicLanding.tsx
+  Function KoaContentPage → components/KoaContentPage.tsx
+  Function SiteScrollMotion → components/SiteScrollMotion.tsx
+  Function tick → components/SiteScrollMotion.tsx
+
+Affected execution flows:
+  • HomePage → Composition (6 steps) — changed: CinematicLanding
+  • LanguageLayout → Frozen (5 steps) — changed: SiteScrollMotion
+  • HomePage → BuildMarks (5 steps) — changed: CinematicLanding
+  • LanguageLayout → Measure (4 steps) — changed: SiteScrollMotion
+  • LanguageLayout → Register (4 steps) — changed: SiteScrollMotion
+  • HomePage → Wake (4 steps) — changed: CinematicLanding
+  • HomePage → SealAssembly (3 steps) — changed: CinematicLanding
+  • HomePage → ShineBorder (3 steps) — changed: CinematicLanding
+  • HomePage → ShiningLink (3 steps) — changed: CinematicLanding
+(node:19208) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)

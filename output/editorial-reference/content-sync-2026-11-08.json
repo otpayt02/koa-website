@@ -1,0 +1,61 @@
+{
+  "automation": "koa-daily-content-sync-and-deploy",
+  "requestedAt": "2026-11-08T13:59:17.533Z",
+  "checkedAt": "2026-11-08T14:11:41.832Z",
+  "documentId": "12KQN1uLNMfIJj0bFrbPe7bLZ6U5qYlFrEo0I966W534",
+  "revisionId": "AHj4eMQZawxN4K5XPsI72EEhJJEOj4CUXKlJogULdAJxSn9S0OP7duDxWCvnB-Ytz-c6WeiGE37Vo8rYK4v2R5vxIKCBj1jN4hNTYhx0ZkE",
+  "tabs": [
+    {
+      "tabId": "t.0",
+      "title": "English source",
+      "chars": 10093,
+      "fnv1a_utf16": 1736299578
+    },
+    {
+      "tabId": "t.vletsxukg015",
+      "title": "S'gaw Karen fillable",
+      "chars": 17023,
+      "fnv1a_utf16": 3690769068
+    },
+    {
+      "tabId": "t.eht4reut537a",
+      "title": "Burmese machine draft",
+      "chars": 12403,
+      "fnv1a_utf16": 3954768064
+    },
+    {
+      "tabId": "t.bggklp7a9xs5",
+      "title": "Thai machine draft",
+      "chars": 10029,
+      "fnv1a_utf16": 1337984717
+    },
+    {
+      "tabId": "t.n2xtl590zkvo",
+      "title": "Published website copy",
+      "chars": 136464,
+      "fnv1a_utf16": 1240700044
+    }
+  ],
+  "result": "published-inventory-reconciled-to-existing-v59",
+  "publicLocalDocParity": true,
+  "checkedRouteLanguageEntries": 68,
+  "affectedRoutes": [
+    "/en",
+    "/ksw",
+    "/my",
+    "/th"
+  ],
+  "inventoryLinesAdded": 44,
+  "news": 2,
+  "calendar": 3,
+  "newApprovedIntake": 0,
+  "newKarenHolds": 0,
+  "liveVersion": 59,
+  "liveCommit": "7390cc566b4385ae77860bf35543a1f6f5fc7473",
+  "liveDeployment": "appgdep_6aef80da50848191b4ead9056c6f7638",
+  "inventoryCommit": "23c7293b18472254c9e7114a89263177d8fdadd2",
+  "inventoryPushed": true,
+  "deployed": false,
+  "intakeQualification": "News, events and Facebook ledgers matched the preceding baseline; all four draft intake files matched after line-ending normalization. The November 7 public Facebook check found no newer post.",
+  "note": "Existing homepage copy from v59 was recorded in the Published website copy tab and source inventory; the four editorial tabs are unchanged."
+}

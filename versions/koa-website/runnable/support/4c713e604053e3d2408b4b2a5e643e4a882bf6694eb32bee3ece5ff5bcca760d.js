@@ -1,0 +1,1 @@
+var e=[];function t(e){return e.relationshipStatus===`verified`&&e.logoPermission===`approved`&&e.reviewStatus===`approved`}var n=e.filter(t);export{n,e as t};

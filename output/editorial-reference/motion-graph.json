@@ -1,0 +1,294 @@
+{
+  "summary": {
+    "changed_count": 14,
+    "affected_count": 13,
+    "changed_files": 12,
+    "risk_level": "high"
+  },
+  "changed_symbols": [
+    {
+      "id": "Function:components/AtticDust.tsx:AtticDust",
+      "name": "AtticDust",
+      "type": "Function",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/AtticDust.tsx:AtticDust.fn@18:12.makeMote@33:4",
+      "name": "makeMote",
+      "type": "Function",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/AtticDust.tsx:AtticDust.fn@18:12.makeMote@33:21.age@43:8",
+      "name": "age",
+      "type": "Property",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/AtticDust.tsx:AtticDust.fn@18:12.makeMote@33:21.life@43:49",
+      "name": "life",
+      "type": "Property",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/AtticDust.tsx:AtticDust.fn@18:12.resize@47:4",
+      "name": "resize",
+      "type": "Function",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/AtticDust.tsx:AtticDust.fn@18:12.draw@70:4",
+      "name": "draw",
+      "type": "Function",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Const:components/CinematicLanding.tsx:pillars",
+      "name": "pillars",
+      "type": "Const",
+      "filePath": "components/CinematicLanding.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/CinematicLanding.tsx:CinematicLanding",
+      "name": "CinematicLanding",
+      "type": "Function",
+      "filePath": "components/CinematicLanding.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/DenseGlyphGrid.tsx:DenseGlyphGrid",
+      "name": "DenseGlyphGrid",
+      "type": "Function",
+      "filePath": "components/DenseGlyphGrid.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/DenseGlyphGrid.tsx:DenseGlyphGrid.fn@12:12.tick@214:4",
+      "name": "tick",
+      "type": "Function",
+      "filePath": "components/DenseGlyphGrid.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/KoaContentPage.tsx:KoaSection",
+      "name": "KoaSection",
+      "type": "Function",
+      "filePath": "components/KoaContentPage.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteAtmosphere.tsx:SiteAtmosphere",
+      "name": "SiteAtmosphere",
+      "type": "Function",
+      "filePath": "components/SiteAtmosphere.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion",
+      "name": "SiteScrollMotion",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@9:12.start@13:4",
+      "name": "start",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    }
+  ],
+  "affected_processes": [
+    {
+      "id": "proc_5_languagelayout",
+      "name": "LanguageLayout → PaintCell",
+      "process_type": "cross_community",
+      "step_count": 6,
+      "changed_steps": [
+        {
+          "symbol": "DenseGlyphGrid",
+          "step": 3
+        },
+        {
+          "symbol": "SiteAtmosphere",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_6_languagelayout",
+      "name": "LanguageLayout → Render",
+      "process_type": "cross_community",
+      "step_count": 6,
+      "changed_steps": [
+        {
+          "symbol": "DenseGlyphGrid",
+          "step": 3
+        },
+        {
+          "symbol": "SiteAtmosphere",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_7_homepage",
+      "name": "HomePage → Composition",
+      "process_type": "cross_community",
+      "step_count": 6,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_12_languagelayout",
+      "name": "LanguageLayout → MakeMote",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "resize",
+          "step": 4
+        },
+        {
+          "symbol": "makeMote",
+          "step": 5
+        },
+        {
+          "symbol": "AtticDust",
+          "step": 3
+        },
+        {
+          "symbol": "SiteAtmosphere",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_13_languagelayout",
+      "name": "LanguageLayout → ChooseGlyph",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "DenseGlyphGrid",
+          "step": 3
+        },
+        {
+          "symbol": "SiteAtmosphere",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_14_homepage",
+      "name": "HomePage → BuildMarks",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_19_languagelayout",
+      "name": "LanguageLayout → Wake",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "AtticDust",
+          "step": 3
+        },
+        {
+          "symbol": "SiteAtmosphere",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_20_languagelayout",
+      "name": "LanguageLayout → ShouldReduceMotion",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "SiteAtmosphere",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_21_homepage",
+      "name": "HomePage → Wake",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_33_homepage",
+      "name": "HomePage → SealAssembly",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_81_tick",
+      "name": "Tick → PaintCell",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "tick",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_84_tick",
+      "name": "Tick → ChooseGlyph",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "tick",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_87_homepage",
+      "name": "HomePage → ShouldReduceMotion",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    }
+  ]
+}

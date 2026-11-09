@@ -1,0 +1,14 @@
+{
+  "before": {
+    "result": {
+      "type": "string",
+      "value": "{\"time\":29091.200000000186,\"angle\":-45.991270645684345,\"seal\":\"none\",\"core\":\"matrix(1, 0, 0, 1, 0, 0)\",\"sameParent\":true,\"dimensionsEqual\":true,\"sourceEqual\":true,\"overflow\":false}"
+    }
+  },
+  "after": {
+    "result": {
+      "type": "string",
+      "value": "{\"time\":35450.300000000745,\"angle\":-58.378309245607646,\"seal\":\"none\",\"core\":\"matrix(1, 0, 0, 1, 0, 0)\"}"
+    }
+  }
+}

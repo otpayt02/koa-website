@@ -1,0 +1,83 @@
+{
+  "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+  "commit": "dc2469ae7b32874ac7558eaef505b6451d996be5",
+  "version": {
+    "id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_323d616eeb6881918b9aca3dd79757fd",
+    "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+    "version_number": 56,
+    "source": {
+      "commit_sha": "dc2469ae7b32874ac7558eaef505b6451d996be5"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000094a481f5bd77ac05dcdb6487",
+      "content_hash": "sha256:c112b0419e02da97e6e326754827999877835764a107d306c5ce7d5c4dde65b8",
+      "size_bytes": 18227200,
+      "file_count": 108
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ad504d802588191bb87295c0da40385",
+    "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+    "title": "Karen Organization of America",
+    "version_id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_323d616eeb6881918b9aca3dd79757fd",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://karen-organization-of-america.oliverp789.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "oliverp789--karen-organization-of-america",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-18T17:41:54.616050+00:00"
+  },
+  "doc_revision": "AHj4eMSZsy8kB5HUegby435tdwI3IqYaiu4kb_CCcTtvcFATxjfqrf-vM9mqZcXYw5tCT2CIAtc9MkaZyjUzX7utlzTWywSYM7DPxb7af0I",
+  "doc_published_copy_parity": true,
+  "browser": {
+    "desktop": {
+      "width": 1280,
+      "height": 1000,
+      "overflow": false
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "pillar_columns": "165.646px 165.656px"
+    },
+    "os_prefers_reduced_motion": true,
+    "default_motion": "active",
+    "two_pixel_travel_replacements": 1,
+    "mark_hash_before": 462981747,
+    "mark_hash_after": 1141514797,
+    "seal_pointer_tilt_matrix_changed": true,
+    "static_mode": "verified motion=off, seal transform none, grid replacements 0",
+    "contact_field_min_height": 48,
+    "public_browser_check": "unavailable after browser connection ended; matching build screenshots retained"
+  },
+  "photo": {
+    "original": "520228539_1052042917117571_646496839831873159_n.jpg",
+    "dimensions": [
+      1280,
+      853
+    ],
+    "ai_overlay_removed": true,
+    "higher_resolution_source_found": false
+  },
+  "content": {
+    "rendered_routes": 68,
+    "inventory_characters": 135683,
+    "news_items": 2,
+    "upcoming_events": 3,
+    "signal_items": 0
+  },
+  "graph": {
+    "changed_files": 16,
+    "changed_symbols": 87,
+    "affected_processes": 32,
+    "risk": "critical",
+    "mitigation": "Shared motion policy verified in default OS-reduced mode and explicit motion=off; all 68 rendered routes exported."
+  }
+}

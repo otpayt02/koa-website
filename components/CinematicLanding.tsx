@@ -10,6 +10,7 @@ import { KAGlyphField } from "./cinematic/KAGlyphField";
 import KarenGlyphField from "./KarenGlyphField";
 import { PartnerMarquee } from "./cinematic/PartnerMarquee";
 import { SealAssembly } from "./cinematic/SealAssembly";
+import { VisitorPathways } from "./patterns/VisitorPathways";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 const smoothStep = (value: number) => {
@@ -271,6 +272,7 @@ export function CinematicLanding({ lang, messages }: { lang: Lang; messages: Mes
           </div>
 
           <p className="koa-film__scroll-cue" aria-hidden="true">Scroll to explore <span>↓</span></p>
+          <VisitorPathways lang={lang} />
 
           <button
             className="koa-film__motion-toggle"

@@ -1,0 +1,18 @@
+{
+  "copied": [
+    "DESIGN.md",
+    "app/cinematic-landing.css",
+    "components/AtticDust.tsx",
+    "components/CinematicLanding.tsx",
+    "components/DenseGlyphGrid.tsx",
+    "components/KoaContentPage.tsx",
+    "components/SiteAtmosphere.tsx",
+    "components/SiteScrollMotion.tsx",
+    "components/scrollKinetics.ts",
+    "content/published-site-copy.txt",
+    "docs/koa-scroll-choreography.md"
+  ],
+  "held_existing_edits": [
+    ".styleseed/manifest.json"
+  ]
+}

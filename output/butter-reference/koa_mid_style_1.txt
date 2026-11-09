@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Karen Organization of America — KOA</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b16;
+  --bg-2:#0c162c;
+  --bg-3:#111f3a;
+  --paper:#f7f0df;
+  --gold:#eadbb0;
+  --gold-2:#c9a86a;
+  --red:#c73a3a;
+  --blue:#233b78;
+  --line:rgba(234,219,176,0.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; background:var(--bg);}
+body{margin:0; font-family:Inter,system-ui,sans-serif; background:var(--bg); color:var(--paper); overflow-x:hidden; -webkit-font-smoothing:antialiased}
+/* Global ambient behind */
+#global-ambient{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:1}
+/* Nav centered */
+nav{position:fixed; top:0; left:0; right:0; z-index:50; height:64px; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(18px) saturate(1.2); background:linear-gradient(180deg, rgba(7,11,22,0.9), rgba(7,11,22,0.45)); border-bottom:1px solid var(--line)}
+.nav-inner{display:flex; align-items:center; justify-content:center; gap:42px; width:100%; max-width:1400px; padding:0 24px}
+.nav-brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:0.08em; font-size:11px; text-transform:uppercase; white-space:nowrap; color:var(--gold)}
+.nav-brand b{font-size:22px; letter-spacing:0.02em; line-height:1}
+.nav-brand span{white-space:nowrap; max-width:none; overflow:visible}
+.nav-links{display:flex; gap:28px; align-items:center; justify-content:center}
+.nav-links a{color:var(--paper); text-decoration:none; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.8; transition:opacity .2s, transform .2s}
+.nav-links a:hover{opacity:1; transform:translateY(-1px)}
+.nav-links a.active{opacity:1; color:var(--gold); border-bottom:1px solid var(--gold)}
+
+/* Hero */
+.hero{position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:96px; padding-bottom:40px; overflow:hidden}
+.hero-bg{position:absolute; inset:0; z-index:-1; background-image:url("[EMBEDDED ASSET]"); background-size:cover; background-position:center 35%; filter:brightness(0.7) contrast(1.05) saturate(0.9)}
+.hero-bg::after{content:""; position:absolute; inset:0; background:radial-gradient(120% 90% at 50% 0%, rgba(7,11,22,0) 30%, rgba(7,11,22,0.85) 78%), linear-gradient(180deg, rgba(7,11,22,0.35) 0%, rgba(7,11,22,0.9) 92%)}
+/* K O A lockup */
+.koa-lockup{display:flex; align-items:flex-start; justify-content:center; gap:24px; width:100%; max-width:1100px; margin-top:12px; position:relative; z-index:2}
+.letter-box{width:300px; height:380px; position:relative; flex-shrink:0; display:flex; align-items:center; justify-content:center}
+.letter-box.k,.letter-box.a{filter:drop-shadow(0 0 18px rgba(234,219,176,0.18))}
+.letter-glyph{position:absolute; font-family:"Instrument Serif", serif; font-size:13px; line-height:1; color:var(--gold); opacity:0.85; will-change:transform; user-select:none; mix-blend-mode:screen; transition:color .3s}
+.letter-glyph.karen{color:#e6c07a}
+.letter-glyph.latin{color:var(--gold)}
+.o-box{width:300px; height:300px; border-radius:50%; position:relative; overflow:hidden; background:radial-gradient(circle at 50% 40%, #1e2f5a, #0c162c); box-shadow:0 0 0 2px rgba(234,219,176,0.35), 0 0 60px rgba(42,74,138,0.55), inset 0 0 40px rgba(0,0,0,0.6); transform-origin:center}
+.o-box img{width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; filter:contrast(1.15) saturate(1.1); transform:scale(1.08)}
+.o-glow{position:absolute; inset:-30%; background:radial-gradient(circle at 50% 50%, rgba(199,58,58,0.18), transparent 60%), radial-gradient(circle at 30% 30%, rgba(42,74,138,0.35), transparent 60%); mix-blend-mode:screen; pointer-events:none}
+/* Epic title 3 lines */
+.epic-wrap{margin-top:18px; text-align:center; z-index:2; width:100%; max-width:1200px; padding:0 24px}
+.epic-karen{font-family:"Instrument Serif", serif; font-size:clamp(48px, 8.5vw, 128px); line-height:0.84; letter-spacing:-0.03em; font-weight:400; text-transform:uppercase; color:var(--paper); text-shadow:0 2px 30px rgba(0,0,0,0.6)}
+.epic-karen .line{display:block; white-space:nowrap}
+.epic-karen .line:nth-child(3){font-style:italic; color:var(--gold); letter-spacing:-0.02em}
+.burmese-sub{margin-top:14px; font-size:clamp(14px,2vw,22px); opacity:0.85; letter-spacing:0.12em; color:var(--gold)}
+.hero-sub{margin:22px auto 0; max-width:760px; font-size:clamp(16px,1.6vw,20px); line-height:1.45; color:rgba(247,240,223,0.88); font-family:"Instrument Serif", serif; font-style:italic}
+.hero-ctas{margin-top:28px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+.btn{position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; padding:14px 26px; border-radius:999px; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; text-decoration:none; border:1px solid rgba(234,219,176,0.3); background:linear-gradient(180deg, rgba(234,219,176,0.14), rgba(12,22,44,0.9)); color:var(--paper); backdrop-filter:blur(8px); transition:transform .25s cubic-bezier(.16,1,.3,1), border-color .25s}
+.btn.primary{background:linear-gradient(180deg, #e85d5d, #b52525); border-color:rgba(255,255,255,0.25); color:white; box-shadow:0 8px 28px rgba(199,58,58,0.35)}
+.btn:hover{transform:translateY(-2px) scale(1.01)}
+.btn .btn-ambient{position:absolute; inset:0; pointer-events:none; opacity:0.6}
+
+/* Progress track - numeral morph */
+.progress-rail{position:fixed; left:18px; top:50%; transform:translateY(-50%); z-index:40; display:flex; flex-direction:column; align-items:flex-start; gap:18px; mix-blend-mode:normal}
+.progress-line{position:absolute; left:12px; top:0; bottom:0; width:1px; background:linear-gradient(180deg, transparent, rgba(234,219,176,0.35), transparent)}
+.progress-item{position:relative; display:flex; align-items:center; gap:12px; cursor:pointer; opacity:0.45; transition:opacity .3s}
+.progress-item.active{opacity:1}
+.progress-dot{width:26px; height:26px; border-radius:50%; border:1px solid rgba(234,219,176,0.4); display:grid; place-items:center; font-size:11px; font-family:"Instrument Serif"; background:rgba(7,11,22,0.6); backdrop-filter:blur(6px)}
+.progress-label{font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); transform:rotate(-90deg); transform-origin:left center; white-space:nowrap; opacity:0.7}
+.morph-container{width:26px; height:26px; position:relative}
+.morph-glyph{position:absolute; font-size:7px; line-height:1; color:var(--gold); opacity:0.9; will-change:transform}
+
+/* Sections */
+.content-section{position:relative; z-index:1; padding:110px 24px; border-top:1px solid var(--line); overflow:hidden}
+.content-section.gradient-bg{background:linear-gradient(180deg, var(--bg-2), var(--bg))}
+.section-inner{max-width:1120px; margin:0 auto; position:relative; z-index:2}
+.eyebrow{font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-2); margin-bottom:14px}
+.h2{font-family:"Instrument Serif", serif; font-size:clamp(32px,4.5vw,64px); line-height:0.95; letter-spacing:-0.02em; margin:0 0 18px; font-weight:400}
+.h2 i{font-style:italic; color:var(--gold)}
+.subhead{font-size:18px; line-height:1.6; color:rgba(247,240,223,0.78); max-width:720px; font-family:"Instrument Serif", serif}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:36px}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr} .koa-lockup{flex-direction:column; gap:12px} .letter-box{width:260px; height:320px} .o-box{width:260px; height:260px} .progress-rail{display:none}}
+.card{position:relative; overflow:hidden; border-radius:18px; padding:24px; background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border:1px solid rgba(234,219,176,0.16); backdrop-filter:blur(12px)}
+.card .card-ambient{position:absolute; inset:0; pointer-events:none; opacity:0.5}
+.card h3{margin:0 0 10px; font-family:"Instrument Serif"; font-size:22px; font-weight:400}
+.card p{margin:0; font-size:14px; line-height:1.6; color:rgba(247,240,223,0.75)}
+.pill{display:inline-flex; padding:6px 10px; border-radius:999px; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:rgba(234,219,176,0.12); border:1px solid rgba(234,219,176,0.18); color:var(--gold); margin-right:6px; margin-bottom:6px}
+.stat-strip{display:flex; gap:18px; flex-wrap:wrap; margin-top:22px}
+.stat{min-width:180px; padding:14px 16px; border-radius:14px; background:rgba(0,0,0,0.25); border:1px solid rgba(234,219,176,0.12)}
+.stat b{display:block; font-family:"Instrument Serif"; font-size:28px; color:var(--gold); line-height:1}
+.stat span{font-size:11px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.7}
+
+.advocacy-status{width:100%; border-collapse:collapse; margin-top:16px; font-size:14px}
+.advocacy-status td{padding:10px 12px; border-bottom:1px solid rgba(234,219,176,0.12)}
+.advocacy-status tr td:first-child{color:var(--gold)}
+
+/* Footer */
+footer{position:relative; z-index:1; padding:80px 24px 40px; background:linear-gradient(180deg, #0a1122, #070b16); border-top:1px solid var(--line); overflow:hidden}
+.footer-inner{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.2fr 0.8fr 0.8fr; gap:28px; position:relative; z-index:2}
+@media(max-width:900px){.footer-inner{grid-template-columns:1fr}}
+.footer-brand{font-family:"Instrument Serif"; font-size:28px; line-height:0.9}
+.footer-brand i{color:var(--gold)}
+.footer-links a{display:block; color:rgba(247,240,223,0.7); text-decoration:none; font-size:13px; margin:8px 0}
+.footer-links a:hover{color:var(--gold)}
+.scatter-layer{position:absolute; inset:0; pointer-events:none; z-index:1}
+.scatter-glyph{position:absolute; font-size:12px; color:var(--gold); opacity:0.5; will-change:transform}
+
+/* Local ambient canvases */
+.local-ambient{position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0.9}
+.local-ambient canvas{width:100%; height:100%; display:block}
+
+.cursor-dot{position:fixed; width:8px; height:8px; border-radius:50%; background:var(--gold); pointer-events:none; z-index:100; mix-blend-mode:screen; opacity:0; transition:opacity .2s}
+</style>
+</head>
+<body>
+<canvas id="global-ambient"></canvas>
+<div id="cursor-dot" class="cursor-dot"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand"><b>KOA</b> <span>Karen Organization of America</span></div>
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#advocacy">Advocacy</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="progress-rail" id="progressRail">
+  <div class="progress-line"></div>
+  <div class="progress-item active" data-target="home"><div class="progress-dot"><div class="morph-container" id="morph-0"></div></div><div class="progress-label">Home</div></div>
+  <div class="progress-item" data-target="about"><div class="progress-dot"><div class="morph-container" id="morph-1"></div></div><div class="progress-label">About</div></div>
+  <div class="progress-item" data-target="programs"><div class="progress-dot"><div class="morph-container" id="morph-2"></div></div><div class="progress-label">Programs</div></div>
+  <div class="progress-item" data-target="advocacy"><div class="progress-dot"><div class="morph-container" id="morph-3"></div></div><div class="progress-label">Advocacy</div></div>
+  <div class="progress-item" data-target="donate"><div class="progress-dot"><div class="morph-container" id="morph-4"></div></div><div class="progress-label">Donate</div></div>
+  <div class="progress-item" data-target="contact"><div class="progress-dot"><div class="morph-container" id="morph-5"></div></div><div class="progress-label">Contact</div></div>
+</div>
+
+<section id="home" class="hero gradient-bg">
+  <div class="hero-bg"></div>
+  <div class="koa-lockup" id="koaLockup">
+    <div class="letter-box k" id="kBox"></div>
+    <div class="o-box" id="oBox"><img src="[EMBEDDED ASSET]" alt="KOA Seal" loading="lazy"/><div class="o-glow"></div></div>
+    <div class="letter-box a" id="aBox"></div>
+  </div>
+  <div class="epic-wrap">
+    <div class="epic-karen" id="epicTitle">
+      <span class="line">Karen</span>
+      <span class="line">Organization</span>
+      <span class="line">of America</span>
+    </div>
+    <div class="burmese-sub">ကညီအတၢ်ကရၢကရိလၢကၠီၡမဲၡရကၢ</div>
+    <div class="hero-sub">Standing with the Karen community in America, here and beyond borders. Preserving Karen language across generations, promoting appreciation for cultural identity, and providing a voice for those in Kawthoolei and Burma through advocacy in Washington.</div>
+    <div class="hero-ctas">
+      <a class="btn primary gradient-bg" href="#donate"><span class="btn-ambient"></span>Support our work →</a>
+      <a class="btn gradient-bg" href="#programs"><span class="btn-ambient"></span>Get involved</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="content-section gradient-bg">
+  <div class="local-ambient"><canvas></canvas></div>
+  <div class="section-inner">
+    <div class="eyebrow">Karen Organization of America</div>
+    <h2 class="h2">Rooted in community,<br><i>built for the long term.</i></h2>
+    <p class="subhead">The Karen Organization of America exists to support Karen families in the U.S. and to carry the Karen community's voice into national policy regarding Myanmar (Burma).</p>
+    <div class="grid-3">
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Community first</h3><p>Programs and advocacy priorities are shaped by what Karen families and community members actually need.</p></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Cultural continuity</h3><p>Language, tradition, and history are treated as living things worth actively passing on, not just preserving.</p></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Principled advocacy</h3><p>We engage government processes directly and transparently, on behalf of the community we represent.</p></div>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><b>3 Pillars</b><span>resettlement, civic engagement, cultural preservation</span></div>
+      <div class="stat"><b>BRAVE Burma Act</b><span>Active federal advocacy</span></div>
+      <div class="stat"><b>NYAP</b><span>National Youth Advocacy Program</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="programs" class="content-section gradient-bg">
+  <div class="local-ambient"><canvas></canvas></div>
+  <div class="section-inner">
+    <div class="eyebrow">What we do</div>
+    <h2 class="h2">Support that meets people<br><i>where they are.</i></h2>
+    <p class="subhead">KOA's work spans direct support for newly resettled families, civic and cultural programming that keeps Karen identity strong, and policy advocacy that carries Karen voices into U.S. government decisions on Myanmar/Burma.</p>
+    <div class="grid-3">
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Education Program</h3><p>Helping Karen families navigate life in a new country, from early arrival needs to longer-term community connection. College readiness, academic resources, job applications, interview preparation, citizenship testing, lawful awareness, English literacy.</p><div style="margin-top:12px"><span class="pill">Resettlement</span><span class="pill">Orientation</span><span class="pill">English</span></div></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Civic engagement & culture</h3><p>Karen New Year celebrations, Karen literacy/language classes/resources, and civic programs that pass identity and participation on to the next generation.</p><div style="margin-top:12px"><span class="pill">Language classes</span><span class="pill">Cultural events</span><span class="pill">Civic participation</span></div></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Policy advocacy</h3><p>Engaging Congress and federal agencies on legislation and policy affecting Myanmar/Burma and the Karen people, including the BRAVE Burma Act.</p><div style="margin-top:12px"><span class="pill">Congress</span><span class="pill">BRAVE Burma</span></div></div>
+    </div>
+    <div class="card gradient-bg" style="margin-top:18px"><div class="card-ambient"><canvas></canvas></div><h3>National Youth Advocacy Program (NYAP)</h3><p>NYAP connects young Karen Americans with the skills, history, and networks they need to carry the community's advocacy forward — in their own communities and in the halls of government. Leadership training, community history and civics curriculum, direct advocacy experience meeting with policymakers, mentorship and peer network.</p></div>
+  </div>
+</section>
+
+<section id="advocacy" class="content-section gradient-bg">
+  <div class="local-ambient"><canvas></canvas></div>
+  <div class="section-inner">
+    <div class="eyebrow">Federal advocacy</div>
+    <h2 class="h2">Carrying Karen voices<br><i>into U.S. policy.</i></h2>
+    <p class="subhead">KOA engages Congress and federal agencies directly on legislation and policy affecting Myanmar/Burma and the Karen people — and helps community members make their own voices heard. KOA carries concerns directly to Congress and federal agencies — from humanitarian access along the Thai–Myanmar border to legislation like the BRAVE Burma Act.</p>
+    <div style="margin-top:18px; padding:18px; border-left:2px solid var(--gold); background:rgba(234,219,176,0.06); border-radius:0 12px 12px 0; font-family:'Instrument Serif'; font-style:italic; font-size:20px; max-width:820px">“The Karen community's story doesn't end at resettlement — it continues in the decisions Washington makes about Myanmar/Burma.” — Karen Organization of America</div>
+    <div class="grid-3" style="margin-top:24px">
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Current priority: BRAVE Burma Act</h3><p>The BRAVE Burma Act (H.R. 3190) passed the U.S. House of Representatives on February 9, 2026. KOA has been engaging members of Congress and their staff to build support for the bill and explain what it would mean for the Karen people and broader situation in Myanmar/Burma.</p>
+        <table class="advocacy-status"><tr><td>Passed U.S. House</td><td>Feb 9, 2026</td></tr><tr><td>Next: Senate action</td><td>TBD</td></tr></table>
+      </div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>How we work</h3><p><b>Congressional meetings</b> — Direct meetings with representatives and staff.<br><br><b>Cross-border engagement</b> — Joint effort with humanitarian partners assisting along Thai–Myanmar border.<br><br><b>Public education</b> — Helping policymakers and public understand history and current reality facing Karen people.</p></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Take action</h3><p>Contact your representative, join a briefing, support the work. Advocacy travel, briefings, and staff time all rely on community support.</p><a href="#donate" class="btn primary gradient-bg" style="margin-top:14px"><span class="btn-ambient"></span>Support advocacy</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="donate" class="content-section gradient-bg">
+  <div class="local-ambient"><canvas></canvas></div>
+  <div class="section-inner">
+    <div class="eyebrow">Give</div>
+    <h2 class="h2">Your support funds<br><i>the whole mission.</i></h2>
+    <p class="subhead">Gifts to KOA go directly toward resettlement support, cultural programming, youth leadership, and advocacy travel to Washington, D.C.</p>
+    <div class="grid-3">
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Where your gift goes</h3><p>Resettlement support — case navigation and direct family assistance.<br>Cultural preservation — Karen New Year, language classes, community events.<br>Youth advocacy — NYAP training and mentorship.<br>Federal advocacy — travel and staff time for congressional engagement, including work on BRAVE Burma Act.</p></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Suggested giving</h3><p>Choose an amount that works for you. Every gift strengthens community leadership.</p><div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px"><a class="btn gradient-bg" href="#"><span class="btn-ambient"></span>$25</a><a class="btn gradient-bg" href="#"><span class="btn-ambient"></span>$50</a><a class="btn gradient-bg" href="#"><span class="btn-ambient"></span>$100</a><a class="btn primary gradient-bg" href="#"><span class="btn-ambient"></span>$250</a></div></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Other ways to give</h3><p>Mail a check, employer matching gifts, recurring monthly giving, in-kind or planned gifts — contact us to discuss. KOA is a tax-exempt nonprofit organization under Section 501(c)(3). Donations are tax-deductible to the extent allowed by law.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="content-section gradient-bg">
+  <div class="local-ambient"><canvas></canvas></div>
+  <div class="section-inner">
+    <div class="eyebrow">Connect</div>
+    <h2 class="h2">We'd like to hear<br><i>from you.</i></h2>
+    <p class="subhead">Whether you need resettlement support, want to volunteer, or represent a congressional office, reach out below.</p>
+    <div class="grid-3">
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Contact form</h3><p>Full name, email address, reason for contact: Resettlement support / Volunteering / Programs & events / Advocacy or policy / Media inquiry / Other, and your message.</p></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Other ways to reach us</h3><p>facebook.com/koamerica<br>Instagram<br>X<br>Sign up for our email newsletter.</p></div>
+      <div class="card gradient-bg"><div class="card-ambient"><canvas></canvas></div><h3>Mailing address & hours</h3><p>Preserving culture, and advocating for the Karen people in Myanmar/Burma. Reach us via mailing address, phone, email. Office hours to be announced.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" class="gradient-bg">
+  <div class="local-ambient"><canvas></canvas></div>
+  <div class="scatter-layer" id="scatterLayer"></div>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">KAREN ORGANIZATION<br><i>OF AMERICA</i></div>
+      <p style="margin-top:12px; color:rgba(247,240,223,0.6); font-size:13px; line-height:1.6; max-width:320px">Preserving culture, and advocating for the Karen people in Myanmar/Burma. Standing with the Karen community in America, here and beyond borders.</p>
+    </div>
+    <div class="footer-links"><b style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold)">Explore</b><a href="#about">About KOA</a><a href="#programs">Programs</a><a href="#advocacy">Advocacy</a><a href="#donate">Donate</a></div>
+    <div class="footer-links"><b style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold)">Connect</b><a href="#contact">Contact us</a><a>facebook.com/koamerica</a><a>© 2026 Karen Organization of America</a></div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Calculus buttery helpers ---------- */
+const EASE = {
+  // smoothstep with calculus derivative for velocity
+  smooth: t => t*t*(3-2*t),
+  smoother: t => t*t*t*(t*(t*6-15)+10),
+  spring: (x,target,v,k=0.08,d=0.82) => {
+    const a = (target - x)*k - v*d;
+    return {v: v + a, x: x + v + a};
+  }
+};
+
+/* ---------- Global Ambient: dust motes + glyph grid + cursor trail ---------- */
+(function(){
+  const canvas = document.getElementById('global-ambient');
+  const ctx = canvas.getContext('2d');
+  let W,H, dpr;
+  const motes = [];
+  const glyphs = [];
+  const trail = [];
+  let lastMouse = {x:0,y:0,time:0};
+  let cursorSpeed = 0;
+  const glyphPool = ['က','ည','ီ','အတၢ်','ကရၢ','ကရိ','လၢ','ကၠီ','ၤ','မဲ','ၡ�','ရကၢ','K','O','A','၀','၁','၂','၃','၄','၅','၆','●','○','·'];
+  
+  function resize(){
+    dpr = window.devicePixelRatio||1;
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W*dpr; canvas.height = H*dpr;
+    canvas.style.width = W+'px'; canvas.style.height = H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function init(){
+    resize();
+    for(let i=0;i<120;i++){
+      motes.push({x:Math.random()*W, y:Math.random()*H, vx:(Math.random()-0.5)*0.3, vy:(Math.random()-0.5)*0.3, r:Math.random()*1.6+0.3, alpha:Math.random()*0.5+0.2, phase:Math.random()*Math.PI*2});
+    }
+    for(let i=0;i<90;i++){
+      glyphs.push({x:Math.random()*W, y:Math.random()*H, char:glyphPool[Math.floor(Math.random()*glyphPool.length)], alpha:Math.random()*0.12+0.04, size: 9+Math.random()*10, phase:Math.random()*6, lastChange:0});
+    }
+  }
+  window.addEventListener('mousemove', e=>{
+    const now = performance.now();
+    const dx = e.clientX - lastMouse.x;
+    const dy = e.clientY - lastMouse.y;
+    const dt = Math.max(1, now-lastMouse.time);
+    const speed = Math.hypot(dx,dy)/dt*16;
+    cursorSpeed = cursorSpeed*0.85 + speed*0.15;
+    lastMouse = {x:e.clientX, y:e.clientY, time:now};
+    trail.push({x:e.clientX, y:e.clientY, life:1, time:now});
+    if(trail.length>24) trail.shift();
+    const dot = document.getElementById('cursor-dot');
+    dot.style.left = e.clientX-4+'px'; dot.style.top = e.clientY-4+'px'; dot.style.opacity=0.9;
+    clearTimeout(dot._t); dot._t=setTimeout(()=>dot.style.opacity=0, 600);
+  });
+  window.addEventListener('resize', resize);
+
+  let t=0;
+  function frame(){
+    t+=0.016;
+    ctx.clearRect(0,0,W,H);
+    // subtle gradient wash
+    const grad = ctx.createRadialGradient(W*0.5, H*0.2, 0, W*0.5, H*0.2, W*1.2);
+    grad.addColorStop(0,'rgba(35,59,120,0.08)'); grad.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=grad; ctx.fillRect(0,0,W,H);
+
+    // glyph grid with randomization frequency tied to cursor speed
+    const freqBase = 0.006;
+    const freq = freqBase + cursorSpeed*0.012;
+    glyphs.forEach(g=>{
+      if(Math.random()<freq){
+        g.char = glyphPool[Math.floor(Math.random()*glyphPool.length)];
+      }
+      // ambient drift side to side ever so slightly
+      const driftX = Math.sin(t*0.3 + g.phase)*2.2;
+      const driftY = Math.cos(t*0.22 + g.phase)*1.1;
+      ctx.globalAlpha = g.alpha*(0.8+Math.sin(t+g.phase)*0.2);
+      ctx.font = g.size+'px "Instrument Serif"';
+      ctx.fillStyle = '#eadbb0';
+      ctx.fillText(g.char, g.x+driftX, g.y+driftY);
+    });
+    ctx.globalAlpha=1;
+
+    // motes buttery physics
+    motes.forEach(m=>{
+      m.vx += (Math.sin(t*0.2+m.phase)*0.002);
+      m.vy += (Math.cos(t*0.15+m.phase)*0.002);
+      m.x += m.vx; m.y += m.vy;
+      if(m.x<0) m.x=W; if(m.x>W) m.x=0; if(m.y<0) m.y=H; if(m.y>H) m.y=0;
+      ctx.beginPath(); ctx.globalAlpha=m.alpha; ctx.fillStyle='#eadbb0';
+      ctx.arc(m.x+Math.sin(t*0.5+m.phase)*1.5, m.y, m.r,0,Math.PI*2); ctx.fill();
+    });
+    ctx.globalAlpha=1;
+
+    // cursor trail navigation
+    trail.forEach((p,i)=>{
+      const age = (performance.now()-p.time)/900;
+      p.life = 1-age;
+      if(p.life<=0) return;
+      const r = (1-p.life)*22 + 3;
+      ctx.beginPath();
+      ctx.globalAlpha = p.life*0.18;
+      const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r);
+      g.addColorStop(0,'rgba(234,219,176,0.9)'); g.addColorStop(1,'rgba(234,219,176,0)');
+      ctx.fillStyle=g; ctx.arc(p.x,p.y,r,0,Math.PI*2); ctx.fill();
+    });
+    // prune
+    for(let i=trail.length-1;i>=0;i--) if(trail[i].life<=0) trail.splice(i,1);
+
+    requestAnimationFrame(frame);
+  }
+  init(); frame();
+})();
+
+/* ---------- Local ambient for every gradient-bg (including buttons) ---------- */
+function attachLocalAmbient(root){
+  const canvas = root.querySelector('canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W,H;
+  const pool = ['က','ရင်','K','A','O','·','○'];
+  const particles = Array.from({length:18},()=>({x:Math.random()*200, y:Math.random()*120, char:pool[Math.floor(Math.random()*pool.length)], vx:(Math.random()-0.5)*0.2, vy:(Math.random()-0.5)*0.2, alpha:Math.random()*0.18+0.05}));
+  function resize(){
+    const rect = root.getBoundingClientRect();
+    W = rect.width; H = rect.height;
+    canvas.width = W* (window.devicePixelRatio||1); canvas.height = H* (window.devicePixelRatio||1);
+    canvas.style.width = W+'px'; canvas.style.height = H+'px';
+    ctx.setTransform(window.devicePixelRatio||1,0,0,window.devicePixelRatio||1,0,0);
+  }
+  resize(); new ResizeObserver(resize).observe(root);
+  let t=0;
+  (function loop(){
+    t+=0.016;
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.x+=p.vx+Math.sin(t+p.x)*0.12; p.y+=p.vy;
+      if(p.x<0) p.x=W; if(p.x>W) p.x=0; if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+      if(Math.random()<0.008) p.char = pool[Math.floor(Math.random()*pool.length)];
+      ctx.globalAlpha=p.alpha; ctx.font='10px Instrument Serif'; ctx.fillStyle='#eadbb0'; ctx.fillText(p.char, p.x, p.y);
+    });
+    ctx.globalAlpha=1;
+    requestAnimationFrame(loop);
+  })();
+}
+document.querySelectorAll('.gradient-bg').forEach(el=>{
+  if(el.querySelector('canvas')) attachLocalAmbient(el);
+});
+
+/* ---------- K and A outline same size as seal - calculus buttery ---------- */
+const glyphPoolKA = ['K','A','O','က','ည','ီ','အတၢ်','ကရၢ','ကရိ','လၢ','ကၠီ','ၤ','မဲ','ၡ�','ရကၢ','·','○','●','◌','⬤','U','ၣ','ှ'];
+function getOutlinePoints(letter, width=300, height=380, step=7){
+  const c = document.createElement('canvas'); c.width=width; c.height=height;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle='black'; ctx.fillRect(0,0,width,height);
+  ctx.fillStyle='white'; ctx.font='900 300px "Instrument Serif", serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText(letter, width/2, height/2+20);
+  const data = ctx.getImageData(0,0,width,height).data;
+  const pts=[];
+  for(let y=0;y<height;y+=step){
+    for(let x=0;x<width;x+=step){
+      const idx=(y*width+x)*4;
+      if(data[idx]>150){
+        // edge check
+        let isEdge=false;
+        for(let dy=-1;dy<=1;dy++) for(let dx=-1;dx<=1;dx++){
+          const nx=x+dx*2, ny=y+dy*2;
+          if(nx<0||ny<0||nx>=width||ny>=height){isEdge=true; break;}
+          const nidx=(ny*width+nx)*4;
+          if(data[nidx]<80){isEdge=true; break;}
+        }
+        if(isEdge) pts.push({x,y});
+      }
+    }
+  }
+  return pts;
+}
+
+function buildLetter(box, letter){
+  const pts = getOutlinePoints(letter, box.clientWidth||300, box.clientHeight||380, 8);
+  box.innerHTML='';
+  const elements=[];
+  pts.forEach((p,i)=>{
+    const span=document.createElement('span');
+    span.className='letter-glyph '+(Math.random()>0.5?'karen':'latin');
+    span.textContent = glyphPoolKA[Math.floor(Math.random()*glyphPoolKA.length)];
+    span.style.left = p.x+'px'; span.style.top = p.y+'px';
+    span.dataset.baseX = p.x; span.dataset.baseY = p.y;
+    span.dataset.phase = (Math.random()*Math.PI*2).toString();
+    span.dataset.freq = (0.3+Math.random()*0.6).toString();
+    span.dataset.amp = (0.6+Math.random()*1.8).toString();
+    // physics state for buttery calculus
+    span._x = p.x; span._y = p.y; span._vx=0; span._vy=0;
+    box.appendChild(span);
+    elements.push(span);
+  });
+  return elements;
+}
+
+let kGlyphs=[], aGlyphs=[];
+let tGlobal=0;
+function animateLetters(){
+  tGlobal+=0.016;
+  const all = [...kGlyphs, ...aGlyphs];
+  all.forEach(el=>{
+    const baseX=parseFloat(el.dataset.baseX), baseY=parseFloat(el.dataset.baseY);
+    const phase=parseFloat(el.dataset.phase), freq=parseFloat(el.dataset.freq), amp=parseFloat(el.dataset.amp);
+    // ambient ever so slightly side to side - calculus driven target
+    const targetX = baseX + Math.sin(tGlobal*freq + phase)*amp;
+    const targetY = baseY + Math.cos(tGlobal*freq*0.6 + phase)*amp*0.35;
+    // spring to target for buttery
+    const k=0.12, d=0.78;
+    const ax = (targetX - el._x)*k - el._vx*d;
+    const ay = (targetY - el._y)*k - el._vy*d;
+    el._vx+=ax; el._vy+=ay;
+    el._x+=el._vx; el._y+=el._vy;
+    el.style.transform=`translate3d(${el._x-baseX}px,${el._y-baseY}px,0)`;
+  });
+  requestAnimationFrame(animateLetters);
+}
+
+function lazyLoadKOA(){
+  const kBox=document.getElementById('kBox');
+  const aBox=document.getElementById('aBox');
+  if(!kBox||!aBox) return;
+  kGlyphs=buildLetter(kBox,'K');
+  aGlyphs=buildLetter(aBox,'A');
+  animateLetters();
+}
+
+const heroObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ lazyLoadKOA(); heroObserver.disconnect(); } });
+},{threshold:0.2});
+heroObserver.observe(document.getElementById('koaLockup'));
+
+/* Seal breathing - calculus */
+(function(){
+  const oBox=document.getElementById('oBox');
+  let t=0, scale=1, vel=0;
+  function loop(){
+    t+=0.016;
+    const target = 1 + Math.sin(t*0.7)*0.035 + Math.sin(t*1.3)*0.012 + Math.cos(t*0.45)*0.008;
+    // spring for butter smooth
+    const k=0.08, d=0.82;
+    const a = (target - scale)*k - vel*d;
+    vel+=a; scale+=vel;
+    oBox.style.transform=`scale(${scale})`;
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ---------- Morph numerals Burmese ---------- */
+const burmeseNumerals = ['၀','၁','၂','၃','၄','၅','၆']; // 0-6
+const burmeseWords = ['home','about','programs','advocacy','donate','contact']; // mapping
+function getNumeralPoints(numeral, size=26){
+  const c=document.createElement('canvas'); c.width=size; c.height=size;
+  const ctx=c.getContext('2d');
+  ctx.fillStyle='black'; ctx.fillRect(0,0,size,size);
+  ctx.fillStyle='white'; ctx.font='700 '+(size*0.8)+'px "Instrument Serif"'; ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText(numeral, size/2, size/2+1);
+  const data=ctx.getImageData(0,0,size,size).data;
+  const pts=[];
+  for(let y=0;y<size;y+=3) for(let x=0;x<size;x+=3){
+    if(data[(y*size+x)*4]>120) pts.push({x:x- size/2, y:y- size/2});
+  }
+  return pts;
+}
+
+class MorphSet{
+  constructor(container, count=18){
+    this.container=container; this.glyphs=[];
+    for(let i=0;i<count;i++){
+      const s=document.createElement('span'); s.className='morph-glyph'; s.textContent=glyphPoolKA[Math.floor(Math.random()*glyphPoolKA.length)];
+      s._x=Math.random()*10-5; s._y=Math.random()*10-5; s._vx=0; s._vy=0; s._tx=0; s._ty=0;
+      container.appendChild(s); this.glyphs.push(s);
+    }
+  }
+  morphTo(points){
+    // assign each glyph to nearest point with shuffle
+    const shuffled=[...points].sort(()=>Math.random()-0.5);
+    this.glyphs.forEach((g,i)=>{
+      const p=shuffled[i%shuffled.length]||{x:0,y:0};
+      g._tx=p.x; g._ty=p.y;
+    });
+  }
+  update(){
+    this.glyphs.forEach(g=>{
+      const ax=(g._tx-g._x)*0.14 - g._vx*0.82;
+      const ay=(g._ty-g._y)*0.14 - g._vy*0.82;
+      g._vx+=ax; g._vy+=ay; g._x+=g._vx; g._y+=g._vy;
+      g.style.transform=`translate3d(${g._x}px,${g._y}px,0)`;
+    });
+  }
+}
+
+const morphSets=[];
+document.querySelectorAll('.morph-container').forEach((cont,i)=>{
+  const ms=new MorphSet(cont, 14);
+  morphSets.push(ms);
+  const numeral = burmeseNumerals[i]||'၀';
+  ms.morphTo(getNumeralPoints(numeral));
+});
+(function morphLoop(){
+  morphSets.forEach(ms=>ms.update());
+  requestAnimationFrame(morphLoop);
+})();
+
+/* Scroll spy + numeral morph on section */
+const sections = ['home','about','programs','advocacy','donate','contact'];
+const progressItems = document.querySelectorAll('.progress-item');
+let currentIdx=0;
+const spyObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id=entry.target.id;
+      const idx=sections.indexOf(id);
+      if(idx!==-1 && idx!==currentIdx){
+        currentIdx=idx;
+        progressItems.forEach((pi,i)=>pi.classList.toggle('active', i===idx));
+        // morph all sets to current numeral? Keep each as its own, but highlight current with extra motion
+        const activeSet=morphSets[idx];
+        if(activeSet){
+          // subtle pulse: re-morph to same points to trigger spring
+          activeSet.morphTo(getNumeralPoints(burmeseNumerals[idx]||'၀'));
+        }
+      }
+    }
+  });
+},{threshold:0.55});
+sections.forEach(id=>{ const el=document.getElementById(id); if(el) spyObserver.observe(el); });
+progressItems.forEach(pi=>{ pi.addEventListener('click',()=>{ document.getElementById(pi.dataset.target)?.scrollIntoView({behavior:'smooth'}); }); });
+
+/* Footer scatter */
+(function(){
+  const footer=document.getElementById('footer');
+  const layer=document.getElementById('scatterLayer');
+  const scatterGlyphs=[];
+  for(let i=0;i<60;i++){
+    const s=document.createElement('span'); s.className='scatter-glyph'; s.textContent=glyphPoolKA[Math.floor(Math.random()*glyphPoolKA.length)];
+    s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%';
+    s._baseX=parseFloat(s.style.left); s._x=0; s._y=0; s._vx=0; s._vy=0; s._tx=0; s._ty=0; s._scattered=false;
+    layer.appendChild(s); scatterGlyphs.push(s);
+  }
+  const footerObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        scatterGlyphs.forEach(g=>{
+          if(!g._scattered){
+            g._tx=(Math.random()-0.5)*400; g._ty=(Math.random()-0.5)*300;
+            g._scattered=true;
+          }
+        });
+      } else {
+        scatterGlyphs.forEach(g=>{ g._tx=0; g._ty=0; g._scattered=false; });
+      }
+    });
+  },{threshold:0.2});
+  footerObserver.observe(footer);
+  (function scatterLoop(){
+    scatterGlyphs.forEach(g=>{
+      const ax=(g._tx-g._x)*0.06 - g._vx*0.88;
+      const ay=(g._ty-g._y)*0.06 - g._vy*0.88;
+      g._vx+=ax; g._vy+=ay; g._x+=g._vx; g._y+=g._vy;
+      g.style.transform=`translate3d(${g._x}px,${g._y}px,0) rotate(${g._x*0.05}deg)`;
+      g.style.opacity = 0.3 + Math.sin(Date.now()*0.001 + g._x)*0.2;
+    });
+    requestAnimationFrame(scatterLoop);
+  })();
+})();
+
+/* Center nav active */
+window.addEventListener('scroll',()=>{
+  const links=document.querySelectorAll('.nav-links a');
+  let cur='home';
+  sections.forEach(id=>{ const el=document.getElementById(id); if(el && window.scrollY>=el.offsetTop-120) cur=id; });
+  links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+</script>
+</body>
+</html>

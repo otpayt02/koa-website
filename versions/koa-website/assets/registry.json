@@ -1,0 +1,2049 @@
+[
+  {
+    "hash": "004ca645dca975010dfe49cb6dd74ca621ecb03677d24d2ee87a193fdf354314",
+    "kind": "image",
+    "bytes": 2544563,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/fb-outdoor-gathering-mobile-enhanced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/fb-outdoor-gathering-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/fb-outdoor-gathering-mobile-enhanced.png"
+      }
+    ]
+  },
+  {
+    "hash": "03d7c11e812e13843dd5db45c73156eaaa7cacb1d60a5c20adbba4e94d1e078c",
+    "kind": "image",
+    "bytes": 233371,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/koa-community-care-ai.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/koa-community-care-ai.jpg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/koa-community-care-ai.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "055b0bf9b74909a23a1d14b642f7772004aeac0577e72ec94fd7f66f7ebc86fe",
+    "kind": "image",
+    "bytes": 24315,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-03.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-03.png"
+      }
+    ]
+  },
+  {
+    "hash": "05709378f48642939167b2f447e323fdf5c4937f8288a07d42cf41f8d3447f74",
+    "kind": "image",
+    "bytes": 743356,
+    "canonical": {
+      "source": "koa-website",
+      "path": ".playwright-cli/page-2026-09-02T18-18-27-145Z.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".playwright-cli/page-2026-09-02T18-18-27-145Z.png"
+      }
+    ]
+  },
+  {
+    "hash": "0d87b9feee07e02cb4b5ba64fce31c577e102f093516aa04d9f64f79b04fbd14",
+    "kind": "image",
+    "bytes": 274,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/favicon.svg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/favicon.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/favicon.svg"
+      }
+    ]
+  },
+  {
+    "hash": "0d883f0d69efc8cd38c40abf7e9b6e17e0d96e860165b1da74ef2409ecb17946",
+    "kind": "image",
+    "bytes": 716081,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/comparisons/desktop-top-side-by-side.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/comparisons/desktop-top-side-by-side.png"
+      }
+    ]
+  },
+  {
+    "hash": "0d8a89cd5f9a6ed4b3afe3dcd868017a3f44fa6d13d8401f8e740488cceab57f",
+    "kind": "image",
+    "bytes": 6463,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-01.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-01.png"
+      }
+    ]
+  },
+  {
+    "hash": "0e8c4ca1363f867ed6bfdb86e50f0b30034d1ef31555323c021c2722d4e33ae4",
+    "kind": "image",
+    "bytes": 408926,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/comparisons/mobile-top-side-by-side.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/comparisons/mobile-top-side-by-side.png"
+      }
+    ]
+  },
+  {
+    "hash": "10d135b379589c7f8be71c25d1e4aff1f22c7aec70d2fbbe4dec34ca6d419cac",
+    "kind": "image",
+    "bytes": 962856,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-09-12 001326.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-09-12 001326.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-09-12 001326.png"
+      }
+    ]
+  },
+  {
+    "hash": "1191556fc03c19d260ccea91269c824089d51f297d36cdf360ce89fe1be44623",
+    "kind": "image",
+    "bytes": 35070,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-11.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-11.png"
+      }
+    ]
+  },
+  {
+    "hash": "12568fb94e193792ea9da7e97592b01c52cbd21664c4675bbb56f59b85fdcf7c",
+    "kind": "image",
+    "bytes": 458057,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/comparisons/desktop-reduced-matched-side-by-side.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/comparisons/desktop-reduced-matched-side-by-side.png"
+      }
+    ]
+  },
+  {
+    "hash": "156d9e9798a7ab620e2e513791ffc43005a7ee0911affd05a29706a82964f7b5",
+    "kind": "image",
+    "bytes": 603,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/work-production.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/work-production.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/work-production.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "17b9acb9efad1831029014c795d959543c65f9bd3c7be38c33f60a57d4eec49f",
+    "kind": "image",
+    "bytes": 325,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/ap-logo.svg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/ap-logo.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/ap-logo.svg"
+      }
+    ]
+  },
+  {
+    "hash": "1872df75f01ee6e9f16cf8e36a8e0b7905fb37e53fde6cd0c065bec2f32e28f9",
+    "kind": "image",
+    "bytes": 4436137,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/fb-community-group-mobile-enhanced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/fb-community-group-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/fb-community-group-mobile-enhanced.png"
+      }
+    ]
+  },
+  {
+    "hash": "1d36ea3170990c68227c21722669a2ec0589c7d8a236cfbc66f7b5826c69eb12",
+    "kind": "image",
+    "bytes": 789,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/scene-playable.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/scene-playable.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/scene-playable.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "1ded66bd1b48e1a7206fe9331a01c61318a60e14c043ce818e11fc28e3df1d31",
+    "kind": "image",
+    "bytes": 545038,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-29 095935.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-29 095935.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-29 095935.png"
+      }
+    ]
+  },
+  {
+    "hash": "20dea81b953cbea2e96a209fce6b0a493af2e4aef08040df315435dbc6fecb51",
+    "kind": "image",
+    "bytes": 55989,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/koa-karen-bottom-ring-yellow.png"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/koa-karen-bottom-ring-yellow.png"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/koa-karen-bottom-ring-yellow.png"
+      }
+    ]
+  },
+  {
+    "hash": "222812ce99b8dc2fdd67f7c0a128900451dfab86218c874be837a6bc14dd4449",
+    "kind": "image",
+    "bytes": 2406106,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/fb-capitol-flags-mobile-enhanced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/fb-capitol-flags-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/fb-capitol-flags-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/koa-landing-related-files/public/koa/assets/fb-capitol-flags-mobile-enhanced.png"
+      }
+    ]
+  },
+  {
+    "hash": "229e8353839127e917a266b41ba399770b96bd4ac224929ba58468a225965467",
+    "kind": "image",
+    "bytes": 16122,
+    "canonical": {
+      "source": "koa-website",
+      "path": "output/playwright/phase6-mobile-film.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "output/playwright/phase6-mobile-film.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "23593e8d3f36b80e70319254f0aa20db4779adc012d900366561cde03cdccc61",
+    "kind": "image",
+    "bytes": 43036,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-reduced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-reduced.png"
+      }
+    ]
+  },
+  {
+    "hash": "28a2e820d7f2f24785f6fa0843a6a966f50c9c7ec97ead052d980d096634c608",
+    "kind": "image",
+    "bytes": 64333,
+    "canonical": {
+      "source": "koa-website",
+      "path": "output/playwright/phase6-mobile-motion-off.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "output/playwright/phase6-mobile-motion-off.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "2b67812c325c199a02536cdbeea0c593a72f707d323b72ee3e08dbab06753bd4",
+    "kind": "image",
+    "bytes": 391,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/file.svg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/file.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/file.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/file.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "dist/client/file.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "koa-sites-release/dist/client/file.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/file.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/file.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/file.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "dist/client/file.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "public/file.svg"
+      }
+    ]
+  },
+  {
+    "hash": "2bdad84c02b86e2b1ad8a340d4cc1f5375073ed7f88ce7125dfe4adceda16cf0",
+    "kind": "image",
+    "bytes": 1122810,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-09-08 230347.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-09-08 230347.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-09-08 230347.png"
+      }
+    ]
+  },
+  {
+    "hash": "2c16eab6e650228010318dccc93722445539a38e7473d06bc1882d4c280dcf2e",
+    "kind": "image",
+    "bytes": 691740,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/comparisons/mobile-reduced-matched-side-by-side.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/comparisons/mobile-reduced-matched-side-by-side.png"
+      }
+    ]
+  },
+  {
+    "hash": "2cd06d27dfe939d4fe31e07fa89d887325984b8df2fbc419b6e98f0acf4eed0a",
+    "kind": "image",
+    "bytes": 1922128,
+    "canonical": {
+      "source": "koa-website",
+      "path": "qa/source-option-1.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "qa/source-option-1.png"
+      }
+    ]
+  },
+  {
+    "hash": "2ef62c70b5875b759e580ec8c1618359679c243b2cdf1cad853f4798fcc121c6",
+    "kind": "image",
+    "bytes": 43015,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-00.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-00.png"
+      }
+    ]
+  },
+  {
+    "hash": "3247e85ca77d651c6bdf4f88c1b3d15f0af38e80e535962a7a6f1006e3ee5e7d",
+    "kind": "image",
+    "bytes": 34613,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-06.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-06.png"
+      },
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-06.png"
+      }
+    ]
+  },
+  {
+    "hash": "33e0014a2ccdf19993f4fc3bc9664f674e5c048d080ee64a6ed0a0fbbb3f2b35",
+    "kind": "image",
+    "bytes": 178,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/ap-logo-ring.svg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/ap-logo-ring.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/ap-logo-ring.svg"
+      }
+    ]
+  },
+  {
+    "hash": "392ce46bd5fadc9d8271462dfaf3ea8013dc8f3e86d7e7a4dc46171d7c91d04c",
+    "kind": "image",
+    "bytes": 24361,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-08.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-08.png"
+      }
+    ]
+  },
+  {
+    "hash": "39d310a9b129237d91b9f5b1c9262ce5fb579b04354571d2aa1534b97cabb2f4",
+    "kind": "image",
+    "bytes": 243206,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/koa-sepak-takraw-tournament-ai.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/koa-sepak-takraw-tournament-ai.jpg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/koa-sepak-takraw-tournament-ai.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "3a961f5d18b9c3cb1e1c10a2189f15771568f7d85a4c937d78a86dd688a75d41",
+    "kind": "image",
+    "bytes": 35771,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-10.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-10.png"
+      }
+    ]
+  },
+  {
+    "hash": "3aa84f92b06cfd8078bded6a8a247021cf086d3ff3071d0a9dbb7d1a57d2ff57",
+    "kind": "image",
+    "bytes": 24435,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-08.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-08.png"
+      }
+    ]
+  },
+  {
+    "hash": "3e8863288c2d43dd33d2a71de317dcf9198f09932ea8d61e0def1b846a865435",
+    "kind": "image",
+    "bytes": 718,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/favicon.svg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/favicon.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/favicon.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/favicon.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "dist/client/favicon.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "koa-sites-release/dist/client/favicon.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/favicon.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/favicon.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/favicon.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "dist/client/favicon.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "public/favicon.svg"
+      }
+    ]
+  },
+  {
+    "hash": "4058d55441393f957de1c40abf7e503487fddeabbfe391f5239f2865cd1f36e0",
+    "kind": "image",
+    "bytes": 131892,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-09-14 205119.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-09-14 205119.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-09-14 205119.png"
+      }
+    ]
+  },
+  {
+    "hash": "416cfa8ceb4e281c26f546276adaf39c3b12e9e968a9644b911e73bb5f624af5",
+    "kind": "image",
+    "bytes": 29422,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-05.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-05.png"
+      },
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-05.png"
+      }
+    ]
+  },
+  {
+    "hash": "450e40b90c60db0eba210191ef7a68b72234c1b9b673dd6dabb4e95bfe9eb657",
+    "kind": "image",
+    "bytes": 1140952,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-24 052022.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-24 052022.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-24 052022.png"
+      }
+    ]
+  },
+  {
+    "hash": "476a31cffdcc4c12f964a3f7b6a8fabcf4df51ddeea3a9d729d475793946a597",
+    "kind": "image",
+    "bytes": 17248,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-search-program.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-search-program.png"
+      }
+    ]
+  },
+  {
+    "hash": "48ddce65940d4cf9af30c0844816926c9550120aee21fd02118f27bffec8ac5a",
+    "kind": "image",
+    "bytes": 34080,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-04.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-04.png"
+      }
+    ]
+  },
+  {
+    "hash": "4e133ef0ebf29ac16abbf6822812c7f5dbd6f55e468cf1533d8d18ff806212d5",
+    "kind": "image",
+    "bytes": 2299345,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/history-founding-mobile-enhanced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/history-founding-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/history-founding-mobile-enhanced.png"
+      }
+    ]
+  },
+  {
+    "hash": "4e7ff438d2f9836c756670f097921fa852f8097dc7df884bfef0b940b7de5919",
+    "kind": "image",
+    "bytes": 1358526,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-07-30 152011.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-07-30 152011.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-07-30 152011.png"
+      }
+    ]
+  },
+  {
+    "hash": "4f70b4633570d1a70744836f4e9e7b230e48086b3cdf3824c1ed96f7e3379e99",
+    "kind": "image",
+    "bytes": 59427,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-desktop-motion-reduced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-desktop-motion-reduced.png"
+      }
+    ]
+  },
+  {
+    "hash": "530886da81eb6b838f3f24ea3f28f7ac6878a492894263beea4d3551deb33663",
+    "kind": "image",
+    "bytes": 30679,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-07.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-07.png"
+      },
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-07.png"
+      }
+    ]
+  },
+  {
+    "hash": "53817e736c8ff62c91c2f32cc796f192225216a9b482fcc74e9bc504f03e7544",
+    "kind": "image",
+    "bytes": 861484,
+    "canonical": {
+      "source": "koa-website",
+      "path": "output/playwright/goal-audit/.playwright-cli/page-2026-08-31T23-25-21-434Z.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "output/playwright/goal-audit/.playwright-cli/page-2026-08-31T23-25-21-434Z.png"
+      }
+    ]
+  },
+  {
+    "hash": "55cf1d547f4f5799554123db731bcb881f1946b173f3afe01408a9fa119a9353",
+    "kind": "image",
+    "bytes": 2218908,
+    "canonical": {
+      "source": "koa-website",
+      "path": "docs/design-assets/koa-five-directions.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "docs/design-assets/koa-five-directions.png"
+      }
+    ]
+  },
+  {
+    "hash": "571433b449134c3def1bbc475ba0a3aa047f120a063b3d9277d59dc9112abfc8",
+    "kind": "image",
+    "bytes": 72735,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-desktop-top.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-desktop-top.png"
+      }
+    ]
+  },
+  {
+    "hash": "5722711a67d52d752c746ba11147372f4f9d34a364a23f1e773f55f65838a1f8",
+    "kind": "image",
+    "bytes": 252440,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/koa-national-community-ai.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/koa-national-community-ai.jpg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/koa-national-community-ai.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "610ec134ee3d04f5ead7d4b85bcf37561fbb1a78b4bbe09e10c88050865b0575",
+    "kind": "image",
+    "bytes": 1372857,
+    "canonical": {
+      "source": "koa-website",
+      "path": "qa/desktop-comparison.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "qa/desktop-comparison.png"
+      }
+    ]
+  },
+  {
+    "hash": "644768c4aaeb4767bce293344eeb0c125fb804a94d801440424072202d85e3a1",
+    "kind": "image",
+    "bytes": 385,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/window.svg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/window.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/window.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/window.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "dist/client/window.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "koa-sites-release/dist/client/window.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/window.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/window.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/window.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "dist/client/window.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "public/window.svg"
+      }
+    ]
+  },
+  {
+    "hash": "6506ce8e297f36686db68eefc4558b4ea48e6ac03357f62ec1b80beda59030a9",
+    "kind": "image",
+    "bytes": 797,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/og-image.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/og-image.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/og-image.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "67e2bc8f57fe415c00858fdc13b80740ea0ebb28494ec20e04b60548f997753b",
+    "kind": "image",
+    "bytes": 51135,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-home-menu-open.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-home-menu-open.png"
+      }
+    ]
+  },
+  {
+    "hash": "68098a85d99b03acf5b5e5636c37fbdb5ef0a95abe41779fd742906bbaaf873b",
+    "kind": "image",
+    "bytes": 124446,
+    "canonical": {
+      "source": "koa-website",
+      "path": "qa/implementation-desktop.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "qa/implementation-desktop.png"
+      }
+    ]
+  },
+  {
+    "hash": "68b6df312939c9b3b7eef169c106481d1915c2ee21e44ad2dea2a4923d09ff85",
+    "kind": "image",
+    "bytes": 8266,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-seal-end.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-seal-end.png"
+      }
+    ]
+  },
+  {
+    "hash": "6a72adbe13fe99b50482dd41e2f86a6d2e98ce38f464ab27e1d82286f5a23305",
+    "kind": "image",
+    "bytes": 3736,
+    "canonical": {
+      "source": "koa-website",
+      "path": ".playwright-cli/page-2026-09-02T23-25-23-929Z.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".playwright-cli/page-2026-09-02T23-25-23-929Z.png"
+      }
+    ]
+  },
+  {
+    "hash": "6f20e14cb52cac9053d59f443a1239250b7b05f58d39f666df2ccde1c0a64f00",
+    "kind": "image",
+    "bytes": 2248323,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/programs-community-mobile-generated.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/programs-community-mobile-generated.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/programs-community-mobile-generated.png"
+      }
+    ]
+  },
+  {
+    "hash": "6f389fe622f3d83e4bbd6c29ecac6ada496f21fd207209002fa9b93057566860",
+    "kind": "image",
+    "bytes": 2320753,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/fb-capitol-group-mobile-enhanced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/fb-capitol-group-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/fb-capitol-group-mobile-enhanced.png"
+      }
+    ]
+  },
+  {
+    "hash": "6f70fc6eba19231fff1436f3767c12cdd7df0ed0dc93b20b5fa8ddafa43ad760",
+    "kind": "image",
+    "bytes": 51961,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-menu-open.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-menu-open.png"
+      }
+    ]
+  },
+  {
+    "hash": "6fe0f368191a20b93289016b65d7cce124fdda7f263ee3f52085607084c4a97e",
+    "kind": "image",
+    "bytes": 30172,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-09.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-09.png"
+      },
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-09.png"
+      }
+    ]
+  },
+  {
+    "hash": "742a3184c0aa940b6458ba25d052880448cbf0509d7fbab1a97a92f2d7e103e0",
+    "kind": "image",
+    "bytes": 1973007,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-07-13 121303.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-07-13 121303.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-07-13 121303.png"
+      }
+    ]
+  },
+  {
+    "hash": "77fdf1a7824d4b6814fcedaf3d743a8281035a5c077035d3564d5b4b2ad674b4",
+    "kind": "image",
+    "bytes": 202769,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-09-14 174417.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-09-14 174417.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-09-14 174417.png"
+      }
+    ]
+  },
+  {
+    "hash": "7a7af97814b673ba63228239433ae8346abe7ca5b066501bbb9b93cf57772c56",
+    "kind": "image",
+    "bytes": 130848,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/koa-landing-related-files/public/koa/assets/cultural-community.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "public/landing/koa-landing-related-files/public/koa/assets/cultural-community.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "7ce2db584beec2bfaf48a00c32a3fc6ec8281c862fc9e7157d83585a9e43c4c6",
+    "kind": "image",
+    "bytes": 79165,
+    "canonical": {
+      "source": "koa-website",
+      "path": "qa/implementation-facebook-programs.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "qa/implementation-facebook-programs.png"
+      }
+    ]
+  },
+  {
+    "hash": "7fe5d08f631ec543b0d5b8ec415096d0ecff4158c177cc95a24cc732757d55e9",
+    "kind": "image",
+    "bytes": 137879,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "public/koa/assets/ChatGPT Image Sep 30, 2026, 05_03_55 AM.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "public/koa/assets/ChatGPT Image Sep 30, 2026, 05_03_55 AM.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "7ff0bbba7ca3e563cb57272abe62653081b0557a4850d378011d9fe3782f9f87",
+    "kind": "image",
+    "bytes": 34022,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-11.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-11.png"
+      }
+    ]
+  },
+  {
+    "hash": "8079d32047b7e8efa505751fcae2b80f61617d9ba5ace79cdff92a669d2c11af",
+    "kind": "image",
+    "bytes": 781,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/scene-feeling.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/scene-feeling.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/scene-feeling.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "817a27e50746df3abd9297cd06a5cfbad8d6c9f2a6e3316f4b1ded46aaa4fbbd",
+    "kind": "image",
+    "bytes": 791,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/scene-piano-response.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/scene-piano-response.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/scene-piano-response.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "825c917df868e9a20e683e86afdd569efa1c9107f541b18f3c9ab6e49463775b",
+    "kind": "image",
+    "bytes": 1345585,
+    "canonical": {
+      "source": "koa-website",
+      "path": "docs/design-assets/koa-dusk-landscape-alternative.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "docs/design-assets/koa-dusk-landscape-alternative.png"
+      }
+    ]
+  },
+  {
+    "hash": "826058d13ca65bd2a16c61621ea9b07d3279f493be4018da08597d702e4e0a7e",
+    "kind": "image",
+    "bytes": 13168,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-desktop-seal-end.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-desktop-seal-end.png"
+      }
+    ]
+  },
+  {
+    "hash": "82975a0d9b1eac38cdfdc58edf12f7690c4e4809b7490017db2fe753f239b347",
+    "kind": "image",
+    "bytes": 6458,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-01.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-01.png"
+      }
+    ]
+  },
+  {
+    "hash": "85ffb76ecb1a5377924791c401211214a6c71ca3e737fefa64d453a6e3e64ac9",
+    "kind": "image",
+    "bytes": 182222,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/koa-landing-related-files/public/koa/assets/washington-advocacy.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "public/landing/koa-landing-related-files/public/koa/assets/washington-advocacy.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "9b00687defa0520b64b72ca70910bdb8ea37f6cd49b96378cb63b005c83bb249",
+    "kind": "image",
+    "bytes": 420,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/ap-seal.svg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/ap-seal.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/ap-seal.svg"
+      }
+    ]
+  },
+  {
+    "hash": "9cf7d27669930beef6e0e1863f104bf54163476e9abf5abf75d5ba62fa92f5c9",
+    "kind": "image",
+    "bytes": 17257,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-search-program.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-search-program.png"
+      }
+    ]
+  },
+  {
+    "hash": "9f6176743f565066a2d114901d248f5076a9637c8cb026da38a6b2de8548fbb4",
+    "kind": "image",
+    "bytes": 610,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/work-transcription.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/work-transcription.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/work-transcription.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "a5eb7b514245766d5c3a47296bdb89415cb2b8c5e20771a9efe88ee2dcf93c5d",
+    "kind": "image",
+    "bytes": 447,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/negative-glyph-tile.svg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/negative-glyph-tile.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/negative-glyph-tile.svg"
+      }
+    ]
+  },
+  {
+    "hash": "adc9fbe9d9fddd622f19992c684c3217312de7e4f3b89ac03c3777ceb3e680cf",
+    "kind": "image",
+    "bytes": 26615,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-04.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-04.png"
+      }
+    ]
+  },
+  {
+    "hash": "b23e1ba40301a3a0192c896cd66e9a4e41b369bc020183dffd8d89b7d6ba6134",
+    "kind": "image",
+    "bytes": 2589729,
+    "canonical": {
+      "source": "koa-website",
+      "path": "content/drafts/oliver-introduction-2026-09-30/oliver-uofl-portrait-edited.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "content/drafts/oliver-introduction-2026-09-30/oliver-uofl-portrait-edited.png"
+      }
+    ]
+  },
+  {
+    "hash": "b614b9bf183925957661ac851498fe1d8029fd43a62fbfed86f9e2624a57e7cf",
+    "kind": "image",
+    "bytes": 1035,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/globe.svg"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/globe.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/globe.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/globe.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "dist/client/globe.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "koa-sites-release/dist/client/globe.svg"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/globe.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/globe.svg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/globe.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "dist/client/globe.svg"
+      },
+      {
+        "source": "koa-sites-publish-snapshot",
+        "path": "public/globe.svg"
+      }
+    ]
+  },
+  {
+    "hash": "b7ca3d5ebe93811c6683d7e78639b967c1a030f8cb11c7c1df59dba120b094eb",
+    "kind": "image",
+    "bytes": 29338,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-13.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-13.png"
+      }
+    ]
+  },
+  {
+    "hash": "bd51663b6f330318087202ac7d96bf6b9dd73deae22e6e1417b7b8487e8f2542",
+    "kind": "image",
+    "bytes": 727680,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/comparisons/mobile-full-journey-contact-sheet.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/comparisons/mobile-full-journey-contact-sheet.png"
+      }
+    ]
+  },
+  {
+    "hash": "c0424b1563637652e6419762906ebb7d64dfda7ca6e84d056cc21ba297c58ae0",
+    "kind": "image",
+    "bytes": 79770,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-09-14 174444.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-09-14 174444.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-09-14 174444.png"
+      }
+    ]
+  },
+  {
+    "hash": "c049373c35b9f9723a59b895f431a35a26083576ef50c81fb78faa62e1727c13",
+    "kind": "image",
+    "bytes": 596,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/work-piano-response.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/work-piano-response.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/work-piano-response.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "c0b4f09155357d68a2ea98554bf909c20dbc68d081fb0975912018426946edf6",
+    "kind": "image",
+    "bytes": 1366,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-09-02 220001.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-09-02 220001.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-09-02 220001.png"
+      }
+    ]
+  },
+  {
+    "hash": "c1ffc383d6c3049122486a8e30bd45c4df47ca9fdd4754d2c36c4d8549788b3d",
+    "kind": "image",
+    "bytes": 2531365,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "public/koa/assets/ChatGPT Image Sep 30, 2026, 06_41_14 AM.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "public/koa/assets/ChatGPT Image Sep 30, 2026, 06_41_14 AM.png"
+      }
+    ]
+  },
+  {
+    "hash": "c2aa76d81b20a24d0828d3811ff9161d784abfd08d893b2500c25e8e16ad0c02",
+    "kind": "image",
+    "bytes": 2703984,
+    "canonical": {
+      "source": "koa-website",
+      "path": "content/drafts/oliver-introduction-2026-09-30/oliver-uofl-portrait-source.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "content/drafts/oliver-introduction-2026-09-30/oliver-uofl-portrait-source.png"
+      }
+    ]
+  },
+  {
+    "hash": "c35926f5b83f862170d775f282f4accd65f8c16867a918c6321da92f0c421648",
+    "kind": "image",
+    "bytes": 14361,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-search-empty.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-search-empty.png"
+      }
+    ]
+  },
+  {
+    "hash": "c49f08a954d0b0edcc6a5d6d1cfcc40e6be386cf4fecb0cfdc4bc1ac01716e57",
+    "kind": "image",
+    "bytes": 1215293,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-07-30 133602.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-07-30 133602.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-07-30 133602.png"
+      }
+    ]
+  },
+  {
+    "hash": "c5a7db7215b8e824c689ceb62b96e1c718e3f596a9c9474341f944c575fa43e9",
+    "kind": "image",
+    "bytes": 641208,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-16 091826.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-16 091826.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-16 091826.png"
+      }
+    ]
+  },
+  {
+    "hash": "c63cde9213624b79b661f0ce4849e1503d23ca1495695ac0d1bf49ada4459231",
+    "kind": "image",
+    "bytes": 14679,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-02.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-02.png"
+      }
+    ]
+  },
+  {
+    "hash": "c77380643e8b08ecebf12d8346848c4342cb8248bcebd6ffc31e2d0a74a6a320",
+    "kind": "image",
+    "bytes": 1012535,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-16 090149.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-16 090149.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-16 090149.png"
+      }
+    ]
+  },
+  {
+    "hash": "c8b9474f9c0a2ea35e2c07b30de80014bc927047ed0da2257d3630ee962053e2",
+    "kind": "image",
+    "bytes": 16958,
+    "canonical": {
+      "source": "koa-website",
+      "path": "output/playwright/phase5-en-desktop.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "output/playwright/phase5-en-desktop.png"
+      }
+    ]
+  },
+  {
+    "hash": "cb2646ee3d8799e49a56676a24951b2cdaef872c290f12d4fe6ac1e013cc2adf",
+    "kind": "image",
+    "bytes": 3076227,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/hero-community-mobile-enhanced.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/hero-community-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/hero-community-mobile-enhanced.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/koa-landing-related-files/public/koa/assets/hero-community-mobile-enhanced.png"
+      }
+    ]
+  },
+  {
+    "hash": "cce53d280c64dec6d8759c0f935186fdac4bf4c8b33f71d1237b39599f49f6d4",
+    "kind": "image",
+    "bytes": 101519,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/comparisons/mobile-search-program-side-by-side.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/comparisons/mobile-search-program-side-by-side.png"
+      }
+    ]
+  },
+  {
+    "hash": "ce6c76185d9f5bd2de9223c8d7e83a714090f8a4f7e1cafc3de157aa2974577f",
+    "kind": "video",
+    "bytes": 50860033,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/koa_too_fast_landing.mp4"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/koa_too_fast_landing.mp4"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/koa_too_fast_landing.mp4"
+      }
+    ]
+  },
+  {
+    "hash": "d1c093c321789137b20a74351bd5a05f059815ae9a0ba622e242fa68d56aa421",
+    "kind": "image",
+    "bytes": 35115,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-12.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-12.png"
+      }
+    ]
+  },
+  {
+    "hash": "d6c67072e790f8d025d0062d66d8978543e56e79cb5a791eff92aa403cc4127b",
+    "kind": "image",
+    "bytes": 824328,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-29 125538.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-29 125538.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-29 125538.png"
+      }
+    ]
+  },
+  {
+    "hash": "da1fb21b80169265efd78ff30b413ff30245c54daaa699cdbc385d0d923c7340",
+    "kind": "image",
+    "bytes": 1169676,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/koa/assets/koa-seal-white-lettering-v2.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/koa/assets/koa-seal-white-lettering-v2.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/koa/assets/koa-seal-white-lettering-v2.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/koa-landing-related-files/public/koa/assets/koa-seal-white-lettering-v2.png"
+      }
+    ]
+  },
+  {
+    "hash": "daf1cecb1a111e81ab305ec6c7ecc4255c5fc6cb2a9b0dd3a8fe223ab12847c6",
+    "kind": "image",
+    "bytes": 743356,
+    "canonical": {
+      "source": "koa-website",
+      "path": ".playwright-cli/page-2026-09-02T18-18-33-015Z.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".playwright-cli/page-2026-09-02T18-18-33-015Z.png"
+      }
+    ]
+  },
+  {
+    "hash": "dbe160ab4b706e123c6e5ac76ccb687eab608cee6deca2f4e9adea47197c7db8",
+    "kind": "image",
+    "bytes": 36190,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-10.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-10.png"
+      }
+    ]
+  },
+  {
+    "hash": "dde53bec7c69d9f9f9b76dcc869929faea0909a20d65158db43e22b727002c14",
+    "kind": "image",
+    "bytes": 607796,
+    "canonical": {
+      "source": "koa-website",
+      "path": ".playwright-cli/page-2026-09-02T23-35-24-956Z.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": ".playwright-cli/page-2026-09-02T23-35-24-956Z.png"
+      }
+    ]
+  },
+  {
+    "hash": "de9a939b0a700a0bbfbc566ec0eb2987ca0ebeda7ec53115bb692c594a18d748",
+    "kind": "image",
+    "bytes": 675847,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-30 152237.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-30 152237.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-30 152237.png"
+      }
+    ]
+  },
+  {
+    "hash": "e1cd0f669aa5afae7d9160799b2ca9945d5175e2e5923a6ff53c7a773a86aadb",
+    "kind": "image",
+    "bytes": 965433,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-16 091114.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-16 091114.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-16 091114.png"
+      }
+    ]
+  },
+  {
+    "hash": "e1fad8e410264b51f2c411acc6e0cf9b5b98be5435fba0d7d03b807ae3aae8ab",
+    "kind": "image",
+    "bytes": 30224,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-13.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-13.png"
+      }
+    ]
+  },
+  {
+    "hash": "e240c71da965b88e56ae120618f6bed2c64885dd2108768be763522fd99b050b",
+    "kind": "image",
+    "bytes": 964350,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/Screenshot 2026-08-29 100113.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/landing/Screenshot 2026-08-29 100113.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/landing/Screenshot 2026-08-29 100113.png"
+      }
+    ]
+  },
+  {
+    "hash": "e2cefa85cbe7b07171c5a2388d1d99fe1a0b5e0b14472d2b48bf0e6fe372d353",
+    "kind": "image",
+    "bytes": 36208,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-12.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-12.png"
+      }
+    ]
+  },
+  {
+    "hash": "e560451a723ba305f4c83e696886225c50b9d04d4a7df9b25b784ef1a6a93b3b",
+    "kind": "image",
+    "bytes": 24046,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-03.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-03.png"
+      }
+    ]
+  },
+  {
+    "hash": "ed9909e52104a96a58db1af416ca3850929471e92453abd3f3ffb21b7b5f0be0",
+    "kind": "image",
+    "bytes": 42201,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-mobile-00.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-mobile-00.png"
+      }
+    ]
+  },
+  {
+    "hash": "ee51a8ec41a1711e131d8aceead1dd455fc8d26e50449da43d8398a2c5cf629e",
+    "kind": "image",
+    "bytes": 792,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/scene-recording.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/scene-recording.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/scene-recording.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "f00850e46096eb1fa83beaab6fe0e4cc8cac28a53fdb88e7f174722e78edb056",
+    "kind": "image",
+    "bytes": 6029,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/implementation/implementation-desktop-seal-scene-end.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/implementation/implementation-desktop-seal-scene-end.png"
+      }
+    ]
+  },
+  {
+    "hash": "f1572b44b37a3b5b19d917198dc0ad9f9b5048f7a62ff36415279754e7776d06",
+    "kind": "image",
+    "bytes": 2291797,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/og-cinematic.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "dist/client/og-cinematic.png"
+      },
+      {
+        "source": "koa-website",
+        "path": "public/og-cinematic.png"
+      }
+    ]
+  },
+  {
+    "hash": "f728da0d43b7c970c95c9773bc835842380fcca9e2573161ca9d86a6d114433d",
+    "kind": "image",
+    "bytes": 520975,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/comparisons/mobile-menu-side-by-side.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/comparisons/mobile-menu-side-by-side.png"
+      }
+    ]
+  },
+  {
+    "hash": "f7f58ef2b7a08e299dd9432059da602cd2c95bc9e7d2145a3bb9ea14d9083c1a",
+    "kind": "image",
+    "bytes": 187956,
+    "canonical": {
+      "source": "koa-website",
+      "path": "public/landing/koa-landing-related-files/public/koa/assets/koa-logo.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "public/landing/koa-landing-related-files/public/koa/assets/koa-logo.png"
+      }
+    ]
+  },
+  {
+    "hash": "fa3de72381300292f55449aa7ac33cf12152a2fc554c2463047be04768d253b5",
+    "kind": "image",
+    "bytes": 16125,
+    "canonical": {
+      "source": "koa-url-clone",
+      "path": "evidence/source/source-mobile-02.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-url-clone",
+        "path": "evidence/source/source-mobile-02.png"
+      }
+    ]
+  },
+  {
+    "hash": "fafc338fbcf63d1519a029926ebf493152550d614396211bc3938f391ffcad3d",
+    "kind": "image",
+    "bytes": 606,
+    "canonical": {
+      "source": "sons-of-kawthoolei-v5",
+      "path": "dist/client/koa-v5/assets/work-live-sound.jpg"
+    },
+    "occurrences": [
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/assets/work-live-sound.jpg"
+      },
+      {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "public/koa-v5/assets/work-live-sound.jpg"
+      }
+    ]
+  },
+  {
+    "hash": "fe791f2374e54768688ab1eef845892f177af3845c035eafd00850f0895a98ab",
+    "kind": "image",
+    "bytes": 26718,
+    "canonical": {
+      "source": "koa-website",
+      "path": "qa/implementation-mobile-programs.png"
+    },
+    "occurrences": [
+      {
+        "source": "koa-website",
+        "path": "qa/implementation-mobile-programs.png"
+      }
+    ]
+  }
+]

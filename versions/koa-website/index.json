@@ -1,0 +1,1141 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-02T15:00:18.569Z",
+  "canonical": {
+    "source": "origin/main",
+    "requestedRef": "origin/main",
+    "commit": "91f4890a8e628631e9c65b7036ec8f449e633e83",
+    "route": "app/[lang]/page.tsx -> components/CinematicLanding.tsx",
+    "remote": "https://github.com/otpayt02/koa-website.git"
+  },
+  "sourceRoots": [
+    {
+      "id": "koa-website",
+      "path": "C:\\Users\\olive\\Projects\\koa-website"
+    },
+    {
+      "id": "sons-of-kawthoolei-v5",
+      "path": "C:\\Users\\olive\\Projects\\sons_of_kawthoolei\\KOA\\koa-sites"
+    },
+    {
+      "id": "koa-url-clone",
+      "path": "C:\\Users\\olive\\Projects\\koa-url-clone"
+    },
+    {
+      "id": "koa-sites-reference-release",
+      "path": "C:\\Users\\olive\\Projects\\koa-sites-reference-release"
+    },
+    {
+      "id": "koa-sites-publish-snapshot",
+      "path": "C:\\Users\\olive\\Projects\\koa-website-sites-publish-min-20260904-161735"
+    }
+  ],
+  "counts": {
+    "htmlPaths": 75,
+    "uniqueHtmlVersions": 41,
+    "assetPaths": 201,
+    "uniqueAssets": 113,
+    "duplicateAssetPaths": 88,
+    "gitLaunchers": 19
+  },
+  "htmlVersions": [
+    {
+      "id": "0027fc833016",
+      "hash": "0027fc83301672bbe84a28032e420df48bfeb8254249824d06281a8dcec8e9a8",
+      "bytes": 14711,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/coming-soon.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/coming-soon.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/coming-soon.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/coming-soon.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/coming-soon.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "5722711a67d52d752c746ba11147372f4f9d34a364a23f1e773f55f65838a1f8",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-national-community-ai.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "031f3de8dc1a",
+      "hash": "031f3de8dc1a91b56a48d90dceaff2146f60e3ed088aa91f3702b5f868af7a1b",
+      "bytes": 9338,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/koa/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v7/dist/client/koa/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "082e6914ed3b",
+      "hash": "082e6914ed3bfc48aeb16ca8d5ab840e89b98548cecbc6458f434dd1c3e5d5c0",
+      "bytes": 212543,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/landing/koa-landing-related-files/reference/koa_x5f_final_x5f_organized_x5f_alphabet.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "public/landing/koa-landing-related-files/reference/koa_x5f_final_x5f_organized_x5f_alphabet.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "0c6bf8474818",
+      "hash": "0c6bf84748189e24fba48fde39db69aa42729222c5bf17a143b70a5cdae84598",
+      "bytes": 57244,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/index-enhanced.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/index-enhanced.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/index-enhanced.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/index-enhanced.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/index-enhanced.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "03d7c11e812e13843dd5db45c73156eaaa7cacb1d60a5c20adbba4e94d1e078c",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-community-care-ai.jpg"
+          }
+        },
+        {
+          "hash": "39d310a9b129237d91b9f5b1c9262ce5fb579b04354571d2aa1534b97cabb2f4",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-sepak-takraw-tournament-ai.jpg"
+          }
+        },
+        {
+          "hash": "5722711a67d52d752c746ba11147372f4f9d34a364a23f1e773f55f65838a1f8",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-national-community-ai.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0ecdd051c50a",
+      "hash": "0ecdd051c50a889f82ed39326781c0b5a4eb156b37c08b5b732791183740803f",
+      "bytes": 11245,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/contact.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/contact.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/contact.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/contact.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/contact.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "03d7c11e812e13843dd5db45c73156eaaa7cacb1d60a5c20adbba4e94d1e078c",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-community-care-ai.jpg"
+          }
+        },
+        {
+          "hash": "5722711a67d52d752c746ba11147372f4f9d34a364a23f1e773f55f65838a1f8",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-national-community-ai.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "1093c4fd8777",
+      "hash": "1093c4fd87774f9d1d732dca388e2fb34a40ca07392162dc98ab55bcb4936783",
+      "bytes": 8107,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/koa/contact.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v5/dist/client/koa/contact.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "125d57436599",
+      "hash": "125d57436599cf70c60acdaf1f7b9766745f14138156c39dc07f6a97c6b1f2bc",
+      "bytes": 9189,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/koa/contact.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v7/dist/client/koa/contact.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "194c56fea5db",
+      "hash": "194c56fea5db445ba1ed7f429a4c80705a323d07dd9eff9798f471202aaca1de",
+      "bytes": 2450,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/koa/stories.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites/dist/client/koa/stories.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "2a3273140d2b",
+      "hash": "2a3273140d2b8d6a05fdbd4367e77ed654fe32edccaef169102f5b2ba53e363a",
+      "bytes": 9116,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/stories.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/stories.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/stories.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/stories.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/stories.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "03d7c11e812e13843dd5db45c73156eaaa7cacb1d60a5c20adbba4e94d1e078c",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-community-care-ai.jpg"
+          }
+        },
+        {
+          "hash": "39d310a9b129237d91b9f5b1c9262ce5fb579b04354571d2aa1534b97cabb2f4",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-sepak-takraw-tournament-ai.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "373e130e44a2",
+      "hash": "373e130e44a294180a6553d5fac5f3df3b7441c2c8efc95005680053b25dba65",
+      "bytes": 8578,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/koa/about.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v5/dist/client/koa/about.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "3b6d54881758",
+      "hash": "3b6d5488175801421ce5d49e5879a869c7d5d0cc4d1684980d693e68cfdc284e",
+      "bytes": 2064,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/koa/contact.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites/dist/client/koa/contact.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "4401840e3fb6",
+      "hash": "4401840e3fb69b584e076657c4245b9b6df11a8b662d10f689d7544d34627460",
+      "bytes": 7691428,
+      "primary": {
+        "source": "koa-website",
+        "path": "koa-sites-release/dist/koa.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/koa.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "47d6d758490e",
+      "hash": "47d6d758490ebc86ada6233dccbb7177f5ed4e2c663ca44bb0b33e03d29952d9",
+      "bytes": 9974,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/koa/about.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v7/dist/client/koa/about.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "535b5ee5f279",
+      "hash": "535b5ee5f279527e30a0a3517a35ba9a1b77fe1f61d1dad708cd604c6aadbc62",
+      "bytes": 6543,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/koa/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites/dist/client/koa/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "5e3697d964ac",
+      "hash": "5e3697d964ac6180e8f179d29c1ba14df466c8078f4eb6664f29f18584cf7848",
+      "bytes": 2148,
+      "primary": {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/karen-admin.html"
+      },
+      "occurrences": [
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "dist/client/koa-v5/karen-admin.html"
+        },
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "public/koa-v5/karen-admin.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "62a2bd637162",
+      "hash": "62a2bd637162421111001e1420e47879ab13645c49c4dc48e7522f2fb940390d",
+      "bytes": 10912,
+      "primary": {
+        "source": "koa-website",
+        "path": ".hermes/ref/about.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".hermes/ref/about.html"
+        },
+        {
+          "source": "koa-sites-publish-snapshot",
+          "path": ".hermes/ref/about.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "674ab5c55531",
+      "hash": "674ab5c55531d26249dff5c0a12bf65ba474364452af5d1ab097f21849606dd1",
+      "bytes": 11644,
+      "primary": {
+        "source": "koa-url-clone",
+        "path": "dist/client/koa/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-url-clone",
+          "path": "dist/client/koa/index.html"
+        },
+        {
+          "source": "koa-url-clone",
+          "path": "public/koa/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "69df05c8c7e5",
+      "hash": "69df05c8c7e5a5d6d4035c973347dadbc32d5ecaf874dbf5b8e286be4713dd73",
+      "bytes": 2255,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/koa/about.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites/dist/client/koa/about.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "6ccb4e7fbc02",
+      "hash": "6ccb4e7fbc02b7df8d1745e37ad97640209228aac027a2aacccb1d0882bde715",
+      "bytes": 4466,
+      "primary": {
+        "source": "koa-website",
+        "path": "Rebuilding-koa-website-cinematic.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "Rebuilding-koa-website-cinematic.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "6fa005e716f2",
+      "hash": "6fa005e716f2486bf2e54f58e27e858f27ea9641b8009324d8b2dfb7fb57edee",
+      "bytes": 8372,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/music.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/music.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/music.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/music.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/music.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "5722711a67d52d752c746ba11147372f4f9d34a364a23f1e773f55f65838a1f8",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-national-community-ai.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "75402054426f",
+      "hash": "75402054426f68776c025bcc9ab6e3269d6fbbb38dc4ff6d64fa53ec31a2510c",
+      "bytes": 7208,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/koa/stories.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v5/dist/client/koa/stories.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "79a75418eb9d",
+      "hash": "79a75418eb9d6036c452d98b8e34d817a9c49e8fe712a2e3d4109225061914fb",
+      "bytes": 8190,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/koa/stories.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v7/dist/client/koa/stories.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "8114adbacacc",
+      "hash": "8114adbacacc5a2d3923cb355dd9785b2b4922b304c241755fd07644e9ba25cf",
+      "bytes": 467,
+      "primary": {
+        "source": "koa-url-clone",
+        "path": "index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-url-clone",
+          "path": "index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "8cfc22b858b4",
+      "hash": "8cfc22b858b4f1384883767c874f384484a61db9bc2c9ad002759dfa6a011ab2",
+      "bytes": 10086,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/programs.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/programs.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/programs.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/programs.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/programs.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "03d7c11e812e13843dd5db45c73156eaaa7cacb1d60a5c20adbba4e94d1e078c",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-community-care-ai.jpg"
+          }
+        },
+        {
+          "hash": "5722711a67d52d752c746ba11147372f4f9d34a364a23f1e773f55f65838a1f8",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-national-community-ai.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "8d014f248135",
+      "hash": "8d014f248135490ec397090a88dc955e7981b54573d3bebd05e769a90a6407d8",
+      "bytes": 10127,
+      "primary": {
+        "source": "koa-website",
+        "path": ".hermes/ref/contact.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".hermes/ref/contact.html"
+        },
+        {
+          "source": "koa-sites-publish-snapshot",
+          "path": ".hermes/ref/contact.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "9021c84fac56",
+      "hash": "9021c84fac56c3408f10d4caec21f5b09ac578f78e5a6338ed546e2b8929d993",
+      "bytes": 8304,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/koa/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v5/dist/client/koa/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "9672c9c2bc40",
+      "hash": "9672c9c2bc40340cf7c13ec956899b4566e02bd25ac2be928b92bc75984d9024",
+      "bytes": 7609,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v5/dist/client/koa/programs.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v5/dist/client/koa/programs.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "9673cd3e8815",
+      "hash": "9673cd3e88154fe5c0cc1eab58fc661cbba310d38a838f4fdb34ef0f37f907a7",
+      "bytes": 9494,
+      "primary": {
+        "source": "koa-website",
+        "path": ".hermes/ref/programs.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".hermes/ref/programs.html"
+        },
+        {
+          "source": "koa-sites-publish-snapshot",
+          "path": ".hermes/ref/programs.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "96ca7e914447",
+      "hash": "96ca7e914447867dbc5ef35cc76f5921e2dbae729453b47d664c57e7bd845556",
+      "bytes": 26575,
+      "primary": {
+        "source": "koa-sites-reference-release",
+        "path": "dist/en/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/en/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "a973ac1328c0",
+      "hash": "a973ac1328c0341c839f3a92ce021ce91c8310f65ce152ce6ec36f66e263652a",
+      "bytes": 10276,
+      "primary": {
+        "source": "koa-website",
+        "path": ".hermes/ref/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".hermes/ref/index.html"
+        },
+        {
+          "source": "koa-sites-publish-snapshot",
+          "path": ".hermes/ref/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "ae1ef23a1f58",
+      "hash": "ae1ef23a1f582d64580ec6da2e37d1da2b29ac91a74e0da3328838a0146d2844",
+      "bytes": 565,
+      "primary": {
+        "source": "koa-url-clone",
+        "path": "dist/client/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-url-clone",
+          "path": "dist/client/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "b88c7fe4e1fa",
+      "hash": "b88c7fe4e1fa1299d6b78bc7afb8ac24933796f53ac8da7147f2e706e465fc99",
+      "bytes": 37789,
+      "primary": {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "dist/client/koa/index.html"
+        },
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "public/koa/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "b9d65e055e44",
+      "hash": "b9d65e055e44783b9aebe32a157b65fe0d700c2d2c9bbcf8b19318a9a9d6162a",
+      "bytes": 2740,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites/dist/client/koa/programs.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites/dist/client/koa/programs.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "beacb67f19c0",
+      "hash": "beacb67f19c06075f72ee46c337cae365105d0728f1ffe864673f552916f7864",
+      "bytes": 26555,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/index.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/index.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/index.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/index.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "03d7c11e812e13843dd5db45c73156eaaa7cacb1d60a5c20adbba4e94d1e078c",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-community-care-ai.jpg"
+          }
+        },
+        {
+          "hash": "39d310a9b129237d91b9f5b1c9262ce5fb579b04354571d2aa1534b97cabb2f4",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-sepak-takraw-tournament-ai.jpg"
+          }
+        },
+        {
+          "hash": "5722711a67d52d752c746ba11147372f4f9d34a364a23f1e773f55f65838a1f8",
+          "canonical": {
+            "source": "koa-website",
+            "path": "public/koa/assets/koa-national-community-ai.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bfc582531eb6",
+      "hash": "bfc582531eb69c49898d27d53a06db772f08a50e2bc92eed0ecfe59e3fb74268",
+      "bytes": 7691201,
+      "primary": {
+        "source": "koa-website",
+        "path": "dist/koa.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/koa.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "c2f30cbdf847",
+      "hash": "c2f30cbdf8477508fb519370a47e06fac30a34f7b9320f665cb2874aabeb4391",
+      "bytes": 8556,
+      "primary": {
+        "source": "koa-website",
+        "path": ".openai/koa-sites-v7/dist/client/koa/programs.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".openai/koa-sites-v7/dist/client/koa/programs.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "c2f790a78311",
+      "hash": "c2f790a783112cdbb236cc7f15349602dc801666b404cd41a5f7f762efc72a5c",
+      "bytes": 11220,
+      "primary": {
+        "source": "koa-website",
+        "path": "public/koa/about.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": "dist/client/koa/about.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "koa-sites-release/dist/client/koa/about.html"
+        },
+        {
+          "source": "koa-website",
+          "path": "public/koa/about.html"
+        },
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/koa/about.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "c990fdaeec33",
+      "hash": "c990fdaeec335cbfd01f67e6bd6e23fa7bfab76e7862b962d464ccd295f40b1f",
+      "bytes": 9128,
+      "primary": {
+        "source": "koa-website",
+        "path": ".hermes/ref/stories.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-website",
+          "path": ".hermes/ref/stories.html"
+        },
+        {
+          "source": "koa-sites-publish-snapshot",
+          "path": ".hermes/ref/stories.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "f037e36ced0e",
+      "hash": "f037e36ced0e1b2b0c8d5e903cc4bd94962ddeb5bb9e2525042b9364dc58aaae",
+      "bytes": 2107,
+      "primary": {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/karen.html"
+      },
+      "occurrences": [
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "dist/client/koa-v5/karen.html"
+        },
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "public/koa-v5/karen.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "f11c24858b75",
+      "hash": "f11c24858b75d9f8891426712d0a9e39a8f0bc4ca90729170a7cde2cf3e3b1bf",
+      "bytes": 382,
+      "primary": {
+        "source": "koa-sites-reference-release",
+        "path": "dist/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "koa-sites-reference-release",
+          "path": "dist/index.html"
+        }
+      ],
+      "assets": []
+    },
+    {
+      "id": "fa7469a1442e",
+      "hash": "fa7469a1442e63c48f8269300c0c1198dd7b42351a1ee7e74147fdd82aa816bb",
+      "bytes": 19843,
+      "primary": {
+        "source": "sons-of-kawthoolei-v5",
+        "path": "dist/client/koa-v5/index.html"
+      },
+      "occurrences": [
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "dist/client/koa-v5/index.html"
+        },
+        {
+          "source": "sons-of-kawthoolei-v5",
+          "path": "public/koa-v5/index.html"
+        }
+      ],
+      "assets": [
+        {
+          "hash": "0d87b9feee07e02cb4b5ba64fce31c577e102f093516aa04d9f64f79b04fbd14",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/favicon.svg"
+          }
+        },
+        {
+          "hash": "156d9e9798a7ab620e2e513791ffc43005a7ee0911affd05a29706a82964f7b5",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/work-production.jpg"
+          }
+        },
+        {
+          "hash": "17b9acb9efad1831029014c795d959543c65f9bd3c7be38c33f60a57d4eec49f",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/ap-logo.svg"
+          }
+        },
+        {
+          "hash": "1d36ea3170990c68227c21722669a2ec0589c7d8a236cfbc66f7b5826c69eb12",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/scene-playable.jpg"
+          }
+        },
+        {
+          "hash": "33e0014a2ccdf19993f4fc3bc9664f674e5c048d080ee64a6ed0a0fbbb3f2b35",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/ap-logo-ring.svg"
+          }
+        },
+        {
+          "hash": "8079d32047b7e8efa505751fcae2b80f61617d9ba5ace79cdff92a669d2c11af",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/scene-feeling.jpg"
+          }
+        },
+        {
+          "hash": "817a27e50746df3abd9297cd06a5cfbad8d6c9f2a6e3316f4b1ded46aaa4fbbd",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/scene-piano-response.jpg"
+          }
+        },
+        {
+          "hash": "9b00687defa0520b64b72ca70910bdb8ea37f6cd49b96378cb63b005c83bb249",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/ap-seal.svg"
+          }
+        },
+        {
+          "hash": "9f6176743f565066a2d114901d248f5076a9637c8cb026da38a6b2de8548fbb4",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/work-transcription.jpg"
+          }
+        },
+        {
+          "hash": "c049373c35b9f9723a59b895f431a35a26083576ef50c81fb78faa62e1727c13",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/work-piano-response.jpg"
+          }
+        },
+        {
+          "hash": "ee51a8ec41a1711e131d8aceead1dd455fc8d26e50449da43d8398a2c5cf629e",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/scene-recording.jpg"
+          }
+        },
+        {
+          "hash": "fafc338fbcf63d1519a029926ebf493152550d614396211bc3938f391ffcad3d",
+          "canonical": {
+            "source": "sons-of-kawthoolei-v5",
+            "path": "dist/client/koa-v5/assets/work-live-sound.jpg"
+          }
+        }
+      ]
+    }
+  ],
+  "gitVersions": [
+    {
+      "id": "chatgpt-glyph-hero-story-layout",
+      "ref": "chatgpt/glyph-hero-story-layout",
+      "commit": "4eaf2693b1b470d8c4d201a970800a51d8273cb1",
+      "launcher": "scripts/versions/launch-chatgpt-glyph-hero-story-layout.ps1"
+    },
+    {
+      "id": "cinematic-koa-redesign",
+      "ref": "cinematic-koa-redesign",
+      "commit": "f7e99f365f2bee5c632d1579ea29964d0fe9f078",
+      "launcher": "scripts/versions/launch-cinematic-koa-redesign.ps1"
+    },
+    {
+      "id": "codex-bilingual-counterparts-beta",
+      "ref": "codex/bilingual-counterparts-beta",
+      "commit": "e941e02f30ebac3e79e64938a3e3f02f100e053e",
+      "launcher": "scripts/versions/launch-codex-bilingual-counterparts-beta.ps1"
+    },
+    {
+      "id": "codex-phase7-audit",
+      "ref": "codex/phase7-audit",
+      "commit": "3836ac87e42ab4ee6322633fb3e7c56814db5b53",
+      "launcher": "scripts/versions/launch-codex-phase7-audit.ps1"
+    },
+    {
+      "id": "codex-sites-publish",
+      "ref": "codex/sites-publish",
+      "commit": "3adc8bce68ef13069fe55ddb6d3bf0ecfd139688",
+      "launcher": "scripts/versions/launch-codex-sites-publish.ps1"
+    },
+    {
+      "id": "feat-cinematic-spec",
+      "ref": "feat/cinematic-spec",
+      "commit": "993eaeead64e1f60ab243471b70b8f75e23237c1",
+      "launcher": "scripts/versions/launch-feat-cinematic-spec.ps1"
+    },
+    {
+      "id": "koa-film-combo",
+      "ref": "koa-film-combo",
+      "commit": "bb6322ad8feb181f938303f2c703d388620b439e",
+      "launcher": "scripts/versions/launch-koa-film-combo.ps1"
+    },
+    {
+      "id": "koa-visual-narrative-redesign-994e3",
+      "ref": "koa-visual-narrative-redesign-994e3",
+      "commit": "0f67403b1076e724560324e57cc6c44239245bad",
+      "launcher": "scripts/versions/launch-koa-visual-narrative-redesign-994e3.ps1"
+    },
+    {
+      "id": "main",
+      "ref": "main",
+      "commit": "501497ff8459e876fb88171c2328aa3dae27340e",
+      "launcher": "scripts/versions/launch-main.ps1"
+    },
+    {
+      "id": "origin",
+      "ref": "origin",
+      "commit": "91f4890a8e628631e9c65b7036ec8f449e633e83",
+      "launcher": "scripts/versions/launch-origin.ps1"
+    },
+    {
+      "id": "origin-chatgpt-glyph-hero-story-layout",
+      "ref": "origin/chatgpt/glyph-hero-story-layout",
+      "commit": "c025f769a81ab8d42a0a1473194857d604dc5ca9",
+      "launcher": "scripts/versions/launch-origin-chatgpt-glyph-hero-story-layout.ps1"
+    },
+    {
+      "id": "origin-cinematic-koa-redesign",
+      "ref": "origin/cinematic-koa-redesign",
+      "commit": "f7e99f365f2bee5c632d1579ea29964d0fe9f078",
+      "launcher": "scripts/versions/launch-origin-cinematic-koa-redesign.ps1"
+    },
+    {
+      "id": "origin-codex-bilingual-counterparts-beta",
+      "ref": "origin/codex/bilingual-counterparts-beta",
+      "commit": "e941e02f30ebac3e79e64938a3e3f02f100e053e",
+      "launcher": "scripts/versions/launch-origin-codex-bilingual-counterparts-beta.ps1"
+    },
+    {
+      "id": "origin-codex-phase7-audit",
+      "ref": "origin/codex/phase7-audit",
+      "commit": "3836ac87e42ab4ee6322633fb3e7c56814db5b53",
+      "launcher": "scripts/versions/launch-origin-codex-phase7-audit.ps1"
+    },
+    {
+      "id": "origin-codex-sites-publish",
+      "ref": "origin/codex/sites-publish",
+      "commit": "3adc8bce68ef13069fe55ddb6d3bf0ecfd139688",
+      "launcher": "scripts/versions/launch-origin-codex-sites-publish.ps1"
+    },
+    {
+      "id": "origin-feat-cinematic-spec",
+      "ref": "origin/feat/cinematic-spec",
+      "commit": "999f2cf633e80a70be2191fe6b44aa1f559163d7",
+      "launcher": "scripts/versions/launch-origin-feat-cinematic-spec.ps1"
+    },
+    {
+      "id": "origin-koa-visual-narrative-redesign-994e3",
+      "ref": "origin/koa-visual-narrative-redesign-994e3",
+      "commit": "93192b6521d78e7d6062d6a753efa5f223bd6bd6",
+      "launcher": "scripts/versions/launch-origin-koa-visual-narrative-redesign-994e3.ps1"
+    },
+    {
+      "id": "origin-main",
+      "ref": "origin/main",
+      "commit": "91f4890a8e628631e9c65b7036ec8f449e633e83",
+      "launcher": "scripts/versions/launch-origin-main.ps1"
+    },
+    {
+      "id": "sites-main",
+      "ref": "sites/main",
+      "commit": "a66a13ebed77617c4a7da55a19e74420475c5208",
+      "launcher": "scripts/versions/launch-sites-main.ps1"
+    }
+  ]
+}

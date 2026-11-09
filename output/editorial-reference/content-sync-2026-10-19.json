@@ -1,0 +1,48 @@
+{
+  "automation": "koa-daily-content-sync-and-deploy",
+  "requestedAt": "2026-10-19T13:50:27.445Z",
+  "documentId": "12KQN1uLNMfIJj0bFrbPe7bLZ6U5qYlFrEo0I966W534",
+  "revisionId": "AHj4eMSZsy8kB5HUegby435tdwI3IqYaiu4kb_CCcTtvcFATxjfqrf-vM9mqZcXYw5tCT2CIAtc9MkaZyjUzX7utlzTWywSYM7DPxb7af0I",
+  "tabs": [
+    {
+      "tabId": "t.0",
+      "title": "English source",
+      "chars": 10093,
+      "fnv1a_utf16": 1736299578
+    },
+    {
+      "tabId": "t.vletsxukg015",
+      "title": "S'gaw Karen fillable",
+      "chars": 17023,
+      "fnv1a_utf16": 3690769068
+    },
+    {
+      "tabId": "t.eht4reut537a",
+      "title": "Burmese machine draft",
+      "chars": 12403,
+      "fnv1a_utf16": 3954768064
+    },
+    {
+      "tabId": "t.bggklp7a9xs5",
+      "title": "Thai machine draft",
+      "chars": 10029,
+      "fnv1a_utf16": 1337984717
+    },
+    {
+      "tabId": "t.n2xtl590zkvo",
+      "title": "Published website copy",
+      "chars": 135684,
+      "fnv1a_utf16": 3011934008
+    }
+  ],
+  "result": "no-publishable-change",
+  "publicLocalDocParity": true,
+  "checkedRouteLanguageEntries": 68,
+  "news": 2,
+  "calendar": 3,
+  "newApprovedIntake": 0,
+  "newKarenHolds": 0,
+  "liveVersion": 58,
+  "commit": "240326bce2d92b5758b78227e9f57ca302c79a5e",
+  "deployed": false
+}

@@ -1,0 +1,694 @@
+{
+  "target": {
+    "id": "Function:components/CinematicLanding.tsx:CinematicLanding",
+    "name": "CinematicLanding",
+    "type": "Function",
+    "filePath": "components/CinematicLanding.tsx"
+  },
+  "direction": "upstream",
+  "impactedCount": 1,
+  "risk": "LOW",
+  "riskSharedAxes": "LOW",
+  "riskScale": {
+    "comparableAcrossKinds": true,
+    "unusedAxes": []
+  },
+  "epistemic": "exact",
+  "summary": {
+    "direct": 1,
+    "processes_affected": 1,
+    "modules_affected": 1
+  },
+  "byDepthCounts": {
+    "1": 1
+  },
+  "affected_processes": [
+    {
+      "name": "HomePage",
+      "type": "Function",
+      "filePath": "app/[lang]/page.tsx",
+      "affected_process_count": 6,
+      "total_hits": 6,
+      "earliest_broken_step": 1
+    }
+  ],
+  "affected_modules": [
+    {
+      "name": "Components",
+      "hits": 1,
+      "impact": "direct"
+    }
+  ],
+  "byDepth": {
+    "1": [
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/page.tsx:HomePage",
+        "name": "HomePage",
+        "filePath": "app/[lang]/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": [
+          {
+            "id": "proc_40_homepage",
+            "label": "HomePage → ShiningLink",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_38_homepage",
+            "label": "HomePage → SealAssembly",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_7_homepage",
+            "label": "HomePage → Composition",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_14_homepage",
+            "label": "HomePage → BuildMarks",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_39_homepage",
+            "label": "HomePage → ShineBorder",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_22_homepage",
+            "label": "HomePage → Wake",
+            "processType": "cross_community",
+            "step": 1
+          }
+        ]
+      }
+    ]
+  },
+  "staleness": {
+    "status": "behind",
+    "commitsBehind": 2,
+    "hint": "⚠️ Index is 2 commits behind HEAD. Run analyze tool to update."
+  }
+}
+{
+  "target": {
+    "id": "Function:components/KoaContentPage.tsx:KoaContentPage",
+    "name": "KoaContentPage",
+    "type": "Function",
+    "filePath": "components/KoaContentPage.tsx"
+  },
+  "direction": "upstream",
+  "impactedCount": 8,
+  "risk": "MEDIUM",
+  "riskSharedAxes": "MEDIUM",
+  "riskScale": {
+    "comparableAcrossKinds": true,
+    "unusedAxes": []
+  },
+  "epistemic": "exact",
+  "summary": {
+    "direct": 8,
+    "processes_affected": 0,
+    "modules_affected": 1
+  },
+  "byDepthCounts": {
+    "1": 8
+  },
+  "affected_processes": [],
+  "affected_modules": [
+    {
+      "name": "Components",
+      "hits": 8,
+      "impact": "direct"
+    }
+  ],
+  "byDepth": {
+    "1": [
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/about/page.tsx:AboutPage",
+        "name": "AboutPage",
+        "filePath": "app/[lang]/about/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      },
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/advocacy/page.tsx:AdvocacyPage",
+        "name": "AdvocacyPage",
+        "filePath": "app/[lang]/advocacy/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      },
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/contact/page.tsx:ContactPage",
+        "name": "ContactPage",
+        "filePath": "app/[lang]/contact/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      },
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/donate/page.tsx:DonatePage",
+        "name": "DonatePage",
+        "filePath": "app/[lang]/donate/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      },
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/events/page.tsx:EventsPage",
+        "name": "EventsPage",
+        "filePath": "app/[lang]/events/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      },
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/mission/page.tsx:MissionPage",
+        "name": "MissionPage",
+        "filePath": "app/[lang]/mission/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      },
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/news/page.tsx:NewsPage",
+        "name": "NewsPage",
+        "filePath": "app/[lang]/news/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      },
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/services/page.tsx:ServicesPage",
+        "name": "ServicesPage",
+        "filePath": "app/[lang]/services/page.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": []
+      }
+    ]
+  },
+  "staleness": {
+    "status": "behind",
+    "commitsBehind": 2,
+    "hint": "⚠️ Index is 2 commits behind HEAD. Run analyze tool to update."
+  }
+}
+{
+  "target": {
+    "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion",
+    "name": "SiteScrollMotion",
+    "type": "Function",
+    "filePath": "components/SiteScrollMotion.tsx"
+  },
+  "direction": "upstream",
+  "impactedCount": 2,
+  "risk": "LOW",
+  "riskSharedAxes": "LOW",
+  "riskScale": {
+    "comparableAcrossKinds": true,
+    "unusedAxes": []
+  },
+  "epistemic": "exact",
+  "summary": {
+    "direct": 1,
+    "processes_affected": 2,
+    "modules_affected": 1
+  },
+  "byDepthCounts": {
+    "1": 1,
+    "2": 1
+  },
+  "affected_processes": [
+    {
+      "name": "LanguageLayout",
+      "type": "Function",
+      "filePath": "app/[lang]/layout.tsx",
+      "affected_process_count": 9,
+      "total_hits": 16,
+      "earliest_broken_step": 1
+    },
+    {
+      "name": "SiteAtmosphere",
+      "type": "Function",
+      "filePath": "components/SiteAtmosphere.tsx",
+      "affected_process_count": 1,
+      "total_hits": 1,
+      "earliest_broken_step": 1
+    }
+  ],
+  "affected_modules": [
+    {
+      "name": "Components",
+      "hits": 2,
+      "impact": "direct"
+    }
+  ],
+  "byDepth": {
+    "1": [
+      {
+        "depth": 1,
+        "id": "Function:components/SiteAtmosphere.tsx:SiteAtmosphere",
+        "name": "SiteAtmosphere",
+        "filePath": "components/SiteAtmosphere.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": [
+          {
+            "id": "proc_12_languagelayout",
+            "label": "LanguageLayout → ChooseGlyph",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_13_languagelayout",
+            "label": "LanguageLayout → Frozen",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_21_languagelayout",
+            "label": "LanguageLayout → Register",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_26_siteatmosphere",
+            "label": "SiteAtmosphere → MakeMote",
+            "processType": "intra_community",
+            "step": 1
+          },
+          {
+            "id": "proc_6_languagelayout",
+            "label": "LanguageLayout → Render",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_5_languagelayout",
+            "label": "LanguageLayout → PaintCell",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_19_languagelayout",
+            "label": "LanguageLayout → Wake",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_20_languagelayout",
+            "label": "LanguageLayout → Measure",
+            "processType": "cross_community",
+            "step": 2
+          }
+        ]
+      }
+    ],
+    "2": [
+      {
+        "depth": 2,
+        "id": "Function:app/[lang]/layout.tsx:LanguageLayout",
+        "name": "LanguageLayout",
+        "filePath": "app/[lang]/layout.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": [
+          {
+            "id": "proc_18_languagelayout",
+            "label": "LanguageLayout → PathFor",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_5_languagelayout",
+            "label": "LanguageLayout → PaintCell",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_19_languagelayout",
+            "label": "LanguageLayout → Wake",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_20_languagelayout",
+            "label": "LanguageLayout → Measure",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_37_languagelayout",
+            "label": "LanguageLayout → Fit",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_6_languagelayout",
+            "label": "LanguageLayout → Render",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_12_languagelayout",
+            "label": "LanguageLayout → ChooseGlyph",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_13_languagelayout",
+            "label": "LanguageLayout → Frozen",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_21_languagelayout",
+            "label": "LanguageLayout → Register",
+            "processType": "cross_community",
+            "step": 1
+          }
+        ]
+      }
+    ]
+  },
+  "staleness": {
+    "status": "behind",
+    "commitsBehind": 2,
+    "hint": "⚠️ Index is 2 commits behind HEAD. Run analyze tool to update."
+  }
+}
+{
+  "target": {
+    "id": "Function:components/AtticDust.tsx:AtticDust",
+    "name": "AtticDust",
+    "type": "Function",
+    "filePath": "components/AtticDust.tsx"
+  },
+  "direction": "upstream",
+  "impactedCount": 2,
+  "risk": "LOW",
+  "riskSharedAxes": "LOW",
+  "riskScale": {
+    "comparableAcrossKinds": true,
+    "unusedAxes": []
+  },
+  "epistemic": "exact",
+  "summary": {
+    "direct": 1,
+    "processes_affected": 2,
+    "modules_affected": 1
+  },
+  "byDepthCounts": {
+    "1": 1,
+    "2": 1
+  },
+  "affected_processes": [
+    {
+      "name": "LanguageLayout",
+      "type": "Function",
+      "filePath": "app/[lang]/layout.tsx",
+      "affected_process_count": 9,
+      "total_hits": 16,
+      "earliest_broken_step": 1
+    },
+    {
+      "name": "SiteAtmosphere",
+      "type": "Function",
+      "filePath": "components/SiteAtmosphere.tsx",
+      "affected_process_count": 1,
+      "total_hits": 1,
+      "earliest_broken_step": 1
+    }
+  ],
+  "affected_modules": [
+    {
+      "name": "Components",
+      "hits": 2,
+      "impact": "direct"
+    }
+  ],
+  "byDepth": {
+    "1": [
+      {
+        "depth": 1,
+        "id": "Function:components/SiteAtmosphere.tsx:SiteAtmosphere",
+        "name": "SiteAtmosphere",
+        "filePath": "components/SiteAtmosphere.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": [
+          {
+            "id": "proc_12_languagelayout",
+            "label": "LanguageLayout → ChooseGlyph",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_13_languagelayout",
+            "label": "LanguageLayout → Frozen",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_21_languagelayout",
+            "label": "LanguageLayout → Register",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_26_siteatmosphere",
+            "label": "SiteAtmosphere → MakeMote",
+            "processType": "intra_community",
+            "step": 1
+          },
+          {
+            "id": "proc_6_languagelayout",
+            "label": "LanguageLayout → Render",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_5_languagelayout",
+            "label": "LanguageLayout → PaintCell",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_19_languagelayout",
+            "label": "LanguageLayout → Wake",
+            "processType": "cross_community",
+            "step": 2
+          },
+          {
+            "id": "proc_20_languagelayout",
+            "label": "LanguageLayout → Measure",
+            "processType": "cross_community",
+            "step": 2
+          }
+        ]
+      }
+    ],
+    "2": [
+      {
+        "depth": 2,
+        "id": "Function:app/[lang]/layout.tsx:LanguageLayout",
+        "name": "LanguageLayout",
+        "filePath": "app/[lang]/layout.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": [
+          {
+            "id": "proc_5_languagelayout",
+            "label": "LanguageLayout → PaintCell",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_19_languagelayout",
+            "label": "LanguageLayout → Wake",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_20_languagelayout",
+            "label": "LanguageLayout → Measure",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_37_languagelayout",
+            "label": "LanguageLayout → Fit",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_6_languagelayout",
+            "label": "LanguageLayout → Render",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_18_languagelayout",
+            "label": "LanguageLayout → PathFor",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_12_languagelayout",
+            "label": "LanguageLayout → ChooseGlyph",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_13_languagelayout",
+            "label": "LanguageLayout → Frozen",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_21_languagelayout",
+            "label": "LanguageLayout → Register",
+            "processType": "cross_community",
+            "step": 1
+          }
+        ]
+      }
+    ]
+  },
+  "staleness": {
+    "status": "behind",
+    "commitsBehind": 2,
+    "hint": "⚠️ Index is 2 commits behind HEAD. Run analyze tool to update."
+  }
+}
+{
+  "target": {
+    "id": "Function:components/SiteAtmosphere.tsx:SiteAtmosphere",
+    "name": "SiteAtmosphere",
+    "type": "Function",
+    "filePath": "components/SiteAtmosphere.tsx"
+  },
+  "direction": "upstream",
+  "impactedCount": 1,
+  "risk": "LOW",
+  "riskSharedAxes": "LOW",
+  "riskScale": {
+    "comparableAcrossKinds": true,
+    "unusedAxes": []
+  },
+  "epistemic": "exact",
+  "summary": {
+    "direct": 1,
+    "processes_affected": 1,
+    "modules_affected": 1
+  },
+  "byDepthCounts": {
+    "1": 1
+  },
+  "affected_processes": [
+    {
+      "name": "LanguageLayout",
+      "type": "Function",
+      "filePath": "app/[lang]/layout.tsx",
+      "affected_process_count": 9,
+      "total_hits": 9,
+      "earliest_broken_step": 1
+    }
+  ],
+  "affected_modules": [
+    {
+      "name": "Components",
+      "hits": 1,
+      "impact": "direct"
+    }
+  ],
+  "byDepth": {
+    "1": [
+      {
+        "depth": 1,
+        "id": "Function:app/[lang]/layout.tsx:LanguageLayout",
+        "name": "LanguageLayout",
+        "filePath": "app/[lang]/layout.tsx",
+        "relationType": "CALLS",
+        "confidence": 0.85,
+        "processes": [
+          {
+            "id": "proc_5_languagelayout",
+            "label": "LanguageLayout → PaintCell",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_19_languagelayout",
+            "label": "LanguageLayout → Wake",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_20_languagelayout",
+            "label": "LanguageLayout → Measure",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_37_languagelayout",
+            "label": "LanguageLayout → Fit",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_18_languagelayout",
+            "label": "LanguageLayout → PathFor",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_6_languagelayout",
+            "label": "LanguageLayout → Render",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_12_languagelayout",
+            "label": "LanguageLayout → ChooseGlyph",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_13_languagelayout",
+            "label": "LanguageLayout → Frozen",
+            "processType": "cross_community",
+            "step": 1
+          },
+          {
+            "id": "proc_21_languagelayout",
+            "label": "LanguageLayout → Register",
+            "processType": "cross_community",
+            "step": 1
+          }
+        ]
+      }
+    ]
+  },
+  "staleness": {
+    "status": "behind",
+    "commitsBehind": 2,
+    "hint": "⚠️ Index is 2 commits behind HEAD. Run analyze tool to update."
+  }
+}

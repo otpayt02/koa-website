@@ -1,0 +1,30 @@
+{
+  "automation": "koa-facebook-and-signal-intake",
+  "requestedAt": "2026-11-01T16:06:22.283Z",
+  "result": "facebook-check-unverified-signal-unchanged",
+  "facebook": {
+    "checkedUrl": "https://www.facebook.com/koamerica/",
+    "observedLatestCaptionMatchesRecorded": null,
+    "observedDateDisplay": null,
+    "originalTimestamp": "unverified",
+    "observedPermalink": null,
+    "samePhotoIds": [
+      "1422449170076942",
+      "1422449160076943"
+    ],
+    "recordedSourceUrl": "https://www.facebook.com/koamerica/posts/pfbid025LATzoE2TtKf8vtaPFnUzCZw3okhspkg25L5deTBoAhJdM8JU7qufL9ffFwF1wGDl",
+    "captionSha256": "83d000ba5d738502106482f4d502996c55caf0bfe35a722f0cf9a4adc671a0b9",
+    "newCandidates": null,
+    "comparison": "No fresh feed comparison possible; prior source checkpoint retained without advancing it.",
+    "permalinkStatus": "Observed session permalink alias differs; item identity confirmed by full caption, registration URL, two photo IDs and album ID.",
+    "timestampQualification": "Facebook displayed month/day and local clock time; year and time zone were not exposed. No exact timestamp inferred.",
+    "access": "Previously reported access issue persists: browser integration unavailable; web fallback exposes login/temporarily blocked page, not current feed."
+  },
+  "signal": {
+    "path": "content/drafts/koa-signal-intake.md",
+    "status": "blank-template-no-supplied-items",
+    "sha256": "a01ac164d6593307fe0a9db4437175d96212e69a5b8bec98534c564ed5bb461f"
+  },
+  "deployed": false,
+  "sourceChanged": false
+}

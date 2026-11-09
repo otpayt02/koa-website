@@ -1,0 +1,17 @@
+{
+  "automation_id": "koa-daily-content-sync-and-deploy",
+  "checked_at": "2026-10-16T12:59:44.440725+00:00",
+  "source_commit": "9a00ff3047dcf39d952d9e124567b9e784469803",
+  "version": 52,
+  "deployment_id": "appgdep_6acfa5a04c18819188e34b9c675f8fa1",
+  "editorial_tabs_changed": [],
+  "approved_intake_changed": false,
+  "held_karen_items": [],
+  "published_inventory": {
+    "routes": 68,
+    "normalized_characters": 127878,
+    "doc_local_public_parity": true
+  },
+  "action": "repaired_published_doc_inventory_no_redeploy",
+  "local_motion_changes": "Preserved uncommitted; excluded from content-sync publication."
+}

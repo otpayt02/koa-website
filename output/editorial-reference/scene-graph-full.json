@@ -1,0 +1,342 @@
+{
+  "summary": {
+    "changed_count": 18,
+    "affected_count": 14,
+    "changed_files": 6,
+    "risk_level": "high"
+  },
+  "changed_symbols": [
+    {
+      "id": "Function:components/AtticDust.tsx:AtticDust",
+      "name": "AtticDust",
+      "type": "Function",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/AtticDust.tsx:AtticDust.fn@19:12.draw@71:4",
+      "name": "draw",
+      "type": "Function",
+      "filePath": "components/AtticDust.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/CinematicLanding.tsx:CinematicLanding",
+      "name": "CinematicLanding",
+      "type": "Function",
+      "filePath": "components/CinematicLanding.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/KoaContentPage.tsx:KoaContentPage",
+      "name": "KoaContentPage",
+      "type": "Function",
+      "filePath": "components/KoaContentPage.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion",
+      "name": "SiteScrollMotion",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.frozen@15:2",
+      "name": "frozen",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Const:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.previous@18:2",
+      "name": "previous",
+      "type": "Const",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Const:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.sampledAt@18:2",
+      "name": "sampledAt",
+      "type": "Const",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Const:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.sampledY@18:2",
+      "name": "sampledY",
+      "type": "Const",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Const:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.targetVelocity@18:2",
+      "name": "targetVelocity",
+      "type": "Const",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.measure@20:2",
+      "name": "measure",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.tick@23:2",
+      "name": "tick",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.wake@42:2",
+      "name": "wake",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.scroll@43:2",
+      "name": "scroll",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Const:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.scroll@43:17.y@44:3",
+      "name": "y",
+      "type": "Const",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.register@71:2",
+      "name": "register",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.reset@72:2",
+      "name": "reset",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "",
+      "name": "KOA motion kit",
+      "type": "Section",
+      "filePath": "components/motion-kit/README.md",
+      "change_type": "touched"
+    }
+  ],
+  "affected_processes": [
+    {
+      "id": "proc_7_homepage",
+      "name": "HomePage → Composition",
+      "process_type": "cross_community",
+      "step_count": 6,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_13_languagelayout",
+      "name": "LanguageLayout → Frozen",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "wake",
+          "step": 4
+        },
+        {
+          "symbol": "frozen",
+          "step": 5
+        },
+        {
+          "symbol": "SiteScrollMotion",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_14_homepage",
+      "name": "HomePage → BuildMarks",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_19_languagelayout",
+      "name": "LanguageLayout → Wake",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "AtticDust",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_20_languagelayout",
+      "name": "LanguageLayout → Measure",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "measure",
+          "step": 4
+        },
+        {
+          "symbol": "SiteScrollMotion",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_21_languagelayout",
+      "name": "LanguageLayout → Register",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "register",
+          "step": 4
+        },
+        {
+          "symbol": "SiteScrollMotion",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_22_homepage",
+      "name": "HomePage → Wake",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_26_siteatmosphere",
+      "name": "SiteAtmosphere → MakeMote",
+      "process_type": "intra_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "AtticDust",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_38_homepage",
+      "name": "HomePage → SealAssembly",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_39_homepage",
+      "name": "HomePage → ShineBorder",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_40_homepage",
+      "name": "HomePage → ShiningLink",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_93_reset",
+      "name": "Reset → Frozen",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "reset",
+          "step": 1
+        },
+        {
+          "symbol": "wake",
+          "step": 2
+        },
+        {
+          "symbol": "frozen",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_120_resize",
+      "name": "Resize → Frozen",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "wake",
+          "step": 2
+        },
+        {
+          "symbol": "frozen",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_137_scroll",
+      "name": "Scroll → Frozen",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "scroll",
+          "step": 1
+        },
+        {
+          "symbol": "wake",
+          "step": 2
+        },
+        {
+          "symbol": "frozen",
+          "step": 3
+        }
+      ]
+    }
+  ]
+}

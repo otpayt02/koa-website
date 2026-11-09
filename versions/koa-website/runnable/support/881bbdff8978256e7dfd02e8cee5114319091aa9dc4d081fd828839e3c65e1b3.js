@@ -1,0 +1,225 @@
+var en_default = {
+	siteName: "Karen Organization of America",
+	tagline: "Many places. One community.",
+	skip: "Skip to main content",
+	menu: "Menu",
+	close: "Close",
+	language: "Language",
+	english: "English",
+	karen: "S'gaw Karen",
+	home: "Home",
+	about: "About",
+	services: "Programs",
+	community: "Community",
+	dictionary: "Dictionary",
+	translation: "Translation",
+	contribute: "Contribute",
+	collaborate: "Collaborate",
+	contact: "Contact",
+	admin: "Admin",
+	changelog: "Changelog",
+	explore: "Explore",
+	learnMore: "Learn more",
+	search: "Search",
+	searchDictionary: "Search the dictionary",
+	submit: "Submit for review",
+	sending: "Sending…",
+	success: "Thank you. Your submission is in the review queue.",
+	error: "We could not send this yet. Please try again.",
+	pending: "Pending review",
+	approved: "Approved",
+	communityReviewed: "Community reviewed",
+	footerLine: "Working with Karen communities across the United States.",
+	privacy: "Privacy and community care",
+	reviewNotice: "S'gaw Karen translations are published with community review.",
+	donate: "Support KOA",
+	filmAriaLabel: "Karen Organization of America story",
+	founded: "Established 2018 · Omaha, Nebraska",
+	ai: "S'gaw-Mango AI",
+	music: "Music Director"
+};
+var ksw_default = {
+	siteName: "ကညီအမဲရကၤကရၢ",
+	tagline: "တၢ်လီၢ်အါတီၤ။ ပှၤတဝၢတဖုဃီ။",
+	skip: "လဲၤဆူတၢ်ဂ့ၢ်မိၢ်ပှၢ်",
+	menu: "တၢ်ဃုထၢ",
+	close: "ပံး",
+	language: "ကျိာ်",
+	english: "အဲကလံးကျိာ်",
+	karen: "ကညီကျိာ်",
+	home: "ဟံၣ်",
+	about: "ဘၣ်ဃး KOA",
+	services: "တၢ်မၤစၢၤတဖၣ်",
+	community: "ပှၤတဝၢ",
+	dictionary: "ကညီလံာ်ခီယ့ၣ်",
+	translation: "တၢ်ကွဲးကျိာ်ထံ",
+	contribute: "ဟ့ၣ်လီၤတၢ်မၤစၢၤ",
+	collaborate: "မၤသကိးတၢ်",
+	contact: "ဆဲးကျိး",
+	admin: "ပှၤပၢဆှၢ",
+	changelog: "တၢ်ဆီတလဲစရီ",
+	explore: "ကွၢ်ဃု",
+	learnMore: "မၤလိအါထီၣ်",
+	search: "ဃု",
+	searchDictionary: "ဃုကညီလံာ်ခီယ့ၣ်",
+	submit: "ဆှၢလီၤလၢတၢ်ကွၢ်သမံသမိး",
+	sending: "ဆှၢလီၤ…",
+	success: "တၢ်ဘျုး။ နတၢ်ဆှၢလီၤအိၣ်လၢတၢ်ကွၢ်သမံသမိးအပူၤလံ။",
+	error: "ပဆှၢတၢ်အံၤတန့ၢ်ဒံးဘၣ်။ ဝံသးစူၤဂုာ်ကျဲးစၢးကဒီး။",
+	pending: "အိၣ်ခိးတၢ်ကွၢ်သမံသမိး",
+	approved: "ဘၣ်တၢ်အၢၣ်လီၤ",
+	communityReviewed: "ပှၤတဝၢကွၢ်သမံသမိးလံ",
+	footerLine: "မၤသကိးတၢ်ဒီးကညီပှၤတဝၢတဖၣ်လၢကီၢ်အမဲရကၤဒီဘ့ၣ်။",
+	privacy: "တၢ်ခူသူၣ်ဒီးပှၤတဝၢတၢ်ကဟုကယာ်",
+	reviewNotice: "ကညီကျိာ်တၢ်ကွဲးကျိာ်ထံတဖၣ် အိၣ်လၢတၢ်ဟ့ၣ်ကူၣ်လၢတၢ်ကွၢ်သမံသမိးအဂီၢ်။",
+	donate: "မၤစၢၤ KOA",
+	filmAriaLabel: "ကညီပှၤတဝၢလၢ အမဲရကၤ",
+	founded: "Established 2018 · Omaha, Nebraska",
+	ai: "S'gaw-Mango AI",
+	music: "ကညီဂီတပှၤပၢဆှၢ"
+};
+var my_default = {
+	siteName: "အမေရိကန် ကရင်အဖွဲ့အစည်း",
+	tagline: "နေရာများစွာ၊ ရပ်ရွာတစ်ခု",
+	skip: "အဓိကအကြောင်းအရာသို့ ကျော်ရန်",
+	menu: "မီနူး",
+	close: "ပိတ်ရန်",
+	language: "ဘာသာစကား",
+	english: "အင်္ဂလိပ်",
+	karen: "စကောကရင်",
+	home: "ပင်မစာမျက်နှာ",
+	about: "အကြောင်း",
+	services: "အစီအစဉ်များ",
+	community: "ရပ်ရွာ",
+	dictionary: "အဘိဓာန်",
+	translation: "ဘာသာပြန်",
+	contribute: "ပံ့ပိုးရန်",
+	collaborate: "ပူးပေါင်းရန်",
+	contact: "ဆက်သွယ်ရန်",
+	admin: "စီမံခန့်ခွဲမှု",
+	changelog: "ပြောင်းလဲမှုမှတ်တမ်း",
+	explore: "လေ့လာရန်",
+	learnMore: "ပိုမိုလေ့လာရန်",
+	search: "ရှာရန်",
+	searchDictionary: "အဘိဓာန်တွင် ရှာရန်",
+	submit: "သုံးသပ်ရန် ပေးပို့မည်",
+	sending: "ပေးပို့နေသည်…",
+	success: "ကျေးဇူးတင်ပါသည်။ သင့်တင်ပြချက်ကို သုံးသပ်ရန် စာရင်းသို့ ထည့်ပြီးပါပြီ။",
+	error: "ယခု မပေးပို့နိုင်သေးပါ။ ထပ်မံကြိုးစားပါ။",
+	pending: "သုံးသပ်ရန် စောင့်ဆိုင်းနေသည်",
+	approved: "အတည်ပြုပြီး",
+	communityReviewed: "ရပ်ရွာက သုံးသပ်ပြီး",
+	footerLine: "အမေရိကန်ပြည်ထောင်စုတစ်ဝန်းရှိ ကရင်ရပ်ရွာများနှင့် အတူလုပ်ဆောင်နေသည်။",
+	privacy: "ကိုယ်ရေးအချက်အလက်နှင့် ရပ်ရွာစောင့်ရှောက်မှု",
+	reviewNotice: "ဤမြန်မာဘာသာစာသားသည် ရပ်ရွာသုံးသပ်မှုကို စောင့်ဆိုင်းနေသော အဆိုပြုမူကြမ်းဖြစ်သည်။",
+	donate: "KOA ကို ပံ့ပိုးရန်",
+	filmAriaLabel: "အမေရိကန် ကရင်အဖွဲ့အစည်း၏ ဇာတ်လမ်း",
+	founded: "2018 ခုနှစ် တည်ထောင် · အိုမာဟာ၊ နီဘရာစကာ",
+	ai: "S'gaw-Mango AI",
+	music: "ဂီတဒါရိုက်တာ"
+};
+var th_default = {
+	siteName: "องค์กรกะเหรี่ยงแห่งอเมริกา",
+	tagline: "หลายพื้นที่ หนึ่งชุมชน",
+	skip: "ข้ามไปยังเนื้อหาหลัก",
+	menu: "เมนู",
+	close: "ปิด",
+	language: "ภาษา",
+	english: "อังกฤษ",
+	karen: "กะเหรี่ยงสะกอ",
+	home: "หน้าแรก",
+	about: "เกี่ยวกับเรา",
+	services: "โครงการ",
+	community: "ชุมชน",
+	dictionary: "พจนานุกรม",
+	translation: "การแปลภาษา",
+	contribute: "ร่วมสนับสนุน",
+	collaborate: "ร่วมมือ",
+	contact: "ติดต่อ",
+	admin: "ผู้ดูแล",
+	changelog: "บันทึกการเปลี่ยนแปลง",
+	explore: "สำรวจ",
+	learnMore: "เรียนรู้เพิ่มเติม",
+	search: "ค้นหา",
+	searchDictionary: "ค้นหาในพจนานุกรม",
+	submit: "ส่งเพื่อตรวจสอบ",
+	sending: "กำลังส่ง…",
+	success: "ขอบคุณ ข้อมูลของคุณอยู่ในคิวตรวจสอบแล้ว",
+	error: "ยังไม่สามารถส่งได้ โปรดลองอีกครั้ง",
+	pending: "รอตรวจสอบ",
+	approved: "อนุมัติแล้ว",
+	communityReviewed: "ชุมชนตรวจสอบแล้ว",
+	footerLine: "ทำงานร่วมกับชุมชนกะเหรี่ยงทั่วสหรัฐอเมริกา",
+	privacy: "ความเป็นส่วนตัวและการดูแลชุมชน",
+	reviewNotice: "ข้อความภาษาไทยนี้เป็นข้อเสนอฉบับร่างที่รอการตรวจสอบจากชุมชน",
+	donate: "สนับสนุน KOA",
+	filmAriaLabel: "เรื่องราวขององค์กรกะเหรี่ยงแห่งอเมริกา",
+	founded: "ก่อตั้งปี 2018 · โอมาฮา รัฐเนแบรสกา",
+	ai: "S'gaw-Mango AI",
+	music: "ผู้กำกับดนตรี"
+};
+//#endregion
+//#region components/i18n.ts
+var languages = [
+	"en",
+	"th",
+	"my",
+	"ksw"
+];
+var localeMeta = {
+	en: {
+		label: "English",
+		nativeLabel: "English",
+		htmlLang: "en"
+	},
+	th: {
+		label: "Thai",
+		nativeLabel: "ไทย",
+		htmlLang: "th"
+	},
+	my: {
+		label: "Burmese",
+		nativeLabel: "မြန်မာ",
+		htmlLang: "my"
+	},
+	ksw: {
+		label: "S'gaw Karen",
+		nativeLabel: "ကညီ",
+		htmlLang: "ksw"
+	}
+};
+var catalogs = {
+	en: en_default,
+	th: th_default,
+	my: my_default,
+	ksw: ksw_default
+};
+function getMessages(lang) {
+	return catalogs[lang];
+}
+function pageLabel(enLabel, thLabel, myLabel, kswLabel) {
+	return {
+		en: enLabel,
+		th: thLabel,
+		my: myLabel,
+		ksw: kswLabel
+	};
+}
+var pageLabels = {
+	home: pageLabel("A national home for Karen communities", "บ้านระดับชาติของชุมชนกะเหรี่ยง", "ကရင်အသိုင်းအဝိုင်းများအတွက် နိုင်ငံလုံးဆိုင်ရာ အိမ်", "ကညီပှၤတဝၢအဟံၣ်လၢကီၢ်ဒီဘ့ၣ်"),
+	about: pageLabel("A shared history. A future built together.", "ประวัติศาสตร์ร่วม อนาคตที่สร้างไปด้วยกัน", "မျှဝေထားသော သမိုင်း၊ အတူတည်ဆောက်မည့် အနာဂတ်", "တၢ်စံၣ်စိၤတဲစိၤတပူၤဃီ။ ခါဆူညါလၢပတ့ထီၣ်သကိး။"),
+	services: pageLabel("Support shaped around community life.", "การสนับสนุนที่ออกแบบรอบชีวิตชุมชน", "ရပ်ရွာဘဝကို ဗဟိုပြုသော ပံ့ပိုးမှု", "တၢ်မၤစၢၤလၢပှၤတဝၢတၢ်အိၣ်မူအဂီၢ်။"),
+	community: pageLabel("Belong, participate, and lead.", "เป็นส่วนหนึ่ง มีส่วนร่วม และนำทาง", "ပါဝင်ဆက်နွယ်၊ ပူးပေါင်းပြီး ဦးဆောင်ပါ", "ဃူဃူဖိးဖိး၊ ပာ်ဃုာ်၊ ဒီးတီခိၣ်ရိၣ်မဲ။"),
+	contact: pageLabel("Start a conversation with KOA.", "เริ่มต้นการสนทนากับ KOA", "KOA နှင့် စကားစမြည်စတင်ပါ", "စးထီၣ်တၢ်ကတိၤဒီး KOA။"),
+	dictionary: pageLabel("A living dictionary, held by community.", "พจนานุกรมมีชีวิตที่ชุมชนดูแล", "ရပ်ရွာက ထိန်းသိမ်းထားသော အသက်ဝင်အဘိဓာန်", "ကညီလံာ်ခီယ့ၣ်လၢအမူ ဒီးပှၤတဝၢပၢၤဃာ်အီၤ။"),
+	contribute: pageLabel("Your voice helps the language grow.", "เสียงของคุณช่วยให้ภาษาเติบโต", "သင့်အသံက ဘာသာစကား တိုးတက်စေသည်", "နကလုၢ်မၤစၢၤကညီကျိာ်ဒိၣ်ထီၣ်။"),
+	translation: pageLabel("Language access for every important moment.", "การเข้าถึงภาษาสำหรับทุกช่วงเวลาสำคัญ", "အရေးကြီးသော အချိန်တိုင်းအတွက် ဘာသာစကားအကူအညီ", "ကျိာ်တၢ်မၤစၢၤလၢတၢ်ဆၢကတီၢ်အရ့ဒိၣ်ကိးခါဒဲး။"),
+	collaborate: pageLabel("Bring an idea. Build what community needs.", "นำไอเดียมา สร้างสิ่งที่ชุมชนต้องการ", "အကြံတစ်ခု ယူလာပါ၊ ရပ်ရွာလိုအပ်သည့်အရာကို အတူတည်ဆောက်ပါ", "ဟဲစိာ်နတၢ်ထံၣ်။ တ့ထီၣ်တၢ်လၢပှၤတဝၢလိၣ်ဘၣ်။"),
+	board: pageLabel("The community board", "กระดานชุมชน", "ရပ်ရွာဘုတ်အဖွဲ့", "ပှၤတဝၢတၢ်တဲသကိးခီၣ်ထံး"),
+	changelog: pageLabel("Built in public, accountable to community.", "สร้างอย่างเปิดเผย รับผิดชอบต่อชุมชน", "ပွင့်လင်းစွာ တည်ဆောက်ပြီး ရပ်ရွာကို တာဝန်ခံသည်", "တ့ထီၣ်လၢပှၤခဲလၢာ်အမဲာ်ညါ ဒီးစံးဆၢပှၤတဝၢ။"),
+	admin: pageLabel("Community stewardship workspace", "พื้นที่ดูแลชุมชน", "ရပ်ရွာစောင့်ရှောက်မှု လုပ်ငန်းခွင်", "ပှၤတဝၢတၢ်ကွၢ်ထွဲအလီၢ်"),
+	ai: pageLabel("A Karen language tool, built by the Karen community.", "เครื่องมือภาษากะเหรี่ยง สร้างโดยชุมชนกะเหรี่ยง", "ကရင်ဘာသာစကား ကိရိယာ၊ ကရင်အသိုင်းအဝိုင်းက တည်ဆောက်ထားသည်", "ကညီကျိာ်တၢ်ပညိၣ်လၢပှၤတဝၢတဖၣ်တ့ထီၣ်။"),
+	music: pageLabel("The sound of home, carried forward.", "เสียงของบ้าน สืบสานต่อไป", "အိမ်၏ အသံကို ဆက်လက်သယ်ဆောင်သည်", "တၢ်သိၣ်အိၣ်အသဲ၊ ခါဆူညါ။")
+};
+//#endregion
+export { pageLabels as i, languages as n, localeMeta as r, getMessages as t };

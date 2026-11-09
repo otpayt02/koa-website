@@ -1,0 +1,20 @@
+[
+  {
+    "asset": "nyap-2027-flyer-1.jpg",
+    "bytes": 237732,
+    "sha256": "3084266ab4e0e067514ae4c448ff027612031e60d9175e44246ff350723bfc60",
+    "matches_release": true
+  },
+  {
+    "asset": "nyap-2027-flyer-2.jpg",
+    "bytes": 204109,
+    "sha256": "c53ac239fe799214c3e03fc31d2fd0c63f2162de78b053d0932ff82e1e343ff8",
+    "matches_release": true
+  },
+  {
+    "asset": "hero-capitol-background-restored.png",
+    "bytes": 2219123,
+    "sha256": "11b9866a355539ceefa122b84a05ea4a7f174e2574ebb787594e10877b2d8cb9",
+    "matches_release": true
+  }
+]

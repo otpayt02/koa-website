@@ -1,0 +1,28 @@
+# StyleSeed — KOA landing design lock
+<!-- Local working selection from the supplied KOA brief and incumbent design; owner visual approval remains open. -->
+- App domain: content
+- Surface: website
+- Surface adapter: product-ui
+- Page type: landing
+- Output grammar: institutional-service
+- Grammar path: built-in:engine/RULESETS.md
+- Grammar fallback: institutional-service
+- Reference confidence: n/a
+- Brand recipe: public-service
+- Palette recipe: civic-blue
+- Key color: #24408C
+- Palette character: deep
+- Palette mode: dark
+- Palette harmony: contrast
+- Surface temperature: cool
+- Aesthetic profile: none
+- Skin: custom
+- Primary action: #D4A843
+- Font: Cormorant Garamond, Space Grotesk, Noto Sans Myanmar
+- Radius: restrained
+- Elevation: dark tonal ramp and hairline
+- Density: comfortable
+- Motion: silk restrained
+- Imagery/data role: verified community photography and source-backed program information
+- Signature move: authentic supplied seal as the only O, with separate Karen-glyph K/A fields
+- Locked: 2026-09-30

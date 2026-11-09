@@ -1,0 +1,27 @@
+{
+  "automation": "koa-facebook-and-signal-intake",
+  "requestedAt": "2026-10-20T16:29:04.338Z",
+  "result": "no-new-or-materially-changed-item",
+  "facebook": {
+    "checkedUrl": "https://www.facebook.com/koamerica/",
+    "observedLatestCaptionMatchesRecorded": true,
+    "observedDateDisplay": "3 days ago",
+    "originalTimestamp": "unverified",
+    "observedPermalink": "https://www.facebook.com/koamerica/posts/pfbid0cNGnVKvo5v427AfnAHXao7jhArcQVJCtnUUtUPdZsSwjJK6KzYAexgU1oh12wNRl",
+    "samePhotoIds": [
+      "1422449170076942",
+      "1422449160076943"
+    ],
+    "recordedSourceUrl": "https://www.facebook.com/koamerica/posts/pfbid025LATzoE2TtKf8vtaPFnUzCZw3okhspkg25L5deTBoAhJdM8JU7qufL9ffFwF1wGDl",
+    "captionSha256": "83d000ba5d738502106482f4d502996c55caf0bfe35a722f0cf9a4adc671a0b9",
+    "newCandidates": 0,
+    "comparison": "Same expanded caption, registration URL and two photo IDs; changing rendered permalink is not a new item."
+  },
+  "signal": {
+    "path": "content/drafts/koa-signal-intake.md",
+    "status": "blank-template-no-supplied-items",
+    "sha256": "a01ac164d6593307fe0a9db4437175d96212e69a5b8bec98534c564ed5bb461f"
+  },
+  "deployed": false,
+  "sourceChanged": false
+}

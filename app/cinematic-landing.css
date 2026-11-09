@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Noto+Serif+Myanmar:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "lenis/dist/lenis.css";
 
 /* Lenis owns wheel easing while mounted; CSS smooth scrolling must not add a second delay. */
@@ -319,6 +319,21 @@ body:has(.koa-film) .site-header.is-compact .site-nav { max-height: 72px; transf
 .koa-film__scroll-cue span {
   display: inline-block;
   animation: koaCue 1.9s ease-in-out infinite;
+}
+
+/* The two source-backed visitor routes stay available throughout the long opening film. */
+.koa-visitor-pathways { position: absolute; z-index: 14; top: 110px; left: clamp(18px, 4vw, 64px); max-width: 265px; color: var(--koa-paper); }
+.koa-visitor-pathways p { margin: 0 0 12px; font-size: .85rem; line-height: 1.45; color: var(--koa-soft); }
+.koa-visitor-pathways div { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.koa-visitor-pathways a { display: inline-flex; align-items: center; gap: 12px; min-height: 40px; color: var(--koa-paper); font-size: .78rem; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(212,168,67,.55); }
+.koa-visitor-pathways a span { color: var(--koa-gold); }
+.koa-visitor-pathways a:hover { border-bottom-color: var(--koa-gold); }
+.koa-visitor-pathways a:focus-visible { outline: 2px solid var(--koa-gold); outline-offset: 4px; }
+@media (max-width: 520px) {
+  .koa-visitor-pathways { top: 94px; left: 18px; right: 18px; max-width: none; }
+  .koa-visitor-pathways p { max-width: 240px; font-size: .75rem; }
+  .koa-visitor-pathways div { flex-direction: row; flex-wrap: wrap; gap: 18px; }
+  .koa-visitor-pathways a { font-size: .72rem; }
 }
 
 .koa-film__motion-toggle {

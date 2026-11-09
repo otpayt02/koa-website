@@ -1,0 +1,27 @@
+{
+  "automation": "koa-facebook-and-signal-intake",
+  "requestedAt": "2026-11-08T14:14:47.570Z",
+  "result": "no-new-or-materially-changed-item",
+  "facebook": {
+    "checkedUrl": "https://www.facebook.com/koamerica/",
+    "observedLatestCaptionMatchesRecorded": true,
+    "observedDateDisplay": "October 16 at 9:53 PM",
+    "originalTimestamp": "unverified",
+    "observedPermalink": "https://www.facebook.com/koamerica/posts/pfbid025LHWzpXijmS17NSJxAVNQEpmyoFnomiUnnYHzNQTKxGhxEyZZt4XYJZ8gZfEYL5al",
+    "recordedSourceUrl": "https://www.facebook.com/koamerica/posts/pfbid025LATzoE2TtKf8vtaPFnUzCZw3okhspkg25L5deTBoAhJdM8JU7qufL9ffFwF1wGDl",
+    "captionSha256": "83d000ba5d738502106482f4d502996c55caf0bfe35a722f0cf9a4adc671a0b9",
+    "newCandidates": 0,
+    "comparison": "Latest public post matches the published youth advocacy announcement by expanded caption, displayed date and time, and registration URL. Two flyer links were visible; their IDs were not rechecked. No newer post was visible.",
+    "permalinkStatus": "Observed session permalink differs; retained the recorded source URL.",
+    "timestampQualification": "Facebook displayed month/day and local clock time; year and time zone were not exposed. No exact timestamp inferred.",
+    "access": "Public feed verified after dismissing the login overlay without signing in."
+  },
+  "signal": {
+    "path": "content/drafts/koa-signal-intake.md",
+    "status": "blank-template-no-supplied-items",
+    "sha256": "361aa16dbcc3b69151a0f4b9e31f376f5613695360eb67c51a76604652f0898c",
+    "baselineMatch": "Verified against the previous blank template after normalizing line endings."
+  },
+  "deployed": false,
+  "sourceChanged": false
+}

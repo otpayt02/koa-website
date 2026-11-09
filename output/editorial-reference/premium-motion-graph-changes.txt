@@ -1,0 +1,34 @@
+Changes: 16 files, 87 symbols
+Affected processes: 32
+Risk level: critical
+
+Changed symbols:
+  Function CinematicLanding → components/CinematicLanding.tsx
+  Function DenseGlyphGrid → components/DenseGlyphGrid.tsx
+  Function move → components/DenseGlyphGrid.tsx
+  Function SiteScrollMotion → components/SiteScrollMotion.tsx
+  Function frozen → components/SiteScrollMotion.tsx
+  Function reset → components/SiteScrollMotion.tsx
+  Function HeritageGlyphMark → components/cinematic/HeritageGlyphMark.tsx
+  Function draw → components/cinematic/HeritageGlyphMark.tsx
+  TypeAlias Variant → components/motion-kit/GlareHover.tsx
+  TypeAlias Mode → components/motion-kit/GlareHover.tsx
+  Interface GlareHoverProps → components/motion-kit/GlareHover.tsx
+  Property width → components/motion-kit/GlareHover.tsx
+  Property height → components/motion-kit/GlareHover.tsx
+  Property background → components/motion-kit/GlareHover.tsx
+  Property borderRadius → components/motion-kit/GlareHover.tsx
+... and 72 more
+
+Affected execution flows:
+  • LanguageLayout → PaintCell (6 steps) — changed: DenseGlyphGrid
+  • LanguageLayout → Render (6 steps) — changed: DenseGlyphGrid
+  • HomePage → Composition (6 steps) — changed: CinematicLanding, draw, HeritageGlyphMark
+  • LanguageLayout → ChooseGlyph (5 steps) — changed: DenseGlyphGrid
+  • LanguageLayout → Frozen (5 steps) — changed: frozen, SiteScrollMotion
+  • HomePage → BuildMarks (5 steps) — changed: CinematicLanding, HeritageGlyphMark
+  • LanguageLayout → Measure (4 steps) — changed: SiteScrollMotion
+  • LanguageLayout → Register (4 steps) — changed: SiteScrollMotion
+  • HomePage → Wake (4 steps) — changed: CinematicLanding, HeritageGlyphMark
+  • GlareHover → Bands (4 steps) — changed: measure, write, bands, GlareHover
+... and 22 more

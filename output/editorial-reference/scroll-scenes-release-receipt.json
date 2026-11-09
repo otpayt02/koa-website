@@ -1,0 +1,49 @@
+{
+  "version": 58,
+  "commit": "240326bce2d92b5758b78227e9f57ca302c79a5e",
+  "version_id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_aa2d58df20bc81919409d34582639df7",
+  "deployment": {
+    "id": "appgdep_6ad5d9370edc8191b6735fc53ad081f3",
+    "project_id": "appgprj_6a6f69069130819181528f956a78be9b",
+    "title": "Karen Organization of America",
+    "version_id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_aa2d58df20bc81919409d34582639df7",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://karen-organization-of-america.oliverp789.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "oliverp789--karen-organization-of-america",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-19T08:48:01.620947+00:00"
+  },
+  "verification": {
+    "production_build": "passed",
+    "typescript": "passed",
+    "desktop": [
+      1280,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "public_local_copy_parity": true,
+    "doc_local_copy_parity": true,
+    "inventory_routes": 68,
+    "packaged_image_paths": 19,
+    "gallery_photo_counts": {
+      "about": 3,
+      "programs": 5,
+      "advocacy": 2
+    },
+    "navigation_fix": "React-owned native pinSpacer frames; Home About Programs Contact tested",
+    "source_mirror_files_synced": 35,
+    "held_asset": "Untouched original of Capitol large-Karen-flag photograph not recovered; AI derivative not published"
+  },
+  "detector": {
+    "findings": 4,
+    "advisories": 210,
+    "disposition": "Existing user-requested gradient typography and existing fonts retained; no palette redesign in this motion task"
+  }
+}

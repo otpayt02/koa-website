@@ -1,0 +1,39 @@
+
+  GitNexus Detect Changes (1.6.12)
+warning: in the working copy of 'components/SiteScrollMotion.tsx', LF will be replaced by CRLF the next time Git touches it
+Changes: 6 files, 18 symbols
+Affected processes: 14
+Risk level: high
+
+Changed symbols:
+  Function AtticDust → components/AtticDust.tsx
+  Function draw → components/AtticDust.tsx
+  Function CinematicLanding → components/CinematicLanding.tsx
+  Function KoaContentPage → components/KoaContentPage.tsx
+  Function SiteScrollMotion → components/SiteScrollMotion.tsx
+  Function frozen → components/SiteScrollMotion.tsx
+  Const previous → components/SiteScrollMotion.tsx
+  Const sampledAt → components/SiteScrollMotion.tsx
+  Const sampledY → components/SiteScrollMotion.tsx
+  Const targetVelocity → components/SiteScrollMotion.tsx
+  Function measure → components/SiteScrollMotion.tsx
+  Function tick → components/SiteScrollMotion.tsx
+  Function wake → components/SiteScrollMotion.tsx
+  Function scroll → components/SiteScrollMotion.tsx
+  Const y → components/SiteScrollMotion.tsx
+... and 3 more
+
+Affected execution flows:
+  • HomePage → Composition (6 steps) — changed: CinematicLanding
+  • LanguageLayout → Frozen (5 steps) — changed: wake, frozen, SiteScrollMotion
+  • HomePage → BuildMarks (5 steps) — changed: CinematicLanding
+  • LanguageLayout → Wake (4 steps) — changed: AtticDust
+  • LanguageLayout → Measure (4 steps) — changed: measure, SiteScrollMotion
+  • LanguageLayout → Register (4 steps) — changed: register, SiteScrollMotion
+  • HomePage → Wake (4 steps) — changed: CinematicLanding
+  • SiteAtmosphere → MakeMote (4 steps) — changed: AtticDust
+  • HomePage → SealAssembly (3 steps) — changed: CinematicLanding
+  • HomePage → ShineBorder (3 steps) — changed: CinematicLanding
+... and 4 more
+(node:10268) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)

@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-14T15:54:52.494554+00:00",
+  "source_commit": "9a00ff3047dcf39d952d9e124567b9e784469803",
+  "version": 52,
+  "deployment_id": "appgdep_6acfa5a04c18819188e34b9c675f8fa1",
+  "status": "succeeded",
+  "public_url": "https://koamerica.org/en",
+  "local_public_inventory_parity": true,
+  "doc_sync": "403 PERMISSION_DENIED; pending in drafts/2026-10-14-published-inventory-sync.txt",
+  "signal_listener": "prepared and fixture-tested; not linked or running",
+  "mission_signal_content": "awaiting supplied messages"
+}

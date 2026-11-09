@@ -1,0 +1,4 @@
+Commit: 9c3d6eb81eab62bb6f0b2541ff86f113204b97a4
+Clean release: C:\Users\olive\Projects\koa-remote-design-audit\sites-release-clean-20261005
+Original assets: 14 SHA-256 verified; 10 displayed across About, Programs, Advocacy.
+Doc Published inventory parity: verified, 68 routes.

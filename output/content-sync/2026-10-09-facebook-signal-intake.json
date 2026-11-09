@@ -1,0 +1,16 @@
+{
+  "automation_id": "koa-facebook-and-signal-intake",
+  "checked_at": "2026-10-09T13:18:47.980Z",
+  "public_source": "https://www.facebook.com/koamerica",
+  "coverage": "Latest public feed posts inspected in connected Chrome; not a complete historical archive.",
+  "latest_visible_post_date": "2026-10-05",
+  "latest_recorded_source_url": "https://www.facebook.com/koamerica/posts/pfbid035WkW1BDhAsDzX7UfvuRaGjkeoD9ibZJLSmPDjohooJtGQGDK9sa362hXvUw6KJ9sl",
+  "following_visible_post_date": "2026-09-24",
+  "caption_unchanged": true,
+  "photo_id_unchanged": "1411866824468510",
+  "new_candidates": [],
+  "signal_new_items": [],
+  "existing_photo_hold": "unchanged-exact-original-not-safely-resolved",
+  "action": "no_content_change_no_deploy",
+  "access_note": "Web fetch throttled; connected Chrome feed verified successfully."
+}

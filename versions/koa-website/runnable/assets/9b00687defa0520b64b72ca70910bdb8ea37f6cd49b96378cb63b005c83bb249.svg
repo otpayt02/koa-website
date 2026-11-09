@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="58" stroke="#e8c56d" stroke-width="2" fill="#03080f"/>
+  <text x="60" y="74" font-family="Fraunces, Georgia, serif" font-size="60" font-weight="700" fill="#e8c56d" text-anchor="middle" letter-spacing="-2">AP</text>
+  <circle cx="60" cy="60" r="52" stroke="#e8c56d" stroke-width="1" fill="none" opacity="0.5"/>
+</svg>

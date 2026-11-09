@@ -1,0 +1,20 @@
+{
+  "automation_id": "koa-daily-content-sync-and-deploy",
+  "checked_at": "2026-10-10T13:00:29.205Z",
+  "document_id": "12KQN1uLNMfIJj0bFrbPe7bLZ6U5qYlFrEo0I966W534",
+  "document_revision": "AHj4eMQFpweE7CJ682MRnSsPo6MCaoUaS6vRD-q1UnKSBWtUy3jOW00G5dvenJi1H41R7usI3a2HEcnshcAxKCpsKPPpdXfoJzsSjKWso0A",
+  "source_commit": "bac78a3ec4e92f5dcaba11e5f79967c160d7cc34",
+  "version_number": 50,
+  "version_id": "appgprj_6a6f69069130819181528f956a78be9b~appgver_e0c883b3dd8c81919385aee5f0133075",
+  "deployment_id": "appgdep_6ac8aab4a27081918b4c99bac63ce8d5",
+  "public_url": "https://koamerica.org",
+  "editorial_tabs_changed": [],
+  "approved_intake_changed": false,
+  "new_held_karen_items": [],
+  "published_inventory": {
+    "routes": 68,
+    "normalized_characters": 116982,
+    "doc_local_public_parity": true
+  },
+  "action": "no_content_change_no_redeploy"
+}

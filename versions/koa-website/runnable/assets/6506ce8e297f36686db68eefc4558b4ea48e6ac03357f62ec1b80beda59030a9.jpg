@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#03080f"/>
+  <circle cx="600" cy="315" r="120" stroke="#e8c56d" stroke-width="3" fill="#071426"/>
+  <text x="600" y="335" font-family="Fraunces, Georgia, serif" font-size="80" font-weight="700" fill="#e8c56d" text-anchor="middle" letter-spacing="-3">AP</text>
+  <text x="600" y="430" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="500" fill="#f5f0e8" text-anchor="middle" letter-spacing="0.08em">MUSIC & AUDIO</text>
+  <text x="600" y="475" font-family="Space Grotesk, sans-serif" font-size="18" fill="#b8c0c8" text-anchor="middle" opacity="0.7">Music for the feeling.</text>
+  <rect x="500" y="520" width="200" height="2" fill="#e8c56d" opacity="0.3"/>
+</svg>

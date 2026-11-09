@@ -1,0 +1,183 @@
+/* V6 Cinematic Design Tokens — AP Music & Audio AWWWARDS-Grade */
+/* Based on KOA cinematic theme, adapted for AP Music & Audio */
+
+:root {
+  /* ===== BASE COLORS ===== */
+  --void: #03080f;              /* Deepest background */
+  --ink: #071426;               /* Primary surface */
+  --ink-elevated: #0c1f3a;      /* Cards, panels */
+  --ink-highlight: #132a4a;     /* Hover surfaces */
+
+  /* ===== TEXT ===== */
+  --paper: #f5f0e8;             /* Primary text */
+  --paper-muted: #b8c0c8;       /* Secondary text */
+  --paper-subtle: #7a8590;      /* Tertiary/meta */
+
+  /* ===== GOLD/AMBER — The Soul Color ===== */
+  --gold: #e8c56d;              /* Primary accent */
+  --gold-bright: #f0d48a;       /* Hover/active */
+  --gold-dim: #b89648;          /* Muted/borders */
+  --gold-glow: rgba(232, 197, 109, 0.35);
+  --gold-glow-strong: rgba(232, 197, 109, 0.55);
+
+  /* ===== CANOPY/ORGANIC — Atmospheric ===== */
+  --canopy: #154034;
+  --canopy-glow: rgba(21, 64, 52, 0.4);
+  --leaf: #082820;
+  --leaf-glow: rgba(8, 40, 32, 0.5);
+
+  /* ===== BORDERS/DIVIDERS ===== */
+  --hairline: rgba(245, 240, 232, 0.08);
+  --hairline-strong: rgba(245, 240, 232, 0.18);
+  --divider: rgba(232, 197, 109, 0.15);
+
+  /* ===== TYPOGRAPHY ===== */
+  --font-display: "Fraunces", "Canela", "Bodoni Moda", Georgia, serif;
+  --font-ui: "Space Grotesk", "Inter Tight", "Söhne", "SF Pro Display", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+
+  --display-track-tight: -0.03em;
+  --display-track-normal: -0.01em;
+  --display-track-wide: 0.02em;
+
+  --ui-track-tight: -0.01em;
+  --ui-track-normal: 0;
+  --ui-track-wide: 0.08em;
+  --ui-track-wider: 0.15em;
+
+  /* ===== TYPE SCALE (Fluid Clamp) ===== */
+  --text-xs: clamp(0.6875rem, 0.65rem + 0.2vw, 0.75rem);    /* Meta, timestamps */
+  --text-sm: clamp(0.8125rem, 0.75rem + 0.3vw, 0.875rem);   /* Body small, captions */
+  --text-base: clamp(1rem, 0.92rem + 0.4vw, 1.0625rem);     /* Body */
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);        /* Lead paragraphs */
+  --text-xl: clamp(1.375rem, 1.2rem + 0.6vw, 1.5rem);       /* Subheads */
+  --text-2xl: clamp(1.75rem, 1.5rem + 0.8vw, 2.25rem);      /* Section kickers */
+  --text-3xl: clamp(2.5rem, 2rem + 1.2vw, 3.5rem);          /* Chapter numbers */
+  --text-4xl: clamp(3.5rem, 2.8rem + 1.5vw, 5.5rem);        /* Hero/Chapter titles */
+  --text-5xl: clamp(5.5rem, 4rem + 2vw, 9rem);              /* Landing headline */
+  --text-6xl: clamp(8rem, 5.5rem + 3vw, 14rem);             /* Cinematic scale moments */
+
+  /* ===== MOTION/EASING ===== */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-sine: cubic-bezier(0.37, 0, 0.63, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ===== LAYOUT ===== */
+  --gutter: clamp(1.5rem, 3vw, 4rem);
+  --gutter-tight: clamp(1rem, 2vw, 2rem);
+  --header-h: 80px;
+  --header-h-mobile: 64px;
+  --tracker-w: 280px;
+  --tracker-w-tablet: 220px;
+  --timeline-h: 4px;
+
+  /* ===== SCROLL FILM VARS (driven by JS) ===== */
+  --progress: 0;            /* 0-1 normalized scroll progress */
+  --momentum: 0;            /* Velocity indicator */
+  --local: 0;               /* Chapter-local progress */
+  --resolved: 0;            /* Eased chapter progress */
+  --scene-scale: 1;         /* Scene zoom */
+  --soft-blur: 0;           /* Blur amount */
+  --logo-finesse: 0;        /* Logo scene finesse */
+  --torch: 0;               /* Torch flare intensity */
+
+  /* ===== Z-INDEX LAYERS ===== */
+  --z-bg: 0;
+  --z-film-bg: 1;
+  --z-film-content: 10;
+  --z-progress: 50;
+  --z-tracker: 60;
+  --z-header: 100;
+  --z-dialog: 200;
+  --z-toast: 300;
+}
+
+/* ===== FONT FACES (Self-hosted for performance) ===== */
+@font-face {
+  font-family: 'Fraunces';
+  src: url('../missing/a690c2e73673551a32a98515084a3591df8d21435cdefccd781cc43897353e27.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: swap;
+  font-stretch: 25% 151%;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../missing/d1576af73d731e1260880ce0ae687ee010fd0052497a7d45ed7fdbeb56c17316.woff2') format('woff2-variations');
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../missing/d30fae9dcd84d29f4fa5b0eaa2ba479a484c5b9c9d86f08d07f13696dc376358.woff2') format('woff2-variations');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+/* ===== GLOBAL RESET ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--void);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
+html[data-motion="reduced"] { scroll-behavior: auto !important; }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--void);
+  color: var(--paper);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: var(--ui-track-normal);
+}
+
+body.nav-open,
+body.dialog-open,
+body.hero-lock { overflow: hidden; }
+
+img, video, picture { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+input, textarea, select { font: inherit; color: inherit; background: transparent; }
+
+.skip-link {
+  position: fixed; z-index: 1000; top: -100%; left: var(--gutter);
+  padding: 0.875rem 1.25rem; background: var(--gold); color: var(--ink);
+  font-weight: 700; font-size: var(--text-sm); border-radius: 6px;
+  transition: top 0.3s var(--ease-spring);
+}
+.skip-link:focus { top: var(--gutter); }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ===== REDUCED MOTION GLOBAL ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

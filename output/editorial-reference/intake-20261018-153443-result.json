@@ -1,0 +1,25 @@
+{
+  "automation_id": "koa-facebook-and-signal-intake",
+  "scheduled_trigger": "2026-10-18T15:34:43.426Z",
+  "checked_at": "2026-10-18 15:35:46 UTC",
+  "facebook": {
+    "status": "blocked-live-feed-unavailable",
+    "page": "https://www.facebook.com/koamerica/",
+    "last_recorded_source": "https://www.facebook.com/koamerica/posts/pfbid025LATzoE2TtKf8vtaPFnUzCZw3okhspkg25L5deTBoAhJdM8JU7qufL9ffFwF1wGDl",
+    "last_recorded_source_date": null,
+    "last_successful_check": "2026-10-17T17:20:54.485Z",
+    "checkpoint_advanced": false,
+    "reason": "Web retrieval returned a Facebook login/temporary-block page; browser inventory was empty. Focused search returned no verifiable KOA candidates.",
+    "missing_field": "Current Facebook post listing accessible through a connected browser, or direct new public post URLs."
+  },
+  "signal": {
+    "status": "checked",
+    "path": "content/drafts/koa-signal-intake.md",
+    "new_items": 0,
+    "sha256": "A01AC164D6593307FE0A9DB4437175D96212E69A5B8BEC98534C564ED5BB461F"
+  },
+  "candidate_count": 0,
+  "source_mutations": 0,
+  "deployed": false,
+  "release_commit": "dc2469ae7b32874ac7558eaef505b6451d996be5"
+}

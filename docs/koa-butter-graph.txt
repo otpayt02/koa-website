@@ -1,0 +1,34 @@
+Changes: 8 files, 21 symbols
+Affected processes: 15
+Risk level: high
+
+Changed symbols:
+  Section Do's and Don'ts → DESIGN.md
+  Section StyleSeed — KOA service landing lock → STYLESEED.md
+  Function CinematicLanding → components/CinematicLanding.tsx
+  Function update → components/CinematicLanding.tsx
+  Function timer → components/CinematicLanding.tsx
+  Function DenseGlyphGrid → components/DenseGlyphGrid.tsx
+  Function render → components/DenseGlyphGrid.tsx
+  Function resize → components/DenseGlyphGrid.tsx
+  Function wakeCell → components/DenseGlyphGrid.tsx
+  Function animateTrail → components/DenseGlyphGrid.tsx
+  Function move → components/DenseGlyphGrid.tsx
+  Function click → components/DenseGlyphGrid.tsx
+  Const y → components/DenseGlyphGrid.tsx
+  Function leave → components/DenseGlyphGrid.tsx
+  Function tick → components/DenseGlyphGrid.tsx
+... and 6 more
+
+Affected execution flows:
+  • LanguageLayout → PaintCell (6 steps) — changed: resize, DenseGlyphGrid
+  • LanguageLayout → Render (6 steps) — changed: resize, render, DenseGlyphGrid
+  • HomePage → Composition (6 steps) — changed: CinematicLanding, resize, draw, HeritageGlyphMark
+  • LanguageLayout → ChooseGlyph (5 steps) — changed: resize, DenseGlyphGrid
+  • HomePage → BuildMarks (5 steps) — changed: CinematicLanding, resize, HeritageGlyphMark
+  • LanguageLayout → ShouldReduceMotion (4 steps) — changed: shouldReduceMotion
+  • HomePage → Wake (4 steps) — changed: CinematicLanding, HeritageGlyphMark
+  • HomePage → SealAssembly (3 steps) — changed: CinematicLanding
+  • Click → WakeCell (3 steps) — changed: click, wakeCell
+  • Click → WakeTrailFrame (3 steps) — changed: click
+... and 5 more

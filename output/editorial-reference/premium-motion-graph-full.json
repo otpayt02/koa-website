@@ -1,0 +1,1149 @@
+{
+  "summary": {
+    "changed_count": 87,
+    "affected_count": 32,
+    "changed_files": 16,
+    "risk_level": "critical"
+  },
+  "changed_symbols": [
+    {
+      "id": "Function:components/CinematicLanding.tsx:CinematicLanding",
+      "name": "CinematicLanding",
+      "type": "Function",
+      "filePath": "components/CinematicLanding.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/DenseGlyphGrid.tsx:DenseGlyphGrid",
+      "name": "DenseGlyphGrid",
+      "type": "Function",
+      "filePath": "components/DenseGlyphGrid.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/DenseGlyphGrid.tsx:DenseGlyphGrid.fn@12:12.move@202:4",
+      "name": "move",
+      "type": "Function",
+      "filePath": "components/DenseGlyphGrid.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion",
+      "name": "SiteScrollMotion",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.frozen@15:2",
+      "name": "frozen",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/SiteScrollMotion.tsx:SiteScrollMotion.fn@11:11.reset@72:2",
+      "name": "reset",
+      "type": "Function",
+      "filePath": "components/SiteScrollMotion.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/cinematic/HeritageGlyphMark.tsx:HeritageGlyphMark",
+      "name": "HeritageGlyphMark",
+      "type": "Function",
+      "filePath": "components/cinematic/HeritageGlyphMark.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/cinematic/HeritageGlyphMark.tsx:HeritageGlyphMark.fn@85:12.draw@104:4",
+      "name": "draw",
+      "type": "Function",
+      "filePath": "components/cinematic/HeritageGlyphMark.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "TypeAlias:components/motion-kit/GlareHover.tsx:Variant",
+      "name": "Variant",
+      "type": "TypeAlias",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "TypeAlias:components/motion-kit/GlareHover.tsx:Mode",
+      "name": "Mode",
+      "type": "TypeAlias",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Interface:components/motion-kit/GlareHover.tsx:GlareHoverProps",
+      "name": "GlareHoverProps",
+      "type": "Interface",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.width",
+      "name": "width",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.height",
+      "name": "height",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.background",
+      "name": "background",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.borderRadius",
+      "name": "borderRadius",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.borderColor",
+      "name": "borderColor",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.children",
+      "name": "children",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.glareColor",
+      "name": "glareColor",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.glareOpacity",
+      "name": "glareOpacity",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.glareAngle",
+      "name": "glareAngle",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.glareSize",
+      "name": "glareSize",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.softness",
+      "name": "softness",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.variant",
+      "name": "variant",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.blendMode",
+      "name": "blendMode",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.rimGlint",
+      "name": "rimGlint",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.mode",
+      "name": "mode",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.transitionDuration",
+      "name": "transitionDuration",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.interval",
+      "name": "interval",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.playOnce",
+      "name": "playOnce",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.intro",
+      "name": "intro",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.className",
+      "name": "className",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHoverProps.style",
+      "name": "style",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Interface:components/motion-kit/GlareHover.tsx:Sweep",
+      "name": "Sweep",
+      "type": "Interface",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:Sweep.from",
+      "name": "from",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:Sweep.to",
+      "name": "to",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:Sweep.start",
+      "name": "start",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:Sweep.duration",
+      "name": "duration",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:smootherstep",
+      "name": "smootherstep",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:bump",
+      "name": "bump",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Const:components/motion-kit/GlareHover.tsx:PROFILES",
+      "name": "PROFILES",
+      "type": "Const",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:PROFILES.streak",
+      "name": "streak",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:PROFILES.twin",
+      "name": "twin",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:PROFILES.sheen",
+      "name": "sheen",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:gradient",
+      "name": "gradient",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:gradient.stops@56:2",
+      "name": "stops",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:ease",
+      "name": "ease",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover",
+      "name": "GlareHover",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.glareAngle@95:21",
+      "name": "glareAngle",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.glareSize@95:33",
+      "name": "glareSize",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.interval@95:64",
+      "name": "interval",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.intro@95:84",
+      "name": "intro",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.playOnce@95:74",
+      "name": "playOnce",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.transitionDuration@95:44",
+      "name": "transitionDuration",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.angle@105:57",
+      "name": "angle",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.band@105:23",
+      "name": "band",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.reach@105:32",
+      "name": "reach",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.ux@105:42",
+      "name": "ux",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.uy@105:49",
+      "name": "uy",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.pos@107:6",
+      "name": "pos",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.velocity@108:6",
+      "name": "velocity",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.target@109:6",
+      "name": "target",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.presence@110:6",
+      "name": "presence",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.presenceTarget@111:6",
+      "name": "presenceTarget",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.sweep@112:6",
+      "name": "sweep",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.visible@113:6",
+      "name": "visible",
+      "type": "Property",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.bands@119:4",
+      "name": "bands",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.write@121:4",
+      "name": "write",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.measure@127:4",
+      "name": "measure",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.frame@147:4",
+      "name": "frame",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.wake@176:4",
+      "name": "wake",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.sweep@182:4",
+      "name": "sweep",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.along@197:4",
+      "name": "along",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.follow@204:4",
+      "name": "follow",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.onEnter@209:4",
+      "name": "onEnter",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.onMove@221:4",
+      "name": "onMove",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.onLeave@225:4",
+      "name": "onLeave",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.onDown@233:4",
+      "name": "onDown",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.onFocus@237:4",
+      "name": "onFocus",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/GlareHover.tsx:GlareHover.fn@99:12.schedule@241:4",
+      "name": "schedule",
+      "type": "Function",
+      "filePath": "components/motion-kit/GlareHover.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "",
+      "name": "Commons Clause Restriction",
+      "type": "Section",
+      "filePath": "components/motion-kit/REACT-BITS-LICENSE.md",
+      "change_type": "touched"
+    },
+    {
+      "id": "Interface:components/motion-kit/ShineBorder.tsx:ShineBorderProps",
+      "name": "ShineBorderProps",
+      "type": "Interface",
+      "filePath": "components/motion-kit/ShineBorder.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/ShineBorder.tsx:ShineBorderProps.borderWidth",
+      "name": "borderWidth",
+      "type": "Property",
+      "filePath": "components/motion-kit/ShineBorder.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/ShineBorder.tsx:ShineBorderProps.duration",
+      "name": "duration",
+      "type": "Property",
+      "filePath": "components/motion-kit/ShineBorder.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Property:components/motion-kit/ShineBorder.tsx:ShineBorderProps.shineColor",
+      "name": "shineColor",
+      "type": "Property",
+      "filePath": "components/motion-kit/ShineBorder.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/ShineBorder.tsx:ShineBorder",
+      "name": "ShineBorder",
+      "type": "Function",
+      "filePath": "components/motion-kit/ShineBorder.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motion-kit/ShiningLink.tsx:ShiningLink",
+      "name": "ShiningLink",
+      "type": "Function",
+      "filePath": "components/motion-kit/ShiningLink.tsx",
+      "change_type": "touched"
+    },
+    {
+      "id": "Function:components/motionPreference.ts:shouldReduceMotion",
+      "name": "shouldReduceMotion",
+      "type": "Function",
+      "filePath": "components/motionPreference.ts",
+      "change_type": "touched"
+    }
+  ],
+  "affected_processes": [
+    {
+      "id": "proc_5_languagelayout",
+      "name": "LanguageLayout → PaintCell",
+      "process_type": "cross_community",
+      "step_count": 6,
+      "changed_steps": [
+        {
+          "symbol": "DenseGlyphGrid",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_6_languagelayout",
+      "name": "LanguageLayout → Render",
+      "process_type": "cross_community",
+      "step_count": 6,
+      "changed_steps": [
+        {
+          "symbol": "DenseGlyphGrid",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_7_homepage",
+      "name": "HomePage → Composition",
+      "process_type": "cross_community",
+      "step_count": 6,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        },
+        {
+          "symbol": "draw",
+          "step": 5
+        },
+        {
+          "symbol": "HeritageGlyphMark",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_12_languagelayout",
+      "name": "LanguageLayout → ChooseGlyph",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "DenseGlyphGrid",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_13_languagelayout",
+      "name": "LanguageLayout → Frozen",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "frozen",
+          "step": 5
+        },
+        {
+          "symbol": "SiteScrollMotion",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_14_homepage",
+      "name": "HomePage → BuildMarks",
+      "process_type": "cross_community",
+      "step_count": 5,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        },
+        {
+          "symbol": "HeritageGlyphMark",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_20_languagelayout",
+      "name": "LanguageLayout → Measure",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "SiteScrollMotion",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_21_languagelayout",
+      "name": "LanguageLayout → Register",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "SiteScrollMotion",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_22_homepage",
+      "name": "HomePage → Wake",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        },
+        {
+          "symbol": "HeritageGlyphMark",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_28_glarehover",
+      "name": "GlareHover → Bands",
+      "process_type": "cross_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "measure",
+          "step": 2
+        },
+        {
+          "symbol": "write",
+          "step": 3
+        },
+        {
+          "symbol": "bands",
+          "step": 4
+        },
+        {
+          "symbol": "GlareHover",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_29_glarehover",
+      "name": "GlareHover → Wake",
+      "process_type": "intra_community",
+      "step_count": 4,
+      "changed_steps": [
+        {
+          "symbol": "schedule",
+          "step": 2
+        },
+        {
+          "symbol": "sweep",
+          "step": 3
+        },
+        {
+          "symbol": "wake",
+          "step": 4
+        },
+        {
+          "symbol": "GlareHover",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_38_homepage",
+      "name": "HomePage → SealAssembly",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_39_homepage",
+      "name": "HomePage → ShineBorder",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "ShineBorder",
+          "step": 3
+        },
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_40_homepage",
+      "name": "HomePage → ShiningLink",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "ShiningLink",
+          "step": 3
+        },
+        {
+          "symbol": "CinematicLanding",
+          "step": 2
+        }
+      ]
+    },
+    {
+      "id": "proc_58_onenter",
+      "name": "OnEnter → Along",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "onEnter",
+          "step": 1
+        },
+        {
+          "symbol": "follow",
+          "step": 2
+        },
+        {
+          "symbol": "along",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_59_sheen",
+      "name": "Sheen → Smootherstep",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "sheen",
+          "step": 1
+        },
+        {
+          "symbol": "bump",
+          "step": 2
+        },
+        {
+          "symbol": "smootherstep",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_89_move",
+      "name": "Move → PaintCell",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "move",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_92_move",
+      "name": "Move → ChooseGlyph",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "move",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_93_reset",
+      "name": "Reset → Frozen",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "reset",
+          "step": 1
+        },
+        {
+          "symbol": "frozen",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_98_frame",
+      "name": "Frame → Bands",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "frame",
+          "step": 1
+        },
+        {
+          "symbol": "write",
+          "step": 2
+        },
+        {
+          "symbol": "bands",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_99_ondown",
+      "name": "OnDown → Wake",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "onDown",
+          "step": 1
+        },
+        {
+          "symbol": "sweep",
+          "step": 2
+        },
+        {
+          "symbol": "wake",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_110_onmove",
+      "name": "OnMove → Along",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "onMove",
+          "step": 1
+        },
+        {
+          "symbol": "follow",
+          "step": 2
+        },
+        {
+          "symbol": "along",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_111_streak",
+      "name": "Streak → Smootherstep",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "streak",
+          "step": 1
+        },
+        {
+          "symbol": "bump",
+          "step": 2
+        },
+        {
+          "symbol": "smootherstep",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_120_resize",
+      "name": "Resize → Frozen",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "frozen",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_122_onenter",
+      "name": "OnEnter → Wake",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "onEnter",
+          "step": 1
+        },
+        {
+          "symbol": "follow",
+          "step": 2
+        },
+        {
+          "symbol": "wake",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_129_move",
+      "name": "Move → WakeCell",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "move",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_130_move",
+      "name": "Move → WakeTrailFrame",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "move",
+          "step": 1
+        }
+      ]
+    },
+    {
+      "id": "proc_131_twin",
+      "name": "Twin → Smootherstep",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "twin",
+          "step": 1
+        },
+        {
+          "symbol": "bump",
+          "step": 2
+        },
+        {
+          "symbol": "smootherstep",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_137_scroll",
+      "name": "Scroll → Frozen",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "frozen",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_138_onfocus",
+      "name": "OnFocus → Wake",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "onFocus",
+          "step": 1
+        },
+        {
+          "symbol": "sweep",
+          "step": 2
+        },
+        {
+          "symbol": "wake",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_148_onleave",
+      "name": "OnLeave → Wake",
+      "process_type": "intra_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "onLeave",
+          "step": 1
+        },
+        {
+          "symbol": "sweep",
+          "step": 2
+        },
+        {
+          "symbol": "wake",
+          "step": 3
+        }
+      ]
+    },
+    {
+      "id": "proc_157_onmove",
+      "name": "OnMove → Wake",
+      "process_type": "cross_community",
+      "step_count": 3,
+      "changed_steps": [
+        {
+          "symbol": "onMove",
+          "step": 1
+        },
+        {
+          "symbol": "follow",
+          "step": 2
+        },
+        {
+          "symbol": "wake",
+          "step": 3
+        }
+      ]
+    }
+  ]
+}

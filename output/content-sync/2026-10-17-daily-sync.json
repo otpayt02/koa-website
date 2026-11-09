@@ -1,0 +1,18 @@
+{
+  "automation_id": "koa-daily-content-sync-and-deploy",
+  "checked_at": "2026-10-17T17:20:28.219140+00:00",
+  "document_revision": "AHj4eMTavtI9YBCb62AyQffpk2QWPnn71pOee3jN0C3Z--AVXt2U1Na3xnNWuP9Hnb33VHnFuCPb6C733c5f2HMk2CvNOjVaLxfXEsgo7DU",
+  "source_commit": "9a00ff3047dcf39d952d9e124567b9e784469803",
+  "version": 52,
+  "deployment_id": "appgdep_6acfa5a04c18819188e34b9c675f8fa1",
+  "editorial_tabs_changed": [],
+  "approved_intake_changed": false,
+  "held_karen_items": [],
+  "published_inventory": {
+    "routes": 68,
+    "normalized_characters": 127878,
+    "doc_local_public_parity": true
+  },
+  "action": "no_content_change_no_redeploy",
+  "local_motion_changes": "Preserved uncommitted; excluded from content-sync publication."
+}

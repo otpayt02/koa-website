@@ -1,0 +1,16 @@
+{
+  "commit": "23101746c0239908cdf4f056b8b2f3ad7179c1ef",
+  "version": 48,
+  "versionId": "appgprj_6a6f69069130819181528f956a78be9b~appgver_a315b2acce7481918020379efc14442f",
+  "deploymentId": "appgdep_6ac839230db8819184f6e7c5730d16e2",
+  "status": "succeeded",
+  "url": "https://koamerica.org/en",
+  "archive": "C:/Users/olive/Projects/koa-remote-design-audit/release-artifacts/koa-butter-2310174-documentary.tar.gz",
+  "bundleNote": "Excluded only ignored generated concept imagery. Same built runtime, commit and documentary sources. First full-archive upload timed out; smaller archive succeeded.",
+  "mobileProof": "390x844: clientWidth=scrollWidth=390",
+  "copyParity": "68 routes unchanged; normalized Published tab matches release, FNV1a 43c5d526",
+  "screenshots": [
+    "production-desktop-v48.png",
+    "production-mobile-v48.png"
+  ]
+}

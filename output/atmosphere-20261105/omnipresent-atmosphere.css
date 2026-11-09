@@ -1,0 +1,8 @@
+/* A single shared field reaches the footer; only documentary photo frames occlude it. */
+#main-content { z-index: auto; }
+.koa-static-landing { isolation: auto; }
+.site-atmosphere { z-index: 20; }
+.site-dust-field { z-index: 20; opacity: .2; }
+:is(.koa-static-portrait, .content-page__documentary, .image-story__media, .mission-photo) { position: relative; z-index: 21; }
+.koa-static-pillar-panel img,
+.documentary-collection .documentary-track img { position: relative; z-index: 21; }

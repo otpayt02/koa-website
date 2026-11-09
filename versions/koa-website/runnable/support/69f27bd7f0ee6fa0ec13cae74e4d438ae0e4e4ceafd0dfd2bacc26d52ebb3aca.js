@@ -1,0 +1,1 @@
+import{r as e}from"./framework-CXnKph_e.js";var t=e();function n({children:e,tone:n=`gold`}){return(0,t.jsx)(`span`,{className:`status status--${n}`,children:e})}export{n as t};

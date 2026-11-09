@@ -1,0 +1,9 @@
+{
+  "automation_id": "koa-facebook-and-signal-intake",
+  "checked_at": "2026-10-12T17:10:06.196451+00:00",
+  "facebook_check": "failed",
+  "failure": "Browser request-header policy could not be loaded after two attempts.",
+  "signal_new_items": [],
+  "signal_tail_empty": true,
+  "action": "no_publication_unverified_facebook"
+}

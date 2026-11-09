@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SiteAtmosphere } from "@/components/SiteAtmosphere";
 import { getMessages, isLang, languages } from "@/components/i18n";
 
 export function generateStaticParams() {
@@ -26,9 +27,11 @@ export default async function LanguageLayout({ children, params }: Readonly<{ ch
         }}
       />
       <a className="skip-link" href="#main-content">{messages.skip}</a>
+      <SiteAtmosphere lang={value} />
       <Header lang={value} messages={messages} />
       <main id="main-content">{children}</main>
       <Footer lang={value} messages={messages} />
+      <a className="site-donate-tab" href={`/${value}/collaborate#donate`}>{messages.donate}</a>
     </>
   );
 }
