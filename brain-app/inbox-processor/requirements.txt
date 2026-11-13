@@ -1,1 +1,1 @@
-# Phase 2 will declare the inbox router's dependencies here.
+# The inbox processor uses only Python 3.11 standard-library modules.

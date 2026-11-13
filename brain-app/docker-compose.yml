@@ -5,8 +5,9 @@ services:
       - "127.0.0.1:8000:8000"
     environment:
       BRAIN_DATA_PATH: /app/brain-data
+      GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET:-}
     volumes:
-      - ..:/app/brain-data:ro
+      - ..:/app/brain-data
     working_dir: /app/brain-data/brain-app/backend
 
   brain-frontend:
@@ -15,18 +16,59 @@ services:
       - "127.0.0.1:3000:3000"
     depends_on:
       - brain-backend
-    volumes:
-      - ..:/app/brain-data:ro
-      - frontend_modules:/app/brain-data/brain-app/frontend/node_modules
     working_dir: /app/brain-data/brain-app/frontend
 
   inbox-processor:
     build: ./inbox-processor
     environment:
       BRAIN_DATA_PATH: /app/brain-data
+      INBOX_INTERVAL_MINUTES: ${INBOX_INTERVAL_MINUTES:-30}
     volumes:
-      - ..:/app/brain-data:ro
+      - ..:/app/brain-data
     working_dir: /app/brain-data/brain-app/inbox-processor
 
+  signal-api:
+    profiles: [signal]
+    image: ${SIGNAL_API_IMAGE:-bbernhard/signal-cli-rest-api:latest}
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      MODE: json-rpc
+      JSON_RPC_RECEIVE_MODE: manual
+      JSON_RPC_IGNORE_ATTACHMENTS: "true"
+    volumes:
+      - signal_data:/home/.local/share/signal-cli
+
+  signal-connector:
+    profiles: [signal]
+    build: ./connectors
+    command: ["python", "signal_worker.py"]
+    depends_on: [signal-api]
+    environment:
+      BRAIN_DATA_PATH: /app/brain-data
+      PYTHONPATH: /app/brain-data/brain-app/backend
+      SIGNAL_API_URL: http://signal-api:8080
+      SIGNAL_ACCOUNT: ${SIGNAL_ACCOUNT:-}
+      SIGNAL_GROUP_ID: ${SIGNAL_GROUP_ID:-}
+      SIGNAL_INGEST_APPROVED: ${SIGNAL_INGEST_APPROVED:-false}
+    volumes:
+      - ..:/app/brain-data
+    working_dir: /app/brain-data/brain-app/connectors
+
+  drive-connector:
+    profiles: [drive]
+    build: ./connectors
+    command: ["python", "drive_worker.py"]
+    environment:
+      BRAIN_DATA_PATH: /app/brain-data
+      PYTHONPATH: /app/brain-data/brain-app/backend
+      GOOGLE_DRIVE_FOLDER_ID: ${GOOGLE_DRIVE_FOLDER_ID:-}
+      GOOGLE_DRIVE_ID: ${GOOGLE_DRIVE_ID:-}
+      GOOGLE_TOKEN_PATH: /app/brain-data/brain-app/private/drive-token.json
+      GOOGLE_CURSOR_PATH: /app/brain-data/brain-app/private/drive-cursor.txt
+    volumes:
+      - ..:/app/brain-data
+    working_dir: /app/brain-data/brain-app/connectors
+
 volumes:
-  frontend_modules:
+  signal_data:
