@@ -1,12 +1,12 @@
 # KOA Company Brain: local setup
 
-This is an initial setup screen, not yet a shared knowledge workspace. Executive login and credentials do not exist yet; do not enter passwords. The inbox API and local file router are available, while the knowledge workspace and external connectors are reserved for later phases. Use it only on your own computer.
+This is a local inbox dashboard, not yet a secure shared knowledge workspace. It shows files waiting in `inbox/new/` and files already routed to `inbox/processed/`, lets you refresh the lists, and can run the inbox processor manually for all files or one selected file. It lists file names, paths, and sizes; it does not display file contents or the topic indexes. Executive login and credentials do not exist yet. Use it only on your own computer and keep private executive data out of the inbox.
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and start it.
 2. Clone the repository: `git clone https://github.com/otpayt02/koa-website.git`
 3. Enter the repository: `cd koa-website`
 4. Enter `brain-app`: `cd brain-app`, then run `docker compose up --build` (requires Docker Compose 2.20.3 or newer).
-5. Open [http://localhost:3000](http://localhost:3000). Executive login will be added in a later phase; it is not available yet.
+5. Open [http://localhost:3000](http://localhost:3000). The frontend proxies `/api` to the backend inside Compose. Executive login will be added in a later phase; it is not available yet.
 
 The backend and inbox worker see live repository files through a bind mount. The frontend source and locked dependencies are built into its image; rebuild after changing frontend files. The inbox worker processes files immediately on startup and every 30 minutes by default; set `INBOX_INTERVAL_MINUTES` to change the interval. Put files in `inbox/new/`; the worker moves them into `inbox/processed/` and adds a reference to a topic index such as `decisions/decisions.md`. The backend lists inbox items at `GET /api/inbox/new` and `GET /api/inbox/processed`, runs a manual pass at `POST /api/inbox/process`, and marks a specific new item processed at `POST /api/inbox/mark-processed` with `{"item_path":"filename.md"}`. Stop the stack with `Ctrl+C`.
 

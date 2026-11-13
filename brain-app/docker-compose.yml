@@ -14,6 +14,8 @@ services:
     build: ./frontend
     ports:
       - "127.0.0.1:3000:3000"
+    environment:
+      BRAIN_API_TARGET: http://brain-backend:8000
     depends_on:
       - brain-backend
     working_dir: /app/brain-data/brain-app/frontend
