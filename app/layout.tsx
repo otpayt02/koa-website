@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Noto_Sans_Myanmar } from "next/font/google";
 import "./globals.css";
 import "./cinematic-landing.css";
+import "./home-sections.css";
 
 const inter = Inter({
   subsets: ["latin"],

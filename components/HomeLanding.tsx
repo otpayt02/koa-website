@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { getMessages, pageLabels, type Lang } from "./i18n";
 import { KAGlyphField } from "./cinematic/KAGlyphField";
 import { SealAssembly } from "./cinematic/SealAssembly";
+import { HomeSections } from "./HomeSections";
 
 const priorities = ["home", "about", "services", "community", "dictionary", "contribute", "translation", "collaborate", "board", "changelog", "ai", "music", "contact"] as const;
 const previews = {
@@ -20,9 +21,36 @@ export function HomeLanding({ lang }: { lang: Lang }) {
   const markProgress = useRef(0);
   const sealTilt = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(true);
-  const [line, setLine] = useState(0);
+  const [line, setLine] = useState(1);
   const [loading, setLoading] = useState(true);
   const [preview, setPreview] = useState<Preview | null>(null);
+  const [chimeEnabled, setChimeEnabled] = useState(false);
+  const [chimeComplete, setChimeComplete] = useState(false);
+  const chimePlayed = useRef(false);
+
+  useEffect(() => {
+    if (!chimeEnabled || chimePlayed.current) return;
+    const play = () => {
+      if (chimePlayed.current || window.scrollY < 4) return;
+      chimePlayed.current = true;
+      setChimeComplete(true);
+      const context = new AudioContext();
+      const tone = context.createOscillator();
+      const gain = context.createGain();
+      tone.type = "sine";
+      tone.frequency.setValueAtTime(523.25, context.currentTime);
+      tone.frequency.exponentialRampToValueAtTime(783.99, context.currentTime + 0.17);
+      gain.gain.setValueAtTime(0.0001, context.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.045, context.currentTime + 0.025);
+      gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.42);
+      tone.connect(gain).connect(context.destination);
+      tone.start();
+      tone.stop(context.currentTime + 0.43);
+      tone.onended = () => void context.close();
+    };
+    window.addEventListener("scroll", play, { passive: true });
+    return () => window.removeEventListener("scroll", play);
+  }, [chimeEnabled]);
 
   useEffect(() => {
     if (!preview) return;
@@ -64,6 +92,7 @@ export function HomeLanding({ lang }: { lang: Lang }) {
   }, [reduced]);
 
   return (
+    <>
     <section className="koa-home" data-preview={preview || undefined} data-styleseed-recipe="public-service" aria-labelledby="koa-home-title">
       <div className="koa-home__photo" aria-hidden="true">
         <img src="/koa/assets/hero-community-mobile-enhanced.png" alt="" />
@@ -84,13 +113,16 @@ export function HomeLanding({ lang }: { lang: Lang }) {
         <p className="koa-home__subheading" lang={lang}>{pageLabels.home[lang]}</p>
         <div className="koa-home__cycle" aria-label={messages.explore} lang={lang}>
           {!reduced && <span className="koa-home__cycle-index" aria-hidden="true">{String(line + 1).padStart(2, "0")} / {priorities.length}</span>}
-          <p key={line}>{pageLabels[priorities[reduced ? 0 : line]][lang]}</p>
+          <p key={line}>{pageLabels[priorities[reduced ? 1 : line]][lang]}</p>
         </div>
         <nav className="koa-home__actions" aria-label={messages.explore} lang={lang}>
           <button type="button" className="koa-home__action koa-home__action--primary" onClick={() => setPreview("services")}>{messages.explore} {messages.services} <span aria-hidden="true">↗</span></button>
           <button type="button" className="koa-home__action" onClick={() => setPreview("collaborate")}>{messages.collaborate} <span aria-hidden="true">↗</span></button>
           <button type="button" className="koa-home__action" onClick={() => setPreview("contact")}>{messages.contact} <span aria-hidden="true">↗</span></button>
         </nav>
+        <button type="button" className="koa-home__chime" onClick={() => setChimeEnabled((value) => !value)} aria-pressed={chimeEnabled} disabled={chimeComplete}>
+          {chimeComplete ? "Chime played" : chimeEnabled ? "Scroll chime on" : "Enable scroll chime"}
+        </button>
       </div>
       {preview && <div className="koa-home__preview" role="region" aria-label={previews[preview].label[lang]}>
         <div className="koa-home__preview-image" style={{ backgroundImage: `url(${previews[preview].image})` }} aria-hidden="true" />
@@ -102,5 +134,7 @@ export function HomeLanding({ lang }: { lang: Lang }) {
         </div>
       </div>}
     </section>
+    <HomeSections lang={lang} />
+    </>
   );
 }

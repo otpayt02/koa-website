@@ -116,7 +116,7 @@ function composition(width: number, height: number, progress: number, hero: bool
   };
 }
 
-export function KAGlyphField({ progress, reducedMotion, hero = false, loading = false }: { progress: RefObject<number>; reducedMotion: boolean; hero?: boolean; loading?: boolean }) {
+export function KAGlyphField({ progress, reducedMotion, hero = false, loading = false, scatterProgress }: { progress: RefObject<number>; reducedMotion: boolean; hero?: boolean; loading?: boolean; scatterProgress?: RefObject<number> }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -137,9 +137,11 @@ export function KAGlyphField({ progress, reducedMotion, hero = false, loading = 
       context.clearRect(0, 0, width, height);
       const layout = composition(width, height, progress.current, hero);
       const phase = ((now - startedAt) % 2400) / 2400;
-      const scatter = loading && !reducedMotion
-        ? phase < .43 ? smooth(phase / .43) : phase < .88 ? 1 - smooth((phase - .43) / .45) : 0
-        : 0;
+      const scatter = scatterProgress && !reducedMotion
+        ? 1 - smooth(scatterProgress.current)
+        : loading && !reducedMotion
+          ? phase < .43 ? smooth(phase / .43) : phase < .88 ? 1 - smooth((phase - .43) / .45) : 0
+          : 0;
       for (const mark of marks) {
         const key = mark.char + ":" + mark.tone;
         let sprite = sprites.get(key);
@@ -202,7 +204,7 @@ export function KAGlyphField({ progress, reducedMotion, hero = false, loading = 
       document.removeEventListener("visibilitychange", wake);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [progress, reducedMotion, hero, loading]);
+  }, [progress, reducedMotion, hero, loading, scatterProgress]);
 
   return <canvas ref={canvasRef} className="koa-ka-glyph-field" aria-hidden="true" />;
 }
