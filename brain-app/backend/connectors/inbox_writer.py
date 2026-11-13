@@ -30,7 +30,8 @@ def write_record(source: str, identity: str, record: dict, root: Path | None = N
     try:
         descriptor = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
     except FileExistsError:
-        if destination.exists():
+        processed = root / "inbox" / "processed" / name
+        if destination.exists() or processed.exists():
             return False
         marker.unlink(missing_ok=True)
         descriptor = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)

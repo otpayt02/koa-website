@@ -2,6 +2,8 @@
 
 The backend now has a signed receiver at `POST /github/webhook`. It remains bound to localhost and cannot receive GitHub deliveries until a reviewed HTTPS ingress is configured. Do not point a webhook at `localhost`.
 
+The Brain also has an on-demand public REST fallback through **Sync sources**. It reads recent commits and issues from `otpayt02/koa-website` without exposing the local backend. This works without a GitHub token, subject to GitHub's unauthenticated API rate limit. The webhook remains optional for near-real-time delivery.
+
 ## Prerequisites
 
 - Repository admin access to `otpayt02/koa-website`.

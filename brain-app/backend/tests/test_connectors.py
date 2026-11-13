@@ -5,6 +5,7 @@ import hashlib
 import hmac
 import importlib.util
 import json
+import logging
 import os
 import tempfile
 import unittest
@@ -45,9 +46,14 @@ class ConnectorChecks(unittest.TestCase):
             result = module.process_inbox(Path(folder))
             self.assertEqual(result["processed_count"], 1)
             self.assertEqual(len(list((Path(folder) / "inbox" / "processed").glob("github-*.json"))), 1)
+            self.assertEqual(asyncio.run(receive_webhook(FakeRequest(payload, headers)))["status"], "duplicate")
             with self.assertRaises(HTTPException) as error:
                 asyncio.run(receive_webhook(FakeRequest(payload, {**headers, "x-hub-signature-256": "sha256=bad"})))
             self.assertEqual(error.exception.status_code, 401)
+            logger = logging.getLogger("koa.inbox.processor")
+            for handler in logger.handlers[:]:
+                handler.close()
+                logger.removeHandler(handler)
 
     def test_writer_rejects_unsupported_source(self):
         with tempfile.TemporaryDirectory() as folder:

@@ -9,6 +9,13 @@
 .env.local
 brain-app/.connector-state/
 brain-app/private/
+inbox/
+/brain/brain.md
+/decisions/decisions.md
+/references/references.md
+/prompts/prompts.md
+/projects/projects.md
+/connections/connections.md
 *.env.*
 !brain-app/.env.example
 

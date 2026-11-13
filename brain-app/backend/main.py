@@ -2,8 +2,9 @@ import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI
-from routes import github, inbox
+from fastapi import Depends, FastAPI
+from routes import github, inbox, knowledge, sync
+from security import require_operator
 
 
 def initialize_data_dirs() -> Path:
@@ -30,7 +31,9 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(title='KOA Company Brain API', lifespan=lifespan)
-app.include_router(inbox.router, prefix='/api/inbox')
+app.include_router(inbox.router, prefix='/api/inbox', dependencies=[Depends(require_operator)])
+app.include_router(knowledge.router, prefix='/api/knowledge', dependencies=[Depends(require_operator)])
+app.include_router(sync.router, prefix='/api/sync', dependencies=[Depends(require_operator)])
 app.include_router(github.router, prefix='/github')
 
 @app.get('/')

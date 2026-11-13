@@ -11,10 +11,6 @@ import drive_worker
 from signal_worker import message_record
 
 
-class StopPolling(Exception):
-    pass
-
-
 class WorkerChecks(unittest.TestCase):
     def test_signal_group_filter(self):
         event = {"params": {"result": {"envelope": {"sourceUuid": "sender-id", "timestamp": 123,
@@ -27,27 +23,57 @@ class WorkerChecks(unittest.TestCase):
     def test_drive_approved_folder_and_cursor(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
-            private = root / "private"
-            private.mkdir()
+            private = root / "brain-app" / "private"
+            private.mkdir(parents=True)
             (private / "cursor.txt").write_text("start", encoding="utf-8")
-            environment = {"GOOGLE_DRIVE_FOLDER_ID": "approved", "GOOGLE_DRIVE_ID": "",
+            environment = {"GOOGLE_DRIVE_FOLDER_ID": "approved-folder", "GOOGLE_DRIVE_ID": "",
                            "BRAIN_DATA_PATH": folder, "GOOGLE_TOKEN_PATH": str(private / "token.json"),
                            "GOOGLE_CURSOR_PATH": str(private / "cursor.txt")}
             changes = {"newStartPageToken": "next", "changes": [
-                {"file": {"id": "allowed", "name": "test.txt", "mimeType": "text/plain", "parents": ["approved"], "modifiedTime": "t1"}},
+                {"file": {"id": "allowed", "name": "test.txt", "mimeType": "text/plain", "parents": ["approved-folder"], "modifiedTime": "t1"}},
                 {"file": {"id": "excluded", "name": "other.txt", "mimeType": "text/plain", "parents": ["other"], "modifiedTime": "t1"}},
             ]}
             def fake_get(_token, path, _params):
-                return b"Harmless text" if path == "files/allowed" else json.dumps(changes).encode()
+                if path == "files/allowed":
+                    return b"Harmless text"
+                if path == "files":
+                    return json.dumps({"files": []}).encode()
+                return json.dumps(changes).encode()
             with patch.dict(os.environ, environment), patch.object(drive_worker, "access_token", return_value="local-token"), \
-                 patch.object(drive_worker, "drive_get", side_effect=fake_get), \
-                 patch.object(drive_worker.time, "sleep", side_effect=StopPolling):
-                with self.assertRaises(StopPolling):
-                    drive_worker.main()
+                 patch.object(drive_worker, "drive_get", side_effect=fake_get):
+                self.assertEqual(drive_worker.sync_once()["ingested"], 1)
             records = list((root / "inbox" / "new").glob("drive-*.json"))
             self.assertEqual(len(records), 1)
             self.assertEqual(json.loads(records[0].read_text(encoding="utf-8"))["file_id"], "allowed")
             self.assertEqual((private / "cursor.txt").read_text(encoding="utf-8"), "next")
+            self.assertEqual(json.loads((private / "cursor.scope.json").read_text(encoding="utf-8"))["allowed"], "t1")
+
+    def test_drive_backfills_existing_approved_files(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            private = root / "brain-app" / "private"
+            private.mkdir(parents=True)
+            environment = {"GOOGLE_DRIVE_FOLDER_ID": "approved-folder", "GOOGLE_DRIVE_ID": "",
+                           "BRAIN_DATA_PATH": folder, "GOOGLE_TOKEN_PATH": str(private / "token.json"),
+                           "GOOGLE_CURSOR_PATH": str(private / "cursor.txt")}
+
+            def fake_get(_token, path, _params):
+                if path == "changes/startPageToken":
+                    return b'{"startPageToken":"before-backfill"}'
+                if path == "files":
+                    return json.dumps({"files": [{"id": "existing", "name": "brief.txt",
+                        "mimeType": "text/plain", "parents": ["approved-folder"], "modifiedTime": "t1"}]}).encode()
+                if path == "files/existing":
+                    return b"Approved sample"
+                return b'{"newStartPageToken":"after-backfill","changes":[]}'
+
+            with patch.dict(os.environ, environment), patch.object(drive_worker, "access_token", return_value="local-token"), \
+                 patch.object(drive_worker, "drive_get", side_effect=fake_get):
+                self.assertEqual(drive_worker.sync_once()["ingested"], 1)
+                self.assertEqual(drive_worker.sync_once()["ingested"], 0)
+            self.assertEqual(len(list((root / "inbox/new").glob("drive-*.json"))), 1)
+            self.assertTrue((private / "cursor.backfill-complete").is_file())
+            self.assertEqual(json.loads((private / "cursor.scope.json").read_text(encoding="utf-8"))["existing"], "t1")
 
 
 if __name__ == "__main__":

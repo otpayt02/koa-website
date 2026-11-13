@@ -1,6 +1,6 @@
 # Signal connection setup
 
-The optional `signal-api` and `signal-connector` services are implemented. They stay off until the `signal` Compose profile is selected. The worker writes only text from one approved group into `inbox/new/` and deduplicates by group, sender, and timestamp. This is a Signal REST bridge, not an MCP server. Choose a dedicated KOA account and obtain group consent before enabling it.
+The optional `signal-api` and `signal-connector` services are implemented. They stay off until the `signal` Compose profile is selected. The worker writes only text from one approved group into `inbox/new/` and deduplicates by group, sender, and timestamp. This is a Signal REST bridge, not an MCP server. The local Brain now has an operator token, but no individual accounts or retention policy. Choose a dedicated KOA account and obtain group consent before enabling executive-message ingestion.
 
 ## Prerequisites
 

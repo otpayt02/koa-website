@@ -7,7 +7,16 @@ services:
       - "127.0.0.1:8000:8000"
     environment:
       BRAIN_DATA_PATH: /app/brain-data
+      BRAIN_ADMIN_TOKEN: ${BRAIN_ADMIN_TOKEN:-}
       GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET:-}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      GOOGLE_DRIVE_FOLDER_ID: ${GOOGLE_DRIVE_FOLDER_ID:-}
+      GOOGLE_DRIVE_ID: ${GOOGLE_DRIVE_ID:-}
+      GOOGLE_TOKEN_PATH: /app/brain-data/brain-app/private/drive-token.json
+      GOOGLE_CURSOR_PATH: /app/brain-data/brain-app/private/drive-cursor.txt
+      SIGNAL_GROUP_ID: ${SIGNAL_GROUP_ID:-}
+      SIGNAL_ACCOUNT: ${SIGNAL_ACCOUNT:-}
+      SIGNAL_INGEST_APPROVED: ${SIGNAL_INGEST_APPROVED:-false}
     volumes:
       - ..:/app/brain-data
 
@@ -70,6 +79,7 @@ services:
       GOOGLE_DRIVE_ID: ${GOOGLE_DRIVE_ID:-}
       GOOGLE_TOKEN_PATH: /app/brain-data/brain-app/private/drive-token.json
       GOOGLE_CURSOR_PATH: /app/brain-data/brain-app/private/drive-cursor.txt
+      DRIVE_SYNC_INTERVAL_SECONDS: ${DRIVE_SYNC_INTERVAL_SECONDS:-60}
     volumes:
       - ..:/app/brain-data
     working_dir: /app/brain-data/brain-app/connectors
