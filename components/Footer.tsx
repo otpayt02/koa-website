@@ -13,6 +13,8 @@ export function Footer({ lang, messages }: { lang: Lang; messages: Messages }) {
         <Link href={`/${lang}/dictionary`}>{messages.dictionary}</Link>
         <Link href={`/${lang}/translation`}>{messages.translation}</Link>
         <Link href={`/${lang}/collaborate`}>{messages.collaborate}</Link>
+        <Link href={`/${lang}/upcoming`}>Upcoming</Link>
+        <Link href={`/${lang}/contact`}>{messages.contact}</Link>
         <Link href={`/${lang}/changelog`}>{messages.changelog}</Link>
       </nav>
       <div className="footer-meta">

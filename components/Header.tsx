@@ -126,6 +126,7 @@ export function Header({ lang, messages }: { lang: Lang; messages: Messages }) {
           <Link href={`/${lang}/advocacy`}><span>05</span>Advocacy</Link>
           <Link href={`/${lang}/donate`}><span>06</span>Donate</Link>
           <Link href={`/${lang}/contact`}><span>07</span>Contact</Link>
+          <Link href={`/${lang}/upcoming`}><span>08</span>Upcoming</Link>
           {navCategories.map((category, catIndex) => (
             <div key={category.slug} className="nav-dropdown">
               <button
