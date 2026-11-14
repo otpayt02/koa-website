@@ -136,7 +136,8 @@ export function DenseGlyphGrid({ lang, reducedMotion }: { lang: Lang; reducedMot
       }
       context.font = `10.8px ${font}, sans-serif`;
       context.textBaseline = "top";
-      context.fillStyle = "rgba(151, 191, 232, .2)";
+      // Mutated trail glyphs carry 60% ink; the resting grid stays atmospheric.
+      context.fillStyle = "rgba(151, 191, 232, .6)";
       for (const [index, mutation] of mutations) {
         if (mutation.until < now) { mutations.delete(index); continue; }
         const x = (index % cols) * cell;

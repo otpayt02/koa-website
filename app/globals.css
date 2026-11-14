@@ -1547,7 +1547,7 @@ table { border-collapse: collapse; width: 100%; }
 .site-atmosphere { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: #030814; }
 .site-atmosphere::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 22% 20%, rgba(54,110,195,.24), transparent 38%), radial-gradient(circle at 78% 68%, rgba(83,174,177,.14), transparent 38%); }
 .site-atmosphere__dither, .site-atmosphere__dust { position: absolute; inset: 0; width: 100%; height: 100%; }
-.site-atmosphere__dither { opacity: .82; }
+.site-atmosphere__dither { opacity: 1; }
 .site-atmosphere__dust { opacity: 1; }
 body > .site-atmosphere { z-index: 0; }
 body:has(.site-atmosphere) main, body:has(.site-atmosphere) .site-footer { position: relative; z-index: 1; }

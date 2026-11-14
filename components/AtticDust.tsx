@@ -35,7 +35,7 @@ export function AtticDust({ lang, reducedMotion }: { lang: Lang; reducedMotion: 
         x: Math.random() * width, y: Math.random() * height,
         vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
         glyph: GLYPHS[lang][Math.floor(Math.random() * GLYPHS[lang].length)],
-        size: 5 + Math.random() * 6 * depth, depth,
+        size: 5.8 + Math.random() * 6.6 * depth, depth,
         age: stagger ? Math.random() * life : 0, life,
         driftX: 0, driftY: 0,
       };
@@ -83,7 +83,7 @@ export function AtticDust({ lang, reducedMotion }: { lang: Lang; reducedMotion: 
         }
         // Long fade-in, visible middle, and long fade-out avoid sudden arrivals.
         const fade = Math.min(1, mote.age / 9, (mote.life - mote.age) / 9);
-        context.globalAlpha = Math.max(0, fade) * .65 * Math.min(1, mote.depth);
+        context.globalAlpha = Math.max(0, fade) * .7 * Math.min(1, mote.depth);
         context.fillStyle = mote.depth > 1.15 ? "#f5e6c8" : "#a9bdd6";
         context.font = `${mote.size}px ${lang === "th" ? '"Noto Sans Thai"' : '"Noto Sans Myanmar"'}, sans-serif`;
         context.fillText(mote.glyph, mote.x + mote.driftX, mote.y + mote.driftY);
