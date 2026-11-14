@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { Suspense, lazy, useCallback, useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+const Brain3D = lazy(() => import('./Brain3D.jsx').then((module) => ({ default: module.Brain3D })));
 import './style.css';
+import './brain.css';
 
 async function api(path, options) {
   const token = sessionStorage.getItem('brainOperatorToken');
@@ -32,6 +34,9 @@ function App() {
   const [matches, setMatches] = useState([]);
   const [searchError, setSearchError] = useState('');
   const [searching, setSearching] = useState(false);
+  const [graph, setGraph] = useState(null);
+  const [graphError, setGraphError] = useState('');
+  const [selectedNode, setSelectedNode] = useState(null);
 
   const refresh = useCallback(async () => {
     setError('');
@@ -54,6 +59,10 @@ function App() {
 
   useEffect(() => { if (token) refresh(); }, [refresh, token]);
   useEffect(() => { if (token) api('/api/sync/status').then(setSyncStatus).catch(() => {}); }, [token]);
+  useEffect(() => {
+    if (!token || !updated) return;
+    api('/api/brain/graph').then((next) => { setGraph(next); setGraphError(''); }).catch((cause) => setGraphError(cause.message));
+  }, [token, updated]);
   useEffect(() => {
     if (!token || syncStatus?.status !== 'running') return undefined;
     const timer = window.setInterval(async () => {
@@ -161,6 +170,12 @@ function App() {
           <div className="stat red"><div className="stat-label">01 / INCOMING <span>↗</span></div><strong>{loading || !updated ? '—' : String(incoming.length).padStart(2, '0')}</strong><p>Files waiting to be routed</p><button onClick={() => show('incoming')}>View incoming →</button></div>
           <div className="stat"><div className="stat-label">02 / PROCESSED <span>✓</span></div><strong>{loading || !updated ? '—' : String(processed.length).padStart(2, '0')}</strong><p>Files in the processed archive</p><button onClick={() => show('processed')}>View processed →</button></div>
           <div className="stat workflow"><div className="stat-label">THE WORKFLOW</div><p><b>01</b> Place a file in <code>inbox/new</code></p><p><b>02</b> Run a pass or wait for the worker</p><p><b>03</b> Review it in processed files</p></div>
+        </section>}
+        {view === 'overview' && <section className="brain-panel" aria-label="Knowledge map">
+          <div className="section-heading"><div><p className="eyebrow">LOCAL KNOWLEDGE MAP</p><h2>See the connections.</h2></div><span className="file-count">{graph ? `${graph.nodes.length} NODES · ${graph.edges.length} LINKS` : 'LOADING'}</span></div>
+          <p>Each point is an indexed record. Lines show character similarity in the local vector index; they do not assert that two records mean the same thing.</p>
+          {graphError && <p className="login-error" role="alert">Could not load the map: {graphError}</p>}
+          {graph?.nodes.length ? <><Suspense fallback={<div className="brain-canvas" role="status">Loading map…</div>}><Brain3D graph={graph} onSelect={setSelectedNode} /></Suspense><div className="brain-map-bottom"><div className="brain-node-list" aria-label="Knowledge nodes">{graph.nodes.map((node) => <button key={node.id} className={selectedNode?.id === node.id ? 'active' : ''} onClick={() => setSelectedNode(node)}><i className={`source-${node.source}`} />{node.title}</button>)}</div><div className="brain-node-detail" aria-live="polite">{selectedNode ? <><span className="eyebrow">{selectedNode.source.toUpperCase()} RECORD</span><h3>{selectedNode.title}</h3><p>{selectedNode.excerpt}</p></> : <p>Select a point or choose a record from the list.</p>}</div></div></> : graph && <div className="empty"><h3>The map is waiting for records.</h3><p>Use Sync sources to bring approved files into the local index.</p></div>}
         </section>}
         <div className="section-heading"><div><p className="eyebrow">{view === 'overview' ? 'CURRENT ACTIVITY' : view === 'incoming' ? 'TO BE ROUTED' : 'ARCHIVE'}</p><h2>{view === 'overview' ? 'In the queue' : view === 'incoming' ? 'Incoming files' : 'Processed files'}</h2></div>{view === 'overview' ? <button className="text-link" onClick={() => show('incoming')}>Open inbox ↗</button> : <span className="file-count">{loading ? '…' : list.length} FILES</span>}</div>
         <section className="file-panel" aria-label={view === 'processed' ? 'Processed files' : 'Incoming files'}>

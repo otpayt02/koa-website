@@ -1,0 +1,17 @@
+.brain-panel{margin-top:40px;border:1px solid #e5e0d5;background:#fff;padding:clamp(20px,3vw,38px)}
+.brain-panel .section-heading{margin:0 0 12px}
+.brain-panel>p{max-width:650px;color:#66767a;font-size:13px;line-height:1.65}
+.brain-canvas{height:clamp(330px,44vw,570px);background:#102e38;overflow:hidden;margin:25px 0 0}
+.brain-canvas canvas{display:block}
+.brain-map-bottom{display:grid;grid-template-columns:minmax(190px,1fr) 1.3fr;border:1px solid #e9e5dc;border-top:0;min-height:165px}
+.brain-node-list{max-height:190px;overflow:auto;border-right:1px solid #e9e5dc}
+.brain-node-list button{display:flex;align-items:center;gap:9px;width:100%;border:0;border-bottom:1px solid #f0eee8;padding:11px 15px;background:white;color:#294049;text-align:left;font-size:12px}
+.brain-node-list button:hover,.brain-node-list button.active{background:#f6f2e9}
+.brain-node-list i{width:7px;height:7px;flex:none;border-radius:50%;background:#e8dac0}
+.brain-node-list i.source-github{background:#b54d3f}
+.brain-node-list i.source-drive{background:#306579}
+.brain-node-list i.source-signal{background:#c79b49}
+.brain-node-detail{padding:20px 24px;overflow-wrap:anywhere}
+.brain-node-detail h3{font-size:20px;margin:8px 0}
+.brain-node-detail p{font-size:12px;line-height:1.6;color:#677579;white-space:pre-wrap}
+@media(max-width:700px){.brain-map-bottom{grid-template-columns:1fr}.brain-node-list{border-right:0;border-bottom:1px solid #e9e5dc;max-height:140px}.brain-canvas{height:350px}}
