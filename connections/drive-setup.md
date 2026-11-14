@@ -1,11 +1,11 @@
 # Google Drive connection setup
 
-The optional `drive-connector` poller is implemented but stays off until the `drive` Compose profile is selected. It indexes only direct children of an explicitly approved folder, stores a change cursor and current-revision scope, and writes attributed JSON records for text, Markdown, CSV, JSON, Google Docs, and Google Sheets. Other formats and nested folders are skipped. OAuth requests Drive-wide read-only access to the account; folder filtering happens in this local connector, not at Google's consent boundary. The Brain uses one local operator token and has no individual accounts.
+The optional `drive-connector` poller is implemented and runs on this computer with the `drive` Compose profile. It indexes only direct children of an explicitly approved folder, stores a change cursor and current-revision scope, and writes attributed JSON records for text, Markdown, CSV, JSON, Google Docs, and Google Sheets. Other formats and nested folders are skipped. OAuth requests Drive-wide read-only access to the account; folder filtering happens in this local connector, not at Google's consent boundary. The Brain uses one local operator token and has no individual accounts.
 
 ## Prerequisites
 
-- The `koa-brain-drive` Google Cloud project has the Drive API enabled. Its OAuth consent screen must be configured for the authorized KOA account.
-- An OAuth client appropriate for the eventual local worker, with the minimum Drive read scope it needs.
+- The `koa-brain-drive` Google Cloud project has the Drive API enabled. Its OAuth consent screen is configured for `oliverp789@gmail.com` in Testing mode.
+- The desktop OAuth client `KOA Brain local Drive reader` requests Drive read-only access. Its JSON and refresh token are ignored under `brain-app/private/` on this computer.
 - An approved folder ID and a private local token path. The connector requires an OAuth refresh token for unattended polling.
 
 ## Setup
@@ -28,7 +28,7 @@ Compose reads the folder and optional drive ID from `.env`; the token and cursor
 
 ## Test
 
-Upload a harmless text file into the approved folder after the worker has started. Verify one `drive-*.json` record appears in `inbox/new/`, is routed to `inbox/processed/`, and retains the file ID and revision. Change an unrelated folder and verify it is ignored. This live account test has not been run here.
+Upload a harmless text file into the approved folder after the worker has started. Verify one `drive-*.json` record appears in `inbox/new/`, is routed to `inbox/processed/`, and retains the file ID and revision. Change an unrelated folder and verify it is ignored. The first live account sync completed with `{"ingested":0}` because the approved folder was empty. An add/change/remove test with a real file has not yet been run. Google external OAuth apps in Testing mode issue refresh tokens that expire after seven days; reauthorize when the worker reports a refresh failure.
 
 ## Troubleshooting
 
