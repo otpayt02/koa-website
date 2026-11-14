@@ -44,7 +44,8 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 - [ ] Publish and verify the reviewed commentary route: [koamerica.org/en/commentary](https://www.koamerica.org/en/commentary) returned HTTP **404** on 2026-11-14.
 - [ ] Run a complete desktop/mobile/reduced-motion visual pass across home, language switch, events, donation, and navigation; fix observed failures while preserving current routes and content.
 - [x] Desktop homepage and 390 px mobile homepage/commentary were rendered through the local Worker. The latest homepage browser navigation showed no console errors; a full interaction and reduced-motion pass is still open.
-- [ ] Finish the requested event calendar expansion, volunteer quotes, translation flyer, responsive media, and K–seal–A footer choreography where absent or incomplete. Use reviewed people, captions, and rights-cleared photography only.
+- [x] Added the missing local `/:lang/events` route. Its month calendar has previous/next/today controls, an explicit no-verified-dates state, and expandable source-linked details for future verified events. English and S’gaw Karen routes returned HTTP 200. At 390 px, the English page had no horizontal overflow and the next-month control changed November to December 2026.
+- [ ] Populate the calendar from a KOA-approved event source and review its language. Finish volunteer quotes, translation flyer, responsive media, and K–seal–A footer choreography where absent or incomplete. Use reviewed people, captions, and rights-cleared photography only.
 - [ ] Build the requested accessible component-version browser with real variants and a keyboard alternative; the current protected Design Studio is a frame review surface, not that browser.
 
 ## 4. Public website backend and release
