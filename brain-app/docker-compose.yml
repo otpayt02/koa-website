@@ -40,6 +40,14 @@ services:
       - ..:/app/brain-data
     working_dir: /app/brain-data/brain-app/inbox-processor
 
+  news-aggregator:
+    build: ./news-aggregator
+    environment:
+      BRAIN_DATA_PATH: /app/brain-data
+    volumes:
+      - ..:/app/brain-data
+    working_dir: /app/brain-data/brain-app/news-aggregator
+
   signal-api:
     profiles: [signal]
     image: ${SIGNAL_API_IMAGE:-bbernhard/signal-cli-rest-api:latest}

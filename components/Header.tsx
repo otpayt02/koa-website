@@ -70,6 +70,7 @@ const navCategories = [
       { slug: "koa-history", label: "KOA History" },
       { slug: "advocacy", label: "Advocacy" },
       { slug: "news", label: "News" },
+      { slug: "commentary", label: "Commentary" },
       { slug: "practical-resources", label: "Practical Resources" },
     ]
   }

@@ -31,6 +31,12 @@ Connector code is included but the external sources are opt-in. Review each guid
 
 Copy [.env.example](.env.example) to an ignored `.env` and configure only approved sources. Signal and Drive use optional Compose profiles; the GitHub receiver returns 503 until a webhook secret is set. GitHub still needs a reviewed HTTPS ingress to receive real deliveries. Signal needs a linked KOA account and an approved group; Drive needs OAuth authorization and an approved folder. The current Brain uses one local operator token and has no individual executive accounts.
 
+## Public news and commentary desk
+
+The default Compose stack includes `news-aggregator`. It reads the public RSS feeds from Karen News and KIC News once on startup and every hour, caching up to 30 attributed headlines and links from each source in ignored `brain-app/private/news-latest.json`. Failed feed requests leave the last successful cache in place. The operator-token protected `GET /api/news` returns that cache; `GET /api/commentary/suggestions` turns its first 20 items into neutral fact-check questions. Neither route copies article bodies or publishes political positions.
+
+The private commentary desk accepts sourced English drafts at `POST /api/commentary` and lists them at `GET /api/commentary`. Any submitted S’gaw Karen text is marked `pending_review`. `GET /api/commentary/schedule` gives the next six Monday/Wednesday/Friday 9:00 a.m. America/Chicago **review slots**. `POST /api/commentary/publish` rejects publication until an editorial and language-review workflow exists. The public site’s commentary route is a review-status landing page, not a feed of these private drafts. Do not put sensitive executive or Signal material in drafts: this local prototype has one operator token and unencrypted local JSON storage.
+
 ## Maintenance
 
 From `brain-app/`, run `docker compose ps` to inspect services and `docker compose logs --tail=100 brain-backend brain-frontend inbox-processor` to inspect failures. Restart with `docker compose restart`; after dependency or source changes, rebuild with `docker compose up --build -d`. Stop with `docker compose down`. Add a harmless file to `../inbox/new/`, then inspect `../inbox/processed/` and the worker logs. If items accumulate, check the worker logs and `INBOX_INTERVAL_MINUTES`, then use `POST http://localhost:8000/api/inbox/process` for a manual pass. Preserve the original file until routing is confirmed.
