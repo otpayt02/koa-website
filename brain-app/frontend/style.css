@@ -19,3 +19,14 @@
 .editorial-form input,.editorial-form textarea{width:100%;padding:12px;border:1px solid #b9c2bd;background:white;color:#243e45;font:400 14px/1.5 system-ui,sans-serif}
 .editorial-form textarea{min-height:115px;resize:vertical}.editorial-form button{justify-self:start}
 @media(max-width:800px){.editorial-grid{grid-template-columns:1fr}}
+
+/* Keep every workspace destination visible on narrow screens. */
+@media(max-width:700px){
+  .sidebar{padding:10px 12px}
+  .sidebar nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;overflow:visible}
+  .nav-item{width:100%;min-height:42px;white-space:normal;gap:8px;padding:8px 10px;font-size:12px}
+  .nav-item>span{flex:none;width:18px;text-align:center}
+}
+@media(max-width:520px){
+  .editorial-desk .section-heading{align-items:flex-start;flex-direction:column;gap:12px}
+}
