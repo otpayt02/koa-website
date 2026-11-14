@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Local fallbacks keep the two interface scripts legible when Google Fonts is blocked. */
+@font-face { font-family: "Inter"; src: url("/fonts/inter-latin.woff2") format("woff2"); font-style: normal; font-weight: 100 900; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+2000-206F; }
+@font-face { font-family: "Noto Sans Myanmar"; src: url("/fonts/noto-sans-myanmar-regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+1000-109F, U+200C-200D, U+25CC, U+A92E, U+A9E0-A9FE, U+AA60-AA7F; }
+
 :root {
   /* ===== KOA DELUXE COLOR SYSTEM v2 =====
      Art direction: S'gaw Karen language preservation, cinematic dark-mode only

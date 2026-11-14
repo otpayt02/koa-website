@@ -1098,6 +1098,86 @@
       "karen": ""
     },
     {
+      "key": "auto.commentary.civicEducationEditorialReview.a5e3daf7",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "paragraph",
+      "en": "Civic education / Editorial review",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.readTheSource.ca67908e",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "heading",
+      "en": "Read the source.",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.makeRoomForContext.ffc5733a",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "paragraph",
+      "en": "Make room for context.",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.koaIsPreparingASpaceFor.b06e7e8a",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "paragraph",
+      "en": "KOA is preparing a space for commentary on issues affecting Karen communities in the United States and in Myanmar. Every piece will identify its sources, distinguish reporting from KOA’s view, and receive editorial review before appearing here.",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.theSGawKarenEditionIs.c132a1a4",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "paragraph",
+      "en": "The S’gaw Karen edition is awaiting community language review. This English text is shown so an unreviewed translation is never mistaken for approved guidance.",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.browseCommunityBoard.d525d0a5",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "paragraph",
+      "en": "Browse community board ↗",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.shareASource.89b10c3c",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "paragraph",
+      "en": "Share a source ↗",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.editorialDesk.17d94afd",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "label",
+      "en": "EDITORIAL DESK",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.reviewedPostsWillAppearHere.0e1028b2",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "heading",
+      "en": "Reviewed posts will appear here.",
+      "karen": ""
+    },
+    {
+      "key": "auto.commentary.draftsAndMachineAssistedTranslationsStay.8dfa202b",
+      "route": "//commentary",
+      "section": "//commentary",
+      "type": "paragraph",
+      "en": "Drafts and machine-assisted translations stay private until people responsible for the facts and language approve them.",
+      "karen": ""
+    },
+    {
       "key": "auto.community.board.communityBoard.31e53843",
       "route": "//community/board",
       "section": "//community/board",
@@ -6866,6 +6946,116 @@
       "route": "//collaborate",
       "kind": "text",
       "en": "Donations support the people, tools, and review time behind KOA's public work. A receipt is sent by email; tax deductibility is confirmed with your receipt.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.civicEducationEditorialReview.a5e3daf7",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "Civic education / Editorial review",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.readTheSource.ca67908e",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "Read the source.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.makeRoomForContext.ffc5733a",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "Make room for context.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.koaIsPreparingASpaceFor.b06e7e8a",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "KOA is preparing a space for commentary on issues affecting Karen communities in the United States and in Myanmar. Every piece will identify its sources, distinguish reporting from KOA’s view, and receive editorial review before appearing here.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.theSGawKarenEditionIs.c132a1a4",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "The S’gaw Karen edition is awaiting community language review. This English text is shown so an unreviewed translation is never mistaken for approved guidance.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.browseCommunityBoard.d525d0a5",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "Browse community board ↗",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.shareASource.89b10c3c",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "Share a source ↗",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.editorialDesk.17d94afd",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "EDITORIAL DESK",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.reviewedPostsWillAppearHere.0e1028b2",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "Reviewed posts will appear here.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.commentary.draftsAndMachineAssistedTranslationsStay.8dfa202b",
+      "route": "//commentary",
+      "kind": "text",
+      "en": "Drafts and machine-assisted translations stay private until people responsible for the facts and language approve them.",
       "karen": "",
       "occurrence": {
         "en": 0,

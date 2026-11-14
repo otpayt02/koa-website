@@ -21,7 +21,7 @@ export default async function LanguageLayout({ children, params }: Readonly<{ ch
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Karen Organization of America",
-            url: `https://karen-organization-of-america.oliverp789.chatgpt.site/${value}`,
+            url: `https://www.koamerica.org/${value}`,
             areaServed: "United States",
           }),
         }}

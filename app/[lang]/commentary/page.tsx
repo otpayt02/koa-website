@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { isLang } from "@/components/i18n";
 
 export const metadata: Metadata = {
-  title: "Commentary | Karen Organization of America",
+  title: "Commentary",
   description: "A space for sourced, reviewed civic commentary from the Karen Organization of America.",
 };
 
