@@ -31,8 +31,13 @@ def _run() -> None:
     token_path = Path(os.getenv("GOOGLE_TOKEN_PATH", "/missing"))
     if folder and token_path.is_file():
         try:
+            # The subprocess starts from the connector directory; include the
+            # backend package root so `connectors.inbox_writer` resolves there.
+            backend_path = str(Path(__file__).resolve().parents[1])
+            subprocess_env = dict(os.environ)
+            subprocess_env["PYTHONPATH"] = os.pathsep.join(filter(None, (backend_path, subprocess_env.get("PYTHONPATH", ""))))
             completed = subprocess.run([sys.executable, str(DRIVE_SCRIPT), "--once"],
-                                       capture_output=True, text=True, timeout=240, check=True)
+                                       capture_output=True, text=True, timeout=240, check=True, env=subprocess_env)
             results["drive"] = json.loads(completed.stdout)
         except Exception as cause:
             failures.append(f"Drive: {type(cause).__name__}")

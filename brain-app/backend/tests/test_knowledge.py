@@ -68,6 +68,30 @@ class KnowledgeChecks(unittest.TestCase):
                 scope.write_text("{}", encoding="utf-8")
                 self.assertEqual(sync_processed()["documents"], 0)
 
+    def test_repo_scope_indexes_only_current_review_gated_source(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            processed = root / "inbox" / "processed"
+            private = root / "brain-app" / "private"
+            processed.mkdir(parents=True)
+            private.mkdir(parents=True)
+            for revision in ("old", "current"):
+                (processed / f"repo-{revision}.json").write_text(json.dumps({
+                    "source": "github", "event": "source_file", "path": "docs/KOA-VISION.md",
+                    "sha": revision, "title": "docs/KOA-VISION.md",
+                    "url": "https://github.com/example/koa/blob/revision/docs/KOA-VISION.md",
+                    "content_utf8": f"Vision {revision}"
+                }), encoding="utf-8")
+            scope = private / "github-files.scope.json"
+            scope.write_text('{"docs/KOA-VISION.md":"current"}', encoding="utf-8")
+            with patch.dict(os.environ, {"BRAIN_DATA_PATH": folder}):
+                self.assertEqual(sync_processed()["documents"], 1)
+                result = search("Vision current")[0]
+                self.assertEqual(result["source"], "github")
+                self.assertIn("review before publication", result["excerpt"])
+                scope.write_text("{}", encoding="utf-8")
+                self.assertEqual(sync_processed()["documents"], 0)
+
     def test_operator_token_rejects_unknown_token(self):
         with patch.dict(os.environ, {"BRAIN_ADMIN_TOKEN": "x" * 32}):
             with self.assertRaises(HTTPException) as caught:

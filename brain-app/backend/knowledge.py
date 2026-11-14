@@ -60,7 +60,8 @@ def _connect() -> sqlite3.Connection:
     return connection
 
 
-def _extract(path: Path, drive_revisions: dict[str, str] | None) -> tuple[str, str, str, str | None] | None:
+def _extract(path: Path, drive_revisions: dict[str, str] | None,
+             github_revisions: dict[str, str] | None) -> tuple[str, str, str, str | None] | None:
     if path.stat().st_size > MAX_FILE_BYTES or path.is_symlink():
         return None
     if path.suffix.lower() == ".json":
@@ -84,7 +85,12 @@ def _extract(path: Path, drive_revisions: dict[str, str] | None) -> tuple[str, s
             return None
         content = record.get("content_utf8") or record.get("text") or record.get("title") or ""
         title = record.get("name") or record.get("title") or path.stem
-        if source == "github":
+        if source == "github" and record.get("event") == "source_file":
+            source_path = str(record.get("path") or "")
+            if github_revisions is None or github_revisions.get(source_path) != record.get("sha"):
+                return None
+            content = f"Source: {record.get('url') or ''}\nStatus: repository reference; review before publication\n\n{content}"
+        elif source == "github":
             content = " ".join(str(record.get(key) or "") for key in ("title", "message", "repository", "event", "action", "url"))
         fingerprint = hashlib.sha256(json.dumps(record, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
         return source, str(title)[:300], str(content)[:MAX_FILE_BYTES], fingerprint
@@ -98,6 +104,8 @@ def sync_processed() -> dict[str, int]:
     folder = root / "inbox" / "processed"
     scope_path = Path(os.getenv("GOOGLE_CURSOR_PATH", str(root / "brain-app/private/drive-cursor.txt"))).with_suffix(".scope.json")
     drive_revisions = json.loads(scope_path.read_text(encoding="utf-8")) if scope_path.exists() else None
+    github_scope_path = root / "brain-app" / "private" / "github-files.scope.json"
+    github_revisions = json.loads(github_scope_path.read_text(encoding="utf-8")) if github_scope_path.exists() else None
     connection = _connect()
     indexed = 0
     seen: set[str] = set()
@@ -108,7 +116,7 @@ def sync_processed() -> dict[str, int]:
                 continue
             if path.name == ".manifest.json":
                 continue
-            extracted = _extract(path, drive_revisions)
+            extracted = _extract(path, drive_revisions, github_revisions)
             if not extracted:
                 continue
             source, title, content, fingerprint = extracted

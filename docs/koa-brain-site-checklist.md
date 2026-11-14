@@ -25,10 +25,12 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 
 - [x] FastAPI health, token-gated inbox/knowledge/graph/news/commentary/sync routes, SQLite local vector index, and Docker Compose startup exist. The API health check returned HTTP 200.
 - [x] GitHub manual sync and an approved-folder Drive connector exist. The approved Drive folder was empty at first live sync; no folder content was indexed then.
-- [x] A copy of the KOA website content draft was placed in the approved Drive folder with an **unreviewed** label. One Drive record was ingested; the local index then reported 38 documents and 283 chunks. This is private source material, not approved public copy.
+- [x] A copy of the KOA website content draft was placed in the approved Drive folder with an **unreviewed** label. One Drive record was ingested. This is private source material, not approved public copy.
+- [x] The manual GitHub sync now indexes the current revision of seven allowlisted repository reference files, including KOA vision, content map, editorial workflow, and publication rules. It excludes superseded revisions from search. After the first pass, the local index reported **46 documents and 322 chunks**.
 - [x] Hourly public RSS intake from Karen News and KIC News, private review suggestions, and non-publishing commentary drafts exist. The last verified intake returned 20 attributed headlines and 20 suggestions.
-- [x] Backend synthetic suite passed 13 tests in the previous build pass.
+- [x] Backend synthetic suite passed **15 tests** in the current pass, including repository revision scoping and the manual Drive connector import path.
 - [x] Added `tzdata` to the backend requirements so the Central-time commentary schedule starts on Windows Python 3.11. Local API health returned HTTP 200 with the approved Drive connector reported ready.
+- [x] The Brain's **Sync sources** button completed an end-to-end local pass: GitHub 0 new, Drive 0 new, Index 46 documents. The first attempt exposed a Drive subprocess import error; its Python import path is now set explicitly.
 - [ ] Verify connector freshness, failure/retry behavior, and data retention over time; add team authentication and encryption before executive data ingestion.
 - [ ] Connect the exact KOA Signal executive group only after its linked account and group ID are supplied and the privacy scope is approved.
 - [ ] Implement a supported, permissioned KOA Facebook media/post intake. Do not substitute invented posts or altered documentary faces.
