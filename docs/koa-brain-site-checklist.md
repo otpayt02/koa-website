@@ -17,7 +17,8 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 - [x] Editorial desk shows attributed news links, source selection, private English draft form, review slots, and draft status. Its production bundle built successfully.
 - [x] Authenticated desktop Overview and Editorial desk, plus 390 px mobile Editorial desk, were rendered in a real browser. The index showed 38 nodes and 104 character-similarity links; the Editorial desk displayed 20 attributed public headlines.
 - [x] Fixed the mobile workspace navigation so all four destinations remain visible, and moved the Editorial refresh control below its heading at 390 px.
-- [ ] Finish the authenticated mobile 3D map, keyboard, and reduced-motion interaction pass.
+- [x] Fixed a 390 px Overview overflow caused by a visually hidden table header being absolutely positioned outside the scroll container. The rendered document width now equals the 390 px viewport while the file table keeps its own horizontal scroll.
+- [ ] Finish the authenticated mobile 3D map, keyboard, and reduced-motion interaction pass. The 3D map is present in the authenticated accessibility tree, but the reduced-motion browser probe did not complete.
 - [ ] Polish empty/loading/error states, focus order, touch targets, contrast, and reduced-motion behavior based on that pass.
 - [ ] Add individual executive accounts and role controls before treating the Brain as a shared team workspace.
 
@@ -54,7 +55,8 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 - [ ] Establish a KOA-owned Stripe account or approved hosted Payment Link before enabling checkout. Verify signed payment events and receipts; no live payment was tested.
 - [ ] Confirm the live deployment’s API, database bindings, admin permissions, and language/content parity against this branch before a release claim.
 - [x] Standalone Cloudflare Worker build is the default; Sites packaging is opt-in. Canonical metadata, organization URL, robots, and sitemap now target `www.koamerica.org` and `/ksw`.
-- [ ] Authenticate a KOA-owned Cloudflare account, create its D1/R2 resources, migrate/check data, deploy a preview, and switch DNS after candidate review. See [migration runbook](cloudflare-migration.md).
+- [x] Wrangler OAuth is authenticated to Oliver's Cloudflare account. `wrangler d1 list` found `koa-website-db` with zero tables; `wrangler r2 bucket list` returned Cloudflare error 10042 because R2 is not enabled for the account.
+- [ ] Enable R2 if the media APIs are required, inventory/migrate/check existing Sites data, deploy a Worker preview, and switch DNS after candidate review. See [migration runbook](cloudflare-migration.md).
 - [ ] Review S’gaw Karen copy, political commentary, partner claims, media rights, and documentary faces with KOA before publishing.
 - [ ] Run the site test/build gate and an HTTP/browser smoke pass on the candidate release, then deploy only with explicit release authorization.
 - [ ] Reconcile the older repository contract suite before release: the standalone build and bilingual inventory pass, but `node --test tests/*.test.mjs` currently reports 73 passing and 67 failing tests. The failures include legacy expectations for routes and motion phases that already differ from the current checkout; this run is not a clean release gate.
