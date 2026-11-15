@@ -121,7 +121,18 @@ for (const sentence of records) {
 
 records.sort((a, b) => a.source.localeCompare(b.source) || a.en.localeCompare(b.en));
 const payload = { version: 1, generatedFrom: "public source and existing catalog", policy: "Proposal queue only. No generated or dictionary-sourced text is approved for publication or training.", sentences: records, words: [...words.values()].sort((a, b) => a.area.localeCompare(b.area) || a.en.localeCompare(b.en)) };
-const serialized = `${JSON.stringify(payload, null, 2)}\n`;
+const serialized = [
+  "{",
+  `"version":${payload.version},`,
+  `"generatedFrom":${JSON.stringify(payload.generatedFrom)},`,
+  `"policy":${JSON.stringify(payload.policy)},`,
+  '"sentences":[',
+  ...payload.sentences.map((entry, index) => `${JSON.stringify(entry)}${index < payload.sentences.length - 1 ? "," : ""}`),
+  '],"words":[',
+  ...payload.words.map((entry, index) => `${JSON.stringify(entry)}${index < payload.words.length - 1 ? "," : ""}`),
+  "]}",
+  "",
+].join("\n");
 if (process.argv.includes("--check")) {
   if (!fs.existsSync(output) || fs.readFileSync(output, "utf8") !== serialized) { console.error("Translation queue is stale; run npm run translation:queue."); process.exitCode = 1; }
   else console.log(`Translation queue current: ${records.length} text candidates, ${words.size} context-specific word pairs.`);
