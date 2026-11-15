@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOA Component Atlas — allowed menu for the layout-variety build</title>
+<meta name="description" content="Visual atlas of every real component and section pattern in otpayt02/koa-website, rebuilt 2026-11-14 after the original atlas was found missing from Drive, the repo, and the workspace. Checked items are the allowed menu for CODEX_PROMPT_KOA_LAYOUT_VARIETY.md.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Noto+Serif+Myanmar:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1A33; --navy-deep:#040818; --navy-800:#061226; --red:#B9162B; --red-bright:#D83035;
+    --cream:#F4EDE1; --paper:#f5f0e8; --gold:#C9A227; --gold-soft:#d4a843;
+    --ink:#1A1A1A; --muted-dark:#b3a693; --muted-light:#5d5142;
+    --serif:"Libre Caslon Display",Georgia,serif; --sans:"DM Sans",system-ui,sans-serif; --myanmar:"Noto Serif Myanmar",serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--navy-deep);color:var(--paper);font-family:var(--sans);font-size:1rem;line-height:1.7}
+  .ksw{font-family:var(--myanmar)}
+  header.atlas-hero{background:radial-gradient(120% 140% at 20% 0%,#0d2e50 0%,var(--navy) 45%,var(--navy-deep) 100%);padding:4.5rem 1.5rem 3.5rem;border-bottom:1px solid #d4a84333}
+  .wrap{width:min(1180px,100% - 3rem);margin:0 auto}
+  .eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--gold-soft);font-weight:700;margin:0 0 .75rem}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;margin:0 0 1rem}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,3vw,2.3rem);margin:0 0 .5rem}
+  h3{font-family:var(--serif);font-weight:400;font-size:1.35rem;margin:0}
+  .lede{max-width:46rem;color:var(--fg,#d4c8b8);font-size:1.06rem}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+  .pill{border:1px solid #d4a8434d;border-radius:999px;padding:.3rem .85rem;font-size:.85rem;color:var(--paper)}
+  .pill strong{color:var(--gold-soft)}
+  .toolbar{position:sticky;top:0;z-index:20;background:#040818f2;backdrop-filter:blur(8px);border-bottom:1px solid #d4a8432e;padding:.8rem 0}
+  .toolbar .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+  .toolbar p{margin:0;font-size:.95rem}
+  #checked-count{color:var(--gold-soft);font-weight:700}
+  main{padding:2.5rem 0 4rem}
+  section.group{margin:0 0 3.5rem}
+  .group-head{border-left:3px solid var(--red);padding-left:1rem;margin-bottom:1.5rem}
+  .group-head p{color:#d4c8b8;margin:.25rem 0 0;max-width:52rem}
+  .item{background:#0a1222;border:1px solid #d4a8432e;border-radius:14px;padding:1.4rem 1.4rem 1.6rem;margin-bottom:1.4rem}
+  .item.not-built{opacity:.82;border-style:dashed}
+  .item-head{display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+  .item-title{display:flex;gap:.9rem;align-items:flex-start}
+  .item input[type=checkbox]{width:1.35rem;height:1.35rem;margin-top:.35rem;accent-color:var(--red-bright);flex:none;cursor:pointer}
+  .item input[type=checkbox]:disabled{cursor:not-allowed}
+  .where{font-size:.9rem;color:var(--muted-dark);margin:.3rem 0 0}
+  .where code{background:#061226;border:1px solid #d4a8432e;border-radius:6px;padding:.05rem .4rem;font-size:.85em;color:#f0d87a}
+  .tags{display:flex;gap:.5rem;flex-wrap:wrap}
+  .tag{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.22rem .7rem;border:1px solid #d4a8434d;color:var(--gold-soft);white-space:nowrap}
+  .tag.status-ok{border-color:#19b7a1;color:#7fe3d3}
+  .tag.status-partial{border-color:var(--gold-soft);color:#f0d87a}
+  .tag.status-missing{border-color:var(--red-bright);color:#f8a8a9}
+  .tag.status-dead{border-color:#6a5d4d;color:#b3a693}
+  .sample{margin-top:1.1rem;border-radius:10px;overflow:hidden;border:1px solid #d4a84326}
+  .sample-label{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark);margin:.9rem 0 0}
+  /* ---- live samples (KOA design system) ---- */
+  .s-nav{background:var(--navy);display:flex;align-items:center;gap:1.2rem;padding:.9rem 1.2rem;flex-wrap:wrap}
+  .s-nav .brand{font-family:var(--serif);font-size:1.3rem;color:var(--paper)}
+  .s-nav .brand b{color:var(--red-bright)}
+  .s-nav a{color:#d4c8b8;text-decoration:none;font-size:.95rem}
+  .s-nav a:hover{color:var(--gold-soft)}
+  .s-nav .cta{margin-left:auto;background:var(--red);color:#fff;padding:.45rem 1rem;border-radius:999px}
+  .s-hero{background:linear-gradient(115deg,var(--navy) 55%,#0d2e50);padding:2.6rem 2rem;position:relative}
+  .s-hero h4{font-family:var(--serif);font-weight:400;font-size:2rem;margin:.4rem 0 .6rem;line-height:1.15}
+  .s-hero p{color:#d4c8b8;max-width:34rem;margin:0}
+  .s-quote{background:var(--navy);display:grid;grid-template-columns:86px 1fr;min-height:150px}
+  .s-quote .rail{border-right:1px solid #d4a84333;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;color:var(--gold-soft);letter-spacing:.2em;font-size:.8rem}
+  .s-quote blockquote{margin:0;padding:2rem;font-family:var(--serif);font-size:1.5rem;line-height:1.35}
+  .s-quote blockquote footer{font-family:var(--sans);font-size:.9rem;color:var(--muted-dark);margin-top:.8rem}
+  .s-rail{background:var(--navy-800);padding:1rem 1.6rem}
+  .s-rail .row{display:flex;gap:1.2rem;padding:.85rem 0;border-bottom:1px solid #d4a8431f;align-items:baseline}
+  .s-rail .row:last-child{border-bottom:0}
+  .s-rail .num{font-family:var(--serif);color:var(--red-bright);font-size:1.25rem;min-width:2.2rem}
+  .s-rail .row p{margin:0;color:#d4c8b8}
+  .s-rail .row strong{color:var(--paper)}
+  .s-split{display:grid;grid-template-columns:70% 30%;background:var(--navy)}
+  .s-split .img{background:linear-gradient(140deg,#2a4a7a,#0d2e50 60%,var(--red) 160%);min-height:170px;display:flex;align-items:flex-end;padding:1rem;color:#f5f0e8;font-size:.85rem}
+  .s-split .txt{padding:1.4rem}
+  .s-split .txt p{color:#d4c8b8;margin:.4rem 0 0}
+  .s-band{background:var(--red);color:#fff;padding:1.8rem 2rem;display:flex;gap:1.5rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .s-band h4{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:0}
+  .s-band a{background:#fff;color:var(--red);text-decoration:none;font-weight:700;padding:.6rem 1.3rem;border-radius:999px}
+  .s-overlap{background:var(--navy-800);padding:2rem;position:relative;min-height:190px}
+  .s-overlap .panel-a{background:#0d2e50;border:1px solid #d4a84333;border-radius:10px;padding:1.2rem;width:62%}
+  .s-overlap .panel-b{position:absolute;right:2rem;bottom:1.4rem;width:46%;background:var(--cream);color:var(--ink);border-radius:10px;padding:1.1rem;box-shadow:0 18px 40px #0009}
+  .s-overlap p{margin:.3rem 0 0;color:#d4c8b8}.s-overlap .panel-b p{color:#4a4238}
+  .s-expand{background:var(--navy)}
+  .s-expand details{border-bottom:1px solid #d4a84326;padding:1rem 1.5rem}
+  .s-expand summary{cursor:pointer;font-weight:600}
+  .s-expand details p{color:#d4c8b8;margin:.5rem 0 0}
+  .s-read{background:var(--cream);color:var(--ink);padding:2.4rem 2rem 2.4rem clamp(2rem,14%,9rem)}
+  .s-read h4{font-family:var(--serif);font-weight:400;font-size:1.7rem;margin:0 0 .6rem}
+  .s-read p{max-width:34rem;color:#3d362c;margin:0}
+  .s-ceremony{background:radial-gradient(90% 120% at 50% 0%,#081a34,var(--navy-deep));text-align:center;padding:2.6rem 1.5rem}
+  .s-ceremony .seal{width:74px;height:74px;margin:0 auto 1rem;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--gold-soft);font-size:1.05rem}
+  .s-ceremony .glyphs{color:#8db8e8;letter-spacing:.5em;font-family:var(--myanmar);opacity:.75}
+  .s-ceremony p{color:#d4c8b8;max-width:30rem;margin:.6rem auto 0}
+  .s-cards{background:var(--navy-800);padding:1.4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .s-cards .card{background:#0a1222;border:1px solid #d4a8432e;border-radius:10px;padding:1.1rem}
+  .s-cards .card .n{color:var(--red-bright);font-family:var(--serif);font-size:1.2rem}
+  .s-cards .card p{color:#d4c8b8;margin:.35rem 0 0;font-size:.95rem}
+  .s-form{background:var(--navy);padding:1.6rem;max-width:520px}
+  .s-form label{display:block;margin-bottom:1rem;font-size:.95rem;color:#d4c8b8}
+  .s-form input,.s-form select,.s-form textarea{width:100%;margin-top:.35rem;background:#040818;border:1px solid #d4a8434d;border-radius:8px;color:var(--paper);padding:.65rem .8rem;font:inherit}
+  .s-form input:focus,.s-form select:focus,.s-form textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+  .s-donate{background:var(--navy);padding:1.6rem;max-width:520px}
+  .s-donate .amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}
+  .s-donate .amounts span{border:1px solid #d4a8434d;border-radius:8px;text-align:center;padding:.55rem 0}
+  .s-donate .amounts .on{background:var(--red);border-color:var(--red);color:#fff}
+  .s-donate .toggle{display:flex;gap:.6rem;align-items:center;color:#d4c8b8}
+  .btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:.65rem 1.5rem;border-radius:999px;font-weight:600}
+  .btn.ghost{background:transparent;border:1px solid var(--gold-soft);color:var(--gold-soft)}
+  .s-glyph{background:var(--navy-deep);padding:1.6rem;font-family:var(--myanmar);color:#5a8fc8;letter-spacing:.35em;line-height:2.1;min-height:120px}
+  .s-glyph .hot{color:var(--gold-soft)}
+  .s-dict{background:var(--navy-800);padding:1.4rem}
+  .s-dict .entry{background:#0a1222;border-left:3px solid var(--gold);padding:1rem 1.2rem;border-radius:0 10px 10px 0}
+  .s-dict .entry p{margin:.25rem 0;color:#d4c8b8}
+  .s-people{background:var(--navy-800);padding:1.4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .s-people .person{background:#0a1222;border-radius:10px;padding:1.1rem;text-align:center}
+  .s-people .face{width:52px;height:52px;border-radius:50%;margin:0 auto .6rem;background:linear-gradient(140deg,#2a4a7a,var(--red))}
+  .s-people p{margin:.2rem 0;color:#d4c8b8;font-size:.95rem}
+  table.rotation{width:100%;border-collapse:collapse;background:#0a1222;border:1px solid #d4a8432e;border-radius:12px;overflow:hidden}
+  table.rotation th,table.rotation td{padding:.8rem 1rem;text-align:left;border-bottom:1px solid #d4a8431f;vertical-align:top}
+  table.rotation th{color:var(--gold-soft);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+  table.rotation td{color:#d4c8b8}
+  table.rotation td:first-child{color:var(--paper);white-space:nowrap}
+  footer.atlas-foot{border-top:1px solid #d4a8432e;padding:2rem 0 3rem;color:var(--muted-dark)}
+  @media (max-width:720px){.s-split{grid-template-columns:1fr}.s-cards,.s-people{grid-template-columns:1fr}.s-overlap .panel-a,.s-overlap .panel-b{width:100%;position:static;margin-top:1rem}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="atlas-hero">
+  <div class="wrap">
+    <p class="eyebrow">Karen Organization of America · otpayt02/koa-website</p>
+    <h1>Component Atlas</h1>
+    <p class="lede">Every real component and section pattern in the repo, inventoried from source on 2026-11-14. This file replaces the original <em>koa-component-atlas.html</em>, which was searched for in Google Drive, GitHub, and the workspace and found nowhere. <strong>Checked items are the allowed menu</strong> for the layout-variety build (<em>CODEX_PROMPT_KOA_LAYOUT_VARIETY.md</em>): implement only checked features, and never give neighboring sections the same shape.</p>
+    <div class="meta-row">
+      <span class="pill">Repo base: <strong>main @ 4c788cf</strong></span>
+      <span class="pill">Components inventoried: <strong>48 files</strong></span>
+      <span class="pill">Pages inventoried: <strong>22 routes</strong></span>
+      <span class="pill">Palette: <strong>#0B1A33 · #B9162B · #F4EDE1 · #C9A227</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar"><div class="wrap">
+  <p><span id="checked-count">0</span> items checked = allowed menu</p>
+  <p>Unchecked = not allowed in the layout-variety build. “Not built” items cannot be checked until they exist in the repo.</p>
+</div></div>
+
+<main class="wrap">
+
+<section class="group">
+  <div class="group-head"><h2>The 8-pattern rotation</h2>
+  <p>From the layout-variety prompt. Adjacent sections must not share a shape; density must alternate too. Each atlas item below is tagged with the pattern it can serve.</p></div>
+  <table class="rotation">
+    <tr><th>#</th><th>Pattern</th><th>Repo exemplars in this atlas</th></tr>
+    <tr><td>1</td><td>Full-bleed quote with a narrow date rail</td><td>ScrollScrubIntro quote scenes · CinematicHome chapters</td></tr>
+    <tr><td>2</td><td>Numbered vertical rail, one item per row</td><td>Section + Card rows · Changelog timeline</td></tr>
+    <tr><td>3</td><td>Asymmetric split, 70/30, image bleeding off one edge</td><td>Split-story sections · PageHero</td></tr>
+    <tr><td>4</td><td>Single wide band with one action</td><td>DonationForm band · Full-bleed CTA</td></tr>
+    <tr><td>5</td><td>Two overlapping panels, not equal columns</td><td>CommunityAtmosphere · CinematicLanding</td></tr>
+    <tr><td>6</td><td>Checklist or schedule rows that expand</td><td>ContributionForm checklist (closest existing) · EventSchedule — not built</td></tr>
+    <tr><td>7</td><td>Quiet cream reading field, one paragraph, large empty margin</td><td>KoaContentPage / KoaSection</td></tr>
+    <tr><td>8</td><td>Dark ceremonial field with one seal or glyph, no cards</td><td>Footer + SealAssembly · KOALogoIntro</td></tr>
+  </table>
+</section>
+<section class="group"><div class="group-head"><h2>Site chrome</h2><p>Persistent header, footer, and controls used by every page.</p></div>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow Header + site-nav">
+  <div><h3>Header + site-nav</h3><p class="where"><code>components/Header.tsx</code><br>Used: Every page via app/[lang]/layout.tsx — persistent nav, mega-menu categories, language toggle</p></div></div>
+  <div class="tags"><span class="tag">Single wide band (chrome)</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-nav"><span class="brand"><b>K</b>OA</span><a href="#">About</a><a href="#">Advocacy</a><a href="#">Dictionary</a><a href="#">Contact</a><a class="cta" href="#">Donate</a></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Mega-menu categories point at slugs (mango, tutor, ocr…) with no matching [lang] routes — trim to real pages. Nav styles (.site-nav) were missing from compiled CSS; restored in Step 2 of the 2026-11-14 sequence.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow Footer">
+  <div><h3>Footer</h3><p class="where"><code>components/Footer.tsx</code><br>Used: Every page — 5 links + seal + Facebook</p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Dark ceremonial field</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-ceremony"><div class="seal">KOA</div><p class="glyphs">က ည ီ က ရ ၢ</p><p>Dark ceremonial field — one seal, glyph dust behind text, no cards.</p></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Repo footer is plain, NOT the glyph-scatter stage (scatter exists only in artifact builds). Missing Contact/Donate/Upcoming links on main; Upcoming+Contact added on PR #8 branch.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow LanguageToggle">
+  <div><h3>LanguageToggle</h3><p class="where"><code>components/LanguageToggle.tsx</code><br>Used: Header — en / ksw / th / my</p></div></div>
+  <div class="tags"><span class="tag">Chrome control</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-nav"><span class="brand"><b>K</b>OA</span><a href="#">About</a><a href="#">Advocacy</a><a href="#">Dictionary</a><a href="#">Contact</a><a class="cta" href="#">Donate</a></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Language prefixes are canonical as /ksw (not /karen — layout.tsx alternate is stale).</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow Button + MagneticButton">
+  <div><h3>Button + MagneticButton</h3><p class="where"><code>components/Button.tsx · components/ui/MagneticButton.tsx</code><br>Used: CTAs across pages; magnetic pull variant</p></div></div>
+  <div class="tags"><span class="tag">Single wide band (action)</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-band"><h4>One wide band. One action.</h4><a href="#">Support the work</a></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Butter-motion rule: ONE perimeter-orbit control per page, not on every button.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox"  aria-label="Allow PremiumHeader">
+  <div><h3>PremiumHeader</h3><p class="where"><code>components/PremiumHeader.tsx (1,037 lines)</code><br>Used: Nowhere — never imported (dead code)</p></div></div>
+  <div class="tags"><span class="tag">—</span><span class="tag status-dead">In repo · dead code</span></div></div>
+  <div class="sample"><div class="s-nav"><span class="brand"><b>K</b>OA</span><a href="#">About</a><a href="#">Advocacy</a><a href="#">Dictionary</a><a href="#">Contact</a><a class="cta" href="#">Donate</a></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Do not use. Header.tsx is the live chrome. Candidate for deletion.</p>
+</article>
+</section>
+<section class="group"><div class="group-head"><h2>Heroes & cinematic openers</h2><p>The first viewport of a page. One per page, never stacked.</p></div>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow PageHero">
+  <div><h3>PageHero</h3><p class="where"><code>components/PageHero.tsx</code><br>Used: Mission, Advocacy, Donate and other KoaContentPage pages</p></div></div>
+  <div class="tags"><span class="tag">Pattern 3 · Asymmetric split</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-hero"><p class="eyebrow">Chapter 01 · Home</p><h4>Standing with the Karen community in America.</h4><p>Asymmetric hero — headline left, open negative space right, one action.</p><p style="margin-top:1rem"><a class="btn" href="#">Explore our work</a></p></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">The one hero pattern that exists in compiled CSS, which is why heroes render while content sections don&#x27;t.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow CinematicHome">
+  <div><h3>CinematicHome</h3><p class="where"><code>components/CinematicHome.tsx (570 lines)</code><br>Used: Home page — chaptered scroll film (23,462px), Capitol + Karen flag hero</p></div></div>
+  <div class="tags"><span class="tag">Patterns 1 · 3 · 8 (chaptered)</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-quote"><div class="rail">EST. · LOUISVILLE</div><blockquote>“A living story, carried forward.”<footer>Full-bleed quote with a narrow date rail — pattern 1.</footer></blockquote></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Home&#x27;s cinematic chapters are the healthy part of the repo build: 0 dead scroll in the 2026-11-13 walk.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow CinematicLanding">
+  <div><h3>CinematicLanding</h3><p class="where"><code>components/CinematicLanding.tsx + app/cinematic-landing.css</code><br>Used: Landing variant / film phases (arrival → converge → hold → scatter)</p></div></div>
+  <div class="tags"><span class="tag">Pattern 5 · Overlapping panels</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-overlap"><div class="panel-a"><h3>Community first</h3><p>Two overlapping panels, never equal columns.</p></div><div class="panel-b"><h3> overlapping panel</h3><p>Offset, shadowed, different density from its neighbor.</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Has its own stylesheet (804 lines) with a different font pairing (Barlow Condensed / Source Sans 3) — reconcile with the Libre Caslon / DM Sans system before reuse.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow KOALogoIntro">
+  <div><h3>KOALogoIntro</h3><p class="where"><code>components/KOALogoIntro.tsx (946 lines)</code><br>Used: Intro / identity assembly sequence</p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Dark ceremonial field</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-ceremony"><div class="seal">KOA</div><p class="glyphs">က ည ီ က ရ ၢ</p><p>Dark ceremonial field — one seal, glyph dust behind text, no cards.</p></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Large single-purpose intro. Use sparingly; never as a page template.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow ScrollScrubIntro">
+  <div><h3>ScrollScrubIntro</h3><p class="where"><code>components/cinematic/ScrollScrubIntro.tsx</code><br>Used: Home intro — GSAP ScrollTrigger scenes</p></div></div>
+  <div class="tags"><span class="tag">Pattern 1 · Full-bleed quote + date rail</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-quote"><div class="rail">EST. · LOUISVILLE</div><blockquote>“A living story, carried forward.”<footer>Full-bleed quote with a narrow date rail — pattern 1.</footer></blockquote></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Imports gsap — missing from package.json on main (home 500s); fixed only on PR #8 branch.</p>
+</article>
+</section>
+<section class="group"><div class="group-head"><h2>Content section patterns</h2><p>The shapes a page body may use — subject to the no-cookie-cutter-neighbor rule.</p></div>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow Section + Card (feature-grid)">
+  <div><h3>Section + Card (feature-grid)</h3><p class="where"><code>components/Section.tsx · components/Card.tsx</code><br>Used: 16 of 22 [lang] pages — 42 feature-grid occurrences</p></div></div>
+  <div class="tags"><span class="tag">Pattern 2 · Numbered vertical rail (as currently used: card grid)</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-cards"><div class="card"><span class="n">01</span><p>Card grid — allowed once per page, never twice in a row.</p></div><div class="card"><span class="n">02</span><p>Numbered cards with real content, not filler.</p></div><div class="card"><span class="n">03</span><p>Follow this with a different shape.</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">THE monotony problem. Checked so it stays available, but the layout-variety rule caps it: never twice in a row, never as the default page skeleton.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow KoaContentPage + KoaSection">
+  <div><h3>KoaContentPage + KoaSection</h3><p class="where"><code>components/KoaContentPage.tsx</code><br>Used: Mission, Advocacy, Donate, Services and other content pages</p></div></div>
+  <div class="tags"><span class="tag">Pattern 7 · Quiet cream reading field</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-read"><p class="eyebrow" style="color:#B9162B">Mission</p><h4>A quiet cream reading field.</h4><p>One paragraph, large empty margin, nothing competing. This is the KoaContentPage shape once its CSS is restored.</p></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Structure is right; its classes (.content-page/.content-section/.content-section__inner) had ZERO definitions in compiled CSS — restored in Step 2.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow CommunityAtmosphere + split-story">
+  <div><h3>CommunityAtmosphere + split-story</h3><p class="where"><code>components/CommunityAtmosphere.tsx</code><br>Used: Community + home split-story sections (70/30)</p></div></div>
+  <div class="tags"><span class="tag">Pattern 3 · Asymmetric split / Pattern 5</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-split"><div class="img">Photo bleeds off the edge · parallax zoom 1.0 → 1.08</div><div class="txt"><h3>70 / 30 split</h3><p>Image-dominant asymmetric split — pattern 3.</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">.split-story classes were used-but-undefined in compiled CSS; covered by the restoration layer.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow PartnerMarquee">
+  <div><h3>PartnerMarquee</h3><p class="where"><code>components/cinematic/PartnerMarquee.tsx</code><br>Used: Home — partner/logo marquee</p></div></div>
+  <div class="tags"><span class="tag">Single wide band</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-band"><h4>One wide band. One action.</h4><a href="#">Support the work</a></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Images in marquee lack width/height (layout-shift risk).</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox"  aria-label="Allow TabImageGallery">
+  <div><h3>TabImageGallery</h3><p class="where"><code>components/TabImageGallery.tsx</code><br>Used: Nowhere — never imported (dead code)</p></div></div>
+  <div class="tags"><span class="tag">—</span><span class="tag status-dead">In repo · dead code</span></div></div>
+  <div class="sample"><div class="s-split"><div class="img">Photo bleeds off the edge · parallax zoom 1.0 → 1.08</div><div class="txt"><h3>70 / 30 split</h3><p>Image-dominant asymmetric split — pattern 3.</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Do not use until wired to a real page.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox"  aria-label="Allow QuestionIndex">
+  <div><h3>QuestionIndex</h3><p class="where"><code>components/QuestionIndex.tsx (50 lines)</code><br>Used: Nowhere — never imported (dead code)</p></div></div>
+  <div class="tags"><span class="tag">Pattern 6 · Expandable rows (nearest design)</span><span class="tag status-dead">In repo · dead code</span></div></div>
+  <div class="sample"><div class="s-expand"><details open><summary>Expandable row — click to reveal detail</summary><p>Room, prerequisites, and notes appear in place. Pattern 6.</p></details><details><summary>Second row stays closed until asked</summary><p>Hidden detail.</p></details></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Closest existing sketch of expandable rows, but dead. EventSchedule still needs building.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow Changelog timeline">
+  <div><h3>Changelog timeline</h3><p class="where"><code>app/[lang]/changelog/page.tsx</code><br>Used: Changelog — dated entries down a rail</p></div></div>
+  <div class="tags"><span class="tag">Pattern 2 · Numbered vertical rail</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-rail"><div class="row"><span class="num">01</span><p><strong>Numbered vertical rail</strong> — one item per row, hairline rules.</p></div><div class="row"><span class="num">02</span><p><strong>Density alternates</strong> — dense rail, then an open field.</p></div><div class="row"><span class="num">03</span><p><strong>Never a card grid</strong> in the section after this one.</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Only 2 vague entries live. This is the nearest thing to the requested Updates page.</p>
+</article>
+</section>
+<section class="group"><div class="group-head"><h2>Forms & actions</h2><p>Every form primitive and capture surface in the repo.</p></div>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow DonationForm">
+  <div><h3>DonationForm</h3><p class="where"><code>components/DonationForm.tsx</code><br>Used: Donate page + Collaborate — $25/50/100/250 amount grid, monthly toggle, posts to /api/donations</p></div></div>
+  <div class="tags"><span class="tag">Pattern 4 · Single wide band with one action</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-donate"><p class="eyebrow">Sustain the work</p><h3>Your gift stays with community.</h3><div class="amounts"><span>$25</span><span class="on">$50</span><span>$100</span><span>$250</span></div><p class="toggle">○ One-time gift&nbsp;&nbsp;● Monthly gift</p><p style="color:#b3a693;font-size:.9rem">Intake only in the repo today — no payment processing until a processor is wired.</p></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Intake only — NO Stripe, no payment processing. Its classes (.donation-card/.amount-grid/.toggle-row/.field) were undefined in compiled CSS; restored in Step 2.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow ContributionForm">
+  <div><h3>ContributionForm</h3><p class="where"><code>components/ContributionForm.tsx</code><br>Used: Contribute page — checklist-style contribution form</p></div></div>
+  <div class="tags"><span class="tag">Pattern 6 · Checklist rows</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-expand"><details open><summary>Expandable row — click to reveal detail</summary><p>Room, prerequisites, and notes appear in place. Pattern 6.</p></details><details><summary>Second row stays closed until asked</summary><p>Hidden detail.</p></details></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Uses .check-list / .form-grid classes that were used-but-undefined.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow FeatureRequestForm">
+  <div><h3>FeatureRequestForm</h3><p class="where"><code>components/FeatureRequestForm.tsx</code><br>Used: Contribute / community board</p></div></div>
+  <div class="tags"><span class="tag">Pattern 6 · Checklist rows</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><form class="s-form" onsubmit="return false"><label>Name<input type="text" placeholder="Your name"></label><label>Email<input type="email" placeholder="you@example.org"></label><label>Message<textarea rows="2" placeholder="How can KOA help?"></textarea></label><button class="btn" type="submit">Send</button></form></div>
+  
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow Input + FormStatus">
+  <div><h3>Input + FormStatus</h3><p class="where"><code>components/Input.tsx · components/FormStatus.tsx</code><br>Used: Forms across collaborate / contact / contribute</p></div></div>
+  <div class="tags"><span class="tag">Form primitives</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><form class="s-form" onsubmit="return false"><label>Name<input type="text" placeholder="Your name"></label><label>Email<input type="email" placeholder="you@example.org"></label><label>Message<textarea rows="2" placeholder="How can KOA help?"></textarea></label><button class="btn" type="submit">Send</button></form></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">.field wrapper styles were missing — every form control on Contact/Collaborate rendered invisible in the repo build. Restored in Step 2.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow Contact form (page)">
+  <div><h3>Contact form (page)</h3><p class="where"><code>app/[lang]/contact/page.tsx</code><br>Used: Contact page</p></div></div>
+  <div class="tags"><span class="tag">Pattern 7 · Quiet reading field + form</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><form class="s-form" onsubmit="return false"><label>Name<input type="text" placeholder="Your name"></label><label>Email<input type="email" placeholder="you@example.org"></label><label>Message<textarea rows="2" placeholder="How can KOA help?"></textarea></label><button class="btn" type="submit">Send</button></form></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Page has no email/phone/address content yet (awaiting confirmation) — content gap, not a component gap.</p>
+</article>
+</section>
+<section class="group"><div class="group-head"><h2>Language, media & glyph systems</h2><p>Dictionary, translation, audio, and the S'gaw Karen glyph fields.</p></div>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow DictionaryEntry + DictionarySearch">
+  <div><h3>DictionaryEntry + DictionarySearch</h3><p class="where"><code>components/DictionaryEntry.tsx · DictionarySearch.tsx</code><br>Used: Dictionary index + /dictionary/[id] entry pages</p></div></div>
+  <div class="tags"><span class="tag">Pattern 2 · Numbered vertical rail</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-dict"><div class="entry"><p class="ksw" style="font-size:1.25rem;color:#f5f0e8">ကညီ</p><p>Entry model with provenance and version history — the strongest data pattern on the site.</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Best data model on the site (provenance + version history) — but only 6 entries live.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow InterpreterCard">
+  <div><h3>InterpreterCard</h3><p class="where"><code>components/InterpreterCard.tsx</code><br>Used: Translation page — interpreter profiles</p></div></div>
+  <div class="tags"><span class="tag">Pattern 2 · Rail / people grid</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-people"><div class="person"><div class="face"></div><p><strong style="color:#f5f0e8">Person</strong></p><p>Role · one-line why</p></div><div class="person"><div class="face"></div><p><strong style="color:#f5f0e8">Person</strong></p><p>Role · one-line why</p></div><div class="person"><div class="face"></div><p><strong style="color:#f5f0e8">Person</strong></p><p>Role · one-line why</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Star ratings on live profiles are unverifiable — do not carry ratings into new designs without a source.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow AudioPlayer + AudioRecorder">
+  <div><h3>AudioPlayer + AudioRecorder</h3><p class="where"><code>components/AudioPlayer.tsx · AudioRecorder.tsx</code><br>Used: Music + training surfaces</p></div></div>
+  <div class="tags"><span class="tag">Media control</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-band"><h4>One wide band. One action.</h4><a href="#">Support the work</a></div></div>
+  
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow AsciiDitherCanvas">
+  <div><h3>AsciiDitherCanvas</h3><p class="where"><code>components/AsciiDitherCanvas.tsx (408 lines)</code><br>Used: Site background — dither-canvas grid</p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Ambient field</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-glyph">က ည ီ <span class="hot">ပ</span> ှ ၤ တ ဝ ၢ <span class="hot">အ</span> မ ဲ ရ က ၤ<br>တ ၢ ် မ ၤ စ ၢ ် <span class="hot">ပှ</span> ၤ တ ဝ ၢ ။</div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">The layout grid IS the dither canvas per Oliver&#x27;s style skill. Keep the existing good background.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow KarenGlyphField">
+  <div><h3>KarenGlyphField</h3><p class="where"><code>components/KarenGlyphField.tsx (739 lines)</code><br>Used: Glyph background field, S&#x27;gaw Karen letterforms</p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Ambient field</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-glyph">က ည ီ <span class="hot">ပ</span> ှ ၤ တ ဝ ၢ <span class="hot">အ</span> မ ဲ ရ က ၤ<br>တ ၢ ် မ ၤ စ ၢ ် <span class="hot">ပှ</span> ၤ တ ဝ ၢ ။</div></div>
+  
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow KAGlyphField + LivingGlyphField">
+  <div><h3>KAGlyphField + LivingGlyphField</h3><p class="where"><code>components/cinematic/KAGlyphField.tsx · LivingGlyphField.tsx</code><br>Used: Cinematic sections — living glyph fields with cursor proximity</p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Ambient field</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-glyph">က ည ီ <span class="hot">ပ</span> ှ ၤ တ ဝ ၢ <span class="hot">အ</span> မ ဲ ရ က ၤ<br>တ ၢ ် မ ၤ စ ၢ ် <span class="hot">ပှ</span> ၤ တ ဝ ၢ ။</div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Cursor-proximity replacement + trail effect per the PDF brief.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow SealAssembly">
+  <div><h3>SealAssembly</h3><p class="where"><code>components/cinematic/SealAssembly.tsx</code><br>Used: Footer / ceremonial moments — K–seal–A assembly</p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Dark ceremonial field</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-ceremony"><div class="seal">KOA</div><p class="glyphs">က ည ီ က ရ ၢ</p><p>Dark ceremonial field — one seal, glyph dust behind text, no cards.</p></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Glyph scatter/settle exists here and in artifact builds; the repo Footer does not yet use the full scatter stage.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow CursorGlyphHalo + ShaderAtmosphere">
+  <div><h3>CursorGlyphHalo + ShaderAtmosphere</h3><p class="where"><code>components/cinematic/CursorGlyphHalo.tsx · ShaderAtmosphere.tsx</code><br>Used: Cinematic hero ambience</p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Ambient field</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-glyph">က ည ီ <span class="hot">ပ</span> ှ ၤ တ ဝ ၢ <span class="hot">အ</span> မ ဲ ရ က ၤ<br>တ ၢ ် မ ၤ စ ၢ ် <span class="hot">ပှ</span> ၤ တ ဝ ၢ ။</div></div>
+  
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox" checked aria-label="Allow CursorGlareImage + ScrollReveal">
+  <div><h3>CursorGlareImage + ScrollReveal</h3><p class="where"><code>components/ui/CursorGlareImage.tsx · ScrollReveal.tsx</code><br>Used: Image glare + reveal-on-scroll utility</p></div></div>
+  <div class="tags"><span class="tag">Media treatment</span><span class="tag status-partial">In repo · partial</span></div></div>
+  <div class="sample"><div class="s-split"><div class="img">Photo bleeds off the edge · parallax zoom 1.0 → 1.08</div><div class="txt"><h3>70 / 30 split</h3><p>Image-dominant asymmetric split — pattern 3.</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">ScrollReveal must NOT become the default scroll effect — Oliver bans plain reveal-on-scroll; scroll stamps are the system.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox"  aria-label="Allow OliverPortrait">
+  <div><h3>OliverPortrait</h3><p class="where"><code>components/team/OliverPortrait.tsx</code><br>Used: Nowhere — never imported (dead code)</p></div></div>
+  <div class="tags"><span class="tag">—</span><span class="tag status-dead">In repo · dead code</span></div></div>
+  <div class="sample"><div class="s-people"><div class="person"><div class="face"></div><p><strong style="color:#f5f0e8">Person</strong></p><p>Role · one-line why</p></div><div class="person"><div class="face"></div><p><strong style="color:#f5f0e8">Person</strong></p><p>Role · one-line why</p></div><div class="person"><div class="face"></div><p><strong style="color:#f5f0e8">Person</strong></p><p>Role · one-line why</p></div></div></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Do not use.</p>
+</article>
+</section>
+<section class="group"><div class="group-head"><h2>Admin tooling</h2><p>Real components, but not public layout menu items.</p></div>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox"  aria-label="Allow DesignStudio + LanguageStudio">
+  <div><h3>DesignStudio + LanguageStudio</h3><p class="where"><code>components/admin/DesignStudio.tsx · LanguageStudio.tsx</code><br>Used: /admin/design-studio, /admin/language-studio</p></div></div>
+  <div class="tags"><span class="tag">Admin tooling (not public layout)</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><form class="s-form" onsubmit="return false"><label>Name<input type="text" placeholder="Your name"></label><label>Email<input type="email" placeholder="you@example.org"></label><label>Message<textarea rows="2" placeholder="How can KOA help?"></textarea></label><button class="btn" type="submit">Send</button></form></div>
+  <p class="sample-label">Note</p><p style="color:#d4c8b8;margin:.3rem 0 0">Real and working, but admin-only — excluded from the public layout menu by default.</p>
+</article>
+<article class="item">
+  <div class="item-head"><div class="item-title"><input type="checkbox"  aria-label="Allow ReviewQueue + LogViewer + StatusPill">
+  <div><h3>ReviewQueue + LogViewer + StatusPill</h3><p class="where"><code>components/ReviewQueue.tsx · LogViewer.tsx · StatusPill.tsx</code><br>Used: Admin + translation review surfaces</p></div></div>
+  <div class="tags"><span class="tag">Admin tooling</span><span class="tag status-ok">In repo · works</span></div></div>
+  <div class="sample"><div class="s-rail"><div class="row"><span class="num">01</span><p><strong>Numbered vertical rail</strong> — one item per row, hairline rules.</p></div><div class="row"><span class="num">02</span><p><strong>Density alternates</strong> — dense rail, then an open field.</p></div><div class="row"><span class="num">03</span><p><strong>Never a card grid</strong> in the section after this one.</p></div></div></div>
+  
+</article>
+</section>
+<section class="group"><div class="group-head"><h2>Requested but NOT BUILT</h2><p>Named in Oliver's Codex prompts but absent from the repo (verified by full tree listing, 3,867 files). Listed so the layout build cannot silently invent them. Unchecked and disabled until they exist.</p></div>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="Brain3D — 3D vector-database node map not built">
+  <div><h3>Brain3D — 3D vector-database node map</h3><p class="where"><code>components/Brain3D.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 8 · Ambient/interactive field</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">three.js not installed; no /api/brain/* routes; brain-app backend is a non-runnable stub.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="MotionOverlay not built">
+  <div><h3>MotionOverlay</h3><p class="where"><code>components/MotionOverlay.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Motion layer</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">No component by this name; partial equivalents: ScrollScrubIntro, ScrollReveal.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="GlyphDitherCanvas not built">
+  <div><h3>GlyphDitherCanvas</h3><p class="where"><code>components/GlyphDitherCanvas.tsx (requested name)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 8</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Name missing; job is covered by AsciiDitherCanvas + KarenGlyphField (checked above).</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="PracticeCards not built">
+  <div><h3>PracticeCards</h3><p class="where"><code>components/PracticeCards.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 2</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Practices currently render as generic Card feature-grids.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="TeacherBios not built">
+  <div><h3>TeacherBios</h3><p class="where"><code>components/TeacherBios.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 3</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">No teacher-bio component exists; PDF brief asks for hover type-out quotes.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="EventSchedule not built">
+  <div><h3>EventSchedule</h3><p class="where"><code>components/EventSchedule.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 6 · Expandable schedule rows</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">No component; Upcoming page (PR #8 branch only) is 3 static Cards.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="NewsFeed not built">
+  <div><h3>NewsFeed</h3><p class="where"><code>components/NewsFeed.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 2</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">No component, no /api/news; news aggregation pipeline does not exist in repo.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="TranslationFlyer not built">
+  <div><h3>TranslationFlyer</h3><p class="where"><code>components/TranslationFlyer.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 5</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">No component; EN↔KN diagonal-flip flyer not built.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="CinematicFooter not built">
+  <div><h3>CinematicFooter</h3><p class="where"><code>components/CinematicFooter.tsx (requested name)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 8</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Name missing; plain Footer + SealAssembly cover part of the job, scatter stage not wired.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="ComponentVersionBrowser not built">
+  <div><h3>ComponentVersionBrowser</h3><p class="where"><code>lib/component-versions.ts + component (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Tooling</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Right-click version browser not built anywhere.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="CinematicHero not built">
+  <div><h3>CinematicHero</h3><p class="where"><code>components/CinematicHero.tsx (requested name)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 3</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Name missing; hero duties covered by PageHero / CinematicHome (checked above).</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="Commentary page not built">
+  <div><h3>Commentary page</h3><p class="where"><code>app/[lang]/commentary/page.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Own page, EN + Karen</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Route missing on main and live.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="People page not built">
+  <div><h3>People page</h3><p class="where"><code>app/[lang]/people/page.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Own page</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Route missing; people-grid exists only inside About.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="Updates page not built">
+  <div><h3>Updates page</h3><p class="where"><code>app/[lang]/updates/page.tsx (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Own page</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">Route missing; Changelog is the closest surface.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="Upcoming page not built">
+  <div><h3>Upcoming page</h3><p class="where"><code>app/[lang]/upcoming/page.tsx</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 6</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">BUILT on PR #8 branch (fix/gsap-and-upcoming-route @ d4337ad) — not merged, 404 on main and live. Check after PR #8 merges.</p></article>
+<article class="item not-built">
+  <div class="item-head"><div class="item-title"><input type="checkbox" disabled aria-label="Stripe checkout not built">
+  <div><h3>Stripe checkout</h3><p class="where"><code>app/api + DonationForm (requested)</code></p></div></div>
+  <div class="tags"><span class="tag">Pattern 4</span><span class="tag status-missing">Not built</span></div></div>
+  <p style="color:#d4c8b8;margin:.6rem 0 0">No stripe dependency, no checkout route; donations are intake-only.</p></article>
+</section>
+</main>
+<footer class="atlas-foot"><div class="wrap">
+<p>Rebuilt 2026-11-14 · Source of truth: otpayt02/koa-website main @ 4c788cf (full tree, 3,867 files) + PR #8 branch for Upcoming. Statuses cross-checked against ~/workspace/koa-audit-2026-11-14/github-audit.md.</p>
+<p>How to use: check = allowed in the layout-variety build. Before writing a section, name the pattern of the section above it and pick a different one. Report the pattern used for each section, in order, before claiming a page is done.</p>
+</div></footer>
+<script>
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.item input[type=checkbox]:not(:disabled)'));
+  var out=document.getElementById('checked-count');
+  var KEY='koa-atlas-checked-v1';
+  try{var saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved){boxes.forEach(function(b,i){if(typeof saved[i]==='boolean')b.checked=saved[i];});}}catch(e){}
+  function update(){out.textContent=boxes.filter(function(b){return b.checked}).length+' / '+boxes.length;
+    try{localStorage.setItem(KEY,JSON.stringify(boxes.map(function(b){return b.checked})));}catch(e){}}
+  boxes.forEach(function(b){b.addEventListener('change',update)});update();
+})();
+</script>
+</body></html>
