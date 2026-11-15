@@ -61,6 +61,13 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 - [ ] Run the site test/build gate and an HTTP/browser smoke pass on the candidate release, then deploy only with explicit release authorization.
 - [ ] Reconcile the older repository contract suite before release: the standalone build and bilingual inventory pass, but `node --test tests/*.test.mjs` currently reports 73 passing and 67 failing tests. The failures include legacy expectations for routes and motion phases that already differ from the current checkout; this run is not a clean release gate.
 
+## 5. Public translation coverage
+
+- [x] Added a three-locale proposal queue with **1,668** public source text candidates, **2,346** word/area entries, and **10,022** English word occurrences. Every item has unapproved S’gaw Karen, Thai, and Burmese slots; source, life area, and token index are retained. `npm.cmd run translation:check` passed.
+- [x] Added a Muse full-route/interaction/attribute audit prompt and an importer that requires one contextual word alignment per English token. A one-item Thai synthetic import passed; the resulting record stayed `machine_proposal`.
+- [x] Corrected legacy `karen` locale references to `ksw` in the content catalog and dormant hydration matcher. The public layout still does not mount that hydrator, so no unapproved proposal is applied to the website.
+- [ ] Produce and review all three locale proposals, reconcile the rendered site against the static queue, and wire only approved publications to public components. The KOA website content draft is a six-page English meaning reference, not approved public copy.
+
 ## Run locally
 
 **Brain:** With Docker available, run `docker compose up --build -d` in `brain-app/` and check the printed ports. Without Docker on Windows, create a Python 3.11 venv in `brain-app/.venv`, install `brain-app/backend/requirements.txt`, set `BRAIN_DATA_PATH` to the repository root and the approved Drive paths, and start `uvicorn main:app --app-dir brain-app/backend --env-file brain-app/.env --host 127.0.0.1 --port 8000`. Run `npm.cmd run dev -- --host 127.0.0.1 --port 3000` in `brain-app/frontend/`. Keep the operator token in ignored `brain-app/.env`.

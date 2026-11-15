@@ -13,7 +13,10 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "content:generate": "node scripts/generate-content-inventory.mjs",
-    "content:check": "node scripts/generate-content-inventory.mjs --check"
+    "content:check": "node scripts/generate-content-inventory.mjs --check",
+    "translation:queue": "node scripts/generate-translation-queue.mjs",
+    "translation:check": "node scripts/generate-translation-queue.mjs --check",
+    "translation:import": "node scripts/import-translation-proposals.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

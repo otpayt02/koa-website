@@ -84,7 +84,7 @@ function readManualDefinitions() {
     entries.push({ key: key.text, route: route.text, en: decode(en.text), karen: karen && ts.isStringLiteralLike(karen) ? decode(karen.text) : "" });
   });
   const enMessages = JSON.parse(fs.readFileSync(path.join(workspace, "messages", "en.json"), "utf8"));
-  const karenMessages = JSON.parse(fs.readFileSync(path.join(workspace, "messages", "karen.json"), "utf8"));
+  const karenMessages = JSON.parse(fs.readFileSync(path.join(workspace, "messages", "ksw.json"), "utf8"));
   for (const [key, en] of Object.entries(enMessages)) entries.push({ key: `shell.${key}`, route: "*", en, karen: karenMessages[key] ?? "" });
   return entries;
 }

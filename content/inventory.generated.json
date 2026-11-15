@@ -2098,6 +2098,62 @@
       "karen": ""
     },
     {
+      "key": "auto.events.communityGatherings.6d405775",
+      "route": "//events",
+      "section": "//events",
+      "type": "paragraph",
+      "en": "Community / Gatherings",
+      "karen": ""
+    },
+    {
+      "key": "auto.events.gatherHere.52397e4e",
+      "route": "//events",
+      "section": "//events",
+      "type": "heading",
+      "en": "Gather here.",
+      "karen": ""
+    },
+    {
+      "key": "auto.events.moveForwardTogether.0bd7a4ac",
+      "route": "//events",
+      "section": "//events",
+      "type": "paragraph",
+      "en": "Move forward together.",
+      "karen": ""
+    },
+    {
+      "key": "auto.events.findVerifiedKoaGatheringsAndCivic.4f85dd14",
+      "route": "//events",
+      "section": "//events",
+      "type": "paragraph",
+      "en": "Find verified KOA gatherings and civic learning opportunities. Dates appear on the calendar after KOA confirms them.",
+      "karen": ""
+    },
+    {
+      "key": "auto.events.theEventDetailsAreCurrentlyIn.de48bf11",
+      "route": "//events",
+      "section": "//events",
+      "type": "paragraph",
+      "en": "The event details are currently in English while the S’gaw Karen edition awaits community language review.",
+      "karen": ""
+    },
+    {
+      "key": "auto.events.latestKoaAnnouncements.fbcf5689",
+      "route": "//events",
+      "section": "//events",
+      "type": "action",
+      "en": "Latest KOA announcements ↗",
+      "karen": ""
+    },
+    {
+      "key": "auto.events.suggestAnEvent.eb6f6b67",
+      "route": "//events",
+      "section": "//events",
+      "type": "paragraph",
+      "en": "Suggest an event ↗",
+      "karen": ""
+    },
+    {
       "key": "auto.grammar.theStructureOfSGawKaren.77ef01b9",
       "route": "//grammar",
       "section": "//grammar",
@@ -4458,6 +4514,70 @@
       "karen": ""
     },
     {
+      "key": "auto.*.communityCalendar.c8acbe14",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "label",
+      "en": "Community calendar",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.previousMonth.e053628a",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "tooltip",
+      "en": "Previous month",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.today.4374f05f",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "action",
+      "en": "Today",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.nextMonth.3fd9b3ca",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "tooltip",
+      "en": "Next month",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.eventDetails.07671b7d",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "tooltip",
+      "en": "Event details",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.details.e8b9ea2f",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "label",
+      "en": "Details +",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.originalEventSource.f35508fa",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "action",
+      "en": "Original event source ↗",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.noUpcomingEventDatesHaveBeen.0c8cec2e",
+      "route": "*",
+      "section": "EventCalendar",
+      "type": "paragraph",
+      "en": "No upcoming event dates have been verified for this month. KOA posts the latest public announcements on its Facebook page.",
+      "karen": ""
+    },
+    {
       "key": "auto.*.shapeWhatComesNext.ef007a5a",
       "route": "*",
       "section": "FeatureRequestForm",
@@ -5200,6 +5320,22 @@
       "type": "label",
       "en": "KOA",
       "karen": ""
+    },
+    {
+      "key": "auto.*.en.8bdb07bb",
+      "route": "*",
+      "section": "PublishedContentHydrator",
+      "type": "paragraph",
+      "en": "en",
+      "karen": "karen"
+    },
+    {
+      "key": "auto.*.en.34bf23b6",
+      "route": "*",
+      "section": "PublishedContentHydrator",
+      "type": "paragraph",
+      "en": "en",
+      "karen": "karen"
     },
     {
       "key": "auto.*.sixClearQuestions.652b878f",
@@ -8332,6 +8468,83 @@
       "route": "//dictionary/[id]",
       "kind": "text",
       "en": "Future corrections and regional notes will appear here with their reviewer and reason for change.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.events.communityGatherings.6d405775",
+      "route": "//events",
+      "kind": "text",
+      "en": "Community / Gatherings",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.events.gatherHere.52397e4e",
+      "route": "//events",
+      "kind": "text",
+      "en": "Gather here.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.events.moveForwardTogether.0bd7a4ac",
+      "route": "//events",
+      "kind": "text",
+      "en": "Move forward together.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.events.findVerifiedKoaGatheringsAndCivic.4f85dd14",
+      "route": "//events",
+      "kind": "text",
+      "en": "Find verified KOA gatherings and civic learning opportunities. Dates appear on the calendar after KOA confirms them.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.events.theEventDetailsAreCurrentlyIn.de48bf11",
+      "route": "//events",
+      "kind": "text",
+      "en": "The event details are currently in English while the S’gaw Karen edition awaits community language review.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.events.latestKoaAnnouncements.fbcf5689",
+      "route": "//events",
+      "kind": "text",
+      "en": "Latest KOA announcements ↗",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.events.suggestAnEvent.eb6f6b67",
+      "route": "//events",
+      "kind": "text",
+      "en": "Suggest an event ↗",
       "karen": "",
       "occurrence": {
         "en": 0,
@@ -11807,6 +12020,97 @@
       }
     },
     {
+      "key": "auto.*.communityCalendar.c8acbe14",
+      "route": "*",
+      "kind": "text",
+      "en": "Community calendar",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.previousMonth.e053628a",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Previous month",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.today.4374f05f",
+      "route": "*",
+      "kind": "text",
+      "en": "Today",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.nextMonth.3fd9b3ca",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Next month",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.eventDetails.07671b7d",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "Event details",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.details.e8b9ea2f",
+      "route": "*",
+      "kind": "text",
+      "en": "Details +",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.originalEventSource.f35508fa",
+      "route": "*",
+      "kind": "text",
+      "en": "Original event source ↗",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.noUpcomingEventDatesHaveBeen.0c8cec2e",
+      "route": "*",
+      "kind": "text",
+      "en": "No upcoming event dates have been verified for this month. KOA posts the latest public announcements on its Facebook page.",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
       "key": "auto.*.shapeWhatComesNext.ef007a5a",
       "route": "*",
       "kind": "text",
@@ -12927,6 +13231,28 @@
       "occurrence": {
         "en": 0,
         "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.en.8bdb07bb",
+      "route": "*",
+      "kind": "text",
+      "en": "en",
+      "karen": "karen",
+      "occurrence": {
+        "en": 1,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.en.34bf23b6",
+      "route": "*",
+      "kind": "text",
+      "en": "en",
+      "karen": "karen",
+      "occurrence": {
+        "en": 2,
+        "karen": 1
       }
     },
     {

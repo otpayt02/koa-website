@@ -10,7 +10,7 @@ export function PublishedContentHydrator({ lang, published }: { lang: Lang; publ
   const pathname = usePathname();
 
   useEffect(() => {
-    const route = pathname.replace(/^\/(en|karen)(?=\/|$)/, "") || "/";
+    const route = pathname.replace(/^\/(en|th|my|ksw)(?=\/|$)/, "") || "/";
     const bindings = generatedContentBindings.filter((binding) => routeMatches(binding.route, route));
     if (!bindings.length) return;
 
@@ -23,7 +23,7 @@ export function PublishedContentHydrator({ lang, published }: { lang: Lang; publ
         const root = document.querySelector("#main-content")?.parentElement ?? document.body;
         const textNodes = collectTextNodes(root);
         for (const binding of bindings) {
-          const base = lang === "karen" ? binding.karen || binding.en : binding.en;
+          const base = lang === "ksw" ? binding.karen || binding.en : binding.en;
           const replacement = activeValues[binding.key];
           if (!replacement || replacement === base) continue;
           if (binding.kind === "text") {
@@ -32,12 +32,12 @@ export function PublishedContentHydrator({ lang, published }: { lang: Lang; publ
               const value = normalize(node.textContent);
               return value === base || Boolean(currentPublished && value === currentPublished);
             });
-            const target = matches[binding.occurrence[lang]];
+            const target = matches[binding.occurrence[lang === "ksw" ? "karen" : "en"]];
             if (target) target.textContent = preserveOuterWhitespace(target.textContent ?? "", replacement);
           } else if (binding.attribute) {
             const attribute = binding.attribute;
             const matches = Array.from(root.querySelectorAll<HTMLElement>(`[${attribute}]`)).filter((element) => normalize(element.getAttribute(attribute)) === base);
-            matches[binding.occurrence[lang]]?.setAttribute(attribute, replacement);
+            matches[binding.occurrence[lang === "ksw" ? "karen" : "en"]]?.setAttribute(attribute, replacement);
           }
         }
       } finally {

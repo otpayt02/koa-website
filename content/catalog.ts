@@ -1,11 +1,11 @@
 import enMessages from "@/messages/en.json";
-import karenMessages from "@/messages/karen.json";
+import kswMessages from "@/messages/ksw.json";
 import { pageLabels } from "@/components/i18n";
 import generatedInventory from "@/content/inventory.generated.json";
 
 export const contentTypes = ["heading", "paragraph", "label", "action", "tooltip", "status"] as const;
 export type ContentType = (typeof contentTypes)[number];
-export type ContentLanguage = "en" | "karen";
+export type ContentLanguage = "en" | "th" | "my" | "ksw";
 
 export type ContentDefinition = {
   key: string;
@@ -40,11 +40,11 @@ function define(
 }
 
 const shellEntries = (Object.keys(enMessages) as Array<keyof typeof enMessages>).map((key) =>
-  define(`shell.${key}`, "*", "Shared shell", key === "tagline" ? "paragraph" : "label", enMessages[key], karenMessages[key], true),
+  define(`shell.${key}`, "*", "Shared shell", key === "tagline" ? "paragraph" : "label", enMessages[key], kswMessages[key], true),
 );
 
 const labelEntries = Object.entries(pageLabels).map(([key, value]) =>
-  define(`page.${key}.heroTitle`, key === "home" ? "/" : `/${key}`, "Hero", "heading", value.en, value.karen),
+  define(`page.${key}.heroTitle`, key === "home" ? "/" : `/${key}`, "Hero", "heading", value.en, value.ksw),
 );
 
 const authoredEntries: ContentDefinition[] = [
@@ -173,7 +173,7 @@ export function getContentDefinition(key: string): ContentDefinition {
 
 export function staticContent(key: string, language: ContentLanguage): string {
   const entry = getContentDefinition(key);
-  return language === "karen" ? entry.karen || entry.en : entry.en;
+  return language === "ksw" ? entry.karen || entry.en : entry.en;
 }
 
 export function catalogKeysForRoute(route: string): string[] {
