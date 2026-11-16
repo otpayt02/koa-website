@@ -1,6 +1,6 @@
 services:
   ollama:
-    image: ollama/ollama:latest
+    image: ollama/ollama:0.40.16-rocm
     ports:
       - "127.0.0.1:11434:11434"
     volumes:
@@ -13,7 +13,7 @@ services:
       start_period: 10s
 
   ollama-models:
-    image: ollama/ollama:latest
+    image: ollama/ollama:0.40.16-rocm
     depends_on:
       ollama:
         condition: service_healthy
