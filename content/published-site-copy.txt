@@ -1,5 +1,5 @@
 KOA PUBLISHED WEBSITE COPY
-Captured: 2026-11-16 14:25 UTC
+Captured: 2026-11-16 15:30 UTC
 Source preview: http://[::1]:3000
 Scope: 72 static public routes (18 routes x 4 languages: en, ksw, my, th).
 Each route records rendered text in reading order, including visually hidden text, accessibility labels, image alt text, placeholders, tooltips, and share metadata.
