@@ -77,5 +77,5 @@ export function Brain3D({ graph, onSelect }) {
       host.removeChild(renderer.domElement);
     };
   }, [graph, onSelect]);
-  return <div className="brain-canvas" ref={mount} role="img" aria-label={`${graph.nodes.length} knowledge nodes and ${graph.edges.length} lexical similarity connections. Use the accessible node list below to inspect a record.`} />;
+  return <div className="brain-canvas" ref={mount} role="img" aria-label={`${graph.nodes.length} knowledge nodes and ${graph.edges.length} semantic similarity connections. Use the accessible node list below to inspect a record.`} />;
 }

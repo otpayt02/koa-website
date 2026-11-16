@@ -1,10 +1,15 @@
 """Authenticated local vector index endpoints."""
 
 from fastapi import APIRouter, HTTPException, Query
+from pydantic import BaseModel, Field
 
-from knowledge import search, sync_processed
+from knowledge import ask, search, sync_processed
 
 router = APIRouter(tags=["knowledge"])
+
+
+class AskRequest(BaseModel):
+    question: str = Field(min_length=3, max_length=1000)
 
 
 @router.get("/search")
@@ -13,6 +18,14 @@ def search_knowledge(q: str = Query(min_length=1, max_length=500), limit: int = 
         return {"results": search(q, limit)}
     except (OSError, ValueError) as error:
         raise HTTPException(status_code=503, detail="Knowledge index is unavailable") from error
+
+
+@router.post("/ask")
+def ask_knowledge(request: AskRequest):
+    try:
+        return ask(request.question)
+    except (OSError, ValueError) as error:
+        raise HTTPException(status_code=503, detail="Knowledge answer service is unavailable") from error
 
 
 @router.post("/index")

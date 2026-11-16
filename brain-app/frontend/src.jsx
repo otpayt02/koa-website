@@ -32,6 +32,7 @@ function App() {
   const [syncStatus, setSyncStatus] = useState(null);
   const [query, setQuery] = useState('');
   const [matches, setMatches] = useState([]);
+  const [brainAnswer, setBrainAnswer] = useState('');
   const [searchError, setSearchError] = useState('');
   const [searching, setSearching] = useState(false);
   const [graph, setGraph] = useState(null);
@@ -147,8 +148,9 @@ function App() {
     setSearching(true);
     setSearchError('');
     try {
-      const result = await api(`/api/knowledge/search?q=${encodeURIComponent(query)}`);
-      setMatches(result.results || []);
+      const result = await api('/api/knowledge/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: query }) });
+      setBrainAnswer(result.answer || '');
+      setMatches(result.sources || []);
     } catch (cause) {
       setSearchError(`Search failed. ${cause.message}`);
     } finally {
@@ -197,7 +199,7 @@ function App() {
         </section>}
         {view === 'overview' && <section className="brain-panel" aria-label="Knowledge map">
           <div className="section-heading"><div><p className="eyebrow">LOCAL KNOWLEDGE MAP</p><h2>See the connections.</h2></div><span className="file-count">{graph ? `${graph.nodes.length} NODES · ${graph.edges.length} LINKS` : 'LOADING'}</span></div>
-          <p>Each point is an indexed record. Lines show character similarity in the local vector index; they do not assert that two records mean the same thing.</p>
+          <p>Each point is an indexed file. Lines connect files with similar topics; open a point to inspect the source text.</p>
           {graphError && <p className="login-error" role="alert">Could not load the map: {graphError}</p>}
           {graph?.nodes.length ? <><Suspense fallback={<div className="brain-canvas" role="status">Loading map…</div>}><Brain3D graph={graph} onSelect={setSelectedNode} /></Suspense><div className="brain-map-bottom"><div className="brain-node-list" aria-label="Knowledge nodes">{graph.nodes.map((node) => <button key={node.id} className={selectedNode?.id === node.id ? 'active' : ''} onClick={() => setSelectedNode(node)}><i className={`source-${node.source}`} />{node.title}</button>)}</div><div className="brain-node-detail" aria-live="polite">{selectedNode ? <><span className="eyebrow">{selectedNode.source.toUpperCase()} RECORD</span><h3>{selectedNode.title}</h3><p>{selectedNode.excerpt}</p></> : <p>Select a point or choose a record from the list.</p>}</div></div></> : graph && <div className="empty"><h3>The map is waiting for records.</h3><p>Use Sync sources to bring approved files into the local index.</p></div>}
         </section>}
@@ -212,7 +214,7 @@ function App() {
           <div className="table-wrap"><table><thead><tr><th>FILE</th><th>LOCATION</th><th>SIZE</th><th aria-label="Action" /></tr></thead><tbody>{!loading && files.map((item) => <tr key={item.item_path}><td><button className="file-button" onClick={() => setSelected({ ...item, bucket: view === 'processed' ? 'processed' : 'incoming' })}><span className="file-icon">▤</span>{label(item.name)}</button></td><td className="path">{item.item_path}</td><td className="size">{size(item.size_bytes)}</td><td><button className="row-action" aria-label={`View ${item.name}`} onClick={() => setSelected({ ...item, bucket: view === 'processed' ? 'processed' : 'incoming' })}>↗</button></td></tr>)}</tbody></table></div>
           {loading ? <div className="empty" role="status">Loading local files…</div> : !updated ? <div className="empty">The file list is unavailable until the Brain backend responds.</div> : files.length === 0 && <div className="empty"><span aria-hidden="true">✳</span><h3>{search ? 'No matching files' : view === 'processed' ? 'No processed files yet' : 'The inbox is clear'}</h3><p>{search ? 'Try another file name or path.' : view === 'processed' ? 'Processed files will appear here after a routing pass.' : 'Add a file to inbox/new on this computer. The worker will route it automatically, or you can run a pass here.'}</p></div>}
         </section>}
-        {view !== 'editorial' && <section className="knowledge-panel" aria-label="Knowledge search"><div className="section-heading"><div><p className="eyebrow">LOCAL VECTOR INDEX</p><h2>Find what we know</h2></div><span className="file-count">LEXICAL MATCHES</span></div><p>Search processed records by similar words and characters. This local index does not translate or infer meaning.</p><form onSubmit={searchKnowledge} className="knowledge-form"><label className="sr-only" htmlFor="knowledge-query">Search knowledge</label><input id="knowledge-query" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search the knowledge index" required maxLength={500} /><button className="button primary" disabled={searching}>{searching ? 'Searching…' : 'Search →'}</button></form>{searchError && <p className="login-error" role="alert">{searchError}</p>}{matches.map((match, number) => <article className="knowledge-result" key={`${match.path}-${number}`}><span>{match.source.toUpperCase()} · {Math.round(match.score * 100)}% MATCH</span><h3>{match.title}</h3><p>{match.excerpt}</p><small>{match.path}</small></article>)}</section>}
+        {view !== 'editorial' && <section className="knowledge-panel" aria-label="Ask the Brain"><div className="section-heading"><div><p className="eyebrow">LOCAL KNOWLEDGE ASSISTANT</p><h2>Ask the Brain</h2></div><span className="file-count">ANSWERS WITH SOURCES</span></div><p>Ask where a decision lives, what a file says, or how project pieces connect. The local model searches by meaning and cites the files it used.</p><form onSubmit={searchKnowledge} className="knowledge-form"><label className="sr-only" htmlFor="knowledge-query">Ask the Brain</label><input id="knowledge-query" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="What is blocking the GitHub webhook?" required maxLength={1000} /><button className="button primary" disabled={searching}>{searching ? 'Thinking…' : 'Ask →'}</button></form>{searchError && <p className="login-error" role="alert">{searchError}</p>}{brainAnswer && <article className="knowledge-result brain-answer"><span>GROUNDED ANSWER</span><p>{brainAnswer}</p></article>}{matches.map((match, number) => <article className="knowledge-result" key={`${match.path}-${number}`}><span>{match.source.toUpperCase()} · {Math.round(match.score * 100)}% SIMILAR</span><h3>{match.title}</h3><p>{match.excerpt}</p><small>{match.path}</small></article>)}</section>}
         {syncStatus && <div className="sync-status" role="status"><strong>Source sync: {syncStatus.status}</strong>{syncStatus.connections && <p>GitHub: ready for manual sync · Drive: {syncStatus.connections.drive_ready ? 'ready' : 'awaiting OAuth'} · Signal: {syncStatus.connections.signal_ready ? 'configured' : 'awaiting group setup'}</p>}{syncStatus.error && <p>{syncStatus.error}</p>}{syncStatus.status === 'completed' && <p>GitHub {syncStatus.results?.github?.ingested ?? 0} new · Drive {syncStatus.results?.drive?.status === 'not_configured' ? 'not configured' : `${syncStatus.results?.drive?.ingested ?? 0} new`} · Index {syncStatus.results?.knowledge?.documents ?? 0} documents</p>}</div>}
         <div className="safety"><span aria-hidden="true">◇</span><p><strong>Local prototype.</strong> This workspace has one local operator token, not individual executive accounts or a group retention policy. Approve exact sources before importing sensitive material.</p></div>
       </div>

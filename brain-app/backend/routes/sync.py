@@ -12,6 +12,7 @@ from fastapi import APIRouter, HTTPException
 
 from github_sync import sync_once as sync_github
 from knowledge import sync_processed
+from repository_index import sync_repository
 from routes.inbox import _run_router
 
 router = APIRouter(tags=["sync"])
@@ -45,6 +46,7 @@ def _run() -> None:
         results["drive"] = {"status": "not_configured"}
     try:
         results["inbox"] = _run_router()
+        results["repository"] = sync_repository()
         results["knowledge"] = sync_processed()
     except Exception as cause:
         failures.append(f"Local index: {type(cause).__name__}")

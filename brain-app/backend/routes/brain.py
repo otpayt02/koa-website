@@ -1,7 +1,4 @@
-"""Read-only graph projection of the local lexical vector index.
-
-Edges represent character n-gram similarity, not inferred semantic facts.
-"""
+"""Read-only semantic similarity projection of locally embedded records."""
 
 from __future__ import annotations
 
@@ -11,7 +8,7 @@ import struct
 
 from fastapi import APIRouter, HTTPException, Query
 
-from knowledge import DIMENSIONS, _connect, search
+from knowledge import _connect, search
 
 router = APIRouter(tags=["brain"])
 MAX_NODES = 120
@@ -43,19 +40,19 @@ def graph_data() -> dict:
     nodes = [{"id": _node_id(path), "source": source, "title": title,
               "excerpt": content[:240], "position": _position(path)}
              for path, source, title, content, _ in rows]
-    vectors = [struct.unpack(f"<{DIMENSIONS}f", row[4]) for row in rows]
+    vectors = [struct.unpack(f"<{len(row[4]) // 4}f", row[4]) for row in rows]
     candidate_edges = []
     for left in range(len(nodes)):
         neighbors = []
         for right in range(left + 1, len(nodes)):
-            score = sum(a * b for a, b in zip(vectors[left], vectors[right]))
-            if score >= 0.35:
+            score = sum(a * b for a, b in zip(vectors[left], vectors[right])) if len(vectors[left]) == len(vectors[right]) else 0
+            if score >= 0.45:
                 neighbors.append((score, right))
         for score, right in sorted(neighbors, reverse=True)[:3]:
             candidate_edges.append({"source": nodes[left]["id"], "target": nodes[right]["id"],
                                     "score": round(score, 3)})
     return {"nodes": nodes, "edges": sorted(candidate_edges, key=lambda item: item["score"], reverse=True)[:MAX_EDGES],
-            "similarity": "character n-gram cosine; visual positions are deterministic layout coordinates"}
+            "similarity": "local embedding cosine; links indicate topic similarity, not proven factual relationships"}
 
 
 @router.get("/graph")
