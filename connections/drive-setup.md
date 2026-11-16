@@ -1,6 +1,6 @@
 # Google Drive connection setup
 
-The optional `drive-connector` poller is implemented and runs on this computer with the `drive` Compose profile. It indexes only direct children of an explicitly approved folder, stores a change cursor and current-revision scope, and writes attributed JSON records for text, Markdown, CSV, JSON, Google Docs, and Google Sheets. Other formats and nested folders are skipped. OAuth requests Drive-wide read-only access to the account; folder filtering happens in this local connector, not at Google's consent boundary. The Brain uses one local operator token and has no individual accounts.
+The optional `drive-connector` poller runs with the `drive` Compose profile. Its Compose default is `GOOGLE_DRIVE_SCOPE=all_related`: it discovers accessible text, Markdown, CSV, JSON, Google Docs, Google Sheets, and text-based PDFs, checks names and contents against KOA domain terms and a local semantic embedding, then persists attributed records that match. Unsupported formats, image-only PDFs, and common credential files are skipped. File content is read locally for classification and indexing; it is not sent to a hosted model. Set `GOOGLE_DRIVE_SCOPE=folder` to restrict discovery to direct children of the explicitly selected folder. OAuth requests Drive-wide read-only access to the account; folder filtering happens in this local connector, not at Google's consent boundary. The Brain uses one local operator token and has no individual accounts.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ The optional `drive-connector` poller is implemented and runs on this computer w
 1. In Google Cloud, enable the Drive API and configure the OAuth consent screen. Create the OAuth client and keep its credentials outside Git.
 2. Have the authorized account grant access to the approved folder or shared drive. Record the folder ID; do not assume access to all Drive files.
 3. Place the downloaded OAuth client JSON at `brain-app/private/drive-client.json`. In a local Python virtual environment, install `google-auth-oauthlib==1.2.2`, set `GOOGLE_CLIENT_SECRETS_PATH` and `GOOGLE_TOKEN_PATH`, then run `python brain-app/connectors/drive_auth.py` from the repository root. Complete browser consent. Both paths must stay under ignored `brain-app/private/`. This one-time host helper is separate from the small runtime image.
-4. Set the approved folder ID in `brain-app/.env`; set the shared drive ID only if applicable. The first worker run saves a change token, backfills existing direct children, then catches changes after that token. The folder currently selected for this local Brain is [KOA Brain Approved Sources](https://drive.google.com/drive/folders/1qgbb-LnPcK1qB1i1szD9Rr77aCz4fak3); it was empty at creation.
+4. Set `GOOGLE_DRIVE_SCOPE=all_related` for account-wide related-file discovery, or `GOOGLE_DRIVE_SCOPE=folder` plus `GOOGLE_DRIVE_FOLDER_ID` for the narrower mode; set `GOOGLE_DRIVE_ID` only for folder mode on a shared drive. The first worker run saves a change token, backfills the selected scope, then catches changes after that token. The selected review folder is [KOA Brain Approved Sources](https://drive.google.com/drive/folders/1qgbb-LnPcK1qB1i1szD9Rr77aCz4fak3).
 5. From `brain-app/`, run `docker compose --profile drive up --build -d`. Inspect `docker compose logs drive-connector`.
 
 ## Environment example
@@ -21,6 +21,7 @@ The optional `drive-connector` poller is implemented and runs on this computer w
 ```dotenv
 GOOGLE_DRIVE_FOLDER_ID=<approved-folder-id>
 GOOGLE_DRIVE_ID=<shared-drive-id-if-used>
+GOOGLE_DRIVE_SCOPE=folder
 DRIVE_SYNC_INTERVAL_SECONDS=60
 ```
 
