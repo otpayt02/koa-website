@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import Depends, FastAPI
-from routes import brain, commentary, github, inbox, knowledge, news, sync
+from routes import brain, commentary, github, github_files, inbox, knowledge, news, sync
 from security import require_operator
 
 
@@ -37,6 +37,7 @@ app.include_router(brain.router, prefix='/api/brain', dependencies=[Depends(requ
 app.include_router(news.router, prefix='/api/news', dependencies=[Depends(require_operator)])
 app.include_router(commentary.router, prefix='/api/commentary', dependencies=[Depends(require_operator)])
 app.include_router(sync.router, prefix='/api/sync', dependencies=[Depends(require_operator)])
+app.include_router(github_files.router, prefix='/api/github', dependencies=[Depends(require_operator)])
 app.include_router(github.router, prefix='/github')
 
 @app.get('/')

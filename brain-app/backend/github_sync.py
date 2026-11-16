@@ -4,7 +4,7 @@ import json
 import os
 import base64
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
 from connectors.inbox_writer import write_record
@@ -49,6 +49,42 @@ def _get_source_file(path: str, ref: str) -> dict:
     return {"source": "github", "repository": REPO, "event": "source_file",
             "source_id": f"{path}:{item['sha']}", "path": path, "sha": item["sha"],
             "title": path, "content_utf8": content, "url": item.get("html_url")}
+
+
+def list_repository_files() -> dict:
+    """Return GitHub tree metadata and links without downloading file contents."""
+    token = os.getenv("GITHUB_TOKEN", "")
+    headers = {"Accept": "application/vnd.github+json", "User-Agent": "koa-company-brain"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    def get_json(url: str) -> dict:
+        with urlopen(Request(url, headers=headers), timeout=30) as response:
+            value = json.load(response)
+        if not isinstance(value, dict):
+            raise ValueError("GitHub returned an unexpected repository tree response")
+        return value
+
+    repo = get_json(f"https://api.github.com/repos/{REPO}")
+    branch = os.getenv("GITHUB_LIST_REF") or repo.get("default_branch")
+    if not isinstance(branch, str) or not branch:
+        raise ValueError("GitHub repository default branch is unavailable")
+    branch_record = get_json(f"{API}/branches/{quote(branch, safe='')}")
+    commit_sha = (branch_record.get("commit") or {}).get("sha")
+    if not isinstance(commit_sha, str):
+        raise ValueError("GitHub branch commit is unavailable")
+    tree = get_json(f"{API}/git/trees/{commit_sha}?recursive=1")
+    entries = [item for item in tree.get("tree", []) if item.get("type") == "blob"]
+    files = [{
+        "path": item["path"],
+        "name": item["path"].rsplit("/", 1)[-1],
+        "size_bytes": item.get("size", 0),
+        "sha": item.get("sha", ""),
+        "url": f"https://github.com/{REPO}/blob/{quote(branch, safe='/')}/{quote(item['path'], safe='/')}",
+    } for item in entries]
+    files.sort(key=lambda item: item["path"].casefold())
+    return {"repository": REPO, "branch": branch, "commit": commit_sha,
+            "count": len(files), "truncated": bool(tree.get("truncated")), "files": files}
 
 
 def _save_source_scope(revisions: dict[str, str]) -> None:
