@@ -1590,8 +1590,8 @@ body:has(.koa-home) .site-header { flex: none; }
 body:has(.koa-home) main { flex: 1; min-height: 0; }
 body:has(.koa-home) .site-footer { display: none; }
 .koa-home { position: relative; isolation: isolate; height: 100%; overflow: hidden; color: #f5efe4; font-family: var(--koa-body, "Space Grotesk", sans-serif); }
-.koa-home__photo { position: absolute; inset: 0; z-index: -2; background: transparent; }
-.koa-home__veil { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(3,8,20,.2), rgba(3,8,20,.45)); }
+.koa-home__photo { position: absolute; inset: -8% 0; z-index: -2; background: #030814; transform-origin: 50% 46%; will-change: transform; }
+.koa-home__veil { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(3,8,20,.15), rgba(3,8,20,.34) 30%, rgba(3,8,20,.72) 82%), linear-gradient(90deg, rgba(3,8,20,.24), transparent 62%), radial-gradient(ellipse at 50% 43%, transparent 8%, rgba(3,8,20,.22) 100%); }
 .koa-home__loader { position: absolute; inset: 0; z-index: 5; pointer-events: none; background: #030814; animation: koaLoaderFade .45s 2.15s both; }
 .koa-home__loader .koa-ka-glyph-field { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: min(570px, calc(100vw - 24px)); height: clamp(150px, 34svh, 260px); }
 .koa-home__content { width: min(1100px, calc(100% - 48px)); height: 100%; margin: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 12px 0 24px; transition: opacity .6s ease, filter .6s ease; }
@@ -1660,7 +1660,7 @@ body:has(.koa-home) .site-donate-tab { right: 8px; }
 body:has(.koa-home) { height: auto; min-height: 100svh; overflow-x: hidden; overflow-y: auto; }
 body:has(.koa-home) main { flex: 1 0 auto; }
 body:has(.koa-home) .site-footer { display: block; }
-.koa-home { min-height: calc(100svh - 76px); height: auto; overflow: visible; background: radial-gradient(circle at 50% 40%, #14233a 0%, #080e19 45%, #05080e 100%); }
+.koa-home { min-height: calc(100svh - 76px); height: auto; overflow: visible; overflow-x: clip; background: radial-gradient(circle at 50% 40%, #14233a 0%, #080e19 45%, #05080e 100%); }
 .koa-home__veil { background: radial-gradient(circle at 50% 37%, rgba(212,168,67,.10), transparent 38%); }
 .koa-home__content { min-height: calc(100svh - 76px); padding: clamp(32px, 6vw, 76px) 24px; }
 .koa-home__mark { width: min(900px, 100%); height: clamp(185px, 32svh, 310px); }

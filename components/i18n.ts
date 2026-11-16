@@ -46,6 +46,7 @@ export const pageLabels = {
   about: pageLabel("A shared history. A future built together.", "ประวัติศาสตร์ร่วม อนาคตที่สร้างไปด้วยกัน", "မျှဝေထားသော သမိုင်း၊ အတူတည်ဆောက်မည့် အနာဂတ်", "တၢ်စံၣ်စိၤတဲစိၤတပူၤဃီ။ ခါဆူညါလၢပတ့ထီၣ်သကိး။"),
   services: pageLabel("Support shaped around community life.", "การสนับสนุนที่ออกแบบรอบชีวิตชุมชน", "ရပ်ရွာဘဝကို ဗဟိုပြုသော ပံ့ပိုးမှု", "တၢ်မၤစၢၤလၢပှၤတဝၢတၢ်အိၣ်မူအဂီၢ်။"),
   community: pageLabel("Belong, participate, and lead.", "เป็นส่วนหนึ่ง มีส่วนร่วม และนำทาง", "ပါဝင်ဆက်နွယ်၊ ပူးပေါင်းပြီး ဦးဆောင်ပါ", "ဃူဃူဖိးဖိး၊ ပာ်ဃုာ်၊ ဒီးတီခိၣ်ရိၣ်မဲ။"),
+  grammar: pageLabel("S'gaw Karen grammar, documented by community.", "ไวยากรณ์ภาษาสะกอกะเหรี่ยงที่ชุมชนร่วมกันบันทึก", "ရပ်ရွာက မှတ်တမ်းတင်ထားသော စကောကရင် သဒ္ဒါ", ""),
   contact: pageLabel("Start a conversation with KOA.", "เริ่มต้นการสนทนากับ KOA", "KOA နှင့် စကားစမြည်စတင်ပါ", "စးထီၣ်တၢ်ကတိၤဒီး KOA။"),
   dictionary: pageLabel("A living dictionary, held by community.", "พจนานุกรมมีชีวิตที่ชุมชนดูแล", "ရပ်ရွာက ထိန်းသိမ်းထားသော အသက်ဝင်အဘိဓာန်", "ကညီလံာ်ခီယ့ၣ်လၢအမူ ဒီးပှၤတဝၢပၢၤဃာ်အီၤ။"),
   contribute: pageLabel("Your voice helps the language grow.", "เสียงของคุณช่วยให้ภาษาเติบโต", "သင့်အသံက ဘာသာစကား တိုးတက်စေသည်", "နကလုၢ်မၤစၢၤကညီကျိာ်ဒိၣ်ထီၣ်။"),

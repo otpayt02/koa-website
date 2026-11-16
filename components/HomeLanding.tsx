@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getMessages, pageLabels, type Lang } from "./i18n";
 import { KAGlyphField } from "./cinematic/KAGlyphField";
 import { SealAssembly } from "./cinematic/SealAssembly";
@@ -19,6 +21,9 @@ type Preview = keyof typeof previews;
 export function HomeLanding({ lang }: { lang: Lang }) {
   const messages = getMessages(lang);
   const markProgress = useRef(0);
+  const heroRef = useRef<HTMLElement>(null);
+  const photoPlaneRef = useRef<HTMLDivElement>(null);
+  const contentPlaneRef = useRef<HTMLDivElement>(null);
   const sealTilt = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(true);
   const [line, setLine] = useState(1);
@@ -79,11 +84,39 @@ export function HomeLanding({ lang }: { lang: Lang }) {
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setReduced(media.matches);
+    const sync = () => setReduced(media.matches || new URLSearchParams(window.location.search).get("motion") === "off");
     sync();
     media.addEventListener("change", sync);
     return () => media.removeEventListener("change", sync);
   }, []);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    const photo = photoPlaneRef.current;
+    const content = contentPlaneRef.current;
+    if (reduced || !hero || !photo || !content) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+    const context = gsap.context(() => {
+      // The archival photograph drifts down as the semantic layer recedes up.
+      // Both follow the same scroll range at distinct rates, and the poster
+      // remains complete when motion is reduced or JavaScript is unavailable.
+      gsap.fromTo(photo, { yPercent: -2, scale: 1.035 }, {
+        yPercent: 8,
+        scale: 1.085,
+        ease: "none",
+        scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1.1 },
+      });
+      gsap.to(content, {
+        yPercent: -5,
+        opacity: 0.76,
+        ease: "none",
+        scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 1.55 },
+      });
+    }, hero);
+
+    return () => context.revert();
+  }, [reduced]);
 
   useEffect(() => {
     if (reduced) return;
@@ -93,15 +126,15 @@ export function HomeLanding({ lang }: { lang: Lang }) {
 
   return (
     <>
-    <section className="koa-home" data-preview={preview || undefined} data-styleseed-recipe="public-service" aria-labelledby="koa-home-title">
-      <div className="koa-home__photo" aria-hidden="true">
-        <img src="/koa/assets/hero-community-mobile-enhanced.png" alt="" />
+    <section ref={heroRef} className="koa-home" data-preview={preview || undefined} data-styleseed-recipe="public-service" aria-labelledby="koa-home-title">
+      <div ref={photoPlaneRef} className="koa-home__photo">
+        <img src="/koa/assets/karen-flag-capitol-legacy.webp" alt="Illustrative scene of Karen community members gathered around one oversized Karen flag in front of the U.S. Capitol" />
       </div>
       <div className="koa-home__veil" aria-hidden="true" />
       {loading && <div className="koa-home__loader" aria-hidden="true">
         <KAGlyphField progress={markProgress} reducedMotion={false} hero loading />
       </div>}
-      <div className="koa-home__content">
+      <div ref={contentPlaneRef} className="koa-home__content">
         <div className="koa-home__mark" aria-hidden="true">
           <KAGlyphField progress={markProgress} reducedMotion={false} hero />
           <div className="koa-home__seal"><div className="koa-home__seal-arrival"><div className="koa-home__seal-tilt" ref={sealTilt}><SealAssembly rotation={0} /></div></div></div>
