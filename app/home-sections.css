@@ -65,7 +65,7 @@
 @media (max-width: 600px) { body:has(.site-atmosphere) .nav-grid { grid-template-columns: 1fr; } }
 
 /* A single sticky footer holds the K, authentic seal, A, name pair and links. */
-body:has(.site-atmosphere) .site-footer.koa-unified-footer { --footer-form: 1; --footer-name: 1; --footer-links: 1; min-height: 165svh; padding: 0; color: #f3eee5; background: #030814; border: 0; clip-path: inset(calc((1 - var(--footer-form)) * 7%) calc((1 - var(--footer-form)) * 5%) 0 round calc((1 - var(--footer-form)) * 22px)); }
+body:has(.site-atmosphere) .site-footer.koa-unified-footer { --footer-form: 1; --footer-name: 1; --footer-translation: 1; --footer-links: 1; min-height: 165svh; padding: 0; color: #f3eee5; background: #030814; border: 0; clip-path: inset(calc((1 - var(--footer-form)) * 7%) calc((1 - var(--footer-form)) * 5%) 0 round calc((1 - var(--footer-form)) * 22px)); }
 .koa-footer__stage { position: sticky; top: 0; width: 100%; height: 100svh; display: grid; grid-template-columns: minmax(150px, 1fr) minmax(0, 760px) minmax(150px, 1fr); align-items: center; gap: clamp(14px, 3vw, 48px); padding: 62px max(24px, calc((100vw - 1380px) / 2)); overflow: hidden; background: radial-gradient(circle at 50% 44%, rgba(33,69,110,.28), transparent 48%), #030814; }
 .koa-footer__center { min-width: 0; align-self: center; text-align: center; }
 .koa-footer__mark { position: relative; width: 100%; height: clamp(190px, 34svh, 340px); }
@@ -73,9 +73,9 @@ body:has(.site-atmosphere) .site-footer.koa-unified-footer { --footer-form: 1; -
 .koa-footer__seal { position: absolute; left: 50%; top: 54%; height: 80%; aspect-ratio: 1; opacity: var(--footer-form); transform: translate(-50%, -50%) scale(calc(.72 + .28 * var(--footer-form))); }
 .koa-footer__seal .cinematic-seal { width: 100%; height: 100%; --film-progress: 0; }
 .koa-footer__seal :is(.cinematic-seal__core, .cinematic-seal__annulus) { opacity: 1; }
-.koa-footer__names { display: grid; justify-items: center; gap: 4px; margin-top: 4px; opacity: var(--footer-name); transform: translateY(calc((1 - var(--footer-name)) * 32px)); }
-.koa-footer__names strong { font: 600 clamp(2rem, 3.6vw, 4rem)/1 var(--koa-display, Georgia, serif); letter-spacing: -.025em; text-wrap: balance; }
-.koa-footer__names span { color: #e7bc65; font: 400 clamp(1rem, 1.6vw, 1.55rem)/1.7 "Noto Sans Myanmar", sans-serif; }
+.koa-footer__names { display: grid; justify-items: center; gap: 4px; margin-top: 4px; }
+.koa-footer__names strong { opacity: var(--footer-name); transform: translateY(calc((1 - var(--footer-name)) * 32px)); font: 600 clamp(2rem, 3.6vw, 4rem)/1 var(--koa-display, Georgia, serif); letter-spacing: -.025em; text-wrap: balance; }
+.koa-footer__names span { opacity: var(--footer-translation); transform: translateY(calc((1 - var(--footer-translation)) * 32px)); color: #e7bc65; font: 400 clamp(1rem, 1.6vw, 1.55rem)/1.7 "Noto Sans Myanmar", sans-serif; }
 .koa-footer__side { display: grid; align-content: center; gap: 18px; min-width: 0; opacity: var(--footer-links); transform: translateX(calc((1 - var(--footer-links)) * -35px)); }
 .koa-footer__side--right { transform: translateX(calc((1 - var(--footer-links)) * 35px)); }
 .koa-footer__side nav { display: grid; gap: 18px; }
@@ -95,4 +95,4 @@ body:has(.site-atmosphere) .site-footer.koa-unified-footer { --footer-form: 1; -
   .koa-footer__meta { gap: 8px; margin-top: 8px; }
 }
 @media (max-width: 430px) { .koa-footer__stage { gap: 12px; padding: 60px 18px 20px; } .koa-footer__mark { height: 24svh; } .koa-footer__names span { font-size: .92rem; } }
-@media (prefers-reduced-motion: reduce) { body:has(.site-atmosphere) .site-footer.koa-unified-footer { --footer-form: 1 !important; --footer-name: 1 !important; --footer-links: 1 !important; clip-path: none; min-height: 100svh; } .koa-home-story__image-plane { will-change: auto; } }
+@media (prefers-reduced-motion: reduce) { body:has(.site-atmosphere) .site-footer.koa-unified-footer { --footer-form: 1 !important; --footer-name: 1 !important; --footer-translation: 1 !important; --footer-links: 1 !important; clip-path: none; min-height: 100svh; } .koa-home-story__image-plane { will-change: auto; } }

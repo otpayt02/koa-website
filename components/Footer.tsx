@@ -33,6 +33,7 @@ export function Footer({ lang, messages }: { lang: Lang; messages: Messages }) {
       glyphProgress.current = 1;
       footer.style.setProperty("--footer-form", "1");
       footer.style.setProperty("--footer-name", "1");
+      footer.style.setProperty("--footer-translation", "1");
       footer.style.setProperty("--footer-links", "1");
       return;
     }
@@ -42,6 +43,7 @@ export function Footer({ lang, messages }: { lang: Lang; messages: Messages }) {
       glyphProgress.current = form;
       footer.style.setProperty("--footer-form", form.toFixed(4));
       footer.style.setProperty("--footer-name", ease((progress - .42) / .28).toFixed(4));
+      footer.style.setProperty("--footer-translation", ease((progress - .52) / .25).toFixed(4));
       footer.style.setProperty("--footer-links", ease((progress - .64) / .25).toFixed(4));
     };
     const trigger = ScrollTrigger.create({
