@@ -19,12 +19,30 @@ def _node_id(path: str) -> str:
     return hashlib.sha256(path.encode("utf-8")).hexdigest()[:20]
 
 
-def _position(path: str) -> list[float]:
-    digest = hashlib.sha256(path.encode("utf-8")).digest()
-    angle = int.from_bytes(digest[:4], "big") / 2**32 * 2 * math.pi
-    height = int.from_bytes(digest[4:8], "big") / 2**32 * 2 - 1
-    radius = math.sqrt(1 - height * height) * 4
-    return [round(radius * math.cos(angle), 3), round(height * 3, 3), round(radius * math.sin(angle), 3)]
+def _layout(vectors: list[tuple[float, ...]]) -> list[list[float]]:
+    """Project document embeddings onto three deterministic principal axes."""
+    if not vectors:
+        return []
+    dimensions = len(vectors[0])
+    means = [sum(vector[i] for vector in vectors) / len(vectors) for i in range(dimensions)]
+    centered = [[value - means[i] for i, value in enumerate(vector)] for vector in vectors]
+    axes = []
+    for axis_number in range(3):
+        axis = [math.sin((i + 1) * (axis_number + 1) * 1.618) for i in range(dimensions)]
+        for _ in range(32):
+            projected = [sum(value * component for value, component in zip(row, axis)) for row in centered]
+            candidate = [sum(row[i] * value for row, value in zip(centered, projected)) for i in range(dimensions)]
+            for prior in axes:
+                dot = sum(a * b for a, b in zip(candidate, prior))
+                candidate = [a - dot * b for a, b in zip(candidate, prior)]
+            magnitude = math.sqrt(sum(value * value for value in candidate))
+            if magnitude < 1e-9:
+                break
+            axis = [value / magnitude for value in candidate]
+        axes.append(axis)
+    coords = [[sum(value * axis[i] for i, value in enumerate(row)) for axis in axes] for row in centered]
+    scale = max((abs(value) for row in coords for value in row), default=1.0) or 1.0
+    return [[round(value * 4 / scale, 3) for value in row] for row in coords]
 
 
 def graph_data() -> dict:
@@ -32,15 +50,23 @@ def graph_data() -> dict:
     try:
         rows = connection.execute("""
             SELECT d.path, d.source, d.title, c.content, c.vector
-            FROM documents d JOIN chunks c ON c.path=d.path AND c.ordinal=0
-            ORDER BY d.path LIMIT ?
+            FROM (SELECT * FROM documents ORDER BY path LIMIT ?) d
+            JOIN chunks c ON c.path=d.path
+            ORDER BY d.path, c.ordinal
         """, (MAX_NODES,)).fetchall()
     finally:
         connection.close()
-    nodes = [{"id": _node_id(path), "source": source, "title": title,
-              "excerpt": content[:240], "position": _position(path)}
-             for path, source, title, content, _ in rows]
-    vectors = [struct.unpack(f"<{len(row[4]) // 4}f", row[4]) for row in rows]
+    grouped = {}
+    for path, source, title, content, blob in rows:
+        dimensions = len(blob) // 4
+        vector = struct.unpack(f"<{dimensions}f", blob)
+        if path not in grouped:
+            grouped[path] = {"source": source, "title": title, "excerpt": content[:240], "vectors": [], "id": _node_id(path)}
+        grouped[path]["vectors"].append(vector)
+    grouped = dict(list(grouped.items())[:MAX_NODES])
+    vectors = [tuple(sum(vector[i] for vector in item["vectors"]) / len(item["vectors"]) for i in range(len(item["vectors"][0]))) for item in grouped.values()]
+    positions = _layout(vectors)
+    nodes = [{"id": item["id"], "source": item["source"], "title": item["title"], "excerpt": item["excerpt"], "position": positions[index]} for index, item in enumerate(grouped.values())]
     candidate_edges = []
     for left in range(len(nodes)):
         neighbors = []
