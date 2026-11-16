@@ -1,0 +1,34 @@
+name: Daily 10AM headline run
+
+on:
+  schedule:
+    - cron: "0 15 * * *"          # daily 10:00 AM Eastern (15:00 UTC, EST)
+  repository_dispatch:
+    types: [headline-run]           # on-demand trigger via the GitHub API
+  workflow_dispatch: {}            # manual "Run workflow" button
+
+permissions:
+  contents: write                  # lets the run commit public/feeds.json
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run the brain (scrape feeds)
+        run: node brain-app/headlines.mjs
+        env:
+          SIGNAL_WEBHOOK: ${{ secrets.SIGNAL_WEBHOOK }}
+
+      - name: Commit public/feeds.json if changed
+        run: |
+          git config user.name  "koa-brain"
+          git config user.email "brain@users.noreply.github.com"
+          git add public/feeds.json
+          git diff --cached --quiet || git commit -m "headline run $(date -u +%FT%TZ)"
+          git push

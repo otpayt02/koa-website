@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "name": "KOA Company Brain",
+  "mcari": {
+    "name": "MCARI — Myanmar Conflict Analysis Research Institute",
+    "monitor_url": "https://mcari.org/en/monitor",
+    "issue": 28,
+    "period": "Q3 2026 · 1 July – 30 September 2026",
+    "stats": [
+      { "value": 1257, "note": "recorded deaths in September 2026, the deadliest month of Q3 — a 44.3 percent surge over August." },
+      { "value": 622, "note": "civilian deaths perpetrated by the Myanmar military — 85.3 percent of all 729 civilian fatalities recorded in Q3 2026." },
+      { "value": 8416185, "note": "instances of displacement recorded between the 1 February 2021 coup and the end of 2025." }
+    ]
+  },
+  "feeds": [
+    { "id": "mcari", "name": "MCARI", "type": "page", "url": "https://mcari.org/en/monitor", "weight": 3 },
+    { "id": "karen-news", "name": "Karen News", "type": "rss", "url": "https://karennews.org/feed", "weight": 2 },
+    { "id": "reliefweb", "name": "ReliefWeb", "type": "rss", "url": "https://reliefweb.int/updates/rss.xml?country=104", "weight": 1 },
+    { "id": "mizzima", "name": "Mizzima", "type": "rss", "url": "https://mizzimadailynews.substack.com/feed", "weight": 1 }
+  ],
+  "headlineRun": {
+    "keywords": ["karen", "myanmar", "burma", "kawthoolei", "knu", "junta", "coup", "displacement", "rakhine", "shan", "kachin"],
+    "maxItems": 12,
+    "output": "public/feeds.json",
+    "schedule": "daily at 10:00 AM Eastern (15:00 UTC) via .github/workflows/headlines.yml"
+  }
+}
