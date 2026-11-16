@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { KAGlyphField } from "./cinematic/KAGlyphField";
-import { SealAssembly } from "./cinematic/SealAssembly";
 import { DonationForm } from "./DonationForm";
 import { getMessages, pageLabels, type Lang } from "./i18n";
 
@@ -17,43 +15,42 @@ const programs = [
 
 export function HomeSections({ lang }: { lang: Lang }) {
   const messages = getMessages(lang);
-  const finaleRef = useRef<HTMLElement>(null);
-  const glyphProgress = useRef(1);
+  const storyRef = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setReduced(media.matches);
+    const sync = () => setReduced(media.matches || new URLSearchParams(window.location.search).get("motion") === "off");
     sync();
     media.addEventListener("change", sync);
     return () => media.removeEventListener("change", sync);
   }, []);
 
   useEffect(() => {
-    const finale = finaleRef.current;
-    if (!finale || reduced) return;
+    const story = storyRef.current;
+    if (!story || reduced) return;
     gsap.registerPlugin(ScrollTrigger);
     const context = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: finale,
-        start: "top bottom",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          const p = self.progress * self.progress * (3 - 2 * self.progress);
-          glyphProgress.current = p;
-          finale.style.setProperty("--finale-progress", p.toFixed(4));
-        },
-        onRefresh: (self) => {
-          glyphProgress.current = self.progress;
-          finale.style.setProperty("--finale-progress", self.progress.toFixed(4));
-        },
+      story.querySelectorAll<HTMLElement>(".koa-home-story__program").forEach((section, index) => {
+        const image = section.querySelector<HTMLElement>(".koa-home-story__image-plane");
+        const copy = section.querySelector<HTMLElement>(".koa-home-story__program-copy");
+        if (!image || !copy) return;
+        const side = index % 2 === 0 ? 1 : -1;
+        gsap.fromTo(image, { xPercent: side * 6, yPercent: -9 }, {
+          xPercent: 0, yPercent: 10, ease: "none",
+          scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 1.2 },
+        });
+        gsap.fromTo(copy, { xPercent: -side * 8, yPercent: 12 }, {
+          xPercent: 0, yPercent: -6, ease: "none",
+          scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 1.8 },
+        });
       });
-    }, finale);
+    }, story);
     return () => context.revert();
   }, [reduced]);
 
   return (
-    <div className="koa-home-story">
+    <div ref={storyRef} className="koa-home-story">
       <section className="koa-home-story__opening" aria-labelledby="koa-home-story-title">
         <p className="koa-home-story__eyebrow">Community · Language · Civic voice</p>
         <h2 id="koa-home-story-title">{lang === "en" ? <>A place to belong.<br /><em>A way to take part.</em></> : pageLabels.community[lang]}</h2>
@@ -64,7 +61,7 @@ export function HomeSections({ lang }: { lang: Lang }) {
       <section className="koa-home-story__programs" aria-label="Explore KOA work">
         {programs.map((program, index) => (
           <article className="koa-home-story__program" key={program.key}>
-            <div className="koa-home-story__image"><img src={program.image} alt="" loading="lazy" /></div>
+            <div className="koa-home-story__image"><div className="koa-home-story__image-plane"><img src={program.image} alt="" loading="lazy" /></div></div>
             <div className="koa-home-story__program-copy">
               <span className="koa-home-story__eyebrow">0{index + 1} / 03</span>
               <h2>{pageLabels[program.key][lang]}</h2>
@@ -100,16 +97,6 @@ export function HomeSections({ lang }: { lang: Lang }) {
         <DonationForm lang={lang} />
       </section>
 
-      <section ref={finaleRef} className="koa-home-finale" aria-label="Karen Organization of America">
-        <div className="koa-home-finale__inner">
-          <div className="koa-home-finale__mark" aria-hidden="true">
-            <KAGlyphField progress={glyphProgress} reducedMotion={reduced} hero scatterProgress={glyphProgress} />
-            <div className="koa-home-finale__seal"><SealAssembly rotation={0} /></div>
-          </div>
-          <p>Karen Organization of America</p>
-          <p lang="ksw">ကညီအတၢ်ကရၢကရိလၢကီၢ်အမဲရကၤ</p>
-        </div>
-      </section>
     </div>
   );
 }

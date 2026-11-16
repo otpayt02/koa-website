@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/koa/assets/koa-logo.png",
-    shortcut: "/koa/assets/koa-logo.png",
+    icon: "/koa/assets/koa-seal-white-lettering-v2.png",
+    shortcut: "/koa/assets/koa-seal-white-lettering-v2.png",
   },
   openGraph: {
     title: "Karen Organization of America",

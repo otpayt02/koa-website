@@ -4666,19 +4666,27 @@
       "karen": ""
     },
     {
-      "key": "auto.*.koa.28621cd5",
+      "key": "auto.*.moreKoaPages.3036d3d0",
       "route": "*",
       "section": "Footer",
-      "type": "paragraph",
-      "en": "KOA ·",
+      "type": "tooltip",
+      "en": "More KOA pages",
       "karen": ""
     },
     {
-      "key": "auto.*.facebook.0cc38657",
+      "key": "auto.*.facebook.7b7395b9",
       "route": "*",
       "section": "Footer",
       "type": "action",
-      "en": "Facebook",
+      "en": "Facebook ↗",
+      "karen": ""
+    },
+    {
+      "key": "auto.*.koa.7afe5ba8",
+      "route": "*",
+      "section": "Footer",
+      "type": "label",
+      "en": "KOA",
       "karen": ""
     },
     {
@@ -5039,14 +5047,6 @@
       "section": "Header",
       "type": "tooltip",
       "en": "Primary navigation",
-      "karen": ""
-    },
-    {
-      "key": "auto.*.koa.fd56ac1d",
-      "route": "*",
-      "section": "Header",
-      "type": "paragraph",
-      "en": "KOA",
       "karen": ""
     },
     {
@@ -12233,10 +12233,22 @@
       }
     },
     {
-      "key": "auto.*.koa.28621cd5",
+      "key": "shell.siteName",
       "route": "*",
       "kind": "text",
-      "en": "KOA ·",
+      "en": "Karen Organization of America",
+      "karen": "",
+      "occurrence": {
+        "en": 3,
+        "karen": 2
+      }
+    },
+    {
+      "key": "auto.*.moreKoaPages.3036d3d0",
+      "route": "*",
+      "kind": "attribute",
+      "attribute": "aria-label",
+      "en": "More KOA pages",
       "karen": "",
       "occurrence": {
         "en": 0,
@@ -12244,10 +12256,21 @@
       }
     },
     {
-      "key": "auto.*.facebook.0cc38657",
+      "key": "auto.*.facebook.7b7395b9",
       "route": "*",
       "kind": "text",
-      "en": "Facebook",
+      "en": "Facebook ↗",
+      "karen": "",
+      "occurrence": {
+        "en": 0,
+        "karen": 0
+      }
+    },
+    {
+      "key": "auto.*.koa.7afe5ba8",
+      "route": "*",
+      "kind": "text",
+      "en": "KOA",
       "karen": "",
       "occurrence": {
         "en": 0,
@@ -12737,8 +12760,8 @@
       "en": "KOA",
       "karen": "",
       "occurrence": {
-        "en": 0,
-        "karen": 0
+        "en": 1,
+        "karen": 1
       }
     },
     {
@@ -12751,17 +12774,6 @@
       "occurrence": {
         "en": 0,
         "karen": 0
-      }
-    },
-    {
-      "key": "auto.*.koa.fd56ac1d",
-      "route": "*",
-      "kind": "text",
-      "en": "KOA",
-      "karen": "",
-      "occurrence": {
-        "en": 1,
-        "karen": 1
       }
     },
     {
@@ -12895,29 +12907,6 @@
       "occurrence": {
         "en": 0,
         "karen": 0
-      }
-    },
-    {
-      "key": "shell.siteName",
-      "route": "*",
-      "kind": "attribute",
-      "attribute": "aria-label",
-      "en": "Karen Organization of America",
-      "karen": "",
-      "occurrence": {
-        "en": 0,
-        "karen": 0
-      }
-    },
-    {
-      "key": "shell.siteName",
-      "route": "*",
-      "kind": "text",
-      "en": "Karen Organization of America",
-      "karen": "",
-      "occurrence": {
-        "en": 3,
-        "karen": 2
       }
     },
     {

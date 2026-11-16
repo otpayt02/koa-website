@@ -166,8 +166,8 @@ export default async function MusicPage({
       <section className="split-story">
         <div>
           <img
-            src="/koa/assets/washington-advocacy.jpg"
-            alt="Karen community music tradition"
+            src="/koa/assets/fb-outdoor-gathering-mobile-enhanced.png"
+            alt="Karen community members gathered outdoors"
           />
         </div>
         <div>

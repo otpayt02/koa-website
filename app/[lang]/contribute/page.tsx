@@ -18,7 +18,7 @@ export default async function ContributePage({ params }: { params: Promise<{ lan
   const messages = getMessages(lang);
   return (
     <>
-      <PageHero eyebrow="Community language work · တၢ်မၤသကိးကျိာ်" title={pageLabels.contribute[lang]} description={lang === "ksw" ? "ဟ့ၣ်လီၤတၢ်ကတိၤ၊ တၢ်ပာ်ဖျါ၊ တၢ်သူအီၤ ဒီးနကလုၢ်ဆူလံာ်ခီယ့ၣ်။" : "Add a word, a better context, or your voice. Every contribution is reviewed before it becomes part of the public dictionary."} image="/koa/assets/cultural-community.jpg" imageAlt="Karen community members in conversation" />
+      <PageHero eyebrow="Community language work · တၢ်မၤသကိးကျိာ်" title={pageLabels.contribute[lang]} description={lang === "ksw" ? "ဟ့ၣ်လီၤတၢ်ကတိၤ၊ တၢ်ပာ်ဖျါ၊ တၢ်သူအီၤ ဒီးနကလုၢ်ဆူလံာ်ခီယ့ၣ်။" : "Add a word, a better context, or your voice. Every contribution is reviewed before it becomes part of the public dictionary."} image="/koa/assets/751125654_1343222887999571_3470397962677151599_n.jpg" imageAlt="Workshop participants seated around round tables" />
       <Section eyebrow="1 · Add language knowledge" title="Give reviewers enough context to care for the word." intro="Use the side-by-side fields to share what you know. A reviewer may follow up before publication, and your name stays attached to the entry history.">
         <ContributionForm lang={lang} messages={messages} />
       </Section>

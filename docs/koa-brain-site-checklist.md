@@ -65,7 +65,7 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 
 ## 5. Public translation coverage
 
-- [x] Added a three-locale proposal queue with **1,668** public source text candidates, **2,346** word/area entries, and **10,022** English word occurrences. Every item has unapproved S’gaw Karen, Thai, and Burmese slots; source, life area, and token index are retained. `npm.cmd run translation:check` passed.
+- [x] Added a three-locale proposal queue with **1,624** public source text candidates, **2,334** word/area entries, and **9,986** English word occurrences. Every item has unapproved S’gaw Karen, Thai, and Burmese slots; source, life area, and token index are retained. `npm.cmd run translation:check` passed.
 - [x] Added a Muse full-route/interaction/attribute audit prompt and an importer that requires one contextual word alignment per English token. A one-item Thai synthetic import passed; the resulting record stayed `machine_proposal`.
 - [x] Corrected legacy `karen` locale references to `ksw` in the content catalog and dormant hydration matcher. The public layout still does not mount that hydrator, so no unapproved proposal is applied to the website.
 - [ ] Produce and review all three locale proposals, reconcile the rendered site against the static queue, and wire only approved publications to public components. The KOA website content draft is a six-page English meaning reference, not approved public copy.
