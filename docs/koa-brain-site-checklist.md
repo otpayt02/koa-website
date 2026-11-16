@@ -8,6 +8,7 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 - **Local Company Brain:** [localhost:3000](http://127.0.0.1:3000/) returned HTTP 200 with the Vite frontend running directly. Enter the operator token from ignored `brain-app/.env`. Docker Desktop was unavailable, and the working tree has an uncommitted Compose port change to 3001/8001; check `docker compose ps` before using containers.
 - **Local Brain API health:** [localhost:8000/health](http://127.0.0.1:8000/health) returned HTTP 200 with a Python 3.11 venv backend. Protected API routes require the operator token.
 - **Standalone public site candidate:** [localhost:3004/en](http://127.0.0.1:3004/en) when the built Worker is running with Wrangler. The homepage, commentary page, hero image, and built CSS all returned HTTP 200 in the latest local pass.
+- **Separate Workers preview:** [koa-public-website-preview.oliverp789.workers.dev/en](https://koa-public-website-preview.oliverp789.workers.dev/en). English, S’gaw Karen, Thai, Burmese, Events, Commentary, robots, sitemap, and hero image returned HTTP 200. This preview uses an empty D1 database and no R2 bucket; database-backed forms and uploads are not release-ready. The public domain remains on Sites.
 - **Code:** [website](https://github.com/otpayt02/koa-website/tree/codex/koa-company-brain-connectors/app), [Brain](https://github.com/otpayt02/koa-website/tree/codex/koa-company-brain-connectors/brain-app).
 
 ## 1. Brain frontend
@@ -56,7 +57,8 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 - [ ] Confirm the live deployment’s API, database bindings, admin permissions, and language/content parity against this branch before a release claim.
 - [x] Standalone Cloudflare Worker build is the default; Sites packaging is opt-in. Canonical metadata, organization URL, robots, and sitemap now target `www.koamerica.org` and `/ksw`.
 - [x] Wrangler OAuth is authenticated to Oliver's Cloudflare account. `wrangler d1 list` found `koa-website-db` with zero tables; `wrangler r2 bucket list` returned Cloudflare error 10042 because R2 is not enabled for the account.
-- [ ] Enable R2 if the media APIs are required, inventory/migrate/check existing Sites data, deploy a Worker preview, and switch DNS after candidate review. See [migration runbook](cloudflare-migration.md).
+- [x] Deployed a separate Workers preview with the verified D1 ID and no R2 binding. Its public HTML routes and asset smoke checks passed; a 390 px browser check found no horizontal overflow. Preview responses carry `X-Robots-Tag: noindex, nofollow, noarchive` after redeployment.
+- [ ] Enable R2 if the media APIs are required, inventory/migrate/check existing Sites data, verify form/API behavior, and switch DNS after candidate review. See [migration runbook](cloudflare-migration.md).
 - [ ] Review S’gaw Karen copy, political commentary, partner claims, media rights, and documentary faces with KOA before publishing.
 - [ ] Run the site test/build gate and an HTTP/browser smoke pass on the candidate release, then deploy only with explicit release authorization.
 - [ ] Reconcile the older repository contract suite before release: the standalone build and bilingual inventory pass, but `node --test tests/*.test.mjs` currently reports 73 passing and 67 failing tests. The failures include legacy expectations for routes and motion phases that already differ from the current checkout; this run is not a clean release gate.

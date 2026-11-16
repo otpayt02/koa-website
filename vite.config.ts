@@ -17,9 +17,10 @@ export default defineConfig(async () => {
     ? JSON.parse(await (await import("node:fs/promises")).readFile(".openai/hosting.json", "utf8")) as { d1?: string; r2?: string }
     : { d1: "DB", r2: "MEDIA" };
   const localBindingConfig = {
-    name: "koa-public-website",
+    name: process.env.KOA_WORKER_NAME || "koa-public-website",
     main: "./worker/index.ts",
     compatibility_flags: ["nodejs_compat"],
+    vars: process.env.KOA_WORKER_NAME?.endsWith("-preview") ? { KOA_PREVIEW_MODE: "1" } : {},
     d1_databases: bindings.d1
     ? [
         {
@@ -29,7 +30,7 @@ export default defineConfig(async () => {
         },
       ]
     : [],
-    r2_buckets: bindings.r2
+    r2_buckets: bindings.r2 && process.env.KOA_R2_BUCKET_NAME !== "disabled"
     ? [
         {
           binding: bindings.r2,

@@ -7,7 +7,8 @@ import { exportNextReviewedDataset } from "./training-worker";
 interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
-  MEDIA: R2Bucket;
+  MEDIA?: R2Bucket;
+  KOA_PREVIEW_MODE?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -44,10 +45,16 @@ const worker = {
       }, allowedWidths);
     }
 
-    return handler.fetch(request, env, ctx);
+    const response = await handler.fetch(request, env, ctx);
+    if (env.KOA_PREVIEW_MODE !== "1") return response;
+    const headers = new Headers(response.headers);
+    headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    headers.set("X-KOA-Preview", "limited-data-and-media");
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
   },
   async scheduled(_controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
-    ctx.waitUntil(exportNextReviewedDataset(env));
+    // A preview Worker can run without R2; reviewed dataset export remains off.
+    if (env.MEDIA) ctx.waitUntil(exportNextReviewedDataset({ DB: env.DB, MEDIA: env.MEDIA }));
   },
 };
 
