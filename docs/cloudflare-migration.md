@@ -10,13 +10,19 @@ From the repository root:
 
 ```powershell
 npm.cmd ci
+$env:KOA_WORKER_NAME = "koa-public-website-preview"
+$env:KOA_D1_DATABASE_NAME = "koa-public-website-preview-v2"
+$env:KOA_D1_DATABASE_ID = "27118598-59a6-4ed6-98b7-1b47403db655"
+$env:KOA_R2_BUCKET_NAME = "disabled"
 npm.cmd run build
+# Run these two migration commands only on a new local D1 state:
 npx.cmd wrangler d1 execute koa-public-website-preview-v2 --local --file drizzle/0000_eager_skaar.sql --config dist/server/wrangler.json --persist-to .wrangler/state
 npx.cmd wrangler d1 execute koa-public-website-preview-v2 --local --file drizzle/0001_phase7_content_studio.sql --config dist/server/wrangler.json --persist-to .wrangler/state
 npx.cmd wrangler dev --config dist/server/wrangler.json --port 3004 --local --persist-to .wrangler/state
 ```
 
 Open `http://127.0.0.1:3004/en`, `/ksw`, and `/en/commentary`. Wrangler serves `dist/client` assets and local D1/R2 bindings. `vinext start` currently returns the HTML but fails to serve the built asset URLs on this Windows setup, so it is not the candidate preview command.
+`/api/health` checks the D1 binding and contact table. The public contact form sends a topic code, which `/api/contact` now maps to a subject before writing to D1.
 
 ## Production prerequisites
 
