@@ -1,0 +1,498 @@
+/* KOA — CSS restoration layer (2026-11-14, branch fix/css-restoration)
+   ------------------------------------------------------------------
+   Why this file exists: app/globals.css as committed is a compiled
+   Tailwind/lightningcss build artifact (5,878 lines) being used as the
+   source stylesheet. Whole class families the components use were never
+   emitted into it, so they have zero definitions:
+     .field, .content-page, .content-section, .content-section__inner,
+     .donation-card, .amount-grid, .toggle-row, .site-nav (+ header nav
+     family) — forms rendered invisible, KoaContentPage pages rendered
+     as raw edge-to-edge text, and the header nav rendered as a dumped
+     list (audits 2026-11-13 / 2026-11-14).
+
+   This file is the hand-written SOURCE layer for those families. It is
+   imported LAST in app/layout.tsx, and as unlayered CSS it wins over
+   the layered compiled artifact at equal specificity. When globals.css
+   is eventually regenerated from real Tailwind source, fold these
+   rules into that source and delete this file.
+
+   Design tokens come from the :root block already in globals.css
+   (navy scale, --fg-*, --bg-*, gold border tokens, Libre Caslon
+   Display / Inter via --font-display / --font-sans).
+*/
+
+/* ---- Contrast + type floor (token overrides) ----------------------
+   --fg-muted was #9a8d7d: 6.15:1 on --bg-primary (#040818) but only
+   3.55:1 on hermes-500 (#1e3a5f) and 2.75:1 on hermes-400 (#2a4a7a),
+   and it was used at sub-12px sizes everywhere (2026-11-13 audit
+   measured the muted family at ~3.9:1 composited).
+   New --fg-muted #b3a693: 8.35:1 on #040818, 7.83:1 on #061226,
+   7.28:1 on #081a34, 6.66:1 on #0a2242, 4.82:1 on #1e3a5f — >= 4.5:1
+   on every navy background token in the system.
+   --fg-subtle rises from #6a5d4d (2.72–2.93:1, failing everywhere) to
+   the old muted #9a8d7d (4.91–6.15:1 on the navy scale). */
+:root {
+  --fg-muted: #b3a693;
+  --fg-subtle: #9a8d7d;
+}
+
+/* Font-size floor for app/cinematic-landing.css: its 8 sub-12px sizes
+   are lifted here (globals.css got the same lift in-file: 52 rules).
+   No text on the site renders below 0.75rem (12px). */
+.koa-film__phase-label,
+.koa-film__scroll-cue,
+.koa-film__motion-toggle,
+.koa-chapter__eyebrow,
+.koa-mission-card__body > span,
+.koa-mission__statement-label,
+.koa-static-pillar-tabs span {
+  font-size: 0.75rem;
+}
+
+/* ---- Header navigation (.site-nav family) -------------------------
+   The nav is a toggle panel (data-open) under the site header: a lead
+   block, a numbered grid of primary links (01–09), and category
+   dropdowns. None of it was styled in the compiled artifact. */
+.site-nav {
+  display: none;
+}
+.site-nav[data-open="true"] {
+  display: block;
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: 40;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-default);
+  box-shadow: var(--shadow-lg);
+  padding: 1.75rem clamp(1.25rem, 4vw, 3rem) 2.25rem;
+}
+.nav-lead {
+  max-width: 1180px;
+  margin: 0 auto 1.25rem;
+}
+.nav-lead p {
+  color: var(--fg-secondary);
+  margin: 0.25rem 0 0;
+}
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.5rem 1.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.nav-grid > a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--fg-primary);
+  font-size: 1rem;
+}
+.nav-grid > a span {
+  font-family: var(--font-display);
+  color: var(--gold-500, #d4a843);
+  font-size: 0.85rem;
+}
+.nav-grid > a:hover,
+.nav-grid > a:focus-visible {
+  color: var(--gold-400, #e8c85a);
+}
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown__trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  width: 100%;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.65rem 0.5rem;
+  color: var(--fg-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+.nav-dropdown__detail {
+  color: var(--fg-muted);
+  font-size: 0.8rem;
+}
+.nav-dropdown__menu {
+  display: none;
+}
+.nav-dropdown__trigger[aria-expanded="true"] + .nav-dropdown__menu {
+  display: block;
+  padding: 0.5rem 0 0.75rem 0.5rem;
+}
+.nav-dropdown__menu a {
+  display: block;
+  padding: 0.4rem 0.5rem;
+  color: var(--fg-secondary);
+  font-size: 0.95rem;
+}
+.nav-dropdown__menu a:hover,
+.nav-dropdown__menu a:focus-visible {
+  color: var(--gold-400, #e8c85a);
+}
+.nav-dropdown__menu hr {
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  margin: 0.4rem 0;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--fg-primary);
+}
+.brand strong {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+}
+.brand small {
+  display: block;
+  color: var(--fg-muted);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+.menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: none;
+  border: 1px solid var(--border-default);
+  border-radius: 999px;
+  color: var(--fg-primary);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.menu-lines {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor;
+}
+
+/* ---- Content pages (.content-* family) ----------------------------
+   KoaContentPage / KoaSection: every Mission / Advocacy / Donate /
+   Services page. Was raw edge-to-edge text; now a real reading
+   layout: container, rhythm, alternating section fields. */
+.content-page {
+  display: block;
+}
+.content-section {
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.content-section:nth-of-type(even) {
+  background: var(--bg-secondary);
+}
+.content-section__inner {
+  width: min(1180px, 100% - 3rem);
+  margin: 0 auto;
+}
+.content-section__inner > h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 1.1rem;
+}
+.content-section__inner > p {
+  color: var(--fg-secondary);
+  max-width: 46rem;
+}
+.page-hero__intro {
+  color: var(--fg-secondary);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 44rem;
+}
+.unconfirmed {
+  /* Unreviewed S'gaw Karen renders in italics until human-approved. */
+  font-style: italic;
+  opacity: 0.92;
+}
+
+/* ---- Forms (.field family) ----------------------------------------
+   Every form control on Contact / Collaborate / Contribute / Donate.
+   Was invisible: labels floated with no boxes. */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  color: var(--fg-secondary);
+  font-size: 0.95rem;
+}
+.field > span {
+  font-weight: 500;
+}
+.field input,
+.field select,
+.field textarea {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  color: var(--fg-primary);
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.7rem 0.9rem;
+  width: 100%;
+}
+.field textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--border-strong);
+}
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 1px;
+  border-color: var(--gold-500, #d4a843);
+}
+.field input:disabled,
+.field select:disabled,
+.field textarea:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 1.25rem;
+}
+.form-intro {
+  color: var(--fg-secondary);
+  max-width: 44rem;
+  margin-bottom: 1.5rem;
+}
+.check-list {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: var(--fg-secondary);
+  cursor: pointer;
+}
+.checkbox-row input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.25rem;
+  accent-color: var(--accent-primary);
+  flex: none;
+}
+
+/* ---- Donation (.donation-card family) ----------------------------- */
+.donation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  max-width: 580px;
+}
+.donation-card h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 1.25rem;
+}
+.donation-card small {
+  display: block;
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-top: 1rem;
+}
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+.amount-grid button {
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  color: var(--fg-primary);
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.7rem 0;
+  cursor: pointer;
+}
+.amount-grid button:hover {
+  border-color: var(--border-strong);
+}
+.amount-grid button[aria-pressed="true"] {
+  background: var(--accent-primary);
+  border-color: transparent;
+  color: #fff;
+}
+.amount-grid button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--fg-secondary);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.toggle-row input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent-primary);
+  flex: none;
+}
+
+/* ---- High-traffic families that were also used-but-undefined ------ */
+.feature-grid--1 { grid-template-columns: 1fr; }
+.feature-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.feature-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.feature-grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) {
+  .feature-grid--3, .feature-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .feature-grid--2, .feature-grid--3, .feature-grid--4 { grid-template-columns: 1fr; }
+  .amount-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.section-intro {
+  color: var(--fg-secondary);
+  max-width: 46rem;
+}
+.empty-state {
+  border: 1px dashed var(--border-default);
+  border-radius: 14px;
+  color: var(--fg-muted);
+  padding: 2rem;
+  text-align: center;
+}
+.detail-list {
+  display: grid;
+  gap: 0.5rem 2rem;
+  margin: 0;
+}
+.detail-list--wide {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; }
+}
+.contact-aside {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+.people-grid,
+.interpreter-grid,
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.interpreter-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.4rem;
+}
+.interpreter-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg-tertiary);
+  flex: none;
+}
+.avatar--large {
+  width: 72px;
+  height: 72px;
+}
+.split-story {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .split-story { grid-template-columns: 1fr; }
+}
+.full-bleed-cta {
+  background: var(--accent-primary);
+  color: #fff;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+  text-align: center;
+}
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 2px solid var(--border-default);
+  display: grid;
+  gap: 1.75rem;
+}
+.search-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.result-count {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+.dictionary-explorer {
+  display: grid;
+  gap: 1.25rem;
+}

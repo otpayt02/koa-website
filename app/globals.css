@@ -551,8 +551,8 @@
   --bg-glass-strong: #081020e6;
   --fg-primary: #f5f0e8;
   --fg-secondary: #d4c8b8;
-  --fg-muted: #9a8d7d;
-  --fg-subtle: #6a5d4d;
+  --fg-muted: #b3a693;
+  --fg-subtle: #9a8d7d;
   --border-subtle: #d4a8431a;
   --border-default: #d4a8432e;
   --border-strong: #d4a8434d;
@@ -589,8 +589,8 @@
     --bg-glass: #081020b3;
     --fg-primary: #f5f0e8;
     --fg-secondary: #d4c8b8;
-    --fg-muted: #9a8d7d;
-    --fg-subtle: #6a5d4d;
+    --fg-muted: #b3a693;
+    --fg-subtle: #9a8d7d;
   }
 }
 
@@ -916,7 +916,7 @@ body > header, body > main, body > footer, body > .skip-link {
   opacity: 1;
   filter: blur();
   max-width: 24px;
-  font-size: .56rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -956,7 +956,7 @@ body > header, body > main, body > footer, body > .skip-link {
   background: #d830351f;
   border-radius: 4px;
   padding: 2px 6px;
-  font-size: .48rem;
+  font-size: .75rem;
   font-weight: 800;
   animation: 3s ease-in-out infinite betaPulse;
 }
@@ -995,12 +995,12 @@ body > header, body > main, body > footer, body > .skip-link {
 
   .nav-tab {
     padding: 6px clamp(6px, .8vw, 12px);
-    font-size: .58rem;
+    font-size: .75rem;
   }
 
   .nav-banner--seal .nav-tab {
     padding: 8px 12px;
-    font-size: .68rem;
+    font-size: .75rem;
   }
 }
 
@@ -1057,12 +1057,12 @@ body > header, body > main, body > footer, body > .skip-link {
   .nav-tab {
     min-height: 44px;
     padding: 4px 8px;
-    font-size: .54rem;
+    font-size: .75rem;
   }
 
   .nav-banner--seal .nav-tab {
     min-height: 44px;
-    font-size: .62rem;
+    font-size: .75rem;
   }
 
   .nav-banner__strip {
@@ -1073,12 +1073,12 @@ body > header, body > main, body > footer, body > .skip-link {
 
 @media (max-width: 480px) {
   .nav-banner__actions .language-toggle {
-    font-size: .56rem;
+    font-size: .75rem;
   }
 
   .nav-tab {
     padding: 4px 6px;
-    font-size: .5rem;
+    font-size: .75rem;
   }
 }
 
@@ -1108,7 +1108,7 @@ body > header, body > main, body > footer, body > .skip-link {
 .nav-banner .language-toggle a {
   min-height: 28px;
   padding: 0 7px;
-  font-size: .6rem;
+  font-size: .75rem;
 }
 
 .nav-banner .language-toggle a:hover, .nav-banner .language-toggle a:focus-visible, .nav-banner .language-toggle a[aria-current="page"] {
@@ -1121,7 +1121,7 @@ body > header, body > main, body > footer, body > .skip-link {
   letter-spacing: .18em;
   text-transform: uppercase;
   margin: 0 0 12px;
-  font-size: .7rem;
+  font-size: .75rem;
   font-weight: 800;
   line-height: 1.3;
 }
@@ -1620,7 +1620,7 @@ body > header, body > main, body > footer, body > .skip-link {
   letter-spacing: .17em;
   text-transform: uppercase;
   margin: 0 0 15px;
-  font-size: .7rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -2377,7 +2377,7 @@ body > header, body > main, body > footer, body > .skip-link {
 
 .event-list time:after {
   content: attr(datetime);
-  font-size: .6rem;
+  font-size: .75rem;
   font-family: var(--font-sans);
   color: var(--fg-muted);
   text-transform: uppercase;
@@ -2390,7 +2390,7 @@ body > header, body > main, body > footer, body > .skip-link {
 
 .event-list .eyebrow {
   margin: 0 0 8px;
-  font-size: .65rem;
+  font-size: .75rem;
 }
 
 .event-list h3 {
@@ -2733,7 +2733,7 @@ footer nav a:hover {
   letter-spacing: .09em;
   text-transform: uppercase;
   padding: 11px 14px;
-  font-size: .7rem;
+  font-size: .75rem;
   font-weight: 750;
 }
 
@@ -2768,7 +2768,7 @@ footer nav a:hover {
 
 .language-studio__unit-heading div span {
   color: var(--fg-muted);
-  font-size: .72rem;
+  font-size: .75rem;
 }
 
 .language-studio__source, .language-studio__proposal {
@@ -2811,7 +2811,7 @@ footer nav a:hover {
   text-transform: uppercase;
   border-radius: 999px;
   padding: 4px 8px;
-  font-size: .62rem;
+  font-size: .75rem;
   font-weight: 750;
   display: inline-flex;
 }
@@ -2848,7 +2848,7 @@ footer nav a:hover {
 
 .language-studio__provenance-fields input {
   padding: 7px 8px;
-  font-size: .72rem;
+  font-size: .75rem;
 }
 
 .language-studio__meta {
@@ -2863,7 +2863,7 @@ footer nav a:hover {
   background: #081a3485;
   border-radius: 4px;
   padding: 3px 6px;
-  font-size: .61rem;
+  font-size: .75rem;
   line-height: 1.35;
 }
 
@@ -2965,7 +2965,7 @@ footer nav a:hover {
     letter-spacing: .08em;
     text-transform: uppercase;
     margin-bottom: 10px;
-    font-size: .65rem;
+    font-size: .75rem;
     font-weight: 750;
     display: block;
   }
@@ -3032,7 +3032,7 @@ footer nav a:hover {
   border-radius: 7px;
   min-height: 40px;
   padding: 8px 13px;
-  font-size: .72rem;
+  font-size: .75rem;
 }
 
 .design-studio__controls {
@@ -3055,7 +3055,7 @@ footer nav a:hover {
   color: var(--fg-muted);
   letter-spacing: .09em;
   text-transform: uppercase;
-  font-size: .61rem;
+  font-size: .75rem;
   font-weight: 750;
 }
 
@@ -3075,7 +3075,7 @@ footer nav a:hover {
   border: 0;
   border-radius: 4px;
   padding: 5px 10px;
-  font-size: .69rem;
+  font-size: .75rem;
   font-weight: 700;
 }
 
@@ -3100,7 +3100,7 @@ footer nav a:hover {
   color: var(--hermes-100);
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: .68rem;
+  font-size: .75rem;
   overflow: hidden;
 }
 
@@ -3131,7 +3131,7 @@ footer nav a:hover {
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
-  font-size: .62rem;
+  font-size: .75rem;
   display: flex;
 }
 
@@ -3194,7 +3194,7 @@ footer nav a:hover {
   background: var(--navy-900);
   border-radius: 50%;
   place-items: center;
-  font-size: .62rem;
+  font-size: .75rem;
   font-weight: 800;
   display: grid;
 }
@@ -3214,13 +3214,13 @@ footer nav a:hover {
 .design-studio__frame-rail strong {
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: .74rem;
+  font-size: .75rem;
   overflow: hidden;
 }
 
 .design-studio__frame-rail small {
   color: var(--fg-muted);
-  font-size: .61rem;
+  font-size: .75rem;
 }
 
 .design-studio__inspector {
@@ -3241,7 +3241,7 @@ footer nav a:hover {
 .design-studio__frame-heading span {
   color: var(--hermes-100);
   letter-spacing: .06em;
-  font-size: .61rem;
+  font-size: .75rem;
 }
 
 .design-studio__frame-heading h3 {
@@ -3252,7 +3252,7 @@ footer nav a:hover {
 .design-studio__frame-heading > p {
   color: var(--gold-300);
   margin: 0;
-  font-size: .68rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -3272,7 +3272,7 @@ footer nav a:hover {
   text-transform: uppercase;
   background: #081a3466;
   border-bottom: 2px solid #0000;
-  font-size: .67rem;
+  font-size: .75rem;
   font-weight: 750;
 }
 
@@ -3306,7 +3306,7 @@ footer nav a:hover {
   letter-spacing: .07em;
   text-transform: uppercase;
   margin: 0 0 9px;
-  font-size: .68rem;
+  font-size: .75rem;
 }
 
 .design-studio__feature-list ul {
@@ -3336,7 +3336,7 @@ footer nav a:hover {
 .design-studio__tunables article header {
   justify-content: space-between;
   gap: 12px;
-  font-size: .73rem;
+  font-size: .75rem;
   display: flex;
 }
 
@@ -3352,13 +3352,13 @@ footer nav a:hover {
 .design-studio__tunables p {
   color: var(--fg-secondary);
   margin: 0;
-  font-size: .72rem;
+  font-size: .75rem;
   line-height: 1.5;
 }
 
 .design-studio__tunables small {
   color: var(--fg-muted);
-  font-size: .62rem;
+  font-size: .75rem;
 }
 
 .design-studio__cookbook {
@@ -3389,7 +3389,7 @@ footer nav a:hover {
   color: var(--fg-muted);
   letter-spacing: .08em;
   text-transform: uppercase;
-  font-size: .61rem;
+  font-size: .75rem;
 }
 
 .design-studio__preview > header h3 {
@@ -3404,7 +3404,7 @@ footer nav a:hover {
   border: 1px solid #19b7a157;
   border-radius: 999px;
   padding: 5px 8px;
-  font-size: .61rem;
+  font-size: .75rem;
 }
 
 .design-studio__preview-canvas {
@@ -3572,7 +3572,7 @@ footer nav a:hover {
   letter-spacing: .14em;
   text-transform: uppercase;
   margin: 0 0 12px;
-  font-size: .68rem;
+  font-size: .75rem;
   font-weight: 800;
 }
 
@@ -3718,7 +3718,7 @@ footer nav a:hover {
   color: var(--fg-muted);
   letter-spacing: .09em;
   text-transform: uppercase;
-  font-size: .61rem;
+  font-size: .75rem;
 }
 
 .design-studio__partner-review h3 {
@@ -3728,7 +3728,7 @@ footer nav a:hover {
 
 .design-studio__partner-review header strong {
   color: var(--gold-300);
-  font-size: .68rem;
+  font-size: .75rem;
 }
 
 .design-studio__partner-empty {
@@ -3759,7 +3759,7 @@ footer nav a:hover {
   grid-template-columns: minmax(160px, 1fr) repeat(3, auto);
   gap: 10px;
   padding: 11px;
-  font-size: .7rem;
+  font-size: .75rem;
   display: grid;
 }
 
@@ -4188,7 +4188,7 @@ footer nav a:hover {
 .cinematic-film__seal-orbit-text-label--karen {
   fill: color-mix(in srgb, var(--fg-primary, #f5f0e8) 84%, var(--gold-300, #e2bf62));
   font-family: var(--font-myanmar, "Noto Sans Myanmar", sans-serif);
-  font-size: 5.8px;
+  font-size: 12px;
   letter-spacing: .1em;
 }
 
@@ -4790,7 +4790,7 @@ body {
   }
 
   .cinematic-film__timeline-label {
-    font-size: .5rem;
+    font-size: .75rem;
   }
 
   .cinematic-film__story-rail {
@@ -4924,7 +4924,7 @@ body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-banner__p
 body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-tab {
   min-height: 38px;
   padding: 5px 8px;
-  font-size: .57rem;
+  font-size: .75rem;
 }
 
 body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-tab__num {
@@ -5320,12 +5320,12 @@ body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-tab__beta
 
   .koa-intro__prompt {
     top: 78px;
-    font-size: .52rem;
+    font-size: .75rem;
   }
 
   .koa-intro__edge-label {
     bottom: 20px;
-    font-size: .48rem;
+    font-size: .75rem;
     letter-spacing: .12em;
   }
 
@@ -5340,7 +5340,7 @@ body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-tab__beta
   }
 
   .koa-intro__lockup-caption {
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: .2em;
   }
 
@@ -5370,7 +5370,7 @@ body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-tab__beta
   }
 
   .koa-intro__copy-actions a {
-    font-size: .54rem;
+    font-size: .75rem;
     letter-spacing: .1em;
   }
 }
@@ -5468,7 +5468,7 @@ body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-tab__beta
 .nav-banner.nav-banner--seal .nav-tab {
   min-height: 38px;
   padding: 5px 8px;
-  font-size: .57rem;
+  font-size: .75rem;
 }
 
 @media (max-width: 720px) {
@@ -5495,7 +5495,7 @@ body[data-koa-intro-active="true"] > .nav-banner.nav-banner--seal .nav-tab__beta
   .nav-banner.nav-banner--seal .nav-tab {
     min-height: 36px;
     padding-inline: 7px;
-    font-size: .54rem;
+    font-size: .75rem;
   }
 }
 /* Round 2 shell and review-surface polish. Keep the public rail one row and
@@ -5646,7 +5646,7 @@ main, header, footer { position: relative; z-index: 1; }
 
 .nav-banner.nav-banner--single-row .nav-tab__beta-badge {
   margin-inline-start: 3px;
-  font-size: .48rem;
+  font-size: .75rem;
 }
 
 .design-studio__viewport-select {
@@ -5829,7 +5829,7 @@ main, header, footer { position: relative; z-index: 1; }
   .nav-banner.nav-banner--single-row .nav-tab {
     min-height: 36px;
     padding: 6px 6px;
-    font-size: .49rem;
+    font-size: .75rem;
     letter-spacing: .08em;
   }
 
@@ -5844,7 +5844,7 @@ main, header, footer { position: relative; z-index: 1; }
 
   .design-studio__viewport-select select {
     min-width: 132px;
-    font-size: .6rem;
+    font-size: .75rem;
   }
 }
 
