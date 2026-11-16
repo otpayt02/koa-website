@@ -12,7 +12,14 @@ export async function POST(request: Request) {
     enforceRateLimit(request, "contact", 5, 60 * 60_000);
     const user = await optionalUser(request);
     const body = await readJson(request);
-    const submission = { id: newId("contact"), userId: user?.id, name: textField(body.name, "name", { required: true, max: 160 })!, email: emailField(body.email), phone: textField(body.phone, "phone", { max: 40 }), subject: validateCommunityText(textField(body.subject, "subject", { required: true, max: 200 })!, "subject"), message: validateCommunityText(textField(body.message, "message", { required: true, min: 10, max: 5_000 })!, "message") };
+    const topics: Record<string, string> = {
+      programs: "Programs or services",
+      translation: "Translation or interpretation",
+      partnership: "Partnership or collaboration",
+      media: "Media or general question",
+    };
+    const subject = body.subject ?? (typeof body.topic === "string" ? topics[body.topic] : undefined);
+    const submission = { id: newId("contact"), userId: user?.id, name: textField(body.name, "name", { required: true, max: 160 })!, email: emailField(body.email), phone: textField(body.phone, "phone", { max: 40 }), subject: validateCommunityText(textField(subject, "subject", { required: true, max: 200 })!, "subject"), message: validateCommunityText(textField(body.message, "message", { required: true, min: 10, max: 5_000 })!, "message") };
     await getDb().insert(contactSubmissions).values(submission);
     await audit(request, { actor: user, action: "contact.create", entity: "contact_submission", entityId: submission.id, after: submission });
     return jsonOk({ submission: { id: submission.id, status: "new" } }, { status: 201 });
