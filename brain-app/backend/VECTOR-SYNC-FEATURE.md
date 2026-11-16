@@ -2,15 +2,15 @@
 
 ## User outcome
 
-Unlock the local Brain, sync public GitHub and one approved Drive folder on demand, and search indexed records without hosted embeddings. Receive only one exact Signal group when it is linked and approved.
+Unlock the local Brain, list the complete public GitHub tree by remote metadata, scan accessible Drive text for KOA-related material, and search indexed content with local embeddings. Receive only one exact Signal group when it is linked and approved.
 
 ## Current architecture and scope
 
 - Existing inbox routing remains the persistence boundary for connector records.
-- GitHub manual sync reads recent public commits and issues; the signed webhook receiver remains available for a future narrow HTTPS ingress.
-- Drive backfills direct supported files in the approved folder and then follows a cursor and current-revision scope. The dedicated Cloud project `koa-brain-drive` has Drive API enabled; OAuth client and token are pending.
+- GitHub listing reads the complete public branch tree as metadata only. Manual sync still reads recent commits/issues and the current selected source documents; semantic file discovery from GitHub requires fetching candidate file text.
+- Drive defaults to `all_related`: it scans accessible supported text, Docs, and Sheets, evaluates titles and text with KOA domain concepts and the local embedding model, retains related revisions, and follows the Drive changes cursor. Set `GOOGLE_DRIVE_SCOPE=folder` to use the narrower approved-folder behavior.
 - Signal stays behind the optional Compose profile and an exact group filter; linked account and group ID are pending.
-- A private SQLite file holds text chunks and deterministic Unicode character vectors. Search is lexical, not validated semantic retrieval.
+- A private SQLite file holds text chunks and normalized local Ollama embeddings. A shared relevance profile records exact matched concepts and, when Ollama is available, cosine similarity to the KOA domain profile.
 
 ## Experience
 
@@ -24,7 +24,7 @@ Unlock the local Brain, sync public GitHub and one approved Drive folder on dema
 - The token, OAuth material, Signal state, and SQLite file stay out of Git.
 - Raw executive Signal messages remain off until an exact group, linked account, consent, and retention policy are set.
 - The index is not encrypted at rest or user scoped. Local operator access is a first gate, not a complete executive security model.
-- No paid embedding API is used. A 15-second Drive interval is opt in after quota review.
+- No hosted embedding API is used. Ollama and both local models use the persistent `ollama_data` Compose volume. Drive polling defaults to 60 seconds.
 
 ## Proof
 

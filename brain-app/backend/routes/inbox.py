@@ -41,7 +41,17 @@ def _list_items(bucket: str) -> dict[str, object]:
         if bucket == "processed" and path.name == ".manifest.json":
             continue
         relative = path.relative_to(folder).as_posix()
-        items.append({"item_path": relative, "name": path.name, "size_bytes": path.stat().st_size})
+        item = {"item_path": relative, "name": path.name, "size_bytes": path.stat().st_size}
+        if path.suffix.lower() == ".json" and path.stat().st_size <= 10_000_000:
+            try:
+                record = json.loads(path.read_text(encoding="utf-8"))
+                if isinstance(record, dict) and record.get("source") in {"drive", "github", "signal"}:
+                    item["source"] = record["source"]
+                    item["title"] = str(record.get("title") or record.get("name") or path.name)[:300]
+                    item["relevance"] = record.get("relevance")
+            except (OSError, UnicodeError, json.JSONDecodeError):
+                pass
+        items.append(item)
     return {"items": items, "count": len(items)}
 
 

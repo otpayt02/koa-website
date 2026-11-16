@@ -8,6 +8,7 @@ from urllib.parse import quote, urlencode
 from urllib.request import Request, urlopen
 
 from connectors.inbox_writer import write_record
+from relevance import assess_relevance
 
 REPO = "otpayt02/koa-website"
 API = f"https://api.github.com/repos/{REPO}"
@@ -81,10 +82,13 @@ def list_repository_files() -> dict:
         "size_bytes": item.get("size", 0),
         "sha": item.get("sha", ""),
         "url": f"https://github.com/{REPO}/blob/{quote(branch, safe='/')}/{quote(item['path'], safe='/')}",
+        "relevance": assess_relevance(title=item["path"].rsplit("/", 1)[-1], path=item["path"]),
     } for item in entries]
     files.sort(key=lambda item: item["path"].casefold())
+    related_count = sum(item["relevance"]["related"] for item in files)
     return {"repository": REPO, "branch": branch, "commit": commit_sha,
-            "count": len(files), "truncated": bool(tree.get("truncated")), "files": files}
+            "count": len(files), "related_count": related_count,
+            "truncated": bool(tree.get("truncated")), "files": files}
 
 
 def _save_source_scope(revisions: dict[str, str]) -> None:

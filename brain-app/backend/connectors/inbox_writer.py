@@ -9,6 +9,8 @@ import re
 import tempfile
 from pathlib import Path
 
+from relevance import assess_relevance
+
 
 def write_record(source: str, identity: str, record: dict, root: Path | None = None) -> bool:
     if source not in {"github", "drive", "signal"} or not identity or len(identity) > 512:
@@ -19,6 +21,14 @@ def write_record(source: str, identity: str, record: dict, root: Path | None = N
     if inbox.is_symlink() or not inbox.resolve().is_relative_to(root):
         raise ValueError("inbox/new must stay inside BRAIN_DATA_PATH")
     inbox.mkdir(parents=True, exist_ok=True)
+    if not isinstance(record, dict):
+        raise ValueError("Connector record must be an object")
+    record = dict(record)
+    record.setdefault("relevance", assess_relevance(
+        title=str(record.get("title") or record.get("name") or ""),
+        path=str(record.get("path") or ""),
+        text=" ".join(str(record.get(key) or "") for key in ("content_utf8", "text", "message", "body")),
+    ))
     key = hashlib.sha256(f"{source}:{identity}".encode()).hexdigest()
     name = re.sub(r"[^a-z0-9-]", "-", source) + "-" + key[:24] + ".json"
     destination = inbox / name

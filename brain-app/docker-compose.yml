@@ -1,4 +1,30 @@
 services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "127.0.0.1:11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+  ollama-models:
+    image: ollama/ollama:latest
+    depends_on:
+      ollama:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["ollama pull embeddinggemma:300m && ollama pull qwen2.5:1.5b"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: "no"
+
   brain-backend:
     build:
       context: .
@@ -10,10 +36,11 @@ services:
       BRAIN_ADMIN_TOKEN: ${BRAIN_ADMIN_TOKEN:-}
       GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET:-}
       GITHUB_TOKEN: ${GITHUB_TOKEN:-}
-      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
-      BRAIN_EMBEDDING_MODEL: ${BRAIN_EMBEDDING_MODEL:-embeddinggemma}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://ollama:11434}
+      BRAIN_EMBEDDING_MODEL: ${BRAIN_EMBEDDING_MODEL:-embeddinggemma:300m}
       BRAIN_CHAT_MODEL: ${BRAIN_CHAT_MODEL:-qwen2.5:1.5b}
       GOOGLE_DRIVE_FOLDER_ID: ${GOOGLE_DRIVE_FOLDER_ID:-}
+      GOOGLE_DRIVE_SCOPE: ${GOOGLE_DRIVE_SCOPE:-all_related}
       GOOGLE_DRIVE_ID: ${GOOGLE_DRIVE_ID:-}
       GOOGLE_TOKEN_PATH: /app/brain-data/brain-app/private/drive-token.json
       GOOGLE_CURSOR_PATH: /app/brain-data/brain-app/private/drive-cursor.txt
@@ -22,6 +49,9 @@ services:
       SIGNAL_INGEST_APPROVED: ${SIGNAL_INGEST_APPROVED:-false}
     volumes:
       - ..:/app/brain-data
+    depends_on:
+      ollama-models:
+        condition: service_completed_successfully
 
   brain-frontend:
     build: ./frontend
@@ -83,17 +113,24 @@ services:
     profiles: [drive]
     build: ./connectors
     command: ["python", "drive_worker.py"]
+    depends_on:
+      ollama-models:
+        condition: service_completed_successfully
     environment:
       BRAIN_DATA_PATH: /app/brain-data
       PYTHONPATH: /app/brain-data/brain-app/backend
       GOOGLE_DRIVE_FOLDER_ID: ${GOOGLE_DRIVE_FOLDER_ID:-}
+      GOOGLE_DRIVE_SCOPE: ${GOOGLE_DRIVE_SCOPE:-all_related}
       GOOGLE_DRIVE_ID: ${GOOGLE_DRIVE_ID:-}
       GOOGLE_TOKEN_PATH: /app/brain-data/brain-app/private/drive-token.json
       GOOGLE_CURSOR_PATH: /app/brain-data/brain-app/private/drive-cursor.txt
       DRIVE_SYNC_INTERVAL_SECONDS: ${DRIVE_SYNC_INTERVAL_SECONDS:-60}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://ollama:11434}
+      BRAIN_EMBEDDING_MODEL: ${BRAIN_EMBEDDING_MODEL:-embeddinggemma:300m}
     volumes:
       - ..:/app/brain-data
     working_dir: /app/brain-data/brain-app/connectors
 
 volumes:
   signal_data:
+  ollama_data:

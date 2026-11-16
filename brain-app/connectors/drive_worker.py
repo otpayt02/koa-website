@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -11,8 +12,11 @@ from pathlib import Path
 from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+from io import BytesIO
+from pypdf import PdfReader
 
 from connectors.inbox_writer import write_record
+from relevance import assess_relevance
 
 API = "https://www.googleapis.com/drive/v3"
 EXPORTS = {
@@ -20,8 +24,12 @@ EXPORTS = {
     "application/vnd.google-apps.spreadsheet": ("text/csv", ".csv"),
 }
 TEXT_MIME = {"text/plain", "text/markdown", "text/csv", "application/json"}
+PDF_MIME = "application/pdf"
 MAX_BYTES = 10_000_000
+MAX_PDF_PAGES = 500
 FIELDS = "id,name,mimeType,parents,size,md5Checksum,modifiedTime,webViewLink,trashed"
+SENSITIVE_NAME = re.compile(r"(?i)(client[_ -]?secret|credentials?|private[_ -]?key|password|token|api[_ -]?key)")
+SECRET_TEXT = re.compile(r"(?i)(-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\"client_secret\"\s*:|\"refresh_token\"\s*:|\bgh[pousr]_[A-Za-z0-9_]{24,}|\bAIza[0-9A-Za-z_-]{30,})")
 
 
 def access_token(token_path: Path) -> str:
@@ -58,21 +66,25 @@ def save_scope(path: Path, revisions: dict[str, str]) -> None:
     os.replace(temporary, path)
 
 
-def _approved_revision(item: dict, folder: str) -> tuple[str, str] | None:
-    if item.get("trashed") or folder not in item.get("parents", []):
+def _approved_revision(item: dict, folder: str | None) -> tuple[str, str] | None:
+    if (item.get("trashed") or SENSITIVE_NAME.search(str(item.get("name") or ""))
+            or (folder and folder not in item.get("parents", []))):
         return None
     file_id = item.get("id")
     revision = item.get("md5Checksum") or item.get("modifiedTime")
     if (not file_id or not revision or int(item.get("size", 0)) > MAX_BYTES
-            or item.get("mimeType") not in {*EXPORTS, *TEXT_MIME}):
+            or item.get("mimeType") not in {*EXPORTS, *TEXT_MIME, PDF_MIME}):
         return None
     return file_id, revision
 
 
 def _configured_paths() -> tuple[str, str, Path, Path, Path]:
+    scope = os.getenv("GOOGLE_DRIVE_SCOPE", "folder").strip().lower()
     folder = os.environ.get("GOOGLE_DRIVE_FOLDER_ID", "")
-    if not re.fullmatch(r"[A-Za-z0-9_-]{10,200}", folder):
-        raise ValueError("An approved Drive folder ID is required")
+    if scope not in {"folder", "all_related"}:
+        raise ValueError("GOOGLE_DRIVE_SCOPE must be folder or all_related")
+    if scope == "folder" and not re.fullmatch(r"[A-Za-z0-9_-]{10,200}", folder):
+        raise ValueError("An approved Drive folder ID is required for folder scope")
     root = Path(os.environ["BRAIN_DATA_PATH"]).resolve(strict=True)
     private_path = root / "brain-app" / "private"
     if private_path.is_symlink():
@@ -85,10 +97,11 @@ def _configured_paths() -> tuple[str, str, Path, Path, Path]:
     if not token_path.is_relative_to(private) or not cursor_path.is_relative_to(private):
         raise ValueError("Drive token and cursor must stay inside the private path")
     cursor_path.parent.mkdir(parents=True, exist_ok=True)
-    return folder, os.getenv("GOOGLE_DRIVE_ID", ""), root, token_path, cursor_path
+    drive_id = os.getenv("GOOGLE_DRIVE_ID", "") if scope == "folder" else ""
+    return (folder if scope == "folder" else None), drive_id, root, token_path, cursor_path
 
 
-def _ingest_file(token: str, root: Path, folder: str, item: dict) -> bool:
+def _ingest_file(token: str, root: Path, folder: str | None, item: dict) -> bool:
     approved = _approved_revision(item, folder)
     if not approved:
         return False
@@ -100,11 +113,27 @@ def _ingest_file(token: str, root: Path, folder: str, item: dict) -> bool:
     elif mime in TEXT_MIME:
         suffix = Path(item.get("name", "")).suffix
         content = drive_get(token, f"files/{file_id}", {"alt": "media", "supportsAllDrives": "true"})
+    elif mime == PDF_MIME:
+        suffix = ".pdf"
+        try:
+            pdf_bytes = drive_get(token, f"files/{file_id}", {"alt": "media", "supportsAllDrives": "true"})
+            reader = PdfReader(BytesIO(pdf_bytes), strict=False)
+            content = "\n\n".join((page.extract_text() or "") for page in reader.pages[:MAX_PDF_PAGES]).encode("utf-8")[:MAX_BYTES]
+        except Exception as error:
+            print(f"Drive PDF skipped: {type(error).__name__}", flush=True)
+            return False
     else:
+        return False
+    title = item.get("name") or ""
+    relevance = assess_relevance(title=title, path=" / ".join(item.get("parents", [])), text=content.decode("utf-8", errors="replace"))
+    if folder is None and not relevance["related"]:
+        return False
+    if SECRET_TEXT.search(content.decode("utf-8", errors="replace")):
         return False
     record = {"source": "drive", "file_id": file_id, "revision": revision,
               "name": item.get("name"), "mime_type": mime, "url": item.get("webViewLink"),
-              "content_format": suffix, "content_utf8": content.decode("utf-8", errors="replace")}
+              "content_format": suffix, "content_utf8": content.decode("utf-8", errors="replace"),
+              "relevance": relevance}
     return write_record("drive", f"{file_id}:{revision}", record, root)
 
 
@@ -114,19 +143,26 @@ def sync_once() -> dict[str, int]:
     params = {"supportsAllDrives": "true", "includeItemsFromAllDrives": "true"}
     if drive_id:
         params.update({"driveId": drive_id, "corpora": "drive"})
+    scope_path = cursor_path.with_suffix(".scope.json")
+    backfill_marker = cursor_path.with_suffix(".backfill-complete")
+    scope_config = cursor_path.with_suffix(".scope-config.sha256")
+    signature = hashlib.sha256(f"{folder or 'all_related'}:{drive_id}:semantic-v2".encode()).hexdigest()
+    if not scope_config.exists() or scope_config.read_text(encoding="utf-8").strip() != signature:
+        cursor_path.unlink(missing_ok=True)
+        scope_path.unlink(missing_ok=True)
+        backfill_marker.unlink(missing_ok=True)
+        save_cursor(scope_config, signature)
     if not cursor_path.exists():
         start = json.loads(drive_get(token, "changes/startPageToken", {"supportsAllDrives": "true", **({"driveId": drive_id} if drive_id else {})}))
         save_cursor(cursor_path, start["startPageToken"])
     ingested = 0
-    backfill_marker = cursor_path.with_suffix(".backfill-complete")
-    scope_path = cursor_path.with_suffix(".scope.json")
     revisions = json.loads(scope_path.read_text(encoding="utf-8")) if scope_path.exists() else {}
     if not backfill_marker.exists():
         revisions = {}
         page = ""
         while True:
             listing = json.loads(drive_get(token, "files", {
-                **params, "q": f"'{folder}' in parents and trashed = false", "pageSize": "1000",
+                **params, "q": (f"'{folder}' in parents and trashed = false" if folder else "trashed = false"), "pageSize": "1000",
                 "fields": f"nextPageToken,files({FIELDS})", **({"pageToken": page} if page else {}),
             }))
             for item in listing.get("files", []):

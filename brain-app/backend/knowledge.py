@@ -78,6 +78,11 @@ def _extract(path: Path, drive_revisions: dict[str, str] | None,
             return None
         content = record.get("content_utf8") or record.get("text") or record.get("title") or ""
         title = record.get("name") or record.get("title") or path.stem
+        relevance = record.get("relevance")
+        if isinstance(relevance, dict) and relevance.get("related"):
+            reasons = ", ".join(str(reason)[:120] for reason in relevance.get("reasons", [])[:8])
+            concepts = ", ".join(str(name) for name in relevance.get("matched_concepts", {}).keys())
+            content = f"KOA topical context: {reasons}. Related concepts: {concepts}.\n\n{content}"
         if source == "github" and record.get("event") == "source_file":
             source_path = str(record.get("path") or "")
             if github_revisions is None or github_revisions.get(source_path) != record.get("sha"):
