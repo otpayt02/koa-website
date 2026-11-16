@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { languages, localeMeta } from "@/components/i18n";
 
 const baseUrl = "https://karen-organization-of-america.oliverp789.chatgpt.site";
-const routes = ["", "about", "services", "community", "contact", "dictionary", "contribute", "translation", "collaborate", "community/board", "changelog"];
+const routes = ["", "about", "services", "community", "contact", "upcoming", "dictionary", "contribute", "translation", "collaborate", "community/board", "changelog"];
 
 function localizedUrl(lang: string, route: string) {
   return `${baseUrl}/${lang}${route ? `/${route}` : ""}`;
