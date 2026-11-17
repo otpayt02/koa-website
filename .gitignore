@@ -7,8 +7,6 @@
 # Environment
 .env
 .env.local
-brain-app/.connector-state/
-brain-app/private/
 inbox/
 /brain/brain.md
 /decisions/decisions.md
@@ -17,7 +15,6 @@ inbox/
 /projects/projects.md
 /connections/connections.md
 *.env.*
-!brain-app/.env.example
 
 # Editors
 .vscode/

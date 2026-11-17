@@ -5,11 +5,11 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 ## Open the two experiences
 
 - **Public site:** [koamerica.org/en](https://www.koamerica.org/en) (HTTP 200). [S’gaw Karen entry](https://www.koamerica.org/ksw) and [events](https://www.koamerica.org/en/events) also returned HTTP 200.
-- **Local Company Brain:** [localhost:3000](http://127.0.0.1:3000/) returned HTTP 200 with the Vite frontend running directly. Enter the operator token from ignored `brain-app/.env`. Docker Desktop was unavailable, and the working tree has an uncommitted Compose port change to 3001/8001; check `docker compose ps` before using containers.
-- **Local Brain API health:** [localhost:8000/health](http://127.0.0.1:8000/health) returned HTTP 200 with a Python 3.11 venv backend. Protected API routes require the operator token.
+- **Local Company Brain:** The prior local HTTP check was on port 3000. The Brain now runs from the sibling `koa-brain-app` repository, with its UI on `127.0.0.1:3001`; runtime data and the operator token stay in that repository's ignored local state.
+- **Local Brain API health:** The prior local HTTP check was on port 8000. The Brain Compose stack now binds its API to `127.0.0.1:8001`; protected API routes require the operator token.
 - **Standalone public site candidate:** [localhost:3004/en](http://127.0.0.1:3004/en) when the built Worker is running with Wrangler. The homepage, commentary page, hero image, and built CSS all returned HTTP 200 in the latest local pass.
 - **Separate Workers preview:** [koa-public-website-preview.oliverp789.workers.dev/en](https://koa-public-website-preview.oliverp789.workers.dev/en). English, S’gaw Karen, Thai, Burmese, Events, Commentary, robots, sitemap, and hero image returned HTTP 200. This preview uses an empty D1 database and no R2 bucket; database-backed forms and uploads are not release-ready. The public domain remains on Sites.
-- **Code:** [website](https://github.com/otpayt02/koa-website/tree/codex/koa-company-brain-connectors/app), [Brain](https://github.com/otpayt02/koa-website/tree/codex/koa-company-brain-connectors/brain-app).
+- **Code:** [website](https://github.com/otpayt02/koa-website/tree/codex/koa-company-brain-connectors/app), [Brain repository](https://github.com/otpayt02/koa-brain-app) (private).
 
 ## 1. Brain frontend
 
@@ -72,6 +72,6 @@ Checked 2026-11-14. `[x]` means verified in this checkout or by the stated HTTP 
 
 ## Run locally
 
-**Brain:** With Docker available, run `docker compose up --build -d` in `brain-app/` and check the printed ports. Without Docker on Windows, create a Python 3.11 venv in `brain-app/.venv`, install `brain-app/backend/requirements.txt`, set `BRAIN_DATA_PATH` to the repository root and the approved Drive paths, and start `uvicorn main:app --app-dir brain-app/backend --env-file brain-app/.env --host 127.0.0.1 --port 8000`. Run `npm.cmd run dev -- --host 127.0.0.1 --port 3000` in `brain-app/frontend/`. Keep the operator token in ignored `brain-app/.env`.
+**Brain:** Keep `koa-brain-app` beside this repository. From its root, copy `.env.example` to `.env`, set the operator token, and run `docker compose up --build -d`. It mounts this website read-only for file indexing and stores the database, inbox, and connector credentials in ignored `private-data/`. The UI binds to `127.0.0.1:3001`; the API binds to `127.0.0.1:8001`.
 
 **Website:** In PowerShell, `Set-Location 'C:\Users\olive\Projects\koa-website'; npm.cmd run build; npx.cmd wrangler dev --config dist/server/wrangler.json --port 3004 --local`. Open [localhost:3004/en](http://127.0.0.1:3004/en). The live public site is a separate deployment and currently lags this branch.

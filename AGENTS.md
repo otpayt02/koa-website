@@ -45,10 +45,10 @@ This project is indexed by GitNexus as **koa-website** (3321 symbols, 7945 relat
 
 ## KOA operating context
 
-- `app/`, `components/`, and `worker/` are the public vinext site and API. `brain-app/` is the private Company Brain. Keep their data and credentials separate.
+- `app/`, `components/`, and `worker/` are the public vinext site and API. The private Company Brain lives in the sibling `../koa-brain-app` repository. Keep their data and credentials separate.
 - Public site candidate: `npm.cmd run build`, then `npx.cmd wrangler dev --config dist/server/wrangler.json --port 3004 --local`. The public domain still serves the older Sites deployment until the Cloudflare migration gates in `docs/cloudflare-migration.md` pass.
-- Brain: `brain-app/docker-compose.yml` is the container stack. On a Windows machine without Docker, use a local Python 3.11 venv for the backend and `npm.cmd run dev` in `brain-app/frontend`; keep the operator token in ignored `brain-app/.env`.
+- Brain: `../koa-brain-app/docker-compose.yml` is the container stack. It mounts this website read-only for indexing; run Compose from the Brain repository and keep the operator token and runtime data there in ignored files.
 - Preserve the supplied KOA seal and sourced photography. Treat S’gaw Karen copy, policy claims, volunteer identities, drafts, and scraped material as review-gated. Never publish Brain records automatically.
 - For visual work, use the installed scroll-craft, web-animation-design, ui-styling, impeccable-design-polish, and tastemaker skills as applicable. Verify desktop, narrow mobile, keyboard, and reduced-motion behavior before a release claim.
 - For every new animation or scroll effect, read `.agents/skills/koa-motion-component-research/SKILL.md`; search the exact component demo, upstream source, license, and official API docs before selecting an implementation, then record the chosen adaptation.
-- Keep local source, built candidate, private Brain, public deployment, and DNS cutover distinct in reports. Stage exact paths; do not include `inbox/`, `brain-app/private/`, archives, or generated editorial references in commits.
+- Keep local source, built candidate, private Brain, public deployment, and DNS cutover distinct in reports. Stage exact paths; do not include `inbox/`, the sibling Brain's ignored `private-data/`, archives, or generated editorial references in commits.

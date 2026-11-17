@@ -12,8 +12,8 @@ The optional `signal-api` and `signal-connector` services are implemented. They 
 
 1. Review the [signal-cli-rest-api project](https://github.com/bbernhard/signal-cli-rest-api) and set `SIGNAL_API_IMAGE` to a reviewed immutable image tag or digest. Compose publishes the API on `127.0.0.1:8080`, stores its linked-device data in `signal_data`, and uses manual receive mode so messages are not silently consumed while the worker is disconnected.
 2. Open `http://localhost:8080/v1/qrcodelink?device_name=koa-brain` on the host. On the KOA phone, use Signal **Settings → Linked devices → Link new device** and scan the QR code. The QR changes on each request.
-3. Record the approved group ID locally. Put the values below in `brain-app/.env` after approval. Never copy unrelated chats.
-4. From `brain-app/`, run `docker compose --profile signal up --build -d`. Review `docker compose logs signal-connector`.
+3. Record the approved group ID locally. Put the values below in `koa-brain-app/.env` after approval. Never copy unrelated chats.
+4. From `koa-brain-app/`, run `docker compose --profile signal up --build -d`. Review `docker compose logs signal-connector`.
 
 ## Environment example
 

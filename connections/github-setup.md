@@ -12,7 +12,7 @@ The Brain also has an on-demand public REST fallback through **Sync sources**. I
 
 ## Setup
 
-1. Set `GITHUB_WEBHOOK_SECRET` in ignored `brain-app/.env` to a random value of at least 32 characters. Recreate the backend container. Expose only `/github/webhook` through a reviewed HTTPS ingress; keep the Brain API on `127.0.0.1`.
+1. Set `GITHUB_WEBHOOK_SECRET` in ignored `koa-brain-app/.env` to a random value of at least 32 characters. Recreate the backend container. Expose only `/github/webhook` through a reviewed HTTPS ingress; keep the Brain API on `127.0.0.1`.
 2. In the repository, open **Settings → Webhooks → Add webhook**. Set the payload URL to `https://<your-host>/github/webhook`, content type to `application/json`, and enter the secret. Enable only **Issues**, **Pull requests**, and **Push** events.
 3. The receiver validates `X-Hub-Signature-256` against the raw body before parsing, checks the repository, accepts selected issue and PR actions plus pushes, and tracks `X-GitHub-Delivery` to avoid duplicate inbox files.
 4. Each accepted event writes a small, source-linked JSON summary. Full payloads and secrets are not stored in the inbox.
