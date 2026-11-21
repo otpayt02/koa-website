@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T22:02:32.704Z",
+  "generated_at": "2026-11-21T20:42:39.685Z",
   "sources": [
     "MCARI",
     "Karen News",
@@ -34,6 +34,11 @@
     },
     {
       "source": "Karen News",
+      "title": "Karen Armed Group Detains 29 Undocumented Foreign Nationals in Myanmar Border Town",
+      "link": "https://karennews.org/2026/11/karen-armed-group-detains-29-undocumented-foreign-nationals-in-myanmar-border-town/"
+    },
+    {
+      "source": "Karen News",
       "title": "KNU Says It Will Join Thai-Brokered Junta Talks Only Through Resistance Coalition",
       "link": "https://karennews.org/2026/11/knu-says-it-will-join-thai-brokered-junta-talks-only-through-resistance-coalition/"
     },
@@ -61,11 +66,6 @@
       "source": "Karen News",
       "title": "Myanmar Junta Tightens Restrictions on Rice Shipments Along Vital Taungoo-Leiktho Route",
       "link": "https://karennews.org/2026/11/myanmar-junta-tightens-restrictions-on-rice-shipments-along-vital-taungoo-leiktho-route/"
-    },
-    {
-      "source": "Karen News",
-      "title": "Myanmar Junta Deploys FPV Suicide Drones South of Myawaddy Following Frontline Losses",
-      "link": "https://karennews.org/2026/11/myanmar-junta-deploys-fpv-suicide-drones-south-of-myawaddy-following-frontline-losses/"
     }
   ]
 }
