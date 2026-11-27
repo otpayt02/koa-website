@@ -372,6 +372,9 @@ export function ScrollScrubIntro({ reducedMotion, lang, copy: introCopy }: Intro
       aria-labelledby={`koa-intro-title-${lang}`}
     >
       <div ref={stageRef} className="koa-intro__stage" data-intro-progress="0">
+        <div className="koa-intro__photo" aria-hidden="true">
+          <img src="/koa/facebook/capitol-advocacy-day-2017-enhanced.webp" alt="" decoding="async" />
+        </div>
         <div className="koa-intro__grain" aria-hidden="true" />
         <div className="koa-intro__sun" aria-hidden="true" />
         <p ref={promptRef} className="koa-intro__prompt" aria-hidden="true">

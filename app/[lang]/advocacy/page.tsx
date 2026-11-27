@@ -5,6 +5,7 @@ export const metadata: Metadata = { title: "Advocacy", description: "KOAmerica a
 
 export default function AdvocacyPage() {
   return <KoaContentPage eyebrow="Federal advocacy" title="Carrying Karen voices into U.S. policy." intro="KOA engages Congress and federal agencies directly on legislation and policy affecting Myanmar and Burma and the Karen people — and helps community members make their own voices heard.">
+    <figure className="koa-photo koa-photo--portrait"><img src="/koa/assets/fb-capitol-flags-mobile-enhanced.png" alt="Karen community members in traditional dress hold a giant Karen flag in front of the U.S. Capitol, with Karen and U.S. flags raised behind them." /><figcaption>The Karen flag carried to the U.S. Capitol — the community standing in front of the seat of U.S. policy.</figcaption></figure>
     <KoaSection eyebrow="Current priority" title="The BRAVE Burma Act">
       <p>The BRAVE Burma Act (H.R. 3190) passed the U.S. House of Representatives on February 9, 2026. KOA has been engaging members of Congress and their staff to build support for the bill and explain what it would mean for the Karen people and the broader situation in Myanmar and Burma.</p>
       <p><Unconfirmed>Plain-language summary of the bill and the next legislative step to be added once finalized.</Unconfirmed></p>

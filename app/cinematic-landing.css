@@ -802,3 +802,29 @@ body:has(.koa-static-landing) *, body:has(.koa-static-landing) *::before, body:h
 .koa-static-pillars { padding: 2rem max(1.5rem,7vw) 3rem; background: #080d2d; }.koa-static-pillar-tabs { display: flex; gap: .5rem; border-bottom: 1px solid rgba(227,180,92,.25); }.koa-static-pillar-tabs button { padding: 1rem 1.2rem; color: #c8c2b8; text-align: left; border-bottom: 2px solid transparent; }.koa-static-pillar-tabs button.active { color: #e3b45c; border-color: #e3b45c; }.koa-static-pillar-tabs span { display: block; margin-bottom: .35rem; font-size: .7rem; letter-spacing: .16em; }
 .koa-static-pillar-panel { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: center; padding: 2.5rem 0 0; }.koa-static-pillar-panel h2 { max-width: 12ch; margin: .8rem 0 1rem; font: 400 clamp(2rem,4vw,4rem)/.98 Georgia,serif; }.koa-static-pillar-panel p:not(.koa-static-kicker) { max-width: 55ch; color: #c8c2b8; line-height: 1.7; }.koa-static-pillar-panel a { display: inline-block; margin-top: 1.3rem; background: transparent; border: 1px solid rgba(227,180,92,.6); }.koa-static-pillar-panel img { width: 100%; max-height: 15rem; object-fit: cover; border: 1px solid rgba(227,180,92,.25); border-radius: 1rem; }
 @media (max-width: 760px) { .koa-static-hero { min-height: 66svh; grid-template-columns: 1fr; } .koa-static-mark { min-height: 10rem; order: -1; } .koa-static-seal { width: 9rem; } .koa-static-pillar-tabs { overflow-x: auto; } .koa-static-pillar-tabs button { min-width: 10rem; } .koa-static-pillar-panel { grid-template-columns: 1fr; } }
+
+/* Homepage hero photograph — Karen Advocacy Day, U.S. Capitol (Nov 2017).
+   Backdrop layer for the intro stage; seal art and grain render above it. */
+.koa-intro__photo {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.koa-intro__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 38%;
+  opacity: .55;
+  transform: scale(1.05);
+}
+
+.koa-intro__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(5 9 20 / .42) 0%, transparent 34%, transparent 62%, rgb(5 8 17 / .66) 100%);
+}
